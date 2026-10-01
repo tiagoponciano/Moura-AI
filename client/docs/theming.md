@@ -16,23 +16,22 @@ Invariants:
 | Piece | Location | Role |
 |---|---|---|
 | `ThemeProvider` (from `next-themes`) | `app/layout.tsx` | `attribute="class"`, `defaultTheme="system"`, `enableSystem`, `disableTransitionOnChange` |
-| `ThemeToggle` | `components/theme-toggle.tsx` | Sidebar footer button; cycles the theme |
+| `ThemeToggle` | `components/theme-toggle.tsx` | Icon-only dropdown at the right end of the top header (`app/layout.tsx`) |
 | `@custom-variant dark` | `app/globals.css` | Makes Tailwind `dark:` utilities match descendants of `.dark` |
 
 ## Rules and behavior
 
-`ThemeToggle` cycles on each click and shows the current mode:
+The trigger is a ghost icon button (`aria-label="Alterar tema"`) showing the **resolved** theme: `Sun` when light, `Moon` when dark. With `system`, it shows whichever the OS currently resolves to. The menu opens aligned to the right edge and offers a radio group with the stored choice checked:
 
-| Current | Label / icon | Next on click |
+| Item | Value | Icon |
 |---|---|---|
-| `light` | Tema claro / `Sun` | `dark` |
-| `dark` | Tema escuro / `Moon` | `system` |
-| `system` | Tema do sistema / `Monitor` | `light` |
+| Claro | `light` | `Sun` |
+| Escuro | `dark` | `Moon` |
+| Sistema | `system` | `Monitor` |
 
 - The choice is stored in `localStorage` under the key `theme` (per browser, not per user).
 - An inline script injected by `next-themes` applies the stored theme before first paint, so there is no light flash on reload.
 - CSS transitions are disabled for the instant of switching (`disableTransitionOnChange`), so colors change at once.
-- When the sidebar is collapsed to icons, the toggle shows only the icon with the label as a tooltip.
 
 ## What this does NOT do
 
@@ -42,5 +41,5 @@ Invariants:
 ## Gotchas
 
 - **Hydration warning on `<html>`** → the `class` attribute differs between server and client because the theme script runs first. → `suppressHydrationWarning` on `<html>` is intentional; do not remove it.
-- **Toggle label flickers to the wrong mode on load** → reading `theme` during SSR. → `ThemeToggle` renders `system` until mounted (`useSyncExternalStore` with a `false` server snapshot); keep that pattern for any UI that depends on the resolved theme.
+- **Theme-dependent UI shows the wrong state on load** → `useTheme()` returns `undefined` during SSR. → Prefer swapping with the `dark:` variant in CSS, as the trigger icons do (`dark:hidden` / `hidden dark:block`). Reading `theme` in render is safe only inside content that mounts on the client, like the open dropdown menu.
 - **A new component stays light in dark mode** → it uses a hardcoded color. → Replace it with the matching token, or add an explicit `dark:` variant.

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 import { AppSidebar } from "@/components/app-sidebar";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
@@ -25,20 +27,26 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="h-full">
-        <TooltipProvider>
-          <SidebarProvider className="h-svh">
-            <AppSidebar />
-            <SidebarInset className="min-h-0 overflow-hidden">
-              <header className="flex h-12 shrink-0 items-center gap-2 border-b px-3">
-                <SidebarTrigger />
-                <span className="text-sm text-muted-foreground">Moura Soluções em Engenharia</span>
-              </header>
-              <div className="min-h-0 flex-1 overflow-auto">{children}</div>
-            </SidebarInset>
-          </SidebarProvider>
-        </TooltipProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <TooltipProvider>
+            <SidebarProvider className="h-svh">
+              <AppSidebar />
+              <SidebarInset className="min-h-0 overflow-hidden">
+                <header className="flex h-12 shrink-0 items-center gap-2 border-b px-3">
+                  <SidebarTrigger />
+                  <span className="text-sm text-muted-foreground">Moura Soluções em Engenharia</span>
+                  <div className="ml-auto">
+                    <ThemeToggle />
+                  </div>
+                </header>
+                <div className="min-h-0 flex-1 overflow-auto">{children}</div>
+              </SidebarInset>
+            </SidebarProvider>
+          </TooltipProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

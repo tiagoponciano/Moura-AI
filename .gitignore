@@ -1,0 +1,25 @@
+# secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# planning / agent artifacts
+docs/superpowers/
+plans/
+*.plan.md
+STATUS.md
+
+# local noise
+node_modules/
+dist/
+build/
+coverage/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+*.log
+.DS_Store
+.vercel

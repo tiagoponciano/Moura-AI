@@ -1,0 +1,10 @@
+{
+  "name": "moura-ai",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter client dev",
+    "build": "pnpm --filter client build",
+    "lint": "pnpm --filter client lint"
+  },
+  "packageManager": "pnpm@10.33.0"
+}

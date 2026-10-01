@@ -126,7 +126,7 @@ export default function DocumentosPage() {
             Escolha um modelo, converse com o assistente e gere o documento com o layout original.
           </p>
         </div>
-        <Select value={selectedId} onValueChange={selectTemplate}>
+        <Select value={selectedId ?? ""} onValueChange={selectTemplate}>
           <SelectTrigger className="w-72">
             <SelectValue placeholder="Selecione um modelo" />
           </SelectTrigger>

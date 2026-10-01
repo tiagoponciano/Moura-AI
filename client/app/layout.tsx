@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { AppSidebar } from "@/components/app-sidebar";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
@@ -37,6 +38,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 <header className="flex h-12 shrink-0 items-center gap-2 border-b px-3">
                   <SidebarTrigger />
                   <span className="text-sm text-muted-foreground">Moura Soluções em Engenharia</span>
+                  <div className="ml-auto">
+                    <ThemeToggle />
+                  </div>
                 </header>
                 <div className="min-h-0 flex-1 overflow-auto">{children}</div>
               </SidebarInset>

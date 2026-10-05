@@ -2,7 +2,7 @@
 
 import { Loader2 } from "lucide-react";
 import { Chat } from "@/components/chat/chat";
-import { useDocumentFilling } from "../_hooks/use-document-filling";
+import { useDocumentFilling } from "../hooks/use-document-filling";
 import { FormPanel } from "./form-panel";
 import { TemplatePicker } from "./template-picker";
 import { TemplateSelect } from "./template-select";

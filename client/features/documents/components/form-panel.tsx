@@ -3,11 +3,7 @@
 import { FileDown, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import type {
-  FieldValue,
-  FieldValues,
-  TemplateField,
-} from "@/features/documents/lib/templates";
+import type { FieldValue, FieldValues, TemplateField } from "../lib/templates";
 import { FieldList } from "./field-list";
 import { GenerationProblems } from "./generation-problems";
 

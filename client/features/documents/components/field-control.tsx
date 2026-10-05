@@ -3,7 +3,7 @@
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
-import type { FieldValue, TemplateField } from "@/features/documents/lib/templates";
+import type { FieldValue, TemplateField } from "../lib/templates";
 
 type FieldControlProps = {
   id: string;

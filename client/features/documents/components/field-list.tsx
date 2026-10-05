@@ -2,12 +2,8 @@
 
 import { CircleCheck } from "lucide-react";
 import { Label } from "@/components/ui/label";
-import { isEmptyValue } from "@/features/documents/lib/form-values";
-import type {
-  FieldValue,
-  FieldValues,
-  TemplateField,
-} from "@/features/documents/lib/templates";
+import { isEmptyValue } from "../lib/form-values";
+import type { FieldValue, FieldValues, TemplateField } from "../lib/templates";
 import { FieldControl } from "./field-control";
 
 type FieldListProps = {

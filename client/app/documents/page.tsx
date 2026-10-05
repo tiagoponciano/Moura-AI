@@ -1,5 +1,5 @@
 import { PageHeader } from "@/components/shared/page-header";
-import { DocumentWorkspace } from "./_components/document-workspace";
+import { DocumentWorkspace } from "@/features/documents";
 
 export default function DocumentsPage() {
   return (

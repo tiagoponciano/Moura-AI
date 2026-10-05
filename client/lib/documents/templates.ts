@@ -1,21 +1,21 @@
 export type FieldType = "string" | "number" | "date" | "boolean";
 
 export type TemplateField = {
-  nome: string;
-  tipo: FieldType;
-  descricao: string;
-  obrigatorio?: boolean;
+  name: string;
+  type: FieldType;
+  description: string;
+  required?: boolean;
 };
 
 export type TemplateSchema = {
-  campos: TemplateField[];
+  fields: TemplateField[];
 };
 
 export type TemplateEntry = {
   id: string;
-  nome: string;
-  tipo: "docx";
-  arquivo: string;
+  name: string;
+  type: "docx";
+  file: string;
   schema: string;
 };
 

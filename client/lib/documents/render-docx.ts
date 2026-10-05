@@ -24,10 +24,10 @@ export async function renderDocx(
   template: TemplateEntry,
   values: FieldValues,
 ): Promise<void> {
-  const response = await fetch(template.arquivo, { cache: "no-store" });
+  const response = await fetch(template.file, { cache: "no-store" });
   if (!response.ok) {
     throw new Error(
-      `Failed to load template ${template.arquivo}: HTTP ${response.status}`,
+      `Failed to load template ${template.file}: HTTP ${response.status}`,
     );
   }
 

@@ -56,7 +56,7 @@ export default function DocumentsPage() {
       .catch(() => {
         if (!cancelled)
           setLoadError(
-            `Não foi possível carregar os campos de "${template.nome}".`,
+            `Não foi possível carregar os campos de "${template.name}".`,
           );
       });
     return () => {
@@ -82,7 +82,7 @@ export default function DocumentsPage() {
         typeof output !== "object"
       )
         return;
-      const known = new Set(schema.campos.map((field) => field.nome));
+      const known = new Set(schema.fields.map((field) => field.name));
       const extracted = Object.entries(
         output as Record<string, unknown>,
       ).filter(
@@ -103,9 +103,9 @@ export default function DocumentsPage() {
     [schema],
   );
 
-  const required = schema?.campos.filter((field) => field.obrigatorio) ?? [];
+  const required = schema?.fields.filter((field) => field.required) ?? [];
   const filledRequired = required.filter(
-    (field) => field.tipo === "boolean" || !isEmptyValue(values[field.nome]),
+    (field) => field.type === "boolean" || !isEmptyValue(values[field.name]),
   ).length;
 
   const chatBody = useMemo(
@@ -126,7 +126,7 @@ export default function DocumentsPage() {
     const result = schemaToZod(schema, "document").safeParse(cleaned);
     if (!result.success) {
       const labels = new Map(
-        schema.campos.map((field) => [field.nome, field.descricao]),
+        schema.fields.map((field) => [field.name, field.description]),
       );
       const messages = result.error.issues.map((issue) => {
         const name = String(issue.path[0]);
@@ -171,7 +171,7 @@ export default function DocumentsPage() {
             <SelectContent>
               {templates.map((entry) => (
                 <SelectItem key={entry.id} value={entry.id}>
-                  {entry.nome}
+                  {entry.name}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -198,9 +198,9 @@ export default function DocumentsPage() {
                   <FileText className="size-5" />
                 </div>
                 <div className="min-w-0">
-                  <p className="truncate text-sm font-medium">{entry.nome}</p>
+                  <p className="truncate text-sm font-medium">{entry.name}</p>
                   <p className="text-xs text-muted-foreground">
-                    Modelo .{entry.tipo}
+                    Modelo .{entry.type}
                   </p>
                 </div>
               </button>
@@ -252,7 +252,7 @@ export default function DocumentsPage() {
             </div>
             <div className="min-h-0 flex-1 overflow-y-auto p-4">
               <FieldsPanel
-                fields={schema.campos}
+                fields={schema.fields}
                 values={values}
                 onChange={updateField}
                 showMissing={attempted}

@@ -39,21 +39,21 @@ export function FieldsPanel({
   return (
     <div className="flex flex-col gap-4">
       {fields.map((field) => {
-        const value = values[field.nome];
+        const value = values[field.name];
         const missing =
           showMissing &&
-          Boolean(field.obrigatorio) &&
-          field.tipo !== "boolean" &&
+          Boolean(field.required) &&
+          field.type !== "boolean" &&
           isEmptyValue(value);
-        const filled = field.tipo !== "boolean" && !isEmptyValue(value);
-        const id = `field-${field.nome}`;
+        const filled = field.type !== "boolean" && !isEmptyValue(value);
+        const id = `field-${field.name}`;
 
         return (
-          <div key={field.nome} className="flex flex-col gap-1.5">
+          <div key={field.name} className="flex flex-col gap-1.5">
             <Label htmlFor={id} className="flex items-start gap-1 leading-snug">
               <span>
-                {field.descricao}
-                {field.obrigatorio && (
+                {field.description}
+                {field.required && (
                   <span className="ml-0.5 text-destructive">*</span>
                 )}
               </span>
@@ -65,25 +65,25 @@ export function FieldsPanel({
               )}
             </Label>
 
-            {field.tipo === "boolean" ? (
+            {field.type === "boolean" ? (
               <div className="flex items-center gap-2">
                 <Switch
                   id={id}
                   checked={value === true}
-                  onCheckedChange={(checked) => onChange(field.nome, checked)}
+                  onCheckedChange={(checked) => onChange(field.name, checked)}
                 />
                 <span className="text-sm text-muted-foreground">
                   {value === true ? "Sim" : "Não"}
                 </span>
               </div>
-            ) : field.tipo === "string" ? (
+            ) : field.type === "string" ? (
               <Textarea
                 id={id}
                 rows={1}
                 value={typeof value === "string" ? value : ""}
                 onChange={(event) =>
                   onChange(
-                    field.nome,
+                    field.name,
                     event.target.value === "" ? undefined : event.target.value,
                   )
                 }
@@ -93,16 +93,16 @@ export function FieldsPanel({
             ) : (
               <Input
                 id={id}
-                type={field.tipo === "number" ? "number" : "text"}
-                step={field.tipo === "number" ? "any" : undefined}
-                inputMode={field.tipo === "number" ? "decimal" : undefined}
-                placeholder={field.tipo === "date" ? "DD/MM/AAAA" : undefined}
+                type={field.type === "number" ? "number" : "text"}
+                step={field.type === "number" ? "any" : undefined}
+                inputMode={field.type === "number" ? "decimal" : undefined}
+                placeholder={field.type === "date" ? "DD/MM/AAAA" : undefined}
                 value={value === undefined ? "" : String(value)}
                 onChange={(event) => {
                   const raw = event.target.value;
                   onChange(
-                    field.nome,
-                    field.tipo === "number"
+                    field.name,
+                    field.type === "number"
                       ? parseNumber(raw)
                       : raw === ""
                         ? undefined
@@ -113,7 +113,7 @@ export function FieldsPanel({
               />
             )}
 
-            <span className="font-mono text-[11px] text-muted-foreground/70">{`{{${field.nome}}}`}</span>
+            <span className="font-mono text-[11px] text-muted-foreground/70">{`{{${field.name}}}`}</span>
           </div>
         );
       })}

@@ -1,40 +1,40 @@
 {
-  "campos": [
+  "fields": [
     {
-      "nome": "razao_social",
-      "tipo": "string",
-      "descricao": "Razão social do proprietário do imóvel",
-      "obrigatorio": true
+      "name": "razao_social",
+      "type": "string",
+      "description": "Razão social do proprietário do imóvel",
+      "required": true
     },
     {
-      "nome": "endereco",
-      "tipo": "string",
-      "descricao": "Endereço completo do imóvel (logradouro, número, bairro, cidade)",
-      "obrigatorio": true
+      "name": "endereco",
+      "type": "string",
+      "description": "Endereço completo do imóvel (logradouro, número, bairro, cidade)",
+      "required": true
     },
     {
-      "nome": "area_m2",
-      "tipo": "number",
-      "descricao": "Área total construída do imóvel, em metros quadrados",
-      "obrigatorio": true
+      "name": "area_m2",
+      "type": "number",
+      "description": "Área total construída do imóvel, em metros quadrados",
+      "required": true
     },
     {
-      "nome": "ocupacao",
-      "tipo": "string",
-      "descricao": "Tipo de ocupação do imóvel (ex.: residencial, comercial, industrial)",
-      "obrigatorio": true
+      "name": "ocupacao",
+      "type": "string",
+      "description": "Tipo de ocupação do imóvel (ex.: residencial, comercial, industrial)",
+      "required": true
     },
     {
-      "nome": "num_pavimentos",
-      "tipo": "number",
-      "descricao": "Número de pavimentos da edificação",
-      "obrigatorio": true
+      "name": "num_pavimentos",
+      "type": "number",
+      "description": "Número de pavimentos da edificação",
+      "required": true
     },
     {
-      "nome": "data",
-      "tipo": "date",
-      "descricao": "Data de emissão do formulário",
-      "obrigatorio": false
+      "name": "data",
+      "type": "date",
+      "description": "Data de emissão do formulário",
+      "required": false
     }
   ]
 }

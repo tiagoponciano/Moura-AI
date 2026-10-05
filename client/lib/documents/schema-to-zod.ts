@@ -6,20 +6,20 @@ export const DATE_PATTERN = /^\d{2}\/\d{2}\/\d{4}$/;
 type Mode = "extraction" | "document";
 
 function fieldToZod(field: TemplateField, mode: Mode): z.ZodType {
-  switch (field.tipo) {
+  switch (field.type) {
     case "string":
       return (
         mode === "document" ? z.string().trim().min(1) : z.string()
-      ).describe(field.descricao);
+      ).describe(field.description);
     case "number":
-      return z.number().describe(field.descricao);
+      return z.number().describe(field.description);
     case "boolean":
-      return z.boolean().describe(field.descricao);
+      return z.boolean().describe(field.description);
     case "date":
       return z
         .string()
         .regex(DATE_PATTERN, "Use o formato DD/MM/AAAA")
-        .describe(`${field.descricao} (formato DD/MM/AAAA)`);
+        .describe(`${field.description} (formato DD/MM/AAAA)`);
   }
 }
 
@@ -30,10 +30,10 @@ function fieldToZod(field: TemplateField, mode: Mode): z.ZodType {
  */
 export function schemaToZod(schema: TemplateSchema, mode: Mode) {
   const shape: Record<string, z.ZodType> = {};
-  for (const field of schema.campos) {
+  for (const field of schema.fields) {
     const base = fieldToZod(field, mode);
-    shape[field.nome] =
-      mode === "document" && field.obrigatorio ? base : base.optional();
+    shape[field.name] =
+      mode === "document" && field.required ? base : base.optional();
   }
   return z.object(shape);
 }

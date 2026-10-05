@@ -22,10 +22,10 @@ type ChatRequest = {
 };
 
 function buildInstructions(templateId: string, schema: TemplateSchema): string {
-  const fields = schema.campos
+  const fields = schema.fields
     .map(
       (field) =>
-        `- ${field.nome} (${field.tipo}${field.obrigatorio ? ", obrigatório" : ""}): ${field.descricao}`,
+        `- ${field.name} (${field.type}${field.required ? ", obrigatório" : ""}): ${field.description}`,
     )
     .join("\n");
 
@@ -53,7 +53,7 @@ export async function POST(req: Request) {
   }
 
   const { messages, templateId, schema }: ChatRequest = await req.json();
-  if (!schema?.campos?.length) {
+  if (!schema?.fields?.length) {
     return Response.json({ error: "Missing template schema" }, { status: 400 });
   }
 

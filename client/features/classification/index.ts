@@ -1,1 +1,1 @@
-export { ClassificationPlaceholder } from "./components/classification-placeholder";
+export { ClassificationWorkspace } from "./components/classification-workspace";

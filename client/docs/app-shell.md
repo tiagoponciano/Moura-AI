@@ -8,7 +8,7 @@ Every route renders inside `app/layout.tsx`: a collapsible sidebar on the left, 
 
 Invariants:
 
-- Adding a module means adding an entry to `MODULES` and creating `app/<href>/page.tsx`. Nothing else lists modules.
+- Adding a module means adding an entry to `MODULES`, creating `features/<name>/` with an `index.ts`, and an `app/<href>/page.tsx` that renders what the feature exports. Nothing else lists modules.
 - `status` is display-only. It changes badges and copy; it never hides a route or blocks navigation.
 
 ## Surface
@@ -49,10 +49,10 @@ type AppModule = {
 
 - Active sidebar item: `pathname.startsWith(href)` for modules, exact match for "Início".
 - With the sidebar collapsed to icons, labels become tooltips, and status badges and the footer are hidden.
-- `/` renders the home page: `app/page.tsx` composes `HomeHero`, `ModuleGrid` (one `ModuleCard` per module) and `HowItWorks` from `app/_components/`. All are server components with no data fetching.
+- `/` renders the home page: `app/page.tsx` composes `HomeHero`, `ModuleGrid` (one `ModuleCard` per module) and `HowItWorks`, imported from `@/features/home`. All are server components with no data fetching.
 - The brand mark is `public/brand/moura-logo.png` (transparent PNG). In dark mode it sits on a light tile (`dark:bg-white/90`) because the graphite gear disappears on a dark background. `app/icon.png` (same logo, 512px) is the favicon.
 - Route folders and `href`s are in English (`/documents`, `/classification`, `/floor-plans`); labels and copy are in Portuguese.
-- Placeholder modules use `ComingSoon` (`components/shared/coming-soon.tsx`) with `title`, `description`, `icon` and an optional `plans` list shown under "O que está previsto".
+- Placeholder modules (`features/classification`, `features/floor-plans`) export a `<Name>Placeholder` component that renders `ComingSoon` (`components/shared/coming-soon.tsx`) with `title`, `description`, `icon` and an optional `plans` list shown under "O que está previsto".
 
 ## What this does NOT do
 
@@ -62,6 +62,7 @@ type AppModule = {
 
 ## Gotchas
 
-- **Page file grows logic and markup** → `page.tsx` should only compose components. → Put module-only components in `app/<route>/_components/`, state in `app/<route>/_hooks/`, and pure logic in `lib/<module>/`.
+- **Page file grows logic and markup** → `page.tsx` should only compose what features export. → Put the module's components in `features/<name>/components/`, state in `features/<name>/hooks/`, pure logic in `features/<name>/lib/` and server code in `features/<name>/server/`.
+- **ESLint `no-restricted-imports` error** → a route imported a feature's internals, shared code imported a feature, or a feature imported another feature. → Import from `@/features/<name>` (or `/server`), and move code shared by two features up to `components/` or `lib/`.
 - **Module added but missing from the sidebar** → entry added to a local array instead of `MODULES`. → Only `lib/modules.ts` feeds the shell.
 - **Badge or footer visible in the collapsed sidebar** → custom element without the `group-data-[collapsible=icon]:hidden` class. → `SidebarMenuBadge` hides itself; plain elements need the class.

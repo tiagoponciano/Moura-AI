@@ -5,7 +5,7 @@ Internal platform for Moura Soluções em Engenharia (fire-prevention projects i
 | Module | Route | Status |
 |---|---|---|
 | Documentos | `/documents` | Working — fills CBMSC forms (`.docx`) without touching the layout |
-| Classificação | `/classification` | Placeholder |
+| Classificação | `/classification` | Preview — lists required fire protection systems from four key questions, using a provisional rule set |
 | Plantas (PDF → DWG) | `/floor-plans` | Placeholder |
 
 Core principle of Documentos: **the LLM never writes the document.** It only extracts data from the conversation into a validated JSON object. Deterministic code (docxtemplater, in the browser) injects that JSON into the original `.docx` template, which stays intact.
@@ -13,11 +13,11 @@ Core principle of Documentos: **the LLM never writes the document.** It only ext
 ## Architecture
 
 - pnpm workspace; all app code lives in `client/` (Next.js App Router, TypeScript, Tailwind, shadcn/ui).
-- No separate backend and no database. The only server-side code is the documents chat (`client/features/documents/server/`, exposed at `/api/documents/chat`), which holds the LLM key and streams the chat (Vercel AI SDK + Anthropic).
+- No separate backend and no database. The only server-side code is the two chat route handlers (`/api/documents/chat`, `/api/classification/chat`, implemented in each feature's `server/`), which hold the LLM key and stream the chat (Vercel AI SDK + Anthropic, shared setup in `client/lib/llm.ts`).
 - Documents are rendered in the browser with `docxtemplater` + `pizzip` and downloaded with `file-saver`.
 - Code, identifiers, routes, file names and docs are in English; UI copy and field labels are in Portuguese.
 
-Feature details: [`document-filling.md`](client/features/documents/docs/document-filling.md). App-wide: [`app-shell.md`](client/docs/app-shell.md), [`theming.md`](client/docs/theming.md).
+Feature details: [`document-filling.md`](client/features/documents/docs/document-filling.md), [`building-classification.md`](client/features/classification/docs/building-classification.md). App-wide: [`app-shell.md`](client/docs/app-shell.md), [`theming.md`](client/docs/theming.md).
 
 ### Folder layout
 
@@ -40,14 +40,14 @@ client/
 │   │   ├── server/               # chat handler + prompt (public server entry: server/index.ts)
 │   │   └── docs/                 # feature documentation
 │   ├── home/                     # home page sections
-│   ├── classification/           # placeholder
+│   ├── classification/           # key questions, provisional rules, chat
 │   └── floor-plans/              # placeholder
 ├── components/
 │   ├── ui/                       # shadcn primitives (generated, not formatted by prettier)
 │   ├── layout/                   # app shell: sidebar, breadcrumb, theme toggle
 │   ├── chat/                     # generic assistant chat, reused by features
 │   └── shared/                   # page header, coming-soon placeholder
-├── lib/                          # app-wide only: utils, module registry
+├── lib/                          # app-wide only: utils, module registry, llm setup
 ├── hooks/                        # app-wide hooks (shadcn's use-mobile)
 ├── public/
 │   ├── brand/                    # logo
@@ -77,7 +77,7 @@ Open <http://localhost:3000/documents>, pick "Exemplo – Formulário" and descr
 
 | Variable | Required | Description |
 |---|---|---|
-| `ANTHROPIC_API_KEY` | yes | Anthropic API key. Read only in `features/documents/server/chat-handler.ts`; never prefix it with `NEXT_PUBLIC_`. |
+| `ANTHROPIC_API_KEY` | yes | Anthropic API key. Read only in `client/lib/llm.ts` (server-side); never prefix it with `NEXT_PUBLIC_`. |
 | `LLM_MODEL` | no | Anthropic model id. Defaults to `claude-sonnet-4-6`. |
 
 Other scripts:

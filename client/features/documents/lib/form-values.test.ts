@@ -130,6 +130,14 @@ describe("validateForDocument", () => {
     });
   });
 
+  it("treats an untouched boolean as false, as the switch displays it", () => {
+    const untouched = { company_name: "Padaria Silva", area_m2: 750 };
+    expect(validateForDocument(schema, untouched)).toEqual({
+      ok: true,
+      values: { ...complete, has_sprinklers: false },
+    });
+  });
+
   it("lists one problem per failing field", () => {
     const result = validateForDocument(schema, { has_sprinklers: false });
     expect(result.ok === false && result.problems).toEqual([

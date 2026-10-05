@@ -23,12 +23,12 @@ Invariants:
 
 ### Palette
 
-Brand color is an ember red used for `primary`, `ring`, `sidebar-primary` and, as a light tint, `accent` / `sidebar-accent` (hover and active states). Neutrals carry a slight warm hue (oklch hue 40–60, chroma ≤ 0.015) instead of pure gray.
+Colors come from the Moura logo (`public/brand/moura-logo.png`): the flame's red (light mode) and orange (dark mode) drive `primary`, `ring`, `sidebar-primary` and, as a light tint, `accent` / `sidebar-accent` (hover and active states). Neutrals follow the logo's graphite gear: near-neutral grays (chroma ≤ 0.004).
 
 | Token         | Light                  | Dark                   | Used for                                                                 |
 | ------------- | ---------------------- | ---------------------- | ------------------------------------------------------------------------ |
-| `primary`     | `oklch(0.55 0.2 32)`   | `oklch(0.68 0.18 36)`  | buttons, user chat bubbles, brand mark, links on the home page           |
-| `accent`      | `oklch(0.95 0.025 35)` | `oklch(0.27 0.04 32)`  | hover backgrounds of cards, chips and menu items                         |
+| `primary`     | `oklch(0.57 0.21 33)`  | `oklch(0.7 0.17 45)`   | buttons, user chat bubbles, links on the home page                       |
+| `accent`      | `oklch(0.96 0.025 45)` | `oklch(0.28 0.04 45)`  | hover backgrounds of cards, chips and menu items                         |
 | `success`     | `oklch(0.58 0.13 155)` | `oklch(0.72 0.14 155)` | "filled" checks in the fields panel and confirmed tool calls in the chat |
 | `destructive` | shadcn default         | shadcn default         | validation errors                                                        |
 
@@ -36,7 +36,7 @@ Brand color is an ember red used for `primary`, `ring`, `sidebar-primary` and, a
 
 ### Typography
 
-`next/font` loads Geist into `--font-geist-sans` and Geist Mono into `--font-geist-mono` on `<html>`; `@theme inline` maps `--font-sans` and `--font-mono` to them. `--font-heading` follows `--font-sans`.
+`next/font` loads IBM Plex Sans (400, 500, 600, 700) into `--font-plex-sans` and IBM Plex Mono (400, 500) into `--font-plex-mono` on `<html>`; `@theme inline` maps `--font-sans` and `--font-mono` to them. `--font-heading` follows `--font-sans`. Plex is not a variable font, so a weight outside that list (e.g. `font-light`) falls back to the nearest loaded one.
 
 ### Theme selection
 
@@ -61,6 +61,6 @@ The trigger is a ghost icon button (`aria-label="Alterar tema"`) showing the **r
 
 - **Hydration warning on `<html>`** → the `class` attribute differs between server and client because the theme script runs first. → `suppressHydrationWarning` on `<html>` is intentional; do not remove it.
 - **Theme-dependent UI shows the wrong state on load** → `useTheme()` returns `undefined` during SSR. → Prefer swapping with the `dark:` variant in CSS, as the trigger icons do (`dark:hidden` / `hidden dark:block`). Reading `theme` in render is safe only inside content that mounts on the client, like the open dropdown menu.
-- **Text renders in a serif font** → `--font-sans` in `@theme inline` points at itself or at an undefined variable, so the browser falls back to its default. → It must be `var(--font-geist-sans)`, the variable `next/font` sets in `app/layout.tsx`.
+- **Text renders in a serif font** → `--font-sans` in `@theme inline` points at itself or at an undefined variable, so the browser falls back to its default. → It must be `var(--font-plex-sans)`, the variable `next/font` sets in `app/layout.tsx`.
 - **New utility classes have no effect in `next dev`** → the dev server's Tailwind output went stale after a branch switch or a large move of files. → Restart `pnpm run dev`; `pnpm run build` always regenerates it.
 - **A new component stays light in dark mode** → it uses a hardcoded color. → Replace it with the matching token, or add an explicit `dark:` variant.

@@ -16,7 +16,7 @@ Invariants:
 | Piece | Location | Role |
 |---|---|---|
 | `ThemeProvider` (from `next-themes`) | `app/layout.tsx` | `attribute="class"`, `defaultTheme="system"`, `enableSystem`, `disableTransitionOnChange` |
-| `ThemeToggle` | `components/theme-toggle.tsx` | Icon-only dropdown at the right end of the top header (`app/layout.tsx`) |
+| `ThemeToggle` | `components/layout/theme-toggle.tsx` | Icon-only dropdown at the right end of the top header (`app/layout.tsx`) |
 | `@custom-variant dark` | `app/globals.css` | Makes Tailwind `dark:` utilities match descendants of `.dark` |
 
 ## Rules and behavior

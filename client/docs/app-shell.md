@@ -33,11 +33,11 @@ type AppModule = {
 
 ### Components (`components/layout/`)
 
-| Component     | Where                      | Notes                                                                           |
-| ------------- | -------------------------- | ------------------------------------------------------------------------------- |
-| `AppSidebar`  | `app/layout.tsx`           | Logo + name linking to `/`, an "Início" item, then one item per module          |
-| `PageTitle`   | header in `app/layout.tsx` | `Moura AI / <label>`; just `Moura AI` on `/` and on routes that match no module |
-| `ThemeToggle` | header in `app/layout.tsx` | See `theming.md`                                                                |
+| Component     | Where                      | Notes                                                                                           |
+| ------------- | -------------------------- | ----------------------------------------------------------------------------------------------- |
+| `AppSidebar`  | `app/layout.tsx`           | Logo + name linking to `/`, an "Início" item, then one item per module                          |
+| `PageTitle`   | header in `app/layout.tsx` | `Moura Engenharia / <label>`; just `Moura Engenharia` on `/` and on routes that match no module |
+| `ThemeToggle` | header in `app/layout.tsx` | See `theming.md`                                                                                |
 
 ## Rules and behavior
 
@@ -51,13 +51,16 @@ type AppModule = {
 - With the sidebar collapsed to icons, labels become tooltips, and status badges and the footer are hidden.
 - `/` renders the home page: `app/page.tsx` composes `HomeHero`, `ModuleGrid` (one `ModuleCard` per module) and `HowItWorks`, imported from `@/features/home`. All are server components with no data fetching.
 - The brand mark is `public/brand/moura-logo.png` (transparent PNG). In dark mode it sits on a light tile (`dark:bg-white/90`) because the graphite gear disappears on a dark background. `app/icon.png` (same logo, 512px) is the favicon.
+- The product is called "Moura Engenharia" (tab title, sidebar, breadcrumb). The chat assistant shared by the modules is called "Moura AI" and keeps the robot avatar.
+- `PageHeader` (`components/shared/page-header.tsx`) shows the page title; its `description` is not printed under it but shown in a tooltip on an info icon next to the title.
+- The chat composer has no visible keyboard hint; "Enter envia · Shift+Enter quebra a linha" is the tooltip of the send button, also while it is disabled.
 - Route folders and `href`s are in English (`/documents`, `/classification`, `/floor-plans`); labels and copy are in Portuguese.
 - Placeholder modules (`features/floor-plans`) export a `<Name>Placeholder` component that renders `ComingSoon` (`components/shared/coming-soon.tsx`) with `title`, `description`, `icon` and an optional `plans` list shown under "O que está previsto".
 
 ## What this does NOT do
 
 - No access control. Every module is reachable by URL whatever its `status`.
-- `PageTitle` does not show sub-pages; a nested route still reads `Moura AI / <module>`.
+- `PageTitle` does not show sub-pages; a nested route still reads `Moura Engenharia / <module>`.
 - `findModule` is prefix-based, so a module whose `href` is a prefix of another (`/plan` and `/plantas`) would match the wrong one. Keep `href`s prefix-free.
 
 ## Gotchas

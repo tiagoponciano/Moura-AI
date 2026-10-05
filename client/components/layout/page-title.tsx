@@ -12,7 +12,7 @@ export function PageTitle() {
       aria-label="Localização"
       className="flex min-w-0 items-center gap-1.5 text-sm"
     >
-      <span className="text-muted-foreground">Moura AI</span>
+      <span className="text-muted-foreground">Moura Engenharia</span>
       {current && (
         <>
           <span className="text-muted-foreground/60">/</span>

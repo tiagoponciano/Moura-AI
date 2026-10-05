@@ -39,7 +39,7 @@ export function AppSidebar() {
                   />
                 </div>
                 <div className="grid flex-1 text-left leading-tight">
-                  <span className="font-semibold">Moura AI</span>
+                  <span className="font-semibold">Moura Engenharia</span>
                   <span className="truncate text-xs text-muted-foreground">
                     Prevenção contra incêndio
                   </span>

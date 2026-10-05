@@ -86,6 +86,7 @@ Other scripts:
 |---|---|---|
 | `pnpm run build` | root | Production build of the client |
 | `pnpm run lint` | root | ESLint on the client |
+| `pnpm run test` | root or `client/` | Vitest, once (`pnpm run test:watch` in `client/` to watch) |
 | `pnpm run format` | `client/` | Formats the code with Prettier (default config) |
 | `pnpm run format:check` | `client/` | Fails if any file is not formatted |
 | `pnpm run create-template` | `client/` | Regenerates `public/templates/cbmsc/example.docx` |

@@ -30,7 +30,7 @@ Invariants:
 
 No auth. The route trusts the `schema` sent by the client.
 
-### Library (`client/lib/`)
+### Library (`client/lib/documents/`)
 
 | Export | Signature | Contract |
 |---|---|---|
@@ -44,8 +44,8 @@ No auth. The route trusts the `schema` sent by the client.
 
 | Component | Props | Notes |
 |---|---|---|
-| `Chat` (`components/chat.tsx`) | `endpoint`, `body?`, `onToolResult?(toolName, output)`, `placeholder?`, `emptyState?` | Module-agnostic. `body` is sent with every message. `onToolResult` fires once per tool call id when the part reaches `output-available` |
-| `FieldsPanel` (`components/fields-panel.tsx`) | `fields`, `values`, `onChange(name, value)` | Controlled form; `onChange` receives `undefined` for cleared fields |
+| `Chat` (`components/shared/chat.tsx`) | `endpoint`, `body?`, `onToolResult?(toolName, output)`, `placeholder?`, `emptyState?` | Module-agnostic. `body` is sent with every message. `onToolResult` fires once per tool call id when the part reaches `output-available` |
+| `FieldsPanel` (`app/documentos/_components/fields-panel.tsx`) | `fields`, `values`, `onChange(name, value)` | Controlled form; `onChange` receives `undefined` for cleared fields |
 
 ## Data shapes
 

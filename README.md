@@ -18,6 +18,25 @@ Core principle of Documentos: **the LLM never writes the document.** It only ext
 
 Feature details: [`client/docs/document-filling.md`](client/docs/document-filling.md).
 
+### Folder layout
+
+```
+client/
+├── app/                      # routes (one folder per module) + api/chat
+│   └── documentos/_components/   # components used only by that module
+├── components/
+│   ├── ui/                   # shadcn primitives (generated, edit sparingly)
+│   ├── layout/               # app shell: sidebar, theme toggle
+│   └── shared/               # building blocks reused by modules (chat, placeholders)
+├── lib/
+│   └── documents/            # template loading, schema → zod, .docx rendering
+├── public/templates/         # .docx templates + schemas (see "Adding a new template")
+├── docs/                     # one document per feature
+└── scripts/                  # one-off generators
+```
+
+Code used by a single module lives next to its route in a `_components/` or `_lib/` private folder; it moves to `components/shared/` or `lib/` only once a second module needs it.
+
 ## Running locally
 
 Requirements: Node.js 22+ and pnpm 10.

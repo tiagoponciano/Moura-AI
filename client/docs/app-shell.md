@@ -23,7 +23,7 @@ Invariants:
 
 ```ts
 type AppModule = {
-  href: string; // route, leading slash, e.g. "/documentos"
+  href: string; // route, leading slash, English, e.g. "/documents"
   label: string; // sidebar item, breadcrumb, card title
   summary: string; // one sentence, shown on the home card
   icon: LucideIcon;
@@ -35,7 +35,7 @@ type AppModule = {
 
 | Component     | Where                      | Notes                                                                           |
 | ------------- | -------------------------- | ------------------------------------------------------------------------------- |
-| `AppSidebar`  | `app/layout.tsx`           | Brand header linking to `/`, an "Início" item, then one item per module         |
+| `AppSidebar`  | `app/layout.tsx`           | Logo + name linking to `/`, an "Início" item, then one item per module          |
 | `PageTitle`   | header in `app/layout.tsx` | `Moura AI / <label>`; just `Moura AI` on `/` and on routes that match no module |
 | `ThemeToggle` | header in `app/layout.tsx` | See `theming.md`                                                                |
 
@@ -49,7 +49,9 @@ type AppModule = {
 
 - Active sidebar item: `pathname.startsWith(href)` for modules, exact match for "Início".
 - With the sidebar collapsed to icons, labels become tooltips, and status badges and the footer are hidden.
-- `/` renders the home page (`app/page.tsx`): headline, one card per module, and a three-step explanation of document filling. It is a server component with no data fetching.
+- `/` renders the home page: `app/page.tsx` composes `HomeHero`, `ModuleGrid` (one `ModuleCard` per module) and `HowItWorks` from `app/_components/`. All are server components with no data fetching.
+- The brand mark is `public/brand/moura-logo.png` (transparent PNG). In dark mode it sits on a light tile (`dark:bg-white/90`) because the graphite gear disappears on a dark background. `app/icon.png` (same logo, 512px) is the favicon.
+- Route folders and `href`s are in English (`/documents`, `/classification`, `/floor-plans`); labels and copy are in Portuguese.
 - Placeholder modules use `ComingSoon` (`components/shared/coming-soon.tsx`) with `title`, `description`, `icon` and an optional `plans` list shown under "O que está previsto".
 
 ## What this does NOT do
@@ -60,5 +62,6 @@ type AppModule = {
 
 ## Gotchas
 
+- **Page file grows logic and markup** → `page.tsx` should only compose components. → Put module-only components in `app/<route>/_components/`, state in `app/<route>/_hooks/`, and pure logic in `lib/<module>/`.
 - **Module added but missing from the sidebar** → entry added to a local array instead of `MODULES`. → Only `lib/modules.ts` feeds the shell.
 - **Badge or footer visible in the collapsed sidebar** → custom element without the `group-data-[collapsible=icon]:hidden` class. → `SidebarMenuBadge` hides itself; plain elements need the class.

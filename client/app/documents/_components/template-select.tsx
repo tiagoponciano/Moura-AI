@@ -5,7 +5,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import type { TemplateEntry } from "@/lib/documents/templates";
+import type { TemplateEntry } from "@/features/documents/lib/templates";
 
 type TemplateSelectProps = {
   templates: TemplateEntry[];

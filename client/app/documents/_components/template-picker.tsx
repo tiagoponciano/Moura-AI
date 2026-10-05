@@ -1,5 +1,5 @@
 import { FileText } from "lucide-react";
-import type { TemplateEntry } from "@/lib/documents/templates";
+import type { TemplateEntry } from "@/features/documents/lib/templates";
 
 type TemplatePickerProps = {
   templates: TemplateEntry[];

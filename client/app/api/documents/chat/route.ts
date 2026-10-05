@@ -8,11 +8,11 @@ import {
   tool,
   type UIMessage,
 } from "ai";
-import { schemaToZod } from "@/lib/documents/schema-to-zod";
+import { schemaToZod } from "@/features/documents/lib/schema-to-zod";
 import {
   FILL_FIELDS_TOOL,
   type TemplateSchema,
-} from "@/lib/documents/templates";
+} from "@/features/documents/lib/templates";
 
 export const maxDuration = 60;
 

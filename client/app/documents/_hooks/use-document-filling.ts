@@ -5,8 +5,8 @@ import {
   pickExtractedValues,
   requiredProgress,
   validateForDocument,
-} from "@/lib/documents/form-values";
-import { renderDocx } from "@/lib/documents/render-docx";
+} from "@/features/documents/lib/form-values";
+import { renderDocx } from "@/features/documents/lib/render-docx";
 import {
   FILL_FIELDS_TOOL,
   loadTemplateIndex,
@@ -15,7 +15,7 @@ import {
   type FieldValues,
   type TemplateEntry,
   type TemplateSchema,
-} from "@/lib/documents/templates";
+} from "@/features/documents/lib/templates";
 
 /** State and actions of the documents workspace: template, form values and generation. */
 export function useDocumentFilling() {

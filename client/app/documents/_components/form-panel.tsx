@@ -7,7 +7,7 @@ import type {
   FieldValue,
   FieldValues,
   TemplateField,
-} from "@/lib/documents/templates";
+} from "@/features/documents/lib/templates";
 import { FieldList } from "./field-list";
 import { GenerationProblems } from "./generation-problems";
 

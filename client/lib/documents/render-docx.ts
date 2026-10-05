@@ -11,9 +11,9 @@ function formatValue(value: FieldValues[string]): string {
 }
 
 function buildFileName(template: TemplateEntry, values: FieldValues): string {
-  const razaoSocial =
-    typeof values.razao_social === "string" ? values.razao_social : "";
-  const safeName = razaoSocial
+  const companyName =
+    typeof values.company_name === "string" ? values.company_name : "";
+  const safeName = companyName
     .trim()
     .replace(/[\\/:*?"<>|]+/g, "")
     .replace(/\s+/g, "_");
@@ -37,7 +37,7 @@ export async function renderDocx(
     paragraphLoop: true,
     linebreaks: true,
     nullGetter: () => "",
-    // Accept both {{campo}} and {{ campo }}; the default parser does not trim.
+    // Accept both {{field}} and {{ field }}; the default parser does not trim.
     parser: (tag) => {
       const key = tag.trim();
       return { get: (scope) => (key === "." ? scope : scope[key]) };

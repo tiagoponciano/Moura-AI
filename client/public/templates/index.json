@@ -1,9 +1,9 @@
 [
   {
-    "id": "exemplo",
+    "id": "example",
     "name": "Exemplo – Formulário",
     "type": "docx",
-    "file": "/templates/bombeiro/exemplo.docx",
-    "schema": "/templates/bombeiro/exemplo.schema.json"
+    "file": "/templates/cbmsc/example.docx",
+    "schema": "/templates/cbmsc/example.schema.json"
   }
 ]

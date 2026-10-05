@@ -1,13 +1,13 @@
 {
   "fields": [
     {
-      "name": "razao_social",
+      "name": "company_name",
       "type": "string",
       "description": "Razão social do proprietário do imóvel",
       "required": true
     },
     {
-      "name": "endereco",
+      "name": "address",
       "type": "string",
       "description": "Endereço completo do imóvel (logradouro, número, bairro, cidade)",
       "required": true
@@ -19,19 +19,19 @@
       "required": true
     },
     {
-      "name": "ocupacao",
+      "name": "occupancy",
       "type": "string",
       "description": "Tipo de ocupação do imóvel (ex.: residencial, comercial, industrial)",
       "required": true
     },
     {
-      "name": "num_pavimentos",
+      "name": "floor_count",
       "type": "number",
       "description": "Número de pavimentos da edificação",
       "required": true
     },
     {
-      "name": "data",
+      "name": "issue_date",
       "type": "date",
       "description": "Data de emissão do formulário",
       "required": false

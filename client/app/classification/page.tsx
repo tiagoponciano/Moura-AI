@@ -1,7 +1,7 @@
 import { Layers } from "lucide-react";
 import { ComingSoon } from "@/components/shared/coming-soon";
 
-export default function ClassificacaoPage() {
+export default function ClassificationPage() {
   return (
     <ComingSoon
       title="Classificação"

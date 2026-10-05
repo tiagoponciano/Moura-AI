@@ -23,7 +23,7 @@ export const MODULE_STATUS_LABEL: Record<ModuleStatus, string> = {
 
 export const MODULES: AppModule[] = [
   {
-    href: "/documentos",
+    href: "/documents",
     label: "Documentos",
     summary:
       "Preenche os anexos do CBMSC a partir da conversa, sem desconfigurar o layout do Word.",
@@ -31,7 +31,7 @@ export const MODULES: AppModule[] = [
     status: "available",
   },
   {
-    href: "/classificacao",
+    href: "/classification",
     label: "Classificação",
     summary:
       "Classifica a edificação e indica quais sistemas preventivos ela precisa ter.",
@@ -39,7 +39,7 @@ export const MODULES: AppModule[] = [
     status: "soon",
   },
   {
-    href: "/plantas",
+    href: "/floor-plans",
     label: "Plantas",
     summary:
       "Converte plantas antigas em PDF para DWG editável, agilizando o desenho.",

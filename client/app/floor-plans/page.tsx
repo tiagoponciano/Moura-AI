@@ -1,7 +1,7 @@
 import { Map as MapIcon } from "lucide-react";
 import { ComingSoon } from "@/components/shared/coming-soon";
 
-export default function PlantasPage() {
+export default function FloorPlansPage() {
   return (
     <ComingSoon
       title="Plantas (PDF → DWG)"

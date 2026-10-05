@@ -26,7 +26,7 @@ import {
 
 const FILL_TOOL = "preencher_campos";
 
-export default function DocumentosPage() {
+export default function DocumentsPage() {
   const [templates, setTemplates] = useState<TemplateEntry[]>([]);
   const [selectedId, setSelectedId] = useState<string>();
   const [schema, setSchema] = useState<TemplateSchema>();

@@ -1,7 +1,7 @@
 "use client";
 
 import { Loader2 } from "lucide-react";
-import { Chat } from "@/components/shared/chat/chat";
+import { Chat } from "@/components/chat/chat";
 import { useDocumentFilling } from "../_hooks/use-document-filling";
 import { FormPanel } from "./form-panel";
 import { TemplatePicker } from "./template-picker";

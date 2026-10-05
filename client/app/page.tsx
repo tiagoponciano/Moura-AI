@@ -1,6 +1,4 @@
-import { HomeHero } from "./_components/home-hero";
-import { HowItWorks } from "./_components/how-it-works";
-import { ModuleGrid } from "./_components/module-grid";
+import { HomeHero, HowItWorks, ModuleGrid } from "@/features/home";
 
 export default function HomePage() {
   return (

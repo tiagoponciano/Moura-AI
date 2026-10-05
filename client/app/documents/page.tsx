@@ -16,6 +16,7 @@ import {
 import { renderDocx } from "@/lib/documents/render-docx";
 import { schemaToZod } from "@/lib/documents/schema-to-zod";
 import {
+  FILL_FIELDS_TOOL,
   loadTemplateIndex,
   loadTemplateSchema,
   type FieldValue,
@@ -23,8 +24,6 @@ import {
   type TemplateEntry,
   type TemplateSchema,
 } from "@/lib/documents/templates";
-
-const FILL_TOOL = "preencher_campos";
 
 export default function DocumentsPage() {
   const [templates, setTemplates] = useState<TemplateEntry[]>([]);
@@ -76,7 +75,7 @@ export default function DocumentsPage() {
   const handleToolResult = useCallback(
     (toolName: string, output: unknown) => {
       if (
-        toolName !== FILL_TOOL ||
+        toolName !== FILL_FIELDS_TOOL ||
         !schema ||
         !output ||
         typeof output !== "object"
@@ -221,7 +220,7 @@ export default function DocumentsPage() {
           <div className="min-h-[420px] lg:min-h-0">
             <Chat
               key={template.id}
-              endpoint="/api/chat"
+              endpoint="/api/documents/chat"
               body={chatBody}
               onToolResult={handleToolResult}
               placeholder="Ex.: imóvel da Padaria Silva, Rua X 123, 750 m², comercial, 2 pavimentos"

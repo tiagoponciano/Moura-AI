@@ -25,7 +25,7 @@ function fieldToZod(field: TemplateField, mode: Mode): z.ZodType {
 
 /**
  * Builds a zod object from a template schema.
- * - `extraction`: every field optional (input of the `preencher_campos` tool).
+ * - `extraction`: every field optional (input of the `fill_fields` tool).
  * - `document`: required fields enforced (validation before rendering).
  */
 export function schemaToZod(schema: TemplateSchema, mode: Mode) {

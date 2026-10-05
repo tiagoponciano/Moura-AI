@@ -9,7 +9,10 @@ import {
   type UIMessage,
 } from "ai";
 import { schemaToZod } from "@/lib/documents/schema-to-zod";
-import type { TemplateSchema } from "@/lib/documents/templates";
+import {
+  FILL_FIELDS_TOOL,
+  type TemplateSchema,
+} from "@/lib/documents/templates";
 
 export const maxDuration = 60;
 
@@ -25,22 +28,22 @@ function buildInstructions(templateId: string, schema: TemplateSchema): string {
   const fields = schema.fields
     .map(
       (field) =>
-        `- ${field.name} (${field.type}${field.required ? ", obrigatório" : ""}): ${field.description}`,
+        `- ${field.name} (${field.type}${field.required ? ", required" : ""}): ${field.description}`,
     )
     .join("\n");
 
-  return `Você é o assistente da Moura Soluções em Engenharia, empresa de projetos de prevenção contra incêndio em Santa Catarina. Sua função é ajudar a equipe a preencher formulários do CBMSC (Corpo de Bombeiros Militar de Santa Catarina) a partir da conversa.
+  return `You are the assistant of Moura Soluções em Engenharia, a fire-prevention engineering firm in Santa Catarina, Brazil. You help the team fill in CBMSC (Corpo de Bombeiros Militar de Santa Catarina) forms from the conversation.
 
-Formulário atual: "${templateId}". Campos:
+Current form: "${templateId}". Fields:
 ${fields}
 
-Regras:
-1. NUNCA invente dados. Use apenas informações ditas explicitamente pelo usuário.
-2. Se faltar informação, pergunte. Campo não informado fica vazio — não o envie na tool.
-3. Sempre que a conversa trouxer dados novos ou corrigidos, chame a tool \`preencher_campos\` apenas com esses campos.
-4. Números (campos number) vão como número puro, sem unidade. Datas vão no formato DD/MM/AAAA.
-5. Você não gera o documento: o usuário revisa os campos no painel ao lado e clica em "Gerar documento".
-6. Responda em português, de forma curta e objetiva. Depois de preencher, diga o que foi registrado e quais campos obrigatórios ainda faltam.`;
+Rules:
+1. NEVER invent data. Use only information the user stated explicitly.
+2. If information is missing, ask for it. A field that was not given stays empty — do not send it in the tool call.
+3. Whenever the conversation brings new or corrected data, call the \`${FILL_FIELDS_TOOL}\` tool with only those fields.
+4. Number fields are plain numbers without units. Dates use the DD/MM/AAAA format.
+5. You do not generate the document: the user reviews the fields in the side panel and clicks "Gerar documento".
+6. Always reply in Brazilian Portuguese, briefly and objectively. After filling, say what was recorded and which required fields are still missing.`;
 }
 
 export async function POST(req: Request) {
@@ -64,11 +67,11 @@ export async function POST(req: Request) {
     instructions: buildInstructions(templateId, schema),
     messages: await convertToModelMessages(messages),
     tools: {
-      preencher_campos: tool({
+      [FILL_FIELDS_TOOL]: tool({
         description:
-          "Registra no formulário os campos extraídos da conversa. Envie apenas os campos com dados novos ou corrigidos.",
+          "Records the fields extracted from the conversation in the form. Send only fields with new or corrected data.",
         inputSchema: schemaToZod(schema, "extraction"),
-        execute: async (campos) => campos,
+        execute: async (fields) => fields,
       }),
     },
     stopWhen: isStepCount(5),

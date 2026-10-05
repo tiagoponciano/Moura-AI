@@ -1,3 +1,6 @@
+/** Name of the LLM tool that writes extracted values into the form. */
+export const FILL_FIELDS_TOOL = "fill_fields";
+
 export type FieldType = "string" | "number" | "date" | "boolean";
 
 export type TemplateField = {

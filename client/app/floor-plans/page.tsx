@@ -1,17 +1,5 @@
-import { Map as MapIcon } from "lucide-react";
-import { ComingSoon } from "@/components/shared/coming-soon";
+import { FloorPlansPlaceholder } from "@/features/floor-plans";
 
 export default function FloorPlansPage() {
-  return (
-    <ComingSoon
-      title="Plantas (PDF → DWG)"
-      description="Conversão de plantas em PDF para DWG editável, para agilizar o desenho dos projetos preventivos."
-      icon={MapIcon}
-      plans={[
-        "Começar pelos PDFs vetoriais, que a empresa recebe com mais frequência",
-        "Avaliar ferramentas de vetorização para JPEG escaneado (caso mais difícil)",
-        "Benchmark de como outros escritórios de engenharia resolvem isso",
-      ]}
-    />
-  );
+  return <FloorPlansPlaceholder />;
 }

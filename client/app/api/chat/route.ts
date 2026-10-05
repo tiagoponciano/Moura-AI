@@ -8,8 +8,8 @@ import {
   tool,
   type UIMessage,
 } from "ai";
-import { schemaToZod } from "@/lib/schema-to-zod";
-import type { TemplateSchema } from "@/lib/templates";
+import { schemaToZod } from "@/lib/documents/schema-to-zod";
+import type { TemplateSchema } from "@/lib/documents/templates";
 
 export const maxDuration = 60;
 

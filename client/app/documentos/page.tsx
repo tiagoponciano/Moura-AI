@@ -2,8 +2,8 @@
 
 import { FileDown, Loader2 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Chat } from "@/components/chat";
-import { FieldsPanel, isEmptyValue } from "@/components/fields-panel";
+import { Chat } from "@/components/shared/chat";
+import { FieldsPanel, isEmptyValue } from "./_components/fields-panel";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -12,8 +12,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { renderDocx } from "@/lib/render-docx";
-import { schemaToZod } from "@/lib/schema-to-zod";
+import { renderDocx } from "@/lib/documents/render-docx";
+import { schemaToZod } from "@/lib/documents/schema-to-zod";
 import {
   loadTemplateIndex,
   loadTemplateSchema,
@@ -21,7 +21,7 @@ import {
   type FieldValues,
   type TemplateEntry,
   type TemplateSchema,
-} from "@/lib/templates";
+} from "@/lib/documents/templates";
 
 const FILL_TOOL = "preencher_campos";
 

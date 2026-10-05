@@ -1,6 +1,7 @@
 "use client";
 
-import { Flame, House } from "lucide-react";
+import { House } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
@@ -28,8 +29,14 @@ export function AppSidebar() {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <Link href="/">
-                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
-                  <Flame className="size-4" />
+                <div className="flex aspect-square size-8 shrink-0 items-center justify-center rounded-lg dark:bg-white/90">
+                  <Image
+                    src="/brand/moura-logo.png"
+                    alt="Moura"
+                    width={28}
+                    height={28}
+                    priority
+                  />
                 </div>
                 <div className="grid flex-1 text-left leading-tight">
                   <span className="font-semibold">Moura AI</span>

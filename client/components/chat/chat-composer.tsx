@@ -2,6 +2,11 @@ import { Loader2, SendHorizontal } from "lucide-react";
 import type { FormEvent, KeyboardEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 type ChatComposerProps = {
   value: string;
@@ -46,18 +51,29 @@ export function ChatComposer({
           rows={2}
           className="max-h-40 min-h-11 resize-none border-0 bg-transparent shadow-none focus-visible:ring-0 dark:bg-transparent"
         />
-        <Button
-          type="submit"
-          size="icon"
-          disabled={busy || !value.trim()}
-          aria-label="Enviar"
-        >
-          {busy ? <Loader2 className="animate-spin" /> : <SendHorizontal />}
-        </Button>
+        <Tooltip>
+          {/* The wrapper keeps the tooltip working while the button is disabled. */}
+          <TooltipTrigger asChild>
+            <span className="inline-flex">
+              <Button
+                type="submit"
+                size="icon"
+                disabled={busy || !value.trim()}
+                aria-label="Enviar"
+              >
+                {busy ? (
+                  <Loader2 className="animate-spin" />
+                ) : (
+                  <SendHorizontal />
+                )}
+              </Button>
+            </span>
+          </TooltipTrigger>
+          <TooltipContent>
+            Enter envia · Shift+Enter quebra a linha
+          </TooltipContent>
+        </Tooltip>
       </div>
-      <p className="mt-1.5 px-1 text-[11px] text-muted-foreground">
-        Enter envia · Shift+Enter quebra a linha
-      </p>
     </form>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { CircleCheck } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
@@ -28,13 +29,17 @@ export function FieldsPanel({ fields, values, onChange }: FieldsPanelProps) {
       {fields.map((field) => {
         const value = values[field.nome];
         const missing = Boolean(field.obrigatorio) && field.tipo !== "boolean" && isEmptyValue(value);
+        const filled = field.tipo !== "boolean" && !isEmptyValue(value);
         const id = `field-${field.nome}`;
 
         return (
           <div key={field.nome} className="flex flex-col gap-1.5">
-            <Label htmlFor={id} className="flex items-baseline gap-1">
+            <Label htmlFor={id} className="flex items-start gap-1 leading-snug">
               <span>{field.descricao}</span>
               {field.obrigatorio && <span className="text-destructive">*</span>}
+              {filled && (
+                <CircleCheck className="mt-px ml-auto size-3.5 shrink-0 text-success" aria-label="Preenchido" />
+              )}
             </Label>
 
             {field.tipo === "boolean" ? (
@@ -73,7 +78,7 @@ export function FieldsPanel({ fields, values, onChange }: FieldsPanelProps) {
               />
             )}
 
-            <span className="font-mono text-[11px] text-muted-foreground">{`{{${field.nome}}}`}</span>
+            <span className="font-mono text-[11px] text-muted-foreground/70">{`{{${field.nome}}}`}</span>
           </div>
         );
       })}

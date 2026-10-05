@@ -14,7 +14,7 @@ describe("evaluateRule", () => {
     const result = evaluateRule(rule([]), {});
     expect(result).toMatchObject({
       status: "required",
-      reason: "exigido para todas as edificações",
+      reason: "vale para todas as edificações",
     });
   });
 

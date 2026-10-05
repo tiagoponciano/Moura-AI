@@ -90,7 +90,7 @@ export function evaluateRule(
     return {
       ...base,
       status: "required",
-      reason: "exigido para todas as edificações",
+      reason: "vale para todas as edificações",
       missing: [],
     };
   }

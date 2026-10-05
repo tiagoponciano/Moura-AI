@@ -48,7 +48,7 @@ export function DocumentWorkspace() {
                 body={filling.chatBody}
                 onToolResult={filling.handleToolResult}
                 placeholder="Ex.: imóvel da Padaria Silva, Rua X 123, 750 m², comercial, 2 pavimentos"
-                emptyState="Descreva o imóvel e o proprietário. O assistente preenche os campos ao lado."
+                emptyState="Descreva o imóvel e o proprietário. A Moura AI preenche os campos ao lado."
                 suggestions={CHAT_SUGGESTIONS}
               />
             </div>

@@ -74,7 +74,7 @@ export function Chat({
       <div className="flex items-center justify-between border-b px-4 py-2.5">
         <div className="flex items-center gap-2">
           <AssistantAvatar />
-          <span className="text-sm font-medium">Assistente</span>
+          <span className="text-sm font-medium">Moura AI</span>
         </div>
         <Button
           variant="ghost"

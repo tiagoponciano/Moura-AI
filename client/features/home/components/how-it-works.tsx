@@ -5,7 +5,7 @@ const STEPS = [
   },
   {
     title: "Descreva o imóvel",
-    text: "Converse com o assistente; ele extrai os dados para os campos.",
+    text: "Converse com a Moura AI; ela extrai os dados para os campos.",
   },
   {
     title: "Revise e baixe",

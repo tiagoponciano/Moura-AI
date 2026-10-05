@@ -31,7 +31,7 @@ export function ClassificationWorkspace() {
           endpoint="/api/classification/chat"
           onToolResult={classification.handleToolResult}
           placeholder="Ex.: loja de 750 m², comercial, 2 pavimentos, 8 m de altura"
-          emptyState="Descreva a edificação. O assistente registra área, altura, pavimentos e ocupação."
+          emptyState="Descreva a edificação. A Moura AI registra área, altura, pavimentos e ocupação."
           suggestions={CHAT_SUGGESTIONS}
         />
       </div>

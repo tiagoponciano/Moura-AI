@@ -52,7 +52,7 @@ type AppModule = {
 - `/` renders the home page: `app/page.tsx` composes `HomeHero`, `ModuleGrid` (one `ModuleCard` per module) and `HowItWorks`, imported from `@/features/home`. All are server components with no data fetching.
 - The brand mark is `public/brand/moura-logo.png` (transparent PNG). In dark mode it sits on a light tile (`dark:bg-white/90`) because the graphite gear disappears on a dark background. `app/icon.png` (same logo, 512px) is the favicon.
 - Route folders and `href`s are in English (`/documents`, `/classification`, `/floor-plans`); labels and copy are in Portuguese.
-- Placeholder modules (`features/classification`, `features/floor-plans`) export a `<Name>Placeholder` component that renders `ComingSoon` (`components/shared/coming-soon.tsx`) with `title`, `description`, `icon` and an optional `plans` list shown under "O que está previsto".
+- Placeholder modules (`features/floor-plans`) export a `<Name>Placeholder` component that renders `ComingSoon` (`components/shared/coming-soon.tsx`) with `title`, `description`, `icon` and an optional `plans` list shown under "O que está previsto".
 
 ## What this does NOT do
 

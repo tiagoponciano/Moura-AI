@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { AppSidebar } from "@/components/layout/app-sidebar";
+import { PageTitle } from "@/components/layout/page-title";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
+import { Separator } from "@/components/ui/separator";
 import {
   SidebarInset,
   SidebarProvider,
@@ -44,11 +46,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <SidebarProvider className="h-svh">
               <AppSidebar />
               <SidebarInset className="min-h-0 overflow-hidden">
-                <header className="flex h-12 shrink-0 items-center gap-2 border-b px-3">
+                <header className="flex h-12 shrink-0 items-center gap-2 border-b bg-background/80 px-3 backdrop-blur">
                   <SidebarTrigger />
-                  <span className="text-sm text-muted-foreground">
-                    Moura Soluções em Engenharia
-                  </span>
+                  <Separator orientation="vertical" className="mr-1 data-[orientation=vertical]:h-4" />
+                  <PageTitle />
                   <div className="ml-auto">
                     <ThemeToggle />
                   </div>

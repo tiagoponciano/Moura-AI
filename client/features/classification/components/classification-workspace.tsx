@@ -6,11 +6,6 @@ import { BuildingForm } from "./building-form";
 import { ProvisionalNotice } from "./provisional-notice";
 import { RequirementsList } from "./requirements-list";
 
-const CHAT_SUGGESTIONS = [
-  "Galpão de 2.000 m² usado como depósito, térreo, 9 m de altura.",
-  "Sala comercial de 120 m² no 2º pavimento de um prédio de 4 andares.",
-];
-
 /** Key questions, provisional requirements and the extraction chat. */
 export function ClassificationWorkspace() {
   const classification = useClassification();
@@ -32,7 +27,6 @@ export function ClassificationWorkspace() {
           onToolResult={classification.handleToolResult}
           placeholder="Ex.: loja de 750 m², comercial, 2 pavimentos, 8 m de altura"
           emptyState="Descreva a edificação. A Moura AI registra área, altura, pavimentos e ocupação."
-          suggestions={CHAT_SUGGESTIONS}
         />
       </div>
     </div>

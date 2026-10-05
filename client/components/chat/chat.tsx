@@ -16,7 +16,6 @@ type ChatProps = {
   onToolResult?: (toolName: string, output: unknown) => void;
   placeholder?: string;
   emptyState?: string;
-  suggestions?: string[];
 };
 
 /** Module-agnostic assistant chat; tool results are reported once per call. */
@@ -26,7 +25,6 @@ export function Chat({
   onToolResult,
   placeholder = "Digite sua mensagem…",
   emptyState = "Comece a conversa descrevendo o que você precisa.",
-  suggestions = [],
 }: ChatProps) {
   const transport = useMemo(
     () => new DefaultChatTransport({ api: endpoint }),
@@ -89,11 +87,7 @@ export function Chat({
 
       <div className="min-h-0 flex-1 overflow-y-auto px-4 py-4">
         {messages.length === 0 ? (
-          <ChatEmptyState
-            text={emptyState}
-            suggestions={suggestions}
-            onSuggestion={send}
-          />
+          <ChatEmptyState text={emptyState} />
         ) : (
           <div className="flex flex-col gap-4">
             {messages.map((message) => (

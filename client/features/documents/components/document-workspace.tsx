@@ -7,11 +7,6 @@ import { FormPanel } from "./form-panel";
 import { TemplatePicker } from "./template-picker";
 import { TemplateSelect } from "./template-select";
 
-const CHAT_SUGGESTIONS = [
-  "Padaria Silva Ltda, Rua das Flores 123, Florianópolis. 750 m², comercial, 2 pavimentos.",
-  "Quais informações você precisa para este formulário?",
-];
-
 /** Template choice, assistant chat and form panel for the documents module. */
 export function DocumentWorkspace() {
   const filling = useDocumentFilling();
@@ -49,7 +44,6 @@ export function DocumentWorkspace() {
                 onToolResult={filling.handleToolResult}
                 placeholder="Ex.: imóvel da Padaria Silva, Rua X 123, 750 m², comercial, 2 pavimentos"
                 emptyState="Descreva o imóvel e o proprietário. A Moura AI preenche os campos ao lado."
-                suggestions={CHAT_SUGGESTIONS}
               />
             </div>
             <FormPanel

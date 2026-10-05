@@ -1,6 +1,6 @@
 # Moura AI
 
-Internal platform for Moura Soluções em Engenharia (fire-prevention projects in Santa Catarina). A sidebar groups three modules, each with its own chatbot:
+Internal platform for Moura Soluções em Engenharia (fire-prevention projects in Santa Catarina). The home page (`/`) and a sidebar list three modules, each with its own chatbot:
 
 | Module | Route | Status |
 |---|---|---|
@@ -16,7 +16,7 @@ Core principle of Documentos: **the LLM never writes the document.** It only ext
 - No separate backend and no database. The only server-side code is the route handler `client/app/api/chat/route.ts`, which holds the LLM key and streams the chat (Vercel AI SDK + Anthropic).
 - Documents are rendered in the browser with `docxtemplater` + `pizzip` and downloaded with `file-saver`.
 
-Feature details: [`client/docs/document-filling.md`](client/docs/document-filling.md).
+Feature details: [`document-filling.md`](client/docs/document-filling.md), [`app-shell.md`](client/docs/app-shell.md), [`theming.md`](client/docs/theming.md).
 
 ### Folder layout
 

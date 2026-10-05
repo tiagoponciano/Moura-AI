@@ -8,7 +8,9 @@ type Mode = "extraction" | "document";
 function fieldToZod(field: TemplateField, mode: Mode): z.ZodType {
   switch (field.tipo) {
     case "string":
-      return (mode === "document" ? z.string().trim().min(1) : z.string()).describe(field.descricao);
+      return (
+        mode === "document" ? z.string().trim().min(1) : z.string()
+      ).describe(field.descricao);
     case "number":
       return z.number().describe(field.descricao);
     case "boolean":
@@ -30,7 +32,8 @@ export function schemaToZod(schema: TemplateSchema, mode: Mode) {
   const shape: Record<string, z.ZodType> = {};
   for (const field of schema.campos) {
     const base = fieldToZod(field, mode);
-    shape[field.nome] = mode === "document" && field.obrigatorio ? base : base.optional();
+    shape[field.nome] =
+      mode === "document" && field.obrigatorio ? base : base.optional();
   }
   return z.object(shape);
 }

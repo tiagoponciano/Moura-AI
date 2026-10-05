@@ -5,7 +5,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
-import type { FieldValue, FieldValues, TemplateField } from "@/lib/documents/templates";
+import type {
+  FieldValue,
+  FieldValues,
+  TemplateField,
+} from "@/lib/documents/templates";
 
 type FieldsPanelProps = {
   fields: TemplateField[];
@@ -15,7 +19,9 @@ type FieldsPanelProps = {
 };
 
 export function isEmptyValue(value: FieldValue | undefined): boolean {
-  return value === undefined || (typeof value === "string" && value.trim() === "");
+  return (
+    value === undefined || (typeof value === "string" && value.trim() === "")
+  );
 }
 
 function parseNumber(raw: string): number | undefined {
@@ -24,13 +30,21 @@ function parseNumber(raw: string): number | undefined {
   return Number.isFinite(parsed) ? parsed : undefined;
 }
 
-export function FieldsPanel({ fields, values, onChange, showMissing = false }: FieldsPanelProps) {
+export function FieldsPanel({
+  fields,
+  values,
+  onChange,
+  showMissing = false,
+}: FieldsPanelProps) {
   return (
     <div className="flex flex-col gap-4">
       {fields.map((field) => {
         const value = values[field.nome];
         const missing =
-          showMissing && Boolean(field.obrigatorio) && field.tipo !== "boolean" && isEmptyValue(value);
+          showMissing &&
+          Boolean(field.obrigatorio) &&
+          field.tipo !== "boolean" &&
+          isEmptyValue(value);
         const filled = field.tipo !== "boolean" && !isEmptyValue(value);
         const id = `field-${field.nome}`;
 
@@ -39,10 +53,15 @@ export function FieldsPanel({ fields, values, onChange, showMissing = false }: F
             <Label htmlFor={id} className="flex items-start gap-1 leading-snug">
               <span>
                 {field.descricao}
-                {field.obrigatorio && <span className="ml-0.5 text-destructive">*</span>}
+                {field.obrigatorio && (
+                  <span className="ml-0.5 text-destructive">*</span>
+                )}
               </span>
               {filled && (
-                <CircleCheck className="mt-px ml-auto size-3.5 shrink-0 text-success" aria-label="Preenchido" />
+                <CircleCheck
+                  className="mt-px ml-auto size-3.5 shrink-0 text-success"
+                  aria-label="Preenchido"
+                />
               )}
             </Label>
 
@@ -53,7 +72,9 @@ export function FieldsPanel({ fields, values, onChange, showMissing = false }: F
                   checked={value === true}
                   onCheckedChange={(checked) => onChange(field.nome, checked)}
                 />
-                <span className="text-sm text-muted-foreground">{value === true ? "Sim" : "Não"}</span>
+                <span className="text-sm text-muted-foreground">
+                  {value === true ? "Sim" : "Não"}
+                </span>
               </div>
             ) : field.tipo === "string" ? (
               <Textarea
@@ -61,7 +82,10 @@ export function FieldsPanel({ fields, values, onChange, showMissing = false }: F
                 rows={1}
                 value={typeof value === "string" ? value : ""}
                 onChange={(event) =>
-                  onChange(field.nome, event.target.value === "" ? undefined : event.target.value)
+                  onChange(
+                    field.nome,
+                    event.target.value === "" ? undefined : event.target.value,
+                  )
                 }
                 aria-invalid={missing}
                 className="min-h-9 resize-none"
@@ -76,7 +100,14 @@ export function FieldsPanel({ fields, values, onChange, showMissing = false }: F
                 value={value === undefined ? "" : String(value)}
                 onChange={(event) => {
                   const raw = event.target.value;
-                  onChange(field.nome, field.tipo === "number" ? parseNumber(raw) : raw === "" ? undefined : raw);
+                  onChange(
+                    field.nome,
+                    field.tipo === "number"
+                      ? parseNumber(raw)
+                      : raw === ""
+                        ? undefined
+                        : raw,
+                  );
                 }}
                 aria-invalid={missing}
               />

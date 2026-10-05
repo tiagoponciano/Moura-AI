@@ -34,6 +34,8 @@ export function loadTemplateIndex(): Promise<TemplateEntry[]> {
   return fetchJson<TemplateEntry[]>("/templates/index.json");
 }
 
-export function loadTemplateSchema(template: TemplateEntry): Promise<TemplateSchema> {
+export function loadTemplateSchema(
+  template: TemplateEntry,
+): Promise<TemplateSchema> {
   return fetchJson<TemplateSchema>(template.schema);
 }

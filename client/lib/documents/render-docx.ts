@@ -11,7 +11,8 @@ function formatValue(value: FieldValues[string]): string {
 }
 
 function buildFileName(template: TemplateEntry, values: FieldValues): string {
-  const razaoSocial = typeof values.razao_social === "string" ? values.razao_social : "";
+  const razaoSocial =
+    typeof values.razao_social === "string" ? values.razao_social : "";
   const safeName = razaoSocial
     .trim()
     .replace(/[\\/:*?"<>|]+/g, "")
@@ -19,10 +20,15 @@ function buildFileName(template: TemplateEntry, values: FieldValues): string {
   return safeName ? `${template.id}_${safeName}.docx` : `${template.id}.docx`;
 }
 
-export async function renderDocx(template: TemplateEntry, values: FieldValues): Promise<void> {
+export async function renderDocx(
+  template: TemplateEntry,
+  values: FieldValues,
+): Promise<void> {
   const response = await fetch(template.arquivo, { cache: "no-store" });
   if (!response.ok) {
-    throw new Error(`Failed to load template ${template.arquivo}: HTTP ${response.status}`);
+    throw new Error(
+      `Failed to load template ${template.arquivo}: HTTP ${response.status}`,
+    );
   }
 
   const zip = new PizZip(await response.arrayBuffer());
@@ -45,7 +51,8 @@ export async function renderDocx(template: TemplateEntry, values: FieldValues): 
 
   const blob = doc.getZip().generate({
     type: "blob",
-    mimeType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    mimeType:
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
   });
   saveAs(blob, buildFileName(template, values));
 }

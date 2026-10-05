@@ -8,7 +8,12 @@ type ComingSoonProps = {
   plans?: string[];
 };
 
-export function ComingSoon({ title, description, icon: Icon, plans = [] }: ComingSoonProps) {
+export function ComingSoon({
+  title,
+  description,
+  icon: Icon,
+  plans = [],
+}: ComingSoonProps) {
   return (
     <div className="flex h-full items-center justify-center p-6">
       <div className="flex w-full max-w-lg flex-col gap-6 rounded-xl border bg-card p-6 md:p-8">

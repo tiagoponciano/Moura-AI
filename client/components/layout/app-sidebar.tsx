@@ -47,7 +47,11 @@ export function AppSidebar() {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === "/"} tooltip="Início">
+                <SidebarMenuButton
+                  asChild
+                  isActive={pathname === "/"}
+                  tooltip="Início"
+                >
                   <Link href="/">
                     <House />
                     <span>Início</span>
@@ -63,7 +67,11 @@ export function AppSidebar() {
             <SidebarMenu>
               {MODULES.map(({ href, label, icon: Icon, status }) => (
                 <SidebarMenuItem key={href}>
-                  <SidebarMenuButton asChild isActive={pathname.startsWith(href)} tooltip={label}>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname.startsWith(href)}
+                    tooltip={label}
+                  >
                     <Link href={href}>
                       <Icon />
                       <span>{label}</span>

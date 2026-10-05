@@ -41,11 +41,16 @@ const doc = new Document({
           heading: HeadingLevel.HEADING_1,
           alignment: AlignmentType.CENTER,
           spacing: { after: 300 },
-          children: [new TextRun({ text: "FORMULÁRIO DE EXEMPLO – CBMSC", bold: true })],
+          children: [
+            new TextRun({ text: "FORMULÁRIO DE EXEMPLO – CBMSC", bold: true }),
+          ],
         }),
         new Table({
           width: { size: 100, type: WidthType.PERCENTAGE },
-          rows: rows.map(([label, tag]) => new TableRow({ children: [cell(label, true), cell(tag)] })),
+          rows: rows.map(
+            ([label, tag]) =>
+              new TableRow({ children: [cell(label, true), cell(tag)] }),
+          ),
         }),
         new Paragraph({
           spacing: { before: 400 },

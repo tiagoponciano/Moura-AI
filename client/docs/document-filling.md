@@ -16,36 +16,36 @@ Invariants:
 
 ### Files under `client/public/templates/`
 
-| Path | Purpose |
-|---|---|
-| `index.json` | Array of `TemplateEntry`; populates the selector |
-| `<group>/<name>.docx` | Original template with `{{tags}}` |
-| `<group>/<name>.schema.json` | Field definitions (`TemplateSchema`) |
+| Path                         | Purpose                                          |
+| ---------------------------- | ------------------------------------------------ |
+| `index.json`                 | Array of `TemplateEntry`; populates the selector |
+| `<group>/<name>.docx`        | Original template with `{{tags}}`                |
+| `<group>/<name>.schema.json` | Field definitions (`TemplateSchema`)             |
 
 ### HTTP
 
-| Method | Path | Caller | Returns |
-|---|---|---|---|
+| Method | Path        | Caller           | Returns                                                                                                                                                                               |
+| ------ | ----------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `POST` | `/api/chat` | `Chat` component | AI SDK UI message stream (SSE). `500 {"error":"ANTHROPIC_API_KEY is not configured"}` without a key; `400 {"error":"Missing template schema"}` if `schema.campos` is empty or missing |
 
 No auth. The route trusts the `schema` sent by the client.
 
 ### Library (`client/lib/documents/`)
 
-| Export | Signature | Contract |
-|---|---|---|
-| `loadTemplateIndex` | `() => Promise<TemplateEntry[]>` | Fetches `/templates/index.json`, `cache: "no-store"`; throws on non-2xx |
-| `loadTemplateSchema` | `(template) => Promise<TemplateSchema>` | Fetches `template.schema`; throws on non-2xx |
-| `schemaToZod` | `(schema, "extraction" \| "document") => ZodObject` | See rules below |
-| `DATE_PATTERN` | `RegExp` | `^\d{2}\/\d{2}\/\d{4}$` |
-| `renderDocx` | `(template, values) => Promise<void>` | Fetches the `.docx`, renders, triggers download; throws on fetch or template errors |
+| Export               | Signature                                           | Contract                                                                            |
+| -------------------- | --------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `loadTemplateIndex`  | `() => Promise<TemplateEntry[]>`                    | Fetches `/templates/index.json`, `cache: "no-store"`; throws on non-2xx             |
+| `loadTemplateSchema` | `(template) => Promise<TemplateSchema>`             | Fetches `template.schema`; throws on non-2xx                                        |
+| `schemaToZod`        | `(schema, "extraction" \| "document") => ZodObject` | See rules below                                                                     |
+| `DATE_PATTERN`       | `RegExp`                                            | `^\d{2}\/\d{2}\/\d{4}$`                                                             |
+| `renderDocx`         | `(template, values) => Promise<void>`               | Fetches the `.docx`, renders, triggers download; throws on fetch or template errors |
 
 ### Components
 
-| Component | Props | Notes |
-|---|---|---|
-| `Chat` (`components/shared/chat.tsx`) | `endpoint`, `body?`, `onToolResult?(toolName, output)`, `placeholder?`, `emptyState?`, `suggestions?` | Module-agnostic. `body` is sent with every message. `onToolResult` fires once per tool call id when the part reaches `output-available`. `suggestions` render as chips in the empty state; clicking one sends it as a message immediately |
-| `FieldsPanel` (`app/documentos/_components/fields-panel.tsx`) | `fields`, `values`, `onChange(name, value)`, `showMissing?` (default `false`) | Controlled form; `onChange` receives `undefined` for cleared fields. Missing required fields are flagged (`aria-invalid`) only when `showMissing` is true |
+| Component                                                     | Props                                                                                                 | Notes                                                                                                                                                                                                                                     |
+| ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Chat` (`components/shared/chat.tsx`)                         | `endpoint`, `body?`, `onToolResult?(toolName, output)`, `placeholder?`, `emptyState?`, `suggestions?` | Module-agnostic. `body` is sent with every message. `onToolResult` fires once per tool call id when the part reaches `output-available`. `suggestions` render as chips in the empty state; clicking one sends it as a message immediately |
+| `FieldsPanel` (`app/documentos/_components/fields-panel.tsx`) | `fields`, `values`, `onChange(name, value)`, `showMissing?` (default `false`)                         | Controlled form; `onChange` receives `undefined` for cleared fields. Missing required fields are flagged (`aria-invalid`) only when `showMissing` is true                                                                                 |
 
 ## Data shapes
 
@@ -85,12 +85,12 @@ Value types in form state (`FieldValues`): `string` for `string` and `date`, `nu
 
 ### `schemaToZod`
 
-| `tipo` | `extraction` mode | `document` mode |
-|---|---|---|
-| `string` | `z.string()` | `z.string().trim().min(1)` |
-| `number` | `z.number()` | same |
-| `boolean` | `z.boolean()` | same |
-| `date` | string matching `DATE_PATTERN` | same |
+| `tipo`    | `extraction` mode              | `document` mode            |
+| --------- | ------------------------------ | -------------------------- |
+| `string`  | `z.string()`                   | `z.string().trim().min(1)` |
+| `number`  | `z.number()`                   | same                       |
+| `boolean` | `z.boolean()`                  | same                       |
+| `date`    | string matching `DATE_PATTERN` | same                       |
 
 Every field is `.optional()` in `extraction`. In `document`, only fields with `obrigatorio: true` are required. `descricao` is attached via `.describe()` and reaches the model through the tool's JSON Schema (dates get ` (formato DD/MM/AAAA)` appended). The generated object has `additionalProperties: false`.
 
@@ -111,12 +111,12 @@ Every field is `.optional()` in `extraction`. In `document`, only fields with `o
 
 ### Fields panel
 
-| `tipo` | Control | Missing highlight (after a generate attempt) | Filled check |
-|---|---|---|---|
-| `string` | auto-growing `Textarea` (newlines become line breaks in the `.docx`) | required and empty/whitespace | non-empty |
-| `number` | `Input type="number"`; unparsable or empty → `undefined` | required and empty | has a number |
-| `date` | `Input` text, placeholder `DD/MM/AAAA`; not validated while typing | required and empty | non-empty (format not checked) |
-| `boolean` | `Switch` | never (a boolean always has a value) | never |
+| `tipo`    | Control                                                              | Missing highlight (after a generate attempt) | Filled check                   |
+| --------- | -------------------------------------------------------------------- | -------------------------------------------- | ------------------------------ |
+| `string`  | auto-growing `Textarea` (newlines become line breaks in the `.docx`) | required and empty/whitespace                | non-empty                      |
+| `number`  | `Input type="number"`; unparsable or empty → `undefined`             | required and empty                           | has a number                   |
+| `date`    | `Input` text, placeholder `DD/MM/AAAA`; not validated while typing   | required and empty                           | non-empty (format not checked) |
+| `boolean` | `Switch`                                                             | never (a boolean always has a value)         | never                          |
 
 The page passes `showMissing` once "Gerar documento" has been clicked for the current template, so a fresh form shows no red borders. Selecting another template resets it.
 

@@ -8,7 +8,10 @@ export function PageTitle() {
   const current = findModule(pathname);
 
   return (
-    <nav aria-label="Localização" className="flex min-w-0 items-center gap-1.5 text-sm">
+    <nav
+      aria-label="Localização"
+      className="flex min-w-0 items-center gap-1.5 text-sm"
+    >
       <span className="text-muted-foreground">Moura AI</span>
       {current && (
         <>

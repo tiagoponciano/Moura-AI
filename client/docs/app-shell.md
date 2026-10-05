@@ -15,17 +15,17 @@ Invariants:
 
 ### `lib/modules.ts`
 
-| Export | Type | Contract |
-|---|---|---|
-| `MODULES` | `AppModule[]` | Order is the display order in the sidebar and on the home page |
-| `MODULE_STATUS_LABEL` | `Record<ModuleStatus, string>` | `available` → `Disponível`, `preview` → `Prévia`, `soon` → `Em breve` |
-| `findModule` | `(pathname: string) => AppModule \| undefined` | First module whose `href` is a prefix of `pathname`; `undefined` on `/` |
+| Export                | Type                                           | Contract                                                                |
+| --------------------- | ---------------------------------------------- | ----------------------------------------------------------------------- |
+| `MODULES`             | `AppModule[]`                                  | Order is the display order in the sidebar and on the home page          |
+| `MODULE_STATUS_LABEL` | `Record<ModuleStatus, string>`                 | `available` → `Disponível`, `preview` → `Prévia`, `soon` → `Em breve`   |
+| `findModule`          | `(pathname: string) => AppModule \| undefined` | First module whose `href` is a prefix of `pathname`; `undefined` on `/` |
 
 ```ts
 type AppModule = {
-  href: string;        // route, leading slash, e.g. "/documentos"
-  label: string;       // sidebar item, breadcrumb, card title
-  summary: string;     // one sentence, shown on the home card
+  href: string; // route, leading slash, e.g. "/documentos"
+  label: string; // sidebar item, breadcrumb, card title
+  summary: string; // one sentence, shown on the home card
   icon: LucideIcon;
   status: "available" | "preview" | "soon";
 };
@@ -33,19 +33,19 @@ type AppModule = {
 
 ### Components (`components/layout/`)
 
-| Component | Where | Notes |
-|---|---|---|
-| `AppSidebar` | `app/layout.tsx` | Brand header linking to `/`, an "Início" item, then one item per module |
-| `PageTitle` | header in `app/layout.tsx` | `Moura AI / <label>`; just `Moura AI` on `/` and on routes that match no module |
-| `ThemeToggle` | header in `app/layout.tsx` | See `theming.md` |
+| Component     | Where                      | Notes                                                                           |
+| ------------- | -------------------------- | ------------------------------------------------------------------------------- |
+| `AppSidebar`  | `app/layout.tsx`           | Brand header linking to `/`, an "Início" item, then one item per module         |
+| `PageTitle`   | header in `app/layout.tsx` | `Moura AI / <label>`; just `Moura AI` on `/` and on routes that match no module |
+| `ThemeToggle` | header in `app/layout.tsx` | See `theming.md`                                                                |
 
 ## Rules and behavior
 
-| `status` | Sidebar badge | Home card badge | Home card icon | Home card call to action |
-|---|---|---|---|---|
-| `available` | none | `Disponível` (secondary) | brand tint | `Abrir` |
-| `preview` | `Prévia` | `Prévia` (secondary) | brand tint | `Abrir` |
-| `soon` | `Em breve` | `Em breve` (outline) | muted | `Ver detalhes` |
+| `status`    | Sidebar badge | Home card badge          | Home card icon | Home card call to action |
+| ----------- | ------------- | ------------------------ | -------------- | ------------------------ |
+| `available` | none          | `Disponível` (secondary) | brand tint     | `Abrir`                  |
+| `preview`   | `Prévia`      | `Prévia` (secondary)     | brand tint     | `Abrir`                  |
+| `soon`      | `Em breve`    | `Em breve` (outline)     | muted          | `Ver detalhes`           |
 
 - Active sidebar item: `pathname.startsWith(href)` for modules, exact match for "Início".
 - With the sidebar collapsed to icons, labels become tooltips, and status badges and the footer are hidden.

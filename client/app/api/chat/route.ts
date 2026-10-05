@@ -46,7 +46,10 @@ Regras:
 export async function POST(req: Request) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
-    return Response.json({ error: "ANTHROPIC_API_KEY is not configured" }, { status: 500 });
+    return Response.json(
+      { error: "ANTHROPIC_API_KEY is not configured" },
+      { status: 500 },
+    );
   }
 
   const { messages, templateId, schema }: ChatRequest = await req.json();
@@ -74,7 +77,8 @@ export async function POST(req: Request) {
   return createUIMessageStreamResponse({
     stream: toUIMessageStream({
       stream: result.stream,
-      onError: (error) => (error instanceof Error ? error.message : String(error)),
+      onError: (error) =>
+        error instanceof Error ? error.message : String(error),
     }),
   });
 }

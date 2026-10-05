@@ -41,7 +41,9 @@ export default function DocumentosPage() {
   useEffect(() => {
     loadTemplateIndex()
       .then(setTemplates)
-      .catch(() => setLoadError("Não foi possível carregar a lista de modelos."));
+      .catch(() =>
+        setLoadError("Não foi possível carregar a lista de modelos."),
+      );
   }, []);
 
   useEffect(() => {
@@ -52,7 +54,10 @@ export default function DocumentosPage() {
         if (!cancelled) setSchema(loaded);
       })
       .catch(() => {
-        if (!cancelled) setLoadError(`Não foi possível carregar os campos de "${template.nome}".`);
+        if (!cancelled)
+          setLoadError(
+            `Não foi possível carregar os campos de "${template.nome}".`,
+          );
       });
     return () => {
       cancelled = true;
@@ -70,16 +75,29 @@ export default function DocumentosPage() {
 
   const handleToolResult = useCallback(
     (toolName: string, output: unknown) => {
-      if (toolName !== FILL_TOOL || !schema || !output || typeof output !== "object") return;
+      if (
+        toolName !== FILL_TOOL ||
+        !schema ||
+        !output ||
+        typeof output !== "object"
+      )
+        return;
       const known = new Set(schema.campos.map((field) => field.nome));
-      const extracted = Object.entries(output as Record<string, unknown>).filter(
+      const extracted = Object.entries(
+        output as Record<string, unknown>,
+      ).filter(
         ([name, value]) =>
           known.has(name) &&
-          (typeof value === "string" || typeof value === "number" || typeof value === "boolean") &&
+          (typeof value === "string" ||
+            typeof value === "number" ||
+            typeof value === "boolean") &&
           !isEmptyValue(value),
       ) as [string, FieldValue][];
       if (extracted.length === 0) return;
-      setValues((current) => ({ ...current, ...Object.fromEntries(extracted) }));
+      setValues((current) => ({
+        ...current,
+        ...Object.fromEntries(extracted),
+      }));
       setProblems([]);
     },
     [schema],
@@ -90,7 +108,10 @@ export default function DocumentosPage() {
     (field) => field.tipo === "boolean" || !isEmptyValue(values[field.nome]),
   ).length;
 
-  const chatBody = useMemo(() => ({ templateId: selectedId, schema }), [selectedId, schema]);
+  const chatBody = useMemo(
+    () => ({ templateId: selectedId, schema }),
+    [selectedId, schema],
+  );
 
   function updateField(name: string, value: FieldValue | undefined) {
     setValues((current) => ({ ...current, [name]: value }));
@@ -104,11 +125,15 @@ export default function DocumentosPage() {
     );
     const result = schemaToZod(schema, "document").safeParse(cleaned);
     if (!result.success) {
-      const labels = new Map(schema.campos.map((field) => [field.nome, field.descricao]));
+      const labels = new Map(
+        schema.campos.map((field) => [field.nome, field.descricao]),
+      );
       const messages = result.error.issues.map((issue) => {
         const name = String(issue.path[0]);
         const label = labels.get(name) ?? name;
-        return cleaned[name] === undefined ? `${label}: obrigatório` : `${label}: ${issue.message}`;
+        return cleaned[name] === undefined
+          ? `${label}: obrigatório`
+          : `${label}: ${issue.message}`;
       });
       setProblems([...new Set(messages)]);
       return;
@@ -120,7 +145,9 @@ export default function DocumentosPage() {
       await renderDocx(template, cleaned);
     } catch (error) {
       console.error("Failed to render document", error);
-      setProblems(["Falha ao gerar o documento. Verifique se as tags do modelo estão corretas."]);
+      setProblems([
+        "Falha ao gerar o documento. Verifique se as tags do modelo estão corretas.",
+      ]);
     } finally {
       setGenerating(false);
     }
@@ -132,7 +159,8 @@ export default function DocumentosPage() {
         <div>
           <h1 className="text-xl font-semibold tracking-tight">Documentos</h1>
           <p className="text-sm text-muted-foreground">
-            Escolha um modelo, converse com o assistente e gere o documento com o layout original.
+            Escolha um modelo, converse com o assistente e gere o documento com
+            o layout original.
           </p>
         </div>
         {template && (
@@ -155,7 +183,9 @@ export default function DocumentosPage() {
 
       {!template ? (
         <div className="flex flex-1 flex-col gap-3">
-          <p className="text-sm font-medium">Qual documento você precisa preencher?</p>
+          <p className="text-sm font-medium">
+            Qual documento você precisa preencher?
+          </p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {templates.map((entry) => (
               <button
@@ -169,14 +199,16 @@ export default function DocumentosPage() {
                 </div>
                 <div className="min-w-0">
                   <p className="truncate text-sm font-medium">{entry.nome}</p>
-                  <p className="text-xs text-muted-foreground">Modelo .{entry.tipo}</p>
+                  <p className="text-xs text-muted-foreground">
+                    Modelo .{entry.tipo}
+                  </p>
                 </div>
               </button>
             ))}
           </div>
           <p className="text-xs text-muted-foreground">
-            Os modelos oficiais dos anexos ainda serão adicionados. Por enquanto há apenas um
-            formulário de exemplo.
+            Os modelos oficiais dos anexos ainda serão adicionados. Por enquanto
+            há apenas um formulário de exemplo.
           </p>
         </div>
       ) : !schema ? (
@@ -210,7 +242,11 @@ export default function DocumentosPage() {
                 </span>
               </div>
               <Progress
-                value={required.length ? (filledRequired / required.length) * 100 : 100}
+                value={
+                  required.length
+                    ? (filledRequired / required.length) * 100
+                    : 100
+                }
                 aria-label="Campos obrigatórios preenchidos"
               />
             </div>
@@ -234,7 +270,11 @@ export default function DocumentosPage() {
                 </div>
               )}
               <Button onClick={generate} disabled={generating} size="lg">
-                {generating ? <Loader2 className="animate-spin" /> : <FileDown />}
+                {generating ? (
+                  <Loader2 className="animate-spin" />
+                ) : (
+                  <FileDown />
+                )}
                 Gerar documento
               </Button>
             </div>

@@ -13,11 +13,11 @@ Invariants:
 
 ## Surface
 
-| Piece | Location | Role |
-|---|---|---|
-| `ThemeProvider` (from `next-themes`) | `app/layout.tsx` | `attribute="class"`, `defaultTheme="system"`, `enableSystem`, `disableTransitionOnChange` |
-| `ThemeToggle` | `components/layout/theme-toggle.tsx` | Icon-only dropdown at the right end of the top header (`app/layout.tsx`) |
-| `@custom-variant dark` | `app/globals.css` | Makes Tailwind `dark:` utilities match descendants of `.dark` |
+| Piece                                | Location                             | Role                                                                                      |
+| ------------------------------------ | ------------------------------------ | ----------------------------------------------------------------------------------------- |
+| `ThemeProvider` (from `next-themes`) | `app/layout.tsx`                     | `attribute="class"`, `defaultTheme="system"`, `enableSystem`, `disableTransitionOnChange` |
+| `ThemeToggle`                        | `components/layout/theme-toggle.tsx` | Icon-only dropdown at the right end of the top header (`app/layout.tsx`)                  |
+| `@custom-variant dark`               | `app/globals.css`                    | Makes Tailwind `dark:` utilities match descendants of `.dark`                             |
 
 ## Rules and behavior
 
@@ -25,12 +25,12 @@ Invariants:
 
 Brand color is an ember red used for `primary`, `ring`, `sidebar-primary` and, as a light tint, `accent` / `sidebar-accent` (hover and active states). Neutrals carry a slight warm hue (oklch hue 40–60, chroma ≤ 0.015) instead of pure gray.
 
-| Token | Light | Dark | Used for |
-|---|---|---|---|
-| `primary` | `oklch(0.55 0.2 32)` | `oklch(0.68 0.18 36)` | buttons, user chat bubbles, brand mark, links on the home page |
-| `accent` | `oklch(0.95 0.025 35)` | `oklch(0.27 0.04 32)` | hover backgrounds of cards, chips and menu items |
-| `success` | `oklch(0.58 0.13 155)` | `oklch(0.72 0.14 155)` | "filled" checks in the fields panel and confirmed tool calls in the chat |
-| `destructive` | shadcn default | shadcn default | validation errors |
+| Token         | Light                  | Dark                   | Used for                                                                 |
+| ------------- | ---------------------- | ---------------------- | ------------------------------------------------------------------------ |
+| `primary`     | `oklch(0.55 0.2 32)`   | `oklch(0.68 0.18 36)`  | buttons, user chat bubbles, brand mark, links on the home page           |
+| `accent`      | `oklch(0.95 0.025 35)` | `oklch(0.27 0.04 32)`  | hover backgrounds of cards, chips and menu items                         |
+| `success`     | `oklch(0.58 0.13 155)` | `oklch(0.72 0.14 155)` | "filled" checks in the fields panel and confirmed tool calls in the chat |
+| `destructive` | shadcn default         | shadcn default         | validation errors                                                        |
 
 `success` is not a shadcn default: it is declared in `:root` / `.dark` and mapped to `--color-success` in `@theme inline`, so `text-success`, `bg-success/5`, `border-success/30` work like any other token. The `chart-*` tokens are left at the shadcn grayscale defaults (no charts exist).
 
@@ -42,10 +42,10 @@ Brand color is an ember red used for `primary`, `ring`, `sidebar-primary` and, a
 
 The trigger is a ghost icon button (`aria-label="Alterar tema"`) showing the **resolved** theme: `Sun` when light, `Moon` when dark. With `system`, it shows whichever the OS currently resolves to. The menu opens aligned to the right edge and offers a radio group with the stored choice checked:
 
-| Item | Value | Icon |
-|---|---|---|
-| Claro | `light` | `Sun` |
-| Escuro | `dark` | `Moon` |
+| Item    | Value    | Icon      |
+| ------- | -------- | --------- |
+| Claro   | `light`  | `Sun`     |
+| Escuro  | `dark`   | `Moon`    |
 | Sistema | `system` | `Monitor` |
 
 - The choice is stored in `localStorage` under the key `theme` (per browser, not per user).

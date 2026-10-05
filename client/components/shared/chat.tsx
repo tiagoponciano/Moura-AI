@@ -2,8 +2,21 @@
 
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport, getToolName, isToolUIPart } from "ai";
-import { Bot, CircleCheck, Loader2, RotateCcw, SendHorizontal } from "lucide-react";
-import { useEffect, useMemo, useRef, useState, type FormEvent, type KeyboardEvent } from "react";
+import {
+  Bot,
+  CircleCheck,
+  Loader2,
+  RotateCcw,
+  SendHorizontal,
+} from "lucide-react";
+import {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type FormEvent,
+  type KeyboardEvent,
+} from "react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
@@ -25,8 +38,13 @@ export function Chat({
   emptyState = "Comece a conversa descrevendo o que você precisa.",
   suggestions = [],
 }: ChatProps) {
-  const transport = useMemo(() => new DefaultChatTransport({ api: endpoint }), [endpoint]);
-  const { messages, sendMessage, setMessages, stop, status, error } = useChat({ transport });
+  const transport = useMemo(
+    () => new DefaultChatTransport({ api: endpoint }),
+    [endpoint],
+  );
+  const { messages, sendMessage, setMessages, stop, status, error } = useChat({
+    transport,
+  });
   const [input, setInput] = useState("");
   const processedToolCalls = useRef(new Set<string>());
   const bottomRef = useRef<HTMLDivElement>(null);
@@ -61,7 +79,11 @@ export function Chat({
   }
 
   function handleKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
-    if (event.key === "Enter" && !event.shiftKey && !event.nativeEvent.isComposing) {
+    if (
+      event.key === "Enter" &&
+      !event.shiftKey &&
+      !event.nativeEvent.isComposing
+    ) {
       event.preventDefault();
       submit();
     }
@@ -82,7 +104,12 @@ export function Chat({
           </div>
           <span className="text-sm font-medium">Assistente</span>
         </div>
-        <Button variant="ghost" size="sm" onClick={clear} disabled={messages.length === 0}>
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={clear}
+          disabled={messages.length === 0}
+        >
           <RotateCcw />
           Nova conversa
         </Button>
@@ -115,7 +142,10 @@ export function Chat({
             {messages.map((message) => (
               <div
                 key={message.id}
-                className={cn("flex gap-2.5", message.role === "user" && "flex-row-reverse")}
+                className={cn(
+                  "flex gap-2.5",
+                  message.role === "user" && "flex-row-reverse",
+                )}
               >
                 {message.role !== "user" && (
                   <div className="mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
@@ -210,7 +240,12 @@ export function Chat({
             rows={2}
             className="max-h-40 min-h-11 resize-none border-0 bg-transparent shadow-none focus-visible:ring-0 dark:bg-transparent"
           />
-          <Button type="submit" size="icon" disabled={isBusy || !input.trim()} aria-label="Enviar">
+          <Button
+            type="submit"
+            size="icon"
+            disabled={isBusy || !input.trim()}
+            aria-label="Enviar"
+          >
             {isBusy ? <Loader2 className="animate-spin" /> : <SendHorizontal />}
           </Button>
         </div>

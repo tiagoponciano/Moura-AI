@@ -8,13 +8,15 @@ export default function Home() {
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-col gap-10 px-4 py-10 md:px-8 md:py-14">
       <section className="flex flex-col gap-3">
-        <span className="text-sm font-medium text-primary">Moura Soluções em Engenharia</span>
+        <span className="text-sm font-medium text-primary">
+          Moura Soluções em Engenharia
+        </span>
         <h1 className="max-w-2xl text-3xl font-semibold tracking-tight text-balance md:text-4xl">
           Menos tempo em tarefas repetitivas, mais tempo em engenharia.
         </h1>
         <p className="max-w-2xl text-muted-foreground text-pretty">
-          Assistentes para as rotinas dos projetos preventivos: preencher anexos do CBMSC,
-          classificar edificações e redesenhar plantas antigas.
+          Assistentes para as rotinas dos projetos preventivos: preencher anexos
+          do CBMSC, classificar edificações e redesenhar plantas antigas.
         </p>
       </section>
 
@@ -32,7 +34,9 @@ export default function Home() {
               <div
                 className={cn(
                   "flex size-10 items-center justify-center rounded-lg",
-                  status === "soon" ? "bg-muted text-muted-foreground" : "bg-primary/10 text-primary",
+                  status === "soon"
+                    ? "bg-muted text-muted-foreground"
+                    : "bg-primary/10 text-primary",
                 )}
               >
                 <Icon className="size-5" />
@@ -57,9 +61,18 @@ export default function Home() {
         <h2 className="font-medium">Como o preenchimento funciona</h2>
         <ol className="mt-4 grid gap-4 text-sm md:grid-cols-3">
           {[
-            ["Escolha o modelo", "Selecione o anexo do CBMSC que precisa preencher."],
-            ["Descreva o imóvel", "Converse com o assistente; ele extrai os dados para os campos."],
-            ["Revise e baixe", "Confira os campos e baixe o .docx com o layout original intacto."],
+            [
+              "Escolha o modelo",
+              "Selecione o anexo do CBMSC que precisa preencher.",
+            ],
+            [
+              "Descreva o imóvel",
+              "Converse com o assistente; ele extrai os dados para os campos.",
+            ],
+            [
+              "Revise e baixe",
+              "Confira os campos e baixe o .docx com o layout original intacto.",
+            ],
           ].map(([title, text], index) => (
             <li key={title} className="flex gap-3">
               <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">

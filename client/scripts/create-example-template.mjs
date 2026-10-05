@@ -16,15 +16,15 @@ import {
 
 const outputPath = join(
   dirname(fileURLToPath(import.meta.url)),
-  "../public/templates/bombeiro/exemplo.docx",
+  "../public/templates/cbmsc/example.docx",
 );
 
 const rows = [
-  ["Razão social", "{{razao_social}}"],
-  ["Endereço", "{{endereco}}"],
+  ["Razão social", "{{company_name}}"],
+  ["Endereço", "{{address}}"],
   ["Área (m²)", "{{area_m2}}"],
-  ["Ocupação", "{{ocupacao}}"],
-  ["Nº de pavimentos", "{{num_pavimentos}}"],
+  ["Ocupação", "{{occupancy}}"],
+  ["Nº de pavimentos", "{{floor_count}}"],
 ];
 
 const cell = (text, bold = false) =>
@@ -41,15 +41,20 @@ const doc = new Document({
           heading: HeadingLevel.HEADING_1,
           alignment: AlignmentType.CENTER,
           spacing: { after: 300 },
-          children: [new TextRun({ text: "FORMULÁRIO DE EXEMPLO – CBMSC", bold: true })],
+          children: [
+            new TextRun({ text: "FORMULÁRIO DE EXEMPLO – CBMSC", bold: true }),
+          ],
         }),
         new Table({
           width: { size: 100, type: WidthType.PERCENTAGE },
-          rows: rows.map(([label, tag]) => new TableRow({ children: [cell(label, true), cell(tag)] })),
+          rows: rows.map(
+            ([label, tag]) =>
+              new TableRow({ children: [cell(label, true), cell(tag)] }),
+          ),
         }),
         new Paragraph({
           spacing: { before: 400 },
-          children: [new TextRun("Florianópolis, {{data}}.")],
+          children: [new TextRun("Florianópolis, {{issue_date}}.")],
         }),
       ],
     },

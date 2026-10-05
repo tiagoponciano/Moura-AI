@@ -1,0 +1,5 @@
+# shadcn-generated primitives keep their upstream style
+components/ui/
+.next/
+node_modules/
+pnpm-lock.yaml

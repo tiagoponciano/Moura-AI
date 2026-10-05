@@ -13,20 +13,39 @@ Invariants:
 
 ## Surface
 
-| Piece | Location | Role |
-|---|---|---|
-| `ThemeProvider` (from `next-themes`) | `app/layout.tsx` | `attribute="class"`, `defaultTheme="system"`, `enableSystem`, `disableTransitionOnChange` |
-| `ThemeToggle` | `components/theme-toggle.tsx` | Icon-only dropdown at the right end of the top header (`app/layout.tsx`) |
-| `@custom-variant dark` | `app/globals.css` | Makes Tailwind `dark:` utilities match descendants of `.dark` |
+| Piece                                | Location                             | Role                                                                                      |
+| ------------------------------------ | ------------------------------------ | ----------------------------------------------------------------------------------------- |
+| `ThemeProvider` (from `next-themes`) | `app/layout.tsx`                     | `attribute="class"`, `defaultTheme="system"`, `enableSystem`, `disableTransitionOnChange` |
+| `ThemeToggle`                        | `components/layout/theme-toggle.tsx` | Icon-only dropdown at the right end of the top header (`app/layout.tsx`)                  |
+| `@custom-variant dark`               | `app/globals.css`                    | Makes Tailwind `dark:` utilities match descendants of `.dark`                             |
 
 ## Rules and behavior
 
+### Palette
+
+Colors come from the Moura logo (`public/brand/moura-logo.png`): the flame's red (light mode) and orange (dark mode) drive `primary`, `ring`, `sidebar-primary` and, as a light tint, `accent` / `sidebar-accent` (hover and active states). Neutrals follow the logo's graphite gear: near-neutral grays (chroma ≤ 0.004).
+
+| Token         | Light                  | Dark                   | Used for                                                                 |
+| ------------- | ---------------------- | ---------------------- | ------------------------------------------------------------------------ |
+| `primary`     | `oklch(0.57 0.21 33)`  | `oklch(0.7 0.17 45)`   | buttons, user chat bubbles, links on the home page                       |
+| `accent`      | `oklch(0.96 0.025 45)` | `oklch(0.28 0.04 45)`  | hover backgrounds of cards, chips and menu items                         |
+| `success`     | `oklch(0.58 0.13 155)` | `oklch(0.72 0.14 155)` | "filled" checks in the fields panel and confirmed tool calls in the chat |
+| `destructive` | shadcn default         | shadcn default         | validation errors                                                        |
+
+`success` is not a shadcn default: it is declared in `:root` / `.dark` and mapped to `--color-success` in `@theme inline`, so `text-success`, `bg-success/5`, `border-success/30` work like any other token. The `chart-*` tokens are left at the shadcn grayscale defaults (no charts exist).
+
+### Typography
+
+`next/font` loads IBM Plex Sans (400, 500, 600, 700) into `--font-plex-sans` and IBM Plex Mono (400, 500) into `--font-plex-mono` on `<html>`; `@theme inline` maps `--font-sans` and `--font-mono` to them. `--font-heading` follows `--font-sans`. Plex is not a variable font, so a weight outside that list (e.g. `font-light`) falls back to the nearest loaded one.
+
+### Theme selection
+
 The trigger is a ghost icon button (`aria-label="Alterar tema"`) showing the **resolved** theme: `Sun` when light, `Moon` when dark. With `system`, it shows whichever the OS currently resolves to. The menu opens aligned to the right edge and offers a radio group with the stored choice checked:
 
-| Item | Value | Icon |
-|---|---|---|
-| Claro | `light` | `Sun` |
-| Escuro | `dark` | `Moon` |
+| Item    | Value    | Icon      |
+| ------- | -------- | --------- |
+| Claro   | `light`  | `Sun`     |
+| Escuro  | `dark`   | `Moon`    |
 | Sistema | `system` | `Monitor` |
 
 - The choice is stored in `localStorage` under the key `theme` (per browser, not per user).
@@ -42,4 +61,6 @@ The trigger is a ghost icon button (`aria-label="Alterar tema"`) showing the **r
 
 - **Hydration warning on `<html>`** → the `class` attribute differs between server and client because the theme script runs first. → `suppressHydrationWarning` on `<html>` is intentional; do not remove it.
 - **Theme-dependent UI shows the wrong state on load** → `useTheme()` returns `undefined` during SSR. → Prefer swapping with the `dark:` variant in CSS, as the trigger icons do (`dark:hidden` / `hidden dark:block`). Reading `theme` in render is safe only inside content that mounts on the client, like the open dropdown menu.
+- **Text renders in a serif font** → `--font-sans` in `@theme inline` points at itself or at an undefined variable, so the browser falls back to its default. → It must be `var(--font-plex-sans)`, the variable `next/font` sets in `app/layout.tsx`.
+- **New utility classes have no effect in `next dev`** → the dev server's Tailwind output went stale after a branch switch or a large move of files. → Restart `pnpm run dev`; `pnpm run build` always regenerates it.
 - **A new component stays light in dark mode** → it uses a hardcoded color. → Replace it with the matching token, or add an explicit `dark:` variant.

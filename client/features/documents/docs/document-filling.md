@@ -10,7 +10,7 @@ Invariants:
 
 - The LLM never produces document content. Anything outside a `{{tag}}` in the `.docx` is copied byte-for-byte.
 - The template's `.schema.json` is the single source of truth for field names, types and requiredness — for the tool input, the panel, and pre-render validation.
-- Form state lives only in the `useDocumentFilling` hook. Nothing is persisted; reloading or switching templates discards it.
+- Form state lives only in the `useDocumentFilling` hook (`hooks/use-document-filling.ts`). Nothing is persisted; reloading or switching templates discards it.
 
 ## Surface
 
@@ -31,7 +31,7 @@ Invariants:
 
 No auth. The route trusts the `schema` sent by the client.
 
-### Library (`client/lib/documents/`)
+### Library (`client/features/documents/lib/`)
 
 | Export                | Signature                                           | Contract                                                                            |
 | --------------------- | --------------------------------------------------- | ----------------------------------------------------------------------------------- |
@@ -46,22 +46,27 @@ No auth. The route trusts the `schema` sent by the client.
 | `validateForDocument` | `(schema, values) => DocumentValidation`            | `{ ok: true, values }` with empty values dropped, or `{ ok: false, problems }`      |
 | `renderDocx`          | `(template, values) => Promise<void>`               | Fetches the `.docx`, renders, triggers download; throws on fetch or template errors |
 
-### Page composition (`client/app/documents/`)
+### Feature layout (`client/features/documents/`)
 
-`page.tsx` only renders `PageHeader` and `DocumentWorkspace`. Everything else lives in the route's private folders:
+`app/documents/page.tsx` renders `PageHeader` and `DocumentWorkspace` (imported from `@/features/documents`); `app/api/documents/chat/route.ts` declares `maxDuration = 60` and re-exports `handleDocumentsChat` (from `@/features/documents/server`) as `POST`. Everything else lives in the feature:
 
-| File                                  | Role                                                                                |
-| ------------------------------------- | ----------------------------------------------------------------------------------- |
-| `_hooks/use-document-filling.ts`      | All state and actions: template list, schema, values, problems, generation          |
-| `_components/document-workspace.tsx`  | Client entry point; switches between picker, loading state and chat + form panel    |
-| `_components/template-picker.tsx`     | Card grid shown while no template is selected                                       |
-| `_components/template-select.tsx`     | `Select` for switching templates once one is chosen                                 |
-| `_components/form-panel.tsx`          | Progress header, `FieldList`, `GenerationProblems` and the "Gerar documento" button |
-| `_components/field-list.tsx`          | Label, required mark, filled check and `{{tag}}` hint per field                     |
-| `_components/field-control.tsx`       | The input for one field, chosen by `type`                                           |
-| `_components/generation-problems.tsx` | "Corrija antes de gerar" list; renders nothing when empty                           |
+| File                                 | Role                                                                                |
+| ------------------------------------ | ----------------------------------------------------------------------------------- |
+| `index.ts`                           | Public client entry: exports `DocumentWorkspace` only                               |
+| `server/index.ts`                    | Public server entry: exports `handleDocumentsChat` only                             |
+| `server/chat-handler.ts`             | Validates the request, streams the model and defines the `fill_fields` tool         |
+| `server/instructions.ts`             | `buildInstructions(templateId, schema)`: the system prompt                          |
+| `hooks/use-document-filling.ts`      | All client state and actions: template list, schema, values, problems, generation   |
+| `components/document-workspace.tsx`  | Client entry point; switches between picker, loading state and chat + form panel    |
+| `components/template-picker.tsx`     | Card grid shown while no template is selected                                       |
+| `components/template-select.tsx`     | `Select` for switching templates once one is chosen                                 |
+| `components/form-panel.tsx`          | Progress header, `FieldList`, `GenerationProblems` and the "Gerar documento" button |
+| `components/field-list.tsx`          | Label, required mark, filled check and `{{tag}}` hint per field                     |
+| `components/field-control.tsx`       | The input for one field, chosen by `type`                                           |
+| `components/generation-problems.tsx` | "Corrija antes de gerar" list; renders nothing when empty                           |
+| `lib/`                               | Pure logic and data access listed above; no React                                   |
 
-The chat is the shared `Chat` (`components/shared/chat/chat.tsx`): props `endpoint`, `body?`, `onToolResult?(toolName, output)`, `placeholder?`, `emptyState?`, `suggestions?`. `body` is sent with every message; `onToolResult` fires once per tool call id when the part reaches `output-available`; `suggestions` render as chips in the empty state and clicking one sends it immediately.
+The chat is the shared `Chat` (`components/chat/chat.tsx`): props `endpoint`, `body?`, `onToolResult?(toolName, output)`, `placeholder?`, `emptyState?`, `suggestions?`. `body` is sent with every message; `onToolResult` fires once per tool call id when the part reaches `output-available`; `suggestions` render as chips in the empty state and clicking one sends it immediately.
 
 ## Data shapes
 

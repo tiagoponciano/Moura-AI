@@ -44,8 +44,8 @@ No auth. The route trusts the `schema` sent by the client.
 
 | Component | Props | Notes |
 |---|---|---|
-| `Chat` (`components/shared/chat.tsx`) | `endpoint`, `body?`, `onToolResult?(toolName, output)`, `placeholder?`, `emptyState?` | Module-agnostic. `body` is sent with every message. `onToolResult` fires once per tool call id when the part reaches `output-available` |
-| `FieldsPanel` (`app/documentos/_components/fields-panel.tsx`) | `fields`, `values`, `onChange(name, value)` | Controlled form; `onChange` receives `undefined` for cleared fields |
+| `Chat` (`components/shared/chat.tsx`) | `endpoint`, `body?`, `onToolResult?(toolName, output)`, `placeholder?`, `emptyState?`, `suggestions?` | Module-agnostic. `body` is sent with every message. `onToolResult` fires once per tool call id when the part reaches `output-available`. `suggestions` render as chips in the empty state; clicking one sends it as a message immediately |
+| `FieldsPanel` (`app/documentos/_components/fields-panel.tsx`) | `fields`, `values`, `onChange(name, value)`, `showMissing?` (default `false`) | Controlled form; `onChange` receives `undefined` for cleared fields. Missing required fields are flagged (`aria-invalid`) only when `showMissing` is true |
 
 ## Data shapes
 
@@ -111,12 +111,16 @@ Every field is `.optional()` in `extraction`. In `document`, only fields with `o
 
 ### Fields panel
 
-| `tipo` | Control | Empty highlight |
-|---|---|---|
-| `string` | auto-growing `Textarea` (newlines become line breaks in the `.docx`) | required and empty/whitespace |
-| `number` | `Input type="number"`; unparsable or empty → `undefined` | required and empty |
-| `date` | `Input` text, placeholder `DD/MM/AAAA`; not validated while typing | required and empty |
-| `boolean` | `Switch` | never (a boolean always has a value) |
+| `tipo` | Control | Missing highlight (after a generate attempt) | Filled check |
+|---|---|---|---|
+| `string` | auto-growing `Textarea` (newlines become line breaks in the `.docx`) | required and empty/whitespace | non-empty |
+| `number` | `Input type="number"`; unparsable or empty → `undefined` | required and empty | has a number |
+| `date` | `Input` text, placeholder `DD/MM/AAAA`; not validated while typing | required and empty | non-empty (format not checked) |
+| `boolean` | `Switch` | never (a boolean always has a value) | never |
+
+The page passes `showMissing` once "Gerar documento" has been clicked for the current template, so a fresh form shows no red borders. Selecting another template resets it.
+
+The panel header shows `<filled>/<total> obrigatórios` and a progress bar. A required field counts as filled when it is a `boolean` (always) or its value is not empty — the same emptiness rule as the highlight, not full validation: a malformed date still counts as filled. With no required fields the bar is full.
 
 ### "Gerar documento"
 
@@ -128,7 +132,9 @@ Every field is `.optional()` in `extraction`. In `document`, only fields with `o
 
 ### Template lifecycle in the page
 
-Selecting a template resets values, problems and the schema, then loads the new schema. The `Chat` is keyed by template id, so switching templates starts an empty conversation. "Limpar conversa" clears only the chat, not the fields.
+With no template selected, the page lists every `index.json` entry as a card; clicking one selects it. Once a template is selected, the cards are replaced by the chat and panel, and switching templates is done through the `Select` in the page header.
+
+Selecting a template resets values, problems, the generate-attempt flag and the schema, then loads the new schema. The `Chat` is keyed by template id, so switching templates starts an empty conversation. "Nova conversa" clears only the chat, not the fields.
 
 ## What this does NOT do
 

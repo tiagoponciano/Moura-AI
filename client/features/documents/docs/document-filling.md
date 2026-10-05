@@ -61,12 +61,12 @@ No auth. The route trusts the `schema` sent by the client.
 | `components/template-picker.tsx`     | Card grid shown while no template is selected                                       |
 | `components/template-select.tsx`     | `Select` for switching templates once one is chosen                                 |
 | `components/form-panel.tsx`          | Progress header, `FieldList`, `GenerationProblems` and the "Gerar documento" button |
-| `components/field-list.tsx`          | Label, required mark, filled check and `{{tag}}` hint per field                     |
+| `components/field-list.tsx`          | Label, required mark, filled check; `{{tag}}` shown on label hover                  |
 | `components/field-control.tsx`       | The input for one field, chosen by `type`                                           |
 | `components/generation-problems.tsx` | "Corrija antes de gerar" list; renders nothing when empty                           |
 | `lib/`                               | Pure logic and data access listed above; no React                                   |
 
-The chat is the shared `Chat` (`components/chat/chat.tsx`): props `endpoint`, `body?`, `onToolResult?(toolName, output)`, `placeholder?`, `emptyState?`, `suggestions?`. `body` is sent with every message; `onToolResult` fires once per tool call id when the part reaches `output-available`; `suggestions` render as chips in the empty state and clicking one sends it immediately.
+The chat is the shared `Chat` (`components/chat/chat.tsx`): props `endpoint`, `body?`, `onToolResult?(toolName, output)`, `placeholder?`, `emptyState?`. `body` is sent with every message; `onToolResult` fires once per tool call id when the part reaches `output-available`; the empty state shows only the avatar and `emptyState`, and the `placeholder` carries the example message.
 
 ## Data shapes
 

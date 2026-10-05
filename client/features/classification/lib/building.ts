@@ -1,3 +1,6 @@
+/** Name of the LLM tool that records the answers to the key questions. */
+export const RECORD_BUILDING_TOOL = "record_building";
+
 export const OCCUPANCIES = [
   { id: "residential", label: "Residencial" },
   { id: "lodging", label: "Hospedagem" },

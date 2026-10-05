@@ -11,6 +11,7 @@ type FieldsPanelProps = {
   fields: TemplateField[];
   values: FieldValues;
   onChange: (name: string, value: FieldValue | undefined) => void;
+  showMissing?: boolean;
 };
 
 export function isEmptyValue(value: FieldValue | undefined): boolean {
@@ -23,20 +24,23 @@ function parseNumber(raw: string): number | undefined {
   return Number.isFinite(parsed) ? parsed : undefined;
 }
 
-export function FieldsPanel({ fields, values, onChange }: FieldsPanelProps) {
+export function FieldsPanel({ fields, values, onChange, showMissing = false }: FieldsPanelProps) {
   return (
     <div className="flex flex-col gap-4">
       {fields.map((field) => {
         const value = values[field.nome];
-        const missing = Boolean(field.obrigatorio) && field.tipo !== "boolean" && isEmptyValue(value);
+        const missing =
+          showMissing && Boolean(field.obrigatorio) && field.tipo !== "boolean" && isEmptyValue(value);
         const filled = field.tipo !== "boolean" && !isEmptyValue(value);
         const id = `field-${field.nome}`;
 
         return (
           <div key={field.nome} className="flex flex-col gap-1.5">
             <Label htmlFor={id} className="flex items-start gap-1 leading-snug">
-              <span>{field.descricao}</span>
-              {field.obrigatorio && <span className="text-destructive">*</span>}
+              <span>
+                {field.descricao}
+                {field.obrigatorio && <span className="ml-0.5 text-destructive">*</span>}
+              </span>
               {filled && (
                 <CircleCheck className="mt-px ml-auto size-3.5 shrink-0 text-success" aria-label="Preenchido" />
               )}

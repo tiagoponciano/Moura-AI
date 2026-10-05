@@ -34,6 +34,7 @@ export default function DocumentosPage() {
   const [problems, setProblems] = useState<string[]>([]);
   const [loadError, setLoadError] = useState<string>();
   const [generating, setGenerating] = useState(false);
+  const [attempted, setAttempted] = useState(false);
 
   const template = templates.find((entry) => entry.id === selectedId);
 
@@ -63,6 +64,7 @@ export default function DocumentosPage() {
     setSchema(undefined);
     setValues({});
     setProblems([]);
+    setAttempted(false);
     setLoadError(undefined);
   }
 
@@ -96,6 +98,7 @@ export default function DocumentosPage() {
 
   async function generate() {
     if (!template || !schema) return;
+    setAttempted(true);
     const cleaned = Object.fromEntries(
       Object.entries(values).filter(([, value]) => !isEmptyValue(value)),
     );
@@ -212,7 +215,12 @@ export default function DocumentosPage() {
               />
             </div>
             <div className="min-h-0 flex-1 overflow-y-auto p-4">
-              <FieldsPanel fields={schema.campos} values={values} onChange={updateField} />
+              <FieldsPanel
+                fields={schema.campos}
+                values={values}
+                onChange={updateField}
+                showMissing={attempted}
+              />
             </div>
             <div className="flex flex-col gap-2 border-t p-4">
               {problems.length > 0 && (

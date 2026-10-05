@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "pnpm --filter client dev",
     "build": "pnpm --filter client build",
-    "lint": "pnpm --filter client lint"
+    "lint": "pnpm --filter client lint",
+    "test": "pnpm --filter client test"
   },
   "packageManager": "pnpm@10.33.0"
 }

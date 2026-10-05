@@ -42,13 +42,21 @@ export function requiredProgress(
 export type DocumentValidation =
   { ok: true; values: FieldValues } | { ok: false; problems: string[] };
 
-/** Drops empty values and validates the rest against the schema's `document` rules. */
+/** Drops empty values, defaults unset booleans to false, and validates against the schema's `document` rules. */
 export function validateForDocument(
   schema: TemplateSchema,
   values: FieldValues,
 ): DocumentValidation {
+  // An untouched switch shows "Não", so an unset boolean means false.
+  const booleanDefaults = Object.fromEntries(
+    schema.fields
+      .filter((field) => field.type === "boolean")
+      .map((field) => [field.name, false]),
+  );
   const cleaned = Object.fromEntries(
-    Object.entries(values).filter(([, value]) => !isEmptyValue(value)),
+    Object.entries({ ...booleanDefaults, ...values }).filter(
+      ([, value]) => !isEmptyValue(value),
+    ),
   );
   const result = schemaToZod(schema, "document").safeParse(cleaned);
   if (result.success) return { ok: true, values: cleaned };

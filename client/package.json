@@ -9,7 +9,9 @@
     "lint": "eslint",
     "create-template": "node scripts/create-example-template.mjs",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^4.0.71",
@@ -41,7 +43,8 @@
     "eslint-config-next": "16.3.8",
     "prettier": "^3.9.9",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^5.0.3"
   },
   "packageManager": "pnpm@10.33.0"
 }

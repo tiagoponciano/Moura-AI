@@ -33,18 +33,18 @@ No auth. The route trusts the `schema` sent by the client.
 
 ### Library (`client/features/documents/lib/`)
 
-| Export                | Signature                                           | Contract                                                                            |
-| --------------------- | --------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `FILL_FIELDS_TOOL`    | `"fill_fields"`                                     | Tool name shared by the route and the hook                                          |
-| `loadTemplateIndex`   | `() => Promise<TemplateEntry[]>`                    | Fetches `/templates/index.json`, `cache: "no-store"`; throws on non-2xx             |
-| `loadTemplateSchema`  | `(template) => Promise<TemplateSchema>`             | Fetches `template.schema`; throws on non-2xx                                        |
-| `schemaToZod`         | `(schema, "extraction" \| "document") => ZodObject` | See rules below                                                                     |
-| `DATE_PATTERN`        | `RegExp`                                            | `^\d{2}\/\d{2}\/\d{4}$`                                                             |
-| `isEmptyValue`        | `(value) => boolean`                                | `undefined`, or a string that is empty after trimming                               |
-| `pickExtractedValues` | `(schema, output) => FieldValues`                   | Filters a tool output down to schema fields with non-empty scalar values            |
-| `requiredProgress`    | `(schema, values) => { filled, total }`             | Counts required fields considered filled                                            |
-| `validateForDocument` | `(schema, values) => DocumentValidation`            | `{ ok: true, values }` with empty values dropped, or `{ ok: false, problems }`      |
-| `renderDocx`          | `(template, values) => Promise<void>`               | Fetches the `.docx`, renders, triggers download; throws on fetch or template errors |
+| Export                | Signature                                           | Contract                                                                                                     |
+| --------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `FILL_FIELDS_TOOL`    | `"fill_fields"`                                     | Tool name shared by the route and the hook                                                                   |
+| `loadTemplateIndex`   | `() => Promise<TemplateEntry[]>`                    | Fetches `/templates/index.json`, `cache: "no-store"`; throws on non-2xx                                      |
+| `loadTemplateSchema`  | `(template) => Promise<TemplateSchema>`             | Fetches `template.schema`; throws on non-2xx                                                                 |
+| `schemaToZod`         | `(schema, "extraction" \| "document") => ZodObject` | See rules below                                                                                              |
+| `DATE_PATTERN`        | `RegExp`                                            | `^\d{2}\/\d{2}\/\d{4}$`                                                                                      |
+| `isEmptyValue`        | `(value) => boolean`                                | `undefined`, or a string that is empty after trimming                                                        |
+| `pickExtractedValues` | `(schema, output) => FieldValues`                   | Filters a tool output down to schema fields with non-empty scalar values                                     |
+| `requiredProgress`    | `(schema, values) => { filled, total }`             | Counts required fields considered filled                                                                     |
+| `validateForDocument` | `(schema, values) => DocumentValidation`            | `{ ok: true, values }` with empty values dropped and unset booleans as `false`, or `{ ok: false, problems }` |
+| `renderDocx`          | `(template, values) => Promise<void>`               | Fetches the `.docx`, renders, triggers download; throws on fetch or template errors                          |
 
 ### Feature layout (`client/features/documents/`)
 
@@ -147,7 +147,7 @@ The panel header shows `<filled>/<total> obrigatórios` and a progress bar (`req
 
 ### "Gerar documento"
 
-1. `validateForDocument`: drop empty values, validate with `schemaToZod(schema, "document")`.
+1. `validateForDocument`: set every `boolean` field the user never toggled to `false` (the switch already shows "Não"), drop empty values, validate with `schemaToZod(schema, "document")`. A required boolean therefore never fails as missing.
 2. On failure, list one line per field: `<description>: obrigatório` when the value is missing, otherwise `<description>: <zod message>` (e.g. `Use o formato DD/MM/AAAA`). Duplicates are removed. Nothing is rendered.
 3. On success, `renderDocx`: fetch template → `PizZip` → `Docxtemplater` with `{{`/`}}` delimiters, `paragraphLoop: true`, `linebreaks: true`, `nullGetter: () => ""` and a parser that trims tag names → `render(data)` → Blob → `saveAs`.
 4. Values are formatted before rendering: booleans → `Sim`/`Não`, numbers → `toLocaleString("pt-BR")` (`1234.5` → `1.234,5`), strings as-is.

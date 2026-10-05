@@ -36,7 +36,7 @@ export const MODULES: AppModule[] = [
     summary:
       "Classifica a edificação e indica quais sistemas preventivos ela precisa ter.",
     icon: Layers,
-    status: "soon",
+    status: "preview",
   },
   {
     href: "/floor-plans",

@@ -13,43 +13,55 @@ Core principle of Documentos: **the LLM never writes the document.** It only ext
 ## Architecture
 
 - pnpm workspace; all app code lives in `client/` (Next.js App Router, TypeScript, Tailwind, shadcn/ui).
-- No separate backend and no database. The only server-side code is the route handler `client/app/api/documents/chat/route.ts`, which holds the LLM key and streams the chat (Vercel AI SDK + Anthropic).
+- No separate backend and no database. The only server-side code is the documents chat (`client/features/documents/server/`, exposed at `/api/documents/chat`), which holds the LLM key and streams the chat (Vercel AI SDK + Anthropic).
 - Documents are rendered in the browser with `docxtemplater` + `pizzip` and downloaded with `file-saver`.
 - Code, identifiers, routes, file names and docs are in English; UI copy and field labels are in Portuguese.
 
-Feature details: [`document-filling.md`](client/docs/document-filling.md), [`app-shell.md`](client/docs/app-shell.md), [`theming.md`](client/docs/theming.md).
+Feature details: [`document-filling.md`](client/features/documents/docs/document-filling.md). App-wide: [`app-shell.md`](client/docs/app-shell.md), [`theming.md`](client/docs/theming.md).
 
 ### Folder layout
 
+The client is organized by feature. `app/` only holds routing files; each module's code lives in `features/<name>/`.
+
 ```
 client/
-├── app/
-│   ├── _components/          # home page sections
+├── app/                          # routing only: page.tsx, layout.tsx, route.ts
+│   ├── page.tsx                  # home → @/features/home
+│   ├── documents/page.tsx        # → @/features/documents
+│   ├── classification/page.tsx   # → @/features/classification
+│   ├── floor-plans/page.tsx      # → @/features/floor-plans
+│   └── api/documents/chat/route.ts   # → @/features/documents/server
+├── features/
 │   ├── documents/
-│   │   ├── page.tsx          # composes components only
-│   │   ├── _components/      # components used only by this route
-│   │   └── _hooks/           # state of this route
-│   ├── classification/       # placeholder
-│   ├── floor-plans/          # placeholder
-│   └── api/documents/chat/   # LLM route for the documents module
+│   │   ├── index.ts              # public client entry
+│   │   ├── components/           # workspace, form panel, field list, template picker…
+│   │   ├── hooks/                # use-document-filling
+│   │   ├── lib/                  # templates, form value rules, schema → zod, .docx rendering
+│   │   ├── server/               # chat handler + prompt (public server entry: server/index.ts)
+│   │   └── docs/                 # feature documentation
+│   ├── home/                     # home page sections
+│   ├── classification/           # placeholder
+│   └── floor-plans/              # placeholder
 ├── components/
-│   ├── ui/                   # shadcn primitives (generated, not formatted by prettier)
-│   ├── layout/               # app shell: sidebar, breadcrumb, theme toggle
-│   └── shared/               # reused by modules: chat/, page header, coming soon
-├── lib/
-│   ├── modules.ts            # module registry (sidebar, breadcrumb, home)
-│   └── documents/            # templates, form value rules, schema → zod, .docx rendering
+│   ├── ui/                       # shadcn primitives (generated, not formatted by prettier)
+│   ├── layout/                   # app shell: sidebar, breadcrumb, theme toggle
+│   ├── chat/                     # generic assistant chat, reused by features
+│   └── shared/                   # page header, coming-soon placeholder
+├── lib/                          # app-wide only: utils, module registry
+├── hooks/                        # app-wide hooks (shadcn's use-mobile)
 ├── public/
-│   ├── brand/                # logo
-│   └── templates/            # .docx templates + schemas (see "Adding a new template")
-├── docs/                     # one document per feature
-└── scripts/                  # one-off generators
+│   ├── brand/                    # logo
+│   └── templates/                # .docx templates + schemas (see "Adding a new template")
+├── docs/                         # app-wide documentation
+└── scripts/                      # one-off generators
 ```
 
-Rules of thumb:
+Boundaries (enforced by `no-restricted-imports` in `client/eslint.config.mjs`, so `pnpm run lint` fails on a violation):
 
-- A route's `page.tsx` only imports and composes components. Markup lives in `app/<route>/_components/`, state in `app/<route>/_hooks/`, pure logic in `lib/<module>/`.
-- Code used by a single route stays in its private folders; it moves to `components/shared/` or `lib/` once a second route needs it.
+- `page.tsx` and `route.ts` contain no logic; they import a feature only through `@/features/<name>` or `@/features/<name>/server`.
+- A feature never imports another feature, and uses relative imports for its own files.
+- `components/`, `lib/` and `hooks/` never import features. Code needed by two features moves up there.
+- Route segment config (`maxDuration`, `runtime`…) stays in the `route.ts`/`page.tsx` file itself; Next only reads it from there.
 
 ## Running locally
 
@@ -65,7 +77,7 @@ Open <http://localhost:3000/documents>, pick "Exemplo – Formulário" and descr
 
 | Variable | Required | Description |
 |---|---|---|
-| `ANTHROPIC_API_KEY` | yes | Anthropic API key. Read only in `app/api/documents/chat/route.ts`; never prefix it with `NEXT_PUBLIC_`. |
+| `ANTHROPIC_API_KEY` | yes | Anthropic API key. Read only in `features/documents/server/chat-handler.ts`; never prefix it with `NEXT_PUBLIC_`. |
 | `LLM_MODEL` | no | Anthropic model id. Defaults to `claude-sonnet-4-6`. |
 
 Other scripts:

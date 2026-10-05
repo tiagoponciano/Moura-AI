@@ -2,7 +2,7 @@
 
 import { FileDown, FileText, Loader2 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Chat } from "@/components/shared/chat";
+import { Chat } from "@/components/shared/chat/chat";
 import { FieldsPanel, isEmptyValue } from "./_components/fields-panel";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
-import { AppSidebar } from "@/components/app-sidebar";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { AppSidebar } from "@/components/layout/app-sidebar";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 import {
   SidebarInset,
   SidebarProvider,

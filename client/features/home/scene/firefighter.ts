@@ -55,25 +55,38 @@ export function createFirefighter(m: SceneMaterials) {
   return body;
 }
 
+/** Distance covered by one step, in meters, so the feet do not slide. */
+export const STRIDE = 1.1;
+
+/**
+ * Sets the limbs for `pose`. `phase` advances by π per step: walked distance
+ * for "walk", rungs for "climb", time for "idle". Returns how much to lift
+ * the body this frame, so a walk rises over each step.
+ */
 export function poseFirefighter(
   body: THREE.Group,
   pose: FirefighterPose,
-  seconds: number,
-) {
+  phase: number,
+): number {
   const { legL, legR, armL, armR } = body.userData.limbs as Limbs;
-  const swing = Math.sin(seconds * 9);
   if (pose === "walk") {
+    const swing = Math.sin(phase);
     legL.rotation.x = swing * 0.55;
     legR.rotation.x = -swing * 0.55;
     armL.rotation.x = -swing * 0.45;
     armR.rotation.x = swing * 0.45;
-  } else if (pose === "climb") {
-    legL.rotation.x = -0.5 + swing * 0.45;
-    legR.rotation.x = -0.5 - swing * 0.45;
-    armL.rotation.x = -2.5 + swing * 0.4;
-    armR.rotation.x = -2.5 - swing * 0.4;
-  } else {
-    legL.rotation.x = legR.rotation.x = 0;
-    armL.rotation.x = armR.rotation.x = -0.6;
+    return Math.abs(Math.cos(phase)) * 0.06;
   }
+  if (pose === "climb") {
+    // At each rung one hand is high and the opposite foot is lifted.
+    const reach = Math.cos(phase);
+    legL.rotation.x = -0.5 + reach * 0.45;
+    legR.rotation.x = -0.5 - reach * 0.45;
+    armL.rotation.x = -2.5 - reach * 0.4;
+    armR.rotation.x = -2.5 + reach * 0.4;
+    return 0;
+  }
+  legL.rotation.x = legR.rotation.x = 0;
+  armL.rotation.x = armR.rotation.x = -0.6 + Math.sin(phase) * 0.04;
+  return 0;
 }

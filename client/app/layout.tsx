@@ -26,7 +26,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Moura AI",
+  title: "Moura Engenharia",
   description: "Plataforma interna da Moura Soluções em Engenharia",
 };
 

@@ -2,6 +2,11 @@
 
 import { CircleCheck } from "lucide-react";
 import { Label } from "@/components/ui/label";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { isEmptyValue } from "../lib/form-values";
 import type { FieldValue, FieldValues, TemplateField } from "../lib/templates";
 import { FieldControl } from "./field-control";
@@ -34,12 +39,19 @@ export function FieldList({
         return (
           <div key={field.name} className="flex flex-col gap-1.5">
             <Label htmlFor={id} className="flex items-start gap-1 leading-snug">
-              <span>
-                {field.description}
-                {field.required && (
-                  <span className="ml-0.5 text-destructive">*</span>
-                )}
-              </span>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <span>
+                    {field.description}
+                    {field.required && (
+                      <span className="ml-0.5 text-destructive">*</span>
+                    )}
+                  </span>
+                </TooltipTrigger>
+                <TooltipContent side="left" className="font-mono">
+                  {`{{${field.name}}}`}
+                </TooltipContent>
+              </Tooltip>
               {filled && (
                 <CircleCheck
                   className="mt-px ml-auto size-3.5 shrink-0 text-success"
@@ -54,7 +66,6 @@ export function FieldList({
               invalid={missing}
               onChange={(next) => onChange(field.name, next)}
             />
-            <span className="font-mono text-[11px] text-muted-foreground/70">{`{{${field.name}}}`}</span>
           </div>
         );
       })}

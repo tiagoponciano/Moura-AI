@@ -1,6 +1,5 @@
 "use client";
 
-import { useTheme } from "next-themes";
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import type { RescueScene, SceneFocus } from "../scene/create-rescue-scene";
@@ -20,16 +19,24 @@ export function BuildingScene({ focus, className }: BuildingSceneProps) {
   const focusRef = useRef(focus);
   const [generation, setGeneration] = useState(0);
   const [failed, setFailed] = useState(false);
-  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     focusRef.current = focus;
     sceneRef.current?.setFocus(focus);
   }, [focus]);
 
+  // next-themes sets the `dark` class in its own effect, which runs after this
+  // component's effects, so the scene follows the class itself, not resolvedTheme.
   useEffect(() => {
-    sceneRef.current?.refreshTheme();
-  }, [resolvedTheme]);
+    const observer = new MutationObserver(() =>
+      sceneRef.current?.refreshTheme(),
+    );
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (generation > MAX_RESTARTS) return;

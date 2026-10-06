@@ -41,15 +41,17 @@ type AppModule = {
 
 ## Rules and behavior
 
-| `status`    | Sidebar badge | Home card badge          | Home card icon | Home card call to action |
-| ----------- | ------------- | ------------------------ | -------------- | ------------------------ |
-| `available` | none          | `Disponível` (secondary) | brand tint     | `Abrir`                  |
-| `preview`   | `Prévia`      | `Prévia` (secondary)     | brand tint     | `Abrir`                  |
-| `soon`      | `Em breve`    | `Em breve` (outline)     | muted          | `Ver detalhes`           |
+| `status`    | Sidebar badge | Home card badge      | Home card icon                        |
+| ----------- | ------------- | -------------------- | ------------------------------------- |
+| `available` | none          | none                 | solid `primary` tile                  |
+| `preview`   | `Prévia`      | `Prévia` (secondary) | solid `primary` tile                  |
+| `soon`      | `Em breve`    | `Em breve` (outline) | `muted` tile, `muted-foreground` icon |
+
+Every home card is a link to its `href` with an arrow in the top-right corner; there is no call-to-action text.
 
 - Active sidebar item: `pathname.startsWith(href)` for modules, exact match for "Início".
 - With the sidebar collapsed to icons, labels become tooltips, and status badges and the footer are hidden.
-- `/` renders the home page: `app/page.tsx` composes `HomeHero`, `ModuleGrid` (one `ModuleCard` per module) and `HowItWorks`, imported from `@/features/home`. All are server components with no data fetching.
+- `/` renders `HomeShowcase` from `@/features/home`: the title, one card per module and the 3D rescue scene. See `features/home/docs/home-rescue-scene.md`.
 - The brand mark is `public/brand/moura-logo.png` (transparent PNG). In dark mode it sits on a light tile (`dark:bg-white/90`) because the graphite gear disappears on a dark background. `app/icon.png` (same logo, 512px) is the favicon.
 - The product is called "Moura Engenharia" (tab title, sidebar, breadcrumb). The chat assistant shared by the modules is called "Moura AI" and keeps the robot avatar.
 - `PageHeader` (`components/shared/page-header.tsx`) shows the page title; its `description` is not printed under it but shown in a tooltip on an info icon next to the title.

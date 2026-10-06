@@ -28,6 +28,7 @@ A feature is organized like `features/documents/`:
 | `hooks/`          | The feature's client state                                 |
 | `lib/`            | Pure logic and data access, no React; tests sit next to it |
 | `server/`         | Route handler logic and LLM prompts                        |
+| `scene/`          | Imperative three.js code, no React (only `home` has one)   |
 | `docs/`           | One document per behavior of this feature                  |
 
 ## 2. Module boundaries

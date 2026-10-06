@@ -7,6 +7,7 @@ import {
   rungStep,
 } from "../lib/rescue-timeline";
 import {
+  FIRE_FLOOR_Y,
   FIRE_X,
   HALF_Z,
   INLET,
@@ -58,6 +59,17 @@ const WATER_DROPS = 90;
 const STOP_X = FIRE_X - TURNTABLE.x;
 /** How far climbers lean into the ladder, in radians. */
 const CLIMB_LEAN = 0.35;
+/** Where each climber stands inside to fight the fire, at the edge of the burning room. */
+const ATTACK = [
+  new THREE.Vector3(-2.6, FIRE_FLOOR_Y, HALF_Z - 1.5),
+  new THREE.Vector3(-1.4, FIRE_FLOOR_Y, HALF_Z - 2.4),
+];
+
+/** Interpolates two headings the short way round. */
+function lerpAngle(a: number, b: number, k: number) {
+  const delta = Math.atan2(Math.sin(b - a), Math.cos(b - a));
+  return a + delta * k;
+}
 
 export function createRescueScene(options: RescueSceneOptions): RescueScene {
   const { container, reducedMotion } = options;
@@ -151,20 +163,35 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
   const truck = buildTruck(materials);
   truck.truck.position.set(-90, 0, TRUCK_Z);
   scene.add(truck.truck);
+  // The ladder turns toward the entry window, which is off to the side of the
+  // turntable, so it is aimed by heading, rise and length.
   const ladderBase = new THREE.Vector3(FIRE_X, TURNTABLE.y + 0.55, TRUCK_Z);
-  const ladderPitch = Math.atan2(
-    WINDOW.y - ladderBase.y,
+  const ladderRun = Math.hypot(
+    WINDOW.x - ladderBase.x,
     ladderBase.z - WINDOW.z,
   );
+  const ladderYaw = Math.atan2(
+    ladderBase.z - WINDOW.z,
+    WINDOW.x - ladderBase.x,
+  );
+  const ladderPitch = Math.atan2(WINDOW.y - ladderBase.y, ladderRun);
   const ladderReach =
-    Math.hypot(WINDOW.y - ladderBase.y, ladderBase.z - WINDOW.z) -
-    LADDER_SECTION +
-    0.1;
+    Math.hypot(WINDOW.y - ladderBase.y, ladderRun) - LADDER_SECTION + 0.1;
+  /** Heading of a climber facing the ladder (and the building). */
+  const facingLadder = Math.atan2(
+    WINDOW.x - ladderBase.x,
+    WINDOW.z - ladderBase.z,
+  );
   const climbers = [createFirefighter(materials), createFirefighter(materials)];
   const hoseman = createFirefighter(materials);
   scene.add(...climbers, hoseman);
-  const inside = new THREE.Vector3(WINDOW.x, WINDOW.y - 0.9, HALF_Z - 0.6);
+  const inside = new THREE.Vector3(WINDOW.x, FIRE_FLOOR_Y, HALF_Z - 0.6);
   const doorway = inside.distanceTo(WINDOW);
+  const approach = ATTACK.map((point) => inside.distanceTo(point));
+  const facingFire = ATTACK.map((point) =>
+    Math.atan2(ROOM.x - point.x, ROOM.z - point.z),
+  );
+  const nozzle = new THREE.Vector3();
 
   // Hose from the pump panel to the inlet; the hoseman walks along it carrying
   // a rolled hose. The laid hose shows only once connected, with a metal
@@ -208,7 +235,7 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
   );
   const walkLength = walkPath.getLength();
 
-  // Water jet from the ladder tip into the room.
+  // Water jet from the first climber's nozzle into the burning room.
   const waterGeometry = new THREE.BufferGeometry().setAttribute(
     "position",
     new THREE.Float32BufferAttribute(new Float32Array(WATER_DROPS * 3), 3),
@@ -222,6 +249,8 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
   });
   const water = new THREE.Points(waterGeometry, waterMaterial);
   water.frustumCulled = false;
+  // Drawn after the additive fire glow, which would otherwise wash the drops out.
+  water.renderOrder = 4;
   scene.add(water);
   const jitter = Array.from({ length: WATER_DROPS }, () => [
     Math.random() - 0.5,
@@ -331,30 +360,47 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
     truck.beacon.intensity = story.siren ? (flash ? 40 : 6) : 0;
 
     // Ladder.
-    truck.yaw.rotation.y = (story.ladderYaw * Math.PI) / 2;
+    truck.yaw.rotation.y = story.ladderYaw * ladderYaw;
     truck.pitch.rotation.z = story.ladderPitch * ladderPitch;
     truck.fly.position.x = story.ladderExtension * ladderReach;
     truck.truck.updateMatrixWorld(true);
     truck.pitch.getWorldPosition(base);
     truck.fly.localToWorld(tip.set(LADDER_SECTION - 0.2, 0.3, 0));
 
-    // Crew: climbers face the ladder on the way up and down, rung by rung.
+    // Crew: climbers face the ladder on the way up and down, rung by rung,
+    // step in through the entry window, then advance holding the line and
+    // turn to face the fire.
     const rungs = Math.max(1, Math.round(base.distanceTo(tip) / RUNG_SPACING));
     climbers.forEach((climber, k) => {
       const c = story.climbers[k];
       climber.visible = c.visible;
       if (!c.visible) return;
       const step = rungStep(c.climb, rungs);
-      climber.position.copy(base).lerp(tip, step.travel).lerp(inside, c.enter);
-      climber.rotation.set(-CLIMB_LEAN * (1 - c.enter), Math.PI, 0);
-      const lift =
-        c.enter > 0
-          ? poseFirefighter(
-              climber,
-              "walk",
-              ((c.enter * doorway) / STRIDE) * Math.PI,
-            )
-          : poseFirefighter(climber, "climb", step.phase);
+      climber.position
+        .copy(base)
+        .lerp(tip, step.travel)
+        .lerp(inside, c.enter)
+        .lerp(ATTACK[k], c.advance);
+      climber.rotation.set(
+        CLIMB_LEAN * (1 - c.enter),
+        lerpAngle(facingLadder, facingFire[k], Math.min(1, c.advance * 3)),
+        0,
+        "YXZ",
+      );
+      let lift: number;
+      if (c.advance > 0)
+        lift = poseFirefighter(
+          climber,
+          "carry",
+          c.advance < 1 ? ((c.advance * approach[k]) / STRIDE) * Math.PI : 0,
+        );
+      else if (c.enter > 0)
+        lift = poseFirefighter(
+          climber,
+          "walk",
+          ((c.enter * doorway) / STRIDE) * Math.PI,
+        );
+      else lift = poseFirefighter(climber, "climb", step.phase);
       climber.position.y += 0.1 + lift;
     });
     hose.visible = story.hose > 0;
@@ -381,16 +427,22 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
     // Water.
     waterMaterial.opacity = story.jet * 0.9;
     if (story.jet > 0) {
+      const leader = climbers[0];
+      nozzle
+        .set(Math.sin(leader.rotation.y), 0, Math.cos(leader.rotation.y))
+        .multiplyScalar(0.6)
+        .add(leader.position);
+      nozzle.y += 1.3;
       const position = waterGeometry.attributes
         .position as THREE.BufferAttribute;
       for (let i = 0; i < WATER_DROPS; i++) {
         const u = (seconds * 1.3 + i / WATER_DROPS) % 1;
         const [jx, jy, jz] = jitter[i];
-        scratch.copy(tip).lerp(ROOM, u);
+        scratch.copy(nozzle).lerp(ROOM, u);
         position.setXYZ(
           i,
           scratch.x + jx * u * 0.9,
-          scratch.y + Math.sin(Math.PI * u) * 1.1 + jy * u * 0.5,
+          scratch.y + Math.sin(Math.PI * u) * 0.4 + jy * u * 0.5,
           scratch.z + jz * u * 0.9,
         );
       }

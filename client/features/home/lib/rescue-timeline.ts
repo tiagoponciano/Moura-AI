@@ -6,11 +6,13 @@ export const STATIC_RESCUE_TIME = 16.2;
 
 export type ClimberState = {
   visible: boolean;
-  /** 0 at the ladder base, 1 at the tip; the second climber stops below it. */
+  /** 0 at the ladder base, 1 at the tip. */
   climb: number;
-  /** 0 at the tip, 1 inside the window. */
+  /** 0 at the tip, 1 just inside the entry window. */
   enter: number;
-  /** True from the moment the climber leaves the room until they are down. */
+  /** 0 just inside the entry window, 1 at the climber's attack position facing the fire. */
+  advance: number;
+  /** True from the moment the climber starts back toward the window until they are down. */
   descending: boolean;
 };
 
@@ -38,13 +40,10 @@ export type RescueState = {
 
 const CLIMB_SECONDS = 4.2;
 const ENTER_SECONDS = 0.7;
+const ADVANCE_SECONDS = 1.5;
 const CLIMBER_STARTS = [14.8, 16.3];
-/** How far up the ladder each climber stops, so they do not overlap at the tip. */
-const CLIMBER_REACH = [1, 0.88];
-/** Climbers wait on the ladder until the fire is out, then step inside. */
-const CLIMBER_ENTRIES = [26, 26.8];
-/** When each climber steps back out of the window onto the ladder. */
-const CLIMBER_EXITS = [29.5, 31];
+/** When each climber turns back toward the entry window, after the fire is out. */
+const CLIMBER_RETREATS = [28, 29.6];
 
 function progress(t: number, start: number, end: number): number {
   return Math.min(1, Math.max(0, (t - start) / (end - start)));
@@ -81,10 +80,10 @@ export function cycleTime(seconds: number): number {
  * Everything that moves in the rescue story at cycle time `t`:
  * fire starts at 1.5 s, the truck arrives 3–9 s, the hoseman walks to the inlet
  * 10–14 s and connects the hose, the ladder turns, rises and extends
- * 9.5–14.5 s, two firefighters climb from 14.8 s and wait on the ladder while
- * water sprays 19.2–25 s, go in once the fire is out (26 s), come back down
- * 29.5–35.9 s, the ladder stows 36.3–38.9 s, the hoseman disconnects and walks
- * back 37–41.4 s and the truck leaves 41.8–45.8 s.
+ * 9.5–14.5 s, two firefighters climb from 14.8 s, enter through the window
+ * next to the fire and advance to it, the first sprays 21.4–27 s, they retreat
+ * from 28 s and come back down by 36 s, the ladder stows 36.4–39 s, the hoseman
+ * disconnects and walks back 37–41.4 s and the truck leaves 41.8–45.8 s.
  */
 export function rescueState(t: number): RescueState {
   const deployed = (
@@ -100,32 +99,35 @@ export function rescueState(t: number): RescueState {
   const walkBack = easeInOut(progress(t, 37.6, 41.4));
 
   return {
-    fire: progress(t, 1.5, 4) * (1 - easeInOut(progress(t, 20, 25.5))),
-    smoke: progress(t, 2, 5) * (1 - progress(t, 22, 29)),
+    fire: progress(t, 1.5, 4) * (1 - easeInOut(progress(t, 22, 27.5))),
+    smoke: progress(t, 2, 5) * (1 - progress(t, 24, 31)),
     truckArrive: easeOut(progress(t, 3, 9)),
     truckLeave: easeIn(progress(t, 41.8, 45.8)),
     siren: t > 2.8 && t < 45.8,
-    ladderYaw: deployed(9.5, 11, 37.9, 38.9),
-    ladderPitch: deployed(11, 12.8, 37.1, 37.9),
-    ladderExtension: deployed(12.8, 14.5, 36.3, 37.1),
+    ladderYaw: deployed(9.5, 11, 38, 39),
+    ladderPitch: deployed(11, 12.8, 37.2, 38),
+    ladderExtension: deployed(12.8, 14.5, 36.4, 37.2),
     climbers: CLIMBER_STARTS.map((start, k) => {
-      const reach = CLIMBER_REACH[k];
-      const entry = CLIMBER_ENTRIES[k];
-      const exit = CLIMBER_EXITS[k];
-      const down = exit + ENTER_SECONDS + CLIMB_SECONDS;
-      const descending = t >= exit;
-      const enter = descending
-        ? 1 - progress(t, exit, exit + ENTER_SECONDS)
-        : progress(t, entry, entry + ENTER_SECONDS);
-      const climb =
-        reach *
-        (descending
-          ? 1 - progress(t, exit + ENTER_SECONDS, down)
-          : progress(t, start, start + CLIMB_SECONDS));
+      const atTip = start + CLIMB_SECONDS;
+      const inside = atTip + ENTER_SECONDS;
+      const retreat = CLIMBER_RETREATS[k];
+      const exit = retreat + ADVANCE_SECONDS;
+      const onLadder = exit + ENTER_SECONDS;
+      const down = onLadder + CLIMB_SECONDS;
+      const descending = t >= retreat;
       return {
-        visible: t > start - 0.1 && (descending ? t < down : enter < 1),
-        climb,
-        enter,
+        visible: t > start - 0.1 && t < down,
+        climb: descending
+          ? 1 - progress(t, onLadder, down)
+          : progress(t, start, atTip),
+        enter: descending
+          ? 1 - progress(t, exit, onLadder)
+          : progress(t, atTip, inside),
+        advance: easeInOut(
+          descending
+            ? 1 - progress(t, retreat, exit)
+            : progress(t, inside, inside + ADVANCE_SECONDS),
+        ),
         descending,
       };
     }),
@@ -136,6 +138,6 @@ export function rescueState(t: number): RescueState {
       moving: (t > 10 && t < 14) || (t > 37.6 && t < 41.4),
       returning: t > 37.6,
     },
-    jet: progress(t, 19.2, 19.9) * (1 - progress(t, 24.5, 25)),
+    jet: progress(t, 21.4, 22) * (1 - progress(t, 26.5, 27)),
   };
 }

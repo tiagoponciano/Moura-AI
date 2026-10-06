@@ -55,9 +55,9 @@ describe("rescueState", () => {
 
   it("sprays water only after the climbers are up and puts the fire out", () => {
     expect(rescueState(17).jet).toBe(0);
-    expect(rescueState(21).jet).toBe(1);
-    expect(rescueState(25.6).fire).toBe(0);
-    expect(rescueState(25.6).jet).toBe(0);
+    expect(rescueState(23).jet).toBe(1);
+    expect(rescueState(27.6).fire).toBe(0);
+    expect(rescueState(27.6).jet).toBe(0);
   });
 
   it("sends the first climber up before the second", () => {
@@ -68,32 +68,39 @@ describe("rescueState", () => {
     expect(state.climbers[1].visible).toBe(false);
   });
 
-  it("keeps the climbers on the ladder while the jet puts the fire out", () => {
-    const state = rescueState(23);
+  it("has both climbers inside, in position, while the jet puts the fire out", () => {
+    const state = rescueState(24);
     expect(state.fire).toBeGreaterThan(0);
     expect(state.jet).toBe(1);
     for (const climber of state.climbers) {
       expect(climber.visible).toBe(true);
-      expect(climber.enter).toBe(0);
+      expect(climber.enter).toBe(1);
+      expect(climber.advance).toBe(1);
     }
   });
 
-  it("stops the second climber below the first", () => {
-    const [first, second] = rescueState(23).climbers;
-    expect(first.climb).toBe(1);
-    expect(second.climb).toBeLessThan(first.climb);
+  it("sprays only while the first climber is in position", () => {
+    for (let t = 0; t < RESCUE_CYCLE; t += 0.1) {
+      const state = rescueState(t);
+      if (state.jet > 0) expect(state.climbers[0].advance).toBe(1);
+    }
   });
 
-  it("never sends a climber into the room while it is still burning", () => {
+  it("starts the retreat only after the fire is out", () => {
     for (let t = 0; t < RESCUE_CYCLE; t += 0.1) {
       const state = rescueState(t);
       for (const climber of state.climbers)
-        if (climber.visible && climber.enter > 0) expect(state.fire).toBe(0);
+        if (climber.descending) expect(state.fire).toBe(0);
     }
+    const state = rescueState(27.9);
+    expect(state.fire).toBe(0);
+    expect(state.climbers.every((c) => c.advance === 1)).toBe(true);
   });
 
-  it("hides the climbers while they are inside the room", () => {
-    expect(rescueState(28).climbers.every((c) => !c.visible)).toBe(true);
+  it("enters the second climber only after the first has moved in", () => {
+    const [first, second] = rescueState(20.5).climbers;
+    expect(first.advance).toBeGreaterThan(0);
+    expect(second.enter).toBe(0);
   });
 
   it("brings both climbers back out and down after the fire is out", () => {
@@ -110,7 +117,7 @@ describe("rescueState", () => {
   });
 
   it("gets both climbers off the ladder before it stows", () => {
-    const state = rescueState(36.2);
+    const state = rescueState(36.3);
     expect(state.climbers.every((c) => !c.visible)).toBe(true);
     expect(state.ladderExtension).toBe(1);
   });

@@ -43,7 +43,7 @@ createRescueScene({
   onContextLost, // () => void, WebGL context lost; the caller recreates the scene
 });
 setFocus({ highlight: "xray" | "systems" | "wireframe" | null });
-refreshTheme(); // re-read CSS tokens; called when next-themes' resolvedTheme changes
+refreshTheme(); // re-read CSS tokens; called when the `class` attribute of <html> changes
 dispose(); // stop the loop, remove listeners and observers, free GPU memory, remove the canvas
 ```
 
@@ -51,32 +51,32 @@ dispose(); // stop the loop, remove listeners and observers, free GPU memory, re
 
 ### The story (one cycle = 48 s)
 
-| Seconds     | What happens                                                                                               |
-| ----------- | ---------------------------------------------------------------------------------------------------------- |
-| 1.5–4       | Fire grows in the 3rd floor room at `x = -6` (orange light + glow); smoke from 2 s                         |
-| 3–9         | Truck drives in from `x = -90` and stops with the turntable in front of the window (ease-out)              |
-| 2.8–45.8    | Siren lights alternate red/white and a red point light flashes                                             |
-| 9.5–11      | Ladder turns 90° toward the building                                                                       |
-| 10–14       | The hoseman walks from the pump panel to the inlet (registro de recalque) carrying a rolled hose           |
-| 14–14.5     | The roll is gone and the laid hose fades in, coupled at the pump panel and the inlet; the hoseman idles    |
-| 11–12.8     | Ladder rises to the angle that reaches the window                                                          |
-| 12.8–14.5   | Fly section extends                                                                                        |
-| 14.8 / 16.3 | First / second firefighter climbs for 4.2 s; the first stops at the tip, the second at 88% of the ladder   |
-| 19.2–25     | Water jet from the ladder tip into the room while both wait on the ladder; fire fades 20–25.5, smoke 22–29 |
-| 26 / 26.8   | First / second firefighter steps inside in 0.7 s, after the fire is out, and is hidden                     |
-| 29.5 / 31   | First / second firefighter steps back out in 0.7 s, climbs down for 4.2 s and is hidden at the base        |
-| 36.3–38.9   | Ladder retracts, lowers, turns back (both climbers are off it from 35.9 s)                                 |
-| 37–37.5     | The hose fades out                                                                                         |
-| 37.6–41.4   | The hoseman walks back to the truck empty-handed and is hidden at 41.5                                     |
-| 41.8–45.8   | Truck drives off (ease-in)                                                                                 |
+| Seconds     | What happens                                                                                                                                                                            |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1.5–4       | Fire grows in the 3rd floor room at `x = -6` (orange light + glow); smoke from 2 s                                                                                                      |
+| 3–9         | Truck drives in from `x = -90` and stops with the turntable in front of the window (ease-out)                                                                                           |
+| 2.8–45.8    | Siren lights alternate red/white and a red point light flashes                                                                                                                          |
+| 9.5–11      | Ladder turns toward the entry window (`ENTRY_X = 1`, the bay next to the burning room), about 47°                                                                                       |
+| 10–14       | The hoseman walks from the pump panel to the inlet (registro de recalque) carrying a rolled hose                                                                                        |
+| 14–14.5     | The roll is gone and the laid hose fades in, coupled at the pump panel and the inlet; the hoseman idles                                                                                 |
+| 11–12.8     | Ladder rises to the angle that reaches the window                                                                                                                                       |
+| 12.8–14.5   | Fly section extends                                                                                                                                                                     |
+| 14.8 / 16.3 | First / second firefighter climbs for 4.2 s, steps in through the entry window in 0.7 s, then advances 1.5 s to an attack position at the edge of the burning room and turns to face it |
+| 21.4–27     | Water jet from the first firefighter's nozzle into the room; the second stands behind as backup; fire fades 22–27.5, smoke 24–31                                                        |
+| 28 / 29.6   | First / second firefighter walks back to the entry window (1.5 s), steps out (0.7 s), climbs down (4.2 s) and is hidden at the base                                                     |
+| 36.4–39     | Ladder retracts, lowers, turns back (both climbers are off it from 36 s)                                                                                                                |
+| 37–37.5     | The hose fades out                                                                                                                                                                      |
+| 37.6–41.4   | The hoseman walks back to the truck empty-handed and is hidden at 41.5                                                                                                                  |
+| 41.8–45.8   | Truck drives off (ease-in)                                                                                                                                                              |
 
-A climber is never inside the room while `fire > 0` (tested over the whole cycle).
+Climbers stay visible inside, through the glass. The jet runs only while the first climber is at the attack position, and the retreat starts only after the fire is out (both tested over the whole cycle).
 
 ### Crew motion
 
-- **Climbing** goes rung by rung: `rungStep(progress, rungs)` keeps the body on a rung and moves to the next with a smoothstep: `travel` equals linear progress on every rung, eases between them and never moves backwards. `rungs` is the base-to-tip distance divided by `RUNG_SPACING` (0.42 m). Limbs alternate once per rung (`phase` advances π per rung). Climbers always face the building and lean 0.35 rad into the ladder; the lean fades out as they step through the window. Coming down is the same motion in reverse, still facing the ladder.
+- **Climbing** goes rung by rung: `rungStep(progress, rungs)` keeps the body on a rung and moves to the next with a smoothstep: `travel` equals linear progress on every rung, eases between them and never moves backwards. `rungs` is the base-to-tip distance divided by `RUNG_SPACING` (0.42 m). Limbs alternate once per rung (`phase` advances π per rung). On the ladder, climbers face along it (toward the entry window) and lean 0.35 rad into it; the lean fades out as they step through the window. Coming down is the same motion in reverse, still facing the ladder.
+- **Inside**, climbers advance holding the line (`carry` pose) and turn from the ladder heading to face the fire within the first third of the advance; at the attack position they hold still in the same pose. They walk back without turning, facing the fire. The jet starts 0.6 m in front of the first climber, 1.3 m up.
 - **Walking** drives the leg swing from distance covered, not from time: the phase advances π per `STRIDE` (1.1 m), so the feet do not slide when the hoseman accelerates or slows (the walk is eased in and out). `poseFirefighter` returns a vertical lift (up to 0.06) that the scene adds, so the body rises over each step.
-- **Carrying** is a walk with both arms held forward around the hose roll (a red disc, radius 0.3, in front of the chest); it is used only on the way out.
+- **Carrying** is a walk with both arms held forward: around the hose roll (a red disc, radius 0.3, in front of the chest) for the hoseman on the way out, and around the line for the climbers inside.
 - **Idle** keeps the legs straight and the arms slightly forward with a small breathing motion.
 
 Escape route dots walk every floor's route continuously, independent of the story.
@@ -120,6 +120,8 @@ With `prefers-reduced-motion: reduce` the scene renders the still frame at 16.2 
 - **Colors black or wrong after adding a token** → three.js cannot parse `oklch()`; `palette.ts` paints the value on a canvas and reads it back, and an unknown token reads as black. → Add the token under both `:root` and `.dark` and to `SCENE_TOKENS`.
 - **The hose looked like a yellow trail following the hoseman** → it was drawn progressively along the walk path. → The hose shows only once connected (`hose` is its opacity); `hoseman.walk` drives the hoseman's position.
 - **The connected hose read as a shadow, not a hose** → a thin line in the reflective yellow. → Keep it thick (radius 0.12) in `--scene-hose`, with metal couplings at both ends.
-- **Climbers walked into the burning room** → they entered as soon as they reached the tip. → Entries (`CLIMBER_ENTRIES`) come after the fire reaches 0; the test sweeps the cycle for any overlap.
+- **Climbers walked into the burning room** → the ladder reached the window of the room on fire. → The ladder aims at the next bay (`WINDOW` at `ENTRY_X`); the crew attacks from inside, at the edge of the room.
+- **Water jet invisible over the fire** → the additive fire glow drew after the drops and washed them to white. → `water.renderOrder = 4`.
+- **Scene kept the previous theme's colors after toggling** → next-themes sets the `dark` class in its provider effect, which runs after `BuildingScene`'s effects, so refreshing on `resolvedTheme` read stale tokens. → `BuildingScene` watches the `class` attribute of `<html>` with a `MutationObserver`.
 - **Feet slid while walking** → limb swing came from elapsed time while position followed an eased curve. → Drive the walk phase from distance covered (`STRIDE`).
 - **Console warning `PCFSoftShadowMap has been removed`** → three ≥ 0.18x. → Use `PCFShadowMap`.

@@ -17,7 +17,7 @@ import {
 } from "./dimensions";
 import { buildBuilding, buildSite } from "./environment";
 import { STRIDE, createFirefighter, poseFirefighter } from "./firefighter";
-import { disposeTree, softDotTexture } from "./helpers";
+import { cylinder, disposeTree, softDotTexture } from "./helpers";
 import {
   SystemMaterials,
   applyPalette,
@@ -166,8 +166,9 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
   const inside = new THREE.Vector3(WINDOW.x, WINDOW.y - 0.9, HALF_Z - 0.6);
   const doorway = inside.distanceTo(WINDOW);
 
-  // Hose from the pump panel to the inlet; the hoseman walks along it. It shows
-  // only once connected, so it never trails behind the hoseman.
+  // Hose from the pump panel to the inlet; the hoseman walks along it carrying
+  // a rolled hose. The laid hose shows only once connected, with a metal
+  // coupling at each end, so it never trails behind the hoseman.
   const hosePath = new THREE.CatmullRomCurve3([
     new THREE.Vector3(FIRE_X + 4.2, 0.9, TRUCK_Z - 1.3),
     new THREE.Vector3(FIRE_X + 4.4, 0.12, TRUCK_Z - 2.4),
@@ -176,15 +177,32 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
     INLET.clone().setY(0.3),
   ]);
   const hoseMaterial = new THREE.MeshStandardMaterial({
-    roughness: 0.6,
+    roughness: 0.75,
     transparent: true,
   });
   const hose = new THREE.Mesh(
-    new THREE.TubeGeometry(hosePath, 80, 0.08, 6),
+    new THREE.TubeGeometry(hosePath, 120, 0.12, 10),
     hoseMaterial,
   );
   hose.castShadow = true;
   scene.add(hose);
+  for (const u of [0, 1]) {
+    const coupling = cylinder(0.17, 0.32, materials.metal, [0, 0, 0], {
+      parent: hose,
+      segments: 12,
+    });
+    hosePath.getPointAt(u, coupling.position);
+    coupling.quaternion.setFromUnitVectors(
+      THREE.Object3D.DEFAULT_UP,
+      hosePath.getTangentAt(u),
+    );
+  }
+  const rollMaterial = new THREE.MeshStandardMaterial({ roughness: 0.75 });
+  const roll = cylinder(0.3, 0.16, rollMaterial, [0, 1.02, 0.36], {
+    parent: hoseman,
+    segments: 16,
+  });
+  roll.rotation.z = Math.PI / 2;
   const walkPath = new THREE.CatmullRomCurve3(
     hosePath.points.slice(1).map((p) => p.clone().setY(0.16)),
   );
@@ -216,7 +234,8 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
   function refreshTheme() {
     palette = readScenePalette(root);
     applyPalette(materials, systemMaterials, palette);
-    hoseMaterial.color.copy(palette.reflective);
+    hoseMaterial.color.copy(palette.hose);
+    rollMaterial.color.copy(palette.hose);
     for (const puff of smoke) puff.material.color.copy(palette.smoke);
     waterMaterial.color.copy(palette.water);
     (scene.fog as THREE.Fog).color.copy(palette.background);
@@ -348,10 +367,12 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
       hoseman.rotation.y =
         Math.atan2(scratch.x, scratch.z) +
         (story.hoseman.returning ? Math.PI : 0);
+      const carrying = story.hoseman.moving && !story.hoseman.returning;
+      roll.visible = carrying;
       hoseman.position.y += story.hoseman.moving
         ? poseFirefighter(
             hoseman,
-            "walk",
+            carrying ? "carry" : "walk",
             ((story.hoseman.walk * walkLength) / STRIDE) * Math.PI,
           )
         : poseFirefighter(hoseman, "idle", seconds * 2);

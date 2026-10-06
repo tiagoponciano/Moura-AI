@@ -2,7 +2,7 @@ import * as THREE from "three";
 import { box, cylinder } from "./helpers";
 import type { SceneMaterials } from "./materials";
 
-export type FirefighterPose = "walk" | "climb" | "idle";
+export type FirefighterPose = "walk" | "carry" | "climb" | "idle";
 
 type Limbs = {
   legL: THREE.Group;
@@ -60,7 +60,7 @@ export const STRIDE = 1.1;
 
 /**
  * Sets the limbs for `pose`. `phase` advances by π per step: walked distance
- * for "walk", rungs for "climb", time for "idle". Returns how much to lift
+ * for "walk" and "carry", rungs for "climb", time for "idle". Returns how much to lift
  * the body this frame, so a walk rises over each step.
  */
 export function poseFirefighter(
@@ -69,12 +69,13 @@ export function poseFirefighter(
   phase: number,
 ): number {
   const { legL, legR, armL, armR } = body.userData.limbs as Limbs;
-  if (pose === "walk") {
+  if (pose === "walk" || pose === "carry") {
     const swing = Math.sin(phase);
     legL.rotation.x = swing * 0.55;
     legR.rotation.x = -swing * 0.55;
-    armL.rotation.x = -swing * 0.45;
-    armR.rotation.x = swing * 0.45;
+    // Carrying holds both arms forward around a load in front of the chest.
+    armL.rotation.x = pose === "carry" ? -0.9 : -swing * 0.45;
+    armR.rotation.x = pose === "carry" ? -0.9 : swing * 0.45;
     return Math.abs(Math.cos(phase)) * 0.06;
   }
   if (pose === "climb") {

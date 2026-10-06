@@ -27,10 +27,12 @@ Colors come from the Moura logo (`public/brand/moura-logo.png`): the flame's red
 
 | Token         | Light                  | Dark                   | Used for                                                                 |
 | ------------- | ---------------------- | ---------------------- | ------------------------------------------------------------------------ |
-| `primary`     | `oklch(0.57 0.21 33)`  | `oklch(0.7 0.17 45)`   | buttons, user chat bubbles, links on the home page                       |
+| `primary`     | `oklch(0.57 0.21 33)`  | `oklch(0.7 0.17 45)`   | buttons, user chat bubbles, home card icons, 3D scene highlights         |
 | `accent`      | `oklch(0.96 0.025 45)` | `oklch(0.28 0.04 45)`  | hover backgrounds of cards, chips and menu items                         |
 | `success`     | `oklch(0.58 0.13 155)` | `oklch(0.72 0.14 155)` | "filled" checks in the fields panel and confirmed tool calls in the chat |
 | `destructive` | shadcn default         | shadcn default         | validation errors                                                        |
+
+The home 3D scene has its own tokens, declared in `:root` / `.dark` but not mapped in `@theme inline` (they are not Tailwind utilities): `--scene-concrete`, `--scene-core`, `--scene-glass`, `--scene-edge`, `--scene-sidewalk`, `--scene-street`, `--scene-marking`, `--scene-trunk`, `--scene-foliage`, `--scene-suit`, `--scene-helmet`, `--scene-reflective`, `--scene-tire`, `--scene-metal`, `--scene-smoke`, `--scene-water`. The scene also reads `--primary` (truck, fire protection systems) and `--background` (fog). It re-reads them when the resolved theme changes; see `features/home/docs/home-rescue-scene.md`.
 
 `success` is not a shadcn default: it is declared in `:root` / `.dark` and mapped to `--color-success` in `@theme inline`, so `text-success`, `bg-success/5`, `border-success/30` work like any other token. The `chart-*` tokens are left at the shadcn grayscale defaults (no charts exist).
 

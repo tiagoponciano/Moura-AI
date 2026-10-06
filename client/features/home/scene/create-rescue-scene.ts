@@ -5,6 +5,7 @@ import {
   STATIC_RESCUE_TIME,
   cycleTime,
   rescueState,
+  rungStep,
 } from "../lib/rescue-timeline";
 import {
   FIRE_X,
@@ -16,7 +17,7 @@ import {
   WINDOW,
 } from "./dimensions";
 import { buildBuilding, buildSite } from "./environment";
-import { createFirefighter, poseFirefighter } from "./firefighter";
+import { STRIDE, createFirefighter, poseFirefighter } from "./firefighter";
 import { disposeTree, softDotTexture } from "./helpers";
 import {
   SystemMaterials,
@@ -26,7 +27,7 @@ import {
 } from "./materials";
 import { readScenePalette, type ScenePalette } from "./palette";
 import { addHit, buildSystems, type HitTarget } from "./systems";
-import { LADDER_SECTION, TURNTABLE, buildTruck } from "./truck";
+import { LADDER_SECTION, RUNG_SPACING, TURNTABLE, buildTruck } from "./truck";
 
 /** What the page asks the scene to emphasize. */
 export type SceneHighlight = "xray" | "systems" | "wireframe" | null;
@@ -60,6 +61,8 @@ const SMOKE_PUFFS = 34;
 const SMOKE_LIFE = 5.5;
 const WATER_DROPS = 90;
 const STOP_X = FIRE_X - TURNTABLE.x;
+/** How far climbers lean into the ladder, in radians. */
+const CLIMB_LEAN = 0.35;
 
 export function createRescueScene(options: RescueSceneOptions): RescueScene {
   const { container, tooltip, reducedMotion } = options;
@@ -178,8 +181,10 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
   const hoseman = createFirefighter(materials);
   scene.add(...climbers, hoseman);
   const inside = new THREE.Vector3(WINDOW.x, WINDOW.y - 0.9, HALF_Z - 0.6);
+  const doorway = inside.distanceTo(WINDOW);
 
-  // Hose from the pump panel to the inlet; the hoseman walks along it.
+  // Hose from the pump panel to the inlet; the hoseman walks along it. It shows
+  // only once connected, so it never trails behind the hoseman.
   const hosePath = new THREE.CatmullRomCurve3([
     new THREE.Vector3(FIRE_X + 4.2, 0.9, TRUCK_Z - 1.3),
     new THREE.Vector3(FIRE_X + 4.4, 0.12, TRUCK_Z - 2.4),
@@ -187,17 +192,20 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
     new THREE.Vector3(INLET.x - 1.4, 0.2, INLET.z + 1.4),
     INLET.clone().setY(0.3),
   ]);
-  const hoseMaterial = new THREE.MeshStandardMaterial({ roughness: 0.6 });
+  const hoseMaterial = new THREE.MeshStandardMaterial({
+    roughness: 0.6,
+    transparent: true,
+  });
   const hose = new THREE.Mesh(
     new THREE.TubeGeometry(hosePath, 80, 0.08, 6),
     hoseMaterial,
   );
   hose.castShadow = true;
   scene.add(hose);
-  const hoseIndexCount = hose.geometry.index!.count;
   const walkPath = new THREE.CatmullRomCurve3(
     hosePath.points.slice(1).map((p) => p.clone().setY(0.16)),
   );
+  const walkLength = walkPath.getLength();
 
   // Water jet from the ladder tip into the room.
   const waterGeometry = new THREE.BufferGeometry().setAttribute(
@@ -380,30 +388,42 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
     truck.pitch.getWorldPosition(base);
     truck.fly.localToWorld(tip.set(LADDER_SECTION - 0.2, 0.3, 0));
 
-    // Crew.
+    // Crew: climbers face the ladder on the way up and down, rung by rung.
+    const rungs = Math.max(1, Math.round(base.distanceTo(tip) / RUNG_SPACING));
     climbers.forEach((climber, k) => {
       const c = story.climbers[k];
       climber.visible = c.visible;
       if (!c.visible) return;
-      climber.position.copy(base).lerp(tip, c.climb).lerp(inside, c.enter);
-      climber.position.y += 0.1;
-      climber.rotation.y = Math.PI;
-      poseFirefighter(climber, c.enter > 0 ? "walk" : "climb", seconds + k);
+      const step = rungStep(c.climb, rungs);
+      climber.position.copy(base).lerp(tip, step.travel).lerp(inside, c.enter);
+      climber.rotation.set(-CLIMB_LEAN * (1 - c.enter), Math.PI, 0);
+      const lift =
+        c.enter > 0
+          ? poseFirefighter(
+              climber,
+              "walk",
+              ((c.enter * doorway) / STRIDE) * Math.PI,
+            )
+          : poseFirefighter(climber, "climb", step.phase);
+      climber.position.y += 0.1 + lift;
     });
-    hose.visible = story.hose > 0.01;
-    hose.geometry.setDrawRange(
-      0,
-      Math.floor((hoseIndexCount * story.hose) / 3) * 3,
-    );
+    hose.visible = story.hose > 0;
+    hoseMaterial.opacity = story.hose;
     hoseman.visible = story.hoseman.visible;
     if (hoseman.visible) {
-      const u = Math.min(0.999, story.hose);
+      const u = Math.min(0.999, story.hoseman.walk);
       walkPath.getPointAt(u, hoseman.position);
       walkPath.getTangentAt(u, scratch);
       hoseman.rotation.y =
         Math.atan2(scratch.x, scratch.z) +
         (story.hoseman.returning ? Math.PI : 0);
-      poseFirefighter(hoseman, story.hoseman.moving ? "walk" : "idle", seconds);
+      hoseman.position.y += story.hoseman.moving
+        ? poseFirefighter(
+            hoseman,
+            "walk",
+            ((story.hoseman.walk * walkLength) / STRIDE) * Math.PI,
+          )
+        : poseFirefighter(hoseman, "idle", seconds * 2);
     }
 
     // Water.

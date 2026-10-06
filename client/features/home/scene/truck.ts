@@ -6,6 +6,8 @@ import type { SceneMaterials } from "./materials";
 export const TURNTABLE = { x: -3.5, y: 3.1 } as const;
 /** Length of each ladder section. */
 export const LADDER_SECTION = 6.6;
+/** Distance between ladder rungs. */
+export const RUNG_SPACING = 0.42;
 
 function ladderSection(
   length: number,
@@ -18,7 +20,7 @@ function ladderSection(
     box([length, 0.14, 0.09], m.metal, [length / 2, y, z], { parent: group });
   }
   const rungs: number[][] = [];
-  for (let x = 0.3; x < length; x += 0.42)
+  for (let x = 0.3; x < length; x += RUNG_SPACING)
     rungs.push([x, y, -width / 2, x, y, width / 2]);
   group.add(new THREE.LineSegments(segments(rungs), m.edge));
   return group;

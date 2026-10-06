@@ -11,6 +11,8 @@ const SCENE_TOKENS = [
   "trunk",
   "foliage",
   "suit",
+  "truck",
+  "hose",
   "helmet",
   "reflective",
   "tire",

@@ -11,36 +11,17 @@ import {
   SLAB,
 } from "./dimensions";
 import { box, cylinder, segments } from "./helpers";
-import type { SceneSystem, SystemMaterials } from "./materials";
+import type { SystemMaterials } from "./materials";
 
-export type HitTarget = {
-  system: SceneSystem | null;
-  label: string;
-  detail: string;
-};
-
-const floorName = (i: number) => (i === 0 ? "Térreo" : `${i}º pavimento`);
 const PEOPLE_PER_ROUTE = 6;
 
-/**
- * Hydrants, extinguishers and escape routes, plus invisible boxes for hover.
- * Labels are user-facing copy, hence Portuguese.
- */
+/** Hydrants, extinguishers and escape routes. */
 export function buildSystems(
   scene: THREE.Scene,
   materials: SystemMaterials,
   dot: THREE.Texture,
-  tank: THREE.Object3D,
 ) {
-  const hits: THREE.Mesh[] = [];
-  const hitMaterial = new THREE.MeshBasicMaterial({ visible: false });
-  const hit = (
-    position: THREE.Vector3,
-    size: [number, number, number],
-    target: HitTarget,
-  ) => addHit(hits, hitMaterial, scene, position, size, target);
-
-  // Hydrants: riser through the core, a cabinet per floor, the inlet and the reserve tank.
+  // Hydrants: riser through the core, a cabinet per floor and the inlet.
   cylinder(
     0.09,
     ROOF + 0.2,
@@ -67,11 +48,6 @@ export function buildSystems(
         cast: false,
       },
     ).renderOrder = 2;
-    hit(position, [1.6, 1.9, 1.2], {
-      system: "hydrant",
-      label: "Hidrante",
-      detail: `${floorName(i)} · abrigo com mangueira`,
-    });
   }
   scene.add(
     new THREE.LineSegments(
@@ -85,16 +61,6 @@ export function buildSystems(
   cylinder(0.26, 0.55, materials.mesh("hydrant"), INLET.toArray(), {
     parent: scene,
   }).renderOrder = 2;
-  hit(INLET, [1.3, 1.4, 1.3], {
-    system: "hydrant",
-    label: "Registro de recalque",
-    detail: "Onde o caminhão do CBMSC abastece a rede",
-  });
-  hit(tank.position, [3.6, 2.6, 3.6], {
-    system: "hydrant",
-    label: "Reserva técnica de incêndio",
-    detail: "Caixa d'água exclusiva para os hidrantes",
-  });
 
   // Extinguishers: three per floor.
   for (let i = 0; i < FLOORS; i++) {
@@ -114,11 +80,6 @@ export function buildSystems(
           cast: false,
         },
       ).renderOrder = 2;
-      hit(position, [1, 1.3, 1], {
-        system: "extinguisher",
-        label: "Extintor",
-        detail: `${floorName(i)} · pó ABC 4 kg`,
-      });
     }
   }
 
@@ -149,14 +110,6 @@ export function buildSystems(
         materials.line("route", 0.4),
       ),
     );
-    hit(new THREE.Vector3(-3, y, 0), [16, 1, 1.4], {
-      system: "route",
-      label: "Rota de fuga",
-      detail:
-        i === 0
-          ? "Térreo · saída direta"
-          : `${floorName(i)} · escada protegida`,
-    });
 
     const lengths = [0];
     for (let p = 1; p < points.length; p++)
@@ -184,11 +137,6 @@ export function buildSystems(
       materials.line("route", 0.6),
     ),
   );
-  hit(new THREE.Vector3(EXIT_X, 1.5, HALF_Z), [2.4, 2.8, 1], {
-    system: "route",
-    label: "Saída de emergência",
-    detail: "Descarga direta para a calçada",
-  });
 
   const cursor = new THREE.Vector3();
   /** Moves the dots that represent people walking to the exit. */
@@ -215,21 +163,5 @@ export function buildSystems(
     });
   }
 
-  return { hits, hitMaterial, updateFlows };
-}
-
-/** Invisible hover box for an object that is not a fire protection system (the truck). */
-export function addHit(
-  hits: THREE.Mesh[],
-  material: THREE.Material,
-  parent: THREE.Object3D,
-  position: THREE.Vector3,
-  size: [number, number, number],
-  target: HitTarget,
-) {
-  const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), material);
-  mesh.position.copy(position);
-  mesh.userData = target;
-  parent.add(mesh);
-  hits.push(mesh);
+  return { updateFlows };
 }

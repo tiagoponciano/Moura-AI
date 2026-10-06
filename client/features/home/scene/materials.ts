@@ -130,7 +130,7 @@ export function applyPalette(
   m.marking.color.copy(palette.marking);
   m.trunk.color.copy(palette.trunk);
   m.foliage.color.copy(palette.foliage);
-  m.truck.color.copy(palette.primary);
+  m.truck.color.copy(palette.truck);
   m.truckDark.color.copy(palette.tire);
   m.metal.color.copy(palette.metal);
   m.windshield.color.copy(palette.edge).lerp(palette.glass, 0.25);

@@ -94,6 +94,8 @@
   --scene-trunk: oklch(0.534 0.034 70);
   --scene-foliage: oklch(0.738 0.063 132);
   --scene-suit: oklch(0.362 0.009 286);
+  --scene-truck: oklch(0.52 0.2 27);
+  --scene-hose: oklch(0.42 0.15 25);
   --scene-helmet: oklch(0.811 0.166 85);
   --scene-reflective: oklch(0.884 0.129 94);
   --scene-tire: oklch(0.29 0.005 286);
@@ -145,6 +147,8 @@
   --scene-trunk: oklch(0.443 0.024 65);
   --scene-foliage: oklch(0.494 0.05 134);
   --scene-suit: oklch(0.717 0.009 286);
+  --scene-truck: oklch(0.55 0.2 27);
+  --scene-hose: oklch(0.5 0.15 25);
   --scene-helmet: oklch(0.811 0.166 85);
   --scene-reflective: oklch(0.884 0.129 94);
   --scene-tire: oklch(0.179 0.004 286);

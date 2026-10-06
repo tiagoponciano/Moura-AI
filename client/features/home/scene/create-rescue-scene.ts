@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { isClick, type PointerPoint } from "../lib/pointer-gesture";
 import {
   STATIC_RESCUE_TIME,
   cycleTime,
@@ -26,22 +25,18 @@ import {
   type SceneSystem,
 } from "./materials";
 import { readScenePalette, type ScenePalette } from "./palette";
-import { addHit, buildSystems, type HitTarget } from "./systems";
+import { buildSystems } from "./systems";
 import { LADDER_SECTION, RUNG_SPACING, TURNTABLE, buildTruck } from "./truck";
 
 /** What the page asks the scene to emphasize. */
 export type SceneHighlight = "xray" | "systems" | "wireframe" | null;
 export type SceneFocus = {
   highlight: SceneHighlight;
-  system: SceneSystem | null;
 };
 
 export type RescueSceneOptions = {
   container: HTMLElement;
-  tooltip: { root: HTMLElement; title: HTMLElement; detail: HTMLElement };
   reducedMotion: boolean;
-  onHoverSystem: (system: SceneSystem | null) => void;
-  onSelectSystem: () => void;
   onContextLost: () => void;
 };
 
@@ -65,7 +60,7 @@ const STOP_X = FIRE_X - TURNTABLE.x;
 const CLIMB_LEAN = 0.35;
 
 export function createRescueScene(options: RescueSceneOptions): RescueScene {
-  const { container, tooltip, reducedMotion } = options;
+  const { container, reducedMotion } = options;
   const root = document.documentElement;
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -123,8 +118,8 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
   const dot = softDotTexture();
 
   buildSite(scene, materials);
-  const { tank } = buildBuilding(scene, materials);
-  const systems = buildSystems(scene, systemMaterials, dot, tank);
+  buildBuilding(scene, materials);
+  const systems = buildSystems(scene, systemMaterials, dot);
 
   // Fire: light, glow behind the glass and smoke out of the window.
   const fireLight = new THREE.PointLight(0xff7a1a, 0, 14, 1.6);
@@ -156,18 +151,6 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
   const truck = buildTruck(materials);
   truck.truck.position.set(-90, 0, TRUCK_Z);
   scene.add(truck.truck);
-  addHit(
-    systems.hits,
-    systems.hitMaterial,
-    truck.truck,
-    new THREE.Vector3(0, 2, 0),
-    [9.5, 4, 2.8],
-    {
-      system: null,
-      label: "Auto Escada Mecânica",
-      detail: "Viatura do CBMSC",
-    },
-  );
   const ladderBase = new THREE.Vector3(FIRE_X, TURNTABLE.y + 0.55, TRUCK_Z);
   const ladderPitch = Math.atan2(
     WINDOW.y - ladderBase.y,
@@ -260,60 +243,8 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
   resizeObserver.observe(container);
   resize();
 
-  // Hover, tooltip and click (a release after a drag is not a click).
-  let focus: SceneFocus = { highlight: null, system: null };
-  let hovered: HitTarget | null = null;
-  let pressedAt: PointerPoint | null = null;
-  const raycaster = new THREE.Raycaster();
-  const pointer = new THREE.Vector2();
-  function hideTooltip() {
-    tooltip.root.style.opacity = "0";
-  }
-  function setHovered(next: HitTarget | null) {
-    if (next?.system !== hovered?.system)
-      options.onHoverSystem(next?.system ?? null);
-    hovered = next;
-    renderer.domElement.style.cursor = next?.system ? "pointer" : "";
-  }
-  function onPointerMove(event: PointerEvent) {
-    if (dragging) {
-      hideTooltip();
-      return;
-    }
-    const rect = renderer.domElement.getBoundingClientRect();
-    pointer.set(
-      ((event.clientX - rect.left) / rect.width) * 2 - 1,
-      -((event.clientY - rect.top) / rect.height) * 2 + 1,
-    );
-    raycaster.setFromCamera(pointer, camera);
-    const target =
-      (raycaster.intersectObjects(systems.hits, false)[0]?.object.userData as
-        HitTarget | undefined) ?? null;
-    setHovered(target);
-    if (!target) return hideTooltip();
-    tooltip.title.textContent = target.label;
-    tooltip.detail.textContent = target.detail;
-    tooltip.root.style.left = `${event.clientX - rect.left}px`;
-    tooltip.root.style.top = `${event.clientY - rect.top}px`;
-    tooltip.root.style.opacity = "1";
-  }
-  function onPointerDown(event: PointerEvent) {
-    pressedAt = { x: event.clientX, y: event.clientY };
-  }
-  function onPointerUp(event: PointerEvent) {
-    const click = isClick(pressedAt, { x: event.clientX, y: event.clientY });
-    pressedAt = null;
-    if (click && hovered?.system) options.onSelectSystem();
-  }
-  function onPointerLeave() {
-    hideTooltip();
-    setHovered(null);
-  }
+  let focus: SceneFocus = { highlight: null };
   const canvas = renderer.domElement;
-  canvas.addEventListener("pointermove", onPointerMove);
-  canvas.addEventListener("pointerdown", onPointerDown);
-  canvas.addEventListener("pointerup", onPointerUp);
-  canvas.addEventListener("pointerleave", onPointerLeave);
 
   // Animation.
   const state = {
@@ -445,7 +376,7 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
       position.needsUpdate = true;
     }
 
-    // Focus from the cards and the legend.
+    // Focus from the module cards.
     state.xray = lerp(
       state.xray,
       focus.highlight === "xray" || focus.highlight === "systems" ? 1 : 0,
@@ -467,24 +398,17 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
       0.9,
       state.wire,
     );
-    const active = focus.system ?? hovered?.system ?? null;
     for (const [system, list] of Object.entries(systemMaterials.bySystem) as [
       SceneSystem,
       THREE.Material[],
     ][]) {
-      const wanted = active
-        ? active === system
-          ? 1
-          : -1
-        : focus.highlight === "systems"
-          ? 1
-          : 0;
+      const wanted = focus.highlight === "systems" ? 1 : 0;
       const f = (state.system[system] = lerp(
         state.system[system],
         wanted,
         0.1,
       ));
-      const k = f >= 0 ? 1 + f * 0.3 : 1 + f * 0.8;
+      const k = 1 + f * 0.3;
       for (const material of list)
         material.opacity = Math.min(1, (material.userData.base as number) * k);
     }
@@ -529,10 +453,6 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
       intersection.disconnect();
       resizeObserver.disconnect();
       document.removeEventListener("visibilitychange", syncLoop);
-      canvas.removeEventListener("pointermove", onPointerMove);
-      canvas.removeEventListener("pointerdown", onPointerDown);
-      canvas.removeEventListener("pointerup", onPointerUp);
-      canvas.removeEventListener("pointerleave", onPointerLeave);
       controls.dispose();
       disposeTree(scene);
       renderer.dispose();

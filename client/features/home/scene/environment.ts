@@ -180,7 +180,7 @@ export function buildBuilding(scene: THREE.Scene, m: SceneMaterials) {
     });
   }
 
-  const tank = box([3.4, 2.2, 3.4], m.core, [-6.5, ROOF + SLAB + 1.5, -2.5], {
+  box([3.4, 2.2, 3.4], m.core, [-6.5, ROOF + SLAB + 1.5, -2.5], {
     parent: scene,
     edges: m.edge,
   });
@@ -193,5 +193,4 @@ export function buildBuilding(scene: THREE.Scene, m: SceneMaterials) {
       parent: scene,
     });
   }
-  return { tank };
 }

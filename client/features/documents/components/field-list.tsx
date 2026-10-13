@@ -7,6 +7,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
+import { sourceTag, type FieldSources } from "../lib/field-sources";
 import { isEmptyValue } from "../lib/form-values";
 import type { FieldValue, FieldValues, TemplateField } from "../lib/templates";
 import { FieldControl } from "./field-control";
@@ -14,14 +15,16 @@ import { FieldControl } from "./field-control";
 type FieldListProps = {
   fields: TemplateField[];
   values: FieldValues;
+  sources: FieldSources;
   onChange: (name: string, value: FieldValue | undefined) => void;
   showMissing?: boolean;
 };
 
-/** Fields grouped into required and optional, one row per field with a status dot. */
+/** Fields grouped into required and optional, one row per field with a status dot and source tag. */
 export function FieldList({
   fields,
   values,
+  sources,
   onChange,
   showMissing = false,
 }: FieldListProps) {
@@ -45,6 +48,7 @@ export function FieldList({
               field.type !== "boolean" &&
               isEmptyValue(value);
             const filled = field.type !== "boolean" && !isEmptyValue(value);
+            const tag = sourceTag(sources[field.name], value);
             const id = `field-${field.name}`;
 
             return (
@@ -63,7 +67,7 @@ export function FieldList({
                 <Label
                   htmlFor={id}
                   className={cn(
-                    "text-xs leading-snug font-normal text-muted-foreground",
+                    "flex items-center gap-1.5 text-xs leading-snug font-normal text-muted-foreground",
                     missing && "text-destructive",
                   )}
                 >
@@ -81,6 +85,18 @@ export function FieldList({
                       </span>
                     </TooltipContent>
                   </Tooltip>
+                  {tag && (
+                    <span
+                      className={cn(
+                        "rounded px-1.5 text-[10px] leading-4 font-medium",
+                        tag === "IA"
+                          ? "bg-accent text-accent-foreground"
+                          : "bg-muted text-muted-foreground",
+                      )}
+                    >
+                      {tag}
+                    </span>
+                  )}
                 </Label>
                 <div className="col-start-2">
                   <FieldControl

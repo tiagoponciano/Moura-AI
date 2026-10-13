@@ -4,9 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatDateTime } from "@/lib/format";
 import { ROLE_LABEL, STATUS_LABEL } from "../lib/labels";
-import type { AdminUser } from "../lib/types";
-
-type UserChange = Partial<Pick<AdminUser, "status" | "role">>;
+import type { AdminUser, UserChange } from "../lib/types";
 
 type UserRowProps = {
   user: AdminUser;

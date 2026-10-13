@@ -12,6 +12,9 @@ export type AdminUser = {
   createdAt: string;
 };
 
+/** Body of `PATCH /api/admin/users/:id`: what the console can change on a profile. */
+export type UserChange = Partial<Pick<AdminUser, "status" | "role">>;
+
 /** `GET /api/admin/users`. */
 export type AdminUsersResponse = {
   users: AdminUser[];

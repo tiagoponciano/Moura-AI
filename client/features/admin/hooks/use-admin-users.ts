@@ -3,9 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { errorMessage } from "@/lib/api/request-json";
 import { fetchUsers, updateUser } from "../lib/client";
-import type { AdminUser, AdminUsersResponse } from "../lib/types";
-
-type UserChange = Partial<Pick<AdminUser, "status" | "role">>;
+import type { AdminUsersResponse, UserChange } from "../lib/types";
 
 /** The user list, reloaded after every change; `busyId` is the row being saved. */
 export function useAdminUsers() {

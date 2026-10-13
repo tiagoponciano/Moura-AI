@@ -2,17 +2,14 @@ import { requestJson } from "@/lib/api/request-json";
 import type { LlmProvider } from "@/lib/llm/catalog";
 import type {
   AdminSettingsResponse,
-  AdminUser,
   AdminUsersResponse,
+  UserChange,
 } from "./types";
 
 export const fetchUsers = () =>
   requestJson<AdminUsersResponse>("/api/admin/users");
 
-export const updateUser = (
-  id: string,
-  change: Partial<Pick<AdminUser, "status" | "role">>,
-) =>
+export const updateUser = (id: string, change: UserChange) =>
   requestJson<void>(`/api/admin/users/${id}`, {
     method: "PATCH",
     body: JSON.stringify(change),

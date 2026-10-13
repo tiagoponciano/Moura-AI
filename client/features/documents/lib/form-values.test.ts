@@ -12,17 +12,25 @@ const schema: TemplateSchema = {
     {
       name: "company_name",
       type: "string",
+      label: "Razão social",
       description: "Razão social",
       required: true,
     },
-    { name: "area_m2", type: "number", description: "Área", required: true },
+    {
+      name: "area_m2",
+      type: "number",
+      label: "Área",
+      description: "Área",
+      required: true,
+    },
     {
       name: "has_sprinklers",
       type: "boolean",
+      label: "Chuveiros",
       description: "Chuveiros",
       required: true,
     },
-    { name: "issue_date", type: "date", description: "Data" },
+    { name: "issue_date", type: "date", label: "Data", description: "Data" },
   ],
 };
 
@@ -90,7 +98,9 @@ describe("requiredProgress", () => {
 
   it("reports zero of zero for a schema without required fields", () => {
     const optionalOnly: TemplateSchema = {
-      fields: [{ name: "notes", type: "string", description: "Notas" }],
+      fields: [
+        { name: "notes", type: "string", label: "Notas", description: "Notas" },
+      ],
     };
     expect(requiredProgress(optionalOnly, {})).toEqual({ filled: 0, total: 0 });
   });

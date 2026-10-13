@@ -7,12 +7,24 @@ const schema: TemplateSchema = {
     {
       name: "company_name",
       type: "string",
+      label: "Razão social",
       description: "Razão social",
       required: true,
     },
-    { name: "area_m2", type: "number", description: "Área", required: true },
-    { name: "has_sprinklers", type: "boolean", description: "Chuveiros" },
-    { name: "issue_date", type: "date", description: "Data" },
+    {
+      name: "area_m2",
+      type: "number",
+      label: "Área",
+      description: "Área",
+      required: true,
+    },
+    {
+      name: "has_sprinklers",
+      type: "boolean",
+      label: "Chuveiros",
+      description: "Chuveiros",
+    },
+    { name: "issue_date", type: "date", label: "Data", description: "Data" },
   ],
 };
 

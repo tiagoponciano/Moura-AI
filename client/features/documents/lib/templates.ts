@@ -6,6 +6,9 @@ export type FieldType = "string" | "number" | "date" | "boolean";
 export type TemplateField = {
   name: string;
   type: FieldType;
+  /** Short name shown in the field panel and in generation problems. */
+  label: string;
+  /** Longer hint for the model and the field tooltip. */
   description: string;
   required?: boolean;
 };

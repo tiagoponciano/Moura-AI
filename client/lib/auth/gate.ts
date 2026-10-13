@@ -6,7 +6,6 @@ export const AUTH_PATHS = {
   login: "/login",
   pending: "/pending",
   unauthorized: "/unauthorized",
-  callback: "/auth/callback",
 } as const;
 
 const AUTH_PAGES: string[] = [
@@ -46,8 +45,6 @@ export function resolveGate({
   status,
   allowedDomain,
 }: GateInput): GateDecision {
-  if (pathname === AUTH_PATHS.callback) return { type: "allow" };
-
   const target = !email
     ? AUTH_PATHS.login
     : !isEmailAllowed(email, allowedDomain) || status === "rejected"

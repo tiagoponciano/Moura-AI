@@ -1,40 +1,19 @@
 "use client";
 
-import { Loader2, LogIn } from "lucide-react";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { AUTH_PATHS } from "@/lib/auth/gate";
-import { createSupabaseBrowserClient } from "@/lib/supabase/client";
+import { Loader2 } from "lucide-react";
+import Script from "next/script";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { useGoogleSignIn } from "../hooks/use-google-sign-in";
+import {
+  GOOGLE_IDENTITY_SCRIPT,
+  getGoogleClientId,
+} from "../lib/google-identity";
 import { AuthCard } from "./auth-card";
 
-type LoginCardProps = {
-  failed: boolean;
-};
-
-/** "Entrar com Google": starts the Supabase OAuth flow, which returns to /auth/callback. */
-export function LoginCard({ failed }: LoginCardProps) {
-  const [redirecting, setRedirecting] = useState(false);
-  const [error, setError] = useState(
-    failed ? "Não foi possível entrar. Tente novamente." : undefined,
-  );
-  const supabase = createSupabaseBrowserClient();
-
-  async function signIn() {
-    if (!supabase) return;
-    setRedirecting(true);
-    setError(undefined);
-    const { error: oauthError } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: `${window.location.origin}${AUTH_PATHS.callback}`,
-      },
-    });
-    if (oauthError) {
-      console.error("Failed to start Google sign-in", oauthError);
-      setError("Não foi possível abrir o login do Google.");
-      setRedirecting(false);
-    }
-  }
+/** "Fazer login com o Google": Google's button, whose ID token becomes a Supabase session. */
+export function LoginCard() {
+  const { buttonRef, renderButton, signingIn, error } = useGoogleSignIn();
+  const configured = isSupabaseConfigured() && Boolean(getGoogleClientId());
 
   return (
     <AuthCard
@@ -42,11 +21,20 @@ export function LoginCard({ failed }: LoginCardProps) {
       description="Use sua conta Google. O primeiro acesso precisa ser aprovado por um administrador."
     >
       {error && <p className="text-sm text-destructive">{error}</p>}
-      {supabase ? (
-        <Button onClick={signIn} disabled={redirecting}>
-          {redirecting ? <Loader2 className="animate-spin" /> : <LogIn />}
-          Entrar com Google
-        </Button>
+      {configured ? (
+        <>
+          <Script
+            src={GOOGLE_IDENTITY_SCRIPT}
+            onReady={() => void renderButton()}
+          />
+          <div ref={buttonRef} className="h-10" hidden={signingIn} />
+          {signingIn && (
+            <p className="flex h-10 items-center gap-2 text-sm text-muted-foreground">
+              <Loader2 className="size-4 animate-spin" />
+              Entrando…
+            </p>
+          )}
+        </>
       ) : (
         <p className="text-sm text-muted-foreground">
           O login não está configurado neste ambiente.

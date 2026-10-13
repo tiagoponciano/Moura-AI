@@ -43,6 +43,8 @@ Requires a signed-in, approved user (`client/docs/authentication.md`); without S
 | `isEmptyValue`        | `(value) => boolean`                                | `undefined`, or a string that is empty after trimming                                                        |
 | `pickExtractedValues` | `(schema, output) => FieldValues`                   | Filters a tool output down to schema fields with non-empty scalar values                                     |
 | `requiredProgress`    | `(schema, values) => { filled, total }`             | Counts required fields considered filled                                                                     |
+| `recordSources`       | `(sources, names, source) => FieldSources`          | Copy of `sources` with each name set to `"assistant"` or `"user"`                                            |
+| `sourceTag`           | `(source, value) => "IA" \| "editado" \| undefined` | `undefined` when no source or `isEmptyValue(value)`; otherwise `IA` for `assistant`, `editado` for `user`    |
 | `validateForDocument` | `(schema, values) => DocumentValidation`            | `{ ok: true, values }` with empty values dropped and unset booleans as `false`, or `{ ok: false, problems }` |
 | `renderDocx`          | `(template, values) => Promise<void>`               | Fetches the `.docx`, renders, triggers download; throws on fetch or template errors                          |
 
@@ -56,7 +58,7 @@ Requires a signed-in, approved user (`client/docs/authentication.md`); without S
 | `server/index.ts`                    | Public server entry: exports `handleDocumentsChat` only                                                       |
 | `server/chat-handler.ts`             | Validates the request, streams the model and defines the `fill_fields` tool                                   |
 | `server/instructions.ts`             | `buildInstructions(templateId, schema)`: the system prompt                                                    |
-| `hooks/use-document-filling.ts`      | All client state and actions: template list, schema, values, problems, generation                             |
+| `hooks/use-document-filling.ts`      | All client state and actions: template list, schema, values, field sources, problems, generation              |
 | `components/document-workspace.tsx`  | Client entry point; switches between picker, loading state and chat + form panel; holds the narrow-screen tab |
 | `components/template-picker.tsx`     | "Novo documento" gallery shown while no template is selected                                                  |
 | `components/template-preview.tsx`    | Decorative A4 sketch with highlighted blanks; the same drawing for every template                             |
@@ -86,7 +88,8 @@ The chat is the shared `Chat` (`components/chat/chat.tsx`): props `endpoint`, `b
 {
   "name": "area_m2",          // must equal the tag name in the .docx; snake_case English
   "type": "number",           // "string" | "number" | "date" | "boolean"
-  "description": "Área total construída do imóvel, em metros quadrados", // LLM hint + panel label, Portuguese
+  "label": "Área construída (m²)", // required; panel label and generation problems, Portuguese, 1–80 chars
+  "description": "Área total construída do imóvel, em metros quadrados", // LLM hint + panel tooltip, Portuguese
   "required": true            // optional, defaults to false
 }
 
@@ -133,7 +136,8 @@ Every field is `.optional()` in `extraction`. In `document`, only fields with `r
 1. Ignore results from tools other than `fill_fields`.
 2. `pickExtractedValues`: keep only keys present in the current schema whose value is a string, number or boolean and not empty/whitespace.
 3. Shallow-merge into the current values; extracted keys overwrite, untouched keys keep their value (including manual edits).
-4. Clear the "Corrija antes de gerar" list.
+4. Mark every extracted key as written by `assistant` (`recordSources`).
+5. Clear the "Corrija antes de gerar" list.
 
 ### Form panel
 
@@ -144,13 +148,15 @@ Every field is `.optional()` in `extraction`. In `document`, only fields with `r
 | `date`    | `Input` text, placeholder `DD/MM/AAAA`; not validated while typing   | required and empty                           | non-empty (format not checked) |
 | `boolean` | `Switch`                                                             | never (a boolean always has a value)         | never                          |
 
-Fields are listed in schema order inside two groups, "Obrigatórios" (`required: true`) and "Opcionais"; a group with no fields is not rendered, and there is no `*` required mark. Each field is a row: status dot, the `description` as label, and the control. Controls have no border, background or focus ring of their own; the row turns `muted` on hover and `accent` while its control has focus. Empty text, number and date controls show the placeholder "Não informado" (`DD/MM/AAAA` for dates).
+Fields are listed in schema order inside two groups, "Obrigatórios" (`required: true`) and "Opcionais"; a group with no fields is not rendered, and there is no `*` required mark. Each field is a row: status dot, the `label`, an optional source tag, and the control. Hovering the label shows the `description` and the `{{name}}` tag. Controls have no border, background or focus ring of their own; the row turns `muted` on hover and `accent` while its control has focus. Empty text, number and date controls show the placeholder "Não informado" (`DD/MM/AAAA` for dates).
 
 | Dot                               | When                                      |
 | --------------------------------- | ----------------------------------------- |
 | Filled `success`                  | "Filled check" above                      |
 | Outlined `destructive`, red label | "Missing highlight" above                 |
 | Outlined `input`                  | Every other case, including every boolean |
+
+The source tag is `sourceTag(sources[name], value)`: "IA" (`accent`) when the last write came from `fill_fields`, "editado" (`muted`) when it came from the panel, nothing while the value is empty. Any edit in the panel, including typing the same value or toggling a switch, marks the field as `user`; a later `fill_fields` result for that field marks it `assistant` again. Sources reset with the template. Reopening a saved chat replays its tool results, so the fields it fills are tagged "IA".
 
 `FieldList` receives `showMissing` once "Gerar documento" has been clicked for the current template, so a fresh form shows no red marks. Selecting another template resets it.
 
@@ -159,7 +165,7 @@ The panel header shows `<filled> de <total> obrigatórios` and one segment per r
 ### "Gerar documento"
 
 1. `validateForDocument`: set every `boolean` field the user never toggled to `false` (the switch already shows "Não"), drop empty values, validate with `schemaToZod(schema, "document")`. A required boolean therefore never fails as missing.
-2. On failure, list one line per field: `<description>: obrigatório` when the value is missing, otherwise `<description>: <zod message>` (e.g. `Use o formato DD/MM/AAAA`). Duplicates are removed. Nothing is rendered.
+2. On failure, list one line per field: `<label>: obrigatório` when the value is missing, otherwise `<label>: <zod message>` (e.g. `Use o formato DD/MM/AAAA`). Duplicates are removed. Nothing is rendered.
 3. On success, `renderDocx`: fetch template → `PizZip` → `Docxtemplater` with `{{`/`}}` delimiters, `paragraphLoop: true`, `linebreaks: true`, `nullGetter: () => ""` and a parser that trims tag names → `render(data)` → Blob → `saveAs`.
 4. Values are formatted before rendering: booleans → `Sim`/`Não`, numbers → `toLocaleString("pt-BR")` (`1234.5` → `1.234,5`), strings as-is.
 5. File name: `<id>_<company_name>.docx`, with `\ / : * ? " < > |` removed and whitespace runs replaced by `_`. Without a non-empty `company_name`, `<id>.docx`.
@@ -183,6 +189,7 @@ Selecting a template resets values, problems, the generate-attempt flag and the 
 
 ## Gotchas
 
+- **Every chat message answers 400 after adding a template** → a field in its `.schema.json` has no `label` (or one over 80 characters), and `documentsChatBody` uses strict objects. → Give every field a short `label`.
 - **Restyling the chat for Documentos also changes Classificação** → `Chat` is shared, and Classificação still shows it as a framed card in a side column. → Change the documents look through the `className` and `title` props in `DocumentWorkspace`, not inside `components/chat/`.
 - **Tag renders empty in the output** → tag name differs from the schema `name` (typo, accent, different case) or Word split the tag with formatting. → Retype the whole tag in one go with uniform formatting; check spelling against the schema.
 - **`Falha ao gerar o documento`** → docxtemplater threw while parsing (unbalanced `{{`, a tag split by a field code or smart quotes). Details are in the browser console (`Failed to render document`).

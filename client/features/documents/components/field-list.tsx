@@ -69,10 +69,16 @@ export function FieldList({
                 >
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <span>{field.description}</span>
+                      <span>{field.label}</span>
                     </TooltipTrigger>
-                    <TooltipContent side="left" className="font-mono">
-                      {`{{${field.name}}}`}
+                    <TooltipContent
+                      side="left"
+                      className="flex max-w-64 flex-col gap-0.5"
+                    >
+                      <span>{field.description}</span>
+                      <span className="font-mono opacity-70">
+                        {`{{${field.name}}}`}
+                      </span>
                     </TooltipContent>
                   </Tooltip>
                 </Label>

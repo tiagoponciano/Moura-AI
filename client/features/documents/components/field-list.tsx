@@ -6,8 +6,8 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { sourceTag, type FieldSources } from "@/lib/field-sources";
 import { cn } from "@/lib/utils";
-import { sourceTag, type FieldSources } from "../lib/field-sources";
 import { isEmptyValue } from "../lib/form-values";
 import type { FieldValue, FieldValues, TemplateField } from "../lib/templates";
 import { FieldControl } from "./field-control";

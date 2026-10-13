@@ -2,8 +2,8 @@
 
 import { FileDown, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import type { FieldSources } from "@/lib/field-sources";
 import { cn } from "@/lib/utils";
-import type { FieldSources } from "../lib/field-sources";
 import type { FieldValue, FieldValues, TemplateField } from "../lib/templates";
 import { FieldList } from "./field-list";
 import { GenerationProblems } from "./generation-problems";

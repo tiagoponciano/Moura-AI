@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { recordSources, type FieldSources } from "../lib/field-sources";
+import { recordSources, type FieldSources } from "@/lib/field-sources";
 import {
   pickExtractedValues,
   requiredProgress,

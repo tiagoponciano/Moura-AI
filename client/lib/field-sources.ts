@@ -1,7 +1,4 @@
-import { isEmptyValue } from "./form-values";
-import type { FieldValue } from "./templates";
-
-/** Who last wrote a field value: the `fill_fields` tool or the user in the panel. */
+/** Who last wrote a field value: an assistant tool or the user in the panel. */
 export type FieldSource = "assistant" | "user";
 
 export type FieldSources = Record<string, FieldSource | undefined>;
@@ -23,8 +20,10 @@ export function recordSources(
 /** Tag shown next to a field label; none while the field is empty. */
 export function sourceTag(
   source: FieldSource | undefined,
-  value: FieldValue | undefined,
+  value: string | number | boolean | undefined,
 ): SourceTag | undefined {
-  if (!source || isEmptyValue(value)) return undefined;
+  const empty =
+    value === undefined || (typeof value === "string" && value.trim() === "");
+  if (!source || empty) return undefined;
   return source === "assistant" ? "IA" : "editado";
 }

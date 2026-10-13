@@ -1,71 +1,73 @@
 "use client";
 
-import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { createNonce } from "@/lib/auth/google-nonce";
-import { createSupabaseBrowserClient } from "@/lib/supabase/client";
-import { getGoogleClientId } from "../lib/google-identity";
+import { useRef, useState } from "react";
+import { GOOGLE_SIGN_IN_API } from "@/lib/auth/gate";
+import {
+  getGoogleClientId,
+  type CodeClient,
+  type CodeResponse,
+} from "../lib/google-identity";
+
+const SIGN_IN_ERROR = "Não foi possível entrar. Tente novamente.";
 
 /**
- * Google's own button, rendered on this site: Google hands the ID token to
- * the page and Supabase turns it into a session, so the browser never leaves
- * for the Supabase domain.
+ * Our own button opens Google's account chooser in a popup; the server trades
+ * the code for an ID token and opens the Supabase session, so the browser
+ * never leaves for the Supabase domain.
  */
 export function useGoogleSignIn() {
   const router = useRouter();
-  const { resolvedTheme } = useTheme();
-  const buttonRef = useRef<HTMLDivElement>(null);
-  const [initialized, setInitialized] = useState(false);
+  const clientRef = useRef<CodeClient | null>(null);
+  const [ready, setReady] = useState(false);
   const [signingIn, setSigningIn] = useState(false);
   const [error, setError] = useState<string>();
 
-  async function signIn(idToken: string, rawNonce: string) {
-    const supabase = createSupabaseBrowserClient();
-    if (!supabase) return;
+  async function exchange({ code }: CodeResponse) {
+    // No code means the user declined in the popup: nothing to report.
+    if (!code) return;
     setSigningIn(true);
-    setError(undefined);
-    const { error: authError } = await supabase.auth.signInWithIdToken({
-      provider: "google",
-      token: idToken,
-      nonce: rawNonce,
-    });
-    if (authError) {
-      console.error("Failed to sign in with the Google ID token", authError);
-      setError("Não foi possível entrar. Tente novamente.");
+    const response = await fetch(GOOGLE_SIGN_IN_API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Requested-With": "XMLHttpRequest",
+      },
+      body: JSON.stringify({ code }),
+    }).catch(() => undefined);
+    if (!response?.ok) {
+      console.error("Google sign-in failed", response?.status);
+      setError(SIGN_IN_ERROR);
       setSigningIn(false);
       return;
     }
     router.replace("/");
   }
 
-  async function initialize() {
+  function initialize() {
     const google = window.google;
     const clientId = getGoogleClientId();
     if (!google || !clientId) return;
-    const nonce = await createNonce();
-    google.accounts.id.initialize({
+    clientRef.current = google.accounts.oauth2.initCodeClient({
       client_id: clientId,
-      nonce: nonce.hashed,
-      callback: (response) => void signIn(response.credential, nonce.raw),
+      scope: "openid email profile",
+      ux_mode: "popup",
+      callback: (response) => void exchange(response),
+      error_callback: ({ type }) => {
+        if (type === "popup_failed_to_open") {
+          setError(
+            "O navegador bloqueou a janela do Google. Permita pop-ups e tente de novo.",
+          );
+        }
+      },
     });
-    setInitialized(true);
+    setReady(true);
   }
 
-  // The button lives in Google's iframe and cannot be restyled, so it is redrawn when the theme changes.
-  useEffect(() => {
-    const google = window.google;
-    const parent = buttonRef.current;
-    if (!initialized || !google || !parent) return;
-    google.accounts.id.renderButton(parent, {
-      theme: resolvedTheme === "dark" ? "filled_black" : "outline",
-      shape: "pill",
-      size: "large",
-      text: "signin_with",
-      width: parent.offsetWidth,
-      locale: "pt-BR",
-    });
-  }, [initialized, resolvedTheme]);
+  function signIn() {
+    setError(undefined);
+    clientRef.current?.requestCode();
+  }
 
-  return { buttonRef, initialize, signingIn, error };
+  return { initialize, ready, signIn, signingIn, error };
 }

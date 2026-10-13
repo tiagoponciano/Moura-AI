@@ -1,6 +1,6 @@
 "use client";
 
-import { House } from "lucide-react";
+import { House, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -17,10 +17,12 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { ADMIN_PATH } from "@/lib/auth/gate";
 import { MODULES, MODULE_STATUS_LABEL } from "@/lib/modules";
 import { UserMenu } from "./user-menu";
 
-export function AppSidebar() {
+/** `isAdmin` only shows the link; the proxy guards `/admin`. */
+export function AppSidebar({ isAdmin }: { isAdmin: boolean }) {
   const pathname = usePathname();
 
   return (
@@ -95,6 +97,26 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+        {isAdmin && (
+          <SidebarGroup>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname.startsWith(ADMIN_PATH)}
+                    tooltip="Administração"
+                  >
+                    <Link href={ADMIN_PATH}>
+                      <ShieldCheck />
+                      <span>Administração</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        )}
       </SidebarContent>
       <SidebarFooter>
         <UserMenu />

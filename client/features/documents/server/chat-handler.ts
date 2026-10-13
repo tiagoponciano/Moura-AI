@@ -23,7 +23,7 @@ type ChatRequest = {
  * values back to the client. The chat is saved per template when history is available.
  */
 export async function handleDocumentsChat(req: Request): Promise<Response> {
-  const { model, error } = resolveChatModel();
+  const { model, error } = await resolveChatModel();
   if (error) return error;
 
   const { id, messages, templateId, schema }: ChatRequest = await req.json();

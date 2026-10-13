@@ -8,13 +8,14 @@ import {
   type UIMessage,
 } from "ai";
 import { Loader2, RotateCcw } from "lucide-react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { useChatAttachments } from "@/hooks/use-chat-attachments";
 import { chatErrorMessage } from "@/lib/chat-error";
 import { fetchChatMessages } from "@/lib/chat-history/client";
 import type { ChatContext, ChatModule } from "@/lib/chat-history/types";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { cn } from "@/lib/utils";
 import { AssistantAvatar } from "./assistant-avatar";
 import { ChatAlert } from "./chat-alert";
 import { ChatAttachments } from "./chat-attachments";
@@ -31,6 +32,9 @@ type ChatProps = {
   emptyState?: string;
   /** Saved-chat scope. The history menu shows only when this is set and Supabase is configured. */
   history?: { module: ChatModule; context?: ChatContext };
+  /** Left side of the header; defaults to the assistant avatar and name. */
+  title?: ReactNode;
+  className?: string;
 };
 
 type ChatSession = { id: string; messages: UIMessage[] };
@@ -48,6 +52,8 @@ export function Chat({
   placeholder = "Digite sua mensagem…",
   emptyState = "Comece a conversa descrevendo o que você precisa.",
   history,
+  title,
+  className,
 }: ChatProps) {
   const transport = useMemo(
     () => new DefaultChatTransport({ api: endpoint }),
@@ -107,12 +113,19 @@ export function Chat({
   }
 
   return (
-    <div className="flex h-full min-h-0 flex-col rounded-xl border bg-card">
-      <div className="flex items-center justify-between border-b px-4 py-2.5">
-        <div className="flex items-center gap-2">
-          <AssistantAvatar />
-          <span className="text-sm font-medium">Moura AI</span>
-        </div>
+    <div
+      className={cn(
+        "flex h-full min-h-0 flex-col rounded-xl border bg-card",
+        className,
+      )}
+    >
+      <div className="flex items-center justify-between gap-2 border-b px-4 py-2.5">
+        {title ?? (
+          <div className="flex items-center gap-2">
+            <AssistantAvatar />
+            <span className="text-sm font-medium">Moura AI</span>
+          </div>
+        )}
         <div className="flex items-center gap-1">
           {historyEnabled && (
             <ChatHistoryMenu

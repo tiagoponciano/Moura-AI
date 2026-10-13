@@ -15,6 +15,7 @@ type GoogleAccountsId = {
     parent: HTMLElement,
     options: {
       theme?: "outline" | "filled_blue" | "filled_black";
+      shape?: "rectangular" | "pill" | "circle" | "square";
       size?: "small" | "medium" | "large";
       text?: "signin_with" | "signup_with" | "continue_with" | "signin";
       width?: number;

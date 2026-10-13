@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { pickBuildingAnswers } from "./building";
+import { countAnswers, pickBuildingAnswers } from "./building";
 
 describe("pickBuildingAnswers", () => {
   it("maps snake_case tool output to building answers", () => {
@@ -34,5 +34,15 @@ describe("pickBuildingAnswers", () => {
 
   it("returns nothing for a non-object output", () => {
     expect(pickBuildingAnswers(null)).toEqual({});
+  });
+});
+
+describe("countAnswers", () => {
+  it("counts the questions that have an answer", () => {
+    expect(countAnswers({ areaM2: 1200, occupancy: "commercial" })).toBe(2);
+  });
+
+  it("ignores fields set back to undefined", () => {
+    expect(countAnswers({ areaM2: undefined, heightM: 8 })).toBe(1);
   });
 });

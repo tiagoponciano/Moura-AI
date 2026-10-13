@@ -37,6 +37,8 @@ export const BUILDING_FIELD_LABEL: Record<BuildingField, string> = {
   occupancy: "Ocupação",
 };
 
+export const QUESTION_COUNT = Object.keys(BUILDING_FIELD_LABEL).length;
+
 /** How many of the key questions have an answer. */
 export function countAnswers(building: Building): number {
   return Object.values(building).filter((value) => value !== undefined).length;

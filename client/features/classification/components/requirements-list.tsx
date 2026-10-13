@@ -1,53 +1,65 @@
-import type { Requirement, RequirementStatus } from "../lib/evaluate";
-import { RequirementCard } from "./requirement-card";
+import { cn } from "@/lib/utils";
+import type { Requirement, RequirementGroups } from "../lib/evaluate";
+import { RequirementRow } from "./requirement-row";
 
-const GROUPS: { status: RequirementStatus; title: string }[] = [
-  { status: "required", title: "Sistemas exigidos" },
-  { status: "needs_info", title: "Dependem de mais informações" },
-];
+/** Summary bar segment color for each status. */
+const SEGMENT = {
+  required: "bg-primary",
+  needs_info: "bg-input",
+  not_required: "bg-muted",
+} satisfies Record<Requirement["status"], string>;
 
-/** Requirements grouped by status; systems not required are listed by name only. */
-export function RequirementsList({
-  requirements,
-}: {
-  requirements: Requirement[];
-}) {
-  const notRequired = requirements.filter((r) => r.status === "not_required");
+/** Systems summary bar and the systems grouped by status. */
+export function RequirementsList({ groups }: { groups: RequirementGroups }) {
+  const sections = [
+    { title: "Exigidos", items: groups.required },
+    { title: "Dependem de respostas", items: groups.needsInfo },
+    { title: "Não exigidos", items: groups.notRequired },
+  ].filter((section) => section.items.length > 0);
+  const ordered = [
+    ...groups.required,
+    ...groups.needsInfo,
+    ...groups.notRequired,
+  ];
 
   return (
-    <div className="flex flex-col gap-5">
-      {GROUPS.map(({ status, title }) => {
-        const items = requirements.filter((r) => r.status === status);
-        if (items.length === 0) return null;
-        return (
-          <section key={status} className="flex flex-col gap-2">
-            <h2 className="text-sm font-medium">
-              {title}{" "}
-              <span className="text-muted-foreground tabular-nums">
-                ({items.length})
-              </span>
-            </h2>
-            <ul className="grid gap-2 lg:grid-cols-2">
-              {items.map((requirement) => (
-                <RequirementCard
-                  key={requirement.id}
-                  requirement={requirement}
-                />
-              ))}
-            </ul>
-          </section>
-        );
-      })}
-      {notRequired.length > 0 && (
-        <section className="flex flex-col gap-1.5">
-          <h2 className="text-sm font-medium text-muted-foreground">
-            Não exigidos ({notRequired.length})
-          </h2>
-          <p className="text-sm text-muted-foreground">
-            {notRequired.map((r) => r.system).join(" · ")}
-          </p>
-        </section>
-      )}
-    </div>
+    <section className="flex flex-col border-t">
+      <div className="flex flex-col gap-2.5 px-5 pt-4 pb-3">
+        <div className="flex items-baseline justify-between gap-2 text-sm">
+          <h2 className="font-semibold">Sistemas preventivos</h2>
+          <span className="text-xs text-muted-foreground tabular-nums">
+            {groups.required.length} exigidos · {groups.needsInfo.length}{" "}
+            pendentes
+          </span>
+        </div>
+        <div
+          role="img"
+          aria-label={`${groups.required.length} exigidos, ${groups.needsInfo.length} pendentes, ${groups.notRequired.length} não exigidos`}
+          className="flex gap-1"
+        >
+          {ordered.map((requirement) => (
+            <span
+              key={requirement.id}
+              className={cn(
+                "h-1 flex-1 rounded-full transition-colors",
+                SEGMENT[requirement.status],
+              )}
+            />
+          ))}
+        </div>
+      </div>
+      <div className="flex flex-col gap-3 px-3 pb-4">
+        {sections.map((section) => (
+          <div key={section.title} className="flex flex-col">
+            <h3 className="px-2 pb-1 text-[11px] font-medium tracking-wider text-muted-foreground uppercase">
+              {section.title}
+            </h3>
+            {section.items.map((requirement) => (
+              <RequirementRow key={requirement.id} requirement={requirement} />
+            ))}
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }

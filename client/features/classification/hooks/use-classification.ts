@@ -49,7 +49,6 @@ export function useClassification() {
     building,
     sources,
     answered: countAnswers(building),
-    requirements,
     groups,
     handleToolResult,
     updateAnswer,

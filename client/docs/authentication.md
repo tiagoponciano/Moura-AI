@@ -26,7 +26,7 @@ Invariants:
 | `/admin`, `/api/admin/*` | page and APIs  | `app/(app)/layout.tsx` (page)  | Approved users with `role = 'admin'`, once Supabase is configured |
 | everything else          | pages and APIs | `app/(app)/layout.tsx` (pages) | Approved users only, once Supabase is configured                  |
 
-`app/(auth)/layout.tsx` centers the card with the theme toggle in the corner and no sidebar. Module pages live under `app/(app)/`, whose layout holds the sidebar shell (see `app-shell.md`). Route groups do not change URLs.
+`app/(auth)/layout.tsx` centers the page's content with the theme toggle in the corner and no sidebar. `/login` shows only the Moura logo, "Moura Engenharia", "Prevenção contra incêndio" and the Google button, with no card around them; `/pending` and `/unauthorized` use the bordered `AuthCard` with a title and an explanation. Module pages live under `app/(app)/`, whose layout holds the sidebar shell (see `app-shell.md`). Route groups do not change URLs.
 
 Proxy matcher: every path except `_next/static`, `_next/image`, `favicon.ico`, `icon.png`, `brand/…` and paths ending in `.svg`, `.png`, `.jpg`, `.jpeg`, `.gif`, `.webp`. `/api/*` and `/templates/*` are gated.
 
@@ -117,11 +117,11 @@ Every gated request costs one Auth call and one RPC. Pages under `app/(app)/` ad
 ### Sign-in
 
 1. `LoginCard` renders only when both Supabase variables and `NEXT_PUBLIC_GOOGLE_CLIENT_ID` are set; otherwise it shows "O login não está configurado neste ambiente."
-2. It loads `https://accounts.google.com/gsi/client` with `next/script`. On every mount once the script is ready, `createNonce()` runs, then `google.accounts.id.initialize({ client_id, nonce: hashed, callback })` and `renderButton` (outline, large, "signin_with", `pt-BR`, as wide as its container). Google draws the button inside our page: "Fazer Login com o Google".
+2. It loads `https://accounts.google.com/gsi/client` with `next/script`. On every mount once the script is ready, `createNonce()` runs, then `google.accounts.id.initialize({ client_id, nonce: hashed, callback })`, once. `renderButton` (pill, large, "signin_with", `pt-BR`, as wide as its 320px container) then runs after initialization and again whenever `resolvedTheme` changes: `filled_black` in dark mode, `outline` in light mode. Google draws the button inside our page, in its own iframe: "Fazer Login com o Google".
 3. The user picks an account in Google's popup. Google calls `callback` with `credential`, an ID token whose `nonce` claim is `hashed`.
 4. `signInWithIdToken({ provider: "google", token: credential, nonce: raw })`. Supabase checks the token's audience against the client IDs configured in its Google provider and the nonce claim against SHA-256 of `raw`, creates or finds the user, and the browser client stores the session in cookies. The button is hidden and "Entrando…" shows meanwhile.
 5. Success → `router.replace("/")`; the proxy applies the domain and approval checks on that request.
-6. Failure → the card shows "Não foi possível entrar. Tente novamente." and logs `Failed to sign in with the Google ID token`. The same nonce stays valid, so pressing the button again retries.
+6. Failure → the page shows "Não foi possível entrar. Tente novamente." under the button and logs `Failed to sign in with the Google ID token`. The same nonce stays valid, so pressing the button again retries.
 
 ### Signed-in UI
 
@@ -142,6 +142,8 @@ Every gated request costs one Auth call and one RPC. Pages under `app/(app)/` ad
 
 - **The Google button does not appear, or its popup says "origin is not allowed" / `Error 400: origin_mismatch`** → the page's origin is not an Authorized JavaScript origin of the OAuth client. → Google Cloud → Clients → the web client: add the exact origin (`http://localhost`, `http://localhost:3000`, each Vercel domain used). Wildcards are not accepted, so every Vercel preview URL that should allow login must be listed; the per-branch URL (`<project>-git-<branch>-<team>.vercel.app`) stays the same across that branch's deploys.
 - **"Não foi possível entrar" after picking an account, console shows `Failed to sign in with the Google ID token`** → Supabase rejected the token: the client ID in `NEXT_PUBLIC_GOOGLE_CLIENT_ID` is not among the client IDs in Supabase → Authentication → Providers → Google, or the Google provider is disabled. → Use the same web client ID in both places.
+- **Tailwind classes or CSS do not change the Google button's color, font or radius** → Google draws it inside its own iframe. → Only the `renderButton` options in `use-google-sign-in.ts` (`theme`, `shape`, `size`, `text`, `width`) change it. A fully custom button means switching to Supabase's redirect flow, and then Google's account chooser shows `<project-ref>.supabase.co` instead of our site.
+- **Google warns that `initialize` was called multiple times, or the button stops signing in after a theme switch** → `initialize` was moved into the theme effect; each call sets a new nonce. → Keep `initialize` once per mount and rerun only `renderButton` on theme changes.
 - **Login page says login is not configured, yet every page redirects to it** → Supabase variables are set but `NEXT_PUBLIC_GOOGLE_CLIENT_ID` is not. → Set it and redeploy.
 - **Sign-in hangs or fails only on some networks (e.g. the UFSC network)** → the network resets TLS connections to `*.supabase.co`, which `signInWithIdToken`, the proxy and every API route need. `curl https://<project-ref>.supabase.co/auth/v1/health` fails with "Connection reset by peer" there. → Use another network; nothing in the app can work around it.
 - **Everyone lands on `/pending`** → expected: new profiles are `pending`. → Approve them on `/admin`; the first admin with the SQL in Setup.

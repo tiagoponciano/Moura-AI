@@ -3,6 +3,7 @@
 import { Input } from "@/components/ui/input";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
+import { cn } from "@/lib/utils";
 import type { FieldValue, TemplateField } from "../lib/templates";
 
 type FieldControlProps = {
@@ -12,6 +13,10 @@ type FieldControlProps = {
   invalid: boolean;
   onChange: (value: FieldValue | undefined) => void;
 };
+
+/** Strips the input chrome; the surrounding field row shows hover, focus and missing state. */
+const BARE_INPUT =
+  "h-auto min-h-0 rounded-none border-0 bg-transparent p-0 font-medium shadow-none placeholder:font-normal focus-visible:ring-0 aria-invalid:ring-0 dark:bg-transparent";
 
 function parseNumber(raw: string): number | undefined {
   if (raw.trim() === "") return undefined;
@@ -52,7 +57,8 @@ export function FieldControl({
           onChange(event.target.value === "" ? undefined : event.target.value)
         }
         aria-invalid={invalid}
-        className="min-h-9 resize-none"
+        placeholder="Não informado"
+        className={cn(BARE_INPUT, "resize-none")}
       />
     );
   }
@@ -63,7 +69,7 @@ export function FieldControl({
       type={field.type === "number" ? "number" : "text"}
       step={field.type === "number" ? "any" : undefined}
       inputMode={field.type === "number" ? "decimal" : undefined}
-      placeholder={field.type === "date" ? "DD/MM/AAAA" : undefined}
+      placeholder={field.type === "date" ? "DD/MM/AAAA" : "Não informado"}
       value={value === undefined ? "" : String(value)}
       onChange={(event) => {
         const raw = event.target.value;
@@ -71,6 +77,7 @@ export function FieldControl({
         else onChange(raw === "" ? undefined : raw);
       }}
       aria-invalid={invalid}
+      className={BARE_INPUT}
     />
   );
 }

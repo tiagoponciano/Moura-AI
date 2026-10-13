@@ -1,3 +1,4 @@
+import { parseJsonBody } from "@/lib/api/parse-json-body";
 import type { Database } from "@/lib/supabase/database.types";
 import type { AdminSettingsResponse } from "../lib/types";
 import {
@@ -5,7 +6,7 @@ import {
   providerSchema,
   settingsUpdateSchema,
 } from "../lib/validation";
-import { parseBody, requireSession, rpcErrorResponse } from "./respond";
+import { requireSession, rpcErrorResponse } from "./respond";
 
 type SettingsUpdate = Database["public"]["Tables"]["app_settings"]["Update"];
 
@@ -47,7 +48,7 @@ export async function handleUpdateSettings(req: Request): Promise<Response> {
   const session = await requireSession();
   if (session.error) return session.error;
 
-  const body = await parseBody(req, settingsUpdateSchema);
+  const body = await parseJsonBody(req, settingsUpdateSchema);
   if (body.error) return body.error;
 
   const update: SettingsUpdate = {};
@@ -83,7 +84,7 @@ export async function handleSetProviderKey(
   if (!provider.success) {
     return Response.json({ error: "Unknown provider" }, { status: 404 });
   }
-  const body = await parseBody(req, providerKeySchema);
+  const body = await parseJsonBody(req, providerKeySchema);
   if (body.error) return body.error;
 
   const { error } = await session.supabase.rpc("admin_set_provider_key", {

@@ -35,20 +35,21 @@ Proxy matcher: every path except `_next/static`, `_next/image`, `favicon.ico`, `
 
 ### Library
 
-| Export                          | File                     | Contract                                                                                                                                        |
-| ------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `resolveGate(input)`            | `lib/auth/gate.ts`       | Pure; returns `{type:"allow"}`, `{type:"redirect",to}` or `{type:"deny",status,error}` (order below)                                            |
-| `isEmailAllowed(email, dom)`    | `lib/auth/gate.ts`       | `true` when `dom` is empty/undefined; else case-insensitive `endsWith("@" + dom)`, a leading `@` in `dom` is ignored                            |
-| `AUTH_PATHS`                    | `lib/auth/gate.ts`       | `login`, `pending`, `unauthorized` paths                                                                                                        |
-| `ADMIN_PATH`                    | `lib/auth/gate.ts`       | `"/admin"`; the gate also guards `/api/admin`                                                                                                   |
-| `GOOGLE_SIGN_IN_API`            | `lib/auth/gate.ts`       | `"/api/auth/google"`; always allowed by the gate, posted to by the login page                                                                   |
-| `isCurrentUserAdmin()`          | `lib/auth/is-admin.ts`   | Server-only; `get_gate_state()` says approved and `admin`. `false` without Supabase or session. Used by the app layout to show the sidebar link |
-| `signOut()`                     | `lib/auth/sign-out.ts`   | Browser-only; `supabase.auth.signOut()` then full reload on `/login`                                                                            |
-| `getSupabaseEnv()`              | `lib/supabase/env.ts`    | `{ url, anonKey }` or `undefined` when either variable is empty                                                                                 |
-| `isSupabaseConfigured()`        | `lib/supabase/env.ts`    | `getSupabaseEnv() !== undefined`; usable in client and server code                                                                              |
-| `createSupabaseServerClient()`  | `lib/supabase/server.ts` | Server-only, one per request, acts as the signed-in user; `undefined` without env                                                               |
-| `createSupabaseBrowserClient()` | `lib/supabase/client.ts` | Browser singleton; `undefined` without env                                                                                                      |
-| `refreshSession(request, env)`  | `lib/supabase/proxy.ts`  | Proxy-only; returns `user`, `supabase` and `respond`/`redirect`/`deny` that carry refreshed cookies                                             |
+| Export                          | File                       | Contract                                                                                                                                              |
+| ------------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `resolveGate(input)`            | `lib/auth/gate.ts`         | Pure; returns `{type:"allow"}`, `{type:"redirect",to}` or `{type:"deny",status,error}` (order below)                                                  |
+| `isEmailAllowed(email, dom)`    | `lib/auth/gate.ts`         | `true` when `dom` is empty/undefined; else case-insensitive `endsWith("@" + dom)`, a leading `@` in `dom` is ignored                                  |
+| `AUTH_PATHS`                    | `lib/auth/gate.ts`         | `login`, `pending`, `unauthorized` paths                                                                                                              |
+| `ADMIN_PATH`                    | `lib/auth/gate.ts`         | `"/admin"`; the gate also guards `/api/admin`                                                                                                         |
+| `GOOGLE_SIGN_IN_API`            | `lib/auth/gate.ts`         | `"/api/auth/google"`; always allowed by the gate, posted to by the login page                                                                         |
+| `isCurrentUserAdmin()`          | `lib/auth/is-admin.ts`     | Server-only; `get_gate_state()` says approved and `admin`. `false` without Supabase or session. Used by the app layout to show the sidebar link       |
+| `requireUser(message)`          | `lib/auth/require-user.ts` | Server-only; `{ supabase, user }` for route handlers, or `{ error }`: 503 `message` without Supabase, 401 `Authentication required` without a session |
+| `signOut()`                     | `lib/auth/sign-out.ts`     | Browser-only; `supabase.auth.signOut()` then full reload on `/login`                                                                                  |
+| `getSupabaseEnv()`              | `lib/supabase/env.ts`      | `{ url, anonKey }` or `undefined` when either variable is empty                                                                                       |
+| `isSupabaseConfigured()`        | `lib/supabase/env.ts`      | `getSupabaseEnv() !== undefined`; usable in client and server code                                                                                    |
+| `createSupabaseServerClient()`  | `lib/supabase/server.ts`   | Server-only, one per request, acts as the signed-in user; `undefined` without env                                                                     |
+| `createSupabaseBrowserClient()` | `lib/supabase/client.ts`   | Browser singleton; `undefined` without env                                                                                                            |
+| `refreshSession(request, env)`  | `lib/supabase/proxy.ts`    | Proxy-only; returns `user`, `supabase` and `respond`/`redirect`/`deny` that carry refreshed cookies                                                   |
 
 `features/auth` exports `LoginCard`, `PendingCard` and `UnauthorizedCard`; its server entry `features/auth/server` exports `handleGoogleSignIn`, which `app/api/auth/google/route.ts` serves as `POST`. Inside it, `hooks/use-google-sign-in.ts` drives the popup and the exchange, `lib/google-identity.ts` holds the Google script URL, its types and `getGoogleClientId()`, and `components/google-logo.tsx` is Google's "G". `components/layout/user-menu.tsx` is the sidebar footer menu.
 

@@ -12,12 +12,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { fetchChats } from "@/lib/chat-history/client";
-import { formatChatDate } from "@/lib/chat-history/format";
 import type {
   ChatContext,
   ChatModule,
   ChatSummary,
 } from "@/lib/chat-history/types";
+import { formatDateTime } from "@/lib/format";
 
 type ChatHistoryMenuProps = {
   module: ChatModule;
@@ -93,7 +93,7 @@ export function ChatHistoryMenu({
             >
               <span className="w-full truncate">{chat.title}</span>
               <span className="text-xs text-muted-foreground">
-                {formatChatDate(chat.updatedAt)}
+                {formatDateTime(chat.updatedAt)}
               </span>
             </DropdownMenuItem>
           ))}

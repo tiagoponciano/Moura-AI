@@ -1,7 +1,9 @@
 import { z } from "zod";
+import { parseJsonBody } from "@/lib/api/parse-json-body";
 import type { AdminUser, AdminUsersResponse } from "../lib/types";
-import { sortUsers, userUpdateSchema } from "../lib/validation";
-import { parseBody, requireSession, rpcErrorResponse } from "./respond";
+import { sortUsers } from "../lib/users";
+import { userUpdateSchema } from "../lib/validation";
+import { requireSession, rpcErrorResponse } from "./respond";
 
 /** `GET /api/admin/users`: every profile, pending first. */
 export async function handleListUsers(): Promise<Response> {
@@ -47,7 +49,7 @@ export async function handleUpdateUser(
   if (!z.uuid().safeParse(id).success) {
     return Response.json({ error: "Profile not found" }, { status: 404 });
   }
-  const body = await parseBody(req, userUpdateSchema);
+  const body = await parseJsonBody(req, userUpdateSchema);
   if (body.error) return body.error;
 
   if (body.data.status) {

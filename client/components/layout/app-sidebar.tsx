@@ -1,9 +1,9 @@
 "use client";
 
 import { House, ShieldCheck } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { BrandLogo } from "@/components/shared/brand-logo";
 import {
   Sidebar,
   SidebarContent,
@@ -32,15 +32,7 @@ export function AppSidebar({ isAdmin }: { isAdmin: boolean }) {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <Link href="/">
-                <div className="flex aspect-square size-8 shrink-0 items-center justify-center rounded-lg dark:bg-white/90">
-                  <Image
-                    src="/brand/moura-logo.png"
-                    alt="Moura"
-                    width={28}
-                    height={28}
-                    priority
-                  />
-                </div>
+                <BrandLogo size="sm" />
                 <div className="grid flex-1 text-left leading-tight">
                   <span className="font-semibold">Moura Engenharia</span>
                   <span className="truncate text-xs text-muted-foreground">

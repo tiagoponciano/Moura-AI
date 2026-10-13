@@ -37,7 +37,7 @@ All four sit behind the proxy gate (401/403 before reaching the handler). `modul
 | `deriveChatTitle(messages)`                            | `lib/chat-history/title.ts`  | Rule below                                                                             |
 | `parseChatListQuery(params)`                           | `lib/chat-history/query.ts`  | `{ module, context }` or `undefined`                                                   |
 | `isChatId(value)`                                      | `lib/chat-history/query.ts`  | `z.uuid()` check                                                                       |
-| `formatChatDate(iso)`                                  | `lib/chat-history/format.ts` | `pt-BR`, short date + short time: `13/10/2026, 14:05`                                  |
+| `formatDateTime(iso)`                                  | `lib/format.ts`              | `pt-BR`, short date + short time: `13/10/2026, 14:05`                                  |
 | `ChatPersistence`, `toChatResponse`                    | `lib/llm/index.ts`           | `{ originalMessages, generateMessageId, onEnd }`, spread into `toUIMessageStream`      |
 
 `Chat` (`components/chat/chat.tsx`) takes `history?: { module, context? }`. The menu is `components/chat/chat-history-menu.tsx`.
@@ -109,7 +109,7 @@ Newest `updated_at` first, at most 50, filtered by `module` and `context @> <giv
 | Fetch fails                | Shows "Não foi possível abrir a conversa." above the messages; current chat untouched                                                      |
 
 - "Histórico" shows only when `history` is passed **and** `isSupabaseConfigured()`. Both workspaces pass it. It is disabled while a response streams; the current chat is disabled in the list.
-- Menu states: "Carregando…", "Não foi possível carregar o histórico.", "Nenhuma conversa salva ainda.", or one item per chat (title + `formatChatDate`).
+- Menu states: "Carregando…", "Não foi possível carregar o histórico.", "Nenhuma conversa salva ainda.", or one item per chat (title + `formatDateTime`).
 - Reopening replays every `output-available` tool part through `onToolResult`. Documents merges `fill_fields` values over the current form; Classificação merges `record_building` answers over the current answers. The form is not cleared first.
 - The documents `Chat` is keyed by template id, so switching templates starts a new session.
 

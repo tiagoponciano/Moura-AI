@@ -1,6 +1,5 @@
 import { z } from "zod";
 import { LLM_PROVIDERS, isCatalogModel } from "@/lib/llm/catalog";
-import type { AdminUser } from "./types";
 
 export const providerSchema = z.enum(LLM_PROVIDERS);
 
@@ -45,18 +44,3 @@ export const settingsUpdateSchema = z
 export const providerKeySchema = z.strictObject({
   key: z.string().trim().min(1).max(500),
 });
-
-const STATUS_ORDER: Record<AdminUser["status"], number> = {
-  pending: 0,
-  approved: 1,
-  rejected: 2,
-};
-
-/** Pending first, then approved, then rejected; newest first within each. */
-export function sortUsers(users: AdminUser[]): AdminUser[] {
-  return [...users].sort(
-    (a, b) =>
-      STATUS_ORDER[a.status] - STATUS_ORDER[b.status] ||
-      b.createdAt.localeCompare(a.createdAt),
-  );
-}

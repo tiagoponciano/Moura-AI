@@ -1,12 +1,10 @@
 import { Loader2 } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { UserAvatar } from "@/components/shared/user-avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { formatChatDate } from "@/lib/chat-history/format";
+import { formatDateTime } from "@/lib/format";
 import { ROLE_LABEL, STATUS_LABEL } from "../lib/labels";
-import type { AdminUser } from "../lib/types";
-
-type UserChange = Partial<Pick<AdminUser, "status" | "role">>;
+import type { AdminUser, UserChange } from "../lib/types";
 
 type UserRowProps = {
   user: AdminUser;
@@ -31,18 +29,10 @@ export function UserRow({
   onChange,
 }: UserRowProps) {
   const displayName = user.name ?? user.email;
-  const initials = displayName
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase())
-    .join("");
 
   return (
     <li className="flex flex-wrap items-center gap-3 py-3">
-      <Avatar className="size-8 rounded-lg">
-        <AvatarImage src={user.avatarUrl ?? undefined} alt={displayName} />
-        <AvatarFallback className="rounded-lg">{initials}</AvatarFallback>
-      </Avatar>
+      <UserAvatar name={displayName} avatarUrl={user.avatarUrl} />
       <div className="grid min-w-0 flex-1 text-sm leading-tight">
         <span className="truncate font-medium">
           {displayName}
@@ -53,7 +43,7 @@ export function UserRow({
           )}
         </span>
         <span className="truncate text-xs text-muted-foreground">
-          {user.email} · entrou em {formatChatDate(user.createdAt)}
+          {user.email} · entrou em {formatDateTime(user.createdAt)}
         </span>
       </div>
       <div className="flex items-center gap-1.5">

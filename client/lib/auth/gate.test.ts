@@ -60,7 +60,11 @@ describe("resolveGate", () => {
 
   it("keeps gating paths that only start like the sign-in API", () => {
     expect(
-      resolveGate({ pathname: "/api/auth/google/x", email: null, status: null }),
+      resolveGate({
+        pathname: "/api/auth/google/x",
+        email: null,
+        status: null,
+      }),
     ).toEqual({ type: "deny", status: 401, error: "Authentication required" });
   });
 

@@ -1,10 +1,8 @@
 import { describe, expect, it } from "vitest";
-import type { AdminUser } from "./types";
 import {
   domainSchema,
   providerKeySchema,
   settingsUpdateSchema,
-  sortUsers,
   userUpdateSchema,
 } from "./validation";
 
@@ -87,32 +85,5 @@ describe("providerKeySchema", () => {
   it("trims the key and rejects a blank one", () => {
     expect(providerKeySchema.parse({ key: " sk-1 " })).toEqual({ key: "sk-1" });
     expect(providerKeySchema.safeParse({ key: "   " }).success).toBe(false);
-  });
-});
-
-describe("sortUsers", () => {
-  const user = (
-    id: string,
-    status: AdminUser["status"],
-    createdAt: string,
-  ): AdminUser => ({
-    id,
-    email: `${id}@moura.com`,
-    name: null,
-    avatarUrl: null,
-    status,
-    role: "member",
-    approvedAt: null,
-    createdAt,
-  });
-
-  it("lists pending users first, newest first within each status", () => {
-    const sorted = sortUsers([
-      user("a", "approved", "2026-10-01"),
-      user("r", "rejected", "2026-10-05"),
-      user("p1", "pending", "2026-10-02"),
-      user("p2", "pending", "2026-10-03"),
-    ]);
-    expect(sorted.map((entry) => entry.id)).toEqual(["p2", "p1", "a", "r"]);
   });
 });

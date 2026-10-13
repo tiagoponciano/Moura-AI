@@ -1,13 +1,6 @@
 import type { UIMessage } from "ai";
+import { requestJson } from "@/lib/api/request-json";
 import type { ChatContext, ChatModule, ChatSummary } from "./types";
-
-async function getJson<T>(url: string): Promise<T> {
-  const response = await fetch(url);
-  if (!response.ok) {
-    throw new Error(`Request to ${url} failed with ${response.status}`);
-  }
-  return response.json();
-}
 
 export async function fetchChats(
   module: ChatModule,
@@ -17,14 +10,14 @@ export async function fetchChats(
     module,
     context: JSON.stringify(context),
   });
-  const { chats } = await getJson<{ chats: ChatSummary[] }>(
+  const { chats } = await requestJson<{ chats: ChatSummary[] }>(
     `/api/chats?${params}`,
   );
   return chats;
 }
 
 export async function fetchChatMessages(id: string): Promise<UIMessage[]> {
-  const { messages } = await getJson<{ messages: UIMessage[] }>(
+  const { messages } = await requestJson<{ messages: UIMessage[] }>(
     `/api/chats/${id}`,
   );
   return messages;

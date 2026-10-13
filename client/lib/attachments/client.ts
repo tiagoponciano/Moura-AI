@@ -1,3 +1,4 @@
+import { requestJson } from "@/lib/api/request-json";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import {
   ATTACHMENTS_BUCKET,
@@ -53,32 +54,31 @@ export async function uploadAttachment(
     throw new AttachmentUploadError(file.name, "failed");
   }
 
-  const response = await fetch("/api/attachments", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      chatId,
-      storagePath,
-      fileName: file.name,
-      mimeType: file.type,
-      sizeBytes: file.size,
-    }),
-  });
-  if (!response.ok) {
+  try {
+    const { attachment } = await requestJson<{ attachment: Attachment }>(
+      "/api/attachments",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          chatId,
+          storagePath,
+          fileName: file.name,
+          mimeType: file.type,
+          sizeBytes: file.size,
+        }),
+      },
+    );
+    return attachment;
+  } catch (recordError) {
+    console.error("Failed to record attachment", recordError);
     await bucket.remove([storagePath]);
     throw new AttachmentUploadError(file.name, "failed");
   }
-  const { attachment } = (await response.json()) as { attachment: Attachment };
-  return attachment;
 }
 
 export async function fetchAttachments(chatId: string): Promise<Attachment[]> {
-  const response = await fetch(`/api/attachments?chatId=${chatId}`);
-  if (!response.ok) {
-    throw new Error(`Listing attachments failed with ${response.status}`);
-  }
-  const { attachments } = (await response.json()) as {
-    attachments: Attachment[];
-  };
+  const { attachments } = await requestJson<{ attachments: Attachment[] }>(
+    `/api/attachments?chatId=${chatId}`,
+  );
   return attachments;
 }

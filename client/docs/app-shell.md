@@ -56,7 +56,7 @@ Every home card is a link to its `href` with an arrow in the top-right corner; t
 - "Administração" is not a module: it is not in `MODULES`, has no home card and no status badge.
 - With the sidebar collapsed to icons, labels become tooltips, status badges and the company name are hidden, and `UserMenu` shrinks to the avatar.
 - `/` renders `HomeShowcase` from `@/features/home`: the title, one card per module and the 3D rescue scene. See `features/home/docs/home-rescue-scene.md`.
-- The brand mark is `public/brand/moura-logo.png` (transparent PNG). In dark mode it sits on a light tile (`dark:bg-white/90`) because the graphite gear disappears on a dark background. `app/icon.png` (same logo, 512px) is the favicon.
+- The brand mark is `public/brand/moura-logo.png` (transparent PNG), rendered by `BrandLogo` (`components/shared/brand-logo.tsx`): `sm` in the sidebar, `md` on the pending and unauthorized cards, `lg` on the login page. In dark mode it sits on a light tile (`dark:bg-white/90`) because the graphite gear disappears on a dark background. `app/icon.png` (same logo, 512px) is the favicon.
 - The product is called "Moura Engenharia" (tab title, sidebar, breadcrumb). The chat assistant shared by the modules is called "Moura AI" and keeps the robot avatar.
 - `PageHeader` (`components/shared/page-header.tsx`) shows the page title; its `description` is not printed under it but shown in a tooltip on an info icon next to the title.
 - The chat composer has no visible keyboard hint; "Enter envia · Shift+Enter quebra a linha" is the tooltip of the send button, also while it is disabled.

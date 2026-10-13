@@ -1,3 +1,4 @@
+import "server-only";
 import { createIdGenerator, type UIMessage } from "ai";
 import type { ChatPersistence } from "@/lib/llm";
 import type { Json } from "@/lib/supabase/database.types";

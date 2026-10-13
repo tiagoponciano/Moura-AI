@@ -1,6 +1,5 @@
 "use client";
 
-import { TriangleAlert } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -24,24 +23,17 @@ import {
   findCatalogProvider,
   type LlmProvider,
 } from "@/lib/llm/catalog";
+import { useSaveStatus, type SaveRunner } from "../hooks/use-save-status";
 import { updateSettings } from "../lib/client";
 import type { AdminSettingsResponse } from "../lib/types";
-import { FormStatus, type FormStatusState } from "./form-status";
+import { FormStatus } from "./form-status";
 import { ProviderKeyField } from "./provider-key-field";
+import { SetupNotice } from "./setup-notice";
 
 type ModelPanelProps = {
   data: AdminSettingsResponse;
-  run: (save: () => Promise<void>) => Promise<string | undefined>;
+  run: SaveRunner;
 };
-
-function Notice({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex gap-2.5 rounded-xl border border-primary/30 bg-accent/60 px-4 py-3 text-sm text-accent-foreground">
-      <TriangleAlert className="mt-0.5 size-4 shrink-0" />
-      <p>{children}</p>
-    </div>
-  );
-}
 
 /** Provider and model used by every chat, plus one API key per provider. */
 export function ModelPanel({ data, run }: ModelPanelProps) {
@@ -52,8 +44,7 @@ export function ModelPanel({ data, run }: ModelPanelProps) {
   const [model, setModel] = useState<string | undefined>(
     saved.model ?? undefined,
   );
-  const [saving, setSaving] = useState(false);
-  const [status, setStatus] = useState<FormStatusState>({ kind: "idle" });
+  const { saving, status, save } = useSaveStatus(run);
 
   const models = provider ? (findCatalogProvider(provider)?.models ?? []) : [];
   const savedProvider = saved.provider && findCatalogProvider(saved.provider);
@@ -66,15 +57,8 @@ export function ModelPanel({ data, run }: ModelPanelProps) {
     setModel(findCatalogProvider(next)?.models[0]?.id);
   }
 
-  async function save(llm: { provider: LlmProvider; model: string }) {
-    setSaving(true);
-    const error = await run(() => updateSettings({ llm }));
-    setSaving(false);
-    setStatus(
-      error
-        ? { kind: "error", text: error }
-        : { kind: "saved", text: "Modelo salvo." },
-    );
+  function saveModel(llm: { provider: LlmProvider; model: string }) {
+    void save(() => updateSettings({ llm }), "Modelo salvo.");
   }
 
   return (
@@ -87,25 +71,25 @@ export function ModelPanel({ data, run }: ModelPanelProps) {
       </CardHeader>
       <CardContent className="grid gap-4">
         {!data.serviceRoleConfigured && (
-          <Notice>
+          <SetupNotice>
             <span className="font-medium">
               SUPABASE_SERVICE_ROLE_KEY não está configurada no servidor.
             </span>{" "}
             As conversas não funcionam até ela ser definida nas variáveis de
             ambiente do deploy.
-          </Notice>
+          </SetupNotice>
         )}
         {savedProvider && !savedHasKey && (
-          <Notice>
+          <SetupNotice>
             Sem chave da {savedProvider.label}: as conversas não funcionam até
             uma chave ser cadastrada abaixo.
-          </Notice>
+          </SetupNotice>
         )}
         {!saved.provider && (
-          <Notice>
+          <SetupNotice>
             Nenhum modelo salvo: as conversas não funcionam até um provedor e um
             modelo serem escolhidos.
-          </Notice>
+          </SetupNotice>
         )}
 
         <div className="grid gap-3 sm:grid-cols-2">
@@ -143,7 +127,7 @@ export function ModelPanel({ data, run }: ModelPanelProps) {
         <div className="flex flex-wrap items-center gap-2">
           <Button
             disabled={saving || !provider || !model || unchanged}
-            onClick={() => provider && model && save({ provider, model })}
+            onClick={() => provider && model && saveModel({ provider, model })}
           >
             Salvar modelo
           </Button>

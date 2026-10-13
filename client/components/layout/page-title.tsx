@@ -1,11 +1,14 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { ADMIN_PATH } from "@/lib/auth/gate";
 import { findModule } from "@/lib/modules";
 
 export function PageTitle() {
   const pathname = usePathname();
-  const current = findModule(pathname);
+  const current =
+    findModule(pathname) ??
+    (pathname.startsWith(ADMIN_PATH) ? { label: "Administração" } : undefined);
 
   return (
     <nav

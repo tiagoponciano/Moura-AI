@@ -59,19 +59,49 @@ export function summarizeSections(
   return { users: usersSummary, model, access };
 }
 
-/** "Salvar modelo" needs a changed choice and a key for the chosen provider. */
-export function canSaveModel({
-  provider,
-  model,
-  saved,
-  keys,
-}: {
+/** The provider and model picked in the panel, next to what is saved. */
+export type ModelChoice = {
   provider: LlmProvider | undefined;
   model: string | undefined;
   saved: { provider: LlmProvider | null; model: string | null };
   keys: ProviderKeyHint[];
-}): boolean {
-  if (!provider || !model) return false;
-  if (provider === saved.provider && model === saved.model) return false;
-  return keys.some((key) => key.provider === provider);
+};
+
+const isUnchanged = ({ provider, model, saved }: ModelChoice) =>
+  (provider ?? null) === saved.provider && (model ?? null) === saved.model;
+
+const hasKey = ({ provider, keys }: ModelChoice) =>
+  keys.some((key) => key.provider === provider);
+
+/** "Salvar modelo" needs a changed choice and a key for the chosen provider. */
+export function canSaveModel(choice: ModelChoice): boolean {
+  if (!choice.provider || !choice.model) return false;
+  return !isUnchanged(choice) && hasKey(choice);
+}
+
+/** The model panel's footer line when no save has just happened. */
+export function describeModelChoice(choice: ModelChoice): {
+  text: string;
+  tone: "muted" | "warning";
+} {
+  const { provider, saved } = choice;
+  if (isUnchanged(choice)) {
+    const entry = saved.provider
+      ? findCatalogProvider(saved.provider)
+      : undefined;
+    const label = entry?.models.find((m) => m.id === saved.model)?.label;
+    return {
+      text: saved.model
+        ? `Em uso: ${label ?? saved.model}.`
+        : "Nenhum modelo salvo.",
+      tone: "muted",
+    };
+  }
+  if (provider && !hasKey(choice)) {
+    return {
+      text: `Cadastre a chave da ${findCatalogProvider(provider)?.label ?? provider} para usar este provedor.`,
+      tone: "warning",
+    };
+  }
+  return { text: "Alterações não salvas.", tone: "muted" };
 }

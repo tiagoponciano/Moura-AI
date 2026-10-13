@@ -35,7 +35,6 @@ client/
 │   │   ├── classification/page.tsx   # → @/features/classification
 │   │   └── floor-plans/page.tsx  # → @/features/floor-plans
 │   ├── (auth)/                   # /login, /pending, /unauthorized → @/features/auth
-│   ├── auth/callback/route.ts    # Google OAuth callback → @/features/auth/server
 │   └── api/                      # documents/chat, classification/chat, chats, attachments
 ├── features/
 │   ├── documents/
@@ -48,7 +47,7 @@ client/
 │   ├── home/                     # home page sections
 │   ├── classification/           # key questions, provisional rules, chat
 │   ├── floor-plans/              # placeholder
-│   └── auth/                     # login, pending and unauthorized cards; OAuth callback
+│   └── auth/                     # login (Google button), pending and unauthorized cards
 ├── components/
 │   ├── ui/                       # shadcn primitives (generated, not formatted by prettier)
 │   ├── layout/                   # app shell: sidebar, breadcrumb, theme toggle, user menu
@@ -56,7 +55,7 @@ client/
 │   └── shared/                   # page header, coming-soon placeholder
 ├── lib/                          # app-wide only: utils, module registry, llm setup, and
 │   ├── supabase/                 #   Supabase clients and database types
-│   ├── auth/                     #   gate rules, sign-out
+│   ├── auth/                     #   gate rules, sign-out, Google sign-in nonce
 │   ├── chat-history/             #   saving and listing chats
 │   └── attachments/              #   upload rules and handlers
 ├── hooks/                        # app-wide hooks (use-mobile, use-chat-attachments)
@@ -94,6 +93,7 @@ Open <http://localhost:3000/documents>, pick "Exemplo – Formulário" and descr
 | `LLM_MODEL` | no | Anthropic model id. Defaults to `claude-sonnet-4-6`. |
 | `NEXT_PUBLIC_SUPABASE_URL` | no | Supabase project URL, e.g. `https://abcdefgh.supabase.co`. Set it together with the anon key to turn on login, saved chats and attachments. |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | no | Supabase anon (public) key. Safe in the browser; access is enforced by row-level security. |
+| `NEXT_PUBLIC_GOOGLE_CLIENT_ID` | with Supabase | Google OAuth web client ID, the same one set in Supabase → Providers → Google. Without it the login page shows no button while the gate stays on. |
 | `ALLOWED_EMAIL_DOMAIN` | no | Only Google accounts from this domain may sign in, e.g. `mourasengenharia.com`. Empty accepts any account (approval is still required). |
 
 With the Supabase variables empty the app runs without login or persistence. To turn them on, follow the Setup section of [`authentication.md`](client/docs/authentication.md): create the project, run the three files in `supabase/migrations/` in order, configure Google in Supabase Auth, and approve the first user with SQL.

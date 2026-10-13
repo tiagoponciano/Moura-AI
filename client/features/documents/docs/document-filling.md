@@ -25,9 +25,9 @@ Invariants:
 
 ### HTTP
 
-| Method | Path                  | Caller           | Returns                                                                                                                                                                               |
-| ------ | --------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `POST` | `/api/documents/chat` | `Chat` component | AI SDK UI message stream (SSE). `500 {"error":"ANTHROPIC_API_KEY is not configured"}` without a key; `400 {"error":"Missing template schema"}` if `schema.fields` is empty or missing |
+| Method | Path                  | Caller           | Returns                                                                                                                                                                                                              |
+| ------ | --------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `POST` | `/api/documents/chat` | `Chat` component | AI SDK UI message stream (SSE). `500 {"error":"No AI provider configured"}` without a key (see `client/docs/llm-configuration.md`); `400 {"error":"Missing template schema"}` if `schema.fields` is empty or missing |
 
 Behind the login gate when Supabase is configured (`client/docs/authentication.md`), open otherwise. The route trusts the `schema` sent by the client.
 
@@ -119,8 +119,8 @@ Every field is `.optional()` in `extraction`. In `document`, only fields with `r
 
 ### Chat route
 
-1. Reject with 500 if `ANTHROPIC_API_KEY` is unset, 400 if `schema.fields` is empty.
-2. Model: `LLM_MODEL` env var, falling back to `claude-sonnet-4-6`.
+1. Reject with 500 if no AI provider is configured, 400 if `schema.fields` is empty.
+2. Model: `resolveChatModel()`, the admin console's choice or Anthropic from the env vars (see `client/docs/llm-configuration.md`).
 3. System instructions are in English and list every field as `name (type, required): description`. They require: never invent data, ask when information is missing, omit unknown fields, call `fill_fields` with new or corrected fields only, plain numbers, `DD/MM/AAAA` dates, and always reply in Brazilian Portuguese.
 4. `fill_fields` runs server-side and returns its input unchanged. `stopWhen: isStepCount(5)` lets the model reply in text after the tool call within the same request.
 5. Stream errors are forwarded to the client with the raw error message (not masked).
@@ -175,10 +175,10 @@ Selecting a template resets values, problems, the generate-attempt flag and the 
 - **`Falha ao gerar o documento`** → docxtemplater threw while parsing (unbalanced `{{`, a tag split by a field code or smart quotes). Details are in the browser console (`Failed to render document`).
 - **Tags with inner spaces** → `{{ field }}` works only because of the custom trimming parser in `renderDocx`; docxtemplater's default parser would look up `" field "` and render empty.
 - **New template does not show up** → `index.json` is invalid JSON, still uses the old Portuguese keys (`nome`, `arquivo`), or `file`/`schema` lack the leading `/`. The page shows "Não foi possível carregar…" or the card has no label.
-- **Chat shows `Erro: …` immediately** → missing `client/.env.local`, wrong `ANTHROPIC_API_KEY`, or an invalid `LLM_MODEL` id; the provider message is shown as-is.
+- **Chat shows `Erro: …` immediately** → no provider configured, a wrong key (in the admin console or `ANTHROPIC_API_KEY`), or an invalid model id; the provider message is shown as-is.
 - **Number typed as `750,5` in the panel** → `type="number"` inputs follow the browser locale; an unparsable value becomes empty and the field is flagged as missing.
 
 ## Setup
 
-- `client/.env.local` with `ANTHROPIC_API_KEY` (and optionally `LLM_MODEL`); see `.env.example` at the repo root.
+- `client/.env.local` with `ANTHROPIC_API_KEY` (and optionally `LLM_MODEL`), or a provider and key saved on `/admin`; see `.env.example` at the repo root and `client/docs/llm-configuration.md`.
 - `pnpm run create-template` (in `client/`) regenerates `public/templates/cbmsc/example.docx` using the `docx` package.

@@ -1,5 +1,5 @@
 import { Loader2 } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { UserAvatar } from "@/components/shared/user-avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { formatDateTime } from "@/lib/format";
@@ -31,18 +31,10 @@ export function UserRow({
   onChange,
 }: UserRowProps) {
   const displayName = user.name ?? user.email;
-  const initials = displayName
-    .split(/\s+/)
-    .slice(0, 2)
-    .map((part) => part[0]?.toUpperCase())
-    .join("");
 
   return (
     <li className="flex flex-wrap items-center gap-3 py-3">
-      <Avatar className="size-8 rounded-lg">
-        <AvatarImage src={user.avatarUrl ?? undefined} alt={displayName} />
-        <AvatarFallback className="rounded-lg">{initials}</AvatarFallback>
-      </Avatar>
+      <UserAvatar name={displayName} avatarUrl={user.avatarUrl} />
       <div className="grid min-w-0 flex-1 text-sm leading-tight">
         <span className="truncate font-medium">
           {displayName}

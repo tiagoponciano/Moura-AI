@@ -16,11 +16,11 @@ Invariants:
 
 ### HTTP
 
-| Method | Path                       | Caller           | Returns                                                                                                                                                                             |
-| ------ | -------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `POST` | `/api/classification/chat` | `Chat` component | AI SDK UI message stream (SSE). `500` with a Portuguese "Nenhum modelo de IA configurado…" message when no model is configured on `/admin` (see `client/docs/llm-configuration.md`) |
+| Method | Path                       | Caller           | Returns                                                                                                                                                                                                                                                                          |
+| ------ | -------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `POST` | `/api/classification/chat` | `Chat` component | AI SDK UI message stream (SSE). `500` with a Portuguese "Nenhum modelo de IA configurado…" message when no model is configured on `/admin` (see `client/docs/llm-configuration.md`); `400`/`413`/`429` from the request checks and quota in `client/docs/chat-request-limits.md` |
 
-Behind the login gate when Supabase is configured (`client/docs/authentication.md`), open otherwise. Body: `{ id, trigger, messages }` as sent by the AI SDK transport. `id` (the chat's UUID) and `messages` are read; when history is available the chat is saved with `module: "classification"` and `context: {}` once the response finishes.
+Requires a signed-in, approved user (`client/docs/authentication.md`); without Supabase it answers 503. Body: `{ id, trigger, messages }` as sent by the AI SDK transport. `id` (the chat's UUID) and `messages` are read; when history is available the chat is saved with `module: "classification"` and `context: {}` once the response finishes.
 
 ### Library (`client/features/classification/lib/`)
 

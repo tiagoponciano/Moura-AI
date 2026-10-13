@@ -46,6 +46,24 @@ describe("resolveGate", () => {
     ).toEqual({ type: "deny", status: 401, error: "Authentication required" });
   });
 
+  it("lets anyone reach the Google sign-in API, with or without a session", () => {
+    for (const status of [null, "pending", "rejected"] as const) {
+      expect(
+        resolveGate({
+          pathname: "/api/auth/google",
+          email: status ? "ana@moura.com" : null,
+          status,
+        }),
+      ).toEqual({ type: "allow" });
+    }
+  });
+
+  it("keeps gating paths that only start like the sign-in API", () => {
+    expect(
+      resolveGate({ pathname: "/api/auth/google/x", email: null, status: null }),
+    ).toEqual({ type: "deny", status: 401, error: "Authentication required" });
+  });
+
   it("sends an email outside the allowed domain to /unauthorized", () => {
     expect(
       resolveGate({

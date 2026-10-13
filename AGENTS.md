@@ -9,7 +9,7 @@ All app code lives in `client/` (Next.js App Router, TypeScript, Tailwind v4, sh
 ```
 client/
 ├── proxy.ts      # login gate (Next's renamed middleware)
-├── app/          # routing only: (app)/ pages with the shell, (auth)/ login pages, auth/callback, api/
+├── app/          # routing only: (app)/ pages with the shell, (auth)/ login pages, api/
 ├── features/     # one folder per module: documents, home, classification, floor-plans, auth
 ├── components/   # app-wide UI: ui/ (shadcn), layout/, chat/, shared/
 ├── lib/          # app-wide logic: utils, module registry, llm, supabase/, auth/, chat-history/, attachments/

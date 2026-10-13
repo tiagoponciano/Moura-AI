@@ -36,7 +36,7 @@ export const fetchSettings = () =>
   request<AdminSettingsResponse>("/api/admin/settings");
 
 export const updateSettings = (change: {
-  llm?: { provider: LlmProvider; model: string } | null;
+  llm?: { provider: LlmProvider; model: string };
   allowedEmailDomain?: string;
 }) =>
   request<void>("/api/admin/settings", {

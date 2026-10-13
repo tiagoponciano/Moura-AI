@@ -22,7 +22,7 @@ Invariants:
 | -------- | --------------------------------------------- | ------------------------------------------------------------------------------ |
 | `/admin` | Approved admins; others are redirected to `/` | Sidebar shows "Administração" only to admins; breadcrumb reads "Administração" |
 
-Without Supabase configured the proxy is off, so `/admin` renders for anyone, but every API call returns 503 and the panels show "Admin console is not configured".
+Without Supabase configured the proxy is off, so `/admin` renders for anyone, but every API call returns 503 and the sections show "Admin console is not configured".
 
 ### API
 
@@ -131,32 +131,72 @@ RPC errors and how the handlers map them:
 
 ## Rules and behavior
 
-### User actions in the UI
+### Layout
 
-| Status     | Actions shown                          | Request                                              |
-| ---------- | -------------------------------------- | ---------------------------------------------------- |
-| `pending`  | Aprovar, Rejeitar                      | `status: approved` / `status: rejected`              |
-| `approved` | Tornar admin or Tornar membro, Revogar | `role: admin` or `role: member` / `status: rejected` |
-| `rejected` | Aprovar                                | `status: approved`                                   |
-| own row    | none, marked "(você)"                  | —                                                    |
+`AdminConsole` (`features/admin/components/admin-console.tsx`) loads users (`useAdminUsers`) and settings (`useAdminSettings`) once, then renders, top to bottom:
+
+1. **Setup banner**, only when `getSetupProblem(settings)` (`lib/sections.ts`) returns a problem. It shows one message, the first that applies:
+
+   | Order | Problem        | Condition                                       | Button          |
+   | ----- | -------------- | ----------------------------------------------- | --------------- |
+   | 1     | `service_role` | `serviceRoleConfigured` is `false`              | none            |
+   | 2     | `no_model`     | `settings.provider` or `settings.model` is null | Escolher modelo |
+   | 3     | `no_key`       | no entry in `keys` for `settings.provider`      | Cadastrar chave |
+
+   The button switches to the Modelo de IA tab.
+
+2. **Three section tabs** (Radix Tabs; the selection is local state and starts on Usuários). Each tab shows a one-line summary from `summarizeSections` ("Carregando…" until its data loads):
+
+   | Tab          | Summary                                                                                                                  |
+   | ------------ | ------------------------------------------------------------------------------------------------------------------------ |
+   | Usuários     | `<n> aguardando aprovação` in the accent color when anyone is pending, else `<n> com acesso` (approved count)            |
+   | Modelo de IA | `<model label> · <provider label>` for the saved choice (the raw id when not in the catalog), else `Nenhum modelo salvo` |
+   | Acesso       | `@<allowedEmailDomain>`, else `Domínio do servidor`                                                                      |
+
+3. **The selected section.** A users load or change error is shown above the Usuários content; a settings load error replaces Modelo de IA and Acesso.
+
+### Usuários
+
+- **Aguardando aprovação**: one card per pending user, with "Pediu acesso em <createdAt>" and the buttons Rejeitar and Aprovar. The block is hidden when nobody is pending.
+- **Equipe**: approved and rejected users in a TanStack Table (`team-table.tsx`, configured in `lib/team-table.ts`). All filtering and sorting happens in the browser, on the list already loaded:
+  - Search box: global filter on name or e-mail, case- and accent-insensitive (`matchesUserQuery`). A blank query matches everyone.
+  - Status filter: Todos, Ativos (`approved`), Sem acesso (`rejected`), each with its count. It is single-choice, and clicking the active option keeps it selected.
+  - Sorting: clicking Usuário cycles ascending → descending → off; Desde cycles descending → ascending → off. Names compare with `localeCompare` in pt-BR. With no sort active, rows keep the API order (approved before rejected, newest first).
+  - Empty result: "Ninguém encontrado com esse filtro."
+- Status labels on screen: `pending` Pendente, `approved` Ativo, `rejected` Sem acesso. "Sem acesso" covers both a rejected sign-up and revoked access.
+
+| Status     | Where     | Actions shown                          | Request                                              |
+| ---------- | --------- | -------------------------------------- | ---------------------------------------------------- |
+| `pending`  | card      | Rejeitar, Aprovar                      | `status: rejected` / `status: approved`              |
+| `approved` | table row | Tornar admin or Tornar membro, Revogar | `role: admin` or `role: member` / `status: rejected` |
+| `rejected` | table row | Reativar                               | `status: approved`                                   |
+| own row    | table row | none, marked "(você)"                  | —                                                    |
 
 - Revoking is `status = 'rejected'`: the user lands on `/unauthorized` on their next request. Their chats and files stay in the database.
 - Role buttons appear only for approved users. The API still accepts a role change on a pending or rejected user; it takes effect once they are approved.
-- While one row is saving, every action button is disabled; after each change the list is fetched again.
-- The status filter (Todos, Pendente, Aprovado, Rejeitado) is client-side.
+- While one user is saving, every action button on the page is disabled and a spinner shows on that user. After each change the list is fetched again.
 
-### Model panel
+### Modelo de IA
 
-1. Provider select lists `LLM_CATALOG` (`lib/llm/catalog.ts`); changing it picks the provider's first model.
-2. "Salvar modelo" sends `llm: { provider, model }`; disabled while nothing changed.
-3. One key field per provider. The placeholder and help text show `••••<last four>` and the update time, or "Sem chave para este provedor". "Salvar"/"Trocar" sends the key, then clears the input.
-4. Warnings, each saying the chats do not work until it is fixed: `serviceRoleConfigured: false`; saved provider without a key; no model saved.
+1. One card per provider in `LLM_CATALOG` (`lib/llm/catalog.ts`). Each card shows "Chave ••••<last four>" or "Sem chave", and the saved provider carries "Em uso". Picking a card selects the saved model if it is the saved provider, otherwise that provider's first model.
+2. The Modelo select lists the selected provider's models.
+3. **One key field, for the selected provider only.**
+   - With a key: `••••<last four>`, "atualizada em <date>" and Trocar, which opens the input with Cancelar.
+   - Without a key: the input is open, with "Sem chave, este provedor não pode ser usado."
+   - "Salvar chave" sends `PUT /api/admin/settings/keys/:provider`, then closes and clears the input.
+4. "Salvar modelo" sends `llm: { provider, model }`. It is enabled only when `canSaveModel` holds: the choice differs from the saved one **and** the selected provider has a key. The API itself would accept a provider without a key; only the console refuses. "Descartar" restores the saved choice.
+5. The footer line comes from `describeModelChoice`, in this order:
+   1. unchanged: "Em uso: <model>." or "Nenhum modelo salvo.";
+   2. selected provider without a key: "Cadastre a chave da <provider> para usar este provedor." (accent color);
+   3. otherwise: "Alterações não salvas."
+
+   After a save it shows "Modelo salvo.", or the server's error, which stays visible even while the choice is still changed.
 
 The console is the only place the chat model comes from: there is no environment fallback (see `client/docs/llm-configuration.md`).
 
-### Access panel
+### Acesso
 
-Saves `allowedEmailDomain`. Empty clears it, and then `ALLOWED_EMAIL_DOMAIN` from the environment applies (see `authentication.md`). Validation: after trimming, removing one leading `@` and lower-casing, the value must match `^[a-z0-9-]+(\.[a-z0-9-]+)+$` or be empty.
+The domain input has a fixed `@` prefix; "Salvar domínio" is enabled once the trimmed value differs from the saved one. Saves `allowedEmailDomain`. Empty clears it, and then `ALLOWED_EMAIL_DOMAIN` from the environment applies (see `authentication.md`). Validation: after trimming, removing one leading `@` and lower-casing, the value must match `^[a-z0-9-]+(\.[a-z0-9-]+)+$` or be empty.
 
 ## What this does NOT do
 
@@ -170,11 +210,14 @@ Saves `allowedEmailDomain`. Empty clears it, and then `ALLOWED_EMAIL_DOMAIN` fro
 ## Gotchas
 
 - **Everyone, admins included, lands on `/pending` after deploying** → the code reads `get_gate_state()`, which does not exist until the migration runs; the RPC errors and the status is treated as missing. → Apply `20261014000000_admin.sql` before (or together with) deploying the code.
-- **Saved a model but the chat says "Nenhum modelo de IA configurado"** → `SUPABASE_SERVICE_ROLE_KEY` is not set on the server, or the saved provider has no key. → The panel shows a warning for both; set the variable (and redeploy) or add the key.
+- **Saved a model but the chat says "Nenhum modelo de IA configurado"** → `SUPABASE_SERVICE_ROLE_KEY` is not set on the server, or the saved provider has no key. → The setup banner names whichever applies first; set the variable (and redeploy) or add the key.
 - **`PUT /api/admin/settings` returns 403 for an admin** → the update matched no row, because RLS hid it (`is_admin()` false: the profile is not `approved`) or the `app_settings` row was deleted. → Check the profile; restore the row with `insert into public.app_settings default values`.
 - **"Admins cannot change their own access"** → deliberate. → Ask another admin, or use SQL.
 - **`admin_set_provider_key` fails with a Vault permission error** → the function owner lacks access to `vault` (projects where the migration ran as a role other than `postgres`). → Run the migration as `postgres` (SQL editor or `supabase db push`).
 - **A domain with a typo locks everyone out** → the domain check runs before approval for every request, admins included. → Fix it with SQL: `update public.app_settings set allowed_email_domain = null;`.
+
+- **Tab or toggle styles do nothing for the active item** → the shadcn primitives in `components/ui/tabs.tsx` and `toggle.tsx` partly target `data-active`/`data-horizontal`, but Radix sets `data-state="active"` / `data-state="on"` and `data-orientation`. → Style the active state with `data-[state=active]:` / `data-[state=on]:` at the call site, as `section-tab.tsx` and `team-table.tsx` do.
+- **A TanStack Table option or column method is missing** → the project uses TanStack Table v9: features are registered in `TEAM_TABLE_FEATURES` (`tableFeatures({...})`), and columns sort with `sortFn` (not `sortingFn`). → Register the feature there; the installed package ships its guides under `node_modules/@tanstack/react-table/skills/`.
 
 ## Setup
 

@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { errorMessage, fetchUsers, updateUser } from "../lib/client";
+import { errorMessage } from "@/lib/api/request-json";
+import { fetchUsers, updateUser } from "../lib/client";
 import type { AdminUser, AdminUsersResponse } from "../lib/types";
 
 type UserChange = Partial<Pick<AdminUser, "status" | "role">>;

@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { errorMessage, fetchSettings } from "../lib/client";
+import { errorMessage } from "@/lib/api/request-json";
+import { fetchSettings } from "../lib/client";
 import type { AdminSettingsResponse } from "../lib/types";
 
 /** Settings and key hints; `run` saves something and reloads them. */

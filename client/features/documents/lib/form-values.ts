@@ -62,7 +62,7 @@ export function validateForDocument(
   if (result.success) return { ok: true, values: cleaned };
 
   const labels = new Map(
-    schema.fields.map((field) => [field.name, field.description]),
+    schema.fields.map((field) => [field.name, field.label]),
   );
   const problems = result.error.issues.map((issue) => {
     const name = String(issue.path[0]);

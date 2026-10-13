@@ -13,24 +13,29 @@ const schema: TemplateSchema = {
       name: "company_name",
       type: "string",
       label: "Razão social",
-      description: "Razão social",
+      description: "Razão social do proprietário do imóvel",
       required: true,
     },
     {
       name: "area_m2",
       type: "number",
       label: "Área",
-      description: "Área",
+      description: "Área total construída, em metros quadrados",
       required: true,
     },
     {
       name: "has_sprinklers",
       type: "boolean",
       label: "Chuveiros",
-      description: "Chuveiros",
+      description: "Possui chuveiros automáticos",
       required: true,
     },
-    { name: "issue_date", type: "date", label: "Data", description: "Data" },
+    {
+      name: "issue_date",
+      type: "date",
+      label: "Data",
+      description: "Data de emissão do formulário",
+    },
   ],
 };
 
@@ -129,7 +134,7 @@ describe("validateForDocument", () => {
     });
   });
 
-  it("reports an invalid value with the field description and zod message", () => {
+  it("reports an invalid value with the field label and zod message", () => {
     const result = validateForDocument(schema, {
       ...complete,
       issue_date: "2026-10-05",

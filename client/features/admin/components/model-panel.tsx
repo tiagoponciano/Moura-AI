@@ -6,6 +6,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -17,25 +18,26 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Separator } from "@/components/ui/separator";
 import {
   LLM_CATALOG,
   findCatalogProvider,
   type LlmProvider,
 } from "@/lib/llm/catalog";
+import { cn } from "@/lib/utils";
 import { useSaveStatus, type SaveRunner } from "../hooks/use-save-status";
 import { updateSettings } from "../lib/client";
+import { canSaveModel, describeModelChoice } from "../lib/sections";
 import type { AdminSettingsResponse } from "../lib/types";
 import { FormStatus } from "./form-status";
+import { ProviderCard } from "./provider-card";
 import { ProviderKeyField } from "./provider-key-field";
-import { SetupNotice } from "./setup-notice";
 
 type ModelPanelProps = {
   data: AdminSettingsResponse;
   run: SaveRunner;
 };
 
-/** Provider and model used by every chat, plus one API key per provider. */
+/** Provider and model used by every chat, with the chosen provider's API key. */
 export function ModelPanel({ data, run }: ModelPanelProps) {
   const saved = data.settings;
   const [provider, setProvider] = useState<LlmProvider | undefined>(
@@ -46,107 +48,119 @@ export function ModelPanel({ data, run }: ModelPanelProps) {
   );
   const { saving, status, save } = useSaveStatus(run);
 
-  const models = provider ? (findCatalogProvider(provider)?.models ?? []) : [];
-  const savedProvider = saved.provider && findCatalogProvider(saved.provider);
-  const savedHasKey = data.keys.some((key) => key.provider === saved.provider);
-  const unchanged = provider === saved.provider && model === saved.model;
+  const entry = provider ? findCatalogProvider(provider) : undefined;
+  const choice = { provider, model, saved, keys: data.keys };
+  const line = describeModelChoice(choice);
+  const unchanged =
+    provider === (saved.provider ?? undefined) &&
+    model === (saved.model ?? undefined);
+  const showSaveStatus =
+    status.kind === "error" || (status.kind === "saved" && unchanged);
+  const hintFor = (id: LlmProvider) =>
+    data.keys.find((key) => key.provider === id);
 
-  function handleProviderChange(value: string) {
-    const next = value as LlmProvider;
+  function selectProvider(next: LlmProvider) {
     setProvider(next);
-    setModel(findCatalogProvider(next)?.models[0]?.id);
+    setModel(
+      next === saved.provider && saved.model
+        ? saved.model
+        : findCatalogProvider(next)?.models[0]?.id,
+    );
   }
 
-  function saveModel(llm: { provider: LlmProvider; model: string }) {
-    void save(() => updateSettings({ llm }), "Modelo salvo.");
+  function discard() {
+    setProvider(saved.provider ?? undefined);
+    setModel(saved.model ?? undefined);
   }
 
   return (
-    <Card>
+    <Card className="[--card-spacing:--spacing(6)]">
       <CardHeader>
         <CardTitle>Modelo de IA</CardTitle>
         <CardDescription>
-          Usado por todas as conversas da Moura AI.
+          Usado por todas as conversas da Moura AI. A chave fica guardada no
+          cofre do Supabase e nunca é exibida.
         </CardDescription>
       </CardHeader>
-      <CardContent className="grid gap-4">
-        {!data.serviceRoleConfigured && (
-          <SetupNotice>
-            <span className="font-medium">
-              SUPABASE_SERVICE_ROLE_KEY não está configurada no servidor.
-            </span>{" "}
-            As conversas não funcionam até ela ser definida nas variáveis de
-            ambiente do deploy.
-          </SetupNotice>
-        )}
-        {savedProvider && !savedHasKey && (
-          <SetupNotice>
-            Sem chave da {savedProvider.label}: as conversas não funcionam até
-            uma chave ser cadastrada abaixo.
-          </SetupNotice>
-        )}
-        {!saved.provider && (
-          <SetupNotice>
-            Nenhum modelo salvo: as conversas não funcionam até um provedor e um
-            modelo serem escolhidos.
-          </SetupNotice>
-        )}
 
-        <div className="grid gap-3 sm:grid-cols-2">
-          <div className="grid gap-1.5">
-            <Label htmlFor="llm-provider">Provedor</Label>
-            <Select value={provider} onValueChange={handleProviderChange}>
-              <SelectTrigger id="llm-provider" className="w-full">
-                <SelectValue placeholder="Escolha um provedor" />
-              </SelectTrigger>
-              <SelectContent>
-                {LLM_CATALOG.map((entry) => (
-                  <SelectItem key={entry.id} value={entry.id}>
-                    {entry.label}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+      <CardContent className="grid gap-6">
+        <fieldset className="grid gap-2">
+          <legend className="mb-2 text-sm font-medium">Provedor</legend>
+          <div className="flex flex-wrap gap-2.5">
+            {LLM_CATALOG.map((option) => (
+              <ProviderCard
+                key={option.id}
+                provider={option}
+                hint={hintFor(option.id)}
+                selected={provider === option.id}
+                inUse={saved.provider === option.id}
+                onSelect={() => selectProvider(option.id)}
+              />
+            ))}
           </div>
-          <div className="grid gap-1.5">
+        </fieldset>
+
+        <div className="grid items-start gap-6 sm:grid-cols-2">
+          <div className="grid gap-2">
             <Label htmlFor="llm-model">Modelo</Label>
-            <Select value={model} onValueChange={setModel} disabled={!provider}>
+            <Select value={model} onValueChange={setModel} disabled={!entry}>
               <SelectTrigger id="llm-model" className="w-full">
                 <SelectValue placeholder="Escolha um modelo" />
               </SelectTrigger>
               <SelectContent>
-                {models.map((entry) => (
-                  <SelectItem key={entry.id} value={entry.id}>
-                    {entry.label}
+                {entry?.models.map((option) => (
+                  <SelectItem key={option.id} value={option.id}>
+                    {option.label}
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
           </div>
-        </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <Button
-            disabled={saving || !provider || !model || unchanged}
-            onClick={() => provider && model && saveModel({ provider, model })}
-          >
-            Salvar modelo
-          </Button>
-          <FormStatus state={status} />
-        </div>
-
-        <Separator />
-
-        <div className="grid gap-4">
-          {LLM_CATALOG.map((entry) => (
+          {entry && (
             <ProviderKeyField
               key={entry.id}
               provider={entry}
-              hint={data.keys.find((key) => key.provider === entry.id)}
+              hint={hintFor(entry.id)}
               run={run}
             />
-          ))}
+          )}
         </div>
       </CardContent>
+
+      <CardFooter className="flex-wrap gap-3">
+        <div className="min-w-0 flex-[1_1_240px]">
+          {showSaveStatus ? (
+            <FormStatus state={status} />
+          ) : (
+            <p
+              className={cn(
+                "text-xs",
+                line.tone === "warning"
+                  ? "text-accent-foreground"
+                  : "text-muted-foreground",
+              )}
+            >
+              {line.text}
+            </p>
+          )}
+        </div>
+        <Button variant="ghost" disabled={unchanged} onClick={discard}>
+          Descartar
+        </Button>
+        <Button
+          disabled={saving || !canSaveModel(choice)}
+          onClick={() =>
+            provider &&
+            model &&
+            void save(
+              () => updateSettings({ llm: { provider, model } }),
+              "Modelo salvo.",
+            )
+          }
+        >
+          Salvar modelo
+        </Button>
+      </CardFooter>
     </Card>
   );
 }

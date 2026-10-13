@@ -116,4 +116,53 @@ describe("resolveGate", () => {
       });
     }
   });
+
+  it("lets an admin reach the admin page and the admin API", () => {
+    const admin = { ...approved, role: "admin" } as const;
+    expect(resolveGate({ pathname: "/admin", ...admin })).toEqual({
+      type: "allow",
+    });
+    expect(resolveGate({ pathname: "/api/admin/users", ...admin })).toEqual({
+      type: "allow",
+    });
+  });
+
+  it("sends a member away from the admin page to the home page", () => {
+    for (const role of ["member", null, undefined] as const) {
+      expect(resolveGate({ pathname: "/admin", ...approved, role })).toEqual({
+        type: "redirect",
+        to: "/",
+      });
+    }
+  });
+
+  it("answers admin API calls from a member with 403", () => {
+    expect(
+      resolveGate({
+        pathname: "/api/admin/users",
+        ...approved,
+        role: "member",
+      }),
+    ).toEqual({ type: "deny", status: 403, error: "Admin only" });
+  });
+
+  it("does not treat paths that only start with 'admin' as admin paths", () => {
+    expect(
+      resolveGate({ pathname: "/administrator", ...approved, role: "member" }),
+    ).toEqual({ type: "allow" });
+    expect(
+      resolveGate({ pathname: "/api/administer", ...approved, role: "member" }),
+    ).toEqual({ type: "allow" });
+  });
+
+  it("keeps the approval checks ahead of the admin check", () => {
+    expect(
+      resolveGate({
+        pathname: "/admin",
+        email: "ana@moura.com",
+        status: "pending",
+        role: "admin",
+      }),
+    ).toEqual({ type: "redirect", to: "/pending" });
+  });
 });

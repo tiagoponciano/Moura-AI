@@ -1,12 +1,18 @@
 import type { Database } from "@/lib/supabase/database.types";
 
 export type ProfileStatus = Database["public"]["Enums"]["user_status"];
+export type ProfileRole = Database["public"]["Enums"]["user_role"];
 
 export const AUTH_PATHS = {
   login: "/login",
   pending: "/pending",
   unauthorized: "/unauthorized",
 } as const;
+
+export const ADMIN_PATH = "/admin";
+
+const isUnder = (pathname: string, base: string) =>
+  pathname === base || pathname.startsWith(`${base}/`);
 
 const AUTH_PAGES: string[] = [
   AUTH_PATHS.login,
@@ -20,7 +26,9 @@ type GateInput = {
   email: string | null;
   /** `profiles.status`, `null` when the profile row is missing. */
   status: ProfileStatus | null;
-  /** `ALLOWED_EMAIL_DOMAIN`; empty or undefined accepts every domain. */
+  /** `profiles.role`; anything but `"admin"` is treated as a member. */
+  role?: ProfileRole | null;
+  /** Allowed e-mail domain; empty or undefined accepts every domain. */
   allowedDomain?: string;
 };
 
@@ -43,6 +51,7 @@ export function resolveGate({
   pathname,
   email,
   status,
+  role,
   allowedDomain,
 }: GateInput): GateDecision {
   const target = !email
@@ -54,9 +63,14 @@ export function resolveGate({
         : undefined;
 
   if (!target) {
-    return AUTH_PAGES.includes(pathname)
-      ? { type: "redirect", to: "/" }
-      : { type: "allow" };
+    if (AUTH_PAGES.includes(pathname)) return { type: "redirect", to: "/" };
+    if (role !== "admin") {
+      if (isUnder(pathname, `/api${ADMIN_PATH}`)) {
+        return { type: "deny", status: 403, error: "Admin only" };
+      }
+      if (isUnder(pathname, ADMIN_PATH)) return { type: "redirect", to: "/" };
+    }
+    return { type: "allow" };
   }
 
   if (pathname.startsWith("/api/")) {

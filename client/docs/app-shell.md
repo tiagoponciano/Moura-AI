@@ -4,11 +4,11 @@ How the frame around every module works now: the module registry, the sidebar, t
 
 ## What this is
 
-Every route renders inside `app/layout.tsx`: a collapsible sidebar on the left, a 48px header on top (sidebar trigger, breadcrumb, theme toggle) and a scrollable content area. The list of modules is declared once, in `lib/modules.ts`, and read by the sidebar, the breadcrumb and the home page.
+Every module page renders inside `app/(app)/layout.tsx`: a collapsible sidebar on the left, a 48px header on top (sidebar trigger, breadcrumb, theme toggle) and a scrollable content area. `app/layout.tsx` only sets the fonts, `ThemeProvider` and `TooltipProvider`; the login and access pages use `app/(auth)/layout.tsx` instead and have no sidebar (see `authentication.md`). The list of modules is declared once, in `lib/modules.ts`, and read by the sidebar, the breadcrumb and the home page.
 
 Invariants:
 
-- Adding a module means adding an entry to `MODULES`, creating `features/<name>/` with an `index.ts`, and an `app/<href>/page.tsx` that renders what the feature exports. Nothing else lists modules.
+- Adding a module means adding an entry to `MODULES`, creating `features/<name>/` with an `index.ts`, and an `app/(app)/<href>/page.tsx` that renders what the feature exports. Nothing else lists modules. `(app)` is a route group: it does not appear in the URL.
 - `status` is display-only. It changes badges and copy; it never hides a route or blocks navigation.
 
 ## Surface
@@ -33,11 +33,12 @@ type AppModule = {
 
 ### Components (`components/layout/`)
 
-| Component     | Where                      | Notes                                                                                           |
-| ------------- | -------------------------- | ----------------------------------------------------------------------------------------------- |
-| `AppSidebar`  | `app/layout.tsx`           | Logo + name linking to `/`, an "Início" item, then one item per module                          |
-| `PageTitle`   | header in `app/layout.tsx` | `Moura Engenharia / <label>`; just `Moura Engenharia` on `/` and on routes that match no module |
-| `ThemeToggle` | header in `app/layout.tsx` | See `theming.md`                                                                                |
+| Component     | Where                            | Notes                                                                                                               |
+| ------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `AppSidebar`  | `app/(app)/layout.tsx`           | Logo + name linking to `/`, an "Início" item, one item per module; the footer holds `UserMenu` and the company name |
+| `UserMenu`    | `AppSidebar` footer              | Signed-in user and "Sair"; renders nothing without Supabase or a session (see `authentication.md`)                  |
+| `PageTitle`   | header in `app/(app)/layout.tsx` | `Moura Engenharia / <label>`; just `Moura Engenharia` on `/` and on routes that match no module                     |
+| `ThemeToggle` | header in `app/(app)/layout.tsx` | See `theming.md`                                                                                                    |
 
 ## Rules and behavior
 
@@ -50,7 +51,7 @@ type AppModule = {
 Every home card is a link to its `href` with an arrow in the top-right corner; there is no call-to-action text.
 
 - Active sidebar item: `pathname.startsWith(href)` for modules, exact match for "Início".
-- With the sidebar collapsed to icons, labels become tooltips, and status badges and the footer are hidden.
+- With the sidebar collapsed to icons, labels become tooltips, status badges and the company name are hidden, and `UserMenu` shrinks to the avatar.
 - `/` renders `HomeShowcase` from `@/features/home`: the title, one card per module and the 3D rescue scene. See `features/home/docs/home-rescue-scene.md`.
 - The brand mark is `public/brand/moura-logo.png` (transparent PNG). In dark mode it sits on a light tile (`dark:bg-white/90`) because the graphite gear disappears on a dark background. `app/icon.png` (same logo, 512px) is the favicon.
 - The product is called "Moura Engenharia" (tab title, sidebar, breadcrumb). The chat assistant shared by the modules is called "Moura AI" and keeps the robot avatar.
@@ -61,7 +62,7 @@ Every home card is a link to its `href` with an arrow in the top-right corner; t
 
 ## What this does NOT do
 
-- No access control. Every module is reachable by URL whatever its `status`.
+- `status` is not access control. Every module is reachable by URL whatever its `status`; who may enter at all is decided by the login gate in `authentication.md`.
 - `PageTitle` does not show sub-pages; a nested route still reads `Moura Engenharia / <module>`.
 - `findModule` is prefix-based, so a module whose `href` is a prefix of another (`/plan` and `/plantas`) would match the wrong one. Keep `href`s prefix-free.
 

@@ -13,11 +13,11 @@ Invariants:
 
 ## Surface
 
-| Piece                                | Location                             | Role                                                                                      |
-| ------------------------------------ | ------------------------------------ | ----------------------------------------------------------------------------------------- |
-| `ThemeProvider` (from `next-themes`) | `app/layout.tsx`                     | `attribute="class"`, `defaultTheme="system"`, `enableSystem`, `disableTransitionOnChange` |
-| `ThemeToggle`                        | `components/layout/theme-toggle.tsx` | Icon-only dropdown at the right end of the top header (`app/layout.tsx`)                  |
-| `@custom-variant dark`               | `app/globals.css`                    | Makes Tailwind `dark:` utilities match descendants of `.dark`                             |
+| Piece                                | Location                             | Role                                                                                                                                                   |
+| ------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ThemeProvider` (from `next-themes`) | `app/layout.tsx`                     | `attribute="class"`, `defaultTheme="system"`, `enableSystem`, `disableTransitionOnChange`                                                              |
+| `ThemeToggle`                        | `components/layout/theme-toggle.tsx` | Icon-only dropdown at the right end of the top header (`app/(app)/layout.tsx`) and in the top-right corner of the auth pages (`app/(auth)/layout.tsx`) |
+| `@custom-variant dark`               | `app/globals.css`                    | Makes Tailwind `dark:` utilities match descendants of `.dark`                                                                                          |
 
 ## Rules and behavior
 
@@ -56,7 +56,7 @@ The trigger is a ghost icon button (`aria-label="Alterar tema"`) showing the **r
 
 ## What this does NOT do
 
-- No per-user persistence (there is no auth or database); clearing site data resets to `system`.
+- No per-user persistence: the choice lives in the browser's `localStorage`, not in the user's profile, so it does not follow the user to another browser. Clearing site data resets to `system`.
 - Generated `.docx` files are not affected by the theme.
 
 ## Gotchas

@@ -10,7 +10,7 @@ Invariants:
 
 - The LLM never produces document content. Anything outside a `{{tag}}` in the `.docx` is copied byte-for-byte.
 - The template's `.schema.json` is the single source of truth for field names, types and requiredness — for the tool input, the panel, and pre-render validation.
-- Form state lives only in the `useDocumentFilling` hook (`hooks/use-document-filling.ts`). Nothing is persisted; reloading or switching templates discards it.
+- Form state lives only in the `useDocumentFilling` hook (`hooks/use-document-filling.ts`) and is never saved; reloading or switching templates discards it. The conversation is saved per template when chat history is available (`client/docs/chat-history.md`), and reopening it refills only the fields the tool extracted.
 
 ## Surface
 
@@ -29,7 +29,7 @@ Invariants:
 | ------ | --------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `POST` | `/api/documents/chat` | `Chat` component | AI SDK UI message stream (SSE). `500 {"error":"ANTHROPIC_API_KEY is not configured"}` without a key; `400 {"error":"Missing template schema"}` if `schema.fields` is empty or missing |
 
-No auth. The route trusts the `schema` sent by the client.
+Behind the login gate when Supabase is configured (`client/docs/authentication.md`), open otherwise. The route trusts the `schema` sent by the client.
 
 ### Library (`client/features/documents/lib/`)
 
@@ -48,7 +48,7 @@ No auth. The route trusts the `schema` sent by the client.
 
 ### Feature layout (`client/features/documents/`)
 
-`app/documents/page.tsx` renders `PageHeader` and `DocumentWorkspace` (imported from `@/features/documents`); `app/api/documents/chat/route.ts` declares `maxDuration = 60` and re-exports `handleDocumentsChat` (from `@/features/documents/server`) as `POST`. Everything else lives in the feature:
+`app/(app)/documents/page.tsx` renders `PageHeader` and `DocumentWorkspace` (imported from `@/features/documents`); `app/api/documents/chat/route.ts` declares `maxDuration = 60` and re-exports `handleDocumentsChat` (from `@/features/documents/server`) as `POST`. Everything else lives in the feature:
 
 | File                                 | Role                                                                                |
 | ------------------------------------ | ----------------------------------------------------------------------------------- |
@@ -66,7 +66,7 @@ No auth. The route trusts the `schema` sent by the client.
 | `components/generation-problems.tsx` | "Corrija antes de gerar" list; renders nothing when empty                           |
 | `lib/`                               | Pure logic and data access listed above; no React                                   |
 
-The chat is the shared `Chat` (`components/chat/chat.tsx`): props `endpoint`, `body?`, `onToolResult?(toolName, output)`, `placeholder?`, `emptyState?`. `body` is sent with every message; `onToolResult` fires once per tool call id when the part reaches `output-available`; the empty state shows only the avatar and `emptyState`, and the `placeholder` carries the example message.
+The chat is the shared `Chat` (`components/chat/chat.tsx`): props `endpoint`, `body?`, `onToolResult?(toolName, output)`, `placeholder?`, `emptyState?`, `history?`. The workspace passes `history={{ module: "documents", context: { templateId } }}`, which enables "Histórico" and attachments when Supabase is configured. `body` is sent with every message; `onToolResult` fires once per tool call id when the part reaches `output-available`; the empty state shows only the avatar and `emptyState`, and the `placeholder` carries the example message.
 
 ## Data shapes
 
@@ -90,7 +90,7 @@ The chat is the shared `Chat` (`components/chat/chat.tsx`): props `endpoint`, `b
 
 // POST /api/documents/chat body (built by Chat + AI SDK transport)
 {
-  "id": "…", "trigger": "submit-message",           // added by the AI SDK
+  "id": "3b241101-…", "trigger": "submit-message",  // added by the AI SDK; id = the chat's UUID, used to save it
   "messages": [/* UIMessage[] */],
   "templateId": "example",
   "schema": { "fields": [/* … */] }
@@ -124,6 +124,7 @@ Every field is `.optional()` in `extraction`. In `document`, only fields with `r
 3. System instructions are in English and list every field as `name (type, required): description`. They require: never invent data, ask when information is missing, omit unknown fields, call `fill_fields` with new or corrected fields only, plain numbers, `DD/MM/AAAA` dates, and always reply in Brazilian Portuguese.
 4. `fill_fields` runs server-side and returns its input unchanged. `stopWhen: isStepCount(5)` lets the model reply in text after the tool call within the same request.
 5. Stream errors are forwarded to the client with the raw error message (not masked).
+6. When history is available, the chat is saved with `module: "documents"` and `context: { templateId }` once the response finishes (`chatPersistence`, see `client/docs/chat-history.md`).
 
 ### Merging tool output into the form (`handleToolResult`)
 
@@ -157,11 +158,11 @@ The panel header shows `<filled>/<total> obrigatórios` and a progress bar (`req
 
 With no template selected, the workspace lists every `index.json` entry as a card; clicking one selects it. Once a template is selected, the cards are replaced by the template `Select`, the chat and the form panel.
 
-Selecting a template resets values, problems, the generate-attempt flag and the schema, then loads the new schema. The `Chat` is keyed by template id, so switching templates starts an empty conversation. "Nova conversa" clears only the chat, not the fields.
+Selecting a template resets values, problems, the generate-attempt flag and the schema, then loads the new schema. The `Chat` is keyed by template id, so switching templates starts an empty conversation. "Nova conversa" clears only the chat, not the fields. "Histórico" lists only chats held with the selected template; reopening one merges its extracted values over the current fields.
 
 ## What this does NOT do
 
-- No server-side rendering of documents and no storage of generated files.
+- No server-side rendering of documents and no storage of generated files. Files attached in the chat are stored but not read by the model or used to fill fields.
 - The LLM does not see the current panel values. Manual edits are not sent back to the model; it may re-send a field the user has corrected, overwriting the edit.
 - No support for loops, conditionals or images in templates beyond what plain docxtemplater tags allow. `{{#field}}` sections receive formatted strings (`"Não"` is truthy), so boolean conditionals do not work as expected.
 - `.pptx` (commercial proposal) is not supported; `public/templates/proposal/` is empty.

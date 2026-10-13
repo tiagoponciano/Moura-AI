@@ -8,14 +8,17 @@ All app code lives in `client/` (Next.js App Router, TypeScript, Tailwind v4, sh
 
 ```
 client/
-├── app/          # routing only: page.tsx, layout.tsx, route.ts, globals.css, icon.png
-├── features/     # one folder per module: documents, home, classification, floor-plans
+├── proxy.ts      # login gate (Next's renamed middleware)
+├── app/          # routing only: (app)/ pages with the shell, (auth)/ login pages, api/
+├── features/     # one folder per module: documents, home, classification, floor-plans, auth
 ├── components/   # app-wide UI: ui/ (shadcn), layout/, chat/, shared/
-├── lib/          # app-wide logic: utils, module registry
+├── lib/          # app-wide logic: utils, module registry, llm, supabase/, auth/, chat-history/, attachments/
 ├── hooks/        # app-wide hooks
 ├── public/       # brand assets and .docx templates
-├── docs/         # app-wide documentation (app shell, theming)
+├── docs/         # app-wide documentation (app shell, theming, authentication, chat history, attachments)
 └── scripts/      # one-off generators
+
+supabase/migrations/   # database schema; the only place tables, RLS and buckets are defined
 ```
 
 A feature is organized like `features/documents/`:
@@ -55,7 +58,8 @@ Enforced by `no-restricted-imports` in `client/eslint.config.mjs`; `pnpm run lin
 - Pure functions in `features/<name>/lib/` hold the rules and are what gets tested.
 - Client state lives in one hook per workspace (`features/<name>/hooks/use-*.ts`) that calls those functions and exposes values plus actions.
 - The LLM never decides or writes output. It extracts structured data through a tool whose input schema comes from code (`schemaToZod`); deterministic code validates it and produces the result. Keep that split for new modules.
-- No persistence and no auth exist. Do not add storage without discussing it first.
+- Persistence is Supabase only: schema changes are a new file in `supabase/migrations/` plus a matching edit to `client/lib/supabase/database.types.ts`, which is hand-written. Every table has RLS enabled; route handlers use the user's session (anon key), never a service-role key.
+- Supabase stays optional. Code that touches it must keep working when `getSupabaseEnv()` returns `undefined` (skip, hide or return 503), so the app runs without credentials.
 
 ## 5. Naming and language
 

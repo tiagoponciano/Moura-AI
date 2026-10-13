@@ -42,6 +42,10 @@ export function DocumentWorkspace() {
                 endpoint="/api/documents/chat"
                 body={filling.chatBody}
                 onToolResult={filling.handleToolResult}
+                history={{
+                  module: "documents",
+                  context: { templateId: template.id },
+                }}
                 placeholder="Ex.: imóvel da Padaria Silva, Rua X 123, 750 m², comercial, 2 pavimentos"
                 emptyState="Descreva o imóvel e o proprietário. A Moura AI preenche os campos ao lado."
               />

@@ -25,6 +25,7 @@ export function ClassificationWorkspace() {
         <Chat
           endpoint="/api/classification/chat"
           onToolResult={classification.handleToolResult}
+          history={{ module: "classification" }}
           placeholder="Ex.: loja de 750 m², comercial, 2 pavimentos, 8 m de altura"
           emptyState="Descreva a edificação. A Moura AI registra área, altura, pavimentos e ocupação."
         />

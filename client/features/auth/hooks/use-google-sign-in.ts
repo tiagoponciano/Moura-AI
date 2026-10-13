@@ -1,7 +1,8 @@
 "use client";
 
+import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createNonce } from "@/lib/auth/google-nonce";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
 import { getGoogleClientId } from "../lib/google-identity";
@@ -13,7 +14,9 @@ import { getGoogleClientId } from "../lib/google-identity";
  */
 export function useGoogleSignIn() {
   const router = useRouter();
+  const { resolvedTheme } = useTheme();
   const buttonRef = useRef<HTMLDivElement>(null);
+  const [initialized, setInitialized] = useState(false);
   const [signingIn, setSigningIn] = useState(false);
   const [error, setError] = useState<string>();
 
@@ -36,25 +39,33 @@ export function useGoogleSignIn() {
     router.replace("/");
   }
 
-  async function renderButton() {
+  async function initialize() {
     const google = window.google;
     const clientId = getGoogleClientId();
-    const parent = buttonRef.current;
-    if (!google || !clientId || !parent) return;
+    if (!google || !clientId) return;
     const nonce = await createNonce();
     google.accounts.id.initialize({
       client_id: clientId,
       nonce: nonce.hashed,
       callback: (response) => void signIn(response.credential, nonce.raw),
     });
+    setInitialized(true);
+  }
+
+  // The button lives in Google's iframe and cannot be restyled, so it is redrawn when the theme changes.
+  useEffect(() => {
+    const google = window.google;
+    const parent = buttonRef.current;
+    if (!initialized || !google || !parent) return;
     google.accounts.id.renderButton(parent, {
-      theme: "outline",
+      theme: resolvedTheme === "dark" ? "filled_black" : "outline",
+      shape: "pill",
       size: "large",
       text: "signin_with",
       width: parent.offsetWidth,
       locale: "pt-BR",
     });
-  }
+  }, [initialized, resolvedTheme]);
 
-  return { buttonRef, renderButton, signingIn, error };
+  return { buttonRef, initialize, signingIn, error };
 }

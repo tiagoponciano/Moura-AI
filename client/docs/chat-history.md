@@ -38,7 +38,7 @@ All four sit behind the proxy gate (401/403 before reaching the handler). `modul
 | `parseChatListQuery(params)`                           | `lib/chat-history/query.ts`  | `{ module, context }` or `undefined`                                                   |
 | `isChatId(value)`                                      | `lib/chat-history/query.ts`  | `z.uuid()` check                                                                       |
 | `formatChatDate(iso)`                                  | `lib/chat-history/format.ts` | `pt-BR`, short date + short time: `13/10/2026, 14:05`                                  |
-| `ChatPersistence`, `toChatResponse`                    | `lib/llm.ts`                 | `{ originalMessages, generateMessageId, onEnd }`, spread into `toUIMessageStream`      |
+| `ChatPersistence`, `toChatResponse`                    | `lib/llm/index.ts`           | `{ originalMessages, generateMessageId, onEnd }`, spread into `toUIMessageStream`      |
 
 `Chat` (`components/chat/chat.tsx`) takes `history?: { module, context? }`. The menu is `components/chat/chat-history-menu.tsx`.
 

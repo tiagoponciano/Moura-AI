@@ -99,10 +99,15 @@ export type ChatPersistence = {
   onEnd: (event: { messages: UIMessage[] }) => Promise<void>;
 };
 
+/** Shown in the chat, so it is in Portuguese. */
+const STREAM_ERROR_MESSAGE =
+  "Não foi possível obter a resposta do assistente. Tente novamente.";
+
 /**
- * Wraps a model stream as an AI SDK UI message response; errors reach the
- * client unmasked. With `persistence`, the stream stays open until `onEnd`
- * has saved the messages.
+ * Wraps a model stream as an AI SDK UI message response. Provider errors are
+ * logged and reach the client only as `STREAM_ERROR_MESSAGE`, since they can
+ * carry request details. With `persistence`, the stream stays open until
+ * `onEnd` has saved the messages.
  */
 export function toChatResponse(
   stream: Parameters<typeof toUIMessageStream>[0]["stream"],
@@ -112,8 +117,10 @@ export function toChatResponse(
     stream: toUIMessageStream({
       stream,
       ...persistence,
-      onError: (error) =>
-        error instanceof Error ? error.message : String(error),
+      onError: (error) => {
+        console.error("Chat stream failed", error);
+        return STREAM_ERROR_MESSAGE;
+      },
     }),
   });
 }

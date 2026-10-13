@@ -18,7 +18,7 @@ Invariants:
 | Export                              | File                    | Contract                                                                                                                      |
 | ----------------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | `resolveChatModel()`                | `lib/llm/index.ts`      | Server-only, async. `{ model: LanguageModel }` or `{ error: Response }` (500, see below)                                      |
-| `toChatResponse`, `ChatPersistence` | `lib/llm/index.ts`      | Stream wrapper used by the chat handlers (see `chat-history.md`)                                                              |
+| `toChatResponse`, `ChatPersistence` | `lib/llm/index.ts`      | Stream wrapper used by the chat handlers (see `chat-history.md`); stream errors are masked (see `chat-request-limits.md`)     |
 | `pickModelConfig(stored)`           | `lib/llm/config.ts`     | Pure. `{ provider, model, apiKey }` when `stored.api_key` is non-empty, else `undefined`                                      |
 | `LLM_CATALOG`                       | `lib/llm/catalog.ts`    | Providers and models the admin console offers; safe to import in the browser                                                  |
 | `LLM_PROVIDERS`                     | `lib/llm/catalog.ts`    | `["anthropic", "openai", "google"]`, same values as the `llm_provider` enum                                                   |
@@ -47,7 +47,7 @@ IDs are passed verbatim to the provider package (`createAnthropic({ apiKey })(id
 | provider + model | yes                   | unset                       | 500, not configured |
 | nothing          | any                   | any                         | 500, not configured |
 
-The 500 body is `{"error":"Nenhum modelo de IA configurado. Peça a um administrador para configurar em Administração."}`. The message is in Portuguese on purpose: it is shown to the user. The AI SDK passes the raw response body as `error.message`, and the `Chat` component renders `Erro: ` plus `chatErrorMessage(error)`, so the user reads only the sentence. The same applies to every JSON error from the chat routes (e.g. `Missing template schema`).
+The 500 body is `{"error":"Nenhum modelo de IA configurado. Peça a um administrador para configurar em Administração."}`. The message is in Portuguese on purpose: it is shown to the user. The AI SDK passes the raw response body as `error.message`, and the `Chat` component renders `Erro: ` plus `chatErrorMessage(error)`, so the user reads only the sentence. The same applies to every JSON error from the chat routes (e.g. the quota message, see `chat-request-limits.md`).
 
 Cost: one RPC (`get_llm_config`) per chat request when the service role key is set.
 
@@ -57,13 +57,13 @@ Cost: one RPC (`get_llm_config`) per chat request when the service role key is s
 - No per-module or per-user model: every chat uses the same configuration.
 - No way to clear the saved model from the console; it can only be replaced by another catalog model.
 - No provider-specific options (temperature, reasoning effort, caching); every provider gets the same `streamText` call.
-- No automatic failover: if the saved provider returns an error (wrong key, quota, unknown model), the chat shows that error.
+- No automatic failover: if the saved provider returns an error (wrong key, quota, unknown model), the chat shows a generic "Não foi possível obter a resposta do assistente" and the provider's message goes only to the server log.
 
 ## Gotchas
 
 - **Chat shows "Nenhum modelo de IA configurado" although a model is saved** → `SUPABASE_SERVICE_ROLE_KEY` is missing on the server, or the saved provider has no key. → The admin console warns about both; set the variable on Vercel (Production and Preview) and redeploy, or add the key on `/admin`.
 - **Same message in a fresh local setup** → the console was never configured for this Supabase project, or `client/.env.local` lacks the service role key (Next reads `.env.local` only at startup). → Configure `/admin`, add the variable, restart `pnpm dev`.
-- **Chat fails right after switching provider** → wrong key or a model the account cannot use; the provider's message reaches the chat unmasked. → Replace the key or pick another model in the console.
+- **Chat says "Não foi possível obter a resposta do assistente" right after switching provider** → wrong key or a model the account cannot use; the provider's message is in the server log as `Chat stream failed`. → Replace the key or pick another model in the console.
 - **The documents tool call fails on Gemini** → Google's function calling accepts a narrower JSON Schema subset than Anthropic and OpenAI, and the `fill_fields` input schema is generated from each template. → Test a template on Google before relying on it; switch provider if the call is rejected.
 - **`server-only` import error in a client component or test** → something client-side imported `lib/llm/index.ts` or `lib/supabase/admin.ts`. → Import `lib/llm/catalog.ts` (browser-safe) instead; tests should target `config.ts`/`catalog.ts`.
 - **A model ID added to `LLM_CATALOG` fails at chat time** → the ID is not one the provider accepts. → Use the IDs listed in the provider package's model ID type (`node_modules/@ai-sdk/<provider>/dist/index.d.ts`).

@@ -25,11 +25,11 @@ Invariants:
 
 ### HTTP
 
-| Method | Path                  | Caller           | Returns                                                                                                                                                                                                                                                               |
-| ------ | --------------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `POST` | `/api/documents/chat` | `Chat` component | AI SDK UI message stream (SSE). `500` with a Portuguese "Nenhum modelo de IA configurado…" message when no model is configured on `/admin` (see `client/docs/llm-configuration.md`); `400 {"error":"Missing template schema"}` if `schema.fields` is empty or missing |
+| Method | Path                  | Caller           | Returns                                                                                                                                                                                                                                                                          |
+| ------ | --------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `POST` | `/api/documents/chat` | `Chat` component | AI SDK UI message stream (SSE). `500` with a Portuguese "Nenhum modelo de IA configurado…" message when no model is configured on `/admin` (see `client/docs/llm-configuration.md`); `400`/`413`/`429` from the request checks and quota in `client/docs/chat-request-limits.md` |
 
-Behind the login gate when Supabase is configured (`client/docs/authentication.md`), open otherwise. The route trusts the `schema` sent by the client.
+Requires a signed-in, approved user (`client/docs/authentication.md`); without Supabase it answers 503. The route takes the `schema` sent by the client after checking its shape (`documentsChatBody`), not against the template files.
 
 ### Library (`client/features/documents/lib/`)
 

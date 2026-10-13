@@ -70,8 +70,9 @@ profiles (
 ```
 
 - Trigger `on_auth_user_created` (after insert on `auth.users`) runs `handle_new_user()` (`security definer`) to insert the profile. It runs on insert only; later Google name or avatar changes do not update `profiles`.
-- `public.is_approved()` (`security definer`, `stable`): `true` when the caller's profile exists with `status = 'approved'`. Every other RLS policy calls it.
-- `public.is_admin()` (`20261014000000_admin.sql`): `true` when the caller is approved **and** `role = 'admin'`.
+- `public.is_approved()` (`security definer`, `stable`): `true` when the caller's profile exists with `status = 'approved'` and its e-mail is inside `app_settings.allowed_email_domain`. Every other RLS policy calls it.
+- `public.is_admin()`: `true` when `is_approved()`'s conditions hold **and** `role = 'admin'`.
+- `public.email_in_domain(email, domain)` (`20261015000100_allowed_domain_rls.sql`, `immutable`): the SQL twin of `isEmailAllowed`. Trims `domain`, strips leading `@`, lower-cases both; `true` when the domain is null or empty, else when the e-mail ends in `@<domain>`.
 - Policy `Users read their own profile`: `select` for `authenticated` where `id = auth.uid()`. Policy `Admins read all profiles`: `select` where `is_admin()`. No insert, update or delete policies.
 - `public.get_gate_state()` (`security definer`, `stable`, `authenticated` only): always exactly one row `{ status, role, allowed_email_domain }`. `status` and `role` are `null` when the caller has no profile; `allowed_email_domain` comes from `app_settings`.
 
@@ -153,7 +154,7 @@ Every gated request costs one Auth call and one RPC. Pages under `app/(app)/` ad
 - No Google One Tap prompt and no redirect-based OAuth flow: there is no `/auth/callback` route, and Supabase's Redirect URLs list is not used by this app.
 - The account chooser shows our site's domain, not "Moura Engenharia", until Google verifies the brand in the OAuth consent screen settings.
 - Outside `/admin`, an `admin` has the same access as a `member`: RLS still limits chats and attachments to their owner, so admins cannot read other users' data.
-- The domain restriction is not enforced in the database: a user outside the domain still gets a `pending` profile row when they sign in (and shows up on `/admin`), and is blocked only by the proxy check.
+- The domain restriction does not stop sign-up: a user outside the domain still gets a `pending` profile row when they sign in (and shows up on `/admin`). The database refuses them through `is_approved()`, but only for the domain saved in `app_settings`; `ALLOWED_EMAIL_DOMAIN` is read by the proxy alone, so with only the environment variable set an approved user outside it can still reach their own rows straight through the Supabase API.
 - Server Actions are not covered by a separate check (there are none); route handlers rely on the proxy plus RLS.
 
 ## Gotchas

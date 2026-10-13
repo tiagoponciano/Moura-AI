@@ -126,11 +126,23 @@ export type Database = {
         Update: Partial<Database["public"]["Tables"]["app_settings"]["Insert"]>;
         Relationships: [];
       };
+      chat_requests: {
+        Row: { id: number; user_id: string; created_at: string };
+        Insert: { user_id: string; created_at?: string };
+        Update: Partial<
+          Database["public"]["Tables"]["chat_requests"]["Insert"]
+        >;
+        Relationships: [];
+      };
     };
     Views: { [_ in never]: never };
     Functions: {
       is_approved: { Args: Record<PropertyKey, never>; Returns: boolean };
       is_admin: { Args: Record<PropertyKey, never>; Returns: boolean };
+      email_in_domain: {
+        Args: { email: string; domain: string | null };
+        Returns: boolean;
+      };
       admin_set_user_status: {
         Args: {
           target: string;
@@ -175,6 +187,10 @@ export type Database = {
           role: Database["public"]["Enums"]["user_role"] | null;
           allowed_email_domain: string | null;
         }[];
+      };
+      consume_chat_request: {
+        Args: Record<PropertyKey, never>;
+        Returns: boolean;
       };
     };
     Enums: {

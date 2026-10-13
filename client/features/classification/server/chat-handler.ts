@@ -1,13 +1,13 @@
-import {
-  convertToModelMessages,
-  isStepCount,
-  streamText,
-  tool,
-  type UIMessage,
-} from "ai";
+import { convertToModelMessages, isStepCount, streamText, tool } from "ai";
 import { z } from "zod";
+import { parseJsonBody } from "@/lib/api/parse-json-body";
 import { chatPersistence } from "@/lib/chat-history/server";
-import { resolveChatModel, toChatResponse } from "@/lib/llm";
+import {
+  consumeChatQuota,
+  parseChatMessages,
+  resolveChatModel,
+  toChatResponse,
+} from "@/lib/llm";
 import { OCCUPANCY_IDS, RECORD_BUILDING_TOOL } from "../lib/building";
 import { buildInstructions } from "./instructions";
 
@@ -31,6 +31,9 @@ const recordBuildingInput = z.object({
   occupancy: z.enum(OCCUPANCY_IDS).optional().describe("Occupancy id"),
 });
 
+/** Body of `POST /api/classification/chat`; `messages` is checked by `parseChatMessages`. */
+const chatBody = z.object({ id: z.unknown(), messages: z.unknown() });
+
 /**
  * Streams the classification assistant; `record_building` echoes the answers
  * back to the client. The chat is saved when history is available.
@@ -38,11 +41,17 @@ const recordBuildingInput = z.object({
 export async function handleClassificationChat(
   req: Request,
 ): Promise<Response> {
+  const body = await parseJsonBody(req, chatBody);
+  if (body.error) return body.error;
+  const messages = await parseChatMessages(body.data.messages);
+  if (!messages) {
+    return Response.json({ error: "Invalid messages" }, { status: 400 });
+  }
+
+  const quotaError = await consumeChatQuota();
+  if (quotaError) return quotaError;
   const { model, error } = await resolveChatModel();
   if (error) return error;
-
-  const { id, messages }: { id: string; messages: UIMessage[] } =
-    await req.json();
 
   const result = streamText({
     model,
@@ -60,7 +69,7 @@ export async function handleClassificationChat(
   });
 
   const persistence = await chatPersistence({
-    chatId: id,
+    chatId: body.data.id,
     module: "classification",
     context: {},
     messages,

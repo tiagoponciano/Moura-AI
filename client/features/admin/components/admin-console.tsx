@@ -53,11 +53,11 @@ export function AdminConsole() {
       <Tabs
         value={section}
         onValueChange={(value) => setSection(value as Section)}
-        className="flex-col gap-6"
+        className="gap-6"
       >
         <TabsList
           aria-label="Seções da administração"
-          className="h-auto w-full flex-wrap items-stretch justify-start gap-3 rounded-none bg-transparent p-0"
+          className="w-full flex-wrap items-stretch justify-start gap-3 rounded-none bg-transparent p-0 group-data-horizontal/tabs:h-auto"
         >
           <SectionTab
             value="users"

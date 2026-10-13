@@ -2,7 +2,7 @@ import { Loader2 } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { formatChatDate } from "@/lib/chat-history/format";
+import { formatDateTime } from "@/lib/format";
 import { ROLE_LABEL, STATUS_LABEL } from "../lib/labels";
 import type { AdminUser } from "../lib/types";
 
@@ -53,7 +53,7 @@ export function UserRow({
           )}
         </span>
         <span className="truncate text-xs text-muted-foreground">
-          {user.email} · entrou em {formatChatDate(user.createdAt)}
+          {user.email} · entrou em {formatDateTime(user.createdAt)}
         </span>
       </div>
       <div className="flex items-center gap-1.5">

@@ -4,7 +4,7 @@ import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { formatChatDate } from "@/lib/chat-history/format";
+import { formatDateTime } from "@/lib/format";
 import type { CatalogProvider } from "@/lib/llm/catalog";
 import { setProviderKey } from "../lib/client";
 import type { ProviderKeyHint } from "../lib/types";
@@ -64,7 +64,7 @@ export function ProviderKeyField({
       </div>
       <p className="text-xs text-muted-foreground">
         {hint
-          ? `Termina em ••••${hint.lastFour}, atualizada em ${formatChatDate(hint.updatedAt)}.`
+          ? `Termina em ••••${hint.lastFour}, atualizada em ${formatDateTime(hint.updatedAt)}.`
           : "Sem chave para este provedor."}
       </p>
       <FormStatus state={status} />

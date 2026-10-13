@@ -12,7 +12,7 @@ client/
 ├── app/          # routing only: (app)/ pages with the shell, (auth)/ login pages, api/
 ├── features/     # one folder per module: documents, home, classification, floor-plans, auth, admin
 ├── components/   # app-wide UI: ui/ (shadcn), layout/, chat/, shared/
-├── lib/          # app-wide logic: utils, module registry, llm/, supabase/, auth/, chat-history/, attachments/
+├── lib/          # app-wide logic: utils, format, module registry, api/, llm/, supabase/, auth/, chat-history/, attachments/
 ├── hooks/        # app-wide hooks
 ├── public/       # brand assets and .docx templates
 ├── docs/         # app-wide documentation (app shell, theming, authentication, chat history, attachments, LLM configuration)
@@ -60,6 +60,9 @@ Enforced by `no-restricted-imports` in `client/eslint.config.mjs`; `pnpm run lin
 - The LLM never decides or writes output. It extracts structured data through a tool whose input schema comes from code (`schemaToZod`); deterministic code validates it and produces the result. Keep that split for new modules.
 - Persistence is Supabase only: schema changes are a new file in `supabase/migrations/` plus a matching edit to `client/lib/supabase/database.types.ts`, which is hand-written. Every table has RLS enabled; route handlers use the user's session (anon key), never a service-role key.
 - Supabase stays optional. Code that touches it must keep working when `getSupabaseEnv()` returns `undefined` (skip, hide or return 503), so the app runs without credentials.
+- Route handlers get the session with `requireUser` (`lib/auth/require-user.ts`) and read JSON bodies with `parseJsonBody` (`lib/api/parse-json-body.ts`). Errors are `{ error: string }`, in English unless the UI shows the text as-is.
+- The browser calls our API through `requestJson` (`lib/api/request-json.ts`), which throws with the server's `error` field.
+- Modules that only run on the server (session, secrets, service-role client) start with `import "server-only";`.
 
 ## 5. Naming and language
 

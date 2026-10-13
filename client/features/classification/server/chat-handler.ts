@@ -38,7 +38,7 @@ const recordBuildingInput = z.object({
 export async function handleClassificationChat(
   req: Request,
 ): Promise<Response> {
-  const { model, error } = resolveChatModel();
+  const { model, error } = await resolveChatModel();
   if (error) return error;
 
   const { id, messages }: { id: string; messages: UIMessage[] } =

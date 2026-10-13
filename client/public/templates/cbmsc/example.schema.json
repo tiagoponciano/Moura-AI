@@ -3,36 +3,42 @@
     {
       "name": "company_name",
       "type": "string",
+      "label": "Razão social",
       "description": "Razão social do proprietário do imóvel",
       "required": true
     },
     {
       "name": "address",
       "type": "string",
+      "label": "Endereço",
       "description": "Endereço completo do imóvel (logradouro, número, bairro, cidade)",
       "required": true
     },
     {
       "name": "area_m2",
       "type": "number",
+      "label": "Área construída (m²)",
       "description": "Área total construída do imóvel, em metros quadrados",
       "required": true
     },
     {
       "name": "occupancy",
       "type": "string",
+      "label": "Ocupação",
       "description": "Tipo de ocupação do imóvel (ex.: residencial, comercial, industrial)",
       "required": true
     },
     {
       "name": "floor_count",
       "type": "number",
+      "label": "Pavimentos",
       "description": "Número de pavimentos da edificação",
       "required": true
     },
     {
       "name": "issue_date",
       "type": "date",
+      "label": "Data de emissão",
       "description": "Data de emissão do formulário",
       "required": false
     }

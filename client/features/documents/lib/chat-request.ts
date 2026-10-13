@@ -9,6 +9,7 @@ const FIELD_NAME = /^[a-z][a-z0-9_]{0,63}$/;
 const templateField = z.strictObject({
   name: z.string().regex(FIELD_NAME),
   type: z.enum(["string", "number", "date", "boolean"]),
+  label: z.string().min(1).max(80),
   description: z.string().max(500),
   required: z.boolean().optional(),
 });

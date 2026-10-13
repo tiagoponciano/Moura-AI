@@ -4,7 +4,8 @@ import { MAX_TEMPLATE_FIELDS, documentsChatBody } from "./chat-request";
 const field = (name: string) => ({
   name,
   type: "string",
-  description: "Razão social",
+  label: "Razão social",
+  description: "Razão social do proprietário do imóvel",
 });
 
 const body = (overrides: Record<string, unknown> = {}) => ({
@@ -18,6 +19,14 @@ const body = (overrides: Record<string, unknown> = {}) => ({
 describe("documentsChatBody", () => {
   it("accepts the body the documents chat sends", () => {
     expect(documentsChatBody.safeParse(body()).success).toBe(true);
+  });
+
+  it("rejects a field without a label", () => {
+    const unlabeled = { ...field("company_name"), label: undefined };
+    const result = documentsChatBody.safeParse(
+      body({ schema: { fields: [unlabeled] } }),
+    );
+    expect(result.success).toBe(false);
   });
 
   it("rejects a template without fields", () => {

@@ -12,17 +12,30 @@ const schema: TemplateSchema = {
     {
       name: "company_name",
       type: "string",
-      description: "Razão social",
+      label: "Razão social",
+      description: "Razão social do proprietário do imóvel",
       required: true,
     },
-    { name: "area_m2", type: "number", description: "Área", required: true },
+    {
+      name: "area_m2",
+      type: "number",
+      label: "Área",
+      description: "Área total construída, em metros quadrados",
+      required: true,
+    },
     {
       name: "has_sprinklers",
       type: "boolean",
-      description: "Chuveiros",
+      label: "Chuveiros",
+      description: "Possui chuveiros automáticos",
       required: true,
     },
-    { name: "issue_date", type: "date", description: "Data" },
+    {
+      name: "issue_date",
+      type: "date",
+      label: "Data",
+      description: "Data de emissão do formulário",
+    },
   ],
 };
 
@@ -90,7 +103,9 @@ describe("requiredProgress", () => {
 
   it("reports zero of zero for a schema without required fields", () => {
     const optionalOnly: TemplateSchema = {
-      fields: [{ name: "notes", type: "string", description: "Notas" }],
+      fields: [
+        { name: "notes", type: "string", label: "Notas", description: "Notas" },
+      ],
     };
     expect(requiredProgress(optionalOnly, {})).toEqual({ filled: 0, total: 0 });
   });
@@ -119,7 +134,7 @@ describe("validateForDocument", () => {
     });
   });
 
-  it("reports an invalid value with the field description and zod message", () => {
+  it("reports an invalid value with the field label and zod message", () => {
     const result = validateForDocument(schema, {
       ...complete,
       issue_date: "2026-10-05",

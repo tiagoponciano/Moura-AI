@@ -45,7 +45,7 @@ Invariants:
 `documentsChatBody`, because `templateId` and the schema's names and descriptions are written into the system prompt:
 
 - `templateId`: matches `^[a-z0-9][a-z0-9_-]{0,63}$`.
-- `schema`: exactly `{ fields }`, 1 to 100 fields. Each field has exactly `name` (`^[a-z][a-z0-9_]{0,63}$`), `type` (`string`, `number`, `date` or `boolean`), `description` (at most 500 characters) and optional `required` (boolean). Any other key, here or on a field, fails.
+- `schema`: exactly `{ fields }`, 1 to 100 fields. Each field has exactly `name` (`^[a-z][a-z0-9_]{0,63}$`), `type` (`string`, `number`, `date` or `boolean`), `label` (1 to 80 characters), `description` (at most 500 characters) and optional `required` (boolean). Any other key, here or on a field, fails.
 
 The schema still comes from the browser; the route does not compare it with the template files in `public/templates/`.
 

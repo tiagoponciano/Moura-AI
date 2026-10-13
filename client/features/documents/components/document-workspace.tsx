@@ -78,6 +78,7 @@ export function DocumentWorkspace() {
             <FormPanel
               fields={schema.fields}
               values={filling.values}
+              sources={filling.sources}
               progress={progress}
               problems={filling.problems}
               showMissing={filling.attempted}

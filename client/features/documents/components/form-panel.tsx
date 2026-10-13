@@ -3,6 +3,7 @@
 import { FileDown, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import type { FieldSources } from "../lib/field-sources";
 import type { FieldValue, FieldValues, TemplateField } from "../lib/templates";
 import { FieldList } from "./field-list";
 import { GenerationProblems } from "./generation-problems";
@@ -10,6 +11,7 @@ import { GenerationProblems } from "./generation-problems";
 type FormPanelProps = {
   fields: TemplateField[];
   values: FieldValues;
+  sources: FieldSources;
   progress: { filled: number; total: number };
   problems: string[];
   showMissing: boolean;
@@ -22,6 +24,7 @@ type FormPanelProps = {
 export function FormPanel({
   fields,
   values,
+  sources,
   progress,
   problems,
   showMissing,
@@ -63,6 +66,7 @@ export function FormPanel({
         <FieldList
           fields={fields}
           values={values}
+          sources={sources}
           onChange={onChange}
           showMissing={showMissing}
         />

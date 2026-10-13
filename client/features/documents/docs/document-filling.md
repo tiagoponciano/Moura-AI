@@ -48,25 +48,27 @@ Requires a signed-in, approved user (`client/docs/authentication.md`); without S
 
 ### Feature layout (`client/features/documents/`)
 
-`app/(app)/documents/page.tsx` renders `PageHeader` and `DocumentWorkspace` (imported from `@/features/documents`); `app/api/documents/chat/route.ts` declares `maxDuration = 60` and re-exports `handleDocumentsChat` (from `@/features/documents/server`) as `POST`. Everything else lives in the feature:
+`app/(app)/documents/page.tsx` renders only `DocumentWorkspace` (imported from `@/features/documents`) in a full-height column with no padding and no `PageHeader`, because the top bar breadcrumb already names the page; `app/api/documents/chat/route.ts` declares `maxDuration = 60` and re-exports `handleDocumentsChat` (from `@/features/documents/server`) as `POST`. Everything else lives in the feature:
 
-| File                                 | Role                                                                                |
-| ------------------------------------ | ----------------------------------------------------------------------------------- |
-| `index.ts`                           | Public client entry: exports `DocumentWorkspace` only                               |
-| `server/index.ts`                    | Public server entry: exports `handleDocumentsChat` only                             |
-| `server/chat-handler.ts`             | Validates the request, streams the model and defines the `fill_fields` tool         |
-| `server/instructions.ts`             | `buildInstructions(templateId, schema)`: the system prompt                          |
-| `hooks/use-document-filling.ts`      | All client state and actions: template list, schema, values, problems, generation   |
-| `components/document-workspace.tsx`  | Client entry point; switches between picker, loading state and chat + form panel    |
-| `components/template-picker.tsx`     | Card grid shown while no template is selected                                       |
-| `components/template-select.tsx`     | `Select` for switching templates once one is chosen                                 |
-| `components/form-panel.tsx`          | Progress header, `FieldList`, `GenerationProblems` and the "Gerar documento" button |
-| `components/field-list.tsx`          | Label, required mark, filled check; `{{tag}}` shown on label hover                  |
-| `components/field-control.tsx`       | The input for one field, chosen by `type`                                           |
-| `components/generation-problems.tsx` | "Corrija antes de gerar" list; renders nothing when empty                           |
-| `lib/`                               | Pure logic and data access listed above; no React                                   |
+| File                                 | Role                                                                                                          |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
+| `index.ts`                           | Public client entry: exports `DocumentWorkspace` only                                                         |
+| `server/index.ts`                    | Public server entry: exports `handleDocumentsChat` only                                                       |
+| `server/chat-handler.ts`             | Validates the request, streams the model and defines the `fill_fields` tool                                   |
+| `server/instructions.ts`             | `buildInstructions(templateId, schema)`: the system prompt                                                    |
+| `hooks/use-document-filling.ts`      | All client state and actions: template list, schema, values, problems, generation                             |
+| `components/document-workspace.tsx`  | Client entry point; switches between picker, loading state and chat + form panel; holds the narrow-screen tab |
+| `components/template-picker.tsx`     | "Novo documento" gallery shown while no template is selected                                                  |
+| `components/template-preview.tsx`    | Decorative A4 sketch with highlighted blanks; the same drawing for every template                             |
+| `components/template-select.tsx`     | Borderless `Select` used as the chat header title for switching templates                                     |
+| `components/workspace-tabs.tsx`      | "Conversa" / "Campos x/y" switch shown below `lg`                                                             |
+| `components/form-panel.tsx`          | Segmented progress header, `FieldList`, `GenerationProblems` and the "Gerar documento" button                 |
+| `components/field-list.tsx`          | Fields grouped under "Obrigatórios" / "Opcionais", status dot; `{{tag}}` shown on label hover                 |
+| `components/field-control.tsx`       | The input for one field, chosen by `type`, without border or background                                       |
+| `components/generation-problems.tsx` | "Corrija antes de gerar" list; renders nothing when empty                                                     |
+| `lib/`                               | Pure logic and data access listed above; no React                                                             |
 
-The chat is the shared `Chat` (`components/chat/chat.tsx`): props `endpoint`, `body?`, `onToolResult?(toolName, output)`, `placeholder?`, `emptyState?`, `history?`. The workspace passes `history={{ module: "documents", context: { templateId } }}`, which enables "Histórico" and attachments when Supabase is configured. `body` is sent with every message; `onToolResult` fires once per tool call id when the part reaches `output-available`; the empty state shows only the avatar and `emptyState`, and the `placeholder` carries the example message.
+The chat is the shared `Chat` (`components/chat/chat.tsx`): props `endpoint`, `body?`, `onToolResult?(toolName, output)`, `placeholder?`, `emptyState?`, `history?`, `title?`, `className?`. The workspace passes `title={<TemplateSelect …/>}`, so the template switcher replaces the "Moura AI" label in the chat header, and `className="rounded-none border-0 bg-transparent"`, so the chat has no card frame and sits on the page background. It also passes `history={{ module: "documents", context: { templateId } }}`, which enables "Histórico" and attachments when Supabase is configured. `body` is sent with every message; `onToolResult` fires once per tool call id when the part reaches `output-available`; the empty state shows only the avatar and `emptyState`, and the `placeholder` carries the example message.
 
 ## Data shapes
 
@@ -142,9 +144,17 @@ Every field is `.optional()` in `extraction`. In `document`, only fields with `r
 | `date`    | `Input` text, placeholder `DD/MM/AAAA`; not validated while typing   | required and empty                           | non-empty (format not checked) |
 | `boolean` | `Switch`                                                             | never (a boolean always has a value)         | never                          |
 
-`FieldList` receives `showMissing` once "Gerar documento" has been clicked for the current template, so a fresh form shows no red borders. Selecting another template resets it.
+Fields are listed in schema order inside two groups, "Obrigatórios" (`required: true`) and "Opcionais"; a group with no fields is not rendered, and there is no `*` required mark. Each field is a row: status dot, the `description` as label, and the control. Controls have no border, background or focus ring of their own; the row turns `muted` on hover and `accent` while its control has focus. Empty text, number and date controls show the placeholder "Não informado" (`DD/MM/AAAA` for dates).
 
-The panel header shows `<filled>/<total> obrigatórios` and a progress bar (`requiredProgress`). A required field counts as filled when it is a `boolean` (always) or its value is not empty — the same emptiness rule as the highlight, not full validation: a malformed date still counts as filled. With no required fields the bar is full.
+| Dot                               | When                                      |
+| --------------------------------- | ----------------------------------------- |
+| Filled `success`                  | "Filled check" above                      |
+| Outlined `destructive`, red label | "Missing highlight" above                 |
+| Outlined `input`                  | Every other case, including every boolean |
+
+`FieldList` receives `showMissing` once "Gerar documento" has been clicked for the current template, so a fresh form shows no red marks. Selecting another template resets it.
+
+The panel header shows `<filled> de <total> obrigatórios` and one segment per required field (`requiredProgress`), the first `<filled>` segments in `success`. The segments are not tied to specific fields: they count, in order, how many are filled. A required field counts as filled when it is a `boolean` (always) or its value is not empty — the same emptiness rule as the highlight, not full validation: a malformed date still counts as filled. With no required fields no segments are drawn. Under the button, "Baixa o .docx com o layout original do modelo." is static text.
 
 ### "Gerar documento"
 
@@ -156,7 +166,9 @@ The panel header shows `<filled>/<total> obrigatórios` and a progress bar (`req
 
 ### Template lifecycle
 
-With no template selected, the workspace lists every `index.json` entry as a card; clicking one selects it. Once a template is selected, the cards are replaced by the template `Select`, the chat and the form panel.
+With no template selected, the workspace shows the "Novo documento" heading and one `TemplatePreview` sketch per `index.json` entry, labelled with its `name` and `.<type>`; clicking one selects it. After the entries comes a fixed, non-clickable dashed card "Anexos do CBMSC em breve" / "Modelos oficiais". Once a template is selected, the gallery is replaced by the chat (with the template `Select` in its header) and the form panel. There is no way back to the gallery except reloading the page; the `Select` switches between templates directly.
+
+From `lg` (1024px) up, the chat and a 360px form panel sit side by side, separated by the panel's left border. Below `lg`, only one is shown at a time and `WorkspaceTabs` switches between "Conversa" and "Campos <filled>/<total>"; the tab starts on "Conversa", is not reset when the template changes, and tool results fill the fields while the "Campos" tab is hidden.
 
 Selecting a template resets values, problems, the generate-attempt flag and the schema, then loads the new schema. The `Chat` is keyed by template id, so switching templates starts an empty conversation. "Nova conversa" clears only the chat, not the fields. "Histórico" lists only chats held with the selected template; reopening one merges its extracted values over the current fields.
 
@@ -171,6 +183,7 @@ Selecting a template resets values, problems, the generate-attempt flag and the 
 
 ## Gotchas
 
+- **Restyling the chat for Documentos also changes Classificação** → `Chat` is shared, and Classificação still shows it as a framed card in a side column. → Change the documents look through the `className` and `title` props in `DocumentWorkspace`, not inside `components/chat/`.
 - **Tag renders empty in the output** → tag name differs from the schema `name` (typo, accent, different case) or Word split the tag with formatting. → Retype the whole tag in one go with uniform formatting; check spelling against the schema.
 - **`Falha ao gerar o documento`** → docxtemplater threw while parsing (unbalanced `{{`, a tag split by a field code or smart quotes). Details are in the browser console (`Failed to render document`).
 - **Tags with inner spaces** → `{{ field }}` works only because of the custom trimming parser in `renderDocx`; docxtemplater's default parser would look up `" field "` and render empty.

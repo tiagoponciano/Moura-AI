@@ -13,6 +13,7 @@ type TemplateSelectProps = {
   onChange: (id: string) => void;
 };
 
+/** Borderless template switcher shown as the workspace title. */
 export function TemplateSelect({
   templates,
   value,
@@ -20,7 +21,10 @@ export function TemplateSelect({
 }: TemplateSelectProps) {
   return (
     <Select value={value} onValueChange={onChange}>
-      <SelectTrigger className="w-72" aria-label="Modelo">
+      <SelectTrigger
+        aria-label="Trocar modelo"
+        className="-ml-2 max-w-72 border-0 bg-transparent font-medium shadow-none hover:bg-muted dark:bg-transparent dark:hover:bg-muted"
+      >
         <SelectValue placeholder="Selecione um modelo" />
       </SelectTrigger>
       <SelectContent>

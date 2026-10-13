@@ -1,32 +1,63 @@
 import { createAnthropic } from "@ai-sdk/anthropic";
+import { createGoogle } from "@ai-sdk/google";
+import { createOpenAI } from "@ai-sdk/openai";
 import {
   createUIMessageStreamResponse,
   toUIMessageStream,
+  type LanguageModel,
   type UIMessage,
 } from "ai";
+import { createSupabaseAdminClient } from "@/lib/supabase/admin";
+import {
+  pickModelConfig,
+  type ModelConfig,
+  type StoredModelConfig,
+} from "./config";
 
-const DEFAULT_MODEL = "claude-sonnet-4-6";
+/** The admin console's choice, or `undefined` when it cannot be read. */
+async function readStoredModelConfig(): Promise<StoredModelConfig | undefined> {
+  const supabase = createSupabaseAdminClient();
+  if (!supabase) return undefined;
+  const { data, error } = await supabase.rpc("get_llm_config").maybeSingle();
+  if (error) {
+    console.error("Failed to read the LLM config", error);
+    return undefined;
+  }
+  return data ?? undefined;
+}
 
-type ChatModel = ReturnType<ReturnType<typeof createAnthropic>>;
+function createModel({ provider, model, apiKey }: ModelConfig): LanguageModel {
+  switch (provider) {
+    case "anthropic":
+      return createAnthropic({ apiKey })(model);
+    case "openai":
+      return createOpenAI({ apiKey })(model);
+    case "google":
+      return createGoogle({ apiKey })(model);
+  }
+}
 
 /**
- * Server-only. The Anthropic model configured by `LLM_MODEL` (default
- * `claude-sonnet-4-6`), or a 500 response when `ANTHROPIC_API_KEY` is unset.
+ * Server-only. The model chosen in the admin console, else Anthropic from
+ * `ANTHROPIC_API_KEY`/`LLM_MODEL`, else a 500 response (see `pickModelConfig`).
  */
-export function resolveChatModel():
-  | { model: ChatModel; error?: undefined }
-  | { model?: undefined; error: Response } {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
+export async function resolveChatModel(): Promise<
+  | { model: LanguageModel; error?: undefined }
+  | { model?: undefined; error: Response }
+> {
+  const config = pickModelConfig(await readStoredModelConfig(), {
+    ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY,
+    LLM_MODEL: process.env.LLM_MODEL,
+  });
+  if (!config) {
     return {
       error: Response.json(
-        { error: "ANTHROPIC_API_KEY is not configured" },
+        { error: "No AI provider configured" },
         { status: 500 },
       ),
     };
   }
-  const anthropic = createAnthropic({ apiKey });
-  return { model: anthropic(process.env.LLM_MODEL || DEFAULT_MODEL) };
+  return { model: createModel(config) };
 }
 
 /** Hooks that save the conversation once the response is complete (see `chatPersistence`). */

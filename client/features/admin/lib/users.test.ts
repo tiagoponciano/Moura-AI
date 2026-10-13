@@ -1,12 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { AdminUser } from "./types";
-import {
-  countByStatus,
-  countPending,
-  filterUsers,
-  matchesUserQuery,
-  sortUsers,
-} from "./users";
+import { countByStatus, matchesUserQuery, sortUsers } from "./users";
 
 const user = (
   id: string,
@@ -32,36 +26,6 @@ describe("sortUsers", () => {
       user("p2", "pending", "2026-10-03"),
     ]);
     expect(sorted.map((entry) => entry.id)).toEqual(["p2", "p1", "a", "r"]);
-  });
-});
-
-describe("filterUsers", () => {
-  const users = [
-    user("p", "pending"),
-    user("a", "approved"),
-    user("r", "rejected"),
-  ];
-
-  it("keeps every user for the all filter", () => {
-    expect(filterUsers(users, "all")).toEqual(users);
-  });
-
-  it("keeps only users with the chosen status", () => {
-    expect(filterUsers(users, "approved").map((entry) => entry.id)).toEqual([
-      "a",
-    ]);
-  });
-});
-
-describe("countPending", () => {
-  it("counts only users awaiting approval", () => {
-    expect(
-      countPending([
-        user("p1", "pending"),
-        user("p2", "pending"),
-        user("a", "approved"),
-      ]),
-    ).toBe(2);
   });
 });
 

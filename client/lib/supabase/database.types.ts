@@ -139,6 +139,10 @@ export type Database = {
     Functions: {
       is_approved: { Args: Record<PropertyKey, never>; Returns: boolean };
       is_admin: { Args: Record<PropertyKey, never>; Returns: boolean };
+      email_in_domain: {
+        Args: { email: string; domain: string | null };
+        Returns: boolean;
+      };
       admin_set_user_status: {
         Args: {
           target: string;

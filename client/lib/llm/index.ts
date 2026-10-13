@@ -37,24 +37,22 @@ function createModel({ provider, model, apiKey }: ModelConfig): LanguageModel {
   }
 }
 
+/** Shown in the chat, so it is in Portuguese. */
+const NOT_CONFIGURED_MESSAGE =
+  "Nenhum modelo de IA configurado. Peça a um administrador para configurar em Administração.";
+
 /**
- * Server-only. The model chosen in the admin console, else Anthropic from
- * `ANTHROPIC_API_KEY`/`LLM_MODEL`, else a 500 response (see `pickModelConfig`).
+ * Server-only. The model chosen in the admin console, or a 500 response with
+ * `NOT_CONFIGURED_MESSAGE` when none can be used (see `pickModelConfig`).
  */
 export async function resolveChatModel(): Promise<
   | { model: LanguageModel; error?: undefined }
   | { model?: undefined; error: Response }
 > {
-  const config = pickModelConfig(await readStoredModelConfig(), {
-    ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY,
-    LLM_MODEL: process.env.LLM_MODEL,
-  });
+  const config = pickModelConfig(await readStoredModelConfig());
   if (!config) {
     return {
-      error: Response.json(
-        { error: "No AI provider configured" },
-        { status: 500 },
-      ),
+      error: Response.json({ error: NOT_CONFIGURED_MESSAGE }, { status: 500 }),
     };
   }
   return { model: createModel(config) };

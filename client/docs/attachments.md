@@ -92,7 +92,7 @@ attachments (
 2. Get the signed-in user from the browser client; none → failure.
 3. Path = `buildStoragePath(user.id, file.name, crypto.randomUUID())`. The safe name strips accents (NFD), replaces every run of characters outside `A-Z a-z 0-9 . _ -` with `-`, collapses repeated `-`, trims `-` at both ends, cuts to 100 characters, and falls back to `file`. `Habite-se Ação (1).pdf` → `Habite-se-Acao-1-.pdf`.
 4. Upload to the bucket with `contentType: file.type`. Error → failure (logged as `Failed to upload attachment`).
-5. `POST /api/attachments`. Non-2xx → remove the uploaded object, then failure.
+5. `POST /api/attachments`. Non-2xx or no response → remove the uploaded object, then failure.
 
 ### Recording (`POST`)
 

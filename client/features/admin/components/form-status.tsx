@@ -1,9 +1,5 @@
-import { cn } from "cn";
-
-export type FormStatusState =
-  | { kind: "idle" }
-  | { kind: "saved"; text: string }
-  | { kind: "error"; text: string };
+import { cn } from "@/lib/utils";
+import type { FormStatusState } from "../hooks/use-save-status";
 
 /** One line under a form: confirmation or the server's error message. */
 export function FormStatus({ state }: { state: FormStatusState }) {

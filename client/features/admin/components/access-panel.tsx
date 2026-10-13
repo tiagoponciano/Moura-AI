@@ -11,33 +11,27 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useSaveStatus, type SaveRunner } from "../hooks/use-save-status";
 import { updateSettings } from "../lib/client";
 import type { AdminSettingsResponse } from "../lib/types";
-import { FormStatus, type FormStatusState } from "./form-status";
+import { FormStatus } from "./form-status";
 
 type AccessPanelProps = {
   data: AdminSettingsResponse;
-  run: (save: () => Promise<void>) => Promise<string | undefined>;
+  run: SaveRunner;
 };
 
 /** The e-mail domain allowed to sign in. */
 export function AccessPanel({ data, run }: AccessPanelProps) {
   const saved = data.settings.allowedEmailDomain ?? "";
   const [domain, setDomain] = useState(saved);
-  const [saving, setSaving] = useState(false);
-  const [status, setStatus] = useState<FormStatusState>({ kind: "idle" });
+  const { saving, status, save } = useSaveStatus(run);
 
-  async function handleSubmit(event: FormEvent) {
+  function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    setSaving(true);
-    const error = await run(() =>
-      updateSettings({ allowedEmailDomain: domain }),
-    );
-    setSaving(false);
-    setStatus(
-      error
-        ? { kind: "error", text: error }
-        : { kind: "saved", text: "Domínio salvo." },
+    void save(
+      () => updateSettings({ allowedEmailDomain: domain }),
+      "Domínio salvo.",
     );
   }
 

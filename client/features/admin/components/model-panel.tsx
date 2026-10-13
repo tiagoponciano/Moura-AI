@@ -24,14 +24,15 @@ import {
   findCatalogProvider,
   type LlmProvider,
 } from "@/lib/llm/catalog";
+import { useSaveStatus, type SaveRunner } from "../hooks/use-save-status";
 import { updateSettings } from "../lib/client";
 import type { AdminSettingsResponse } from "../lib/types";
-import { FormStatus, type FormStatusState } from "./form-status";
+import { FormStatus } from "./form-status";
 import { ProviderKeyField } from "./provider-key-field";
 
 type ModelPanelProps = {
   data: AdminSettingsResponse;
-  run: (save: () => Promise<void>) => Promise<string | undefined>;
+  run: SaveRunner;
 };
 
 function Notice({ children }: { children: React.ReactNode }) {
@@ -52,8 +53,7 @@ export function ModelPanel({ data, run }: ModelPanelProps) {
   const [model, setModel] = useState<string | undefined>(
     saved.model ?? undefined,
   );
-  const [saving, setSaving] = useState(false);
-  const [status, setStatus] = useState<FormStatusState>({ kind: "idle" });
+  const { saving, status, save } = useSaveStatus(run);
 
   const models = provider ? (findCatalogProvider(provider)?.models ?? []) : [];
   const savedProvider = saved.provider && findCatalogProvider(saved.provider);
@@ -66,15 +66,8 @@ export function ModelPanel({ data, run }: ModelPanelProps) {
     setModel(findCatalogProvider(next)?.models[0]?.id);
   }
 
-  async function save(llm: { provider: LlmProvider; model: string }) {
-    setSaving(true);
-    const error = await run(() => updateSettings({ llm }));
-    setSaving(false);
-    setStatus(
-      error
-        ? { kind: "error", text: error }
-        : { kind: "saved", text: "Modelo salvo." },
-    );
+  function saveModel(llm: { provider: LlmProvider; model: string }) {
+    void save(() => updateSettings({ llm }), "Modelo salvo.");
   }
 
   return (
@@ -143,7 +136,7 @@ export function ModelPanel({ data, run }: ModelPanelProps) {
         <div className="flex flex-wrap items-center gap-2">
           <Button
             disabled={saving || !provider || !model || unchanged}
-            onClick={() => provider && model && save({ provider, model })}
+            onClick={() => provider && model && saveModel({ provider, model })}
           >
             Salvar modelo
           </Button>

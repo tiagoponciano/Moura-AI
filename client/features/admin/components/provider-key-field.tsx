@@ -6,14 +6,15 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { formatDateTime } from "@/lib/format";
 import type { CatalogProvider } from "@/lib/llm/catalog";
+import { useSaveStatus, type SaveRunner } from "../hooks/use-save-status";
 import { setProviderKey } from "../lib/client";
 import type { ProviderKeyHint } from "../lib/types";
-import { FormStatus, type FormStatusState } from "./form-status";
+import { FormStatus } from "./form-status";
 
 type ProviderKeyFieldProps = {
   provider: CatalogProvider;
   hint: ProviderKeyHint | undefined;
-  run: (save: () => Promise<void>) => Promise<string | undefined>;
+  run: SaveRunner;
 };
 
 /** Write-only key input: shows the last four characters, never the key. */
@@ -23,21 +24,14 @@ export function ProviderKeyField({
   run,
 }: ProviderKeyFieldProps) {
   const [key, setKey] = useState("");
-  const [saving, setSaving] = useState(false);
-  const [status, setStatus] = useState<FormStatusState>({ kind: "idle" });
+  const { saving, status, save } = useSaveStatus(run);
   const inputId = `api-key-${provider.id}`;
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    setSaving(true);
-    const error = await run(() => setProviderKey(provider.id, key));
-    setSaving(false);
-    if (error) {
-      setStatus({ kind: "error", text: error });
-      return;
+    if (await save(() => setProviderKey(provider.id, key), "Chave salva.")) {
+      setKey("");
     }
-    setKey("");
-    setStatus({ kind: "saved", text: "Chave salva." });
   }
 
   return (

@@ -10,10 +10,12 @@ import {
 import { Loader2, RotateCcw } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
+import { useChatAttachments } from "@/hooks/use-chat-attachments";
 import { fetchChatMessages } from "@/lib/chat-history/client";
 import type { ChatContext, ChatModule } from "@/lib/chat-history/types";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { AssistantAvatar } from "./assistant-avatar";
+import { ChatAttachments } from "./chat-attachments";
 import { ChatComposer } from "./chat-composer";
 import { ChatEmptyState } from "./chat-empty-state";
 import { ChatHistoryMenu } from "./chat-history-menu";
@@ -62,6 +64,7 @@ export function Chat({
 
   const isBusy = status === "submitted" || status === "streaming";
   const historyEnabled = history !== undefined && isSupabaseConfigured();
+  const files = useChatAttachments(session.id, historyEnabled);
 
   useEffect(() => {
     if (!onToolResult) return;
@@ -159,12 +162,21 @@ export function Chat({
         )}
       </div>
 
+      {historyEnabled && (
+        <ChatAttachments
+          attachments={files.attachments}
+          uploading={files.uploading}
+          problems={files.problems}
+        />
+      )}
       <ChatComposer
         value={input}
         placeholder={placeholder}
         busy={isBusy}
         onChange={setInput}
         onSubmit={() => send(input.trim())}
+        onAttach={historyEnabled ? files.attach : undefined}
+        attaching={files.uploading}
       />
     </div>
   );

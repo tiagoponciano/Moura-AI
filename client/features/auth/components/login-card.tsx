@@ -42,7 +42,12 @@ export function LoginCard() {
             src={GOOGLE_IDENTITY_SCRIPT}
             onReady={() => void initialize()}
           />
-          <div ref={buttonRef} className="h-10 w-full" hidden={signingIn} />
+          {/* Google's iframe is a light document; a dark color-scheme on it makes Chromium paint it an opaque white backdrop. */}
+          <div
+            ref={buttonRef}
+            className="h-10 w-full [color-scheme:light]"
+            hidden={signingIn}
+          />
           {signingIn && (
             <p className="flex h-10 items-center gap-2 text-sm text-muted-foreground">
               <Loader2 className="size-4 animate-spin" />

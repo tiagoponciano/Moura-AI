@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 import type { AdminUser } from "./types";
-import { countPending, filterUsers, sortUsers } from "./users";
+import {
+  countByStatus,
+  countPending,
+  filterUsers,
+  matchesUserQuery,
+  sortUsers,
+} from "./users";
 
 const user = (
   id: string,
@@ -56,5 +62,49 @@ describe("countPending", () => {
         user("a", "approved"),
       ]),
     ).toBe(2);
+  });
+});
+
+describe("countByStatus", () => {
+  it("counts users per status, including statuses nobody has", () => {
+    expect(
+      countByStatus([
+        user("p1", "pending"),
+        user("p2", "pending"),
+        user("a", "approved"),
+      ]),
+    ).toEqual({ pending: 2, approved: 1, rejected: 0 });
+  });
+});
+
+describe("matchesUserQuery", () => {
+  const ana: AdminUser = {
+    ...user("ana", "approved"),
+    name: "Ana Conceição",
+    email: "ana.c@mourasengenharia.com",
+  };
+
+  it("matches part of the name, ignoring case", () => {
+    expect(matchesUserQuery(ana, "ANA CON")).toBe(true);
+  });
+
+  it("matches part of the e-mail", () => {
+    expect(matchesUserQuery(ana, "mourasengenharia")).toBe(true);
+  });
+
+  it("ignores accents on either side", () => {
+    expect(matchesUserQuery(ana, "conceicao")).toBe(true);
+  });
+
+  it("matches every user for a blank query", () => {
+    expect(matchesUserQuery(ana, "  ")).toBe(true);
+  });
+
+  it("rejects a query found in neither name nor e-mail", () => {
+    expect(matchesUserQuery(ana, "bruno")).toBe(false);
+  });
+
+  it("searches the e-mail when the user has no name", () => {
+    expect(matchesUserQuery(user("bruno", "approved"), "bruno")).toBe(true);
   });
 });

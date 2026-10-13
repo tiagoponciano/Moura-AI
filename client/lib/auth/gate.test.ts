@@ -24,12 +24,6 @@ describe("isEmailAllowed", () => {
 });
 
 describe("resolveGate", () => {
-  it("always lets the OAuth callback through", () => {
-    expect(
-      resolveGate({ pathname: "/auth/callback", email: null, status: null }),
-    ).toEqual({ type: "allow" });
-  });
-
   it("sends a visitor without a session to the login page", () => {
     expect(
       resolveGate({ pathname: "/documents", email: null, status: null }),

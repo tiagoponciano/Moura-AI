@@ -6,6 +6,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -36,38 +37,46 @@ export function AccessPanel({ data, run }: AccessPanelProps) {
   }
 
   return (
-    <Card>
+    <Card className="[--card-spacing:--spacing(6)]">
       <CardHeader>
         <CardTitle>Acesso</CardTitle>
         <CardDescription>
-          Só contas Google deste domínio conseguem entrar.
+          Só contas Google deste domínio conseguem entrar. Toda conta nova fica
+          pendente até um administrador aprovar.
         </CardDescription>
       </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit} className="grid gap-1.5">
+      <form onSubmit={handleSubmit} className="contents">
+        <CardContent className="grid max-w-lg gap-2">
           <Label htmlFor="allowed-domain">Domínio de e-mail permitido</Label>
-          <div className="flex gap-2">
+          <div className="flex items-stretch overflow-hidden rounded-lg border border-input bg-card focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/50">
+            <span
+              aria-hidden
+              className="flex items-center border-r border-input bg-muted px-3 font-mono text-sm text-muted-foreground"
+            >
+              @
+            </span>
             <Input
               id="allowed-domain"
               placeholder="mourasengenharia.com"
               value={domain}
               onChange={(event) => setDomain(event.target.value)}
+              className="min-w-0 flex-1 rounded-none border-0 font-mono shadow-none focus-visible:ring-0 dark:bg-transparent"
             />
-            <Button
-              type="submit"
-              variant="outline"
-              disabled={saving || domain.trim() === saved}
-            >
-              Salvar
-            </Button>
           </div>
           <p className="text-xs text-muted-foreground">
-            Vazio usa ALLOWED_EMAIL_DOMAIN do ambiente; se ela também estiver
-            vazia, qualquer domínio entra.
+            Vazio: vale ALLOWED_EMAIL_DOMAIN do servidor; sem ela, qualquer
+            conta Google entra.
           </p>
-          <FormStatus state={status} />
-        </form>
-      </CardContent>
+        </CardContent>
+        <CardFooter className="flex-wrap gap-3">
+          <div className="min-w-0 flex-[1_1_240px]">
+            <FormStatus state={status} />
+          </div>
+          <Button type="submit" disabled={saving || domain.trim() === saved}>
+            Salvar domínio
+          </Button>
+        </CardFooter>
+      </form>
     </Card>
   );
 }

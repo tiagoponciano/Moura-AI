@@ -10,12 +10,12 @@ All app code lives in `client/` (Next.js App Router, TypeScript, Tailwind v4, sh
 client/
 ├── proxy.ts      # login gate (Next's renamed middleware)
 ├── app/          # routing only: (app)/ pages with the shell, (auth)/ login pages, api/
-├── features/     # one folder per module: documents, home, classification, floor-plans, auth
+├── features/     # one folder per module: documents, home, classification, floor-plans, auth, admin
 ├── components/   # app-wide UI: ui/ (shadcn), layout/, chat/, shared/
-├── lib/          # app-wide logic: utils, module registry, llm, supabase/, auth/, chat-history/, attachments/
+├── lib/          # app-wide logic: utils, module registry, llm/, supabase/, auth/, chat-history/, attachments/
 ├── hooks/        # app-wide hooks
 ├── public/       # brand assets and .docx templates
-├── docs/         # app-wide documentation (app shell, theming, authentication, chat history, attachments)
+├── docs/         # app-wide documentation (app shell, theming, authentication, chat history, attachments, LLM configuration)
 └── scripts/      # one-off generators
 
 supabase/migrations/   # database schema; the only place tables, RLS and buckets are defined

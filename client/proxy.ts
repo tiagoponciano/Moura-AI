@@ -9,21 +9,19 @@ export async function proxy(request: NextRequest) {
   if (!env) return NextResponse.next();
 
   const session = await refreshSession(request, env);
-  let status = null;
+  let state = null;
   if (session.user) {
-    const { data } = await session.supabase
-      .from("profiles")
-      .select("status")
-      .eq("id", session.user.id)
-      .maybeSingle();
-    status = data?.status ?? null;
+    const { data } = await session.supabase.rpc("get_gate_state").maybeSingle();
+    state = data;
   }
 
   const decision = resolveGate({
     pathname: request.nextUrl.pathname,
     email: session.user?.email ?? null,
-    status,
-    allowedDomain: process.env.ALLOWED_EMAIL_DOMAIN,
+    status: state?.status ?? null,
+    role: state?.role ?? null,
+    allowedDomain:
+      state?.allowed_email_domain?.trim() || process.env.ALLOWED_EMAIL_DOMAIN,
   });
 
   switch (decision.type) {

@@ -106,15 +106,82 @@ export type Database = {
         Update: Partial<Database["public"]["Tables"]["attachments"]["Insert"]>;
         Relationships: [];
       };
+      app_settings: {
+        Row: {
+          id: boolean;
+          llm_provider: Database["public"]["Enums"]["llm_provider"] | null;
+          llm_model: string | null;
+          allowed_email_domain: string | null;
+          updated_at: string;
+          updated_by: string | null;
+        };
+        Insert: {
+          id?: boolean;
+          llm_provider?: Database["public"]["Enums"]["llm_provider"] | null;
+          llm_model?: string | null;
+          allowed_email_domain?: string | null;
+          updated_at?: string;
+          updated_by?: string | null;
+        };
+        Update: Partial<Database["public"]["Tables"]["app_settings"]["Insert"]>;
+        Relationships: [];
+      };
     };
     Views: { [_ in never]: never };
     Functions: {
       is_approved: { Args: Record<PropertyKey, never>; Returns: boolean };
+      is_admin: { Args: Record<PropertyKey, never>; Returns: boolean };
+      admin_set_user_status: {
+        Args: {
+          target: string;
+          new_status: Database["public"]["Enums"]["user_status"];
+        };
+        Returns: undefined;
+      };
+      admin_set_user_role: {
+        Args: {
+          target: string;
+          new_role: Database["public"]["Enums"]["user_role"];
+        };
+        Returns: undefined;
+      };
+      admin_set_provider_key: {
+        Args: {
+          provider: Database["public"]["Enums"]["llm_provider"];
+          api_key: string;
+        };
+        Returns: undefined;
+      };
+      admin_list_provider_keys: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          provider: Database["public"]["Enums"]["llm_provider"];
+          last_four: string;
+          updated_at: string;
+        }[];
+      };
+      get_llm_config: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          provider: Database["public"]["Enums"]["llm_provider"];
+          model: string;
+          api_key: string | null;
+        }[];
+      };
+      get_gate_state: {
+        Args: Record<PropertyKey, never>;
+        Returns: {
+          status: Database["public"]["Enums"]["user_status"] | null;
+          role: Database["public"]["Enums"]["user_role"] | null;
+          allowed_email_domain: string | null;
+        }[];
+      };
     };
     Enums: {
       user_status: "pending" | "approved" | "rejected";
       user_role: "admin" | "member";
       chat_module: "documents" | "classification";
+      llm_provider: "anthropic" | "openai" | "google";
     };
     CompositeTypes: { [_ in never]: never };
   };

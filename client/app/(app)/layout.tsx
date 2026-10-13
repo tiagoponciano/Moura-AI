@@ -7,11 +7,14 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { isCurrentUserAdmin } from "@/lib/auth/is-admin";
 
-export default function AppLayout({ children }: LayoutProps<"/">) {
+export default async function AppLayout({ children }: LayoutProps<"/">) {
+  const isAdmin = await isCurrentUserAdmin();
+
   return (
     <SidebarProvider className="h-svh">
-      <AppSidebar />
+      <AppSidebar isAdmin={isAdmin} />
       <SidebarInset className="min-h-0 overflow-hidden">
         <header className="flex h-12 shrink-0 items-center gap-2 border-b bg-background/80 px-3 backdrop-blur">
           <SidebarTrigger />

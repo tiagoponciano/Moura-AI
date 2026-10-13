@@ -1,3 +1,4 @@
+import "server-only";
 import { z } from "zod";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { getGoogleClientId } from "../lib/google-identity";

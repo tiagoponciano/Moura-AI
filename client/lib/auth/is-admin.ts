@@ -1,3 +1,4 @@
+import "server-only";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 /** Server-only. Whether the signed-in user is an approved admin; `false` without Supabase. */

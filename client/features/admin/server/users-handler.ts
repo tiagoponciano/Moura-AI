@@ -1,7 +1,8 @@
 import { z } from "zod";
 import { parseJsonBody } from "@/lib/api/parse-json-body";
 import type { AdminUser, AdminUsersResponse } from "../lib/types";
-import { sortUsers, userUpdateSchema } from "../lib/validation";
+import { sortUsers } from "../lib/users";
+import { userUpdateSchema } from "../lib/validation";
 import { requireSession, rpcErrorResponse } from "./respond";
 
 /** `GET /api/admin/users`: every profile, pending first. */

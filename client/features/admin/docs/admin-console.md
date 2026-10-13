@@ -99,7 +99,7 @@ RPC errors and how the handlers map them:
 ```jsonc
 {
   "settings": {
-    "provider": "openai", // null → chats use the env vars
+    "provider": "openai", // null until an admin saves one; chats do not work meanwhile
     "model": "gpt-5.5", // null together with provider
     "allowedEmailDomain": "mourasengenharia.com", // null → ALLOWED_EMAIL_DOMAIN applies
     "updatedAt": "2026-10-13T18:00:00.000Z",
@@ -118,8 +118,7 @@ RPC errors and how the handlers map them:
 `PUT /api/admin/settings`, at least one field, no others:
 
 ```jsonc
-{ "llm": { "provider": "google", "model": "gemini-2.5-pro" } } // model must be in the catalog for that provider
-{ "llm": null }                            // clears provider and model
+{ "llm": { "provider": "google", "model": "gemini-2.5-pro" } } // model must be in the catalog for that provider; null is rejected
 { "allowedEmailDomain": "@Moura.com " }    // stored as "moura.com"
 { "allowedEmailDomain": "" }               // stored as null
 ```
@@ -150,9 +149,10 @@ RPC errors and how the handlers map them:
 
 1. Provider select lists `LLM_CATALOG` (`lib/llm/catalog.ts`); changing it picks the provider's first model.
 2. "Salvar modelo" sends `llm: { provider, model }`; disabled while nothing changed.
-3. "Usar variáveis de ambiente" (shown when a model is saved) sends `llm: null`.
-4. One key field per provider. The placeholder and help text show `••••<last four>` and the update time, or "Sem chave para este provedor". "Salvar"/"Trocar" sends the key, then clears the input.
-5. Warnings: `serviceRoleConfigured: false` → settings are ignored by the chats; saved provider without a key → chats use the env vars.
+3. One key field per provider. The placeholder and help text show `••••<last four>` and the update time, or "Sem chave para este provedor". "Salvar"/"Trocar" sends the key, then clears the input.
+4. Warnings, each saying the chats do not work until it is fixed: `serviceRoleConfigured: false`; saved provider without a key; no model saved.
+
+The console is the only place the chat model comes from: there is no environment fallback (see `client/docs/llm-configuration.md`).
 
 ### Access panel
 
@@ -160,7 +160,7 @@ Saves `allowedEmailDomain`. Empty clears it, and then `ALLOWED_EMAIL_DOMAIN` fro
 
 ## What this does NOT do
 
-- No key deletion. A key can only be replaced; to stop using a provider, choose another one or "Usar variáveis de ambiente". Removing a secret needs SQL (`delete from vault.secrets where name = 'llm_api_key_<provider>'`).
+- No key deletion and no way to clear the saved model. A key can only be replaced; to stop using a provider, choose another one. Removing a secret needs SQL (`delete from vault.secrets where name = 'llm_api_key_<provider>'`).
 - No key validation: a wrong key is saved and fails on the next chat with the provider's error.
 - No audit log beyond `app_settings.updated_by/updated_at` and `profiles.approved_by/approved_at`. Role changes and rejections leave no record of who made them.
 - No e-mail or notification to the user when their access changes.
@@ -170,7 +170,7 @@ Saves `allowedEmailDomain`. Empty clears it, and then `ALLOWED_EMAIL_DOMAIN` fro
 ## Gotchas
 
 - **Everyone, admins included, lands on `/pending` after deploying** → the code reads `get_gate_state()`, which does not exist until the migration runs; the RPC errors and the status is treated as missing. → Apply `20261014000000_admin.sql` before (or together with) deploying the code.
-- **Saved a model but the chats still use Claude from the env** → `SUPABASE_SERVICE_ROLE_KEY` is not set on the server, or the saved provider has no key. → The panel shows a warning for both; set the variable (and redeploy) or add the key.
+- **Saved a model but the chat says "Nenhum modelo de IA configurado"** → `SUPABASE_SERVICE_ROLE_KEY` is not set on the server, or the saved provider has no key. → The panel shows a warning for both; set the variable (and redeploy) or add the key.
 - **`PUT /api/admin/settings` returns 403 for an admin** → the update matched no row, because RLS hid it (`is_admin()` false: the profile is not `approved`) or the `app_settings` row was deleted. → Check the profile; restore the row with `insert into public.app_settings default values`.
 - **"Admins cannot change their own access"** → deliberate. → Ask another admin, or use SQL.
 - **`admin_set_provider_key` fails with a Vault permission error** → the function owner lacks access to `vault` (projects where the migration ran as a role other than `postgres`). → Run the migration as `postgres` (SQL editor or `supabase db push`).
@@ -179,5 +179,6 @@ Saves `allowedEmailDomain`. Empty clears it, and then `ALLOWED_EMAIL_DOMAIN` fro
 ## Setup
 
 1. Apply `supabase/migrations/20261014000000_admin.sql` (needs the `supabase_vault` extension, enabled by default on Supabase; the migration runs `create extension if not exists`).
-2. Set `SUPABASE_SERVICE_ROLE_KEY` (Supabase → Project Settings → API → `service_role`) in `client/.env.local` and in Vercel. Server-only: never prefix it with `NEXT_PUBLIC_`.
+2. Set `SUPABASE_SERVICE_ROLE_KEY` (Supabase → Project Settings → API Keys: legacy `service_role` or a `sb_secret_…` secret key) in `client/.env.local` and in Vercel as a Secret for Production and Preview. Server-only: never prefix it with `NEXT_PUBLIC_`.
 3. Make the first admin with SQL (see `authentication.md`), reload, and open "Administração" in the sidebar.
+4. Pick provider and model, and save that provider's key. Until then no chat works.

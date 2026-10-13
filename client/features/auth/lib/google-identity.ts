@@ -1,32 +1,31 @@
 export const GOOGLE_IDENTITY_SCRIPT = "https://accounts.google.com/gsi/client";
 
-type CredentialResponse = {
-  /** Google ID token (JWT). */
-  credential: string;
+export type CodeResponse = {
+  /** One-time authorization code, exchanged on the server. Absent when the user declines. */
+  code?: string;
+  error?: string;
 };
 
-type GoogleAccountsId = {
-  initialize(config: {
+export type CodeClient = {
+  /** Opens Google's account chooser in a popup; must run inside a click handler. */
+  requestCode(): void;
+};
+
+type GoogleOAuth2 = {
+  initCodeClient(config: {
     client_id: string;
-    callback: (response: CredentialResponse) => void;
-    nonce?: string;
-  }): void;
-  renderButton(
-    parent: HTMLElement,
-    options: {
-      theme?: "outline" | "filled_blue" | "filled_black";
-      shape?: "rectangular" | "pill" | "circle" | "square";
-      size?: "small" | "medium" | "large";
-      text?: "signin_with" | "signup_with" | "continue_with" | "signin";
-      width?: number;
-      locale?: string;
-    },
-  ): void;
+    scope: string;
+    ux_mode: "popup";
+    callback: (response: CodeResponse) => void;
+    error_callback?: (error: {
+      type: "popup_failed_to_open" | "popup_closed" | "unknown";
+    }) => void;
+  }): CodeClient;
 };
 
 declare global {
   interface Window {
-    google?: { accounts: { id: GoogleAccountsId } };
+    google?: { accounts: { oauth2: GoogleOAuth2 } };
   }
 }
 

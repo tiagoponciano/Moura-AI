@@ -25,7 +25,7 @@ export const domainSchema = z
   })
   .transform((value) => value || null);
 
-/** Body of `PUT /api/admin/settings`; `llm: null` falls back to the env vars. */
+/** Body of `PUT /api/admin/settings`. */
 export const settingsUpdateSchema = z
   .strictObject({
     llm: z
@@ -33,7 +33,6 @@ export const settingsUpdateSchema = z
       .refine(({ provider, model }) => isCatalogModel(provider, model), {
         message: "Model is not in the catalog for this provider",
       })
-      .nullable()
       .optional(),
     allowedEmailDomain: domainSchema.nullable().optional(),
   })

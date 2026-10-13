@@ -11,6 +11,7 @@ import { Loader2, RotateCcw } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useChatAttachments } from "@/hooks/use-chat-attachments";
+import { chatErrorMessage } from "@/lib/chat-error";
 import { fetchChatMessages } from "@/lib/chat-history/client";
 import type { ChatContext, ChatModule } from "@/lib/chat-history/types";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
@@ -154,7 +155,7 @@ export function Chat({
             )}
             {error && (
               <div className="rounded-md border border-destructive/40 bg-destructive/5 px-3 py-2 text-sm text-destructive">
-                Erro: {error.message}
+                Erro: {chatErrorMessage(error)}
               </div>
             )}
             <div ref={bottomRef} />

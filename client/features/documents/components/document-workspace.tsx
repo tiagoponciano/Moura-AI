@@ -3,12 +3,15 @@
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
 import { Chat } from "@/components/chat/chat";
+import {
+  WorkspaceTabs,
+  type WorkspaceTab,
+} from "@/components/shared/workspace-tabs";
 import { cn } from "@/lib/utils";
 import { useDocumentFilling } from "../hooks/use-document-filling";
 import { FormPanel } from "./form-panel";
 import { TemplatePicker } from "./template-picker";
 import { TemplateSelect } from "./template-select";
-import { WorkspaceTabs, type WorkspaceTab } from "./workspace-tabs";
 
 /** Template choice, assistant chat and form panel for the documents module. */
 export function DocumentWorkspace() {
@@ -39,7 +42,7 @@ export function DocumentWorkspace() {
           <WorkspaceTabs
             value={tab}
             onChange={setTab}
-            fieldsBadge={`${progress.filled}/${progress.total}`}
+            panelLabel={`Campos ${progress.filled}/${progress.total}`}
             className="lg:hidden"
           />
           <div
@@ -72,7 +75,7 @@ export function DocumentWorkspace() {
           <div
             className={cn(
               "flex min-h-0 flex-1 flex-col",
-              tab !== "fields" && "hidden lg:flex",
+              tab !== "panel" && "hidden lg:flex",
             )}
           >
             <FormPanel

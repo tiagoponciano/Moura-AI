@@ -1,25 +1,25 @@
 import { cn } from "@/lib/utils";
 
-export type WorkspaceTab = "chat" | "fields";
+export type WorkspaceTab = "chat" | "panel";
 
 type WorkspaceTabsProps = {
   value: WorkspaceTab;
   onChange: (tab: WorkspaceTab) => void;
-  /** Short progress shown next to "Campos", e.g. "3/5". */
-  fieldsBadge: string;
+  /** Label of the side panel tab, with its progress, e.g. "Campos 3/5". */
+  panelLabel: string;
   className?: string;
 };
 
-/** Chat / fields switch for narrow screens, where only one pane fits. */
+/** Chat / side panel switch for narrow screens, where only one pane fits. */
 export function WorkspaceTabs({
   value,
   onChange,
-  fieldsBadge,
+  panelLabel,
   className,
 }: WorkspaceTabsProps) {
   const tabs = [
     { id: "chat", label: "Conversa" },
-    { id: "fields", label: `Campos ${fieldsBadge}` },
+    { id: "panel", label: panelLabel },
   ] as const;
 
   return (

@@ -123,9 +123,7 @@ export type Database = {
           updated_at?: string;
           updated_by?: string | null;
         };
-        Update: Partial<
-          Database["public"]["Tables"]["app_settings"]["Insert"]
-        >;
+        Update: Partial<Database["public"]["Tables"]["app_settings"]["Insert"]>;
         Relationships: [];
       };
     };

@@ -1,5 +1,5 @@
 -- Per-user quota on chat requests, so one account cannot run up the LLM bill
--- (see client/docs/llm-configuration.md). The chat routes call
+-- (see client/docs/chat-request-limits.md). The chat routes call
 -- consume_chat_request() before they reach the model.
 
 create table public.chat_requests (

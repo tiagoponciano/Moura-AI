@@ -1,5 +1,5 @@
-import Image from "next/image";
 import type { ReactNode } from "react";
+import { BrandLogo } from "@/components/shared/brand-logo";
 
 type AuthCardProps = {
   title: string;
@@ -12,15 +12,7 @@ export function AuthCard({ title, description, children }: AuthCardProps) {
   return (
     <div className="flex w-full max-w-sm flex-col gap-6 rounded-xl border bg-card p-6 md:p-8">
       <div className="flex items-center gap-3">
-        <div className="flex size-10 items-center justify-center rounded-lg dark:bg-white/90">
-          <Image
-            src="/brand/moura-logo.png"
-            alt="Moura"
-            width={34}
-            height={34}
-            priority
-          />
-        </div>
+        <BrandLogo />
         <div className="grid leading-tight">
           <span className="font-semibold">Moura Engenharia</span>
           <span className="text-xs text-muted-foreground">

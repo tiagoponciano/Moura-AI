@@ -1,8 +1,8 @@
 "use client";
 
 import { Loader2 } from "lucide-react";
-import Image from "next/image";
 import Script from "next/script";
+import { BrandLogo } from "@/components/shared/brand-logo";
 import { Button } from "@/components/ui/button";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { useGoogleSignIn } from "../hooks/use-google-sign-in";
@@ -20,15 +20,7 @@ export function LoginCard() {
   return (
     <div className="flex w-full max-w-xs flex-col items-center gap-8 text-center">
       <div className="flex flex-col items-center gap-4">
-        <div className="flex size-14 items-center justify-center rounded-xl dark:bg-white/90">
-          <Image
-            src="/brand/moura-logo.png"
-            alt="Moura"
-            width={46}
-            height={46}
-            priority
-          />
-        </div>
+        <BrandLogo size="lg" />
         <div className="grid gap-1">
           <h1 className="text-2xl font-semibold tracking-tight">
             Moura Engenharia

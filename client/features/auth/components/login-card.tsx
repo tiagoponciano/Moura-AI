@@ -3,16 +3,18 @@
 import { Loader2 } from "lucide-react";
 import Image from "next/image";
 import Script from "next/script";
+import { Button } from "@/components/ui/button";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { useGoogleSignIn } from "../hooks/use-google-sign-in";
 import {
   GOOGLE_IDENTITY_SCRIPT,
   getGoogleClientId,
 } from "../lib/google-identity";
+import { GoogleLogo } from "./google-logo";
 
-/** Logo, product name and Google's "Fazer login com o Google" button, whose ID token becomes a Supabase session. */
+/** Logo, product name and our "Entrar com Google" button, which opens Google's account chooser in a popup. */
 export function LoginCard() {
-  const { buttonRef, initialize, signingIn, error } = useGoogleSignIn();
+  const { initialize, ready, signIn, signingIn, error } = useGoogleSignIn();
   const configured = isSupabaseConfigured() && Boolean(getGoogleClientId());
 
   return (
@@ -38,22 +40,21 @@ export function LoginCard() {
       </div>
       {configured ? (
         <div className="flex w-full flex-col items-center gap-3">
-          <Script
-            src={GOOGLE_IDENTITY_SCRIPT}
-            onReady={() => void initialize()}
-          />
-          {/* Google's iframe is a light document; a dark color-scheme on it makes Chromium paint it an opaque white backdrop. */}
-          <div
-            ref={buttonRef}
-            className="h-10 w-full [color-scheme:light]"
-            hidden={signingIn}
-          />
-          {signingIn && (
-            <p className="flex h-10 items-center gap-2 text-sm text-muted-foreground">
-              <Loader2 className="size-4 animate-spin" />
-              Entrando…
-            </p>
-          )}
+          <Script src={GOOGLE_IDENTITY_SCRIPT} onReady={initialize} />
+          <Button
+            variant="outline"
+            size="lg"
+            className="h-10 w-full gap-2"
+            disabled={!ready || signingIn}
+            onClick={signIn}
+          >
+            {signingIn ? (
+              <Loader2 className="animate-spin" />
+            ) : (
+              <GoogleLogo className="size-4" />
+            )}
+            {signingIn ? "Entrando…" : "Entrar com Google"}
+          </Button>
           {error && <p className="text-sm text-destructive">{error}</p>}
         </div>
       ) : (

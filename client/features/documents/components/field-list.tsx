@@ -1,5 +1,6 @@
 "use client";
 
+import { SourceTagBadge } from "@/components/shared/source-tag-badge";
 import { Label } from "@/components/ui/label";
 import {
   Tooltip,
@@ -85,18 +86,7 @@ export function FieldList({
                       </span>
                     </TooltipContent>
                   </Tooltip>
-                  {tag && (
-                    <span
-                      className={cn(
-                        "rounded px-1.5 text-[10px] leading-4 font-medium",
-                        tag === "IA"
-                          ? "bg-accent text-accent-foreground"
-                          : "bg-muted text-muted-foreground",
-                      )}
-                    >
-                      {tag}
-                    </span>
-                  )}
+                  {tag && <SourceTagBadge tag={tag} />}
                 </Label>
                 <div className="col-start-2">
                   <FieldControl

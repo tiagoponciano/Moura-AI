@@ -18,6 +18,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { MODULES, MODULE_STATUS_LABEL } from "@/lib/modules";
+import { UserMenu } from "./user-menu";
 
 export function AppSidebar() {
   const pathname = usePathname();
@@ -95,8 +96,11 @@ export function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
-      <SidebarFooter className="px-4 pb-4 text-xs text-muted-foreground group-data-[collapsible=icon]:hidden">
-        Moura Soluções em Engenharia
+      <SidebarFooter>
+        <UserMenu />
+        <p className="px-2 pb-2 text-xs text-muted-foreground group-data-[collapsible=icon]:hidden">
+          Moura Soluções em Engenharia
+        </p>
       </SidebarFooter>
     </Sidebar>
   );

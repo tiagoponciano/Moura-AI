@@ -10,7 +10,7 @@ Invariants:
 
 - The LLM never decides requirements. It only extracts the four answers through the `record_building` tool; `evaluateBuilding` decides.
 - **The rule set is provisional.** Its thresholds are placeholders, not taken from the CBMSC Instruções Normativas, and the page says so in a banner. Real criteria (IN 1 classification tables, first layer of the checklist) are expected from Moura.
-- Answers live only in the `useClassification` hook. Nothing is persisted; reloading clears them.
+- Answers live only in the `useClassification` hook and are never saved; reloading clears them. The conversation is saved when chat history is available (`client/docs/chat-history.md`), and reopening it restores the answers the tool recorded.
 
 ## Surface
 
@@ -20,7 +20,7 @@ Invariants:
 | ------ | -------------------------- | ---------------- | --------------------------------------------------------------------------------------------------- |
 | `POST` | `/api/classification/chat` | `Chat` component | AI SDK UI message stream (SSE). `500 {"error":"ANTHROPIC_API_KEY is not configured"}` without a key |
 
-No auth. Body: `{ id, trigger, messages }` as sent by the AI SDK transport; nothing else is read.
+Behind the login gate when Supabase is configured (`client/docs/authentication.md`), open otherwise. Body: `{ id, trigger, messages }` as sent by the AI SDK transport. `id` (the chat's UUID) and `messages` are read; when history is available the chat is saved with `module: "classification"` and `context: {}` once the response finishes.
 
 ### Library (`client/features/classification/lib/`)
 
@@ -122,7 +122,7 @@ Criterion texts: `área acima de <n> m²`, `altura acima de <n> m`, `mais de <n>
 
 ### Answers
 
-- Chat: on each `record_building` result, `pickBuildingAnswers` keeps valid values and shallow-merges them over the current answers (manual edits to other fields are kept).
+- Chat: on each `record_building` result, `pickBuildingAnswers` keeps valid values and shallow-merges them over the current answers (manual edits to other fields are kept). Reopening a saved chat from "Histórico" replays its `record_building` results the same way, over whatever answers are on screen.
 - Form: numbers that are empty, non-numeric, zero or negative become `undefined`; the floor count is truncated to an integer. "Limpar" clears all answers but not the chat.
 - Requirements are recomputed on every change.
 
@@ -134,7 +134,7 @@ Required and needs-info systems render as cards (`Por quê: …` / `Depende de: 
 
 - No real classification: no risk class, no occupancy subdivisions from IN 1, no lotação, no checks scaled by size (e.g. number of extinguishers).
 - The chat does not see the form. A value typed in the form is not sent to the model, which may overwrite it with an answer from the conversation.
-- No export or link to Documentos; results are not saved.
+- No export or link to Documentos. The requirements and typed answers are not saved; only the conversation is.
 - Height is never derived from floors (or the reverse), by the model or the code.
 
 ## Gotchas

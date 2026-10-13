@@ -1,7 +1,7 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { z } from "zod";
+import { requireUser } from "@/lib/auth/require-user";
 import type { Database } from "@/lib/supabase/database.types";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { ATTACHMENTS_BUCKET, checkAttachment, isOwnStoragePath } from "./rules";
 import type { Attachment } from "./types";
 
@@ -17,29 +17,7 @@ const createBody = z.object({
 
 type AttachmentRow = Database["public"]["Tables"]["attachments"]["Row"];
 
-async function requireUser() {
-  const supabase = await createSupabaseServerClient();
-  if (!supabase) {
-    return {
-      error: Response.json(
-        { error: "Attachments are not configured" },
-        { status: 503 },
-      ),
-    };
-  }
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  if (!user) {
-    return {
-      error: Response.json(
-        { error: "Authentication required" },
-        { status: 401 },
-      ),
-    };
-  }
-  return { supabase, user };
-}
+const NOT_CONFIGURED = "Attachments are not configured";
 
 async function withSignedUrls(
   supabase: SupabaseClient<Database>,
@@ -71,7 +49,7 @@ async function withSignedUrls(
  * object exists, so the row never points at a missing or foreign file.
  */
 export async function handleCreateAttachment(req: Request): Promise<Response> {
-  const auth = await requireUser();
+  const auth = await requireUser(NOT_CONFIGURED);
   if (auth.error) return auth.error;
   const { supabase, user } = auth;
 
@@ -123,7 +101,7 @@ export async function handleCreateAttachment(req: Request): Promise<Response> {
 
 /** `GET /api/attachments?chatId=`: the user's files for one chat, oldest first, with signed URLs. */
 export async function handleListAttachments(req: Request): Promise<Response> {
-  const auth = await requireUser();
+  const auth = await requireUser(NOT_CONFIGURED);
   if (auth.error) return auth.error;
   const { supabase } = auth;
 

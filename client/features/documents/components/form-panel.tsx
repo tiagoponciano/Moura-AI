@@ -30,7 +30,7 @@ export function FormPanel({
   onGenerate,
 }: FormPanelProps) {
   return (
-    <aside className="flex min-h-0 flex-col bg-card lg:border-l">
+    <aside className="flex min-h-0 flex-1 flex-col bg-card lg:border-l">
       <div className="flex flex-col gap-2.5 px-5 pt-4 pb-3">
         <div className="flex items-baseline justify-between gap-2 text-sm">
           <h2 className="font-semibold">Campos do documento</h2>

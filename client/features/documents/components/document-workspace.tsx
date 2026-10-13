@@ -1,21 +1,27 @@
 "use client";
 
 import { Loader2 } from "lucide-react";
+import { useState } from "react";
 import { Chat } from "@/components/chat/chat";
+import { cn } from "@/lib/utils";
 import { useDocumentFilling } from "../hooks/use-document-filling";
 import { FormPanel } from "./form-panel";
 import { TemplatePicker } from "./template-picker";
 import { TemplateSelect } from "./template-select";
+import { WorkspaceTabs, type WorkspaceTab } from "./workspace-tabs";
 
 /** Template choice, assistant chat and form panel for the documents module. */
 export function DocumentWorkspace() {
   const filling = useDocumentFilling();
-  const { template, schema } = filling;
+  const { template, schema, progress } = filling;
+  const [tab, setTab] = useState<WorkspaceTab>("chat");
 
   return (
     <>
       {filling.loadError && (
-        <p className="text-sm text-destructive">{filling.loadError}</p>
+        <p className="px-4 pt-4 text-sm text-destructive md:px-6">
+          {filling.loadError}
+        </p>
       )}
 
       {!template ? (
@@ -23,37 +29,56 @@ export function DocumentWorkspace() {
           templates={filling.templates}
           onSelect={filling.selectTemplate}
         />
-      ) : !schema || !filling.progress ? (
+      ) : !schema || !progress ? (
         <div className="flex flex-1 items-center justify-center text-sm text-muted-foreground">
           <Loader2 className="mr-2 size-4 animate-spin" />
           Carregando campos…
         </div>
       ) : (
-        <div className="flex min-h-0 flex-1 flex-col gap-3">
-          <TemplateSelect
-            templates={filling.templates}
-            value={template.id}
-            onChange={filling.selectTemplate}
+        <div className="flex min-h-0 flex-1 flex-col lg:grid lg:grid-cols-[minmax(0,1fr)_360px]">
+          <WorkspaceTabs
+            value={tab}
+            onChange={setTab}
+            fieldsBadge={`${progress.filled}/${progress.total}`}
+            className="lg:hidden"
           />
-          <div className="grid min-h-0 flex-1 gap-4 lg:grid-cols-[minmax(0,1fr)_380px]">
-            <div className="min-h-[420px] lg:min-h-0">
-              <Chat
-                key={template.id}
-                endpoint="/api/documents/chat"
-                body={filling.chatBody}
-                onToolResult={filling.handleToolResult}
-                history={{
-                  module: "documents",
-                  context: { templateId: template.id },
-                }}
-                placeholder="Ex.: imóvel da Padaria Silva, Rua X 123, 750 m², comercial, 2 pavimentos"
-                emptyState="Descreva o imóvel e o proprietário. A Moura AI preenche os campos ao lado."
-              />
-            </div>
+          <div
+            className={cn(
+              "min-h-0 flex-1",
+              tab !== "chat" && "hidden lg:block",
+            )}
+          >
+            <Chat
+              key={template.id}
+              endpoint="/api/documents/chat"
+              body={filling.chatBody}
+              onToolResult={filling.handleToolResult}
+              history={{
+                module: "documents",
+                context: { templateId: template.id },
+              }}
+              title={
+                <TemplateSelect
+                  templates={filling.templates}
+                  value={template.id}
+                  onChange={filling.selectTemplate}
+                />
+              }
+              placeholder="Ex.: imóvel da Padaria Silva, Rua X 123, 750 m², comercial, 2 pavimentos"
+              emptyState="Descreva o imóvel e o proprietário. A Moura AI preenche os campos ao lado."
+              className="rounded-none border-0 bg-transparent"
+            />
+          </div>
+          <div
+            className={cn(
+              "flex min-h-0 flex-1 flex-col",
+              tab !== "fields" && "hidden lg:flex",
+            )}
+          >
             <FormPanel
               fields={schema.fields}
               values={filling.values}
-              progress={filling.progress}
+              progress={progress}
               problems={filling.problems}
               showMissing={filling.attempted}
               generating={filling.generating}

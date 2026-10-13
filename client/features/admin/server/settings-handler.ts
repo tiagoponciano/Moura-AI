@@ -51,9 +51,9 @@ export async function handleUpdateSettings(req: Request): Promise<Response> {
   if (body.error) return body.error;
 
   const update: SettingsUpdate = {};
-  if (body.data.llm !== undefined) {
-    update.llm_provider = body.data.llm?.provider ?? null;
-    update.llm_model = body.data.llm?.model ?? null;
+  if (body.data.llm) {
+    update.llm_provider = body.data.llm.provider;
+    update.llm_model = body.data.llm.model;
   }
   if (body.data.allowedEmailDomain !== undefined) {
     update.allowed_email_domain = body.data.allowedEmailDomain;

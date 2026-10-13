@@ -158,7 +158,7 @@ Every gated request costs one Auth call and one RPC. Pages under `app/(app)/` ad
 1. Create a Supabase project. Apply `supabase/migrations/*.sql` in filename order (SQL editor, or `supabase db push` with the Supabase CLI linked to the project).
 2. Google Cloud console: create an OAuth client (Web). Authorized JavaScript origins: `http://localhost`, `http://localhost:3000` and every Vercel domain that should allow login. No redirect URI is needed.
 3. Supabase → Authentication → Providers → Google: enable it and paste the client ID (and the secret, which the form asks for). The app never sees the secret.
-4. Env vars (`client/.env.local` locally, Vercel project settings in production): `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `NEXT_PUBLIC_GOOGLE_CLIENT_ID` (the same client ID), optional `ALLOWED_EMAIL_DOMAIN` (e.g. `mourasengenharia.com`; the domain saved on `/admin` overrides it), and `SUPABASE_SERVICE_ROLE_KEY` for the AI settings of the admin console (see `llm-configuration.md`). On Vercel, check the variables are enabled for the environment being deployed (Production, Preview) and redeploy.
+4. Env vars (`client/.env.local` locally, Vercel project settings in production): `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `NEXT_PUBLIC_GOOGLE_CLIENT_ID` (the same client ID), optional `ALLOWED_EMAIL_DOMAIN` (e.g. `mourasengenharia.com`; the domain saved on `/admin` overrides it), and `SUPABASE_SERVICE_ROLE_KEY`, without which no chat works because the AI model saved on `/admin` cannot be read (see `llm-configuration.md`). On Vercel, check the variables are enabled for the environment being deployed (Production, Preview) and redeploy.
 5. Sign in once, then make yourself the first admin in the SQL editor:
 
    ```sql

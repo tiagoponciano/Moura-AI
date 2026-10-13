@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { evaluateBuilding, evaluateRule } from "./evaluate";
+import {
+  evaluateBuilding,
+  evaluateRule,
+  groupRequirements,
+  type Requirement,
+} from "./evaluate";
 import type { SystemRule } from "./rules";
 
 const rule = (when: SystemRule["when"]): SystemRule => ({
@@ -103,5 +108,24 @@ describe("evaluateBuilding", () => {
       { ...rule([{ minAreaM2: 10 }]), id: "b" },
     ];
     expect(evaluateBuilding(rules, {}).map((r) => r.id)).toEqual(["a", "b"]);
+  });
+});
+
+describe("groupRequirements", () => {
+  const requirement = (
+    id: string,
+    status: Requirement["status"],
+  ): Requirement => ({ id, system: id, checks: [], status, missing: [] });
+
+  it("splits requirements by status and keeps their order", () => {
+    const groups = groupRequirements([
+      requirement("a", "required"),
+      requirement("b", "needs_info"),
+      requirement("c", "not_required"),
+      requirement("d", "required"),
+    ]);
+    expect(groups.required.map((r) => r.id)).toEqual(["a", "d"]);
+    expect(groups.needsInfo.map((r) => r.id)).toEqual(["b"]);
+    expect(groups.notRequired.map((r) => r.id)).toEqual(["c"]);
   });
 });

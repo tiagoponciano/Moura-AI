@@ -128,3 +128,20 @@ export function evaluateBuilding(
 ): Requirement[] {
   return rules.map((rule) => evaluateRule(rule, building));
 }
+
+export type RequirementGroups = {
+  required: Requirement[];
+  needsInfo: Requirement[];
+  notRequired: Requirement[];
+};
+
+/** Splits evaluated requirements by status, keeping the rule order. */
+export function groupRequirements(
+  requirements: Requirement[],
+): RequirementGroups {
+  return {
+    required: requirements.filter((r) => r.status === "required"),
+    needsInfo: requirements.filter((r) => r.status === "needs_info"),
+    notRequired: requirements.filter((r) => r.status === "not_required"),
+  };
+}

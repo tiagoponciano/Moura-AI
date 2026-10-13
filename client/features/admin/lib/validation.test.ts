@@ -68,11 +68,14 @@ describe("settingsUpdateSchema", () => {
     ).toBe(false);
   });
 
-  it("accepts null to clear the model or the domain", () => {
-    expect(settingsUpdateSchema.parse({ llm: null })).toEqual({ llm: null });
+  it("accepts an empty domain to clear it", () => {
     expect(settingsUpdateSchema.parse({ allowedEmailDomain: "" })).toEqual({
       allowedEmailDomain: null,
     });
+  });
+
+  it("rejects clearing the model", () => {
+    expect(settingsUpdateSchema.safeParse({ llm: null }).success).toBe(false);
   });
 
   it("rejects an empty body", () => {

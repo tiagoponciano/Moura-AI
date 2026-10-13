@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { recordSources, type FieldSources } from "../lib/field-sources";
 import {
   pickExtractedValues,
   requiredProgress,
@@ -23,6 +24,7 @@ export function useDocumentFilling() {
   const [selectedId, setSelectedId] = useState<string>();
   const [schema, setSchema] = useState<TemplateSchema>();
   const [values, setValues] = useState<FieldValues>({});
+  const [sources, setSources] = useState<FieldSources>({});
   const [problems, setProblems] = useState<string[]>([]);
   const [loadError, setLoadError] = useState<string>();
   const [generating, setGenerating] = useState(false);
@@ -60,6 +62,7 @@ export function useDocumentFilling() {
     setSelectedId(id);
     setSchema(undefined);
     setValues({});
+    setSources({});
     setProblems([]);
     setAttempted(false);
     setLoadError(undefined);
@@ -71,6 +74,9 @@ export function useDocumentFilling() {
       const extracted = pickExtractedValues(schema, output);
       if (Object.keys(extracted).length === 0) return;
       setValues((current) => ({ ...current, ...extracted }));
+      setSources((current) =>
+        recordSources(current, Object.keys(extracted), "assistant"),
+      );
       setProblems([]);
     },
     [schema],
@@ -78,6 +84,7 @@ export function useDocumentFilling() {
 
   function updateField(name: string, value: FieldValue | undefined) {
     setValues((current) => ({ ...current, [name]: value }));
+    setSources((current) => recordSources(current, [name], "user"));
   }
 
   async function generate() {
@@ -113,6 +120,7 @@ export function useDocumentFilling() {
     template,
     schema,
     values,
+    sources,
     problems,
     loadError,
     generating,

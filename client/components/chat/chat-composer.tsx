@@ -61,7 +61,7 @@ export function ChatComposer({
 
   return (
     <form onSubmit={handleSubmit} className="border-t p-3">
-      <div className="flex items-end gap-2 rounded-xl border bg-background p-1.5 transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/30">
+      <div className="mx-auto flex max-w-3xl items-end gap-2 rounded-xl border bg-background p-1.5 transition-colors focus-within:border-ring focus-within:ring-3 focus-within:ring-ring/30">
         {onAttach && (
           <>
             <input

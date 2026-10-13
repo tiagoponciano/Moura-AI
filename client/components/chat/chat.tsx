@@ -157,7 +157,7 @@ export function Chat({
         {messages.length === 0 ? (
           <ChatEmptyState text={emptyState} />
         ) : (
-          <div className="flex flex-col gap-4">
+          <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
             {messages.map((message) => (
               <ChatMessage key={message.id} message={message} />
             ))}

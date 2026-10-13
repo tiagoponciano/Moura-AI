@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { canSaveModel, getSetupProblem, summarizeSections } from "./sections";
+import {
+  canSaveModel,
+  describeModelChoice,
+  getSetupProblem,
+  summarizeSections,
+} from "./sections";
 import type { AdminSettingsResponse, AdminUser } from "./types";
 
 const settings = (
@@ -143,5 +148,53 @@ describe("canSaveModel", () => {
         keys,
       }),
     ).toBe(true);
+  });
+});
+
+describe("describeModelChoice", () => {
+  const saved = { provider: "anthropic" as const, model: "claude-sonnet-4-6" };
+  const keys = settings().keys;
+
+  it("names the model in use when nothing changed", () => {
+    expect(describeModelChoice({ ...saved, saved, keys })).toEqual({
+      text: "Em uso: Claude Sonnet 4.6.",
+      tone: "muted",
+    });
+  });
+
+  it("warns when the chosen provider has no key", () => {
+    expect(
+      describeModelChoice({
+        provider: "openai",
+        model: "gpt-5.5",
+        saved,
+        keys,
+      }),
+    ).toEqual({
+      text: "Cadastre a chave da OpenAI para usar este provedor.",
+      tone: "warning",
+    });
+  });
+
+  it("flags unsaved changes otherwise", () => {
+    expect(
+      describeModelChoice({
+        provider: "anthropic",
+        model: "claude-opus-5-5",
+        saved,
+        keys,
+      }),
+    ).toEqual({ text: "Alterações não salvas.", tone: "muted" });
+  });
+
+  it("says when no model is saved and none is chosen", () => {
+    expect(
+      describeModelChoice({
+        provider: undefined,
+        model: undefined,
+        saved: { provider: null, model: null },
+        keys,
+      }),
+    ).toEqual({ text: "Nenhum modelo salvo.", tone: "muted" });
   });
 });

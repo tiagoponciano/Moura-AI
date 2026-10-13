@@ -11,6 +11,9 @@ export const AUTH_PATHS = {
 
 export const ADMIN_PATH = "/admin";
 
+/** Opens the session, so it must answer visitors who do not have one yet. */
+export const GOOGLE_SIGN_IN_API = "/api/auth/google";
+
 const isUnder = (pathname: string, base: string) =>
   pathname === base || pathname.startsWith(`${base}/`);
 
@@ -54,6 +57,8 @@ export function resolveGate({
   role,
   allowedDomain,
 }: GateInput): GateDecision {
+  if (pathname === GOOGLE_SIGN_IN_API) return { type: "allow" };
+
   const target = !email
     ? AUTH_PATHS.login
     : !isEmailAllowed(email, allowedDomain) || status === "rejected"

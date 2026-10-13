@@ -20,20 +20,16 @@ import { Skeleton } from "@/components/ui/skeleton";
 import type { ProfileStatus } from "@/lib/auth/gate";
 import { useAdminUsers } from "../hooks/use-admin-users";
 import { STATUS_LABEL } from "../lib/labels";
+import { countPending, filterUsers, type UserStatusFilter } from "../lib/users";
 import { UserRow } from "./user-row";
-
-type Filter = ProfileStatus | "all";
 
 /** Every profile, pending first, with approve/reject/revoke and role changes. */
 export function UsersPanel() {
   const { data, error, busyId, change } = useAdminUsers();
-  const [filter, setFilter] = useState<Filter>("all");
+  const [filter, setFilter] = useState<UserStatusFilter>("all");
 
-  const users =
-    data?.users.filter((user) => filter === "all" || user.status === filter) ??
-    [];
-  const pendingCount =
-    data?.users.filter((user) => user.status === "pending").length ?? 0;
+  const users = data ? filterUsers(data.users, filter) : [];
+  const pendingCount = data ? countPending(data.users) : 0;
 
   return (
     <Card>
@@ -47,7 +43,7 @@ export function UsersPanel() {
         <CardAction>
           <Select
             value={filter}
-            onValueChange={(value) => setFilter(value as Filter)}
+            onValueChange={(value) => setFilter(value as UserStatusFilter)}
           >
             <SelectTrigger size="sm" aria-label="Filtrar por status">
               <SelectValue />

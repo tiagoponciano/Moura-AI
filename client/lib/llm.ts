@@ -1,5 +1,9 @@
 import { createAnthropic } from "@ai-sdk/anthropic";
-import { createUIMessageStreamResponse, toUIMessageStream } from "ai";
+import {
+  createUIMessageStreamResponse,
+  toUIMessageStream,
+  type UIMessage,
+} from "ai";
 
 const DEFAULT_MODEL = "claude-sonnet-4-6";
 
@@ -25,13 +29,26 @@ export function resolveChatModel():
   return { model: anthropic(process.env.LLM_MODEL || DEFAULT_MODEL) };
 }
 
-/** Wraps a model stream as an AI SDK UI message response; errors reach the client unmasked. */
+/** Hooks that save the conversation once the response is complete (see `chatPersistence`). */
+export type ChatPersistence = {
+  originalMessages: UIMessage[];
+  generateMessageId: () => string;
+  onEnd: (event: { messages: UIMessage[] }) => Promise<void>;
+};
+
+/**
+ * Wraps a model stream as an AI SDK UI message response; errors reach the
+ * client unmasked. With `persistence`, the stream stays open until `onEnd`
+ * has saved the messages.
+ */
 export function toChatResponse(
   stream: Parameters<typeof toUIMessageStream>[0]["stream"],
+  persistence?: ChatPersistence,
 ): Response {
   return createUIMessageStreamResponse({
     stream: toUIMessageStream({
       stream,
+      ...persistence,
       onError: (error) =>
         error instanceof Error ? error.message : String(error),
     }),

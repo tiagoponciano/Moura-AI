@@ -43,10 +43,10 @@ Requires a signed-in, approved user (`client/docs/authentication.md`); without S
 | `isEmptyValue`        | `(value) => boolean`                                | `undefined`, or a string that is empty after trimming                                                        |
 | `pickExtractedValues` | `(schema, output) => FieldValues`                   | Filters a tool output down to schema fields with non-empty scalar values                                     |
 | `requiredProgress`    | `(schema, values) => { filled, total }`             | Counts required fields considered filled                                                                     |
-| `recordSources`       | `(sources, names, source) => FieldSources`          | Copy of `sources` with each name set to `"assistant"` or `"user"`                                            |
-| `sourceTag`           | `(source, value) => "IA" \| "editado" \| undefined` | `undefined` when no source or `isEmptyValue(value)`; otherwise `IA` for `assistant`, `editado` for `user`    |
 | `validateForDocument` | `(schema, values) => DocumentValidation`            | `{ ok: true, values }` with empty values dropped and unset booleans as `false`, or `{ ok: false, problems }` |
 | `renderDocx`          | `(template, values) => Promise<void>`               | Fetches the `.docx`, renders, triggers download; throws on fetch or template errors                          |
+
+Source tracking is app-wide, shared with Classificação, in `client/lib/field-sources.ts`: `recordSources(sources, names, source)` returns a copy of `sources` with each name set to `"assistant"` or `"user"`; `sourceTag(source, value)` returns `undefined` when there is no source or the value is `undefined` or a blank string, otherwise `"IA"` for `assistant` and `"editado"` for `user`. The pill itself is `SourceTagBadge` (`client/components/shared/source-tag-badge.tsx`).
 
 ### Feature layout (`client/features/documents/`)
 
@@ -63,7 +63,6 @@ Requires a signed-in, approved user (`client/docs/authentication.md`); without S
 | `components/template-picker.tsx`     | "Novo documento" gallery shown while no template is selected                                                  |
 | `components/template-preview.tsx`    | Decorative A4 sketch with highlighted blanks; the same drawing for every template                             |
 | `components/template-select.tsx`     | Borderless `Select` used as the chat header title for switching templates                                     |
-| `components/workspace-tabs.tsx`      | "Conversa" / "Campos x/y" switch shown below `lg`                                                             |
 | `components/form-panel.tsx`          | Segmented progress header, `FieldList`, `GenerationProblems` and the "Gerar documento" button                 |
 | `components/field-list.tsx`          | Fields grouped under "Obrigatórios" / "Opcionais", status dot; `{{tag}}` shown on label hover                 |
 | `components/field-control.tsx`       | The input for one field, chosen by `type`, without border or background                                       |
@@ -174,7 +173,7 @@ The panel header shows `<filled> de <total> obrigatórios` and one segment per r
 
 With no template selected, the workspace shows the "Novo documento" heading and one `TemplatePreview` sketch per `index.json` entry, labelled with its `name` and `.<type>`; clicking one selects it. After the entries comes a fixed, non-clickable dashed card "Anexos do CBMSC em breve" / "Modelos oficiais". Once a template is selected, the gallery is replaced by the chat (with the template `Select` in its header) and the form panel. There is no way back to the gallery except reloading the page; the `Select` switches between templates directly.
 
-From `lg` (1024px) up, the chat and a 360px form panel sit side by side, separated by the panel's left border. Below `lg`, only one is shown at a time and `WorkspaceTabs` switches between "Conversa" and "Campos <filled>/<total>"; the tab starts on "Conversa", is not reset when the template changes, and tool results fill the fields while the "Campos" tab is hidden.
+From `lg` (1024px) up, the chat and a 360px form panel sit side by side, separated by the panel's left border. Below `lg`, only one is shown at a time and `WorkspaceTabs` (`client/components/shared/workspace-tabs.tsx`, shared with Classificação) switches between "Conversa" and "Campos <filled>/<total>"; the tab starts on "Conversa", is not reset when the template changes, and tool results fill the fields while the "Campos" tab is hidden.
 
 Selecting a template resets values, problems, the generate-attempt flag and the schema, then loads the new schema. The `Chat` is keyed by template id, so switching templates starts an empty conversation. "Nova conversa" clears only the chat, not the fields. "Histórico" lists only chats held with the selected template; reopening one merges its extracted values over the current fields.
 

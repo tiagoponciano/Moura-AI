@@ -49,7 +49,7 @@ client/
 │   ├── home/                     # home page sections
 │   ├── classification/           # key questions, provisional rules, chat
 │   ├── floor-plans/              # placeholder
-│   ├── auth/                     # login (Google button), pending and unauthorized cards
+│   ├── auth/                     # login (Google popup + code exchange), pending and unauthorized cards
 │   └── admin/                    # admin console: users, AI model and keys, allowed domain
 ├── components/
 │   ├── ui/                       # shadcn primitives (generated, not formatted by prettier)
@@ -59,7 +59,7 @@ client/
 ├── lib/                          # app-wide only: utils, module registry, and
 │   ├── llm/                      #   provider/model catalog and chat model resolution
 │   ├── supabase/                 #   Supabase clients (user and service role) and database types
-│   ├── auth/                     #   gate rules, admin check, sign-out, Google sign-in nonce
+│   ├── auth/                     #   gate rules, admin check, sign-out
 │   ├── chat-history/             #   saving and listing chats
 │   └── attachments/              #   upload rules and handlers
 ├── hooks/                        # app-wide hooks (use-mobile, use-chat-attachments)
@@ -97,6 +97,7 @@ Sign in as an admin, open "Administração", pick the AI provider and model and 
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | for login and chats | Supabase anon (public) key. Safe in the browser; access is enforced by row-level security. |
 | `SUPABASE_SERVICE_ROLE_KEY` | for chats | Supabase service role key. Server-only, never `NEXT_PUBLIC_`. The chats use it to read the provider, model and key saved on `/admin`; without it every chat answers "Nenhum modelo de IA configurado". |
 | `NEXT_PUBLIC_GOOGLE_CLIENT_ID` | with Supabase | Google OAuth web client ID, the same one set in Supabase → Providers → Google. Without it the login page shows no button while the gate stays on. |
+| `GOOGLE_CLIENT_SECRET` | with Supabase | Secret of that same Google client. Server-only, never `NEXT_PUBLIC_`. `/api/auth/google` uses it to trade the popup's code for an ID token; without it the button opens Google's popup but sign-in fails. |
 | `ALLOWED_EMAIL_DOMAIN` | no | Only Google accounts from this domain may sign in, e.g. `mourasengenharia.com`. A domain saved on `/admin` overrides it. Empty in both accepts any account (approval is still required). |
 
 With the Supabase variables empty the app runs without login or persistence, and the chats cannot answer: the AI provider, model and API key exist only in the admin console (see [`llm-configuration.md`](client/docs/llm-configuration.md)). To turn them on, follow the Setup section of [`authentication.md`](client/docs/authentication.md): create the project, run the files in `supabase/migrations/` in filename order, configure Google in Supabase Auth, and make the first admin with SQL. Everyone else is approved on `/admin`.

@@ -7,7 +7,7 @@ type AuthCardProps = {
   children?: ReactNode;
 };
 
-/** Centered card with the Moura logo, shared by the login and access pages. */
+/** Centered card with the Moura logo, shared by the pending and unauthorized pages. */
 export function AuthCard({ title, description, children }: AuthCardProps) {
   return (
     <div className="flex w-full max-w-sm flex-col gap-6 rounded-xl border bg-card p-6 md:p-8">

@@ -85,23 +85,21 @@ Requirements: Node.js 22+ and pnpm 10.
 
 ```bash
 pnpm install
-cp .env.example client/.env.local   # then fill in ANTHROPIC_API_KEY
+cp .env.example client/.env.local   # then fill in the Supabase variables
 pnpm run dev
 ```
 
-Open <http://localhost:3000/documents>, pick "Exemplo – Formulário" and describe the property in the chat.
+Sign in as an admin, open "Administração", pick the AI provider and model and save its API key. Then open <http://localhost:3000/documents>, pick "Exemplo – Formulário" and describe the property in the chat.
 
 | Variable | Required | Description |
 |---|---|---|
-| `ANTHROPIC_API_KEY` | unless set on `/admin` | Anthropic API key, the fallback when no provider and key are saved in the admin console. Read only in `client/lib/llm/` (server-side); never prefix it with `NEXT_PUBLIC_`. |
-| `LLM_MODEL` | no | Fallback Anthropic model id. Defaults to `claude-sonnet-4-6`. |
-| `NEXT_PUBLIC_SUPABASE_URL` | no | Supabase project URL, e.g. `https://abcdefgh.supabase.co`. Set it together with the anon key to turn on login, saved chats and attachments. |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | no | Supabase anon (public) key. Safe in the browser; access is enforced by row-level security. |
-| `SUPABASE_SERVICE_ROLE_KEY` | for `/admin` AI settings | Supabase service role key. Server-only, never `NEXT_PUBLIC_`. Without it the chats ignore the provider, model and key saved on `/admin` and use `ANTHROPIC_API_KEY`. |
+| `NEXT_PUBLIC_SUPABASE_URL` | for login and chats | Supabase project URL, e.g. `https://abcdefgh.supabase.co`. Set it together with the anon key to turn on login, saved chats and attachments. |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | for login and chats | Supabase anon (public) key. Safe in the browser; access is enforced by row-level security. |
+| `SUPABASE_SERVICE_ROLE_KEY` | for chats | Supabase service role key. Server-only, never `NEXT_PUBLIC_`. The chats use it to read the provider, model and key saved on `/admin`; without it every chat answers "Nenhum modelo de IA configurado". |
 | `NEXT_PUBLIC_GOOGLE_CLIENT_ID` | with Supabase | Google OAuth web client ID, the same one set in Supabase → Providers → Google. Without it the login page shows no button while the gate stays on. |
 | `ALLOWED_EMAIL_DOMAIN` | no | Only Google accounts from this domain may sign in, e.g. `mourasengenharia.com`. A domain saved on `/admin` overrides it. Empty in both accepts any account (approval is still required). |
 
-With the Supabase variables empty the app runs without login or persistence. To turn them on, follow the Setup section of [`authentication.md`](client/docs/authentication.md): create the project, run the files in `supabase/migrations/` in filename order, configure Google in Supabase Auth, and make the first admin with SQL. Everyone else is approved on `/admin`.
+With the Supabase variables empty the app runs without login or persistence, and the chats cannot answer: the AI provider, model and API key exist only in the admin console (see [`llm-configuration.md`](client/docs/llm-configuration.md)). To turn them on, follow the Setup section of [`authentication.md`](client/docs/authentication.md): create the project, run the files in `supabase/migrations/` in filename order, configure Google in Supabase Auth, and make the first admin with SQL. Everyone else is approved on `/admin`.
 
 Other scripts:
 

@@ -66,22 +66,15 @@ export function ModelPanel({ data, run }: ModelPanelProps) {
     setModel(findCatalogProvider(next)?.models[0]?.id);
   }
 
-  async function save(llm: { provider: LlmProvider; model: string } | null) {
+  async function save(llm: { provider: LlmProvider; model: string }) {
     setSaving(true);
     const error = await run(() => updateSettings({ llm }));
     setSaving(false);
-    if (error) {
-      setStatus({ kind: "error", text: error });
-      return;
-    }
-    if (!llm) {
-      setProvider(undefined);
-      setModel(undefined);
-    }
-    setStatus({
-      kind: "saved",
-      text: llm ? "Modelo salvo." : "Voltou a usar as variáveis de ambiente.",
-    });
+    setStatus(
+      error
+        ? { kind: "error", text: error }
+        : { kind: "saved", text: "Modelo salvo." },
+    );
   }
 
   return (
@@ -98,21 +91,21 @@ export function ModelPanel({ data, run }: ModelPanelProps) {
             <span className="font-medium">
               SUPABASE_SERVICE_ROLE_KEY não está configurada no servidor.
             </span>{" "}
-            As conversas ignoram o que for salvo aqui e usam ANTHROPIC_API_KEY e
-            LLM_MODEL do ambiente.
+            As conversas não funcionam até ela ser definida nas variáveis de
+            ambiente do deploy.
           </Notice>
         )}
         {savedProvider && !savedHasKey && (
           <Notice>
-            Sem chave da {savedProvider.label}: as conversas usam as variáveis
-            de ambiente até uma chave ser cadastrada abaixo.
+            Sem chave da {savedProvider.label}: as conversas não funcionam até
+            uma chave ser cadastrada abaixo.
           </Notice>
         )}
         {!saved.provider && (
-          <p className="text-sm text-muted-foreground">
-            Nenhum modelo salvo: as conversas usam ANTHROPIC_API_KEY e LLM_MODEL
-            do ambiente.
-          </p>
+          <Notice>
+            Nenhum modelo salvo: as conversas não funcionam até um provedor e um
+            modelo serem escolhidos.
+          </Notice>
         )}
 
         <div className="grid gap-3 sm:grid-cols-2">
@@ -154,15 +147,6 @@ export function ModelPanel({ data, run }: ModelPanelProps) {
           >
             Salvar modelo
           </Button>
-          {saved.provider && (
-            <Button
-              variant="ghost"
-              disabled={saving}
-              onClick={() => save(null)}
-            >
-              Usar variáveis de ambiente
-            </Button>
-          )}
           <FormStatus state={status} />
         </div>
 

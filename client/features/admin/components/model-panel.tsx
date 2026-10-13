@@ -1,6 +1,5 @@
 "use client";
 
-import { TriangleAlert } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -29,20 +28,12 @@ import { updateSettings } from "../lib/client";
 import type { AdminSettingsResponse } from "../lib/types";
 import { FormStatus } from "./form-status";
 import { ProviderKeyField } from "./provider-key-field";
+import { SetupNotice } from "./setup-notice";
 
 type ModelPanelProps = {
   data: AdminSettingsResponse;
   run: SaveRunner;
 };
-
-function Notice({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex gap-2.5 rounded-xl border border-primary/30 bg-accent/60 px-4 py-3 text-sm text-accent-foreground">
-      <TriangleAlert className="mt-0.5 size-4 shrink-0" />
-      <p>{children}</p>
-    </div>
-  );
-}
 
 /** Provider and model used by every chat, plus one API key per provider. */
 export function ModelPanel({ data, run }: ModelPanelProps) {
@@ -80,25 +71,25 @@ export function ModelPanel({ data, run }: ModelPanelProps) {
       </CardHeader>
       <CardContent className="grid gap-4">
         {!data.serviceRoleConfigured && (
-          <Notice>
+          <SetupNotice>
             <span className="font-medium">
               SUPABASE_SERVICE_ROLE_KEY não está configurada no servidor.
             </span>{" "}
             As conversas não funcionam até ela ser definida nas variáveis de
             ambiente do deploy.
-          </Notice>
+          </SetupNotice>
         )}
         {savedProvider && !savedHasKey && (
-          <Notice>
+          <SetupNotice>
             Sem chave da {savedProvider.label}: as conversas não funcionam até
             uma chave ser cadastrada abaixo.
-          </Notice>
+          </SetupNotice>
         )}
         {!saved.provider && (
-          <Notice>
+          <SetupNotice>
             Nenhum modelo salvo: as conversas não funcionam até um provedor e um
             modelo serem escolhidos.
-          </Notice>
+          </SetupNotice>
         )}
 
         <div className="grid gap-3 sm:grid-cols-2">

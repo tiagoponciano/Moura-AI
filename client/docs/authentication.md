@@ -1,6 +1,6 @@
 # Authentication
 
-How sign-in and access control work now: Google login (our button opens Google's popup, the server turns the result into a Supabase Auth session) that lasts 24 hours, an admin-approval step, the admin-only area, and the proxy that gates every page and API route. For developers setting up an environment or adding routes.
+How sign-in and access control work now: Google login (our button opens Google's popup, the server turns the result into a Supabase Auth session) that ends after 24 hours without use, an admin-approval step, the admin-only area, and the proxy that gates every page and API route. For developers setting up an environment or adding routes.
 
 ## What this is
 
@@ -14,7 +14,7 @@ Invariants:
 - **The ID token never reaches the browser.** The server gets it straight from Google's token endpoint, so there is no nonce: there is no browser-side token to replay.
 - The proxy decides; the database enforces. Every table and the storage bucket have RLS that requires `auth.uid()` to own the row **and** `public.is_approved()`, so a request that slips past the proxy still reads and writes nothing.
 - Users cannot approve themselves: `profiles` has no update policy at all. Access changes go through `admin_set_user_status`/`admin_set_user_role`, which require `public.is_admin()` and refuse the caller's own row.
-- **A sign-in lasts 24 hours.** Closing the browser or coming back later keeps the user signed in (the session cookies live 400 days and the proxy refreshes the access token); 24 hours after the Google sign-in, the next request signs the session out and the user picks the account again. Token refreshes do not extend it.
+- **A session ends after 24 hours without use.** Closing the browser or coming back later keeps the user signed in (the session cookies live 400 days and the proxy refreshes the access token), and every request restarts the 24 hours, so someone using the app is never signed out. The first request after 24 hours of no requests signs the session out and the user picks the account again.
 - `role` matters only for the admin area: `/admin` and `/api/admin/*` need an approved admin. It grants nothing else.
 
 ## Surface
@@ -36,23 +36,24 @@ Proxy matcher: every path except `_next/static`, `_next/image`, `favicon.ico`, `
 
 ### Library
 
-| Export                          | File                         | Contract                                                                                                                                              |
-| ------------------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `resolveGate(input)`            | `lib/auth/gate.ts`           | Pure; returns `{type:"allow"}`, `{type:"redirect",to}` or `{type:"deny",status,error}` (order below)                                                  |
-| `isEmailAllowed(email, dom)`    | `lib/auth/gate.ts`           | `true` when `dom` is empty/undefined; else case-insensitive `endsWith("@" + dom)`, a leading `@` in `dom` is ignored                                  |
-| `AUTH_PATHS`                    | `lib/auth/gate.ts`           | `login`, `pending`, `unauthorized` paths                                                                                                              |
-| `ADMIN_PATH`                    | `lib/auth/gate.ts`           | `"/admin"`; the gate also guards `/api/admin`                                                                                                         |
-| `GOOGLE_SIGN_IN_API`            | `lib/auth/gate.ts`           | `"/api/auth/google"`; always allowed by the gate, posted to by the login page                                                                         |
-| `SESSION_MAX_AGE_SECONDS`       | `lib/auth/session-expiry.ts` | `86400`; how long a sign-in lasts                                                                                                                     |
-| `isSessionExpired(token, now)`  | `lib/auth/session-expiry.ts` | Pure; `true` when the access token's earliest `amr` timestamp is `SESSION_MAX_AGE_SECONDS` or more before `now` (ms), or cannot be read               |
-| `isCurrentUserAdmin()`          | `lib/auth/is-admin.ts`       | Server-only; `get_gate_state()` says approved and `admin`. `false` without Supabase or session. Used by the app layout to show the sidebar link       |
-| `requireUser(message)`          | `lib/auth/require-user.ts`   | Server-only; `{ supabase, user }` for route handlers, or `{ error }`: 503 `message` without Supabase, 401 `Authentication required` without a session |
-| `signOut()`                     | `lib/auth/sign-out.ts`       | Browser-only; `supabase.auth.signOut()` then full reload on `/login`                                                                                  |
-| `getSupabaseEnv()`              | `lib/supabase/env.ts`        | `{ url, anonKey }` or `undefined` when either variable is empty                                                                                       |
-| `isSupabaseConfigured()`        | `lib/supabase/env.ts`        | `getSupabaseEnv() !== undefined`; usable in client and server code                                                                                    |
-| `createSupabaseServerClient()`  | `lib/supabase/server.ts`     | Server-only, one per request, acts as the signed-in user; `undefined` without env                                                                     |
-| `createSupabaseBrowserClient()` | `lib/supabase/client.ts`     | Browser singleton; `undefined` without env                                                                                                            |
-| `refreshSession(request, env)`  | `lib/supabase/proxy.ts`      | Proxy-only; returns `user`, `supabase` and `respond`/`redirect`/`deny` that carry refreshed cookies                                                   |
+| Export                                       | File                         | Contract                                                                                                                                                                                    |
+| -------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `resolveGate(input)`                         | `lib/auth/gate.ts`           | Pure; returns `{type:"allow"}`, `{type:"redirect",to}` or `{type:"deny",status,error}` (order below)                                                                                        |
+| `isEmailAllowed(email, dom)`                 | `lib/auth/gate.ts`           | `true` when `dom` is empty/undefined; else case-insensitive `endsWith("@" + dom)`, a leading `@` in `dom` is ignored                                                                        |
+| `AUTH_PATHS`                                 | `lib/auth/gate.ts`           | `login`, `pending`, `unauthorized` paths                                                                                                                                                    |
+| `ADMIN_PATH`                                 | `lib/auth/gate.ts`           | `"/admin"`; the gate also guards `/api/admin`                                                                                                                                               |
+| `GOOGLE_SIGN_IN_API`                         | `lib/auth/gate.ts`           | `"/api/auth/google"`; always allowed by the gate, posted to by the login page                                                                                                               |
+| `SESSION_IDLE_TIMEOUT_SECONDS`               | `lib/auth/session-expiry.ts` | `86400`; how long a session may go without requests                                                                                                                                         |
+| `LAST_ACTIVE_COOKIE`                         | `lib/auth/session-expiry.ts` | `"last-active-at"`; time (ms) of the session's latest request, written by the proxy                                                                                                         |
+| `isSessionExpired(token, lastActiveAt, now)` | `lib/auth/session-expiry.ts` | Pure, times in ms; `true` when the later of `lastActiveAt` and the access token's earliest `amr` timestamp is `SESSION_IDLE_TIMEOUT_SECONDS` or more before `now`, or when neither is known |
+| `isCurrentUserAdmin()`                       | `lib/auth/is-admin.ts`       | Server-only; `get_gate_state()` says approved and `admin`. `false` without Supabase or session. Used by the app layout to show the sidebar link                                             |
+| `requireUser(message)`                       | `lib/auth/require-user.ts`   | Server-only; `{ supabase, user }` for route handlers, or `{ error }`: 503 `message` without Supabase, 401 `Authentication required` without a session                                       |
+| `signOut()`                                  | `lib/auth/sign-out.ts`       | Browser-only; `supabase.auth.signOut()` then full reload on `/login`                                                                                                                        |
+| `getSupabaseEnv()`                           | `lib/supabase/env.ts`        | `{ url, anonKey }` or `undefined` when either variable is empty                                                                                                                             |
+| `isSupabaseConfigured()`                     | `lib/supabase/env.ts`        | `getSupabaseEnv() !== undefined`; usable in client and server code                                                                                                                          |
+| `createSupabaseServerClient()`               | `lib/supabase/server.ts`     | Server-only, one per request, acts as the signed-in user; `undefined` without env                                                                                                           |
+| `createSupabaseBrowserClient()`              | `lib/supabase/client.ts`     | Browser singleton; `undefined` without env                                                                                                                                                  |
+| `refreshSession(request, env)`               | `lib/supabase/proxy.ts`      | Proxy-only; returns `user`, `supabase` and `respond`/`redirect`/`deny` that carry refreshed cookies                                                                                         |
 
 `features/auth` exports `LoginCard`, `PendingCard` and `UnauthorizedCard`; its server entry `features/auth/server` exports `handleGoogleSignIn`, which `app/api/auth/google/route.ts` serves as `POST`. Inside it, `hooks/use-google-sign-in.ts` drives the popup and the exchange, `lib/google-identity.ts` holds the Google script URL, its types and `getGoogleClientId()`, and `components/google-logo.tsx` is Google's "G". `components/layout/user-menu.tsx` is the sidebar footer menu.
 
@@ -117,7 +118,7 @@ Rejected users go to `/unauthorized`, not `/pending`, deliberately: "aguardando 
 
 1. No Supabase env → `NextResponse.next()`.
 2. `refreshSession`: Supabase server client over the request cookies; `auth.getUser()` validates the token with Supabase Auth. Refreshed cookies are written to the request and to the response, with the no-cache headers Supabase supplies.
-3. With a user, `isSessionExpired` reads the sign-in time from the access token's `amr` claim (signed by Supabase and copied unchanged into every refreshed token). Expired → `auth.signOut({ scope: "local" })` revokes that session's refresh token and clears the cookies, and the request continues without a user: pages redirect to `/login`, APIs answer 401.
+3. With a user, `isSessionExpired` takes the latest activity: the later of the `last-active-at` cookie and the sign-in time in the access token's `amr` claim (signed by Supabase and copied unchanged into every refreshed token; it covers the first request after login, before the cookie exists). Expired → `auth.signOut({ scope: "local" })` revokes that session's refresh token and clears the cookies, and the request continues without a user: pages redirect to `/login`, APIs answer 401. Every response for a remaining user sets `last-active-at` to now (`httpOnly`, `sameSite=lax`, `secure` over HTTPS, 400 days); responses without a user delete it.
 4. With a user, call `get_gate_state()` for `status`, `role` and `allowed_email_domain`. An RPC error is treated like a missing profile (`status` and `role` `null`).
 5. `resolveGate` with the allowed domain resolved as above (`ALLOWED_EMAIL_DOMAIN` read at request time).
 6. Allow → the pass-through response; redirect → `NextResponse.redirect` to the target; deny → JSON with the status. Redirects and denials copy the refreshed cookies, so a token refresh is never lost.
@@ -153,7 +154,8 @@ Every gated request costs one Auth call and one RPC. Pages under `app/(app)/` ad
 
 ## What this does NOT do
 
-- No warning before the 24 hours run out and no sliding window: a user active at hour 23 still signs in again at hour 24, possibly mid-chat (the next API call answers 401). The limit is a constant in code, not an `/admin` setting.
+- Activity means requests that reach the proxy (page loads, prefetches, API calls). A tab left open without any of those for 24 hours counts as unused: the next action answers 401 or redirects to `/login`. There is no warning before it happens, and the limit is a constant in code, not an `/admin` setting.
+- `last-active-at` is not signed. A user who edits it can only extend their own session's idle limit; it never signs anyone in, and the database still requires a valid Supabase session.
 - No approval e-mails and no notification when a user signs up; admins see new users as "Pendente" on `/admin`.
 - No sign-in method other than Google, and no `next` redirect back to the page the user first opened: after login everyone lands on `/`.
 - No Google One Tap prompt and no redirect-based OAuth flow: there is no `/auth/callback` route, and Supabase's Redirect URLs list is not used by this app.
@@ -179,7 +181,7 @@ Every gated request costs one Auth call and one RPC. Pages under `app/(app)/` ad
 - **`curl` or a script gets `401` from `/api/documents/chat`** → the proxy gates API routes too once Supabase is configured. → Call it from a signed-in browser session, or unset the Supabase variables locally.
 - **A page shows a stale user after token refresh** → Server Components cannot write cookies (`createSupabaseServerClient` swallows that error on purpose). → Keep the proxy matcher covering the page; it is what writes refreshed cookies.
 - **Local development suddenly requires login** → `client/.env.local` has the Supabase variables. → Leave them empty to work without auth.
-- **Users must sign in on every visit, well before 24 hours** → the session is not surviving between requests, not the app's limit. Check, in order: the URL changed (each Vercel deployment URL has its own cookies; use the production or per-branch domain), the browser is in private mode or clears cookies on close, or Supabase → Authentication → Sessions has "Time-box user sessions" or "Inactivity timeout" set below 24 hours.
+- **Users must sign in on every visit, well before 24 hours without use** → the session is not surviving between requests, not the app's limit. Check, in order: the URL changed (each Vercel deployment URL has its own cookies; use the production or per-branch domain), the browser is in private mode or clears cookies on close, or Supabase → Authentication → Sessions has "Time-box user sessions" or "Inactivity timeout" set below 24 hours.
 - **Approved on `/admin` but still on `/pending`** → the user's page was rendered before the update. → Reload; the proxy reads the status on every request.
 
 ## Setup

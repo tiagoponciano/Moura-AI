@@ -62,7 +62,6 @@ Every home card is a link to its `href` with an arrow in the top-right corner; t
 - The shared `Chat` is a framed card by default; `className` is merged into its root (Documentos passes one that removes the frame) and `title` replaces the "Moura AI" avatar and label on the left of its header. Messages and the composer are centered and capped at `max-w-3xl` (48rem), which only shows where the chat is wider than that.
 - The chat composer has no visible keyboard hint; "Enter envia · Shift+Enter quebra a linha" is the tooltip of the send button, also while it is disabled.
 - Route folders and `href`s are in English (`/documents`, `/classification`, `/floor-plans`); labels and copy are in Portuguese.
-- Placeholder modules (`features/floor-plans`) export a `<Name>Placeholder` component that renders `ComingSoon` (`components/shared/coming-soon.tsx`) with `title`, `description`, `icon` and an optional `plans` list shown under "O que está previsto".
 
 ## What this does NOT do
 

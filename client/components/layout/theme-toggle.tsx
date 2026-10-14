@@ -12,9 +12,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const options = [
-  { value: "light", label: "Claro", icon: Sun },
-  { value: "dark", label: "Escuro", icon: Moon },
-  { value: "system", label: "Sistema", icon: Monitor },
+  { value: "light", label: "Light", icon: Sun },
+  { value: "dark", label: "Dark", icon: Moon },
+  { value: "system", label: "System", icon: Monitor },
 ] as const;
 
 export function ThemeToggle() {
@@ -23,7 +23,7 @@ export function ThemeToggle() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" aria-label="Alterar tema">
+        <Button variant="ghost" size="icon" aria-label="Change theme">
           {/* Swapped by the `dark` class, so the icon is correct before hydration. */}
           <Sun className="dark:hidden" />
           <Moon className="hidden dark:block" />

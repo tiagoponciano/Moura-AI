@@ -6,7 +6,7 @@ Internal platform for Moura Soluções em Engenharia (fire-prevention projects i
 |---|---|---|
 | Documentos | `/documents` | Working — fills CBMSC forms (`.docx`) without touching the layout |
 | Classificação | `/classification` | Preview — lists required fire protection systems from four key questions, using a provisional rule set |
-| Plantas (PDF → DWG) | `/floor-plans` | Placeholder |
+| Plantas (PDF → DWG) | `/floor-plans` | Preview — PDF upload and preview, chat and result panel in place; the conversion itself is not built yet |
 
 Core principle of Documentos: **the LLM never writes the document.** It only extracts data from the conversation into a validated JSON object. Deterministic code (docxtemplater, in the browser) injects that JSON into the original `.docx` template, which stays intact.
 
@@ -48,14 +48,14 @@ client/
 │   │   └── docs/                 # feature documentation
 │   ├── home/                     # home page sections
 │   ├── classification/           # key questions, provisional rules, chat
-│   ├── floor-plans/              # placeholder
+│   ├── floor-plans/              # PDF upload and preview, conversion stub
 │   ├── auth/                     # login (Google popup + code exchange), pending and unauthorized cards
 │   └── admin/                    # admin console: users, AI model and keys, allowed domain
 ├── components/
 │   ├── ui/                       # shadcn primitives (generated, not formatted by prettier)
 │   ├── layout/                   # app shell: sidebar, breadcrumb, theme toggle, user menu
 │   ├── chat/                     # generic assistant chat, history menu, attachments
-│   └── shared/                   # page header, coming-soon placeholder
+│   └── shared/                   # page header, brand logo, workspace tabs
 ├── lib/                          # app-wide only: utils, module registry, and
 │   ├── llm/                      #   provider/model catalog and chat model resolution
 │   ├── supabase/                 #   Supabase clients (user and service role) and database types

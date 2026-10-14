@@ -30,7 +30,7 @@ import { buildSystems } from "./systems";
 import { LADDER_SECTION, RUNG_SPACING, TURNTABLE, buildTruck } from "./truck";
 
 /** What the page asks the scene to emphasize. */
-export type SceneHighlight = "xray" | "systems" | "wireframe" | null;
+export type SceneHighlight = "systems" | "wireframe" | null;
 export type SceneFocus = {
   highlight: SceneHighlight;
 };
@@ -296,7 +296,6 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
 
   // Animation.
   const state = {
-    xray: 0,
     wire: 0,
     system: { hydrant: 0, extinguisher: 0, route: 0 } as Record<
       SceneSystem,
@@ -450,21 +449,11 @@ export function createRescueScene(options: RescueSceneOptions): RescueScene {
     }
 
     // Focus from the module cards.
-    state.xray = lerp(
-      state.xray,
-      focus.highlight === "xray" || focus.highlight === "systems" ? 1 : 0,
-      0.08,
-    );
     state.wire = lerp(
       state.wire,
       focus.highlight === "wireframe" ? 1 : 0,
       0.08,
     );
-    const solidOpacity = 1 - state.xray * 0.55 - state.wire * 0.9;
-    materials.concrete.opacity = solidOpacity;
-    materials.core.opacity = solidOpacity;
-    materials.glass.opacity =
-      (materials.glass.userData.base as number) * (1 - state.wire);
     materials.edge.color.copy(palette.edge).lerp(palette.primary, state.wire);
     materials.edge.opacity = lerp(
       materials.edge.userData.base as number,

@@ -9,7 +9,6 @@ import { ModuleGrid } from "./module-grid";
 
 /** What each module card emphasizes in the scene while hovered. */
 const HIGHLIGHT_BY_MODULE: Record<string, SceneHighlight> = {
-  "/documents": "xray",
   "/classification": "systems",
   "/floor-plans": "wireframe",
 };

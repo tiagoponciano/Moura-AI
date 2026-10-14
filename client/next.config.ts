@@ -15,7 +15,7 @@ const contentSecurityPolicy = [
   "img-src 'self' blob: data: https://*.googleusercontent.com",
   "font-src 'self'",
   `connect-src 'self' https://accounts.google.com ${supabaseUrl}`.trim(),
-  "frame-src https://accounts.google.com",
+  "frame-src https://accounts.google.com blob:",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

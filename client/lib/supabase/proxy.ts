@@ -1,11 +1,13 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { isSessionExpired } from "@/lib/auth/session-expiry";
 import type { Database } from "./database.types";
 import type { SupabaseEnv } from "./env";
 
 /**
  * For proxy.ts only. Refreshes the auth session from the request cookies and
- * returns the signed-in user. Every response sent back must go through
+ * returns the signed-in user. A session older than a day is signed out and
+ * comes back without a user. Every response sent back must go through
  * `respond`/`redirect` so refreshed cookies and their no-cache headers are kept.
  */
 export async function refreshSession(request: NextRequest, env: SupabaseEnv) {
@@ -28,9 +30,18 @@ export async function refreshSession(request: NextRequest, env: SupabaseEnv) {
     },
   });
 
-  const {
+  let {
     data: { user },
   } = await supabase.auth.getUser();
+  if (user) {
+    const {
+      data: { session },
+    } = await supabase.auth.getSession();
+    if (isSessionExpired(session?.access_token, Date.now())) {
+      await supabase.auth.signOut({ scope: "local" });
+      user = null;
+    }
+  }
 
   function withSession(target: NextResponse): NextResponse {
     if (target !== response) {

@@ -133,7 +133,6 @@ export function applyPalette(
   m.reflective.color.copy(palette.reflective);
   m.reflective.emissive.copy(palette.reflective);
   m.edge.color.copy(palette.edge);
-  m.edge.userData.base = opacity.edge;
   m.edge.opacity = opacity.edge;
   m.fine.color.copy(palette.edge);
   m.fine.opacity = opacity.fine;

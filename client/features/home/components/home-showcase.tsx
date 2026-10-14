@@ -10,7 +10,6 @@ import { ModuleGrid } from "./module-grid";
 /** What each module card emphasizes in the scene while hovered. */
 const HIGHLIGHT_BY_MODULE: Record<string, SceneHighlight> = {
   "/classification": "systems",
-  "/floor-plans": "wireframe",
 };
 
 /** Home page: rescue scene in the background, product name on top, module cards below. */

@@ -42,7 +42,7 @@ createRescueScene({
   reducedMotion, // true → still frame at STATIC_RESCUE_TIME, no camera sway
   onContextLost, // () => void, WebGL context lost; the caller recreates the scene
 });
-setFocus({ highlight: "xray" | "systems" | "wireframe" | null });
+setFocus({ highlight: "systems" | "wireframe" | null });
 refreshTheme(); // re-read CSS tokens; called when the `class` attribute of <html> changes
 dispose(); // stop the loop, remove listeners and observers, free GPU memory, remove the canvas
 ```
@@ -83,12 +83,12 @@ Escape route dots walk every floor's route continuously, independent of the stor
 
 ### Interaction
 
-| Input                            | Result                                                                                                                                                                       |
-| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Drag (mouse / pen)               | Orbits the camera; azimuth clamped to `[-0.2, 1.25]` rad (street side only), polar to `[0.32π, 0.45π]`; no zoom, no pan                                                      |
-| No drag for 4 s                  | Camera eases back into a slow sway around azimuth `0.42 ± 0.3` rad                                                                                                           |
-| Touch screen (`pointer: coarse`) | Orbiting is off and the canvas allows vertical panning, so the page scrolls                                                                                                  |
-| Hover / focus a module card      | `/documents` → x-ray (concrete 45% opaque); `/classification` → x-ray and all systems emphasized; `/floor-plans` → wireframe (solids almost transparent, edges in `primary`) |
+| Input                            | Result                                                                                                                                                                                                              |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Drag (mouse / pen)               | Orbits the camera; azimuth clamped to `[-0.2, 1.25]` rad (street side only), polar to `[0.32π, 0.45π]`; no zoom, no pan                                                                                             |
+| No drag for 4 s                  | Camera eases back into a slow sway around azimuth `0.42 ± 0.3` rad                                                                                                                                                  |
+| Touch screen (`pointer: coarse`) | Orbiting is off and the canvas allows vertical panning, so the page scrolls                                                                                                                                         |
+| Hover / focus a module card      | `/classification` → all systems emphasized; `/floor-plans` → edges in `primary`; `/documents` → no change. The building never turns transparent: concrete and core are opaque materials and glass keeps its opacity |
 
 ### Lifecycle and robustness
 

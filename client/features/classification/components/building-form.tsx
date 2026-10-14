@@ -1,7 +1,7 @@
 "use client";
 
-import { RotateCcw } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import type { ReactNode } from "react";
+import { SourceTagBadge } from "@/components/shared/source-tag-badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -11,15 +11,23 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { OCCUPANCIES, type Building, type OccupancyId } from "../lib/building";
+import { sourceTag, type FieldSources } from "@/lib/field-sources";
+import { cn } from "@/lib/utils";
+import {
+  OCCUPANCIES,
+  QUESTION_COUNT,
+  type Building,
+  type OccupancyId,
+} from "../lib/building";
 
 type BuildingFormProps = {
   building: Building;
+  sources: FieldSources;
+  answered: number;
   onChange: <K extends keyof Building>(
     field: K,
     value: Building[K] | undefined,
   ) => void;
-  onReset: () => void;
 };
 
 const MEASURES = [
@@ -28,6 +36,10 @@ const MEASURES = [
   { field: "floorCount", label: "Pavimentos", integer: true },
 ] as const;
 
+/** Strips the input chrome; the surrounding row shows hover and focus. */
+const BARE_INPUT =
+  "h-auto min-h-0 rounded-none border-0 bg-transparent p-0 font-medium shadow-none placeholder:font-normal focus-visible:ring-0 dark:bg-transparent";
+
 function parsePositive(raw: string, integer: boolean): number | undefined {
   const parsed = Number(raw);
   if (raw.trim() === "" || !Number.isFinite(parsed) || parsed <= 0)
@@ -35,53 +47,112 @@ function parsePositive(raw: string, integer: boolean): number | undefined {
   return integer ? Math.trunc(parsed) : parsed;
 }
 
-/** The four key questions, editable by hand and filled by the assistant. */
+type AnswerRowProps = {
+  id: string;
+  label: string;
+  filled: boolean;
+  tag: ReturnType<typeof sourceTag>;
+  children: ReactNode;
+};
+
+function AnswerRow({ id, label, filled, tag, children }: AnswerRowProps) {
+  return (
+    <div className="grid grid-cols-[8px_minmax(0,1fr)] gap-x-3 gap-y-1 rounded-lg p-2 transition-colors focus-within:bg-accent hover:bg-muted focus-within:hover:bg-accent">
+      <span
+        aria-hidden
+        className={cn(
+          "mt-1.5 size-2 rounded-full border-[1.5px] border-input",
+          filled && "border-0 bg-success",
+        )}
+      />
+      <Label
+        htmlFor={id}
+        className="flex items-center gap-1.5 text-xs leading-snug font-normal text-muted-foreground"
+      >
+        {label}
+        {tag && <SourceTagBadge tag={tag} />}
+      </Label>
+      <div className="col-start-2">{children}</div>
+    </div>
+  );
+}
+
+/** The four key questions as field rows, editable by hand and filled by the assistant. */
 export function BuildingForm({
   building,
+  sources,
+  answered,
   onChange,
-  onReset,
 }: BuildingFormProps) {
   return (
-    <section className="rounded-xl border bg-card p-4">
-      <div className="mb-3 flex items-center justify-between">
-        <h2 className="text-sm font-medium">Dados da edificação</h2>
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={onReset}
-          disabled={Object.values(building).every((v) => v === undefined)}
+    <section className="flex flex-col">
+      <div className="flex flex-col gap-2.5 px-5 pt-4 pb-3">
+        <div className="flex items-baseline justify-between gap-2 text-sm">
+          <h2 className="font-semibold">Dados da edificação</h2>
+          <span className="text-xs text-muted-foreground tabular-nums">
+            {answered} de {QUESTION_COUNT} respondidas
+          </span>
+        </div>
+        <div
+          role="progressbar"
+          aria-label="Perguntas respondidas"
+          aria-valuemin={0}
+          aria-valuemax={QUESTION_COUNT}
+          aria-valuenow={answered}
+          className="flex gap-1"
         >
-          <RotateCcw />
-          Limpar
-        </Button>
+          {Array.from({ length: QUESTION_COUNT }, (_, index) => (
+            <span
+              key={index}
+              className={cn(
+                "h-1 flex-1 rounded-full bg-muted transition-colors",
+                index < answered && "bg-success",
+              )}
+            />
+          ))}
+        </div>
       </div>
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+      <div className="flex flex-col px-3 pb-2">
         {MEASURES.map(({ field, label, integer }) => (
-          <div key={field} className="flex flex-col gap-1.5">
-            <Label htmlFor={`building-${field}`}>{label}</Label>
+          <AnswerRow
+            key={field}
+            id={`building-${field}`}
+            label={label}
+            filled={building[field] !== undefined}
+            tag={sourceTag(sources[field], building[field])}
+          >
             <Input
               id={`building-${field}`}
               type="number"
               min={0}
               step={integer ? 1 : "any"}
               inputMode={integer ? "numeric" : "decimal"}
+              placeholder="Não informado"
               value={building[field] ?? ""}
               onChange={(event) =>
                 onChange(field, parsePositive(event.target.value, integer))
               }
+              className={BARE_INPUT}
             />
-          </div>
+          </AnswerRow>
         ))}
-        <div className="flex flex-col gap-1.5">
-          <Label htmlFor="building-occupancy">Ocupação</Label>
+        <AnswerRow
+          id="building-occupancy"
+          label="Ocupação"
+          filled={building.occupancy !== undefined}
+          tag={sourceTag(sources.occupancy, building.occupancy)}
+        >
           <Select
             value={building.occupancy ?? ""}
             onValueChange={(value) =>
               onChange("occupancy", value as OccupancyId)
             }
           >
-            <SelectTrigger id="building-occupancy" className="w-full">
-              <SelectValue placeholder="Selecione" />
+            <SelectTrigger
+              id="building-occupancy"
+              className="h-auto w-full rounded-none border-0 bg-transparent p-0 font-medium shadow-none focus-visible:ring-0 data-placeholder:font-normal data-[size=default]:h-auto dark:bg-transparent dark:hover:bg-transparent"
+            >
+              <SelectValue placeholder="Não informado" />
             </SelectTrigger>
             <SelectContent>
               {OCCUPANCIES.map((occupancy) => (
@@ -91,7 +162,7 @@ export function BuildingForm({
               ))}
             </SelectContent>
           </Select>
-        </div>
+        </AnswerRow>
       </div>
     </section>
   );

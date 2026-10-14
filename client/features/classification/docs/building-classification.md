@@ -4,12 +4,12 @@ How the Classificação module (`/classification`) works now: four key questions
 
 ## What this is
 
-The user describes a building in the chat or types the answers in the form. The page evaluates every rule in `PROVISIONAL_RULES` against the answers and lists each system as required, not required, or waiting for an answer, with the checks to verify for each required one.
+The user describes a building in the chat or types the answers in the side panel. The page evaluates every rule in `PROVISIONAL_RULES` against the answers and lists each system as required, not required, or waiting for an answer, with the checks to verify for each required one.
 
 Invariants:
 
 - The LLM never decides requirements. It only extracts the four answers through the `record_building` tool; `evaluateBuilding` decides.
-- **The rule set is provisional.** Its thresholds are placeholders, not taken from the CBMSC Instruções Normativas, and the page says so in a banner. Real criteria (IN 1 classification tables, first layer of the checklist) are expected from Moura.
+- **The rule set is provisional.** Its thresholds are placeholders, not taken from the CBMSC Instruções Normativas, and the panel footer says so. Real criteria (IN 1 classification tables, first layer of the checklist) are expected from Moura.
 - Answers live only in the `useClassification` hook and are never saved; reloading clears them. The conversation is saved when chat history is available (`client/docs/chat-history.md`), and reopening it restores the answers the tool recorded.
 
 ## Surface
@@ -24,28 +24,34 @@ Requires a signed-in, approved user (`client/docs/authentication.md`); without S
 
 ### Library (`client/features/classification/lib/`)
 
-| Export                 | Signature                            | Contract                                                           |
-| ---------------------- | ------------------------------------ | ------------------------------------------------------------------ |
-| `RECORD_BUILDING_TOOL` | `"record_building"`                  | Tool name shared by the route and the hook                         |
-| `OCCUPANCIES`          | `{ id, label }[]`                    | The nine occupancy ids and their Portuguese labels                 |
-| `pickBuildingAnswers`  | `(output: unknown) => Building`      | Maps snake_case tool output to `Building`, dropping invalid values |
-| `PROVISIONAL_RULES`    | `SystemRule[]`                       | The rule set used by the page; order is display order              |
-| `evaluateRule`         | `(rule, building) => Requirement`    | See resolution order below                                         |
-| `evaluateBuilding`     | `(rules, building) => Requirement[]` | One requirement per rule, same order                               |
+| Export                 | Signature                             | Contract                                                           |
+| ---------------------- | ------------------------------------- | ------------------------------------------------------------------ |
+| `RECORD_BUILDING_TOOL` | `"record_building"`                   | Tool name shared by the route and the hook                         |
+| `OCCUPANCIES`          | `{ id, label }[]`                     | The nine occupancy ids and their Portuguese labels                 |
+| `pickBuildingAnswers`  | `(output: unknown) => Building`       | Maps snake_case tool output to `Building`, dropping invalid values |
+| `QUESTION_COUNT`       | `4`                                   | Number of key questions (keys of `BUILDING_FIELD_LABEL`)           |
+| `countAnswers`         | `(building) => number`                | Answers that are not `undefined`                                   |
+| `PROVISIONAL_RULES`    | `SystemRule[]`                        | The rule set used by the page; order is display order              |
+| `evaluateRule`         | `(rule, building) => Requirement`     | See resolution order below                                         |
+| `evaluateBuilding`     | `(rules, building) => Requirement[]`  | One requirement per rule, same order                               |
+| `groupRequirements`    | `(requirements) => RequirementGroups` | `{ required, needsInfo, notRequired }`, each in rule order         |
 
 ### Feature layout
 
-| File                                      | Role                                                                   |
-| ----------------------------------------- | ---------------------------------------------------------------------- |
-| `index.ts` / `server/index.ts`            | Public entries: `ClassificationWorkspace` / `handleClassificationChat` |
-| `server/instructions.ts`                  | System prompt (English; replies in Brazilian Portuguese)               |
-| `server/chat-handler.ts`                  | Model call and `record_building` tool                                  |
-| `hooks/use-classification.ts`             | Answers state, tool merge, memoized requirements                       |
-| `components/classification-workspace.tsx` | Layout: notice, form and requirements on the left, chat on the right   |
-| `components/building-form.tsx`            | The four inputs and "Limpar"                                           |
-| `components/requirements-list.tsx`        | Groups by status                                                       |
-| `components/requirement-card.tsx`         | One system with reason or missing answers, and its checks              |
-| `components/provisional-notice.tsx`       | "Regras provisórias" banner                                            |
+| File                                      | Role                                                                      |
+| ----------------------------------------- | ------------------------------------------------------------------------- |
+| `index.ts` / `server/index.ts`            | Public entries: `ClassificationWorkspace` / `handleClassificationChat`    |
+| `server/instructions.ts`                  | System prompt (English; replies in Brazilian Portuguese)                  |
+| `server/chat-handler.ts`                  | Model call and `record_building` tool                                     |
+| `hooks/use-classification.ts`             | Answers, their sources, answer count and grouped requirements             |
+| `components/classification-workspace.tsx` | Layout: chat edge to edge, 360px panel on the right, tabs below `lg`      |
+| `components/classification-panel.tsx`     | Panel: `BuildingForm`, `RequirementsList`, notice and "Limpar respostas"  |
+| `components/building-form.tsx`            | "Dados da edificação" header, progress bar and the four answer rows       |
+| `components/requirements-list.tsx`        | "Sistemas preventivos" header, summary bar and the status groups          |
+| `components/requirement-row.tsx`          | One system: expandable checks when required, missing answers when pending |
+| `components/provisional-notice.tsx`       | "Regras provisórias" note in the panel footer                             |
+
+`app/(app)/classification/page.tsx` renders only `ClassificationWorkspace` in a full-height column with no padding and no `PageHeader`, as Documentos does. The panel reuses app-wide pieces shared with Documentos: `WorkspaceTabs` (`components/shared/workspace-tabs.tsx`), `SourceTagBadge` (`components/shared/source-tag-badge.tsx`) and `recordSources` / `sourceTag` (`lib/field-sources.ts`).
 
 ## Data shapes
 
@@ -123,12 +129,26 @@ Criterion texts: `área acima de <n> m²`, `altura acima de <n> m`, `mais de <n>
 ### Answers
 
 - Chat: on each `record_building` result, `pickBuildingAnswers` keeps valid values and shallow-merges them over the current answers (manual edits to other fields are kept). Reopening a saved chat from "Histórico" replays its `record_building` results the same way, over whatever answers are on screen.
-- Form: numbers that are empty, non-numeric, zero or negative become `undefined`; the floor count is truncated to an integer. "Limpar" clears all answers but not the chat.
+- Form: numbers that are empty, non-numeric, zero or negative become `undefined`; the floor count is truncated to an integer. "Limpar respostas" clears all answers and their sources but not the chat; it is disabled while nothing is answered.
+- Sources: every answer kept from a `record_building` result is marked `assistant`; any edit in the panel marks that field `user`, even when the typed value is invalid and becomes `undefined`. The row shows "IA" or "editado" from `sourceTag`, and nothing while the answer is empty. A later tool result for the field marks it `assistant` again.
 - Requirements are recomputed on every change.
 
 ### Display
 
-Required and needs-info systems render as cards (`Por quê: …` / `Depende de: …`); checks are shown only for required systems. Not-required systems are listed by name in one line.
+From `lg` (1024px) up, the chat fills the left and a 360px panel (`bg-card`, left border) sits on the right; the panel body scrolls and its footer stays fixed. Below `lg`, `WorkspaceTabs` shows one pane at a time: "Conversa" (initial) or "Classificação <answered>/4"; tool results update the panel while it is hidden.
+
+Panel, top to bottom:
+
+1. **Dados da edificação**: `<answered> de 4 respondidas` and four bar segments, the first `<answered>` in `success`. Then one row per question in the order área, altura, pavimentos, ocupação, styled as Documentos field rows: status dot (`success` when answered), label with unit, optional source tag, and a borderless control (`Não informado` placeholder). The row turns `muted` on hover and `accent` while focused.
+2. **Sistemas preventivos**: `<required> exigidos · <needs_info> pendentes` and one bar segment per rule, ordered required (`primary`), needs-info (`input`), not-required (`muted`). Then up to three groups, each skipped when empty:
+
+| Group (uppercase header) | Row                                                                                                                             |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| Exigidos                 | `primary` dot, system, `reason` with its first letter capitalized; a `<details>` that expands to the checks (closed by default) |
+| Dependem de respostas    | Hollow dot, system, "Falta" followed by one pill per missing field label in lower case                                          |
+| Não exigidos             | `input` dot, system name in muted text                                                                                          |
+
+3. **Footer**: the provisional notice (`accent`) and the outline "Limpar respostas" button.
 
 ## What this does NOT do
 

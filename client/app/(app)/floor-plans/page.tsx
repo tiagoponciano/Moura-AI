@@ -1,5 +1,9 @@
-import { FloorPlansPlaceholder } from "@/features/floor-plans";
+import { FloorPlansWorkspace } from "@/features/floor-plans";
 
 export default function FloorPlansPage() {
-  return <FloorPlansPlaceholder />;
+  return (
+    <div className="flex h-full flex-col">
+      <FloorPlansWorkspace />
+    </div>
+  );
 }

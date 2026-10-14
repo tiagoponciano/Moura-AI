@@ -13,14 +13,8 @@ const OPACITY = {
 export function createMaterials() {
   const fade = edgeFadeTexture();
   return {
-    concrete: new THREE.MeshStandardMaterial({
-      roughness: 0.92,
-      transparent: true,
-    }),
-    core: new THREE.MeshStandardMaterial({
-      roughness: 0.95,
-      transparent: true,
-    }),
+    concrete: new THREE.MeshStandardMaterial({ roughness: 0.92 }),
+    core: new THREE.MeshStandardMaterial({ roughness: 0.95 }),
     glass: new THREE.MeshStandardMaterial({
       roughness: 0.15,
       metalness: 0.1,
@@ -123,7 +117,6 @@ export function applyPalette(
   m.concrete.color.copy(palette.concrete);
   m.core.color.copy(palette.core);
   m.glass.color.copy(palette.glass);
-  m.glass.userData.base = opacity.glass;
   m.glass.opacity = opacity.glass;
   m.sidewalk.color.copy(palette.sidewalk);
   m.street.color.copy(palette.street);
@@ -140,7 +133,6 @@ export function applyPalette(
   m.reflective.color.copy(palette.reflective);
   m.reflective.emissive.copy(palette.reflective);
   m.edge.color.copy(palette.edge);
-  m.edge.userData.base = opacity.edge;
   m.edge.opacity = opacity.edge;
   m.fine.color.copy(palette.edge);
   m.fine.opacity = opacity.fine;

@@ -1,1 +1,1 @@
-export { FloorPlansPlaceholder } from "./components/floor-plans-placeholder";
+export { FloorPlansWorkspace } from "./components/floor-plans-workspace";

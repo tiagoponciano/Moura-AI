@@ -44,7 +44,7 @@ export const MODULES: AppModule[] = [
     summary:
       "Converte plantas antigas em PDF para DWG editável, agilizando o desenho.",
     icon: MapIcon,
-    status: "soon",
+    status: "preview",
   },
 ];
 

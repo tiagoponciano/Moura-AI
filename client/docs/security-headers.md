@@ -24,19 +24,19 @@ Invariants:
 
 CSP directives:
 
-| Directive                   | Sources                                                                                                     | Needed by                                                                          |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `default-src`               | `'self'`                                                                                                    | everything not listed                                                              |
-| `script-src`                | `'self' 'unsafe-inline' https://accounts.google.com`, plus `'unsafe-eval'` when `NODE_ENV` is `development` | Next's inline bootstrap, next-themes, Google's sign-in client; React's dev tooling |
-| `style-src`                 | `'self' 'unsafe-inline' https://accounts.google.com`                                                        | inline `style` attributes (Radix, three.js canvas), Google's sign-in styles        |
-| `img-src`                   | `'self' blob: data: https://*.googleusercontent.com`                                                        | `next/image`, generated images, Google avatars                                     |
-| `font-src`                  | `'self'`                                                                                                    | IBM Plex via `next/font` (self-hosted)                                             |
-| `connect-src`               | `'self' https://accounts.google.com` and the value of `NEXT_PUBLIC_SUPABASE_URL`                            | our API, Google sign-in, Supabase Auth and Storage from the browser                |
-| `frame-src`                 | `https://accounts.google.com`                                                                               | Google's sign-in iframes                                                           |
-| `object-src`                | `'none'`                                                                                                    | —                                                                                  |
-| `base-uri`, `form-action`   | `'self'`                                                                                                    | —                                                                                  |
-| `frame-ancestors`           | `'none'`                                                                                                    | no site may embed the app (clickjacking)                                           |
-| `upgrade-insecure-requests` | present except in development                                                                               | —                                                                                  |
+| Directive                   | Sources                                                                                                     | Needed by                                                                                                               |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `default-src`               | `'self'`                                                                                                    | everything not listed                                                                                                   |
+| `script-src`                | `'self' 'unsafe-inline' https://accounts.google.com`, plus `'unsafe-eval'` when `NODE_ENV` is `development` | Next's inline bootstrap, next-themes, Google's sign-in client; React's dev tooling                                      |
+| `style-src`                 | `'self' 'unsafe-inline' https://accounts.google.com`                                                        | inline `style` attributes (Radix, three.js canvas), Google's sign-in styles                                             |
+| `img-src`                   | `'self' blob: data: https://*.googleusercontent.com`                                                        | `next/image`, generated images, Google avatars                                                                          |
+| `font-src`                  | `'self'`                                                                                                    | IBM Plex via `next/font` (self-hosted)                                                                                  |
+| `connect-src`               | `'self' https://accounts.google.com` and the value of `NEXT_PUBLIC_SUPABASE_URL`                            | our API, Google sign-in, Supabase Auth and Storage from the browser                                                     |
+| `frame-src`                 | `https://accounts.google.com blob:`                                                                         | Google's sign-in iframes; `blob:` for the floor plan PDF preview (`features/floor-plans/docs/floor-plan-conversion.md`) |
+| `object-src`                | `'none'`                                                                                                    | —                                                                                                                       |
+| `base-uri`, `form-action`   | `'self'`                                                                                                    | —                                                                                                                       |
+| `frame-ancestors`           | `'none'`                                                                                                    | no site may embed the app (clickjacking)                                                                                |
+| `upgrade-insecure-requests` | present except in development                                                                               | —                                                                                                                       |
 
 ## Rules and behavior
 

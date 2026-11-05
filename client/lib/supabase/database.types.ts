@@ -134,6 +134,26 @@ export type Database = {
         >;
         Relationships: [];
       };
+      cbmsc_site_check: {
+        Row: {
+          id: boolean;
+          checked_at: string;
+          status: "complete" | "partial" | "failed";
+          failures: number;
+          forms: Json;
+        };
+        Insert: {
+          id?: boolean;
+          checked_at: string;
+          status: "complete" | "partial" | "failed";
+          failures: number;
+          forms: Json;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["cbmsc_site_check"]["Insert"]
+        >;
+        Relationships: [];
+      };
       cbmsc_forms: {
         Row: {
           google_doc_id: string;

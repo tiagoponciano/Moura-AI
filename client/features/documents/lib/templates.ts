@@ -13,6 +13,8 @@ export type TemplateField = {
   required?: boolean;
   /** A `( )` option in the document: true prints "X", false prints nothing. */
   mark?: boolean;
+  /** The project data this field shares; see `project-fields.ts`. */
+  projectKey?: string;
 };
 
 export type TemplateSchema = {

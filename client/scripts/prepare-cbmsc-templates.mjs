@@ -38,6 +38,20 @@ const FORMS = [
     normative: 1,
     annex: "D",
     name: "IN 1 – Anexo D – Consulta técnica",
+    projectKeys: {
+      requester_name: "owner_name",
+      requester_email: "owner_email",
+      requester_phone: "owner_phone",
+      re_number: "property_re",
+      building_cnpj: "property_cnpj",
+      street: "property_street",
+      street_number: "property_number",
+      address_complement: "property_complement",
+      district: "property_district",
+      city: "property_city",
+      postal_code: "property_postal_code",
+      address_details: "property_details",
+    },
     steps: [
       mark(
         "external_query",
@@ -124,6 +138,33 @@ const FORMS = [
     normative: 1,
     annex: "H",
     name: "IN 1 – Anexo H – Declaração do responsável",
+    projectKeys: {
+      responsible_name: "technical_name",
+      responsible_phone: "technical_phone",
+      responsible_tax_id: "technical_tax_id",
+      responsible_id_card: "technical_id_card",
+      responsible_email: "technical_email",
+      responsible_registry: "technical_registry",
+      responsible_street: "technical_street",
+      responsible_street_number: "technical_number",
+      responsible_complement: "technical_complement",
+      responsible_district: "technical_district",
+      responsible_city: "technical_city",
+      responsible_postal_code: "technical_postal_code",
+      re_number: "property_re",
+      building_cnpj: "property_cnpj",
+      protocol: "property_protocol",
+      occupancy: "property_occupancy",
+      street: "property_street",
+      street_number: "property_number",
+      district: "property_district",
+      city: "property_city",
+      postal_code: "property_postal_code",
+      address_complement: "property_complement",
+      building_name: "property_building_name",
+      company_name: "property_company_name",
+      address_details: "property_details",
+    },
     steps: [
       text(
         "responsible_name",
@@ -263,6 +304,24 @@ function tagDocument(xml, form) {
   });
 }
 
+const NOTICE = /uso exclusivo do CBMSC|Para utilizar este modelo/;
+
+/** Empties the note on how to copy the Google Doc, which means nothing on a finished form. */
+function removeCopyNotice(zip) {
+  for (const path of Object.keys(zip.files)) {
+    if (!/^word\/header\d*\.xml$/.test(path)) continue;
+    const xml = zip.file(path).asText();
+    zip.file(
+      path,
+      xml.replace(/<w:p[ >](?:(?!<\/w:p>).)*<\/w:p>/gs, (paragraph) =>
+        NOTICE.test(paragraph.replace(/<[^>]+>/g, ""))
+          ? paragraph.replace(/(<w:t(?: [^>]*)?>)[^<]*(<\/w:t>)/g, "$1$2")
+          : paragraph,
+      ),
+    );
+  }
+}
+
 const index = JSON.parse(await readFile(join(TEMPLATES, "index.json"), "utf8"));
 
 for (const form of FORMS) {
@@ -275,13 +334,25 @@ for (const form of FORMS) {
   const zip = new PizZip(source);
   const xml = zip.file("word/document.xml").asText();
   zip.file("word/document.xml", tagDocument(xml, form));
+  removeCopyNotice(zip);
   await writeFile(
     join(TEMPLATES, `cbmsc/${form.id}.docx`),
     zip.generate({ type: "nodebuffer" }),
   );
   await writeFile(
     join(TEMPLATES, `cbmsc/${form.id}.schema.json`),
-    `${JSON.stringify({ fields: form.steps.map((step) => step.field) }, null, 2)}\n`,
+    `${JSON.stringify(
+      {
+        fields: form.steps.map((step) => ({
+          ...step.field,
+          ...(form.projectKeys[step.field.name] && {
+            projectKey: form.projectKeys[step.field.name],
+          }),
+        })),
+      },
+      null,
+      2,
+    )}\n`,
   );
 
   const entry = {

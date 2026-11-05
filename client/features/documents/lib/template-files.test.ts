@@ -3,6 +3,7 @@ import { join } from "node:path";
 import Docxtemplater from "docxtemplater";
 import PizZip from "pizzip";
 import { describe, expect, it } from "vitest";
+import { isProjectFieldKey } from "./project-fields";
 import type { TemplateEntry, TemplateSchema } from "./templates";
 
 const PUBLIC = join(__dirname, "../../../public");
@@ -31,6 +32,22 @@ describe.each(entries)("template $id", (entry) => {
     expect([...tagsOf(entry.file)].sort()).toEqual(
       schema.fields.map((field) => field.name).sort(),
     );
+  });
+
+  it("ties fields only to keys a project shares, each once", () => {
+    const keys = schema.fields.flatMap((field) => field.projectKey ?? []);
+    expect(keys.filter((key) => !isProjectFieldKey(key))).toEqual([]);
+    expect(new Set(keys).size).toBe(keys.length);
+  });
+
+  it("has no note about copying the Google Doc in its headers", () => {
+    const zip = new PizZip(read(entry.file));
+    const headers = Object.keys(zip.files)
+      .filter((path) => /^word\/header\d*\.xml$/.test(path))
+      .map((path) => zip.file(path)?.asText() ?? "")
+      .join("");
+    expect(headers).not.toContain("uso exclusivo do CBMSC");
+    expect(headers).not.toContain("fazer uma cópia");
   });
 
   it("renders with no tag left", () => {

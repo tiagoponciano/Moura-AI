@@ -102,6 +102,14 @@ describe("diffSiteCheck", () => {
     ]);
   });
 
+  it("does not guess when two site docs could replace the same form", () => {
+    expect(kinds([form("old")], check([site("n1"), site("n2")]))).toEqual([
+      "new",
+      "new",
+      "removed",
+    ]);
+  });
+
   it("reports no removals from a partial check", () => {
     const other = site("b", { annex: "E" });
     expect(

@@ -1,0 +1,11 @@
+{
+  "fields": [
+    {
+      "name": "notes",
+      "type": "string",
+      "label": "Observações relevantes",
+      "description": "Observações relevantes acerca do evento pirotécnico",
+      "required": false
+    }
+  ]
+}

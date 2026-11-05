@@ -1,0 +1,114 @@
+{
+  "fields": [
+    {
+      "name": "office_city",
+      "type": "string",
+      "label": "Município do SSCI",
+      "description": "Município do Serviço de Segurança Contra Incêndio",
+      "required": true
+    },
+    {
+      "name": "requester_name",
+      "type": "string",
+      "label": "Nome",
+      "description": "Nome do requerente por extenso",
+      "required": true
+    },
+    {
+      "name": "requester_cpf",
+      "type": "string",
+      "label": "CPF",
+      "description": "CPF do requerente",
+      "required": true
+    },
+    {
+      "name": "fine_number",
+      "type": "string",
+      "label": "Nº da multa",
+      "description": "Número da multa (MUL…)",
+      "required": true
+    },
+    {
+      "name": "fine_amount",
+      "type": "string",
+      "label": "Valor da multa",
+      "description": "Valor da multa em reais, com o valor por extenso",
+      "required": true
+    },
+    {
+      "name": "street",
+      "type": "string",
+      "label": "Logradouro",
+      "description": "Logradouro da edificação",
+      "required": false,
+      "projectKey": "property_street"
+    },
+    {
+      "name": "street_number",
+      "type": "string",
+      "label": "Número",
+      "description": "Número da edificação",
+      "required": false,
+      "projectKey": "property_number"
+    },
+    {
+      "name": "district",
+      "type": "string",
+      "label": "Bairro",
+      "description": "Bairro da edificação",
+      "required": false,
+      "projectKey": "property_district"
+    },
+    {
+      "name": "city",
+      "type": "string",
+      "label": "Município",
+      "description": "Município da edificação",
+      "required": false,
+      "projectKey": "property_city"
+    },
+    {
+      "name": "re_number",
+      "type": "string",
+      "label": "RE",
+      "description": "RE da edificação ou outros dados de identificação junto ao SSCI",
+      "required": false,
+      "projectKey": "property_re"
+    },
+    {
+      "name": "reasons",
+      "type": "string",
+      "label": "Motivos",
+      "description": "Argumentação do requerimento",
+      "required": true
+    },
+    {
+      "name": "signed_city",
+      "type": "string",
+      "label": "Município da assinatura",
+      "description": "Município onde o requerimento é assinado",
+      "required": false
+    },
+    {
+      "name": "signed_day",
+      "type": "string",
+      "label": "Dia",
+      "description": "Dia da assinatura",
+      "required": false
+    },
+    {
+      "name": "signed_month",
+      "type": "string",
+      "label": "Mês",
+      "description": "Mês da assinatura, por extenso",
+      "required": false
+    },
+    {
+      "name": "signed_year",
+      "type": "string",
+      "label": "Ano",
+      "description": "Dois últimos dígitos do ano da assinatura",
+      "required": false
+    }
+  ]
+}

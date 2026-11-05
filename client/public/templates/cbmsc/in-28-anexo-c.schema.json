@@ -1,0 +1,249 @@
+{
+  "fields": [
+    {
+      "name": "field_001",
+      "type": "string",
+      "label": "1.1 Razão social",
+      "description": "1. DADOS DO IMÓVEL / EVENTO: 1.1 Razão social",
+      "required": false
+    },
+    {
+      "name": "field_002",
+      "type": "string",
+      "label": "1.2 Nome fantasia",
+      "description": "1. DADOS DO IMÓVEL / EVENTO: 1.2 Nome fantasia",
+      "required": false
+    },
+    {
+      "name": "field_003",
+      "type": "string",
+      "label": "1.3 CNPJ",
+      "description": "1. DADOS DO IMÓVEL / EVENTO: 1.3 CNPJ",
+      "required": false
+    },
+    {
+      "name": "field_004",
+      "type": "string",
+      "label": "1.4 Nº Registro Edificação CBMSC (RE)",
+      "description": "1. DADOS DO IMÓVEL / EVENTO: 1.4 Nº Registro Edificação CBMSC (RE)",
+      "required": false
+    },
+    {
+      "name": "field_005",
+      "type": "string",
+      "label": "1.5 Cidade",
+      "description": "1. DADOS DO IMÓVEL / EVENTO: 1.5 Cidade",
+      "required": false
+    },
+    {
+      "name": "field_006",
+      "type": "string",
+      "label": "1.6 Bairro",
+      "description": "1. DADOS DO IMÓVEL / EVENTO: 1.6 Bairro",
+      "required": false
+    },
+    {
+      "name": "field_007",
+      "type": "string",
+      "label": "1.7 Endereço",
+      "description": "1. DADOS DO IMÓVEL / EVENTO: 1.7 Endereço",
+      "required": false
+    },
+    {
+      "name": "field_008",
+      "type": "string",
+      "label": "n°",
+      "description": "1. DADOS DO IMÓVEL / EVENTO: n°",
+      "required": false
+    },
+    {
+      "name": "field_009",
+      "type": "string",
+      "label": "1.8 Complemento",
+      "description": "1. DADOS DO IMÓVEL / EVENTO: 1.8 Complemento",
+      "required": false
+    },
+    {
+      "name": "field_010",
+      "type": "string",
+      "label": "1.9 Ocupação (ver IN-01)",
+      "description": "1. DADOS DO IMÓVEL / EVENTO: 1.9 Ocupação (ver IN-01)",
+      "required": false
+    },
+    {
+      "name": "field_011",
+      "type": "string",
+      "label": "1.10 CEP",
+      "description": "1. DADOS DO IMÓVEL / EVENTO: 1.10 CEP",
+      "required": false
+    },
+    {
+      "name": "field_012",
+      "type": "string",
+      "label": "1.11 Telefone",
+      "description": "1. DADOS DO IMÓVEL / EVENTO: 1.11 Telefone",
+      "required": false
+    },
+    {
+      "name": "field_013",
+      "type": "string",
+      "label": "1.12 Área total construída (m²)",
+      "description": "1. DADOS DO IMÓVEL / EVENTO: 1.12 Área total construída (m²)",
+      "required": false
+    },
+    {
+      "name": "field_014",
+      "type": "string",
+      "label": "1.14 Nº de pavimentos",
+      "description": "1. DADOS DO IMÓVEL / EVENTO: 1.14 Nº de pavimentos",
+      "required": false
+    },
+    {
+      "name": "field_015",
+      "type": "string",
+      "label": "1.15 Altura (m)",
+      "description": "1. DADOS DO IMÓVEL / EVENTO: 1.15 Altura (m)",
+      "required": false
+    },
+    {
+      "name": "field_016",
+      "type": "string",
+      "label": "1.16 População fixa",
+      "description": "1. DADOS DO IMÓVEL / EVENTO: 1.16 População fixa",
+      "required": false
+    },
+    {
+      "name": "field_017",
+      "type": "string",
+      "label": "1.17 Lotação máxima",
+      "description": "1. DADOS DO IMÓVEL / EVENTO: 1.17 Lotação máxima",
+      "required": false
+    },
+    {
+      "name": "field_018",
+      "type": "string",
+      "label": "2.1 Responsável pelo imóvel ou evento",
+      "description": "2. DADOS DO RESPONSÁVEL PELO IMÓVEL / EVENTO: 2.1 Responsável pelo imóvel ou evento",
+      "required": false
+    },
+    {
+      "name": "field_019",
+      "type": "string",
+      "label": "2.2 CPF",
+      "description": "2. DADOS DO RESPONSÁVEL PELO IMÓVEL / EVENTO: 2.2 CPF",
+      "required": false
+    },
+    {
+      "name": "field_020",
+      "type": "string",
+      "label": "2.3 Identidade",
+      "description": "2. DADOS DO RESPONSÁVEL PELO IMÓVEL / EVENTO: 2.3 Identidade",
+      "required": false
+    },
+    {
+      "name": "field_021",
+      "type": "string",
+      "label": "2.4 Endereço residencial",
+      "description": "2. DADOS DO RESPONSÁVEL PELO IMÓVEL / EVENTO: 2.4 Endereço residencial",
+      "required": false
+    },
+    {
+      "name": "field_022",
+      "type": "string",
+      "label": "nº",
+      "description": "2. DADOS DO RESPONSÁVEL PELO IMÓVEL / EVENTO: nº",
+      "required": false
+    },
+    {
+      "name": "field_023",
+      "type": "string",
+      "label": "2.5 Cidade/UF",
+      "description": "2. DADOS DO RESPONSÁVEL PELO IMÓVEL / EVENTO: 2.5 Cidade/UF",
+      "required": false
+    },
+    {
+      "name": "field_024",
+      "type": "string",
+      "label": "2.6 Telefone de contato",
+      "description": "2. DADOS DO RESPONSÁVEL PELO IMÓVEL / EVENTO: 2.6 Telefone de contato",
+      "required": false
+    },
+    {
+      "name": "field_025",
+      "type": "string",
+      "label": "3.1Responsável técnico",
+      "description": "3. DADOS DO RESPONSÁVEL TÉCNICO: 3.1Responsável técnico",
+      "required": false
+    },
+    {
+      "name": "field_026",
+      "type": "string",
+      "label": "3.2 CPF",
+      "description": "3. DADOS DO RESPONSÁVEL TÉCNICO: 3.2 CPF",
+      "required": false
+    },
+    {
+      "name": "field_027",
+      "type": "string",
+      "label": "3.3 Nº registro profissional",
+      "description": "3. DADOS DO RESPONSÁVEL TÉCNICO: 3.3 Nº registro profissional",
+      "required": false
+    },
+    {
+      "name": "field_028",
+      "type": "string",
+      "label": "3.4 Atribuição",
+      "description": "3. DADOS DO RESPONSÁVEL TÉCNICO: 3.4 Atribuição:",
+      "required": false
+    },
+    {
+      "name": "field_029",
+      "type": "string",
+      "label": "(Nome e cargo ou função na empresa, órgão, instituição, etc.)",
+      "description": "4. COMPOSIÇÃO DA BRIGADA DE INCÊNDIO: (Nome e cargo ou função na empresa, órgão, instituição, etc.)",
+      "required": false
+    },
+    {
+      "name": "field_030",
+      "type": "string",
+      "label": "Relação dos brigadistas particulares em cada turno (nome e CPF)",
+      "description": "4. COMPOSIÇÃO DA BRIGADA DE INCÊNDIO: Relação dos brigadistas particulares em cada turno (nome e CPF)",
+      "required": false
+    },
+    {
+      "name": "field_031",
+      "type": "string",
+      "label": "OUTRAS INFORMAÇÕES (Se necessário) (linha 32)",
+      "description": "4. COMPOSIÇÃO DA BRIGADA DE INCÊNDIO: OUTRAS INFORMAÇÕES (Se necessário) (linha 32)",
+      "required": false
+    },
+    {
+      "name": "field_032",
+      "type": "string",
+      "label": "PLANTA E CROQUIS (linha 34)",
+      "description": "4. COMPOSIÇÃO DA BRIGADA DE INCÊNDIO: PLANTA E CROQUIS (linha 34)",
+      "required": false
+    },
+    {
+      "name": "field_033",
+      "type": "string",
+      "label": "Local e data",
+      "description": "4. COMPOSIÇÃO DA BRIGADA DE INCÊNDIO: Local e data:",
+      "required": false
+    },
+    {
+      "name": "field_034",
+      "type": "string",
+      "label": "4. COMPOSIÇÃO DA BRIGADA DE INCÊNDIO",
+      "description": "4. COMPOSIÇÃO DA BRIGADA DE INCÊNDIO: ,",
+      "required": false
+    },
+    {
+      "name": "field_035",
+      "type": "string",
+      "label": "Assinatura",
+      "description": "4. COMPOSIÇÃO DA BRIGADA DE INCÊNDIO: Assinatura:",
+      "required": false
+    }
+  ]
+}

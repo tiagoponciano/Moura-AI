@@ -1,0 +1,133 @@
+{
+  "fields": [
+    {
+      "name": "field_001",
+      "type": "string",
+      "label": "RELATÓRIO DE ATIVIDADES DO ANO DE 20",
+      "description": "RELATÓRIO DE ATIVIDADES DO ANO DE 20",
+      "required": false
+    },
+    {
+      "name": "field_002",
+      "type": "string",
+      "label": "1.1 Razão social",
+      "description": "1. DADOS DA EMPRESA: 1.1 Razão social",
+      "required": false
+    },
+    {
+      "name": "field_003",
+      "type": "string",
+      "label": "1.2 Nome fantasia",
+      "description": "1. DADOS DA EMPRESA: 1.2 Nome fantasia",
+      "required": false
+    },
+    {
+      "name": "field_004",
+      "type": "string",
+      "label": "1.3 CNPJ",
+      "description": "1. DADOS DA EMPRESA: 1.3 CNPJ",
+      "required": false
+    },
+    {
+      "name": "field_005",
+      "type": "string",
+      "label": "1.4 Nº credenciamento CBMSC",
+      "description": "1. DADOS DA EMPRESA: 1.4 Nº credenciamento CBMSC",
+      "required": false
+    },
+    {
+      "name": "field_006",
+      "type": "string",
+      "label": "1.6 Bairro",
+      "description": "1. DADOS DA EMPRESA: 1.6 Bairro",
+      "required": false
+    },
+    {
+      "name": "field_007",
+      "type": "string",
+      "label": "1.7 Endereço",
+      "description": "1. DADOS DA EMPRESA: 1.7 Endereço",
+      "required": false
+    },
+    {
+      "name": "field_008",
+      "type": "string",
+      "label": "Nº",
+      "description": "1. DADOS DA EMPRESA: Nº",
+      "required": false
+    },
+    {
+      "name": "field_009",
+      "type": "string",
+      "label": "1.9 Telefones de contato",
+      "description": "1. DADOS DA EMPRESA: 1.9 Telefones de contato",
+      "required": false
+    },
+    {
+      "name": "field_010",
+      "type": "string",
+      "label": "1.10 Complemento",
+      "description": "1. DADOS DA EMPRESA: 1.10 Complemento",
+      "required": false
+    },
+    {
+      "name": "field_011",
+      "type": "choice",
+      "label": "NÃO",
+      "description": "2. ATIVIDADES DESENVOLVIDAS: 2.2 Possui serviço de brigadista contratado por empresa de forma terceirizada: ( ) SIM ( ) NÃO",
+      "required": false,
+      "options": [
+        {
+          "value": "SIM",
+          "tag": "field_011_1"
+        },
+        {
+          "value": "NÃO",
+          "tag": "field_011_2"
+        }
+      ]
+    },
+    {
+      "name": "field_012",
+      "type": "string",
+      "label": "2.3 Relação dos brigadistas (nome e CPF)",
+      "description": "2. ATIVIDADES DESENVOLVIDAS: 2.3 Relação dos brigadistas (nome e CPF)",
+      "required": false
+    },
+    {
+      "name": "field_013",
+      "type": "string",
+      "label": "2.4 Observações e Sugestões",
+      "description": "2. ATIVIDADES DESENVOLVIDAS: 2.4 Observações e Sugestões",
+      "required": false
+    },
+    {
+      "name": "field_014",
+      "type": "string",
+      "label": "Local e data",
+      "description": "3. DECLARAÇÃO: Local e data:",
+      "required": false
+    },
+    {
+      "name": "field_015",
+      "type": "string",
+      "label": "3. DECLARAÇÃO",
+      "description": "3. DECLARAÇÃO: 3. DECLARAÇÃO",
+      "required": false
+    },
+    {
+      "name": "field_016",
+      "type": "string",
+      "label": "Nome do Proprietário/Diretor/Presidente",
+      "description": "3. DECLARAÇÃO: Nome do Proprietário/Diretor/Presidente:",
+      "required": false
+    },
+    {
+      "name": "field_017",
+      "type": "string",
+      "label": "Assinatura",
+      "description": "3. DECLARAÇÃO: Assinatura:",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "fields": [
+    {
+      "name": "field_001",
+      "type": "string",
+      "label": "Nº",
+      "description": "Nº",
+      "required": false,
+      "projectKey": "property_number"
+    },
+    {
+      "name": "field_002",
+      "type": "string",
+      "label": "Nome",
+      "description": "1. Identificação do responsável pelo imóvel: Nome:",
+      "required": false,
+      "projectKey": "owner_name"
+    },
+    {
+      "name": "field_003",
+      "type": "string",
+      "label": "Telefone(s)",
+      "description": "1. Identificação do responsável pelo imóvel: Telefone(s):",
+      "required": false,
+      "projectKey": "owner_phone"
+    },
+    {
+      "name": "field_004",
+      "type": "string",
+      "label": "CPF/CNPJ",
+      "description": "1. Identificação do responsável pelo imóvel: CPF/CNPJ:",
+      "required": false
+    },
+    {
+      "name": "field_005",
+      "type": "string",
+      "label": "RG",
+      "description": "1. Identificação do responsável pelo imóvel: RG:",
+      "required": false
+    },
+    {
+      "name": "field_006",
+      "type": "string",
+      "label": "E-mail",
+      "description": "1. Identificação do responsável pelo imóvel: E-mail:",
+      "required": false,
+      "projectKey": "owner_email"
+    },
+    {
+      "name": "field_007",
+      "type": "string",
+      "label": "Logradouro",
+      "description": "1. Identificação do responsável pelo imóvel: Logradouro:",
+      "required": false
+    },
+    {
+      "name": "field_008",
+      "type": "string",
+      "label": "Nº",
+      "description": "1. Identificação do responsável pelo imóvel: Nº:",
+      "required": false
+    },
+    {
+      "name": "field_009",
+      "type": "string",
+      "label": "Complemento",
+      "description": "1. Identificação do responsável pelo imóvel: Complemento:",
+      "required": false
+    },
+    {
+      "name": "field_010",
+      "type": "string",
+      "label": "Bairro",
+      "description": "1. Identificação do responsável pelo imóvel: Bairro:",
+      "required": false
+    },
+    {
+      "name": "field_011",
+      "type": "string",
+      "label": "Cidade",
+      "description": "1. Identificação do responsável pelo imóvel: Cidade:",
+      "required": false
+    },
+    {
+      "name": "field_012",
+      "type": "string",
+      "label": "CEP",
+      "description": "1. Identificação do responsável pelo imóvel: CEP:",
+      "required": false
+    },
+    {
+      "name": "field_013",
+      "type": "string",
+      "label": "RE",
+      "description": "2. Descrição do imóvel: RE:",
+      "required": false,
+      "projectKey": "property_re"
+    },
+    {
+      "name": "field_014",
+      "type": "string",
+      "label": "CNPJ",
+      "description": "2. Descrição do imóvel: CNPJ:",
+      "required": false,
+      "projectKey": "property_cnpj"
+    },
+    {
+      "name": "field_015",
+      "type": "string",
+      "label": "Logradouro",
+      "description": "2. Descrição do imóvel: Logradouro:",
+      "required": false,
+      "projectKey": "property_street"
+    },
+    {
+      "name": "field_016",
+      "type": "string",
+      "label": "Nº",
+      "description": "2. Descrição do imóvel: Nº:",
+      "required": false
+    },
+    {
+      "name": "field_017",
+      "type": "string",
+      "label": "Complemento",
+      "description": "2. Descrição do imóvel: Complemento:",
+      "required": false,
+      "projectKey": "property_complement"
+    },
+    {
+      "name": "field_018",
+      "type": "string",
+      "label": "Bairro",
+      "description": "2. Descrição do imóvel: Bairro:",
+      "required": false,
+      "projectKey": "property_district"
+    },
+    {
+      "name": "field_019",
+      "type": "string",
+      "label": "Cidade",
+      "description": "2. Descrição do imóvel: Cidade:",
+      "required": false,
+      "projectKey": "property_city"
+    },
+    {
+      "name": "field_020",
+      "type": "string",
+      "label": "CEP",
+      "description": "2. Descrição do imóvel: CEP:",
+      "required": false,
+      "projectKey": "property_postal_code"
+    },
+    {
+      "name": "field_021",
+      "type": "string",
+      "label": "Detalhes (se houver)",
+      "description": "2. Descrição do imóvel: Detalhes (se houver):",
+      "required": false,
+      "projectKey": "property_details"
+    },
+    {
+      "name": "field_022",
+      "type": "string",
+      "label": "Área total da solicitação (m²)",
+      "description": "3. Dados da solicitação: Área total da solicitação (m²):",
+      "required": false
+    },
+    {
+      "name": "field_023",
+      "type": "string",
+      "label": "Protocolo",
+      "description": "3. Dados da solicitação: Protocolo:",
+      "required": false,
+      "projectKey": "property_protocol"
+    },
+    {
+      "name": "field_024",
+      "type": "string",
+      "label": "Área da alteração/ampliação/reforma",
+      "description": "3. Dados da solicitação: Área da alteração/ampliação/reforma:",
+      "required": false
+    },
+    {
+      "name": "field_025",
+      "type": "string",
+      "label": "Ocupação(ões)",
+      "description": "3. Dados da solicitação: Ocupação(ões):",
+      "required": false,
+      "projectKey": "property_occupancy"
+    },
+    {
+      "name": "field_026",
+      "type": "string",
+      "label": "Nº de pavimentos",
+      "description": "3. Dados da solicitação: Nº de pavimentos:",
+      "required": false
+    },
+    {
+      "name": "field_027",
+      "type": "string",
+      "label": "Nº de blocos",
+      "description": "3. Dados da solicitação: Nº de blocos:",
+      "required": false
+    },
+    {
+      "name": "field_028",
+      "type": "string",
+      "label": "Observações",
+      "description": "3. Dados da solicitação: Observações:",
+      "required": false
+    },
+    {
+      "name": "field_029",
+      "type": "string",
+      "label": "Acesso de Viaturas – Exigidos?",
+      "description": "3. Dados da solicitação: Acesso de Viaturas – Exigidos?",
+      "required": false
+    },
+    {
+      "name": "field_030",
+      "type": "string",
+      "label": "Acesso de Viaturas Brigada de incêndio – Exigidos?",
+      "description": "3. Dados da solicitação: Acesso de Viaturas Brigada de incêndio – Exigidos?",
+      "required": false
+    },
+    {
+      "name": "field_031",
+      "type": "string",
+      "label": "Materiais acabamento revestimento – Exigidos?",
+      "description": "3. Dados da solicitação: Materiais acabamento revestimento – Exigidos?",
+      "required": false
+    },
+    {
+      "name": "field_032",
+      "type": "string",
+      "label": "Materiais acabamento revestimento Alarme e detecção incêndio – Exigidos?",
+      "description": "3. Dados da solicitação: Materiais acabamento revestimento Alarme e detecção incêndio – Exigidos?",
+      "required": false
+    },
+    {
+      "name": "field_033",
+      "type": "string",
+      "label": "Detecção automática de incêndio – Exigidos?",
+      "description": "3. Dados da solicitação: Detecção automática de incêndio – Exigidos?",
+      "required": false
+    },
+    {
+      "name": "field_034",
+      "type": "string",
+      "label": "Detecção automática de incêndio Extintores – Exigidos?",
+      "description": "3. Dados da solicitação: Detecção automática de incêndio Extintores – Exigidos?",
+      "required": false
+    },
+    {
+      "name": "field_035",
+      "type": "string",
+      "label": "Gás combustível – Exigidos?",
+      "description": "3. Dados da solicitação: Gás combustível – Exigidos?",
+      "required": false
+    },
+    {
+      "name": "field_036",
+      "type": "string",
+      "label": "Gás combustível Hidráulico preventivo – Exigidos?",
+      "description": "3. Dados da solicitação: Gás combustível Hidráulico preventivo – Exigidos?",
+      "required": false
+    },
+    {
+      "name": "field_037",
+      "type": "string",
+      "label": "Iluminação de Emergência – Exigidos?",
+      "description": "3. Dados da solicitação: Iluminação de Emergência – Exigidos?",
+      "required": false
+    },
+    {
+      "name": "field_038",
+      "type": "string",
+      "label": "Iluminação de Emergência Instalações elétricas – Exigidos?",
+      "description": "3. Dados da solicitação: Iluminação de Emergência Instalações elétricas – Exigidos?",
+      "required": false
+    },
+    {
+      "name": "field_039",
+      "type": "string",
+      "label": "Plano de emergência – Exigidos?",
+      "description": "3. Dados da solicitação: Plano de emergência – Exigidos?",
+      "required": false
+    },
+    {
+      "name": "field_040",
+      "type": "string",
+      "label": "Plano de emergência Sinalização abandono de local – Exigidos?",
+      "description": "3. Dados da solicitação: Plano de emergência Sinalização abandono de local – Exigidos?",
+      "required": false
+    },
+    {
+      "name": "field_041",
+      "type": "string",
+      "label": "Proteção estrutural contra incêndio – Exigidos?",
+      "description": "3. Dados da solicitação: Proteção estrutural contra incêndio – Exigidos?",
+      "required": false
+    },
+    {
+      "name": "field_042",
+      "type": "string",
+      "label": "Proteção estrutural contra incêndio Saídas de emergência – Exigidos?",
+      "description": "3. Dados da solicitação: Proteção estrutural contra incêndio Saídas de emergência – Exigidos?",
+      "required": false
+    },
+    {
+      "name": "field_043",
+      "type": "string",
+      "label": "Outros – Exigidos?",
+      "description": "3. Dados da solicitação: Outros – Exigidos?",
+      "required": false
+    },
+    {
+      "name": "field_044",
+      "type": "string",
+      "label": "Outros Outros – Exigidos?",
+      "description": "3. Dados da solicitação: Outros Outros – Exigidos?",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,1032 @@
+{
+  "fields": [
+    {
+      "name": "field_001",
+      "type": "string",
+      "label": "Logradouro público",
+      "description": "Logradouro público",
+      "required": false,
+      "projectKey": "property_street"
+    },
+    {
+      "name": "field_002",
+      "type": "string",
+      "label": "Nº",
+      "description": "Nº",
+      "required": false,
+      "projectKey": "property_number"
+    },
+    {
+      "name": "field_003",
+      "type": "string",
+      "label": "Complemento",
+      "description": "Complemento",
+      "required": false,
+      "projectKey": "property_complement"
+    },
+    {
+      "name": "field_004",
+      "type": "string",
+      "label": "Bairro",
+      "description": "Bairro",
+      "required": false,
+      "projectKey": "property_district"
+    },
+    {
+      "name": "field_005",
+      "type": "string",
+      "label": "Município",
+      "description": "Município",
+      "required": false,
+      "projectKey": "property_city"
+    },
+    {
+      "name": "field_006",
+      "type": "string",
+      "label": "RE",
+      "description": "RE",
+      "required": false,
+      "projectKey": "property_re"
+    },
+    {
+      "name": "field_007",
+      "type": "string",
+      "label": "Responsável pelo imóvel",
+      "description": "Responsável pelo imóvel",
+      "required": false,
+      "projectKey": "owner_name"
+    },
+    {
+      "name": "field_008",
+      "type": "string",
+      "label": "e-mail",
+      "description": "e-mail",
+      "required": false,
+      "projectKey": "owner_email"
+    },
+    {
+      "name": "field_009",
+      "type": "string",
+      "label": "Telefone",
+      "description": "Telefone",
+      "required": false,
+      "projectKey": "owner_phone"
+    },
+    {
+      "name": "field_010",
+      "type": "string",
+      "label": "Responsável Técnico",
+      "description": "Responsável Técnico",
+      "required": false,
+      "projectKey": "technical_name"
+    },
+    {
+      "name": "field_011",
+      "type": "string",
+      "label": "Telefone",
+      "description": "Telefone",
+      "required": false,
+      "projectKey": "technical_phone"
+    },
+    {
+      "name": "field_012",
+      "type": "string",
+      "label": "e-mail",
+      "description": "e-mail",
+      "required": false,
+      "projectKey": "technical_email"
+    },
+    {
+      "name": "field_013",
+      "type": "choice",
+      "label": "Projeto Instalação em conformidade com o projeto? Sim ( Não",
+      "description": "Projeto Instalação em conformidade com o projeto? Sim ( Não (",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_013_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_013_2"
+        }
+      ]
+    },
+    {
+      "name": "field_014",
+      "type": "choice",
+      "label": "Equipamentos usados correspondem aos especificados no projeto? Sim ( Não",
+      "description": "Equipamentos usados correspondem aos especificados no projeto? Sim ( Não (",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_014_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_014_2"
+        }
+      ]
+    },
+    {
+      "name": "field_015",
+      "type": "string",
+      "label": "Se não, explicar divergências",
+      "description": "Se não, explicar divergências",
+      "required": false
+    },
+    {
+      "name": "field_016",
+      "type": "choice",
+      "label": "Instruções O responsável pelo uso dos equipamentos de combate a incêndios foi…",
+      "description": "Instruções O responsável pelo uso dos equipamentos de combate a incêndios foi instruído quanto à localização de válvulas de controle e sobre cuidados e manutenção dos novos equipamentos? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_016_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_016_2"
+        }
+      ]
+    },
+    {
+      "name": "field_017",
+      "type": "choice",
+      "label": "1. Folhas de dados dos componentes do sistema Sim ( Não",
+      "description": "1. Folhas de dados dos componentes do sistema: 1. Folhas de dados dos componentes do sistema Sim ( Não (",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_017_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_017_2"
+        }
+      ]
+    },
+    {
+      "name": "field_018",
+      "type": "choice",
+      "label": "2. Instruções de operação, cuidados e manutenção Sim ( Não",
+      "description": "2. Instruções de operação, cuidados e manutenção: 2. Instruções de operação, cuidados e manutenção Sim ( Não (",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_018_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_018_2"
+        }
+      ]
+    },
+    {
+      "name": "field_019",
+      "type": "string",
+      "label": "Localização e quantidade de bicos sobressalentes",
+      "description": "2. Instruções de operação, cuidados e manutenção: Localização e quantidade de bicos sobressalentes",
+      "required": false
+    },
+    {
+      "name": "field_020",
+      "type": "string",
+      "label": "Tamanho do orifício (linha 20)",
+      "description": "2. Instruções de operação, cuidados e manutenção: Tamanho do orifício (linha 20)",
+      "required": false
+    },
+    {
+      "name": "field_021",
+      "type": "string",
+      "label": "Temperatura de operação (linha 20)",
+      "description": "2. Instruções de operação, cuidados e manutenção: Temperatura de operação (linha 20)",
+      "required": false
+    },
+    {
+      "name": "field_022",
+      "type": "string",
+      "label": "Tamanho do orifício (linha 21)",
+      "description": "2. Instruções de operação, cuidados e manutenção: Tamanho do orifício (linha 21)",
+      "required": false
+    },
+    {
+      "name": "field_023",
+      "type": "string",
+      "label": "Temperatura de operação (linha 21)",
+      "description": "2. Instruções de operação, cuidados e manutenção: Temperatura de operação (linha 21)",
+      "required": false
+    },
+    {
+      "name": "field_024",
+      "type": "string",
+      "label": "Tubos e conexões Tipo de tubo – Modelo",
+      "description": "2. Instruções de operação, cuidados e manutenção: Tubos e conexões Tipo de tubo – Modelo",
+      "required": false
+    },
+    {
+      "name": "field_025",
+      "type": "string",
+      "label": "Tipo de conexão – Modelo",
+      "description": "2. Instruções de operação, cuidados e manutenção: Tipo de conexão – Modelo",
+      "required": false
+    },
+    {
+      "name": "field_026",
+      "type": "boolean",
+      "label": "Chave de fluxo",
+      "description": "2. Instruções de operação, cuidados e manutenção: Chave de fluxo",
+      "mark": true
+    },
+    {
+      "name": "field_027",
+      "type": "boolean",
+      "label": "Outros",
+      "description": "2. Instruções de operação, cuidados e manutenção: Outros",
+      "mark": true
+    },
+    {
+      "name": "field_028",
+      "type": "boolean",
+      "label": "Outros",
+      "description": "2. Instruções de operação, cuidados e manutenção: Gongo ( )Chave de fluxo ( ) Outros",
+      "mark": true
+    },
+    {
+      "name": "field_029",
+      "type": "string",
+      "label": "Marca (linha 26)",
+      "description": "2. Instruções de operação, cuidados e manutenção: Marca (linha 26)",
+      "required": false
+    },
+    {
+      "name": "field_030",
+      "type": "string",
+      "label": "Modelo (linha 26)",
+      "description": "2. Instruções de operação, cuidados e manutenção: Modelo (linha 26)",
+      "required": false
+    },
+    {
+      "name": "field_031",
+      "type": "string",
+      "label": "min (linha 26)",
+      "description": "2. Instruções de operação, cuidados e manutenção: min (linha 26)",
+      "required": false
+    },
+    {
+      "name": "field_032",
+      "type": "string",
+      "label": "s (linha 26)",
+      "description": "2. Instruções de operação, cuidados e manutenção: s (linha 26)",
+      "required": false
+    },
+    {
+      "name": "field_033",
+      "type": "boolean",
+      "label": "Pneumático",
+      "description": "2. Instruções de operação, cuidados e manutenção: Pneumático",
+      "mark": true
+    },
+    {
+      "name": "field_034",
+      "type": "boolean",
+      "label": "Elétrico",
+      "description": "2. Instruções de operação, cuidados e manutenção: Elétrico",
+      "mark": true
+    },
+    {
+      "name": "field_035",
+      "type": "boolean",
+      "label": "Hidráulico",
+      "description": "2. Instruções de operação, cuidados e manutenção: Hidráulico",
+      "mark": true
+    },
+    {
+      "name": "field_036",
+      "type": "choice",
+      "label": "Em sistemas de ação prévia, a pressão da tubulação é supervisionada? Sim Não",
+      "description": "2. Instruções de operação, cuidados e manutenção: Em sistemas de ação prévia, a pressão da tubulação é supervisionada? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_036_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_036_2"
+        }
+      ]
+    },
+    {
+      "name": "field_037",
+      "type": "choice",
+      "label": "Sistema de detecção ou linha piloto é supervisionado? Sim Não",
+      "description": "2. Instruções de operação, cuidados e manutenção: Sistema de detecção ou linha piloto é supervisionado? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_037_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_037_2"
+        }
+      ]
+    },
+    {
+      "name": "field_038",
+      "type": "boolean",
+      "label": "remoto",
+      "description": "2. Instruções de operação, cuidados e manutenção: remoto",
+      "mark": true
+    },
+    {
+      "name": "field_039",
+      "type": "boolean",
+      "label": "manual",
+      "description": "2. Instruções de operação, cuidados e manutenção: manual",
+      "mark": true
+    },
+    {
+      "name": "field_040",
+      "type": "boolean",
+      "label": "ambos",
+      "description": "2. Instruções de operação, cuidados e manutenção: ambos",
+      "mark": true
+    },
+    {
+      "name": "field_041",
+      "type": "choice",
+      "label": "Há facilidade de acesso para o teste dos sistemas de detecção ou linhas pilot…",
+      "description": "2. Instruções de operação, cuidados e manutenção: Há facilidade de acesso para o teste dos sistemas de detecção ou linhas piloto? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_041_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_041_2"
+        }
+      ]
+    },
+    {
+      "name": "field_042",
+      "type": "string",
+      "label": "Se não houver, explicar",
+      "description": "2. Instruções de operação, cuidados e manutenção: Se não houver, explicar",
+      "required": false
+    },
+    {
+      "name": "field_043",
+      "type": "string",
+      "label": "Marca e modelo da válvula",
+      "description": "2. Instruções de operação, cuidados e manutenção: Marca e modelo da válvula",
+      "required": false
+    },
+    {
+      "name": "field_044",
+      "type": "choice",
+      "label": "Cada circuito possui alarme de perda de supervisão? Sim Não",
+      "description": "2. Instruções de operação, cuidados e manutenção: Cada circuito possui alarme de perda de supervisão? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_044_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_044_2"
+        }
+      ]
+    },
+    {
+      "name": "field_045",
+      "type": "choice",
+      "label": "Cada circuito opera acionamento de válvula? Sim Não",
+      "description": "2. Instruções de operação, cuidados e manutenção: Cada circuito opera acionamento de válvula? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_045_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_045_2"
+        }
+      ]
+    },
+    {
+      "name": "field_046",
+      "type": "choice",
+      "label": "Ensaios Toda tubulação foi hidrostaticamente ensaiada abar porhoras Sim Não",
+      "description": "2. Instruções de operação, cuidados e manutenção: Ensaios Toda tubulação foi hidrostaticamente ensaiada abar porhoras Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_046_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_046_2"
+        }
+      ]
+    },
+    {
+      "name": "field_047",
+      "type": "choice",
+      "label": "Os equipamentos funcionam adequadamente? Sim Não",
+      "description": "2. Instruções de operação, cuidados e manutenção: Os equipamentos funcionam adequadamente? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_047_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_047_2"
+        }
+      ]
+    },
+    {
+      "name": "field_048",
+      "type": "choice",
+      "label": "Na qualidade de instalador da rede de chuveiros automáticos, é garantido que …",
+      "description": "2. Instruções de operação, cuidados e manutenção: Na qualidade de instalador da rede de chuveiros automáticos, é garantido que não foram empregados aditivos e produtos químicos corrosivos, silicato de sódio ou derivados de silicato de sódio, água salgada ou salmoura, ou outros produtos químicos para ensaios dos sistemas ou interrupção de vazamentos. Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_048_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_048_2"
+        }
+      ]
+    },
+    {
+      "name": "field_049",
+      "type": "choice",
+      "label": "Ensaios Tubulação subterrânea e interligação do sistema foram lavadas interna…",
+      "description": "2. Instruções de operação, cuidados e manutenção: Ensaios Tubulação subterrânea e interligação do sistema foram lavadas internamente antes da conexão com a tubulação de chuveiros automáticos Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_049_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_049_2"
+        }
+      ]
+    },
+    {
+      "name": "field_050",
+      "type": "choice",
+      "label": "Lavado pelo instalador da tubulação subterrânea Sim Não",
+      "description": "2. Instruções de operação, cuidados e manutenção: Lavado pelo instalador da tubulação subterrânea Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_050_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_050_2"
+        }
+      ]
+    },
+    {
+      "name": "field_051",
+      "type": "choice",
+      "label": "Se forem usados chumbadores em concreto fixados por tiro, há amostra de ensai…",
+      "description": "2. Instruções de operação, cuidados e manutenção: Se forem usados chumbadores em concreto fixados por tiro, há amostra de ensaios? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_051_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_051_2"
+        }
+      ]
+    },
+    {
+      "name": "field_052",
+      "type": "string",
+      "label": "Nº em uso",
+      "description": "2. Instruções de operação, cuidados e manutenção: Nº em uso",
+      "required": false,
+      "projectKey": "technical_number"
+    },
+    {
+      "name": "field_053",
+      "type": "string",
+      "label": "Localização",
+      "description": "2. Instruções de operação, cuidados e manutenção: Localização",
+      "required": false
+    },
+    {
+      "name": "field_054",
+      "type": "string",
+      "label": "Nº removidos",
+      "description": "2. Instruções de operação, cuidados e manutenção: Nº removidos",
+      "required": false
+    },
+    {
+      "name": "field_055",
+      "type": "choice",
+      "label": "Soldagem Tubulação é soldada? Sim Não",
+      "description": "2. Instruções de operação, cuidados e manutenção: Soldagem Tubulação é soldada? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_055_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_055_2"
+        }
+      ]
+    },
+    {
+      "name": "field_056",
+      "type": "string",
+      "label": "Se sim",
+      "description": "2. Instruções de operação, cuidados e manutenção: Se sim",
+      "required": false
+    },
+    {
+      "name": "field_057",
+      "type": "choice",
+      "label": "Atesta, como instalador dos chuveiros automáticos, que os procedimentos de so…",
+      "description": "2. Instruções de operação, cuidados e manutenção: Atesta, como instalador dos chuveiros automáticos, que os procedimentos de soldagem atendem aos requisitos da norma ASME IX? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_057_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_057_2"
+        }
+      ]
+    },
+    {
+      "name": "field_058",
+      "type": "choice",
+      "label": "Atesta que a soldagem foi feita por profissional com qualificação comprovada?…",
+      "description": "2. Instruções de operação, cuidados e manutenção: Atesta que a soldagem foi feita por profissional com qualificação comprovada? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_058_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_058_2"
+        }
+      ]
+    },
+    {
+      "name": "field_059",
+      "type": "choice",
+      "label": "Atesta que todos os cuidados foram tomados de acordo com o documentado quanto…",
+      "description": "2. Instruções de operação, cuidados e manutenção: Atesta que todos os cuidados foram tomados de acordo com o documentado quanto aos procedimentos de controle de qualidade para assegurar que todos os discos foram retirados, que as rebarbas foram removidas, que as escórias e outros resíduos de soldagem foram removidos, que os diâmetros internos da tubulação não foram alterados? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_059_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_059_2"
+        }
+      ]
+    },
+    {
+      "name": "field_060",
+      "type": "choice",
+      "label": "Cortes (discos) Atesta que há sistema de controle para assegurar que todos os…",
+      "description": "2. Instruções de operação, cuidados e manutenção: Cortes (discos) Atesta que há sistema de controle para assegurar que todos os discos cortados da tubulação foram removidos? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_060_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_060_2"
+        }
+      ]
+    },
+    {
+      "name": "field_061",
+      "type": "choice",
+      "label": "Placa de informações hidráulicas A placa de informações foi instalada? Sim Não",
+      "description": "2. Instruções de operação, cuidados e manutenção: Placa de informações hidráulicas A placa de informações foi instalada? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_061_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_061_2"
+        }
+      ]
+    },
+    {
+      "name": "field_062",
+      "type": "choice",
+      "label": "Conclusão Após a realização e verificação dos resultados dos ensaios, atesto …",
+      "description": "2. Instruções de operação, cuidados e manutenção: Conclusão Após a realização e verificação dos resultados dos ensaios, atesto que o sistema se encontra em condição de operação: Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_062_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_062_2"
+        }
+      ]
+    },
+    {
+      "name": "field_063",
+      "type": "string",
+      "label": "Data em que a instalação foi entregue em funcionamento",
+      "description": "2. Instruções de operação, cuidados e manutenção: Data em que a instalação foi entregue em funcionamento",
+      "required": false
+    },
+    {
+      "name": "field_064",
+      "type": "string",
+      "label": "Nº",
+      "description": "2. Instruções de operação, cuidados e manutenção: Nº",
+      "required": false
+    },
+    {
+      "name": "field_065",
+      "type": "string",
+      "label": "Informações adicionais e anotações",
+      "description": "2. Instruções de operação, cuidados e manutenção: Informações adicionais e anotações",
+      "required": false
+    },
+    {
+      "name": "field_066",
+      "type": "choice",
+      "label": "Projeto Instalação em conformidade com o aceito no projeto? Sim Não",
+      "description": "2. Instruções de operação, cuidados e manutenção: Projeto Instalação em conformidade com o aceito no projeto? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_066_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_066_2"
+        }
+      ]
+    },
+    {
+      "name": "field_067",
+      "type": "choice",
+      "label": "Equipamento usado é aprovado? Sim Não",
+      "description": "2. Instruções de operação, cuidados e manutenção: Equipamento usado é aprovado? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_067_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_067_2"
+        }
+      ]
+    },
+    {
+      "name": "field_068",
+      "type": "string",
+      "label": "Se não, explicar divergências",
+      "description": "2. Instruções de operação, cuidados e manutenção: Se não, explicar divergências",
+      "required": false
+    },
+    {
+      "name": "field_069",
+      "type": "choice",
+      "label": "Instruções O responsável pelos equipamentos de combate a incêndios foi instru…",
+      "description": "2. Instruções de operação, cuidados e manutenção: Instruções O responsável pelos equipamentos de combate a incêndios foi instruído quanto à localização de válvulas de controle e sobre cuidados e manutenção dos novos equipamentos? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_069_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_069_2"
+        }
+      ]
+    },
+    {
+      "name": "field_070",
+      "type": "string",
+      "label": "Edificações atendidas pelo sistema",
+      "description": "2. Instruções de operação, cuidados e manutenção: Edificações atendidas pelo sistema",
+      "required": false
+    },
+    {
+      "name": "field_071",
+      "type": "string",
+      "label": "Tipos de tubos e classificação",
+      "description": "2. Instruções de operação, cuidados e manutenção: Tipos de tubos e classificação",
+      "required": false
+    },
+    {
+      "name": "field_072",
+      "type": "string",
+      "label": "Tipo de junta",
+      "description": "2. Instruções de operação, cuidados e manutenção: Tipo de junta",
+      "required": false
+    },
+    {
+      "name": "field_073",
+      "type": "choice",
+      "label": "Juntas e encaixes precisam de grampo de ancoragem, tiras ou outros métodos de…",
+      "description": "2. Instruções de operação, cuidados e manutenção: Juntas e encaixes precisam de grampo de ancoragem, tiras ou outros métodos de acordo com a norma ? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_073_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_073_2"
+        }
+      ]
+    },
+    {
+      "name": "field_074",
+      "type": "choice",
+      "label": "Ensaios de vazão Vazão de nova tubulação não aparente em conformidade com a n…",
+      "description": "2. Instruções de operação, cuidados e manutenção: Ensaios de vazão Vazão de nova tubulação não aparente em conformidade com a normapela (companhia) Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_074_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_074_2"
+        }
+      ]
+    },
+    {
+      "name": "field_075",
+      "type": "boolean",
+      "label": "Rede pública",
+      "description": "2. Instruções de operação, cuidados e manutenção: Rede pública",
+      "mark": true
+    },
+    {
+      "name": "field_076",
+      "type": "boolean",
+      "label": "Reservatório",
+      "description": "2. Instruções de operação, cuidados e manutenção: Reservatório",
+      "mark": true
+    },
+    {
+      "name": "field_077",
+      "type": "boolean",
+      "label": "Bomba de incêndio",
+      "description": "2. Instruções de operação, cuidados e manutenção: Bomba de incêndio",
+      "mark": true
+    },
+    {
+      "name": "field_078",
+      "type": "boolean",
+      "label": "Bocal do hidrante",
+      "description": "2. Instruções de operação, cuidados e manutenção: Bocal do hidrante",
+      "mark": true
+    },
+    {
+      "name": "field_079",
+      "type": "boolean",
+      "label": "Abertura do tubo",
+      "description": "2. Instruções de operação, cuidados e manutenção: Abertura do tubo",
+      "mark": true
+    },
+    {
+      "name": "field_080",
+      "type": "choice",
+      "label": "Direcionamento de fluxo de acordo com a normada (companhia)? Sim Não",
+      "description": "2. Instruções de operação, cuidados e manutenção: Direcionamento de fluxo de acordo com a normada (companhia)? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_080_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_080_2"
+        }
+      ]
+    },
+    {
+      "name": "field_081",
+      "type": "boolean",
+      "label": "Rede pública",
+      "description": "2. Instruções de operação, cuidados e manutenção: Rede pública",
+      "mark": true
+    },
+    {
+      "name": "field_082",
+      "type": "boolean",
+      "label": "Reservatório",
+      "description": "2. Instruções de operação, cuidados e manutenção: Reservatório",
+      "mark": true
+    },
+    {
+      "name": "field_083",
+      "type": "boolean",
+      "label": "Bomba de incêndio",
+      "description": "2. Instruções de operação, cuidados e manutenção: Bomba de incêndio",
+      "mark": true
+    },
+    {
+      "name": "field_084",
+      "type": "boolean",
+      "label": "Conexão em Y ao flange",
+      "description": "2. Instruções de operação, cuidados e manutenção: Conexão em Y ao flange",
+      "mark": true
+    },
+    {
+      "name": "field_085",
+      "type": "boolean",
+      "label": "Abertura do tubo",
+      "description": "2. Instruções de operação, cuidados e manutenção: Abertura do tubo",
+      "mark": true
+    },
+    {
+      "name": "field_086",
+      "type": "choice",
+      "label": "Ensaio hidrostático Toda tubulação foi hidrostaticamente ensaiada abar porhor…",
+      "description": "2. Instruções de operação, cuidados e manutenção: Ensaio hidrostático Toda tubulação foi hidrostaticamente ensaiada abar porhoras Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_086_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_086_2"
+        }
+      ]
+    },
+    {
+      "name": "field_087",
+      "type": "choice",
+      "label": "Conexões Sim Não",
+      "description": "2. Instruções de operação, cuidados e manutenção: Conexões Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_087_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_087_2"
+        }
+      ]
+    },
+    {
+      "name": "field_088",
+      "type": "string",
+      "label": "Números instalados",
+      "description": "2. Instruções de operação, cuidados e manutenção: Números instalados",
+      "required": false
+    },
+    {
+      "name": "field_089",
+      "type": "string",
+      "label": "Tipo e marca",
+      "description": "2. Instruções de operação, cuidados e manutenção: Tipo e marca",
+      "required": false
+    },
+    {
+      "name": "field_090",
+      "type": "choice",
+      "label": "Hidrantes Números instalados: Tipo e marca: Todos operam satisfatoriamente? S…",
+      "description": "2. Instruções de operação, cuidados e manutenção: Hidrantes Números instalados: {{field_088}} Tipo e marca: {{field_089}} Todos operam satisfatoriamente? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Não",
+          "tag": "field_090_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_090_2"
+        }
+      ]
+    },
+    {
+      "name": "field_091",
+      "type": "choice",
+      "label": "Válvula de controle Válvulas de controle totalmente abertas? Sim Não",
+      "description": "2. Instruções de operação, cuidados e manutenção: Válvula de controle Válvulas de controle totalmente abertas? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_091_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_091_2"
+        }
+      ]
+    },
+    {
+      "name": "field_092",
+      "type": "choice",
+      "label": "Conexões de mangueiras intercambiáveis com as do Corpo de Bombeiros? Sim Não",
+      "description": "2. Instruções de operação, cuidados e manutenção: Conexões de mangueiras intercambiáveis com as do Corpo de Bombeiros? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_092_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_092_2"
+        }
+      ]
+    },
+    {
+      "name": "field_093",
+      "type": "string",
+      "label": "Data em que a instalação foi entregue em funcionamento",
+      "description": "2. Instruções de operação, cuidados e manutenção: Data em que a instalação foi entregue em funcionamento",
+      "required": false
+    },
+    {
+      "name": "field_094",
+      "type": "choice",
+      "label": "Conclusão Após a realização e verificação dos resultados dos ensaios, atesto …",
+      "description": "2. Instruções de operação, cuidados e manutenção: Conclusão Após a realização e verificação dos resultados dos ensaios, atesto que o sistema se encontra em condição de operação: Data em que a instalação foi entregue em funcionamento: {{field_093}} Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_094_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_094_2"
+        }
+      ]
+    },
+    {
+      "name": "field_095",
+      "type": "string",
+      "label": "Informações adicionais e anotações",
+      "description": "2. Instruções de operação, cuidados e manutenção: Informações adicionais e anotações",
+      "required": false
+    }
+  ]
+}

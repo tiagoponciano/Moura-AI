@@ -1,5 +1,18 @@
 [
   {
+    "id": "in-1-anexo-c",
+    "name": "IN 1 – Anexo C – Modelo de RPCI",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-1-anexo-c.docx",
+    "schema": "/templates/cbmsc/in-1-anexo-c.schema.json",
+    "cbmsc": {
+      "normative": 1,
+      "annex": "C",
+      "sourceTextHash": "1937c158d551a29f404b684885068b11102b8fa7def995f1a95cb912e9dec2c5",
+      "reviewed": false
+    }
+  },
+  {
     "id": "in-1-anexo-d",
     "name": "IN 1 – Anexo D – Consulta técnica",
     "type": "docx",
@@ -8,7 +21,47 @@
     "cbmsc": {
       "normative": 1,
       "annex": "D",
-      "sourceTextHash": "9172214547d006a6b995b7713cda91ede6e1fc4dbf62df609f327e419c871da3"
+      "sourceTextHash": "9172214547d006a6b995b7713cda91ede6e1fc4dbf62df609f327e419c871da3",
+      "reviewed": true
+    }
+  },
+  {
+    "id": "in-1-anexo-e",
+    "name": "IN 1 – Anexo E – Formulário para requerimento técnico",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-1-anexo-e.docx",
+    "schema": "/templates/cbmsc/in-1-anexo-e.schema.json",
+    "cbmsc": {
+      "normative": 1,
+      "annex": "E",
+      "sourceTextHash": "357e3406b61ed9153c4cb1d4d0470e1561d79635665d25198f51e7432a587e5a",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-1-anexo-f",
+    "name": "IN 1 – Anexo F – Formulário para recurso técnico",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-1-anexo-f.docx",
+    "schema": "/templates/cbmsc/in-1-anexo-f.schema.json",
+    "cbmsc": {
+      "normative": 1,
+      "annex": "F",
+      "sourceTextHash": "6834083a9625cf20865aa4e0739e201e84d8fc514b1b13eeb98c615dbcfde618",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-1-anexo-g",
+    "name": "IN 1 – Anexo G – Declaração e Termo de Responsabilidade (responsável pelo imóvel)",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-1-anexo-g.docx",
+    "schema": "/templates/cbmsc/in-1-anexo-g.schema.json",
+    "cbmsc": {
+      "normative": 1,
+      "annex": "G",
+      "sourceTextHash": "8307c5cab3cbf5abe09cbb77636139d97cf332df94d3055f19eed8150bf8f384",
+      "reviewed": false
     }
   },
   {
@@ -20,7 +73,294 @@
     "cbmsc": {
       "normative": 1,
       "annex": "H",
-      "sourceTextHash": "56bea8250cdf7d32a4156d0ebe46700a16b028a812e7b0fbd9ed9b7f98d95d06"
+      "sourceTextHash": "56bea8250cdf7d32a4156d0ebe46700a16b028a812e7b0fbd9ed9b7f98d95d06",
+      "reviewed": true
+    }
+  },
+  {
+    "id": "in-1-anexo-i",
+    "name": "IN 1 – Anexo I – Relatório de conformidade e termo de responsabilidade",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-1-anexo-i.docx",
+    "schema": "/templates/cbmsc/in-1-anexo-i.schema.json",
+    "cbmsc": {
+      "normative": 1,
+      "annex": "I",
+      "sourceTextHash": "2474ff473c2000e29b3889d4b25deff824ef740aafe18d5863a93c99eba6ecd3",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-1-anexo-j",
+    "name": "IN 1 – Anexo J – Termo de entrega do imóvel",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-1-anexo-j.docx",
+    "schema": "/templates/cbmsc/in-1-anexo-j.schema.json",
+    "cbmsc": {
+      "normative": 1,
+      "annex": "J",
+      "sourceTextHash": "351e8ca2c703e8bcb7ea392e448e804177eb4156a8505974e787853654b21d24",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-1-anexo-k",
+    "name": "IN 1 – Anexo K – Termo de retirada de PPCI",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-1-anexo-k.docx",
+    "schema": "/templates/cbmsc/in-1-anexo-k.schema.json",
+    "cbmsc": {
+      "normative": 1,
+      "annex": "K",
+      "sourceTextHash": "46438e276d371a89dd9352834ad58aa3acd3cbfda2f36b1a09da9fd2414a0f40",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-2-anexo-j",
+    "name": "IN 2 – Anexo J – Formulário de Recurso",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-2-anexo-j.docx",
+    "schema": "/templates/cbmsc/in-2-anexo-j.schema.json",
+    "cbmsc": {
+      "normative": 2,
+      "annex": "J",
+      "sourceTextHash": "3399c4c8aff8cbc5b6c5c6d8d86d89ae469a0f88a972add8997e558e6d26519f",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-2-anexo-k",
+    "name": "IN 2 – Anexo K – Ressarcimento de multa (pessoa física)",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-2-anexo-k.docx",
+    "schema": "/templates/cbmsc/in-2-anexo-k.schema.json",
+    "cbmsc": {
+      "normative": 2,
+      "annex": "K",
+      "sourceTextHash": "dc8cf7856f7e7f18670c30a2bdef86840d19420c19a3f1c6a27205ee6ef2eab3",
+      "reviewed": true
+    }
+  },
+  {
+    "id": "in-2-anexo-l",
+    "name": "IN 2 – Anexo L – Ressarcimento de multa (pessoa jurídica)",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-2-anexo-l.docx",
+    "schema": "/templates/cbmsc/in-2-anexo-l.schema.json",
+    "cbmsc": {
+      "normative": 2,
+      "annex": "L",
+      "sourceTextHash": "9a7af38676faff2fdda2736dfd4d52cbca4caaf6f4544179cd46183a168d48eb",
+      "reviewed": true
+    }
+  },
+  {
+    "id": "in-7-anexo-c",
+    "name": "IN 7 – Anexo C – Relatório de Comissionamento do SHP",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-7-anexo-c.docx",
+    "schema": "/templates/cbmsc/in-7-anexo-c.schema.json",
+    "cbmsc": {
+      "normative": 7,
+      "annex": "C",
+      "sourceTextHash": "bf4fc367864951ff2fc6423f6e4c0cb1d7f3b93d1c36bcda6647523bdccf45ad",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-9-anexo-e",
+    "name": "IN 9 – Anexo E – Relatório de Comissionamento do Elevador de Emergência",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-9-anexo-e.docx",
+    "schema": "/templates/cbmsc/in-9-anexo-e.schema.json",
+    "cbmsc": {
+      "normative": 9,
+      "annex": "E",
+      "sourceTextHash": "b6b4a6ea21a7f04318d2a4c16322e4a01ce77f0ef6760e6f03ccf6be855012b8",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-10-anexo-b",
+    "name": "IN 10 – Anexo B – Relatório de Apresentação do Sistema de Controle de Fumaça",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-10-anexo-b.docx",
+    "schema": "/templates/cbmsc/in-10-anexo-b.schema.json",
+    "cbmsc": {
+      "normative": 10,
+      "annex": "B",
+      "sourceTextHash": "e29b5c78af225695da6408d14c2dec635acecf29b03de2f5bf1503917e56c068",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-10-anexo-c",
+    "name": "IN 10 – Anexo C – Relatório de Inspeção do Sistema de Controle de Fumaça",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-10-anexo-c.docx",
+    "schema": "/templates/cbmsc/in-10-anexo-c.schema.json",
+    "cbmsc": {
+      "normative": 10,
+      "annex": "C",
+      "sourceTextHash": "ca0133ba12d6c9eb892487e6f4ed6abbc3cd921f4ebfc5dc53e90cabc9a09c02",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-15-anexo-b",
+    "name": "IN 15 – Anexo B – Relatório de Comissionamento do Sistema de Chuveiros Automáticos",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-15-anexo-b.docx",
+    "schema": "/templates/cbmsc/in-15-anexo-b.schema.json",
+    "cbmsc": {
+      "normative": 15,
+      "annex": "B",
+      "sourceTextHash": "cd127f24b9e575871ee31551c2261ae6b2762513dea435d091d25363bb37455f",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-15-anexo-c",
+    "name": "IN 15 – Anexo C – Relatório de Inspeção do Sistema de Chuveiros Automáticos",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-15-anexo-c.docx",
+    "schema": "/templates/cbmsc/in-15-anexo-c.schema.json",
+    "cbmsc": {
+      "normative": 15,
+      "annex": "C",
+      "sourceTextHash": "e638ac36f7fe607231cf8b3093ac0f73f56b7e887118077c3353787dc5ffba8d",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-24-anexo-b",
+    "name": "IN 24 – Anexo B – Evento Pequeno Porte",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-24-anexo-b.docx",
+    "schema": "/templates/cbmsc/in-24-anexo-b.schema.json",
+    "cbmsc": {
+      "normative": 24,
+      "annex": "B",
+      "sourceTextHash": "46833003354baa635065832c0e74167fb2f92287928442d95a864e1137c4e729",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-24-anexo-c",
+    "name": "IN 24 – Anexo C – Evento Médio Porte",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-24-anexo-c.docx",
+    "schema": "/templates/cbmsc/in-24-anexo-c.schema.json",
+    "cbmsc": {
+      "normative": 24,
+      "annex": "C",
+      "sourceTextHash": "a95b90a5e5d97fd279144df763fce28e1917823ba329cc57662e4503529c8fac",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-24-anexo-d",
+    "name": "IN 24 – Anexo D – Evento Grande Porte",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-24-anexo-d.docx",
+    "schema": "/templates/cbmsc/in-24-anexo-d.schema.json",
+    "cbmsc": {
+      "normative": 24,
+      "annex": "D",
+      "sourceTextHash": "5a6db91d67f01e0b6c6f8ff261b90c2185d330d451f21b65854ea2bf9e8cdb87",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-24-anexo-e",
+    "name": "IN 24 – Anexo E – Evento Grande Porte - Laudo Comissionamento",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-24-anexo-e.docx",
+    "schema": "/templates/cbmsc/in-24-anexo-e.schema.json",
+    "cbmsc": {
+      "normative": 24,
+      "annex": "E",
+      "sourceTextHash": "aeb61804e3ec75ca86bbf0f7bd66903079eab8ab4276e675d6d3728b749f52df",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-27-anexo-a",
+    "name": "IN 27 – Anexo A – Modelo de Requerimento",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-27-anexo-a.docx",
+    "schema": "/templates/cbmsc/in-27-anexo-a.schema.json",
+    "cbmsc": {
+      "normative": 27,
+      "annex": "A",
+      "sourceTextHash": "4e1a1d7ac0dec2413bc90e289d7bd88510e7721f86dc84b6453f6426c96d9d67",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-27-anexo-b",
+    "name": "IN 27 – Anexo B – Modelo de Plano de Segurança",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-27-anexo-b.docx",
+    "schema": "/templates/cbmsc/in-27-anexo-b.schema.json",
+    "cbmsc": {
+      "normative": 27,
+      "annex": "B",
+      "sourceTextHash": "de38bebbbbbd170e5bef13e682add61fad11604017c02ad765087c11d1a255b3",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-27-anexo-c",
+    "name": "IN 27 – Anexo C – Sugestão de modelo de Croqui",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-27-anexo-c.docx",
+    "schema": "/templates/cbmsc/in-27-anexo-c.schema.json",
+    "cbmsc": {
+      "normative": 27,
+      "annex": "C",
+      "sourceTextHash": "6797a4538333de65db1af646c442b21fe6393008019c9c0b6bd9b04bbe7a9ef7",
+      "reviewed": true
+    }
+  },
+  {
+    "id": "in-28-anexo-c",
+    "name": "IN 28 – Anexo C – Modelo de Plano de Implementação de Brigada de Incêndio (PIBI)",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-28-anexo-c.docx",
+    "schema": "/templates/cbmsc/in-28-anexo-c.schema.json",
+    "cbmsc": {
+      "normative": 28,
+      "annex": "C",
+      "sourceTextHash": "fbaa08484a8f5f1a59060b2f12d79866a20683c2984ed4edfbc17e22f95eaf90",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-28-anexo-e",
+    "name": "IN 28 – Anexo E – Relatório das atividades desenvolvidas pelas empresas de formação de Brigadistas",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-28-anexo-e.docx",
+    "schema": "/templates/cbmsc/in-28-anexo-e.schema.json",
+    "cbmsc": {
+      "normative": 28,
+      "annex": "E",
+      "sourceTextHash": "f31fb64e46d8d8e4a2e6009e91f23cbd21773f1e68395d52f01a07a418e99d1a",
+      "reviewed": false
+    }
+  },
+  {
+    "id": "in-28-anexo-f",
+    "name": "IN 28 – Anexo F – Relatório das atividades desenvolvidas pelas empresas de prestação de serviço de Brigadistas",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-28-anexo-f.docx",
+    "schema": "/templates/cbmsc/in-28-anexo-f.schema.json",
+    "cbmsc": {
+      "normative": 28,
+      "annex": "F",
+      "sourceTextHash": "b85aa405eeb6c35d2a3e7dc95afbec6512749b33bca0b3e9787d00a755b8bee0",
+      "reviewed": false
     }
   }
 ]

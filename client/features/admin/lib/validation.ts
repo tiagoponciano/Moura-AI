@@ -73,5 +73,12 @@ export const formsSaveSchema = z.strictObject({
   forms: z.array(formDraftSchema).min(1).max(50),
 });
 
-/** Body of `PATCH /api/admin/forms/:docId`. */
-export const formActiveSchema = z.strictObject({ active: z.boolean() });
+/** Body of `PATCH /api/admin/forms/:docId`: any of a form's fields. */
+export const formUpdateSchema = formDraftSchema
+  .partial()
+  .extend({ active: z.boolean().optional() })
+  .refine((body) => Object.keys(body).length > 0, {
+    message: "Send at least one field",
+  });
+
+export type FormChange = z.infer<typeof formUpdateSchema>;

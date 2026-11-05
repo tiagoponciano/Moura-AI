@@ -20,7 +20,7 @@ Core principle of Documentos: **the LLM never writes the document.** It only ext
 - Documents are rendered in the browser with `docxtemplater` + `pizzip` and downloaded with `file-saver`.
 - Code, identifiers, routes, file names and docs are in English; UI copy and field labels are in Portuguese.
 
-Feature details: [`document-filling.md`](client/features/documents/docs/document-filling.md), [`building-classification.md`](client/features/classification/docs/building-classification.md), [`admin-console.md`](client/features/admin/docs/admin-console.md). App-wide: [`app-shell.md`](client/docs/app-shell.md), [`theming.md`](client/docs/theming.md), [`authentication.md`](client/docs/authentication.md), [`chat-history.md`](client/docs/chat-history.md), [`attachments.md`](client/docs/attachments.md), [`llm-configuration.md`](client/docs/llm-configuration.md), [`cbmsc-forms-catalog.md`](client/docs/cbmsc-forms-catalog.md).
+Feature details: [`document-filling.md`](client/features/documents/docs/document-filling.md), [`cbmsc-form-templates.md`](client/features/documents/docs/cbmsc-form-templates.md), [`building-classification.md`](client/features/classification/docs/building-classification.md), [`admin-console.md`](client/features/admin/docs/admin-console.md). App-wide: [`app-shell.md`](client/docs/app-shell.md), [`theming.md`](client/docs/theming.md), [`authentication.md`](client/docs/authentication.md), [`chat-history.md`](client/docs/chat-history.md), [`attachments.md`](client/docs/attachments.md), [`llm-configuration.md`](client/docs/llm-configuration.md), [`cbmsc-forms-catalog.md`](client/docs/cbmsc-forms-catalog.md).
 
 ### Folder layout
 
@@ -106,14 +106,15 @@ With the Supabase variables empty the app runs without login or persistence, and
 
 Other scripts:
 
-| Command                    | Where             | What it does                                               |
-| -------------------------- | ----------------- | ---------------------------------------------------------- |
-| `pnpm run build`           | root              | Production build of the client                             |
-| `pnpm run lint`            | root              | ESLint on the client                                       |
-| `pnpm run test`            | root or `client/` | Vitest, once (`pnpm run test:watch` in `client/` to watch) |
-| `pnpm run format`          | `client/`         | Formats the code with Prettier (default config)            |
-| `pnpm run format:check`    | `client/`         | Fails if any file is not formatted                         |
-| `pnpm run create-template` | `client/`         | Regenerates `public/templates/cbmsc/example.docx`          |
+| Command                            | Where             | What it does                                               |
+| ---------------------------------- | ----------------- | ---------------------------------------------------------- |
+| `pnpm run build`                   | root              | Production build of the client                             |
+| `pnpm run lint`                    | root              | ESLint on the client                                       |
+| `pnpm run test`                    | root or `client/` | Vitest, once (`pnpm run test:watch` in `client/` to watch) |
+| `pnpm run format`                  | `client/`         | Formats the code with Prettier (default config)            |
+| `pnpm run format:check`            | `client/`         | Fails if any file is not formatted                         |
+| `pnpm run create-template`         | `client/`         | Regenerates `public/templates/cbmsc/example.docx`          |
+| `pnpm run prepare-cbmsc-templates` | `client/`         | Regenerates the tagged copies of the official CBMSC forms  |
 
 ## Adding a new template
 

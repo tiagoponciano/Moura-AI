@@ -1,26 +1,30 @@
 "use client";
 
-import { Cpu, Globe, Users } from "lucide-react";
+import { Cpu, FileText, Globe, Users } from "lucide-react";
 import { useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs";
 import { findCatalogProvider } from "@/lib/llm/catalog";
+import { useAdminForms } from "../hooks/use-admin-forms";
 import { useAdminSettings } from "../hooks/use-admin-settings";
 import { useAdminUsers } from "../hooks/use-admin-users";
+import { formsSummary } from "../lib/forms";
 import { getSetupProblem, summarizeSections } from "../lib/sections";
 import { countByStatus } from "../lib/users";
 import { AccessPanel } from "./access-panel";
+import { FormsSection } from "./forms-section";
 import { ModelPanel } from "./model-panel";
 import { SectionTab } from "./section-tab";
 import { SetupBanner } from "./setup-banner";
 import { UsersSection } from "./users-section";
 
-type Section = "users" | "model" | "access";
+type Section = "users" | "model" | "access" | "forms";
 
-/** Setup banner, three section cards with their current state, and one section at a time. */
+/** Setup banner, four section cards with their current state, and one section at a time. */
 export function AdminConsole() {
   const users = useAdminUsers();
   const settings = useAdminSettings();
+  const forms = useAdminForms();
   const [section, setSection] = useState<Section>("users");
 
   const summaries = summarizeSections(users.data?.users, settings.data);
@@ -78,6 +82,12 @@ export function AdminConsole() {
             label="Acesso"
             summary={summaries.access}
           />
+          <SectionTab
+            value="forms"
+            icon={FileText}
+            label="Formulários CBMSC"
+            summary={formsSummary(forms.forms)}
+          />
         </TabsList>
 
         <TabsContent value="users" className="flex flex-col gap-3">
@@ -111,6 +121,10 @@ export function AdminConsole() {
           ) : (
             settingsFallback
           )}
+        </TabsContent>
+
+        <TabsContent value="forms">
+          <FormsSection catalog={forms} />
         </TabsContent>
       </Tabs>
     </div>

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   domainSchema,
+  formDraftSchema,
   providerKeySchema,
   settingsUpdateSchema,
   userUpdateSchema,
@@ -85,5 +86,32 @@ describe("providerKeySchema", () => {
   it("trims the key and rejects a blank one", () => {
     expect(providerKeySchema.parse({ key: " sk-1 " })).toEqual({ key: "sk-1" });
     expect(providerKeySchema.safeParse({ key: "   " }).success).toBe(false);
+  });
+});
+
+describe("formDraftSchema", () => {
+  const valid = {
+    googleDocId: "1K6DrXe04P4pBnT3zcNB736g_H2_PyUZSXe-_FkTH8qs",
+    normative: 1,
+    annex: " d ",
+    name: " Formulário ",
+  };
+
+  it("trims the name and upper-cases the annex", () => {
+    expect(formDraftSchema.parse(valid)).toMatchObject({
+      annex: "D",
+      name: "Formulário",
+    });
+  });
+
+  it("rejects an annex with digits", () => {
+    expect(formDraftSchema.safeParse({ ...valid, annex: "D1" }).success).toBe(
+      false,
+    );
+  });
+
+  it("rejects IN zero with the on-screen message", () => {
+    const result = formDraftSchema.safeParse({ ...valid, normative: 0 });
+    expect(result.error?.issues[0]?.message).toBe("Informe o número da IN");
   });
 });

@@ -44,3 +44,34 @@ export const settingsUpdateSchema = z
 export const providerKeySchema = z.strictObject({
   key: z.string().trim().min(1).max(500),
 });
+
+/** Body of `POST /api/admin/forms/resolve`. */
+export const formLinkSchema = z.strictObject({
+  url: z.string().trim().min(1, "Cole um link").max(2000),
+});
+
+/** One form to save; messages are shown in the import table. */
+export const formDraftSchema = z.strictObject({
+  googleDocId: z.string().regex(/^[\w-]{20,}$/, "Link do Google Docs inválido"),
+  normative: z
+    .number({ error: "Informe o número da IN" })
+    .int("Informe o número da IN")
+    .positive("Informe o número da IN")
+    .max(999, "Informe o número da IN"),
+  annex: z
+    .string()
+    .trim()
+    .toUpperCase()
+    .regex(/^[A-Z]{1,2}$/, "O anexo deve ter uma ou duas letras"),
+  name: z.string().trim().min(1, "Informe o nome").max(200, "Nome muito longo"),
+});
+
+export type FormDraftInput = z.infer<typeof formDraftSchema>;
+
+/** Body of `POST /api/admin/forms`. */
+export const formsSaveSchema = z.strictObject({
+  forms: z.array(formDraftSchema).min(1).max(50),
+});
+
+/** Body of `PATCH /api/admin/forms/:docId`. */
+export const formActiveSchema = z.strictObject({ active: z.boolean() });

@@ -6,7 +6,8 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
 /**
  * No nonces: they would force every page into dynamic rendering. Inline
  * scripts stay allowed for Next's bootstrap and next-themes; external
- * scripts only from Google's sign-in client. See client/docs/security-headers.md.
+ * scripts only from Google's sign-in client; frames also from Google Docs for
+ * the CBMSC form preview. See client/docs/security-headers.md.
  */
 const contentSecurityPolicy = [
   "default-src 'self'",
@@ -15,7 +16,7 @@ const contentSecurityPolicy = [
   "img-src 'self' blob: data: https://*.googleusercontent.com",
   "font-src 'self'",
   `connect-src 'self' https://accounts.google.com ${supabaseUrl}`.trim(),
-  "frame-src https://accounts.google.com blob:",
+  "frame-src https://accounts.google.com https://docs.google.com blob:",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

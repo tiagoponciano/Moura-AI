@@ -134,6 +134,30 @@ export type Database = {
         >;
         Relationships: [];
       };
+      cbmsc_forms: {
+        Row: {
+          google_doc_id: string;
+          normative: number;
+          annex: string;
+          name: string;
+          active: boolean;
+          created_at: string;
+          updated_at: string;
+          updated_by: string | null;
+        };
+        Insert: {
+          google_doc_id: string;
+          normative: number;
+          annex: string;
+          name: string;
+          active?: boolean;
+          created_at?: string;
+          updated_at?: string;
+          updated_by?: string | null;
+        };
+        Update: Partial<Database["public"]["Tables"]["cbmsc_forms"]["Insert"]>;
+        Relationships: [];
+      };
     };
     Views: { [_ in never]: never };
     Functions: {

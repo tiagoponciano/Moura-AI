@@ -2,11 +2,11 @@
 
 Internal platform for Moura Soluções em Engenharia (fire-prevention projects in Santa Catarina). The home page (`/`) and a sidebar list three modules, each with its own chatbot:
 
-| Module | Route | Status |
-|---|---|---|
-| Documentos | `/documents` | Working — fills CBMSC forms (`.docx`) without touching the layout |
-| Classificação | `/classification` | Preview — lists required fire protection systems from four key questions, using a provisional rule set |
-| Plantas (PDF → DWG) | `/floor-plans` | Preview — PDF upload and preview, chat and result panel in place; the conversion itself is not built yet |
+| Module              | Route             | Status                                                                                                                             |
+| ------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Documentos          | `/documents`      | Working — fills CBMSC forms (`.docx`) without touching the layout, and opens the official CBMSC forms (always the current version) |
+| Classificação       | `/classification` | Preview — lists required fire protection systems from four key questions, using a provisional rule set                             |
+| Plantas (PDF → DWG) | `/floor-plans`    | Preview — PDF upload and preview, chat and result panel in place; the conversion itself is not built yet                           |
 
 Core principle of Documentos: **the LLM never writes the document.** It only extracts data from the conversation into a validated JSON object. Deterministic code (docxtemplater, in the browser) injects that JSON into the original `.docx` template, which stays intact.
 
@@ -20,7 +20,7 @@ Core principle of Documentos: **the LLM never writes the document.** It only ext
 - Documents are rendered in the browser with `docxtemplater` + `pizzip` and downloaded with `file-saver`.
 - Code, identifiers, routes, file names and docs are in English; UI copy and field labels are in Portuguese.
 
-Feature details: [`document-filling.md`](client/features/documents/docs/document-filling.md), [`building-classification.md`](client/features/classification/docs/building-classification.md), [`admin-console.md`](client/features/admin/docs/admin-console.md). App-wide: [`app-shell.md`](client/docs/app-shell.md), [`theming.md`](client/docs/theming.md), [`authentication.md`](client/docs/authentication.md), [`chat-history.md`](client/docs/chat-history.md), [`attachments.md`](client/docs/attachments.md), [`llm-configuration.md`](client/docs/llm-configuration.md).
+Feature details: [`document-filling.md`](client/features/documents/docs/document-filling.md), [`building-classification.md`](client/features/classification/docs/building-classification.md), [`admin-console.md`](client/features/admin/docs/admin-console.md). App-wide: [`app-shell.md`](client/docs/app-shell.md), [`theming.md`](client/docs/theming.md), [`authentication.md`](client/docs/authentication.md), [`chat-history.md`](client/docs/chat-history.md), [`attachments.md`](client/docs/attachments.md), [`llm-configuration.md`](client/docs/llm-configuration.md), [`cbmsc-forms-catalog.md`](client/docs/cbmsc-forms-catalog.md).
 
 ### Folder layout
 
@@ -61,7 +61,8 @@ client/
 │   ├── supabase/                 #   Supabase clients (user and service role) and database types
 │   ├── auth/                     #   gate rules, admin check, sign-out
 │   ├── chat-history/             #   saving and listing chats
-│   └── attachments/              #   upload rules and handlers
+│   ├── attachments/              #   upload rules and handlers
+│   └── cbmsc-forms/              #   official CBMSC forms catalog: links, titles, Google fetches
 ├── hooks/                        # app-wide hooks (use-mobile, use-chat-attachments)
 ├── public/
 │   ├── brand/                    # logo
@@ -91,27 +92,27 @@ pnpm run dev
 
 Sign in as an admin, open "Administração", pick the AI provider and model and save its API key. Then open <http://localhost:3000/documents>, pick "Exemplo – Formulário" and describe the property in the chat.
 
-| Variable | Required | Description |
-|---|---|---|
-| `NEXT_PUBLIC_SUPABASE_URL` | for login and chats | Supabase project URL, e.g. `https://abcdefgh.supabase.co`. Set it together with the anon key to turn on login, saved chats and attachments. |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | for login and chats | Supabase anon (public) key. Safe in the browser; access is enforced by row-level security. |
-| `SUPABASE_SERVICE_ROLE_KEY` | for chats | Supabase service role key. Server-only, never `NEXT_PUBLIC_`. The chats use it to read the provider, model and key saved on `/admin`; without it every chat answers "Nenhum modelo de IA configurado". |
-| `NEXT_PUBLIC_GOOGLE_CLIENT_ID` | with Supabase | Google OAuth web client ID, the same one set in Supabase → Providers → Google. Without it the login page shows no button while the gate stays on. |
-| `GOOGLE_CLIENT_SECRET` | with Supabase | Secret of that same Google client. Server-only, never `NEXT_PUBLIC_`. `/api/auth/google` uses it to trade the popup's code for an ID token; without it the button opens Google's popup but sign-in fails. |
-| `ALLOWED_EMAIL_DOMAIN` | no | Only Google accounts from this domain may sign in, e.g. `mourasengenharia.com`. A domain saved on `/admin` overrides it. Empty in both accepts any account (approval is still required). |
+| Variable                        | Required            | Description                                                                                                                                                                                               |
+| ------------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_SUPABASE_URL`      | for login and chats | Supabase project URL, e.g. `https://abcdefgh.supabase.co`. Set it together with the anon key to turn on login, saved chats and attachments.                                                               |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | for login and chats | Supabase anon (public) key. Safe in the browser; access is enforced by row-level security.                                                                                                                |
+| `SUPABASE_SERVICE_ROLE_KEY`     | for chats           | Supabase service role key. Server-only, never `NEXT_PUBLIC_`. The chats use it to read the provider, model and key saved on `/admin`; without it every chat answers "Nenhum modelo de IA configurado".    |
+| `NEXT_PUBLIC_GOOGLE_CLIENT_ID`  | with Supabase       | Google OAuth web client ID, the same one set in Supabase → Providers → Google. Without it the login page shows no button while the gate stays on.                                                         |
+| `GOOGLE_CLIENT_SECRET`          | with Supabase       | Secret of that same Google client. Server-only, never `NEXT_PUBLIC_`. `/api/auth/google` uses it to trade the popup's code for an ID token; without it the button opens Google's popup but sign-in fails. |
+| `ALLOWED_EMAIL_DOMAIN`          | no                  | Only Google accounts from this domain may sign in, e.g. `mourasengenharia.com`. A domain saved on `/admin` overrides it. Empty in both accepts any account (approval is still required).                  |
 
 With the Supabase variables empty the app runs without login or persistence, and the chats cannot answer: the AI provider, model and API key exist only in the admin console (see [`llm-configuration.md`](client/docs/llm-configuration.md)). To turn them on, follow the Setup section of [`authentication.md`](client/docs/authentication.md): create the project, run the files in `supabase/migrations/` in filename order, configure Google in Supabase Auth, and make the first admin with SQL. Everyone else is approved on `/admin`.
 
 Other scripts:
 
-| Command | Where | What it does |
-|---|---|---|
-| `pnpm run build` | root | Production build of the client |
-| `pnpm run lint` | root | ESLint on the client |
-| `pnpm run test` | root or `client/` | Vitest, once (`pnpm run test:watch` in `client/` to watch) |
-| `pnpm run format` | `client/` | Formats the code with Prettier (default config) |
-| `pnpm run format:check` | `client/` | Fails if any file is not formatted |
-| `pnpm run create-template` | `client/` | Regenerates `public/templates/cbmsc/example.docx` |
+| Command                    | Where             | What it does                                               |
+| -------------------------- | ----------------- | ---------------------------------------------------------- |
+| `pnpm run build`           | root              | Production build of the client                             |
+| `pnpm run lint`            | root              | ESLint on the client                                       |
+| `pnpm run test`            | root or `client/` | Vitest, once (`pnpm run test:watch` in `client/` to watch) |
+| `pnpm run format`          | `client/`         | Formats the code with Prettier (default config)            |
+| `pnpm run format:check`    | `client/`         | Fails if any file is not formatted                         |
+| `pnpm run create-template` | `client/`         | Regenerates `public/templates/cbmsc/example.docx`          |
 
 ## Adding a new template
 
@@ -122,16 +123,28 @@ Other scripts:
    ```json
    {
      "fields": [
-       { "name": "company_name", "type": "string", "description": "Razão social do proprietário do imóvel", "required": true }
+       {
+         "name": "company_name",
+         "type": "string",
+         "description": "Razão social do proprietário do imóvel",
+         "required": true
+       }
      ]
    }
    ```
 
    `name` must match the tag in the `.docx`. Supported `type` values: `string`, `number`, `date` (`DD/MM/AAAA`), `boolean`. The `description` is shown to the LLM and used as the field label, so write it in Portuguese and be specific.
+
 4. Add an entry to `client/public/templates/index.json`:
 
    ```json
-   { "id": "<name>", "name": "<Label shown in the selector>", "type": "docx", "file": "/templates/<group>/<name>.docx", "schema": "/templates/<group>/<name>.schema.json" }
+   {
+     "id": "<name>",
+     "name": "<Label shown in the selector>",
+     "type": "docx",
+     "file": "/templates/<group>/<name>.docx",
+     "schema": "/templates/<group>/<name>.schema.json"
+   }
    ```
 
 No code change or restart is needed; reload `/documents`.

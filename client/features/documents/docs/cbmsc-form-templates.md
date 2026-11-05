@@ -51,7 +51,7 @@ Invariants:
 
 ### The button
 
-`CbmscFormPreview` shows it for every form. Choosing it selects the template, which replaces the gallery and its dialog with the chat and field panel. The dialog is the only way in: `selectableTemplates` leaves official forms out of the gallery and the template switcher. In their chat the title is the form name with a back button to the gallery (`form-chat-title.tsx`), and `chatGuidance` writes the empty state from the required field labels.
+`CbmscFormPreview` shows it for every form. Choosing it selects the template, which replaces the page and its dialog with the chat and field panel. The dialog is the only way in. The chat title has a back button (`form-chat-title.tsx`), and `chatEmptyState` writes the empty state from the required field labels.
 
 | State         | Condition                         | Button                               | Note under the actions                           |
 | ------------- | --------------------------------- | ------------------------------------ | ------------------------------------------------ |

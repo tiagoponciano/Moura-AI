@@ -1,5 +1,9 @@
 import type { ProfileRole, ProfileStatus } from "@/lib/auth/gate";
-import type { CbmscForm, CbmscFormDraft } from "@/lib/cbmsc-forms/types";
+import type {
+  CbmscForm,
+  CbmscFormDraft,
+  SiteCheck,
+} from "@/lib/cbmsc-forms/types";
 import type { LlmProvider } from "@/lib/llm/catalog";
 
 export type AdminUser = {
@@ -47,3 +51,6 @@ export type AdminFormsResponse = { forms: CbmscForm[] };
 
 /** `POST /api/admin/forms/resolve`. */
 export type ResolveFormLinkResponse = { drafts: CbmscFormDraft[] };
+
+/** `GET` and `POST /api/admin/forms/site-check`; `null` before the first check. */
+export type SiteCheckResponse = { check: SiteCheck | null };

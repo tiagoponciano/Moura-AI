@@ -12,9 +12,9 @@ import { GOOGLE_ID_PATTERN, parseGoogleLink } from "@/lib/cbmsc-forms/links";
 import { parseFormTitle } from "@/lib/cbmsc-forms/title";
 import type { AdminFormsResponse, ResolveFormLinkResponse } from "../lib/types";
 import {
-  formActiveSchema,
   formLinkSchema,
   formsSaveSchema,
+  formUpdateSchema,
 } from "../lib/validation";
 import { requireSession, rpcErrorResponse } from "./respond";
 
@@ -114,7 +114,10 @@ export async function handleSaveForms(req: Request): Promise<Response> {
   return new Response(null, { status: 204 });
 }
 
-/** `PATCH /api/admin/forms/:docId` with `{ active }`. */
+/**
+ * `PATCH /api/admin/forms/:docId` with any of `{ googleDocId, normative, annex,
+ * name, active }`. A new Google Doc id must be readable by Google first.
+ */
 export async function handleUpdateForm(
   req: Request,
   { params }: { params: Promise<{ docId: string }> },
@@ -126,14 +129,39 @@ export async function handleUpdateForm(
   if (!GOOGLE_ID_PATTERN.test(docId)) {
     return Response.json({ error: "Form not found" }, { status: 404 });
   }
-  const body = await parseJsonBody(req, formActiveSchema);
+  const body = await parseJsonBody(req, formUpdateSchema);
   if (body.error) return body.error;
+
+  const { googleDocId, ...change } = body.data;
+  if (googleDocId && googleDocId !== docId) {
+    try {
+      await fetchGoogleDocTitle(googleDocId);
+    } catch (cause) {
+      console.error("Failed to read a form link from Google", cause);
+      return Response.json(
+        {
+          error:
+            "Não foi possível ler esse link no Google. Confira se ele é público.",
+        },
+        { status: 502 },
+      );
+    }
+  }
 
   const { data, error } = await session.supabase
     .from("cbmsc_forms")
-    .update({ active: body.data.active })
+    .update({
+      ...change,
+      ...(googleDocId && { google_doc_id: googleDocId }),
+    })
     .eq("google_doc_id", docId)
     .select("google_doc_id");
+  if (error?.code === "23505") {
+    return Response.json(
+      { error: "Esse documento já está em outro formulário do catálogo." },
+      { status: 409 },
+    );
+  }
   if (error) return rpcErrorResponse(error, "Failed to update the form");
   if (!data.length) {
     return Response.json({ error: "Form not found" }, { status: 404 });

@@ -187,4 +187,14 @@ describe("resolveGate", () => {
       }),
     ).toEqual({ type: "redirect", to: "/pending" });
   });
+
+  it("lets the cron route through without a session, and only that path", () => {
+    const anonymous = { email: null, status: null };
+    expect(
+      resolveGate({ ...anonymous, pathname: "/api/cron/cbmsc-forms" }),
+    ).toEqual({ type: "allow" });
+    expect(
+      resolveGate({ ...anonymous, pathname: "/api/cron/other" }).type,
+    ).toBe("deny");
+  });
 });

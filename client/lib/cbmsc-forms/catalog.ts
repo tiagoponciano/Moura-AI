@@ -1,5 +1,5 @@
 import type { Database } from "@/lib/supabase/database.types";
-import type { CbmscForm } from "./types";
+import type { CbmscForm, SiteCheck, SiteForm } from "./types";
 
 type FormKey = Pick<CbmscForm, "normative" | "annex" | "name">;
 
@@ -44,4 +44,13 @@ export const fromFormRow = (row: FormRow): CbmscForm => ({
   annex: row.annex,
   name: row.name,
   active: row.active,
+});
+
+export const fromSiteCheckRow = (
+  row: Database["public"]["Tables"]["cbmsc_site_check"]["Row"],
+): SiteCheck => ({
+  checkedAt: row.checked_at,
+  status: row.status,
+  failures: row.failures,
+  forms: row.forms as SiteForm[],
 });

@@ -6,15 +6,17 @@ import { Switch } from "@/components/ui/switch";
 import { groupByNormative } from "@/lib/cbmsc-forms/catalog";
 import { googleDocUrls } from "@/lib/cbmsc-forms/links";
 import type { CbmscForm } from "@/lib/cbmsc-forms/types";
+import type { FormChange } from "../lib/validation";
+import { FormLinkEditor } from "./form-link-editor";
 
 type FormCatalogProps = {
   forms: CbmscForm[];
   busyId?: string;
-  onSetActive: (id: string, active: boolean) => void;
+  onUpdate: (id: string, change: FormChange) => Promise<boolean>;
 };
 
-/** Every form in the catalog by IN, with its "Ativo" switch. */
-export function FormCatalog({ forms, busyId, onSetActive }: FormCatalogProps) {
+/** Every form in the catalog by IN, with its "Ativo" switch and link editor. */
+export function FormCatalog({ forms, busyId, onUpdate }: FormCatalogProps) {
   return (
     <Card className="[--card-spacing:--spacing(6)]">
       <CardHeader>
@@ -30,7 +32,7 @@ export function FormCatalog({ forms, busyId, onSetActive }: FormCatalogProps) {
               {group.forms.map((form) => (
                 <li
                   key={form.googleDocId}
-                  className="flex items-center gap-3 px-3 py-2 text-sm"
+                  className="flex flex-wrap items-center gap-3 px-3 py-2 text-sm"
                 >
                   <span className="w-16 shrink-0 font-mono text-xs text-muted-foreground">
                     Anexo {form.annex}
@@ -57,9 +59,16 @@ export function FormCatalog({ forms, busyId, onSetActive }: FormCatalogProps) {
                     checked={form.active}
                     disabled={busyId === form.googleDocId}
                     onCheckedChange={(active) =>
-                      onSetActive(form.googleDocId, active)
+                      void onUpdate(form.googleDocId, { active })
                     }
                     aria-label={`Ativo: ${form.name}`}
+                  />
+                  <FormLinkEditor
+                    form={form}
+                    busy={busyId === form.googleDocId}
+                    onSave={(googleDocId) =>
+                      onUpdate(form.googleDocId, { googleDocId })
+                    }
                   />
                 </li>
               ))}

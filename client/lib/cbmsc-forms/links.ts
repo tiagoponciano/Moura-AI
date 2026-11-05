@@ -1,3 +1,7 @@
+/** The CBMSC page whose "Anexos de INs em vigor" section links every form. */
+export const CBMSC_FORMS_PAGE =
+  "https://cbm.sc.gov.br/index.php/sci/instrucoes-normativas";
+
 /** Google Docs and Drive ids: letters, digits, `_` and `-`. */
 export const GOOGLE_ID_PATTERN = /^[\w-]{20,}$/;
 
@@ -26,6 +30,13 @@ export function parseGoogleLink(input: string): GoogleLink | undefined {
   }
   return undefined;
 }
+
+const DRIVE_FILE_LINK = /drive\.google\.com\/file\/d\/([\w-]{20,})/g;
+
+/** Google Drive file ids linked from an HTML page, without repeats. */
+export const extractDriveFileIds = (html: string) => [
+  ...new Set([...html.matchAll(DRIVE_FILE_LINK)].map((match) => match[1])),
+];
 
 /** Public URLs of a Google Doc; each one serves the version current at request time. */
 export function googleDocUrls(id: string) {

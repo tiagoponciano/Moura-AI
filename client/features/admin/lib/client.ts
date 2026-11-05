@@ -5,9 +5,10 @@ import type {
   AdminSettingsResponse,
   AdminUsersResponse,
   ResolveFormLinkResponse,
+  SiteCheckResponse,
   UserChange,
 } from "./types";
-import type { FormDraftInput } from "./validation";
+import type { FormChange, FormDraftInput } from "./validation";
 
 export const fetchUsers = () =>
   requestJson<AdminUsersResponse>("/api/admin/users");
@@ -51,8 +52,16 @@ export const saveForms = (forms: FormDraftInput[]) =>
     body: JSON.stringify({ forms }),
   });
 
-export const setFormActive = (id: string, active: boolean) =>
+export const updateForm = (id: string, change: FormChange) =>
   requestJson<void>(`/api/admin/forms/${id}`, {
     method: "PATCH",
-    body: JSON.stringify({ active }),
+    body: JSON.stringify(change),
+  });
+
+export const fetchSiteCheck = () =>
+  requestJson<SiteCheckResponse>("/api/admin/forms/site-check");
+
+export const runSiteCheck = () =>
+  requestJson<SiteCheckResponse>("/api/admin/forms/site-check", {
+    method: "POST",
   });

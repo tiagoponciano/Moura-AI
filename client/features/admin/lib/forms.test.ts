@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   draftsToSave,
   formsSummary,
+  parseDocLink,
   toEditableDrafts,
   type EditableDraft,
 } from "./forms";
@@ -90,5 +91,20 @@ describe("formsSummary", () => {
 
   it("shows loading before the list arrives", () => {
     expect(formsSummary(undefined)).toBe("Carregando…");
+  });
+});
+
+describe("parseDocLink", () => {
+  it("reads the id of a Google Docs link", () => {
+    expect(parseDocLink(`https://docs.google.com/document/d/${ID}/edit`)).toBe(
+      ID,
+    );
+  });
+
+  it("refuses a Drive file and anything else", () => {
+    expect(
+      parseDocLink(`https://drive.google.com/file/d/${ID}/view`),
+    ).toBeUndefined();
+    expect(parseDocLink("Anexo D")).toBeUndefined();
   });
 });

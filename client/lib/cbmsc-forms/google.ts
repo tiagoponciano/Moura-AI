@@ -1,5 +1,11 @@
 import "server-only";
-import { driveDownloadUrl, googleDocUrls, type GoogleLink } from "./links";
+import {
+  CBMSC_FORMS_PAGE,
+  driveDownloadUrl,
+  extractDriveFileIds,
+  googleDocUrls,
+  type GoogleLink,
+} from "./links";
 import { extractGoogleDocIds } from "./pdf-links";
 import { titleFromContentDisposition } from "./title";
 
@@ -40,6 +46,15 @@ async function fetchDrivePdf(id: string): Promise<Uint8Array> {
     throw new Error(`Drive file ${id} is not a PDF`);
   }
   return bytes;
+}
+
+/** Server-only. The Drive files linked from the CBMSC forms page. */
+export async function fetchCbmscDriveFileIds(): Promise<string[]> {
+  const response = await get(CBMSC_FORMS_PAGE);
+  if (!response.ok) {
+    throw new Error(`The CBMSC page answered ${response.status}`);
+  }
+  return extractDriveFileIds(await response.text());
 }
 
 /** Server-only. The Google Doc itself, or every Google Doc linked from a Drive PDF. */

@@ -68,7 +68,7 @@ export function DocumentWorkspace() {
                 />
               }
               placeholder="Ex.: imóvel da Padaria Silva, Rua X 123, 750 m², comercial, 2 pavimentos"
-              emptyState="Descreva o imóvel e o proprietário. A Moura AI preenche os campos ao lado."
+              emptyState="Descreva os dados do formulário. A Moura AI preenche os campos ao lado."
               className="rounded-none border-0 bg-transparent"
             />
           </div>

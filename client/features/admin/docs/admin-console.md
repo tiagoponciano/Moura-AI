@@ -209,7 +209,7 @@ The domain input has a fixed `@` prefix; "Salvar domínio" is enabled once the t
 
 How the catalog works, including link resolution and its errors, is in `client/docs/cbmsc-forms-catalog.md`. This tab (`components/forms-section.tsx`) shows, top to bottom:
 
-- **Adicionar formulários** (`form-import.tsx`, `useFormImport`): a link field and "Buscar". The result is one row per form with an "Incluir" switch and editable IN, Anexo and Nome. Forms already in the catalog show "Já cadastrado" and start with the switch off. "Salvar N formulários" sends only the rows switched on, after `draftsToSave` (`lib/forms.ts`) validates them; any invalid row blocks the save and is listed as `<name>: <message>`, using the Google Doc id when the name is blank. A successful save clears the rows and the link and shows "N formulários salvos."
+- **Adicionar formulários** (`form-import.tsx`, `useFormImport`): a link field and "Buscar". The result is one row per form with an "Incluir" switch and editable IN, Anexo and Nome. Forms already in the catalog show "Já cadastrado" and start with the switch off. "Salvar N formulários" ("Salvar 1 formulário" for one) sends only the rows switched on, after `draftsToSave` (`lib/forms.ts`) validates them; any invalid row blocks the save and is listed as `<name>: <message>`, using the Google Doc id when the name is blank. A successful save clears the rows and the link and shows "N formulários salvos." ("1 formulário salvo." for one).
 - **Formulários cadastrados** (`form-catalog.tsx`, `useAdminForms`): every form grouped by IN, with an "Abrir" icon link to the Google Doc and an "Ativo" switch. Inactive names are struck through. The switch of the row being saved is disabled.
 
 ## What this does NOT do

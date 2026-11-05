@@ -1,7 +1,7 @@
 /** Name of the LLM tool that writes extracted values into the form. */
 export const FILL_FIELDS_TOOL = "fill_fields";
 
-export type FieldType = "string" | "number" | "date" | "boolean";
+export type FieldType = "string" | "number" | "date" | "boolean" | "choice";
 
 export type TemplateField = {
   name: string;
@@ -15,6 +15,8 @@ export type TemplateField = {
   mark?: boolean;
   /** The project data this field shares; see `project-fields.ts`. */
   projectKey?: string;
+  /** For `choice`: each option and the tag that gets its "X" in the document. */
+  options?: { value: string; tag: string }[];
 };
 
 export type TemplateSchema = {
@@ -28,7 +30,13 @@ export type TemplateEntry = {
   file: string;
   schema: string;
   /** Set on a tagged copy of an official form: which form, and the text it was made from. */
-  cbmsc?: { normative: number; annex: string; sourceTextHash: string };
+  cbmsc?: {
+    normative: number;
+    annex: string;
+    sourceTextHash: string;
+    /** `false` when its fields came from the document's structure, unchecked by hand. */
+    reviewed: boolean;
+  };
 };
 
 export type FieldValue = string | number | boolean;

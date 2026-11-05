@@ -95,9 +95,15 @@ export function toDocumentText(
 ): Record<string, string> {
   const fields = new Map(schema.fields.map((field) => [field.name, field]));
   return Object.fromEntries(
-    Object.entries(values).map(([name, value]) => [
-      name,
-      value === undefined ? "" : formatValue(fields.get(name), value),
-    ]),
+    Object.entries(values).flatMap(([name, value]) => {
+      const field = fields.get(name);
+      if (field?.options) {
+        return field.options.map((option) => [
+          option.tag,
+          option.value === value ? "X" : "",
+        ]);
+      }
+      return [[name, value === undefined ? "" : formatValue(field, value)]];
+    }),
   );
 }

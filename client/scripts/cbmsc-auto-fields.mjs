@@ -178,7 +178,6 @@ function collapseSplitBlanks(paragraph) {
 const OWNER =
   /respons[aá]vel pelo im[oó]vel|solicitante|propriet[aá]rio|autuado/i;
 const TECHNICAL = /respons[aá]vel t[eé]cnico|\bRT\b/i;
-const PROPERTY = /im[oó]vel|edifica|endere[cç]o|logradouro/i;
 
 const PROPERTY_KEYS = [
   [/^(logradouro|endere[cç]o|end)\b/, "street"],

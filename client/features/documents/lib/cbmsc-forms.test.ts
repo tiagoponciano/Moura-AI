@@ -45,7 +45,7 @@ const template: TemplateEntry = {
   type: "docx",
   file: "/x.docx",
   schema: "/x.json",
-  cbmsc: { normative: 1, annex: "D", sourceTextHash: "abc" },
+  cbmsc: { normative: 1, annex: "D", sourceTextHash: "abc", reviewed: true },
 };
 
 describe("findFormTemplate", () => {

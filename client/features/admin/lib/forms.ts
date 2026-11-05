@@ -1,3 +1,4 @@
+import { parseGoogleLink } from "@/lib/cbmsc-forms/links";
 import type { CbmscForm, CbmscFormDraft } from "@/lib/cbmsc-forms/types";
 import { formDraftSchema, type FormDraftInput } from "./validation";
 
@@ -51,4 +52,10 @@ export function formsSummary(forms: CbmscForm[] | undefined): string {
   if (!forms) return "Carregando…";
   const active = forms.filter((form) => form.active).length;
   return active === 1 ? "1 ativo" : `${active} ativos`;
+}
+
+/** The Google Doc id in a pasted link; a Drive file is not a form, so `undefined`. */
+export function parseDocLink(input: string): string | undefined {
+  const link = parseGoogleLink(input);
+  return link?.kind === "doc" ? link.id : undefined;
 }

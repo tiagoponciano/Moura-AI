@@ -41,7 +41,7 @@ export function TemplatePicker({ templates, onSelect }: TemplatePickerProps) {
               </button>
             ))}
             {isSupabaseConfigured() ? (
-              <CbmscFormsCard />
+              <CbmscFormsCard templates={templates} onFill={onSelect} />
             ) : (
               <div className="flex flex-col gap-2.5">
                 <span className="flex aspect-[210/297] w-full items-center justify-center rounded-md border border-dashed px-4 text-center text-xs text-muted-foreground">

@@ -84,7 +84,7 @@ profiles (
 
 ### Gate resolution (`resolveGate`)
 
-0. Path is exactly `/api/auth/google` → allow, whatever the session (`/api/auth/google/x` is gated as usual).
+0. Path is exactly `/api/auth/google` or `/api/cron/cbmsc-forms` → allow, whatever the session (`/api/auth/google/x` is gated as usual). The cron handler checks `CRON_SECRET` itself; see `cbmsc-forms-catalog.md`.
 1. Work out where the user belongs:
    - no session → `/login`;
    - email outside the allowed domain, or `status = 'rejected'` → `/unauthorized`;

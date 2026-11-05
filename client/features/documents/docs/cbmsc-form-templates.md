@@ -4,7 +4,7 @@ How an official CBMSC form becomes fillable by the assistant now: the tagged cop
 
 ## What this is
 
-Official forms have no `{{tags}}`, only `____`, `( )` and empty table cells, so the assistant works from a reviewed copy in `public/templates/cbmsc/` with tags in the blanks. Each copy is an ordinary template in `public/templates/index.json`, with an extra `cbmsc` object naming the form it came from. Every form in the catalog's seed has one. Six have hand-written fields; the others get theirs from the document's structure, so their labels are a best reading of the form and the dialog asks the user to check the result.
+Official forms have no `{{tags}}`, only `____`, `( )` and empty table cells, so the assistant works from a reviewed copy in `public/templates/cbmsc/` with tags in the blanks. Each copy is an ordinary template in `public/templates/index.json`, with an extra `cbmsc` object naming the form it came from. Every form in the catalog's seed has one. Five have hand-written fields; the others get theirs from the document's structure, so their labels are a best reading of the form and the dialog asks the user to check the result.
 
 Invariants:
 

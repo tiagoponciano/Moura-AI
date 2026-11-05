@@ -13,6 +13,7 @@ const templateField = z.strictObject({
   description: z.string().max(500),
   required: z.boolean().optional(),
   mark: z.boolean().optional(),
+  projectKey: z.string().regex(FIELD_NAME).optional(),
 });
 
 /**
@@ -27,4 +28,8 @@ export const documentsChatBody = z.object({
   schema: z.strictObject({
     fields: z.array(templateField).min(1).max(MAX_TEMPLATE_FIELDS),
   }),
+  /** Fields already filled, so the assistant does not ask for them again. */
+  values: z
+    .record(z.string(), z.union([z.string(), z.number(), z.boolean()]))
+    .optional(),
 });

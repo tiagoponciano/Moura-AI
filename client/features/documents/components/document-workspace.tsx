@@ -9,6 +9,8 @@ import {
 } from "@/components/shared/workspace-tabs";
 import { cn } from "@/lib/utils";
 import { useDocumentFilling } from "../hooks/use-document-filling";
+import { chatGuidance, selectableTemplates } from "../lib/templates";
+import { FormChatTitle } from "./form-chat-title";
 import { FormPanel } from "./form-panel";
 import { TemplatePicker } from "./template-picker";
 import { TemplateSelect } from "./template-select";
@@ -61,14 +63,20 @@ export function DocumentWorkspace() {
                 context: { templateId: template.id },
               }}
               title={
-                <TemplateSelect
-                  templates={filling.templates}
-                  value={template.id}
-                  onChange={filling.selectTemplate}
-                />
+                template.cbmsc ? (
+                  <FormChatTitle
+                    name={template.name}
+                    onBack={() => filling.selectTemplate()}
+                  />
+                ) : (
+                  <TemplateSelect
+                    templates={selectableTemplates(filling.templates)}
+                    value={template.id}
+                    onChange={filling.selectTemplate}
+                  />
+                )
               }
-              placeholder="Ex.: imóvel da Padaria Silva, Rua X 123, 750 m², comercial, 2 pavimentos"
-              emptyState="Descreva os dados do formulário. A Moura AI preenche os campos ao lado."
+              {...chatGuidance(template, schema)}
               className="rounded-none border-0 bg-transparent"
             />
           </div>

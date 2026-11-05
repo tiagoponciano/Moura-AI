@@ -58,7 +58,8 @@ export function useDocumentFilling() {
     };
   }, [template]);
 
-  function selectTemplate(id: string) {
+  /** Selects a template; no id goes back to the gallery. */
+  function selectTemplate(id?: string) {
     setSelectedId(id);
     setSchema(undefined);
     setValues({});

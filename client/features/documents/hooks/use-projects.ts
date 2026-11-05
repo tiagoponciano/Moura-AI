@@ -1,8 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { errorMessage } from "@/lib/api/request-json";
-import { createProject, fetchProjects, type Project } from "../lib/projects";
+import type { ProjectData } from "../lib/project-fields";
+import {
+  createProject,
+  fetchProjects,
+  updateProjectData,
+  type Project,
+} from "../lib/projects";
 
 /** The team's projects and the one being worked on; a new project becomes the current one. */
 export function useProjects(enabled: boolean) {
@@ -40,11 +46,24 @@ export function useProjects(enabled: boolean) {
     }
   }
 
+  /** Merges keys into a project, here at once and on the server behind it. */
+  const saveData = useCallback((id: string, data: ProjectData) => {
+    setProjects((current) =>
+      current.map((project) =>
+        project.id === id
+          ? { ...project, data: { ...project.data, ...data } }
+          : project,
+      ),
+    );
+    updateProjectData(id, data).catch((cause) => setError(errorMessage(cause)));
+  }, []);
+
   return {
     projects,
     selected: projects.find((project) => project.id === selectedId),
     select: setSelectedId,
     create,
+    saveData,
     creating,
     error,
   };

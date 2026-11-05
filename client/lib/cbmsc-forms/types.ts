@@ -19,3 +19,20 @@ export type CbmscFormDraft = {
   /** Whether the catalog already has this Google Doc. */
   listed: boolean;
 };
+
+/** A form as the CBMSC site lists it; the title may not follow the pattern. */
+export type SiteForm = {
+  googleDocId: string;
+  normative: number | null;
+  annex: string | null;
+  name: string;
+};
+
+/** The latest reading of the CBMSC forms page. */
+export type SiteCheck = {
+  checkedAt: string;
+  /** `partial`: `failures` Drive files or titles could not be read, so absences prove nothing. */
+  status: "complete" | "partial" | "failed";
+  failures: number;
+  forms: SiteForm[];
+};

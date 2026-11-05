@@ -29,9 +29,10 @@ describe.each(entries)("template $id", (entry) => {
   const schema = JSON.parse(read(entry.schema).toString()) as TemplateSchema;
 
   it("has exactly one field per tag in the document", () => {
-    expect([...tagsOf(entry.file)].sort()).toEqual(
-      schema.fields.map((field) => field.name).sort(),
+    const expected = schema.fields.flatMap((field) =>
+      field.options ? field.options.map((option) => option.tag) : field.name,
     );
+    expect([...tagsOf(entry.file)].sort()).toEqual(expected.sort());
   });
 
   it("ties fields only to keys a project shares, each once", () => {
@@ -61,6 +62,22 @@ describe.each(entries)("template $id", (entry) => {
     const xml = doc.getZip().file("word/document.xml")?.asText() ?? "";
     expect(xml).not.toContain("{{");
   });
+});
+
+it("has a template for every form in the catalog's seed", () => {
+  const sql = readFileSync(
+    join(PUBLIC, "../../supabase/migrations/20261105000000_cbmsc_forms.sql"),
+    "utf8",
+  );
+  const seeded = [...sql.matchAll(/', (\d+), '([A-Z]+)', '/g)].map(
+    (match) => `${match[1]}-${match[2]}`,
+  );
+  expect(seeded).toHaveLength(28);
+  expect(
+    entries
+      .map((entry) => `${entry.cbmsc?.normative}-${entry.cbmsc?.annex}`)
+      .sort(),
+  ).toEqual(seeded.sort());
 });
 
 it("gives each official form at most one template", () => {

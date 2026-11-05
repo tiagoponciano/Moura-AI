@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   domainSchema,
   formDraftSchema,
+  formUpdateSchema,
   providerKeySchema,
   settingsUpdateSchema,
   userUpdateSchema,
@@ -113,5 +114,26 @@ describe("formDraftSchema", () => {
   it("rejects IN zero with the on-screen message", () => {
     const result = formDraftSchema.safeParse({ ...valid, normative: 0 });
     expect(result.error?.issues[0]?.message).toBe("Informe o número da IN");
+  });
+});
+
+describe("formUpdateSchema", () => {
+  it("accepts a single field", () => {
+    expect(formUpdateSchema.safeParse({ active: false }).success).toBe(true);
+    expect(formUpdateSchema.parse({ annex: " e " })).toEqual({ annex: "E" });
+  });
+
+  it("rejects an empty body and unknown fields", () => {
+    expect(formUpdateSchema.safeParse({}).success).toBe(false);
+    expect(formUpdateSchema.safeParse({ created_at: "x" }).success).toBe(false);
+  });
+
+  it("rejects a link in place of a Google Doc id", () => {
+    const result = formUpdateSchema.safeParse({
+      googleDocId: "https://docs.google.com/document/d/x",
+    });
+    expect(result.error?.issues[0]?.message).toBe(
+      "Link do Google Docs inválido",
+    );
   });
 });

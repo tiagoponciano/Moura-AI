@@ -4,13 +4,14 @@ How the list of official CBMSC forms works now: the database catalog, the "Anexo
 
 ## What this is
 
-The CBMSC publishes its forms as public Google Docs, reached from "Anexos de INs em vigor" on `https://cbm.sc.gov.br/index.php/sci/instrucoes-normativas`. The `cbmsc_forms` table keeps one row of metadata per form. Users browse the list in a dialog, and the preview and the download come straight from Google. Admins keep the list current by pasting Google links. Shared code is in `client/lib/cbmsc-forms/`, because both the admin and documents features use it and features cannot import each other.
+The CBMSC publishes its forms as public Google Docs, reached from "Anexos de INs em vigor" on `https://cbm.sc.gov.br/index.php/sci/instrucoes-normativas`. The `cbmsc_forms` table keeps one row of metadata per form. Users browse the list in a dialog, and the preview and the download come straight from Google. Admins keep the list current by pasting Google links, and a daily check of the CBMSC page warns them when the catalog no longer matches it. Shared code is in `client/lib/cbmsc-forms/`, because both the admin and documents features use it and features cannot import each other.
 
 Invariants:
 
-- **The app never stores or proxies a form's file.** The browser loads Google's `/preview` page in an iframe and follows a plain link to Google's `/export?format=docx`, so every view and download is the version the CBMSC has at that moment. The server only contacts Google during an admin import.
+- **The app never stores or proxies a form's file.** The browser loads Google's `/preview` page in an iframe and follows a plain link to Google's `/export?format=docx`, so every view and download is the version the CBMSC has at that moment. The server only contacts Google during an admin import, a link edit or a site check.
 - **The Google Doc id is the form's identity.** It is the primary key and does not change when the CBMSC edits the document. The list itself is the only thing that can go stale.
 - **Only active rows reach users.** Admins hide a form with the "Ativo" switch; there is no delete.
+- **The site check only warns.** It stores what the site listed and never changes `cbmsc_forms`. An admin applies each change.
 
 ## Surface
 
@@ -18,15 +19,18 @@ Invariants:
 
 Errors are `{"error": string}`. `/api/admin/*` is restricted to admins by the proxy (`client/docs/authentication.md`); writes are also refused by RLS.
 
-| Method  | Path                       | Who      | Body         | Success                         | Errors                                                                                            |
-| ------- | -------------------------- | -------- | ------------ | ------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `GET`   | `/api/documents/forms`     | approved | —            | 200 `{ forms }`, active only    | 401, 403 `Access not approved`, 503 `Forms catalog is not configured`, 500 `Failed to load forms` |
-| `GET`   | `/api/admin/forms`         | admin    | —            | 200 `{ forms }`, all            | 401, 403, 503, 500 `Failed to load forms`                                                         |
-| `POST`  | `/api/admin/forms/resolve` | admin    | `{ url }`    | 200 `{ drafts }`; saves nothing | 400, 401, 403, 422, 502, 503, 500 (see Resolving a link)                                          |
-| `POST`  | `/api/admin/forms`         | admin    | `{ forms }`  | 204                             | 400, 401, 403, 503, 500 `Failed to save forms`                                                    |
-| `PATCH` | `/api/admin/forms/:docId`  | admin    | `{ active }` | 204                             | 400, 401, 403, 404 `Form not found`, 503, 500 `Failed to update the form`                         |
+| Method  | Path                          | Who                                                | Body                                                     | Success                                              | Errors                                                                                                      |
+| ------- | ----------------------------- | -------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `GET`   | `/api/documents/forms`        | approved                                           | —                                                        | 200 `{ forms }`, active only                         | 401, 403 `Access not approved`, 503 `Forms catalog is not configured`, 500 `Failed to load forms`           |
+| `GET`   | `/api/admin/forms`            | admin                                              | —                                                        | 200 `{ forms }`, all                                 | 401, 403, 503, 500 `Failed to load forms`                                                                   |
+| `POST`  | `/api/admin/forms/resolve`    | admin                                              | `{ url }`                                                | 200 `{ drafts }`; saves nothing                      | 400, 401, 403, 422, 502, 503, 500 (see Resolving a link)                                                    |
+| `POST`  | `/api/admin/forms`            | admin                                              | `{ forms }`                                              | 204                                                  | 400, 401, 403, 503, 500 `Failed to save forms`                                                              |
+| `PATCH` | `/api/admin/forms/:docId`     | admin                                              | any of `{ googleDocId, normative, annex, name, active }` | 204                                                  | 400, 401, 403, 404 `Form not found`, 409, 502, 503, 500 `Failed to update the form`                         |
+| `GET`   | `/api/admin/forms/site-check` | admin                                              | —                                                        | 200 `{ check }`, `null` before the first check       | 401, 403, 503, 500 `Failed to load the site check`                                                          |
+| `POST`  | `/api/admin/forms/site-check` | admin                                              | —                                                        | 200 `{ check }`                                      | 401, 403, 503, 500 `Failed to save the site check`                                                          |
+| `GET`   | `/api/cron/cbmsc-forms`       | Vercel Cron, `Authorization: Bearer <CRON_SECRET>` | —                                                        | 200 `{ status, failures, forms }` (forms is a count) | 401 `Invalid cron secret`, 503 `CRON_SECRET is not configured` or `The service role is not configured`, 500 |
 
-Both lists are sorted by `compareForms`. `POST /api/admin/forms/resolve` declares `maxDuration = 60`.
+Both lists are sorted by `compareForms`. `POST /api/admin/forms/resolve`, `/api/admin/forms/site-check` and `/api/cron/cbmsc-forms` declare `maxDuration = 60`. The cron route is the one path besides `/api/auth/google` that `resolveGate` lets through without a session, and the only forms route using the service role, because no user exists to read the session of.
 
 ### Database (`supabase/migrations/20261105000000_cbmsc_forms.sql`)
 
@@ -48,16 +52,19 @@ Both lists are sorted by `compareForms`. `POST /api/admin/forms/resolve` declare
 | `Admins add forms`                 | insert    | `authenticated`, `is_admin()`                 |
 | `Admins update forms`              | update    | `authenticated`, `is_admin()`                 |
 
+`cbmsc_site_check` (`supabase/migrations/20261105000100_cbmsc_site_check.sql`) has a single row (`id = true`) with `checked_at`, `status` (`complete`, `partial`, `failed`), `failures` (count of unreadable Drive files and titles) and `forms` (`jsonb`, `SiteForm[]`). Admins can select, insert and update; the cron writes with the service role.
+
 ### Library (`client/lib/cbmsc-forms/`)
 
-| File           | Exports                                                                                                  | Contract                                                                                           |
-| -------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `types.ts`     | `CbmscForm`, `CbmscFormDraft`                                                                            | See Data shapes                                                                                    |
-| `links.ts`     | `GOOGLE_ID_PATTERN`, `GoogleLink`, `parseGoogleLink(input)`, `googleDocUrls(id)`, `driveDownloadUrl(id)` | Recognizes links and builds Google's URLs; `parseGoogleLink` returns `undefined` for anything else |
-| `title.ts`     | `ParsedFormTitle`, `parseFormTitle(title)`, `titleFromContentDisposition(header)`                        | Reads "IN n - Anexo X - name"; file name from a response header                                    |
-| `pdf-links.ts` | `extractGoogleDocIds(pdf)`                                                                               | Unique Google Doc ids linked from a PDF: plain objects first, then Flate streams                   |
-| `catalog.ts`   | `compareForms`, `NormativeGroup`, `groupByNormative`, `formLabel`, `FORM_COLUMNS`, `fromFormRow`         | Ordering, grouping, the "IN 1 · Anexo D" label, row mapping                                        |
-| `google.ts`    | `fetchGoogleDocTitle(id)`, `resolveGoogleDocIds(link)`                                                   | Server-only. Both throw `Error` on any Google failure                                              |
+| File            | Exports                                                                                                                                                   | Contract                                                                                           |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `types.ts`      | `CbmscForm`, `CbmscFormDraft`                                                                                                                             | See Data shapes                                                                                    |
+| `links.ts`      | `GOOGLE_ID_PATTERN`, `GoogleLink`, `parseGoogleLink(input)`, `googleDocUrls(id)`, `driveDownloadUrl(id)`, `CBMSC_FORMS_PAGE`, `extractDriveFileIds(html)` | Recognizes links and builds Google's URLs; `parseGoogleLink` returns `undefined` for anything else |
+| `title.ts`      | `ParsedFormTitle`, `parseFormTitle(title)`, `titleFromContentDisposition(header)`                                                                         | Reads "IN n - Anexo X - name"; file name from a response header                                    |
+| `pdf-links.ts`  | `extractGoogleDocIds(pdf)`                                                                                                                                | Unique Google Doc ids linked from a PDF: plain objects first, then Flate streams                   |
+| `catalog.ts`    | `compareForms`, `NormativeGroup`, `groupByNormative`, `formLabel`, `FORM_COLUMNS`, `fromFormRow`                                                          | Ordering, grouping, the "IN 1 · Anexo D" label, row mapping                                        |
+| `site-check.ts` | `readCbmscSite()`                                                                                                                                         | Server-only. Reads the page, the Drive files and the titles; never throws                          |
+| `google.ts`     | `fetchGoogleDocTitle(id)`, `resolveGoogleDocIds(link)`, `fetchCbmscDriveFileIds()`                                                                        | Server-only. Both throw `Error` on any Google failure                                              |
 
 ## Data shapes
 
@@ -87,8 +94,17 @@ Both lists are sorted by `compareForms`. `POST /api/admin/forms/resolve` declare
 { "forms": [{ "googleDocId": "1K6Dr…", "normative": 1, "annex": "d", "name": " Consulta " }] }
 // annex is trimmed and upper-cased, name is trimmed, normative is an integer from 1 to 999
 
-// PATCH /api/admin/forms/:docId
-{ "active": false }
+// PATCH /api/admin/forms/:docId: at least one field; unknown keys are rejected
+{ "googleDocId": "1K6Dr…", "active": false }
+
+// SiteCheck, in { check } responses
+{
+  "checkedAt": "2026-11-05T09:00:03.120Z",
+  "status": "complete",    // "partial" | "failed"
+  "failures": 0,           // unreadable Drive files and titles; 1 when failed
+  "forms": [{ "googleDocId": "1K6Dr…", "normative": 1, "annex": "D", "name": "Formulário para consulta técnica" }]
+                           // normative and annex are null when the title is off-pattern
+}
 ```
 
 ## Rules and behavior
@@ -120,6 +136,35 @@ Both lists are sorted by `compareForms`. `POST /api/admin/forms/resolve` declare
 
 `POST /api/admin/forms` upserts by `google_doc_id` and always sets `active: true`, so saving a form already listed overwrites its IN, annex and name and reactivates it. The trigger records `updated_at` and `updated_by`.
 
+### Editing a form
+
+`PATCH /api/admin/forms/:docId` changes only the fields it receives. A new `googleDocId` must answer on Google first, otherwise 502 with the same message as resolving a link; if another row has it, 409 "Esse documento já está em outro formulário do catálogo." The primary key itself changes, so nothing should reference `google_doc_id` without `on update cascade`.
+
+### Site check
+
+`readCbmscSite` runs daily at 09:00 UTC through `client/vercel.json`, and whenever an admin presses "Verificar agora".
+
+1. Fetch `CBMSC_FORMS_PAGE` and collect its Drive file ids. A failed fetch or no ids at all → `failed`.
+2. Read each Drive PDF and each Google Doc title, as in Resolving a link, except that one failure does not stop the rest. Each failure adds to `failures` and makes the check `partial`. No form read at all → `failed`.
+3. Replace the stored row. A later check overwrites it, including a failed one.
+
+`diffSiteCheck` (`features/admin/lib/site-check.ts`) compares the stored row to the current catalog when the console reads them, so a warning disappears as soon as the admin applies it, with no extra state:
+
+| Kind (screen title)                 | Condition                                                                                                         | Action                                                                                      |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `link_changed` ("Link mudou")       | Site id not in the catalog, and exactly one active form has the same IN and annex and an id no longer on the site | "Trocar link" patches `googleDocId`                                                         |
+| `details_changed` ("Dados mudaram") | Same id on an active form, with a different name, IN or annex; skipped when the site title is off-pattern         | "Atualizar" patches those fields                                                            |
+| `new` ("Novo anexo")                | Site id not in the catalog, and not a changed link (zero or several candidates)                                   | "Adicionar" saves it; none when the title is off-pattern, so the admin uses the import card |
+| `removed` ("Saiu do site")          | Active form whose id is not on the site and was not matched as a changed link; `complete` checks only             | "Desativar" patches `active: false`                                                         |
+
+| Status     | Warnings shown                     | Reason                        |
+| ---------- | ---------------------------------- | ----------------------------- |
+| `complete` | All kinds                          | —                             |
+| `partial`  | All except `removed`               | An absence proves nothing     |
+| `failed`   | None; the tab warns of the failure | The site's content is unknown |
+
+Inactive forms never warn. When two active forms share an IN and annex, the check does not guess: the site's doc is `new` and both forms are `removed`.
+
 ### Ordering and search
 
 `compareForms`: IN number numerically, then annex length (single letters before two letters), then annex alphabetically, then name in `pt-BR` order. `groupByNormative` applies it and groups by IN.
@@ -144,10 +189,11 @@ See "Formulários CBMSC" in `client/features/admin/docs/admin-console.md`.
 ## What this does NOT do
 
 - No filling of these forms. The documents chat only works with the `{{tag}}` templates in `public/templates/`; official docs have no tags, only `____`, `( )` and empty table cells.
-- No automatic scan of the CBMSC page: a new annex appears only after an admin imports it.
-- No detection of changes inside a doc, and no history of versions. The app does not know when the CBMSC edited a form.
+- No automatic change to the catalog: the site check only warns, and a new annex appears only after an admin adds it.
+- No detection of changes inside a doc, and no history of versions. The site check compares links, IN, annex and name, so it does not notice when the CBMSC edits a form's text.
+- No e-mail or notification: the warning appears only on `/admin`.
 - No delete. Removing a row needs SQL; there is no delete policy.
-- The admin list cannot edit a saved form's IN, annex or name directly. Pasting its link again and saving does that.
+- The catalog list edits only a form's link and active state. Pasting its link in the import card and saving also rewrites IN, annex and name.
 - The normative PDFs at the top of the CBMSC page are not catalogued.
 
 ## Gotchas
@@ -157,9 +203,13 @@ See "Formulários CBMSC" in `client/features/admin/docs/admin-console.md`.
 - **An admin sees an inactive form through a direct query but not in the dialog** → the admin policy returns every row, so `/api/documents/forms` filters `active` explicitly; do not remove that filter thinking RLS covers it.
 - **Searching "in 1" also lists IN 10 and IN 15** → words match as substrings. Deliberate: it keeps partial typing useful.
 - **An imported form has empty IN and Anexo** → its Google Doc title does not follow "IN n - Anexo X - name". → Type them before saving; "Salvar" reports the missing fields by form name.
+- **The daily check never runs in production** → `CRON_SECRET` is not set in Vercel, so the route answers 503, or `client/vercel.json` is outside the project's Root Directory. → Set the variable, confirm the job under Vercel → Settings → Cron Jobs, and redeploy.
+- **The tab says "Verificação do site falhou"** → the CBMSC page could not be read, moved its links, or refuses Vercel's IPs. → The server log has "The CBMSC site check failed"; "Verificar agora" from another environment tells whether it is the IP.
+- **The panel shows "Failed to load the site check"** → `20261105000100_cbmsc_site_check.sql` was not applied. The catalog keeps working.
 - **A URI containing `)` is not found in a PDF** → `extractGoogleDocIds` reads `/URI (...)` up to the first `)`. Google Docs links do not contain it.
 - **The "Formulários CBMSC" tab summary stays on "Carregando…" on `/admin`** → the list failed to load, usually because the migration was not applied; the summary only changes once the list arrives, and the error appears inside the tab. → Apply the migration.
 
 ## Setup
 
-Apply `supabase/migrations/20261105000000_cbmsc_forms.sql`, which creates the table and seeds the 28 forms published under "Anexos de INs em vigor". Nothing else is needed: Google's URLs are public and take no key.
+1. Apply `supabase/migrations/20261105000000_cbmsc_forms.sql`, which creates the table and seeds the 28 forms published under "Anexos de INs em vigor", then `supabase/migrations/20261105000100_cbmsc_site_check.sql`. Google's URLs are public and take no key.
+2. For the daily check, set `CRON_SECRET` (a random string) and `SUPABASE_SERVICE_ROLE_KEY` in Vercel. Vercel sends the secret as the bearer token by itself. "Verificar agora" needs neither.

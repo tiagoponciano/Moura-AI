@@ -188,6 +188,24 @@ describe("toDocumentText", () => {
     expect(toDocumentText(fields, { rented: false }).rented).toBe("Não");
   });
 
+  it("prints an X only on the chosen option", () => {
+    const choice: TemplateSchema = {
+      fields: [
+        {
+          name: "q",
+          type: "choice",
+          label: "1.1",
+          description: "",
+          options: [
+            { value: "Sim", tag: "q_1" },
+            { value: "Não", tag: "q_2" },
+          ],
+        },
+      ],
+    };
+    expect(toDocumentText(choice, { q: "Não" })).toEqual({ q_1: "", q_2: "X" });
+  });
+
   it("formats numbers for pt-BR", () => {
     expect(toDocumentText(fields, { area: 1250.5 }).area).toBe("1.250,5");
   });

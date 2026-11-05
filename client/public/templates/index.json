@@ -1,12 +1,5 @@
 [
   {
-    "id": "example",
-    "name": "Exemplo – Formulário",
-    "type": "docx",
-    "file": "/templates/cbmsc/example.docx",
-    "schema": "/templates/cbmsc/example.schema.json"
-  },
-  {
     "id": "in-1-anexo-d",
     "name": "IN 1 – Anexo D – Consulta técnica",
     "type": "docx",

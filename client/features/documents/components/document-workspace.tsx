@@ -7,17 +7,19 @@ import {
   WorkspaceTabs,
   type WorkspaceTab,
 } from "@/components/shared/workspace-tabs";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { cn } from "@/lib/utils";
 import { useDocumentFilling } from "../hooks/use-document-filling";
-import { chatGuidance, selectableTemplates } from "../lib/templates";
+import { useProjects } from "../hooks/use-projects";
+import { chatEmptyState } from "../lib/templates";
 import { FormChatTitle } from "./form-chat-title";
 import { FormPanel } from "./form-panel";
-import { TemplatePicker } from "./template-picker";
-import { TemplateSelect } from "./template-select";
+import { FormsHome } from "./forms-home";
 
-/** Template choice, assistant chat and form panel for the documents module. */
+/** The forms dialog, then the assistant chat and form panel of the chosen form. */
 export function DocumentWorkspace() {
   const filling = useDocumentFilling();
+  const projects = useProjects(isSupabaseConfigured());
   const { template, schema, progress } = filling;
   const [tab, setTab] = useState<WorkspaceTab>("chat");
 
@@ -30,9 +32,10 @@ export function DocumentWorkspace() {
       )}
 
       {!template ? (
-        <TemplatePicker
+        <FormsHome
           templates={filling.templates}
-          onSelect={filling.selectTemplate}
+          projects={projects}
+          onFill={filling.selectTemplate}
         />
       ) : !schema || !progress ? (
         <div className="flex flex-1 items-center justify-center text-sm text-muted-foreground">
@@ -63,20 +66,14 @@ export function DocumentWorkspace() {
                 context: { templateId: template.id },
               }}
               title={
-                template.cbmsc ? (
-                  <FormChatTitle
-                    name={template.name}
-                    onBack={() => filling.selectTemplate()}
-                  />
-                ) : (
-                  <TemplateSelect
-                    templates={selectableTemplates(filling.templates)}
-                    value={template.id}
-                    onChange={filling.selectTemplate}
-                  />
-                )
+                <FormChatTitle
+                  name={template.name}
+                  project={projects.selected?.name}
+                  onBack={() => filling.selectTemplate()}
+                />
               }
-              {...chatGuidance(template, schema)}
+              placeholder="Escreva os dados do formulário"
+              emptyState={chatEmptyState(schema)}
               className="rounded-none border-0 bg-transparent"
             />
           </div>

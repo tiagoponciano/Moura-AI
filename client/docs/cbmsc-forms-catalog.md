@@ -173,7 +173,7 @@ Inactive forms never warn. The check does not guess: when two active forms share
 
 ### Dialog on `/documents`
 
-`TemplatePicker` shows `CbmscFormsCard` after the template entries when `isSupabaseConfigured()`; otherwise it shows the non-clickable dashed "Anexos do CBMSC em breve" card. The dialog content mounts when opened, so `useCbmscForms` fetches the list on each opening and search and selection reset when it closes.
+`FormsHome` opens the dialog when `/documents` loads if `isSupabaseConfigured()`; otherwise the page says "Anexos do CBMSC em breve". The dialog content mounts when opened, so `useCbmscForms` fetches the list on each opening and search and selection reset when it closes.
 
 | Width       | Layout                                                                                     |
 | ----------- | ------------------------------------------------------------------------------------------ |

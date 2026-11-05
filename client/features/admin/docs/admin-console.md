@@ -1,6 +1,6 @@
 # Admin console
 
-How the `/admin` page works now: user approval and roles, the AI provider/model choice, provider API keys and the allowed e-mail domain. For developers changing the console or calling its API.
+How the `/admin` page works now: user approval and roles, the AI provider/model choice, provider API keys, the allowed e-mail domain and the CBMSC forms catalog. For developers changing the console or calling its API.
 
 ## What this is
 
@@ -35,6 +35,10 @@ All routes run behind the proxy and need a session cookie. Errors are `{"error":
 | `GET`   | `/api/admin/settings`                | —                               | 200     | 401, 403, 503, 500 `Failed to load settings`                         |
 | `PUT`   | `/api/admin/settings`                | `{ llm?, allowedEmailDomain? }` | 204     | 400, 403 `Admin only`, 503, 500 `Failed to save settings`            |
 | `PUT`   | `/api/admin/settings/keys/:provider` | `{ key }`                       | 204     | 400 (validation or blank key), 403, 404 `Unknown provider`, 503, 500 |
+| `GET`   | `/api/admin/forms`                   | —                               | 200     | 401, 403, 503, 500 `Failed to load forms`                            |
+| `POST`  | `/api/admin/forms/resolve`           | `{ url }`                       | 200     | 400, 403, 422, 502, 503, 500                                         |
+| `POST`  | `/api/admin/forms`                   | `{ forms }`                     | 204     | 400, 403, 503, 500 `Failed to save forms`                            |
+| `PATCH` | `/api/admin/forms/:docId`            | `{ active }`                    | 204     | 400, 403, 404 `Form not found`, 503, 500                             |
 
 - 401 `Authentication required` and 403 `Admin only` come from the proxy for non-admins; the handlers return the same codes if a request reaches them anyway.
 - 503 `Admin console is not configured`: Supabase env vars are empty.
@@ -54,6 +58,8 @@ All routes run behind the proxy and need a session cookie. Errors are `{"error":
 | `get_llm_config()`                          | function, definer            | `service_role`  | See `llm-configuration.md`                                                                                                       |
 | `get_gate_state()`                          | function, definer            | `authenticated` | See `authentication.md`                                                                                                          |
 | enum `llm_provider`                         | type                         | —               | `anthropic`, `openai`, `google`                                                                                                  |
+
+The table `cbmsc_forms` and its policies (approved users read active rows; admins read all, insert and update) are in `20261105000000_cbmsc_forms.sql`; see `client/docs/cbmsc-forms-catalog.md`.
 
 RPC errors and how the handlers map them:
 
@@ -133,7 +139,7 @@ RPC errors and how the handlers map them:
 
 ### Layout
 
-`AdminConsole` (`features/admin/components/admin-console.tsx`) loads users (`useAdminUsers`) and settings (`useAdminSettings`) once, then renders, top to bottom:
+`AdminConsole` (`features/admin/components/admin-console.tsx`) loads users (`useAdminUsers`), settings (`useAdminSettings`) and the CBMSC forms (`useAdminForms`) once, then renders, top to bottom:
 
 1. **Setup banner**, only when `getSetupProblem(settings)` (`lib/sections.ts`) returns a problem. It shows one message, the first that applies:
 
@@ -145,13 +151,14 @@ RPC errors and how the handlers map them:
 
    The button switches to the Modelo de IA tab.
 
-2. **Three section tabs** (Radix Tabs; the selection is local state and starts on Usuários). Each tab shows a one-line summary from `summarizeSections` ("Carregando…" until its data loads):
+2. **Four section tabs** (Radix Tabs; the selection is local state and starts on Usuários). Each tab shows a one-line summary from `summarizeSections` ("Carregando…" until its data loads):
 
-   | Tab          | Summary                                                                                                                  |
-   | ------------ | ------------------------------------------------------------------------------------------------------------------------ |
-   | Usuários     | `<n> aguardando aprovação` in the accent color when anyone is pending, else `<n> com acesso` (approved count)            |
-   | Modelo de IA | `<model label> · <provider label>` for the saved choice (the raw id when not in the catalog), else `Nenhum modelo salvo` |
-   | Acesso       | `@<allowedEmailDomain>`, else `Domínio do servidor`                                                                      |
+   | Tab               | Summary                                                                                                                  |
+   | ----------------- | ------------------------------------------------------------------------------------------------------------------------ |
+   | Usuários          | `<n> aguardando aprovação` in the accent color when anyone is pending, else `<n> com acesso` (approved count)            |
+   | Modelo de IA      | `<model label> · <provider label>` for the saved choice (the raw id when not in the catalog), else `Nenhum modelo salvo` |
+   | Acesso            | `@<allowedEmailDomain>`, else `Domínio do servidor`                                                                      |
+   | Formulários CBMSC | `1 ativo` or `<n> ativos` from `formsSummary` (`lib/forms.ts`); stays on "Carregando…" if the list fails to load         |
 
 3. **The selected section.** A users load or change error is shown above the Usuários content; a settings load error replaces Modelo de IA and Acesso.
 
@@ -197,6 +204,13 @@ The console is the only place the chat model comes from: there is no environment
 ### Acesso
 
 The domain input has a fixed `@` prefix; "Salvar domínio" is enabled once the trimmed value differs from the saved one. Saves `allowedEmailDomain`. Empty clears it, and then `ALLOWED_EMAIL_DOMAIN` from the environment applies (see `authentication.md`). Validation: after trimming, removing one leading `@` and lower-casing, the value must match `^[a-z0-9-]+(\.[a-z0-9-]+)+$` or be empty.
+
+### Formulários CBMSC
+
+How the catalog works, including link resolution and its errors, is in `client/docs/cbmsc-forms-catalog.md`. This tab (`components/forms-section.tsx`) shows, top to bottom:
+
+- **Adicionar formulários** (`form-import.tsx`, `useFormImport`): a link field and "Buscar". The result is one row per form with an "Incluir" switch and editable IN, Anexo and Nome. Forms already in the catalog show "Já cadastrado" and start with the switch off. "Salvar N formulários" sends only the rows switched on, after `draftsToSave` (`lib/forms.ts`) validates them; any invalid row blocks the save and is listed as `<name>: <message>`, using the Google Doc id when the name is blank. A successful save clears the rows and the link and shows "N formulários salvos."
+- **Formulários cadastrados** (`form-catalog.tsx`, `useAdminForms`): every form grouped by IN, with an "Abrir" icon link to the Google Doc and an "Ativo" switch. Inactive names are struck through. The switch of the row being saved is disabled.
 
 ## What this does NOT do
 

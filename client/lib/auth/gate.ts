@@ -14,6 +14,9 @@ export const ADMIN_PATH = "/admin";
 /** Opens the session, so it must answer visitors who do not have one yet. */
 export const GOOGLE_SIGN_IN_API = "/api/auth/google";
 
+/** Called by Vercel Cron, which has no session; the handler checks `CRON_SECRET`. */
+export const CRON_SITE_CHECK_API = "/api/cron/cbmsc-forms";
+
 const isUnder = (pathname: string, base: string) =>
   pathname === base || pathname.startsWith(`${base}/`);
 
@@ -57,7 +60,9 @@ export function resolveGate({
   role,
   allowedDomain,
 }: GateInput): GateDecision {
-  if (pathname === GOOGLE_SIGN_IN_API) return { type: "allow" };
+  if (pathname === GOOGLE_SIGN_IN_API || pathname === CRON_SITE_CHECK_API) {
+    return { type: "allow" };
+  }
 
   const target = !email
     ? AUTH_PATHS.login

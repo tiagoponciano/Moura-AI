@@ -50,7 +50,7 @@ chats (
   user_id    uuid not null default auth.uid() references profiles on delete cascade,
   module     chat_module not null,      -- 'documents' | 'classification'
   title      text not null,             -- deriveChatTitle, recomputed on every save
-  context    jsonb not null default '{}',  -- documents: {"templateId":"example"}; classification: {}
+  context    jsonb not null default '{}',  -- documents: {"templateId":"in-1-anexo-d"}; classification: {}
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()   -- set to now() by the app on every save
 )
@@ -65,13 +65,13 @@ chat_messages (
 ```
 
 ```jsonc
-// GET /api/chats?module=documents&context=%7B%22templateId%22%3A%22example%22%7D
+// GET /api/chats?module=documents&context=%7B%22templateId%22%3A%22in-1-anexo-d%22%7D
 { "chats": [{ "id": "3b241101-…", "title": "Padaria Silva, 750 m²", "updatedAt": "2026-10-13T17:05:12.345+00:00" }] }
 
 // GET /api/chats/3b241101-…
 {
   "chat": { "id": "3b241101-…", "module": "documents", "title": "Padaria Silva, 750 m²",
-            "context": { "templateId": "example" }, "updatedAt": "2026-10-13T17:05:12.345+00:00" },
+            "context": { "templateId": "in-1-anexo-d" }, "updatedAt": "2026-10-13T17:05:12.345+00:00" },
   "messages": [ /* UIMessage[] ordered by position */ ]
 }
 ```

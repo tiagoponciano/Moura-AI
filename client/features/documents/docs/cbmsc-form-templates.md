@@ -82,7 +82,7 @@ A field with `mark: true` prints `X` when true and nothing when false, so `( )` 
 | `match`, `to`      | A custom pattern                          | A custom replacement                                          |
 | `clearNextBlocks`  | The next N runs of underscores and spaces | Empties them, for a free-text block spanning several runs     |
 
-A tagged run also loses its `w:color`, because blanks are drawn in light gray.
+A tagged run also loses its `w:color`, because blanks are drawn in light gray. Each copy also loses the red header note on how to copy the Google Doc ("Essa versão do documento é de uso exclusivo do CBMSC…"), which means nothing on a finished form; the rest of the header stays, and the hash is not affected because it reads only the body. A form's `projectKeys` ties its fields to the project (`project-fields.md`).
 
 ### Preparing another form
 
@@ -96,7 +96,6 @@ A tagged run also loses its `w:color`, because blanks are drawn in light gray.
 - No warning to admins when a copy goes stale: users see "Modelo em revisão", and the site check does not compare text.
 - Option groups are independent booleans: nothing stops both `( ) externa` and `( ) interna` from being marked.
 - The date and signature blocks stay blank, to be filled when signing.
-- The red notice in the official header ("Essa versão do documento é de uso exclusivo do CBMSC…") stays in generated documents, because the copy changes only the blanks.
 - The assistant reads only what is typed. Files attached in the chat are stored for reference and never reach the model (`client/docs/attachments.md`).
 
 ## Gotchas

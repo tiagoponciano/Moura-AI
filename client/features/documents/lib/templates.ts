@@ -11,6 +11,8 @@ export type TemplateField = {
   /** Longer hint for the model and the field tooltip. */
   description: string;
   required?: boolean;
+  /** A `( )` option in the document: true prints "X", false prints nothing. */
+  mark?: boolean;
 };
 
 export type TemplateSchema = {
@@ -23,6 +25,8 @@ export type TemplateEntry = {
   type: "docx";
   file: string;
   schema: string;
+  /** Set on a tagged copy of an official form: which form, and the text it was made from. */
+  cbmsc?: { normative: number; annex: string; sourceTextHash: string };
 };
 
 export type FieldValue = string | number | boolean;

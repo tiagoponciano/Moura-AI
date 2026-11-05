@@ -12,6 +12,7 @@ const templateField = z.strictObject({
   label: z.string().min(1).max(80),
   description: z.string().max(500),
   required: z.boolean().optional(),
+  mark: z.boolean().optional(),
 });
 
 /**

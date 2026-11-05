@@ -19,21 +19,24 @@
       "type": "string",
       "label": "Nome do solicitante",
       "description": "Nome do solicitante",
-      "required": true
+      "required": true,
+      "projectKey": "owner_name"
     },
     {
       "name": "requester_email",
       "type": "string",
       "label": "E-mail do solicitante",
       "description": "E-mail do solicitante",
-      "required": false
+      "required": false,
+      "projectKey": "owner_email"
     },
     {
       "name": "requester_phone",
       "type": "string",
       "label": "Telefone do solicitante",
       "description": "Telefone(s) do solicitante",
-      "required": false
+      "required": false,
+      "projectKey": "owner_phone"
     },
     {
       "name": "about_rules",
@@ -75,7 +78,8 @@
       "type": "string",
       "label": "RE",
       "description": "Número do RE da edificação, se houver",
-      "required": false
+      "required": false,
+      "projectKey": "property_re"
     },
     {
       "name": "has_process",
@@ -103,56 +107,64 @@
       "type": "string",
       "label": "CNPJ",
       "description": "CNPJ ligado à edificação",
-      "required": false
+      "required": false,
+      "projectKey": "property_cnpj"
     },
     {
       "name": "street",
       "type": "string",
       "label": "Logradouro",
       "description": "Logradouro da edificação",
-      "required": false
+      "required": false,
+      "projectKey": "property_street"
     },
     {
       "name": "street_number",
       "type": "string",
       "label": "Número",
       "description": "Número da edificação no logradouro",
-      "required": false
+      "required": false,
+      "projectKey": "property_number"
     },
     {
       "name": "address_complement",
       "type": "string",
       "label": "Complemento",
       "description": "Complemento do endereço da edificação",
-      "required": false
+      "required": false,
+      "projectKey": "property_complement"
     },
     {
       "name": "district",
       "type": "string",
       "label": "Bairro",
       "description": "Bairro da edificação",
-      "required": false
+      "required": false,
+      "projectKey": "property_district"
     },
     {
       "name": "city",
       "type": "string",
       "label": "Cidade",
       "description": "Cidade da edificação",
-      "required": false
+      "required": false,
+      "projectKey": "property_city"
     },
     {
       "name": "postal_code",
       "type": "string",
       "label": "CEP",
       "description": "CEP da edificação",
-      "required": false
+      "required": false,
+      "projectKey": "property_postal_code"
     },
     {
       "name": "address_details",
       "type": "string",
       "label": "Detalhes do endereço",
       "description": "Detalhes do endereço, se houver",
-      "required": false
+      "required": false,
+      "projectKey": "property_details"
     },
     {
       "name": "question",

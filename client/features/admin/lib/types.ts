@@ -1,4 +1,5 @@
 import type { ProfileRole, ProfileStatus } from "@/lib/auth/gate";
+import type { CbmscForm, CbmscFormDraft } from "@/lib/cbmsc-forms/types";
 import type { LlmProvider } from "@/lib/llm/catalog";
 
 export type AdminUser = {
@@ -40,3 +41,9 @@ export type AdminSettingsResponse = {
   /** Without the service role key the chat routes ignore these settings. */
   serviceRoleConfigured: boolean;
 };
+
+/** `GET /api/admin/forms`. */
+export type AdminFormsResponse = { forms: CbmscForm[] };
+
+/** `POST /api/admin/forms/resolve`. */
+export type ResolveFormLinkResponse = { drafts: CbmscFormDraft[] };

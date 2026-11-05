@@ -1,6 +1,6 @@
 # Document filling
 
-How the Documentos module (`/documents`) works now: template registry, chat extraction, the editable form panel and browser-side `.docx` rendering. For developers adding templates or extending the flow.
+How the Documentos module (`/documents`) works now: template registry, chat extraction, the editable form panel and how a filled form reaches generation. For developers adding templates or extending the flow.
 
 ## What this is
 

@@ -1,14 +1,8 @@
 import Docxtemplater from "docxtemplater";
 import { saveAs } from "file-saver";
 import PizZip from "pizzip";
-import type { FieldValues, TemplateEntry } from "./templates";
-
-function formatValue(value: FieldValues[string]): string {
-  if (value === undefined) return "";
-  if (typeof value === "boolean") return value ? "Sim" : "Não";
-  if (typeof value === "number") return value.toLocaleString("pt-BR");
-  return value;
-}
+import { toDocumentText } from "./form-values";
+import type { FieldValues, TemplateEntry, TemplateSchema } from "./templates";
 
 function buildFileName(template: TemplateEntry, values: FieldValues): string {
   const companyName =
@@ -22,6 +16,7 @@ function buildFileName(template: TemplateEntry, values: FieldValues): string {
 
 export async function renderDocx(
   template: TemplateEntry,
+  schema: TemplateSchema,
   values: FieldValues,
 ): Promise<void> {
   const response = await fetch(template.file, { cache: "no-store" });
@@ -44,10 +39,7 @@ export async function renderDocx(
     },
   });
 
-  const data = Object.fromEntries(
-    Object.entries(values).map(([key, value]) => [key, formatValue(value)]),
-  );
-  doc.render(data);
+  doc.render(toDocumentText(schema, values));
 
   const blob = doc.getZip().generate({
     type: "blob",

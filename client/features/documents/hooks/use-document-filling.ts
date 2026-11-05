@@ -99,7 +99,7 @@ export function useDocumentFilling() {
     setProblems([]);
     setGenerating(true);
     try {
-      await renderDocx(template, validation.values);
+      await renderDocx(template, schema, validation.values);
     } catch (error) {
       console.error("Failed to render document", error);
       setProblems([

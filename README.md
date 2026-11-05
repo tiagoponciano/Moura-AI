@@ -91,7 +91,7 @@ cp .env.example client/.env.local   # then fill in the Supabase variables
 pnpm run dev
 ```
 
-Sign in as an admin, open "Administração", pick the AI provider and model and save its API key. Then open <http://localhost:3000/documents>, pick "Exemplo – Formulário" and describe the property in the chat.
+Sign in as an admin, open "Administração", pick the AI provider and model and save its API key. Then open <http://localhost:3000/documents>, open "IN 1 – Anexo D" in the dialog and describe the property in the chat.
 
 | Variable                                                      | Required            | Description                                                                                                                                                                                               |
 | ------------------------------------------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -115,43 +115,11 @@ Other scripts:
 | `pnpm run test`                    | root or `client/` | Vitest, once (`pnpm run test:watch` in `client/` to watch) |
 | `pnpm run format`                  | `client/`         | Formats the code with Prettier (default config)            |
 | `pnpm run format:check`            | `client/`         | Fails if any file is not formatted                         |
-| `pnpm run create-template`         | `client/`         | Regenerates `public/templates/cbmsc/example.docx`          |
 | `pnpm run prepare-cbmsc-templates` | `client/`         | Regenerates the tagged copies of the official CBMSC forms  |
 
 ## Adding a new template
 
-1. Open the original `.docx` in Word and replace each blank with a tag `{{ field_name }}` (snake_case English, e.g. `company_name`). Keep everything else untouched — tables, fonts and logos are preserved.
-2. Save it under `client/public/templates/<group>/<name>.docx` (e.g. `cbmsc/` for CBMSC annexes).
-3. Create `<name>.schema.json` next to it:
-
-   ```json
-   {
-     "fields": [
-       {
-         "name": "company_name",
-         "type": "string",
-         "description": "Razão social do proprietário do imóvel",
-         "required": true
-       }
-     ]
-   }
-   ```
-
-   `name` must match the tag in the `.docx`. Supported `type` values: `string`, `number`, `date` (`DD/MM/AAAA`), `boolean`. The `description` is shown to the LLM and used as the field label, so write it in Portuguese and be specific.
-
-4. Add an entry to `client/public/templates/index.json`:
-
-   ```json
-   {
-     "id": "<name>",
-     "name": "<Label shown in the selector>",
-     "type": "docx",
-     "file": "/templates/<group>/<name>.docx",
-     "schema": "/templates/<group>/<name>.schema.json"
-   }
-   ```
-
-No code change or restart is needed; reload `/documents`.
+Official CBMSC forms are prepared by `client/scripts/prepare-cbmsc-templates.mjs`, which writes the tagged `.docx`, its schema and its `index.json` entry. The steps and the review are in [`cbmsc-form-templates.md`](client/features/documents/docs/cbmsc-form-templates.md). A template opens from the "Anexos do CBMSC" dialog, so it needs the `cbmsc` object that ties it to a form in the catalog.
 
 ## Known limitations
 

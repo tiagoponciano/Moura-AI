@@ -68,7 +68,7 @@ Source tracking is app-wide, shared with Classificação, in `client/lib/field-s
 | `hooks/use-form-assistant.ts`                                                     | Compares a form's template to the live Google Doc                                                             |
 | `hooks/use-document-filling.ts`                                                   | All client state and actions: template list, schema, values, field sources, problems, generation              |
 | `components/document-workspace.tsx`                                               | Client entry point; switches between picker, loading state and chat + form panel; holds the narrow-screen tab |
-| `components/forms-home.tsx`                                                       | The page with no form open: the forms dialog, open on arrival, and "Abrir formulários" once closed            |
+| `components/forms-home.tsx`                                                       | The page with no form open: the forms dialog, open on arrival, and the card that reopens it                   |
 | `components/project-bar.tsx`                                                      | Picks the current project or creates one                                                                      |
 | `components/form-chat-title.tsx`                                                  | Chat title: form name, project and back button                                                                |
 | `components/cbmsc-forms-browser.tsx`                                              | Dialog content: list and preview, one at a time below `lg`                                                    |
@@ -181,7 +181,7 @@ The panel footer generates a PDF, by itself once the assistant completes the req
 
 ### Template lifecycle
 
-With no form open, the page holds only `FormsHome`: the "Anexos do CBMSC" dialog opens by itself on arrival, with the project bar on top (`ProjectBar`), and closing it leaves an "Abrir formulários" button. Without Supabase the page says "Anexos do CBMSC em breve". Choosing a prepared form replaces this with the chat and form panel; the chat title has a back button that returns to the page and reopens the dialog.
+With no form open, the page holds only `FormsHome`: the "Anexos do CBMSC" dialog opens by itself on arrival, with the project bar on top (`ProjectBar`), and closing it leaves the "Anexos do CBMSC" card that reopens it. Without Supabase the page says "Anexos do CBMSC em breve". Choosing a prepared form replaces this with the chat and form panel; the chat title has a back button that returns to the page and reopens the dialog.
 
 Projects are shared by every approved user, and the current one fills the fields it knows when a form opens; see `project-fields.md`.
 

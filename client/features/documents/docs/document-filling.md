@@ -4,7 +4,7 @@ How the Documentos module (`/documents`) works now: template registry, chat extr
 
 ## What this is
 
-The user picks a template, describes the property in a chat, and downloads the original form as a PDF or `.docx` with the blanks filled in. The LLM only extracts values into a JSON object through the `fill_fields` tool; `docxtemplater` writes them into the template in the browser.
+The user picks a template, describes the property in a chat, and downloads the original form as a PDF or `.docx` with the blanks filled in. The LLM only extracts values into a JSON object through the `fill_fields` tool; `docxtemplater` writes them into the template on the server.
 
 Invariants:
 

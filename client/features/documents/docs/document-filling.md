@@ -46,7 +46,7 @@ Requires a signed-in, approved user (`client/docs/authentication.md`); without S
 | `pickExtractedValues` | `(schema, output) => FieldValues`                   | Filters a tool output down to schema fields with non-empty scalar values                                     |
 | `requiredProgress`    | `(schema, values) => { filled, total }`             | Counts required fields considered filled                                                                     |
 | `validateForDocument` | `(schema, values) => DocumentValidation`            | `{ ok: true, values }` with empty values dropped and unset booleans as `false`, or `{ ok: false, problems }` |
-| `renderDocx`          | `(template, values) => Promise<void>`               | Fetches the `.docx`, renders, triggers download; throws on fetch or template errors                          |
+| `renderDocx`          | `(template, schema, values) => Promise<void>`       | Fetches the `.docx`, renders, triggers download; throws on fetch or template errors                          |
 
 Source tracking is app-wide, shared with Classificação, in `client/lib/field-sources.ts`: `recordSources(sources, names, source)` returns a copy of `sources` with each name set to `"assistant"` or `"user"`; `sourceTag(source, value)` returns `undefined` when there is no source or the value is `undefined` or a blank string, otherwise `"IA"` for `assistant` and `"editado"` for `user`. The pill itself is `SourceTagBadge` (`client/components/shared/source-tag-badge.tsx`).
 

@@ -1,4 +1,6 @@
+import { isSupabaseConfigured } from "@/lib/supabase/env";
 import type { TemplateEntry } from "../lib/templates";
+import { CbmscFormsCard } from "./cbmsc-forms-card";
 import { TemplatePreview } from "./template-preview";
 
 type TemplatePickerProps = {
@@ -38,19 +40,23 @@ export function TemplatePicker({ templates, onSelect }: TemplatePickerProps) {
                 </span>
               </button>
             ))}
-            <div className="flex flex-col gap-2.5">
-              <span className="flex aspect-[210/297] w-full items-center justify-center rounded-md border border-dashed px-4 text-center text-xs text-muted-foreground">
-                Anexos do CBMSC em breve
-              </span>
-              <span className="flex flex-col gap-0.5">
-                <span className="text-sm font-medium text-muted-foreground">
-                  Modelos oficiais
+            {isSupabaseConfigured() ? (
+              <CbmscFormsCard />
+            ) : (
+              <div className="flex flex-col gap-2.5">
+                <span className="flex aspect-[210/297] w-full items-center justify-center rounded-md border border-dashed px-4 text-center text-xs text-muted-foreground">
+                  Anexos do CBMSC em breve
                 </span>
-                <span className="text-xs text-muted-foreground">
-                  Ainda não disponíveis
+                <span className="flex flex-col gap-0.5">
+                  <span className="text-sm font-medium text-muted-foreground">
+                    Modelos oficiais
+                  </span>
+                  <span className="text-xs text-muted-foreground">
+                    Ainda não disponíveis
+                  </span>
                 </span>
-              </span>
-            </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

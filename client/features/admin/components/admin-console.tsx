@@ -1,15 +1,17 @@
 "use client";
 
 import { Cpu, FileText, Globe, Users } from "lucide-react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs";
 import { findCatalogProvider } from "@/lib/llm/catalog";
 import { useAdminForms } from "../hooks/use-admin-forms";
 import { useAdminSettings } from "../hooks/use-admin-settings";
 import { useAdminUsers } from "../hooks/use-admin-users";
+import { useSiteCheck } from "../hooks/use-site-check";
 import { formsSummary } from "../lib/forms";
 import { getSetupProblem, summarizeSections } from "../lib/sections";
+import { diffSiteCheck, siteCheckWarning } from "../lib/site-check";
 import { countByStatus } from "../lib/users";
 import { AccessPanel } from "./access-panel";
 import { FormsSection } from "./forms-section";
@@ -25,7 +27,15 @@ export function AdminConsole() {
   const users = useAdminUsers();
   const settings = useAdminSettings();
   const forms = useAdminForms();
+  const site = useSiteCheck();
   const [section, setSection] = useState<Section>("users");
+
+  const differences = useMemo(
+    () =>
+      forms.forms && site.check ? diffSiteCheck(forms.forms, site.check) : [],
+    [forms.forms, site.check],
+  );
+  const siteWarning = siteCheckWarning(site.check, differences);
 
   const summaries = summarizeSections(users.data?.users, settings.data);
   const pendingCount = users.data ? countByStatus(users.data.users).pending : 0;
@@ -86,7 +96,8 @@ export function AdminConsole() {
             value="forms"
             icon={FileText}
             label="Formulários CBMSC"
-            summary={formsSummary(forms.forms)}
+            summary={siteWarning ?? formsSummary(forms.forms)}
+            highlight={siteWarning !== undefined}
           />
         </TabsList>
 
@@ -124,7 +135,7 @@ export function AdminConsole() {
         </TabsContent>
 
         <TabsContent value="forms">
-          <FormsSection catalog={forms} />
+          <FormsSection catalog={forms} site={site} differences={differences} />
         </TabsContent>
       </Tabs>
     </div>

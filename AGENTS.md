@@ -12,7 +12,7 @@ client/
 ├── app/          # routing only: (app)/ pages with the shell, (auth)/ login pages, api/
 ├── features/     # one folder per module: documents, home, classification, floor-plans, auth, admin
 ├── components/   # app-wide UI: ui/ (shadcn), layout/, chat/, shared/
-├── lib/          # app-wide logic: utils, format, module registry, api/, llm/, supabase/, auth/, chat-history/, attachments/
+├── lib/          # app-wide logic: utils, format, module registry, api/, llm/, supabase/, auth/, chat-history/, attachments/, cbmsc-forms/
 ├── hooks/        # app-wide hooks
 ├── public/       # brand assets and .docx templates
 ├── docs/         # app-wide documentation (app shell, theming, authentication, chat history, attachments, LLM configuration)

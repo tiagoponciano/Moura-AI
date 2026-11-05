@@ -32,6 +32,27 @@ export type TemplateEntry = {
 export type FieldValue = string | number | boolean;
 export type FieldValues = Record<string, FieldValue | undefined>;
 
+/** The templates offered in the gallery and switcher; official forms open from the dialog. */
+export const selectableTemplates = (templates: TemplateEntry[]) =>
+  templates.filter((entry) => !entry.cbmsc);
+
+/** What the chat tells the user before the first message (UI copy). */
+export function chatGuidance(template: TemplateEntry, schema: TemplateSchema) {
+  const required = schema.fields
+    .filter((field) => field.required)
+    .map((field) => field.label);
+  const intro =
+    "Conte os dados com as suas palavras, tudo de uma vez ou aos poucos. A Moura AI preenche os campos ao lado e pergunta o que faltar.";
+  return {
+    emptyState: required.length
+      ? `${intro} Para começar, preciso de: ${required.join(", ")}.`
+      : intro,
+    placeholder: template.cbmsc
+      ? "Escreva os dados do formulário"
+      : "Ex.: imóvel da Padaria Silva, Rua X 123, 750 m², comercial, 2 pavimentos",
+  };
+}
+
 async function fetchJson<T>(url: string): Promise<T> {
   const response = await fetch(url, { cache: "no-store" });
   if (!response.ok) {

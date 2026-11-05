@@ -134,6 +134,22 @@ export type Database = {
         >;
         Relationships: [];
       };
+      projects: {
+        Row: {
+          id: string;
+          name: string;
+          created_by: string | null;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          name: string;
+          created_by?: string | null;
+          created_at?: string;
+        };
+        Update: Partial<Database["public"]["Tables"]["projects"]["Insert"]>;
+        Relationships: [];
+      };
       cbmsc_site_check: {
         Row: {
           id: boolean;

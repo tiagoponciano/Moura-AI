@@ -25,6 +25,27 @@ export function diffSiteCheck(
   if (check.status === "failed") return [];
 
   const onSite = new Set(check.forms.map((site) => site.googleDocId));
+  const known = new Set(forms.map((form) => form.googleDocId));
+
+  /** The one active form a site doc could replace, if there is exactly one. */
+  const replacedBy = (site: SiteForm) => {
+    const candidates = forms.filter(
+      (form) =>
+        form.active &&
+        form.normative === site.normative &&
+        form.annex === site.annex &&
+        !onSite.has(form.googleDocId),
+    );
+    return candidates.length === 1 ? candidates[0] : undefined;
+  };
+  const claims = new Map<string, number>();
+  for (const site of check.forms) {
+    const form = known.has(site.googleDocId) ? undefined : replacedBy(site);
+    if (form) {
+      claims.set(form.googleDocId, (claims.get(form.googleDocId) ?? 0) + 1);
+    }
+  }
+
   const replaced = new Set<string>();
   const differences: SiteDifference[] = [];
 
@@ -36,16 +57,10 @@ export function diffSiteCheck(
       }
       continue;
     }
-    const candidates = forms.filter(
-      (f) =>
-        f.active &&
-        f.normative === site.normative &&
-        f.annex === site.annex &&
-        !onSite.has(f.googleDocId),
-    );
-    if (candidates.length === 1) {
-      replaced.add(candidates[0].googleDocId);
-      differences.push({ kind: "link_changed", form: candidates[0], site });
+    const replacedForm = replacedBy(site);
+    if (replacedForm && claims.get(replacedForm.googleDocId) === 1) {
+      replaced.add(replacedForm.googleDocId);
+      differences.push({ kind: "link_changed", form: replacedForm, site });
     } else {
       differences.push({ kind: "new", site });
     }

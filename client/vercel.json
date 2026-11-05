@@ -1,0 +1,3 @@
+{
+  "crons": [{ "path": "/api/cron/cbmsc-forms", "schedule": "0 9 * * *" }]
+}

@@ -1,33 +1,32 @@
 import Docxtemplater from "docxtemplater";
-import { saveAs } from "file-saver";
 import PizZip from "pizzip";
 import { toDocumentText } from "./form-values";
 import type { FieldValues, TemplateEntry, TemplateSchema } from "./templates";
 
-function buildFileName(template: TemplateEntry, values: FieldValues): string {
+/** The file name of a generated document, without characters unsafe in file names. */
+export function documentFileName(
+  template: Pick<TemplateEntry, "id">,
+  values: FieldValues,
+  extension: "docx" | "pdf",
+): string {
   const companyName =
     typeof values.company_name === "string" ? values.company_name : "";
   const safeName = companyName
     .trim()
     .replace(/[\\/:*?"<>|]+/g, "")
     .replace(/\s+/g, "_");
-  return safeName ? `${template.id}_${safeName}.docx` : `${template.id}.docx`;
+  return safeName
+    ? `${template.id}_${safeName}.${extension}`
+    : `${template.id}.${extension}`;
 }
 
-export async function renderDocx(
-  template: TemplateEntry,
+/** Injects the values into a tagged `.docx`, leaving the rest of the file intact. */
+export function renderDocx(
+  template: Uint8Array,
   schema: TemplateSchema,
   values: FieldValues,
-): Promise<void> {
-  const response = await fetch(template.file, { cache: "no-store" });
-  if (!response.ok) {
-    throw new Error(
-      `Failed to load template ${template.file}: HTTP ${response.status}`,
-    );
-  }
-
-  const zip = new PizZip(await response.arrayBuffer());
-  const doc = new Docxtemplater(zip, {
+): Uint8Array {
+  const doc = new Docxtemplater(new PizZip(template), {
     delimiters: { start: "{{", end: "}}" },
     paragraphLoop: true,
     linebreaks: true,
@@ -38,13 +37,6 @@ export async function renderDocx(
       return { get: (scope) => (key === "." ? scope : scope[key]) };
     },
   });
-
   doc.render(toDocumentText(schema, values));
-
-  const blob = doc.getZip().generate({
-    type: "blob",
-    mimeType:
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-  });
-  saveAs(blob, buildFileName(template, values));
+  return doc.getZip().generate({ type: "uint8array" });
 }

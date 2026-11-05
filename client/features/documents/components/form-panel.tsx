@@ -1,11 +1,10 @@
 "use client";
 
-import { FileDown, Loader2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import type { FieldSources } from "@/lib/field-sources";
 import { cn } from "@/lib/utils";
 import type { FieldValue, FieldValues, TemplateField } from "../lib/templates";
 import { FieldList } from "./field-list";
+import { GenerationActions } from "./generation-actions";
 import { GenerationProblems } from "./generation-problems";
 
 type FormPanelProps = {
@@ -17,10 +16,13 @@ type FormPanelProps = {
   showMissing: boolean;
   generating: boolean;
   onChange: (name: string, value: FieldValue | undefined) => void;
+  pdf?: { url: string; fileName: string };
+  notice?: string;
   onGenerate: () => void;
+  onDownloadDocx: () => void;
 };
 
-/** Side panel: per-field progress, editable fields and the generate button. */
+/** Side panel: per-field progress, editable fields and the generated document. */
 export function FormPanel({
   fields,
   values,
@@ -30,7 +32,10 @@ export function FormPanel({
   showMissing,
   generating,
   onChange,
+  pdf,
+  notice,
   onGenerate,
+  onDownloadDocx,
 }: FormPanelProps) {
   return (
     <aside className="flex min-h-0 flex-1 flex-col bg-card lg:border-l">
@@ -73,13 +78,13 @@ export function FormPanel({
       </div>
       <div className="flex flex-col gap-2 border-t px-5 py-4">
         <GenerationProblems problems={problems} />
-        <Button onClick={onGenerate} disabled={generating} size="lg">
-          {generating ? <Loader2 className="animate-spin" /> : <FileDown />}
-          Gerar documento
-        </Button>
-        <p className="text-center text-xs text-muted-foreground">
-          Baixa o .docx com o layout original do modelo.
-        </p>
+        <GenerationActions
+          pdf={pdf}
+          generating={generating}
+          notice={notice}
+          onGenerate={onGenerate}
+          onDownloadDocx={onDownloadDocx}
+        />
       </div>
     </aside>
   );

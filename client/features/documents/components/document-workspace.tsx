@@ -95,7 +95,10 @@ export function DocumentWorkspace() {
               showMissing={filling.attempted}
               generating={filling.generating}
               onChange={filling.updateField}
+              pdf={filling.pdf}
+              notice={filling.notice}
               onGenerate={filling.generate}
+              onDownloadDocx={filling.downloadDocx}
             />
           </div>
         </div>

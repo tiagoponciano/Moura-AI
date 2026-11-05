@@ -1,9 +1,14 @@
-import { FILL_FIELDS_TOOL, type TemplateSchema } from "../lib/templates";
+import {
+  FILL_FIELDS_TOOL,
+  type FieldValues,
+  type TemplateSchema,
+} from "../lib/templates";
 
 /** System prompt for the documents assistant: field list plus extraction rules. */
 export function buildInstructions(
   templateId: string,
   schema: TemplateSchema,
+  values: FieldValues = {},
 ): string {
   const fields = schema.fields
     .map(
@@ -12,10 +17,18 @@ export function buildInstructions(
     )
     .join("\n");
 
+  const filled = schema.fields
+    .filter((field) => values[field.name] !== undefined)
+    .map((field) => `- ${field.name}: ${JSON.stringify(values[field.name])}`)
+    .join("\n");
+
   return `You are the assistant of Moura Soluções em Engenharia, a fire-prevention engineering firm in Santa Catarina, Brazil. You help the team fill in CBMSC (Corpo de Bombeiros Militar de Santa Catarina) forms from the conversation.
 
 Current form: "${templateId}". Fields:
 ${fields}
+
+Already filled (do not ask for these again; change one only if the user corrects it):
+${filled || "- none"}
 
 Rules:
 1. NEVER invent data. Use only information the user stated explicitly.

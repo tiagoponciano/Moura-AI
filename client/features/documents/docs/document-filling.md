@@ -100,7 +100,7 @@ The chat is the shared `Chat` (`components/chat/chat.tsx`): props `endpoint`, `b
 // schema field
 {
   "name": "area_m2",          // must equal the tag name in the .docx; snake_case English
-  "type": "number",           // "string" | "number" | "date" | "boolean"
+  "type": "number",           // "string" | "number" | "date" | "boolean" | "choice"
   "label": "Área construída (m²)", // required; panel label and generation problems, Portuguese, 1–80 chars
   "description": "Área total construída do imóvel, em metros quadrados", // LLM hint + panel tooltip, Portuguese
   "required": true            // optional, defaults to false
@@ -131,6 +131,7 @@ The committed templates and their fields are listed in `cbmsc-form-templates.md`
 | `string`  | `z.string()`                   | `z.string().trim().min(1)` |
 | `number`  | `z.number()`                   | same                       |
 | `boolean` | `z.boolean()`                  | same                       |
+| `choice`  | `z.enum(option values)`        | same                       |
 | `date`    | string matching `DATE_PATTERN` | same                       |
 
 Every field is `.optional()` in `extraction`. In `document`, only fields with `required: true` are required. `description` is attached via `.describe()` and reaches the model through the tool's JSON Schema (dates get ` (formato DD/MM/AAAA)` appended). The generated object has `additionalProperties: false`.
@@ -160,6 +161,7 @@ Every field is `.optional()` in `extraction`. In `document`, only fields with `r
 | `number`  | `Input type="number"`; unparsable or empty → `undefined`             | required and empty                           | has a number                   |
 | `date`    | `Input` text, placeholder `DD/MM/AAAA`; not validated while typing   | required and empty                           | non-empty (format not checked) |
 | `boolean` | `Switch`                                                             | never (a boolean always has a value)         | never                          |
+| `choice`  | `Select`                                                             | never required by generated forms            | never                          |
 
 Fields are listed in schema order inside two groups, "Obrigatórios" (`required: true`) and "Opcionais"; a group with no fields is not rendered, and there is no `*` required mark. Each field is a row: status dot, the `label`, an optional source tag, and the control. Hovering the label shows the `description` and the `{{name}}` tag. Controls have no border, background or focus ring of their own; the row turns `muted` on hover and `accent` while its control has focus. Empty text, number and date controls show the placeholder "Não informado" (`DD/MM/AAAA` for dates).
 

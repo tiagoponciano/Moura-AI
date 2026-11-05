@@ -58,11 +58,11 @@ Both lists are sorted by `compareForms`. `POST /api/admin/forms/resolve`, `/api/
 
 | File            | Exports                                                                                                                                                   | Contract                                                                                           |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `types.ts`      | `CbmscForm`, `CbmscFormDraft`                                                                                                                             | See Data shapes                                                                                    |
+| `types.ts`      | `CbmscForm`, `CbmscFormDraft`, `SiteForm`, `SiteCheck`                                                                                                    | See Data shapes                                                                                    |
 | `links.ts`      | `GOOGLE_ID_PATTERN`, `GoogleLink`, `parseGoogleLink(input)`, `googleDocUrls(id)`, `driveDownloadUrl(id)`, `CBMSC_FORMS_PAGE`, `extractDriveFileIds(html)` | Recognizes links and builds Google's URLs; `parseGoogleLink` returns `undefined` for anything else |
 | `title.ts`      | `ParsedFormTitle`, `parseFormTitle(title)`, `titleFromContentDisposition(header)`                                                                         | Reads "IN n - Anexo X - name"; file name from a response header                                    |
 | `pdf-links.ts`  | `extractGoogleDocIds(pdf)`                                                                                                                                | Unique Google Doc ids linked from a PDF: plain objects first, then Flate streams                   |
-| `catalog.ts`    | `compareForms`, `NormativeGroup`, `groupByNormative`, `formLabel`, `FORM_COLUMNS`, `fromFormRow`                                                          | Ordering, grouping, the "IN 1 · Anexo D" label, row mapping                                        |
+| `catalog.ts`    | `compareForms`, `NormativeGroup`, `groupByNormative`, `formLabel`, `FORM_COLUMNS`, `fromFormRow`, `fromSiteCheckRow`                                      | Ordering, grouping, the "IN 1 · Anexo D" label, row mapping                                        |
 | `site-check.ts` | `readCbmscSite()`                                                                                                                                         | Server-only. Reads the page, the Drive files and the titles; never throws                          |
 | `google.ts`     | `fetchGoogleDocTitle(id)`, `resolveGoogleDocIds(link)`, `fetchCbmscDriveFileIds()`                                                                        | Server-only. Both throw `Error` on any Google failure                                              |
 
@@ -142,7 +142,7 @@ Both lists are sorted by `compareForms`. `POST /api/admin/forms/resolve`, `/api/
 
 ### Site check
 
-`readCbmscSite` runs daily at 09:00 UTC through `client/vercel.json`, and whenever an admin presses "Verificar agora".
+`readCbmscSite` runs once a day, in the 09:00 UTC hour, through `client/vercel.json`, and whenever an admin presses "Verificar agora".
 
 1. Fetch `CBMSC_FORMS_PAGE` and collect its Drive file ids. A failed fetch or no ids at all → `failed`.
 2. Read each Drive PDF and each Google Doc title, as in Resolving a link, except that one failure does not stop the rest. Each failure adds to `failures` and makes the check `partial`. No form read at all → `failed`.
@@ -163,7 +163,7 @@ Both lists are sorted by `compareForms`. `POST /api/admin/forms/resolve`, `/api/
 | `partial`  | All except `removed`               | An absence proves nothing     |
 | `failed`   | None; the tab warns of the failure | The site's content is unknown |
 
-Inactive forms never warn. When two active forms share an IN and annex, the check does not guess: the site's doc is `new` and both forms are `removed`.
+Inactive forms never warn. The check does not guess: when two active forms share an IN and annex, or two site docs could replace the same form, those docs are `new` and those forms are `removed`.
 
 ### Ordering and search
 
@@ -203,6 +203,7 @@ See "Formulários CBMSC" in `client/features/admin/docs/admin-console.md`.
 - **An admin sees an inactive form through a direct query but not in the dialog** → the admin policy returns every row, so `/api/documents/forms` filters `active` explicitly; do not remove that filter thinking RLS covers it.
 - **Searching "in 1" also lists IN 10 and IN 15** → words match as substrings. Deliberate: it keeps partial typing useful.
 - **An imported form has empty IN and Anexo** → its Google Doc title does not follow "IN n - Anexo X - name". → Type them before saving; "Salvar" reports the missing fields by form name.
+- **A form always shows "Saiu do site"** → it was added by pasting a Google Docs link that is not listed under "Anexos de INs em vigor", so every complete check misses it, and warnings cannot be dismissed. → Deactivate it if it should not be in the catalog; otherwise the warning stays.
 - **The daily check never runs in production** → `CRON_SECRET` is not set in Vercel, so the route answers 503, or `client/vercel.json` is outside the project's Root Directory. → Set the variable, confirm the job under Vercel → Settings → Cron Jobs, and redeploy.
 - **The tab says "Verificação do site falhou"** → the CBMSC page could not be read, moved its links, or refuses Vercel's IPs. → The server log has "The CBMSC site check failed"; "Verificar agora" from another environment tells whether it is the IP.
 - **The panel shows "Failed to load the site check"** → `20261105000100_cbmsc_site_check.sql` was not applied. The catalog keeps working.

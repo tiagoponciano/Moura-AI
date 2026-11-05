@@ -51,7 +51,7 @@ Invariants:
 
 ### The button
 
-`CbmscFormPreview` shows it for every form. Choosing it selects the template, which replaces the gallery and its dialog with the chat and field panel.
+`CbmscFormPreview` shows it for every form. Choosing it selects the template, which replaces the gallery and its dialog with the chat and field panel. The dialog is the only way in: `selectableTemplates` leaves official forms out of the gallery and the template switcher. In their chat the title is the form name with a back button to the gallery (`form-chat-title.tsx`), and `chatGuidance` writes the empty state from the required field labels.
 
 | State         | Condition                         | Button                               | Note under the actions                           |
 | ------------- | --------------------------------- | ------------------------------------ | ------------------------------------------------ |
@@ -97,7 +97,7 @@ A tagged run also loses its `w:color`, because blanks are drawn in light gray.
 - Option groups are independent booleans: nothing stops both `( ) externa` and `( ) interna` from being marked.
 - The date and signature blocks stay blank, to be filled when signing.
 - The red notice in the official header ("Essa versão do documento é de uso exclusivo do CBMSC…") stays in generated documents, because the copy changes only the blanks.
-- A form's chat does not change the placeholder example in the composer, which still describes a property.
+- The assistant reads only what is typed. Files attached in the chat are stored for reference and never reach the model (`client/docs/attachments.md`).
 
 ## Gotchas
 

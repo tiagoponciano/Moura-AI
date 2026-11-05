@@ -4,7 +4,7 @@ How the Documentos module (`/documents`) works now: template registry, chat extr
 
 ## What this is
 
-The user picks a template, describes the property in a chat, and downloads the original `.docx` with the blanks filled in. The LLM only extracts values into a JSON object through the `fill_fields` tool; `docxtemplater` writes them into the template in the browser.
+The user picks a template, describes the property in a chat, and downloads the original form as a PDF or `.docx` with the blanks filled in. The LLM only extracts values into a JSON object through the `fill_fields` tool; `docxtemplater` writes them into the template in the browser.
 
 Invariants:
 
@@ -75,7 +75,7 @@ Source tracking is app-wide, shared with Classificação, in `client/lib/field-s
 | `components/assistant-button.tsx`                                                 | "Preencher com o assistente"; disabled, saying why, when it cannot be used                                    |
 | `components/template-preview.tsx`                                                 | Decorative A4 sketch with highlighted blanks; the same drawing for every template                             |
 | `components/template-select.tsx`                                                  | Borderless `Select` used as the chat header title for switching templates                                     |
-| `components/form-panel.tsx`                                                       | Segmented progress header, `FieldList`, `GenerationProblems` and the "Gerar documento" button                 |
+| `components/form-panel.tsx`                                                       | Segmented progress header, `FieldList`, `GenerationProblems` and `GenerationActions`                          |
 | `components/field-list.tsx`                                                       | Fields grouped under "Obrigatórios" / "Opcionais", status dot; `{{tag}}` shown on label hover                 |
 | `components/field-control.tsx`                                                    | The input for one field, chosen by `type`, without border or background                                       |
 | `components/generation-problems.tsx`                                              | "Corrija antes de gerar" list; renders nothing when empty                                                     |
@@ -201,7 +201,7 @@ Selecting a template resets values, problems, the generate-attempt flag and the 
 - **Every chat message answers 400 after adding a template** → a field in its `.schema.json` has no `label` (or one over 80 characters), and `documentsChatBody` uses strict objects. → Give every field a short `label`.
 - **Restyling the chat for Documentos also changes Classificação** → `Chat` is shared, and Classificação still shows it as a framed card in a side column. → Change the documents look through the `className` and `title` props in `DocumentWorkspace`, not inside `components/chat/`.
 - **Tag renders empty in the output** → tag name differs from the schema `name` (typo, accent, different case) or Word split the tag with formatting. → Retype the whole tag in one go with uniform formatting; check spelling against the schema.
-- **`Falha ao gerar o documento`** → docxtemplater threw while parsing (unbalanced `{{`, a tag split by a field code or smart quotes). Details are in the browser console (`Failed to render document`).
+- **A 500 from `POST /api/documents/generate`** → docxtemplater threw while parsing (unbalanced `{{`, or a tag split by a field code). → Retype the tag in the template in one go; `template-files.test.ts` catches this for committed templates.
 - **Tags with inner spaces** → `{{ field }}` works only because of the custom trimming parser in `renderDocx`; docxtemplater's default parser would look up `" field "` and render empty.
 - **New template does not show up** → `index.json` is invalid JSON, still uses the old Portuguese keys (`nome`, `arquivo`), or `file`/`schema` lack the leading `/`. The page shows "Não foi possível carregar…" or the card has no label.
 - **Chat shows `Erro: …` immediately** → no model configured on `/admin` ("Nenhum modelo de IA configurado…"), a wrong key, or an invalid model id; provider messages are shown as-is.

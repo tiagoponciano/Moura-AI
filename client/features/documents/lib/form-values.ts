@@ -1,5 +1,10 @@
 import { schemaToZod } from "./schema-to-zod";
-import type { FieldValue, FieldValues, TemplateSchema } from "./templates";
+import type {
+  FieldValue,
+  FieldValues,
+  TemplateField,
+  TemplateSchema,
+} from "./templates";
 
 export function isEmptyValue(value: FieldValue | undefined): boolean {
   return (
@@ -72,4 +77,27 @@ export function validateForDocument(
       : `${label}: ${issue.message}`;
   });
   return { ok: false, problems: [...new Set(problems)] };
+}
+
+function formatValue(field: TemplateField | undefined, value: FieldValue) {
+  if (typeof value === "boolean") {
+    if (field?.mark) return value ? "X" : "";
+    return value ? "Sim" : "Não";
+  }
+  if (typeof value === "number") return value.toLocaleString("pt-BR");
+  return value;
+}
+
+/** The text each `{{tag}}` receives in the generated document. */
+export function toDocumentText(
+  schema: TemplateSchema,
+  values: FieldValues,
+): Record<string, string> {
+  const fields = new Map(schema.fields.map((field) => [field.name, field]));
+  return Object.fromEntries(
+    Object.entries(values).map(([name, value]) => [
+      name,
+      value === undefined ? "" : formatValue(fields.get(name), value),
+    ]),
+  );
 }

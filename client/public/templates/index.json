@@ -5,5 +5,29 @@
     "type": "docx",
     "file": "/templates/cbmsc/example.docx",
     "schema": "/templates/cbmsc/example.schema.json"
+  },
+  {
+    "id": "in-1-anexo-d",
+    "name": "IN 1 – Anexo D – Consulta técnica",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-1-anexo-d.docx",
+    "schema": "/templates/cbmsc/in-1-anexo-d.schema.json",
+    "cbmsc": {
+      "normative": 1,
+      "annex": "D",
+      "sourceTextHash": "9172214547d006a6b995b7713cda91ede6e1fc4dbf62df609f327e419c871da3"
+    }
+  },
+  {
+    "id": "in-1-anexo-h",
+    "name": "IN 1 – Anexo H – Declaração do responsável",
+    "type": "docx",
+    "file": "/templates/cbmsc/in-1-anexo-h.docx",
+    "schema": "/templates/cbmsc/in-1-anexo-h.schema.json",
+    "cbmsc": {
+      "normative": 1,
+      "annex": "H",
+      "sourceTextHash": "56bea8250cdf7d32a4156d0ebe46700a16b028a812e7b0fbd9ed9b7f98d95d06"
+    }
   }
 ]

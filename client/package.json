@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "create-template": "node scripts/create-example-template.mjs",
+    "prepare-cbmsc-templates": "node scripts/prepare-cbmsc-templates.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "vitest run",

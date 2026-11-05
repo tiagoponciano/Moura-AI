@@ -1,0 +1,72 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
+import Docxtemplater from "docxtemplater";
+import PizZip from "pizzip";
+import { describe, expect, it } from "vitest";
+import type { TemplateEntry, TemplateSchema } from "./templates";
+
+const PUBLIC = join(__dirname, "../../../public");
+const read = (path: string) => readFileSync(join(PUBLIC, path));
+
+const entries = JSON.parse(
+  read("templates/index.json").toString(),
+) as TemplateEntry[];
+
+const textOf = (file: string) => {
+  const xml = new PizZip(read(file)).file("word/document.xml")?.asText() ?? "";
+  return [...xml.matchAll(/<w:t(?: [^>]*)?>([^<]*)<\/w:t>/g)]
+    .map((match) => match[1])
+    .join("");
+};
+
+const tagsOf = (file: string) => {
+  const text = textOf(file);
+  return new Set([...text.matchAll(/{{\s*(\w+)\s*}}/g)].map((tag) => tag[1]));
+};
+
+describe.each(entries)("template $id", (entry) => {
+  const schema = JSON.parse(read(entry.schema).toString()) as TemplateSchema;
+
+  it("has exactly one field per tag in the document", () => {
+    expect([...tagsOf(entry.file)].sort()).toEqual(
+      schema.fields.map((field) => field.name).sort(),
+    );
+  });
+
+  it("renders with no tag left", () => {
+    const doc = new Docxtemplater(new PizZip(read(entry.file)), {
+      delimiters: { start: "{{", end: "}}" },
+      paragraphLoop: true,
+      linebreaks: true,
+      nullGetter: () => "",
+    });
+    doc.render({});
+    const xml = doc.getZip().file("word/document.xml")?.asText() ?? "";
+    expect(xml).not.toContain("{{");
+  });
+});
+
+it("gives each official form at most one template", () => {
+  const forms = entries
+    .filter((entry) => entry.cbmsc)
+    .map((entry) => `${entry.cbmsc?.normative}-${entry.cbmsc?.annex}`);
+  expect(new Set(forms).size).toBe(forms.length);
+});
+
+describe("IN 1 Anexo D", () => {
+  const text = textOf("templates/cbmsc/in-1-anexo-d.docx");
+  const between = (start: string, end: string) =>
+    text.slice(text.indexOf(start) + start.length, text.indexOf(end));
+
+  it("puts the question in the description block, with no blank lines left", () => {
+    expect(between("4. Descrição da consulta", "{{question}}")).not.toContain(
+      "_",
+    );
+  });
+
+  it("keeps the signature line", () => {
+    expect(between("{{question}}", "Assinatura do solicitante")).toContain(
+      "___",
+    );
+  });
+});

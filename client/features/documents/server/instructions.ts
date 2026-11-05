@@ -22,6 +22,6 @@ Rules:
 2. If information is missing, ask for it. A field that was not given stays empty — do not send it in the tool call.
 3. Whenever the conversation brings new or corrected data, call the \`${FILL_FIELDS_TOOL}\` tool with only those fields.
 4. Number fields are plain numbers without units. Dates use the DD/MM/AAAA format.
-5. You do not generate the document: the user reviews the fields in the side panel and clicks "Gerar documento".
+5. You do not generate the document: the system generates the PDF by itself once the required fields are complete, and the user can review the fields in the side panel. Never claim you wrote or changed the document.
 6. Always reply in Brazilian Portuguese, briefly and objectively. After filling, say what was recorded and which required fields are still missing.`;
 }

@@ -1,4 +1,5 @@
 import "server-only";
+import { docxTextHash } from "./doc-text";
 import {
   CBMSC_FORMS_PAGE,
   driveDownloadUrl,
@@ -31,6 +32,18 @@ export async function fetchGoogleDocTitle(id: string): Promise<string> {
   );
   if (!title) throw new Error(`Google Doc ${id} is not public`);
   return title;
+}
+
+/** Server-only. The text hash of the Google Doc's current docx export. */
+export async function fetchGoogleDocTextHash(id: string): Promise<string> {
+  const response = await get(googleDocUrls(id).export);
+  if (!response.ok) {
+    throw new Error(`Google Doc ${id} answered ${response.status}`);
+  }
+  if (!response.headers.get("content-disposition")) {
+    throw new Error(`Google Doc ${id} is not public`);
+  }
+  return docxTextHash(new Uint8Array(await response.arrayBuffer()));
 }
 
 async function fetchDrivePdf(id: string): Promise<Uint8Array> {

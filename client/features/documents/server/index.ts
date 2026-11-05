@@ -1,2 +1,3 @@
 export { handleDocumentsChat } from "./chat-handler";
-export { handleListCbmscForms } from "./forms-handler";
+export { handleGenerateDocument } from "./generate-handler";
+export { handleGetFormVersion, handleListCbmscForms } from "./forms-handler";

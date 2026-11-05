@@ -9,10 +9,16 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import type { TemplateEntry } from "../lib/templates";
 import { CbmscFormsBrowser } from "./cbmsc-forms-browser";
 
+type CbmscFormsCardProps = {
+  templates: TemplateEntry[];
+  onFill: (templateId: string) => void;
+};
+
 /** Picker card that opens the official CBMSC forms dialog. */
-export function CbmscFormsCard() {
+export function CbmscFormsCard({ templates, onFill }: CbmscFormsCardProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -40,7 +46,7 @@ export function CbmscFormsCard() {
             pelo CBMSC.
           </DialogDescription>
         </DialogHeader>
-        <CbmscFormsBrowser />
+        <CbmscFormsBrowser templates={templates} onFill={onFill} />
       </DialogContent>
     </Dialog>
   );

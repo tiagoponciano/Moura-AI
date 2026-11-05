@@ -11,6 +11,8 @@ export type TemplateField = {
   /** Longer hint for the model and the field tooltip. */
   description: string;
   required?: boolean;
+  /** A `( )` option in the document: true prints "X", false prints nothing. */
+  mark?: boolean;
 };
 
 export type TemplateSchema = {
@@ -23,10 +25,33 @@ export type TemplateEntry = {
   type: "docx";
   file: string;
   schema: string;
+  /** Set on a tagged copy of an official form: which form, and the text it was made from. */
+  cbmsc?: { normative: number; annex: string; sourceTextHash: string };
 };
 
 export type FieldValue = string | number | boolean;
 export type FieldValues = Record<string, FieldValue | undefined>;
+
+/** The templates offered in the gallery and switcher; official forms open from the dialog. */
+export const selectableTemplates = (templates: TemplateEntry[]) =>
+  templates.filter((entry) => !entry.cbmsc);
+
+/** What the chat tells the user before the first message (UI copy). */
+export function chatGuidance(template: TemplateEntry, schema: TemplateSchema) {
+  const required = schema.fields
+    .filter((field) => field.required)
+    .map((field) => field.label);
+  const intro =
+    "Conte os dados com as suas palavras, tudo de uma vez ou aos poucos. A Moura AI preenche os campos ao lado e pergunta o que faltar.";
+  return {
+    emptyState: required.length
+      ? `${intro} Para começar, preciso de: ${required.join(", ")}.`
+      : intro,
+    placeholder: template.cbmsc
+      ? "Escreva os dados do formulário"
+      : "Ex.: imóvel da Padaria Silva, Rua X 123, 750 m², comercial, 2 pavimentos",
+  };
+}
 
 async function fetchJson<T>(url: string): Promise<T> {
   const response = await fetch(url, { cache: "no-store" });

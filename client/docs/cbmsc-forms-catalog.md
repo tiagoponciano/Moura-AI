@@ -188,7 +188,7 @@ See "Formulários CBMSC" in `client/features/admin/docs/admin-console.md`.
 
 ## What this does NOT do
 
-- No filling of these forms. The documents chat only works with the `{{tag}}` templates in `public/templates/`; official docs have no tags, only `____`, `( )` and empty table cells.
+- No filling from the catalog itself. The chat works from reviewed tagged copies, one per prepared form; see `client/features/documents/docs/cbmsc-form-templates.md`.
 - No automatic change to the catalog: the site check only warns, and a new annex appears only after an admin adds it.
 - No detection of changes inside a doc, and no history of versions. The site check compares links, IN, annex and name, so it does not notice when the CBMSC edits a form's text.
 - No e-mail or notification: the warning appears only on `/admin`.

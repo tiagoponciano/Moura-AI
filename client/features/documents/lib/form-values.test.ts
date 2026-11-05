@@ -3,6 +3,7 @@ import {
   isEmptyValue,
   pickExtractedValues,
   requiredProgress,
+  toDocumentText,
   validateForDocument,
 } from "./form-values";
 import type { TemplateSchema } from "./templates";
@@ -159,5 +160,35 @@ describe("validateForDocument", () => {
       "Razão social: obrigatório",
       "Área: obrigatório",
     ]);
+  });
+});
+
+describe("toDocumentText", () => {
+  const fields: TemplateSchema = {
+    fields: [
+      {
+        name: "has_re",
+        type: "boolean",
+        label: "RE",
+        description: "",
+        mark: true,
+      },
+      { name: "rented", type: "boolean", label: "Alugado", description: "" },
+      { name: "area", type: "number", label: "Área", description: "" },
+    ],
+  };
+
+  it("prints an X for a true mark and nothing for a false one", () => {
+    expect(toDocumentText(fields, { has_re: true }).has_re).toBe("X");
+    expect(toDocumentText(fields, { has_re: false }).has_re).toBe("");
+  });
+
+  it("keeps Sim and Não for an ordinary boolean", () => {
+    expect(toDocumentText(fields, { rented: true }).rented).toBe("Sim");
+    expect(toDocumentText(fields, { rented: false }).rented).toBe("Não");
+  });
+
+  it("formats numbers for pt-BR", () => {
+    expect(toDocumentText(fields, { area: 1250.5 }).area).toBe("1.250,5");
   });
 });

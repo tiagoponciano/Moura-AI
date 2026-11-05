@@ -1,5 +1,5 @@
 import { isSupabaseConfigured } from "@/lib/supabase/env";
-import type { TemplateEntry } from "../lib/templates";
+import { selectableTemplates, type TemplateEntry } from "../lib/templates";
 import { CbmscFormsCard } from "./cbmsc-forms-card";
 import { TemplatePreview } from "./template-preview";
 
@@ -24,7 +24,7 @@ export function TemplatePicker({ templates, onSelect }: TemplatePickerProps) {
             </p>
           </div>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-[repeat(auto-fill,11rem)] sm:gap-5">
-            {templates.map((entry) => (
+            {selectableTemplates(templates).map((entry) => (
               <button
                 key={entry.id}
                 type="button"
@@ -41,7 +41,7 @@ export function TemplatePicker({ templates, onSelect }: TemplatePickerProps) {
               </button>
             ))}
             {isSupabaseConfigured() ? (
-              <CbmscFormsCard />
+              <CbmscFormsCard templates={templates} onFill={onSelect} />
             ) : (
               <div className="flex flex-col gap-2.5">
                 <span className="flex aspect-[210/297] w-full items-center justify-center rounded-md border border-dashed px-4 text-center text-xs text-muted-foreground">

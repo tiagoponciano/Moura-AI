@@ -40,6 +40,10 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Read from disk by the generate route; public/ is not traced by default.
+  outputFileTracingIncludes: {
+    "/api/documents/generate": ["./public/templates/**/*"],
+  },
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },

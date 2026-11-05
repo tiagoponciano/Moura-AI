@@ -1,0 +1,165 @@
+{
+  "fields": [
+    {
+      "name": "external_query",
+      "type": "boolean",
+      "label": "Consulta externa",
+      "description": "A consulta é externa ao CBMSC",
+      "mark": true
+    },
+    {
+      "name": "internal_query",
+      "type": "boolean",
+      "label": "Consulta interna",
+      "description": "A consulta é interna ao CBMSC",
+      "mark": true
+    },
+    {
+      "name": "requester_name",
+      "type": "string",
+      "label": "Nome do solicitante",
+      "description": "Nome do solicitante",
+      "required": true
+    },
+    {
+      "name": "requester_email",
+      "type": "string",
+      "label": "E-mail do solicitante",
+      "description": "E-mail do solicitante",
+      "required": false
+    },
+    {
+      "name": "requester_phone",
+      "type": "string",
+      "label": "Telefone do solicitante",
+      "description": "Telefone(s) do solicitante",
+      "required": false
+    },
+    {
+      "name": "about_rules",
+      "type": "boolean",
+      "label": "Sobre NSCI",
+      "description": "A consulta é sobre as normas de segurança contra incêndio (NSCI)",
+      "mark": true
+    },
+    {
+      "name": "about_normative",
+      "type": "boolean",
+      "label": "Sobre uma IN",
+      "description": "A consulta é sobre uma Instrução Normativa específica",
+      "mark": true
+    },
+    {
+      "name": "normative_number",
+      "type": "string",
+      "label": "Nº da IN",
+      "description": "Número da Instrução Normativa consultada",
+      "required": false
+    },
+    {
+      "name": "about_building",
+      "type": "boolean",
+      "label": "Sobre edificação específica",
+      "description": "A consulta é sobre uma edificação específica",
+      "mark": true
+    },
+    {
+      "name": "has_re",
+      "type": "boolean",
+      "label": "Tem RE",
+      "description": "A edificação tem registro de edificação (RE)",
+      "mark": true
+    },
+    {
+      "name": "re_number",
+      "type": "string",
+      "label": "RE",
+      "description": "Número do RE da edificação, se houver",
+      "required": false
+    },
+    {
+      "name": "has_process",
+      "type": "boolean",
+      "label": "Tem processo",
+      "description": "A consulta se refere a um processo existente",
+      "mark": true
+    },
+    {
+      "name": "process_number",
+      "type": "string",
+      "label": "Nº do processo",
+      "description": "Número do processo, se houver",
+      "required": false
+    },
+    {
+      "name": "building_cpf",
+      "type": "string",
+      "label": "CPF",
+      "description": "CPF ligado à edificação",
+      "required": false
+    },
+    {
+      "name": "building_cnpj",
+      "type": "string",
+      "label": "CNPJ",
+      "description": "CNPJ ligado à edificação",
+      "required": false
+    },
+    {
+      "name": "street",
+      "type": "string",
+      "label": "Logradouro",
+      "description": "Logradouro da edificação",
+      "required": false
+    },
+    {
+      "name": "street_number",
+      "type": "string",
+      "label": "Número",
+      "description": "Número da edificação no logradouro",
+      "required": false
+    },
+    {
+      "name": "address_complement",
+      "type": "string",
+      "label": "Complemento",
+      "description": "Complemento do endereço da edificação",
+      "required": false
+    },
+    {
+      "name": "district",
+      "type": "string",
+      "label": "Bairro",
+      "description": "Bairro da edificação",
+      "required": false
+    },
+    {
+      "name": "city",
+      "type": "string",
+      "label": "Cidade",
+      "description": "Cidade da edificação",
+      "required": false
+    },
+    {
+      "name": "postal_code",
+      "type": "string",
+      "label": "CEP",
+      "description": "CEP da edificação",
+      "required": false
+    },
+    {
+      "name": "address_details",
+      "type": "string",
+      "label": "Detalhes do endereço",
+      "description": "Detalhes do endereço, se houver",
+      "required": false
+    },
+    {
+      "name": "question",
+      "type": "string",
+      "label": "Descrição da consulta",
+      "description": "Descrição completa da consulta técnica",
+      "required": true
+    }
+  ]
+}

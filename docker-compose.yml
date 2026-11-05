@@ -1,0 +1,9 @@
+# Local PDF service. Credentials here are for this machine only; production sets its own.
+services:
+  pdf:
+    build: services/pdf
+    ports:
+      - "127.0.0.1:3001:3000"
+    environment:
+      GOTENBERG_API_BASIC_AUTH_USERNAME: local
+      GOTENBERG_API_BASIC_AUTH_PASSWORD: local-only

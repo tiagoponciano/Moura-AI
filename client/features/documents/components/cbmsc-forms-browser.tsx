@@ -3,11 +3,21 @@
 import { FileText, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCbmscForms } from "../hooks/use-cbmsc-forms";
+import { findFormTemplate } from "../lib/cbmsc-forms";
+import type { TemplateEntry } from "../lib/templates";
 import { CbmscFormList } from "./cbmsc-form-list";
 import { CbmscFormPreview } from "./cbmsc-form-preview";
 
+type CbmscFormsBrowserProps = {
+  templates: TemplateEntry[];
+  onFill: (templateId: string) => void;
+};
+
 /** List on the left, preview on the right; one at a time below `lg`. */
-export function CbmscFormsBrowser() {
+export function CbmscFormsBrowser({
+  templates,
+  onFill,
+}: CbmscFormsBrowserProps) {
   const catalog = useCbmscForms();
 
   if (catalog.error) {
@@ -52,6 +62,8 @@ export function CbmscFormsBrowser() {
           <CbmscFormPreview
             key={catalog.selected.googleDocId}
             form={catalog.selected}
+            template={findFormTemplate(templates, catalog.selected)}
+            onFill={onFill}
             onBack={catalog.clearSelection}
           />
         ) : (

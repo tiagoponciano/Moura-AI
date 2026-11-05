@@ -1,13 +1,15 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { saveAs } from "file-saver";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { errorMessage } from "@/lib/api/request-json";
 import { recordSources, type FieldSources } from "@/lib/field-sources";
 import {
   pickExtractedValues,
   requiredProgress,
   validateForDocument,
 } from "../lib/form-values";
-import { renderDocx } from "../lib/render-docx";
+import { generateDocument } from "../lib/generate-document";
 import {
   FILL_FIELDS_TOOL,
   loadTemplateIndex,
@@ -18,7 +20,7 @@ import {
   type TemplateSchema,
 } from "../lib/templates";
 
-/** State and actions of the documents workspace: template, form values and generation. */
+/** State and actions of the documents workspace: template, form values and the generated document. */
 export function useDocumentFilling() {
   const [templates, setTemplates] = useState<TemplateEntry[]>([]);
   const [selectedId, setSelectedId] = useState<string>();
@@ -29,6 +31,12 @@ export function useDocumentFilling() {
   const [loadError, setLoadError] = useState<string>();
   const [generating, setGenerating] = useState(false);
   const [attempted, setAttempted] = useState(false);
+  const [pdf, setPdf] = useState<{ url: string; fileName: string }>();
+  const [notice, setNotice] = useState<string>();
+  /** The values as of the last change, for generating right after a merge. */
+  const latestValues = useRef<FieldValues>({});
+  /** Only the newest PDF request may show its result. */
+  const pdfRequest = useRef(0);
 
   const template = templates.find((entry) => entry.id === selectedId);
 
@@ -58,7 +66,46 @@ export function useDocumentFilling() {
     };
   }, [template]);
 
-  function selectTemplate(id: string) {
+  function discardPdf() {
+    pdfRequest.current += 1;
+    setGenerating(false);
+    setPdf((current) => {
+      if (current) URL.revokeObjectURL(current.url);
+      return undefined;
+    });
+  }
+
+  const generatePdf = useCallback(
+    async (templateId: string, values: FieldValues) => {
+      pdfRequest.current += 1;
+      const request = pdfRequest.current;
+      setPdf((current) => {
+        if (current) URL.revokeObjectURL(current.url);
+        return undefined;
+      });
+      setGenerating(true);
+      setNotice(undefined);
+      try {
+        const file = await generateDocument(templateId, "pdf", values);
+        if (request !== pdfRequest.current) return;
+        setPdf({
+          url: URL.createObjectURL(file.blob),
+          fileName: file.fileName,
+        });
+      } catch (cause) {
+        if (request === pdfRequest.current) setNotice(errorMessage(cause));
+      } finally {
+        if (request === pdfRequest.current) setGenerating(false);
+      }
+    },
+    [],
+  );
+
+  /** Selects a template; no id goes back to the gallery. */
+  function selectTemplate(id?: string) {
+    discardPdf();
+    latestValues.current = {};
+    setNotice(undefined);
     setSelectedId(id);
     setSchema(undefined);
     setValues({});
@@ -70,43 +117,56 @@ export function useDocumentFilling() {
 
   const handleToolResult = useCallback(
     (toolName: string, output: unknown) => {
-      if (toolName !== FILL_FIELDS_TOOL || !schema) return;
+      if (toolName !== FILL_FIELDS_TOOL || !schema || !template) return;
       const extracted = pickExtractedValues(schema, output);
       if (Object.keys(extracted).length === 0) return;
-      setValues((current) => ({ ...current, ...extracted }));
+      const merged = { ...latestValues.current, ...extracted };
+      latestValues.current = merged;
+      setValues(merged);
       setSources((current) =>
         recordSources(current, Object.keys(extracted), "assistant"),
       );
       setProblems([]);
+      // The assistant filled the form: once it is complete, the PDF follows by itself.
+      const validation = validateForDocument(schema, merged);
+      if (validation.ok) void generatePdf(template.id, validation.values);
     },
-    [schema],
+    [schema, template, generatePdf],
   );
 
   function updateField(name: string, value: FieldValue | undefined) {
-    setValues((current) => ({ ...current, [name]: value }));
+    latestValues.current = { ...latestValues.current, [name]: value };
+    setValues(latestValues.current);
+    discardPdf();
     setSources((current) => recordSources(current, [name], "user"));
   }
 
-  async function generate() {
-    if (!template || !schema) return;
+  /** The fields ready for a document, or `undefined` after listing what is wrong. */
+  function validatedValues() {
+    if (!schema) return undefined;
     setAttempted(true);
     const validation = validateForDocument(schema, values);
     if (!validation.ok) {
       setProblems(validation.problems);
-      return;
+      return undefined;
     }
-
     setProblems([]);
-    setGenerating(true);
+    return validation.values;
+  }
+
+  async function generate() {
+    const ready = validatedValues();
+    if (template && ready) await generatePdf(template.id, ready);
+  }
+
+  async function downloadDocx() {
+    const ready = validatedValues();
+    if (!template || !ready) return;
     try {
-      await renderDocx(template, validation.values);
-    } catch (error) {
-      console.error("Failed to render document", error);
-      setProblems([
-        "Falha ao gerar o documento. Verifique se as tags do modelo estão corretas.",
-      ]);
-    } finally {
-      setGenerating(false);
+      const file = await generateDocument(template.id, "docx", ready);
+      saveAs(file.blob, file.fileName);
+    } catch (cause) {
+      setNotice(errorMessage(cause));
     }
   }
 
@@ -130,6 +190,9 @@ export function useDocumentFilling() {
     selectTemplate,
     handleToolResult,
     updateField,
+    pdf,
+    notice,
     generate,
+    downloadDocx,
   };
 }

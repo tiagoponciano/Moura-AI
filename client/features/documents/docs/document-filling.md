@@ -1,10 +1,10 @@
 # Document filling
 
-How the Documentos module (`/documents`) works now: template registry, chat extraction, the editable form panel and browser-side `.docx` rendering. For developers adding templates or extending the flow.
+How the Documentos module (`/documents`) works now: template registry, chat extraction, the editable form panel and how a filled form reaches generation. For developers adding templates or extending the flow.
 
 ## What this is
 
-The user picks a template, describes the property in a chat, and downloads the original `.docx` with the blanks filled in. The LLM only extracts values into a JSON object through the `fill_fields` tool; `docxtemplater` writes them into the template in the browser.
+The user picks a template, describes the property in a chat, and downloads the original form as a PDF or `.docx` with the blanks filled in. The LLM only extracts values into a JSON object through the `fill_fields` tool; `docxtemplater` writes them into the template on the server.
 
 Invariants:
 
@@ -25,10 +25,12 @@ Invariants:
 
 ### HTTP
 
-| Method | Path                   | Caller           | Returns                                                                                                                                                                                                                                                                          |
-| ------ | ---------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `GET`  | `/api/documents/forms` | `useCbmscForms`  | `{ forms }`, the active official CBMSC forms; see `client/docs/cbmsc-forms-catalog.md`                                                                                                                                                                                           |
-| `POST` | `/api/documents/chat`  | `Chat` component | AI SDK UI message stream (SSE). `500` with a Portuguese "Nenhum modelo de IA configurado…" message when no model is configured on `/admin` (see `client/docs/llm-configuration.md`); `400`/`413`/`429` from the request checks and quota in `client/docs/chat-request-limits.md` |
+| Method | Path                                  | Caller               | Returns                                                                                                                                                                                                                                                                          |
+| ------ | ------------------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `GET`  | `/api/documents/forms`                | `useCbmscForms`      | `{ forms }`, the active official CBMSC forms; see `client/docs/cbmsc-forms-catalog.md`                                                                                                                                                                                           |
+| `GET`  | `/api/documents/forms/:docId/version` | `useFormAssistant`   | `{ textHash }` of the live form; see `cbmsc-form-templates.md`                                                                                                                                                                                                                   |
+| `POST` | `/api/documents/chat`                 | `Chat` component     | AI SDK UI message stream (SSE). `500` with a Portuguese "Nenhum modelo de IA configurado…" message when no model is configured on `/admin` (see `client/docs/llm-configuration.md`); `400`/`413`/`429` from the request checks and quota in `client/docs/chat-request-limits.md` |
+| `POST` | `/api/documents/generate`             | `useDocumentFilling` | The PDF or `.docx`; see `document-generation.md`                                                                                                                                                                                                                                 |
 
 Requires a signed-in, approved user (`client/docs/authentication.md`); without Supabase it answers 503. The route takes the `schema` sent by the client after checking its shape (`documentsChatBody`), not against the template files.
 
@@ -45,7 +47,7 @@ Requires a signed-in, approved user (`client/docs/authentication.md`); without S
 | `pickExtractedValues` | `(schema, output) => FieldValues`                   | Filters a tool output down to schema fields with non-empty scalar values                                     |
 | `requiredProgress`    | `(schema, values) => { filled, total }`             | Counts required fields considered filled                                                                     |
 | `validateForDocument` | `(schema, values) => DocumentValidation`            | `{ ok: true, values }` with empty values dropped and unset booleans as `false`, or `{ ok: false, problems }` |
-| `renderDocx`          | `(template, values) => Promise<void>`               | Fetches the `.docx`, renders, triggers download; throws on fetch or template errors                          |
+| `renderDocx`          | `(template, schema, values) => Uint8Array`          | Pure; see `document-generation.md`                                                                           |
 
 Source tracking is app-wide, shared with Classificação, in `client/lib/field-sources.ts`: `recordSources(sources, names, source)` returns a copy of `sources` with each name set to `"assistant"` or `"user"`; `sourceTag(source, value)` returns `undefined` when there is no source or the value is `undefined` or a blank string, otherwise `"IA"` for `assistant` and `"editado"` for `user`. The pill itself is `SourceTagBadge` (`client/components/shared/source-tag-badge.tsx`).
 
@@ -53,29 +55,33 @@ Source tracking is app-wide, shared with Classificação, in `client/lib/field-s
 
 `app/(app)/documents/page.tsx` renders only `DocumentWorkspace` (imported from `@/features/documents`) in a full-height column with no padding and no `PageHeader`, because the top bar breadcrumb already names the page; `app/api/documents/chat/route.ts` declares `maxDuration = 60` and re-exports `handleDocumentsChat` (from `@/features/documents/server`) as `POST`. Everything else lives in the feature:
 
-| File                                 | Role                                                                                                          |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
-| `index.ts`                           | Public client entry: exports `DocumentWorkspace` only                                                         |
-| `server/index.ts`                    | Public server entry: exports `handleDocumentsChat` and `handleListCbmscForms`                                 |
-| `server/chat-handler.ts`             | Validates the request, streams the model and defines the `fill_fields` tool                                   |
-| `server/forms-handler.ts`            | `GET /api/documents/forms`: the active CBMSC forms                                                            |
-| `server/instructions.ts`             | `buildInstructions(templateId, schema)`: the system prompt                                                    |
-| `hooks/use-cbmsc-forms.ts`           | Catalog, search and selection of the CBMSC forms dialog                                                       |
-| `hooks/use-document-filling.ts`      | All client state and actions: template list, schema, values, field sources, problems, generation              |
-| `components/document-workspace.tsx`  | Client entry point; switches between picker, loading state and chat + form panel; holds the narrow-screen tab |
-| `components/template-picker.tsx`     | "Novo documento" gallery shown while no template is selected                                                  |
-| `components/cbmsc-forms-card.tsx`    | Picker card that opens the CBMSC forms dialog                                                                 |
-| `components/cbmsc-forms-browser.tsx` | Dialog content: list and preview, one at a time below `lg`                                                    |
-| `components/cbmsc-form-list.tsx`     | Search field and the forms grouped by IN                                                                      |
-| `components/cbmsc-form-preview.tsx`  | Google's preview iframe with the download and open actions                                                    |
-| `components/template-preview.tsx`    | Decorative A4 sketch with highlighted blanks; the same drawing for every template                             |
-| `components/template-select.tsx`     | Borderless `Select` used as the chat header title for switching templates                                     |
-| `components/form-panel.tsx`          | Segmented progress header, `FieldList`, `GenerationProblems` and the "Gerar documento" button                 |
-| `components/field-list.tsx`          | Fields grouped under "Obrigatórios" / "Opcionais", status dot; `{{tag}}` shown on label hover                 |
-| `components/field-control.tsx`       | The input for one field, chosen by `type`, without border or background                                       |
-| `components/generation-problems.tsx` | "Corrija antes de gerar" list; renders nothing when empty                                                     |
-| `lib/cbmsc-forms.ts`                 | `fetchCbmscForms` and `filterForms` for the dialog                                                            |
-| `lib/`                               | Pure logic and data access listed above; no React                                                             |
+| File                                                                              | Role                                                                                                          |
+| --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `index.ts`                                                                        | Public client entry: exports `DocumentWorkspace` only                                                         |
+| `server/index.ts`                                                                 | Public server entry: exports the chat, forms, form version and generate handlers                              |
+| `server/generate-handler.ts`, `server/pdf-service.ts`, `server/template-files.ts` | Generation; see `document-generation.md`                                                                      |
+| `server/chat-handler.ts`                                                          | Validates the request, streams the model and defines the `fill_fields` tool                                   |
+| `server/forms-handler.ts`                                                         | `GET /api/documents/forms`: the active CBMSC forms                                                            |
+| `server/instructions.ts`                                                          | `buildInstructions(templateId, schema)`: the system prompt                                                    |
+| `hooks/use-cbmsc-forms.ts`                                                        | Catalog, search and selection of the CBMSC forms dialog                                                       |
+| `hooks/use-form-assistant.ts`                                                     | Compares a form's template to the live Google Doc                                                             |
+| `hooks/use-document-filling.ts`                                                   | All client state and actions: template list, schema, values, field sources, problems, generation              |
+| `components/document-workspace.tsx`                                               | Client entry point; switches between picker, loading state and chat + form panel; holds the narrow-screen tab |
+| `components/template-picker.tsx`                                                  | "Novo documento" gallery shown while no template is selected                                                  |
+| `components/cbmsc-forms-card.tsx`                                                 | Picker card that opens the CBMSC forms dialog                                                                 |
+| `components/cbmsc-forms-browser.tsx`                                              | Dialog content: list and preview, one at a time below `lg`                                                    |
+| `components/cbmsc-form-list.tsx`                                                  | Search field and the forms grouped by IN                                                                      |
+| `components/cbmsc-form-preview.tsx`                                               | Google's preview iframe with the fill, download and open actions                                              |
+| `components/assistant-button.tsx`                                                 | "Preencher com o assistente"; disabled, saying why, when it cannot be used                                    |
+| `components/template-preview.tsx`                                                 | Decorative A4 sketch with highlighted blanks; the same drawing for every template                             |
+| `components/template-select.tsx`                                                  | Borderless `Select` used as the chat header title for switching templates                                     |
+| `components/form-panel.tsx`                                                       | Segmented progress header, `FieldList`, `GenerationProblems` and `GenerationActions`                          |
+| `components/field-list.tsx`                                                       | Fields grouped under "Obrigatórios" / "Opcionais", status dot; `{{tag}}` shown on label hover                 |
+| `components/field-control.tsx`                                                    | The input for one field, chosen by `type`, without border or background                                       |
+| `components/generation-problems.tsx`                                              | "Corrija antes de gerar" list; renders nothing when empty                                                     |
+| `components/generation-actions.tsx`                                               | Panel footer: PDF download and open, "Gerar PDF", "Baixar .docx"                                              |
+| `lib/cbmsc-forms.ts`                                                              | `fetchCbmscForms` and `filterForms` for the dialog                                                            |
+| `lib/`                                                                            | Pure logic and data access listed above; no React                                                             |
 
 The chat is the shared `Chat` (`components/chat/chat.tsx`): props `endpoint`, `body?`, `onToolResult?(toolName, output)`, `placeholder?`, `emptyState?`, `history?`, `title?`, `className?`. The workspace passes `title={<TemplateSelect …/>}`, so the template switcher replaces the "Moura AI" label in the chat header, and `className="rounded-none border-0 bg-transparent"`, so the chat has no card frame and sits on the page background. It also passes `history={{ module: "documents", context: { templateId } }}`, which enables "Histórico" and attachments when Supabase is configured. `body` is sent with every message; `onToolResult` fires once per tool call id when the part reaches `output-available`; the empty state shows only the avatar and `emptyState`, and the `placeholder` carries the example message.
 
@@ -165,21 +171,17 @@ Fields are listed in schema order inside two groups, "Obrigatórios" (`required:
 
 The source tag is `sourceTag(sources[name], value)`: "IA" (`accent`) when the last write came from `fill_fields`, "editado" (`muted`) when it came from the panel, nothing while the value is empty. Any edit in the panel, including typing the same value or toggling a switch, marks the field as `user`; a later `fill_fields` result for that field marks it `assistant` again. Sources reset with the template. Reopening a saved chat replays its tool results, so the fields it fills are tagged "IA".
 
-`FieldList` receives `showMissing` once "Gerar documento" has been clicked for the current template, so a fresh form shows no red marks. Selecting another template resets it.
+`FieldList` receives `showMissing` once "Gerar PDF" or "Baixar .docx" has been clicked for the current template, so a fresh form shows no red marks. Selecting another template resets it.
 
 The panel header shows `<filled> de <total> obrigatórios` and one segment per required field (`requiredProgress`), the first `<filled>` segments in `success`. The segments are not tied to specific fields: they count, in order, how many are filled. A required field counts as filled when it is a `boolean` (always) or its value is not empty — the same emptiness rule as the highlight, not full validation: a malformed date still counts as filled. With no required fields no segments are drawn. Under the button, "Baixa o .docx com o layout original do modelo." is static text.
 
-### "Gerar documento"
+### Generating
 
-1. `validateForDocument`: set every `boolean` field the user never toggled to `false` (the switch already shows "Não"), drop empty values, validate with `schemaToZod(schema, "document")`. A required boolean therefore never fails as missing.
-2. On failure, list one line per field: `<label>: obrigatório` when the value is missing, otherwise `<label>: <zod message>` (e.g. `Use o formato DD/MM/AAAA`). Duplicates are removed. Nothing is rendered.
-3. On success, `renderDocx`: fetch template → `PizZip` → `Docxtemplater` with `{{`/`}}` delimiters, `paragraphLoop: true`, `linebreaks: true`, `nullGetter: () => ""` and a parser that trims tag names → `render(data)` → Blob → `saveAs`.
-4. Values are formatted before rendering: booleans → `Sim`/`Não`, numbers → `toLocaleString("pt-BR")` (`1234.5` → `1.234,5`), strings as-is.
-5. File name: `<id>_<company_name>.docx`, with `\ / : * ? " < > |` removed and whitespace runs replaced by `_`. Without a non-empty `company_name`, `<id>.docx`.
+The panel footer generates a PDF, by itself once the assistant completes the required fields or through "Gerar PDF", and offers "Baixar .docx". `validateForDocument` sets every `boolean` field the user never toggled to `false` (the switch already shows "Não"), drops empty values and validates with `schemaToZod(schema, "document")`. On a click, a failure lists one line per field: `<label>: obrigatório` when the value is missing, otherwise `<label>: <zod message>` (e.g. `Use o formato DD/MM/AAAA`). Rendering, the PDF microservice and the file name are in `document-generation.md`.
 
 ### Template lifecycle
 
-With no template selected, the workspace shows the "Novo documento" heading and one `TemplatePreview` sketch per `index.json` entry, labelled with its `name` and `.<type>`; clicking one selects it. After the entries comes the "Anexos do CBMSC" card, which opens the official forms dialog (see `client/docs/cbmsc-forms-catalog.md`); without Supabase it is a non-clickable dashed card "Anexos do CBMSC em breve" / "Modelos oficiais". Once a template is selected, the gallery is replaced by the chat (with the template `Select` in its header) and the form panel. There is no way back to the gallery except reloading the page; the `Select` switches between templates directly.
+With no template selected, the workspace shows the "Novo documento" heading and one `TemplatePreview` sketch per `index.json` entry without a `cbmsc` object, labelled with its `name` and `.<type>`; clicking one selects it. After the entries comes the "Anexos do CBMSC" card, which opens the official forms dialog (see `client/docs/cbmsc-forms-catalog.md`); a form prepared for the assistant selects its template from there (see `cbmsc-form-templates.md`); without Supabase it is a non-clickable dashed card "Anexos do CBMSC em breve" / "Modelos oficiais". Once a template is selected, the gallery is replaced by the chat (with the template `Select` in its header) and the form panel. The `Select` switches between those templates directly, and there is no way back to the gallery from them except reloading the page. An official form has no `Select`: its chat title is the form name with a back button to the gallery.
 
 From `lg` (1024px) up, the chat and a 360px form panel sit side by side, separated by the panel's left border. Below `lg`, only one is shown at a time and `WorkspaceTabs` (`client/components/shared/workspace-tabs.tsx`, shared with Classificação) switches between "Conversa" and "Campos <filled>/<total>"; the tab starts on "Conversa", is not reset when the template changes, and tool results fill the fields while the "Campos" tab is hidden.
 
@@ -199,7 +201,7 @@ Selecting a template resets values, problems, the generate-attempt flag and the 
 - **Every chat message answers 400 after adding a template** → a field in its `.schema.json` has no `label` (or one over 80 characters), and `documentsChatBody` uses strict objects. → Give every field a short `label`.
 - **Restyling the chat for Documentos also changes Classificação** → `Chat` is shared, and Classificação still shows it as a framed card in a side column. → Change the documents look through the `className` and `title` props in `DocumentWorkspace`, not inside `components/chat/`.
 - **Tag renders empty in the output** → tag name differs from the schema `name` (typo, accent, different case) or Word split the tag with formatting. → Retype the whole tag in one go with uniform formatting; check spelling against the schema.
-- **`Falha ao gerar o documento`** → docxtemplater threw while parsing (unbalanced `{{`, a tag split by a field code or smart quotes). Details are in the browser console (`Failed to render document`).
+- **A 500 from `POST /api/documents/generate`** → docxtemplater threw while parsing (unbalanced `{{`, or a tag split by a field code). → Retype the tag in the template in one go; `template-files.test.ts` catches this for committed templates.
 - **Tags with inner spaces** → `{{ field }}` works only because of the custom trimming parser in `renderDocx`; docxtemplater's default parser would look up `" field "` and render empty.
 - **New template does not show up** → `index.json` is invalid JSON, still uses the old Portuguese keys (`nome`, `arquivo`), or `file`/`schema` lack the leading `/`. The page shows "Não foi possível carregar…" or the card has no label.
 - **Chat shows `Erro: …` immediately** → no model configured on `/admin` ("Nenhum modelo de IA configurado…"), a wrong key, or an invalid model id; provider messages are shown as-is.

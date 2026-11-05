@@ -65,3 +65,25 @@ describe("documentsChatBody", () => {
     expect(result.success).toBe(false);
   });
 });
+
+describe("documentsChatBody field marks", () => {
+  it("accepts a field marked as a ( ) option", () => {
+    const result = documentsChatBody.safeParse({
+      id: "chat",
+      messages: [],
+      templateId: "in-1-anexo-d",
+      schema: {
+        fields: [
+          {
+            name: "has_re",
+            type: "boolean",
+            label: "Tem RE",
+            description: "Tem RE",
+            mark: true,
+          },
+        ],
+      },
+    });
+    expect(result.success).toBe(true);
+  });
+});

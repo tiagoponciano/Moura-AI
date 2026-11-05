@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { projectCreateSchema } from "./projects";
+import { projectCreateSchema, projectUpdateSchema } from "./projects";
 
 describe("projectCreateSchema", () => {
   it("trims the name", () => {
@@ -16,6 +16,20 @@ describe("projectCreateSchema", () => {
   it("refuses a name over 120 characters", () => {
     expect(
       projectCreateSchema.safeParse({ name: "x".repeat(121) }).success,
+    ).toBe(false);
+  });
+});
+
+describe("projectUpdateSchema", () => {
+  it("accepts known project fields", () => {
+    expect(
+      projectUpdateSchema.safeParse({ data: { owner_name: "Ana" } }).success,
+    ).toBe(true);
+  });
+
+  it("refuses a key the project does not share", () => {
+    expect(
+      projectUpdateSchema.safeParse({ data: { question: "x" } }).success,
     ).toBe(false);
   });
 });

@@ -12,6 +12,9 @@ export const projectCreateSchema = z.strictObject({
     .max(120, "Nome muito longo"),
 });
 
+/** Id segment of `/api/documents/projects/[id]`. */
+export const projectIdSchema = z.uuid();
+
 export const fetchProjects = () =>
   requestJson<{ projects: Project[] }>("/api/documents/projects");
 
@@ -20,3 +23,12 @@ export const createProject = (name: string) =>
     method: "POST",
     body: JSON.stringify({ name }),
   });
+
+export const renameProject = (id: string, name: string) =>
+  requestJson<{ project: Project }>(`/api/documents/projects/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify({ name }),
+  });
+
+export const archiveProject = (id: string) =>
+  requestJson<void>(`/api/documents/projects/${id}`, { method: "DELETE" });

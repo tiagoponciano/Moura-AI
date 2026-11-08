@@ -7,6 +7,7 @@ import {
   deriveSteps,
   guideProblems,
   MAX_STEP_FIELDS,
+  stepProgress,
 } from "./conversation-steps";
 import type { TemplateEntry, TemplateField, TemplateSchema } from "./templates";
 
@@ -107,5 +108,50 @@ describe.each(entries)("steps of $id", (entry) => {
     expect(
       steps.filter((step) => step.fields.length > MAX_STEP_FIELDS),
     ).toEqual([]);
+  });
+});
+
+it("falls back to derived steps when the guide does not fit the schema", () => {
+  const schema = { fields: [text("name"), text("city")] };
+  const guide = { steps: [{ fields: ["name"] }] };
+  expect(conversationSteps(schema, guide)).toEqual(deriveSteps(schema));
+});
+
+describe("stepProgress", () => {
+  const schema = {
+    fields: [
+      { ...text("name"), required: true },
+      text("email"),
+      mark("has_re"),
+      text("re_number"),
+    ],
+  };
+  const steps = [
+    { fields: ["name", "email"] },
+    { fields: ["has_re", "re_number"] },
+  ];
+
+  it("starts at the first step when nothing is filled", () => {
+    expect(stepProgress(schema, steps, {}).index).toBe(0);
+  });
+
+  it("stays on a step while a required field in it is empty", () => {
+    expect(stepProgress(schema, steps, { email: "a@b.c" }).index).toBe(0);
+  });
+
+  it("moves on once the step's required fields are filled", () => {
+    expect(stepProgress(schema, steps, { name: "Ana" }).index).toBe(1);
+  });
+
+  it("counts a mark answered false as an answer", () => {
+    const progress = stepProgress(schema, steps, {
+      name: "Ana",
+      has_re: false,
+    });
+    expect(progress).toEqual({ index: 2, total: 2, step: undefined });
+  });
+
+  it("moves past a skipped step", () => {
+    expect(stepProgress(schema, steps, { name: "Ana" }, [1]).index).toBe(2);
   });
 });

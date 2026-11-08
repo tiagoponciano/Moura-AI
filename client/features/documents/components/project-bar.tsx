@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import type { useProjects } from "../hooks/use-projects";
+import { ProjectActions } from "./project-actions";
 
 type ProjectBarProps = {
   projects: ReturnType<typeof useProjects>;
@@ -51,6 +52,14 @@ export function ProjectBar({ projects }: ProjectBarProps) {
             ))}
           </SelectContent>
         </Select>
+        {projects.selected && (
+          <ProjectActions
+            key={projects.selected.id}
+            project={projects.selected}
+            onRename={(name) => projects.rename(projects.selected!.id, name)}
+            onArchive={() => projects.archive(projects.selected!.id)}
+          />
+        )}
         <form
           onSubmit={handleSubmit}
           className="flex min-w-60 flex-1 items-center gap-2"

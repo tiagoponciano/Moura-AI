@@ -2,7 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { errorMessage } from "@/lib/api/request-json";
-import { createProject, fetchProjects, type Project } from "../lib/projects";
+import {
+  archiveProject,
+  createProject,
+  fetchProjects,
+  renameProject,
+  type Project,
+} from "../lib/projects";
 
 /** The team's projects and the one being worked on; a new project becomes the current one. */
 export function useProjects(enabled: boolean) {
@@ -40,11 +46,44 @@ export function useProjects(enabled: boolean) {
     }
   }
 
+  /** Resolves to whether it was renamed, so the dialog can close. */
+  async function rename(id: string, name: string) {
+    setError(undefined);
+    try {
+      const { project } = await renameProject(id, name);
+      setProjects((current) =>
+        current
+          .map((item) => (item.id === id ? project : item))
+          .sort((a, b) => a.name.localeCompare(b.name, "pt-BR")),
+      );
+      return true;
+    } catch (cause) {
+      setError(errorMessage(cause));
+      return false;
+    }
+  }
+
+  /** Resolves to whether it was archived; the project leaves the list and the selection. */
+  async function archive(id: string) {
+    setError(undefined);
+    try {
+      await archiveProject(id);
+      setProjects((current) => current.filter((item) => item.id !== id));
+      setSelectedId((current) => (current === id ? undefined : current));
+      return true;
+    } catch (cause) {
+      setError(errorMessage(cause));
+      return false;
+    }
+  }
+
   return {
     projects,
     selected: projects.find((project) => project.id === selectedId),
     select: setSelectedId,
     create,
+    rename,
+    archive,
     creating,
     error,
   };

@@ -1,0 +1,46 @@
+{
+  "steps": [
+    {
+      "fields": ["external_query", "internal_query"],
+      "question": "A consulta é externa ou interna ao CBMSC?"
+    },
+    {
+      "fields": ["requester_name", "requester_email", "requester_phone"],
+      "question": "Quem é o solicitante? Preciso do nome, e-mail e telefone."
+    },
+    {
+      "fields": ["about_rules", "about_normative", "normative_number"],
+      "question": "A consulta é sobre as normas em geral ou sobre uma IN específica? Se for uma IN, qual o número?"
+    },
+    {
+      "fields": [
+        "about_building",
+        "has_re",
+        "re_number",
+        "has_process",
+        "process_number"
+      ],
+      "question": "É sobre uma edificação específica? Ela tem RE ou processo aberto? Se tiver, quais os números?"
+    },
+    {
+      "fields": ["building_cpf", "building_cnpj"],
+      "question": "Qual o CPF ou CNPJ do responsável pela edificação?"
+    },
+    {
+      "fields": [
+        "street",
+        "street_number",
+        "address_complement",
+        "district",
+        "city",
+        "postal_code",
+        "address_details"
+      ],
+      "question": "Qual o endereço da edificação?"
+    },
+    {
+      "fields": ["question"],
+      "question": "Qual é a dúvida que você quer levar ao CBMSC?"
+    }
+  ]
+}

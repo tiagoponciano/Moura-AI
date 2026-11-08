@@ -29,6 +29,8 @@ export type TemplateEntry = {
   type: "docx";
   file: string;
   schema: string;
+  /** Hand-written conversation steps; see `conversation-steps.ts`. */
+  guide?: string;
   /** Set on a tagged copy of an official form: which form, and the text it was made from. */
   cbmsc?: {
     normative: number;

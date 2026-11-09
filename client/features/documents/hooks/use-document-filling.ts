@@ -5,6 +5,12 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { errorMessage } from "@/lib/api/request-json";
 import { recordSources, type FieldSources } from "@/lib/field-sources";
 import {
+  type ConversationGuide,
+  conversationSteps,
+  SKIP_STEP_FIELD,
+  stepProgress,
+} from "../lib/conversation-steps";
+import {
   pickExtractedValues,
   requiredProgress,
   validateForDocument,
@@ -18,6 +24,7 @@ import {
 import type { Project } from "../lib/projects";
 import {
   FILL_FIELDS_TOOL,
+  loadTemplateGuide,
   loadTemplateIndex,
   loadTemplateSchema,
   type FieldValue,
@@ -34,6 +41,9 @@ export function useDocumentFilling(
   const [templates, setTemplates] = useState<TemplateEntry[]>([]);
   const [selectedId, setSelectedId] = useState<string>();
   const [schema, setSchema] = useState<TemplateSchema>();
+  const [guide, setGuide] = useState<ConversationGuide>();
+  /** Steps the user said do not apply, by position. */
+  const [skipped, setSkipped] = useState<number[]>([]);
   const [values, setValues] = useState<FieldValues>({});
   const [sources, setSources] = useState<FieldSources>({});
   const [problems, setProblems] = useState<string[]>([]);
@@ -51,6 +61,10 @@ export function useDocumentFilling(
   const pendingSave = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const template = templates.find((entry) => entry.id === selectedId);
+  const steps = useMemo(
+    () => (schema ? conversationSteps(schema, guide) : []),
+    [schema, guide],
+  );
 
   useEffect(() => {
     loadTemplateIndex()
@@ -63,9 +77,10 @@ export function useDocumentFilling(
   useEffect(() => {
     if (!template) return;
     let cancelled = false;
-    loadTemplateSchema(template)
-      .then((loaded) => {
+    Promise.all([loadTemplateSchema(template), loadTemplateGuide(template)])
+      .then(([loaded, loadedGuide]) => {
         if (cancelled) return;
+        setGuide(loadedGuide);
         const known = valuesFromProject(loaded, prefill);
         latestValues.current = known;
         setValues(known);
@@ -139,6 +154,8 @@ export function useDocumentFilling(
     setPrefill(project?.data ?? {});
     setSelectedId(id);
     setSchema(undefined);
+    setGuide(undefined);
+    setSkipped([]);
     setValues({});
     setSources({});
     setProblems([]);
@@ -149,6 +166,20 @@ export function useDocumentFilling(
   const handleToolResult = useCallback(
     (toolName: string, output: unknown) => {
       if (toolName !== FILL_FIELDS_TOOL || !schema || !template) return;
+      if (
+        (output as Record<string, unknown> | null)?.[SKIP_STEP_FIELD] === true
+      ) {
+        // Skips the step the agent was asking about, before this output's values.
+        setSkipped((current) => {
+          const { index } = stepProgress(
+            schema,
+            steps,
+            latestValues.current,
+            current,
+          );
+          return current.includes(index) ? current : [...current, index];
+        });
+      }
       const extracted = pickExtractedValues(schema, output);
       if (Object.keys(extracted).length === 0) return;
       const merged = { ...latestValues.current, ...extracted };
@@ -163,7 +194,7 @@ export function useDocumentFilling(
       const validation = validateForDocument(schema, merged);
       if (validation.ok) void generatePdf(template.id, validation.values);
     },
-    [schema, template, generatePdf, saveToProject],
+    [schema, steps, template, generatePdf, saveToProject],
   );
 
   function updateField(name: string, value: FieldValue | undefined) {
@@ -208,8 +239,8 @@ export function useDocumentFilling(
   }
 
   const chatBody = useMemo(
-    () => ({ templateId: selectedId, schema, values }),
-    [selectedId, schema, values],
+    () => ({ templateId: selectedId, schema, values, skipped }),
+    [selectedId, schema, values, skipped],
   );
 
   return {
@@ -223,6 +254,7 @@ export function useDocumentFilling(
     generating,
     attempted,
     progress: schema ? requiredProgress(schema, values) : undefined,
+    step: schema ? stepProgress(schema, steps, values, skipped) : undefined,
     chatBody,
     selectTemplate,
     handleToolResult,

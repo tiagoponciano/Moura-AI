@@ -23,6 +23,11 @@ const templateField = z.strictObject({
     )
     .max(10)
     .optional(),
+  /** Steps the user said do not apply, by position. */
+  skipped: z
+    .array(z.number().int().min(0).max(MAX_TEMPLATE_FIELDS))
+    .max(MAX_TEMPLATE_FIELDS)
+    .optional(),
 });
 
 /**
@@ -40,5 +45,10 @@ export const documentsChatBody = z.object({
   /** Fields already filled, so the assistant does not ask for them again. */
   values: z
     .record(z.string(), z.union([z.string(), z.number(), z.boolean()]))
+    .optional(),
+  /** Steps the user said do not apply, by position. */
+  skipped: z
+    .array(z.number().int().min(0).max(MAX_TEMPLATE_FIELDS))
+    .max(MAX_TEMPLATE_FIELDS)
     .optional(),
 });

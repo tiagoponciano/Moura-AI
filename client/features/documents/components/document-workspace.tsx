@@ -73,7 +73,7 @@ export function DocumentWorkspace() {
                 />
               }
               placeholder="Escreva os dados do formulário"
-              emptyState={chatEmptyState(schema)}
+              emptyState={chatEmptyState(schema, filling.step?.step)}
               className="rounded-none border-0 bg-transparent"
             />
           </div>
@@ -88,6 +88,7 @@ export function DocumentWorkspace() {
               values={filling.values}
               sources={filling.sources}
               progress={progress}
+              step={filling.step}
               problems={filling.problems}
               showMissing={filling.attempted}
               generating={filling.generating}

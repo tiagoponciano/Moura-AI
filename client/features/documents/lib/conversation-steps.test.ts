@@ -154,4 +154,11 @@ describe("stepProgress", () => {
   it("moves past a skipped step", () => {
     expect(stepProgress(schema, steps, { name: "Ana" }, [1]).index).toBe(2);
   });
+
+  it("names the next pending step, past skipped ones", () => {
+    const three = [...steps, { fields: ["email"] }];
+    expect(stepProgress(schema, three, {}, [1]).next).toEqual({
+      fields: ["email"],
+    });
+  });
 });

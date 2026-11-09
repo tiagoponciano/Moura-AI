@@ -65,6 +65,8 @@ export type StepProgress = {
   index: number;
   total: number;
   step?: ConversationStep;
+  /** The step after it that is not done, so the agent can move on in the same reply. */
+  next?: ConversationStep;
 };
 
 /**
@@ -83,16 +85,20 @@ export function stepProgress(
       .map((field) => field.name),
   );
   const filled = (name: string) => !isEmptyValue(values[name]);
-  const found = steps.findIndex(
-    (step, index) =>
-      !skipped.includes(index) &&
-      !(
-        step.fields.some(filled) &&
-        step.fields.every((name) => !required.has(name) || filled(name))
-      ),
+  const pending = steps.flatMap((step, index) =>
+    skipped.includes(index) ||
+    (step.fields.some(filled) &&
+      step.fields.every((name) => !required.has(name) || filled(name)))
+      ? []
+      : [index],
   );
-  const index = found === -1 ? steps.length : found;
-  return { index, total: steps.length, step: steps[index] };
+  const index = pending[0] ?? steps.length;
+  return {
+    index,
+    total: steps.length,
+    step: steps[index],
+    next: pending[1] === undefined ? undefined : steps[pending[1]],
+  };
 }
 
 /** What makes a guide unusable for its schema; empty when it is valid. */

@@ -1,0 +1,28 @@
+{
+  "steps": [
+    {
+      "fields": ["office_city", "requester_name", "requester_cpf"],
+      "question": "De qual município é o SSCI e quem é o requerente (nome e CPF)?"
+    },
+    {
+      "fields": ["company_name", "company_cnpj"],
+      "question": "Qual a razão social e o CNPJ da empresa?"
+    },
+    {
+      "fields": ["fine_number", "fine_amount"],
+      "question": "Qual o número e o valor da multa?"
+    },
+    {
+      "fields": ["street", "street_number", "district", "city", "re_number"],
+      "question": "Qual o endereço do imóvel e o RE?"
+    },
+    {
+      "fields": ["reasons"],
+      "question": "Quais os motivos do recurso?"
+    },
+    {
+      "fields": ["signed_city", "signed_day", "signed_month", "signed_year"],
+      "question": "Onde e quando o documento será assinado (município, dia, mês e ano)?"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "steps": [
+    {
+      "fields": [
+        "responsible_name",
+        "responsible_tax_id",
+        "responsible_id_card",
+        "responsible_registry"
+      ],
+      "question": "Quem é o responsável? Preciso do nome, CPF/CNPJ, RG e o registro no conselho."
+    },
+    {
+      "fields": ["responsible_phone", "responsible_email"],
+      "question": "Qual o telefone e o e-mail do responsável?"
+    },
+    {
+      "fields": [
+        "responsible_street",
+        "responsible_street_number",
+        "responsible_complement",
+        "responsible_district",
+        "responsible_city",
+        "responsible_postal_code"
+      ],
+      "question": "Qual o endereço do responsável?"
+    },
+    {
+      "fields": ["re_number", "protocol", "building_cnpj", "occupancy"],
+      "question": "Qual o RE, o protocolo, o CNPJ e a ocupação do imóvel?"
+    },
+    {
+      "fields": ["building_name", "company_name"],
+      "question": "Qual o nome da edificação e da empresa?"
+    },
+    {
+      "fields": [
+        "street",
+        "street_number",
+        "address_complement",
+        "district",
+        "city",
+        "postal_code",
+        "address_details"
+      ],
+      "question": "Qual o endereço do imóvel?"
+    }
+  ]
+}

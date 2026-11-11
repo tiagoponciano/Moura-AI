@@ -7,12 +7,22 @@ export const isPdfServiceConfigured = () =>
   Boolean(process.env.PDF_SERVICE_URL);
 
 /** Server-only. Converts a `.docx` in the PDF microservice; throws on any failure. */
-export async function convertDocxToPdf(docx: Uint8Array): Promise<Uint8Array> {
+export const convertDocxToPdf = (docx: Uint8Array) =>
+  convertOfficeFileToPdf(docx, "document.docx");
+
+/** Server-only. Converts a `.pptx` in the PDF microservice; throws on any failure. */
+export const convertPptxToPdf = (pptx: Uint8Array) =>
+  convertOfficeFileToPdf(pptx, "document.pptx");
+
+async function convertOfficeFileToPdf(
+  file: Uint8Array,
+  fileName: string,
+): Promise<Uint8Array> {
   const credentials = Buffer.from(
     `${process.env.PDF_SERVICE_USER}:${process.env.PDF_SERVICE_PASSWORD}`,
   ).toString("base64");
   const form = new FormData();
-  form.append("files", new Blob([docx.slice()]), "document.docx");
+  form.append("files", new Blob([file.slice()]), fileName);
 
   const response = await fetch(
     `${process.env.PDF_SERVICE_URL}/forms/libreoffice/convert`,

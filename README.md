@@ -71,6 +71,7 @@ client/
 └── scripts/                      # one-off generators
 
 services/pdf/                     # PDF microservice (Dockerfile); see document-generation.md
+services/dwg/                     # plan to DXF/DWG microservice; see client/docs/dwg-service.md
 supabase/migrations/              # database schema, RLS policies, storage bucket and admin RPCs (SQL)
 ```
 
@@ -100,6 +101,7 @@ Sign in as an admin, open "Administração", pick the AI provider and model and 
 | `SUPABASE_SERVICE_ROLE_KEY`                                   | for chats           | Supabase service role key. Server-only, never `NEXT_PUBLIC_`. The chats use it to read the provider, model and key saved on `/admin`; without it every chat answers "Nenhum modelo de IA configurado".    |
 | `CRON_SECRET`                                                 | for the daily check | Random string. Server-only. Vercel Cron sends it to `/api/cron/cbmsc-forms`, the daily check of the CBMSC forms page. Without it the route answers 503; "Verificar agora" on `/admin` still works.        |
 | `PDF_SERVICE_URL`, `PDF_SERVICE_USER`, `PDF_SERVICE_PASSWORD` | for the PDF         | The microservice in `services/pdf` (`docker compose up -d pdf` locally). Server-only. Without the URL only the `.docx` is generated.                                                                      |
+| `DWG_SERVICE_URL`, `DWG_SERVICE_TOKEN`                        | for Plantas         | The microservice in `services/dwg` (`docker compose up -d dwg` locally, token `local-only`). Server-only. Without them plans cannot be converted.                                                         |
 | `NEXT_PUBLIC_GOOGLE_CLIENT_ID`                                | with Supabase       | Google OAuth web client ID, the same one set in Supabase → Providers → Google. Without it the login page shows no button while the gate stays on.                                                         |
 | `GOOGLE_CLIENT_SECRET`                                        | with Supabase       | Secret of that same Google client. Server-only, never `NEXT_PUBLIC_`. `/api/auth/google` uses it to trade the popup's code for an ID token; without it the button opens Google's popup but sign-in fails. |
 | `ALLOWED_EMAIL_DOMAIN`                                        | no                  | Only Google accounts from this domain may sign in, e.g. `mourasengenharia.com`. A domain saved on `/admin` overrides it. Empty in both accepts any account (approval is still required).                  |

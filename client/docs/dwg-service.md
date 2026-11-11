@@ -9,18 +9,18 @@ A Python service (FastAPI, PyMuPDF, OpenCV and ezdxf) that reads a floor plan an
 Invariants:
 
 - The service never calls a model, stores a file or keeps state.
-- Output is on paper: millimeters, y up, scale 1:1 of the page. The drawing's real-world scale (1:100…) is not applied; it has to be read from the plan and applied by the caller.
+- Output is on paper by default: millimeters, y up, scale 1:1 of the page. The drawing's real-world scale (1:100…) is applied only when the caller sends it as `scale`; it has to be read from the plan by the caller.
 - Quality problems are reported, never hidden: a photo that cannot give a reliable result comes back with warnings.
 
 ## Surface
 
 All routes except `/health` need `Authorization: Bearer $DWG_SERVICE_TOKEN`; `401` for a wrong or missing token, `503` when the service has no token configured. Files are limited to 20 MB (`413`), an empty or unreadable file is `422`.
 
-| Method | Path       | Takes                                   | Returns                                                                                      |
-| ------ | ---------- | --------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `GET`  | `/health`  | none                                    | `{ status: "ok", dwg: boolean }`; `dwg` tells whether the DWG converter is installed          |
-| `POST` | `/convert` | multipart `file`; query `format=dxf\|dwg` | The drawing. Headers `X-Mode` (`vector` or `raster`) and `X-Warnings` (comma separated)      |
-| `POST` | `/crops`   | multipart `file`                        | `{ crops: [{ name, png_base64 }] }`: `title_block` and `scale_strip`, each at most 800 px    |
+| Method | Path       | Takes                                                                     | Returns                                                                                   |
+| ------ | ---------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `GET`  | `/health`  | none                                                                      | `{ status: "ok", dwg: boolean }`; `dwg` tells whether the DWG converter is installed      |
+| `POST` | `/convert` | multipart `file`; query `format=dxf\|dwg`, `scale` (1 to 5000, default 1) | The drawing. Headers `X-Mode` (`vector` or `raster`) and `X-Warnings` (comma separated)   |
+| `POST` | `/crops`   | multipart `file`                                                          | `{ crops: [{ name, png_base64 }] }`: `title_block` and `scale_strip`, each at most 800 px |
 
 `format=dwg` answers `501` when `dxf2dwg` is not installed and `502` when it fails.
 
@@ -36,7 +36,7 @@ All routes except `/health` need `Authorization: Bearer $DWG_SERVICE_TOKEN`; `40
 
 - No OCR: texts of a photo or scan are not recognized. Only vector PDFs carry texts.
 - No layers by meaning (walls, doors, furniture), no blocks and no arcs for door swings: everything drawn is `LINHAS`.
-- No scale: coordinates are paper millimeters.
+- No scale reading: coordinates are paper millimeters unless the caller sends `scale`, the drawing's scale denominator (100 for 1:100), which multiplies every coordinate and text height. Reading the scale from the plan is the caller's job.
 - Regions of `/crops` are fixed fractions of the page; a plan with its title block elsewhere needs other regions.
 - DWG is only as good as LibreDWG's `dxf2dwg`, which is experimental; the DXF is the reliable output.
 - The thresholds were chosen on synthetic plans; no real Moura plan has been used yet.

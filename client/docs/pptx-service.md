@@ -14,10 +14,10 @@ Invariants:
 
 ## Surface
 
-| Method | Path       | Auth                                    | Returns                                          |
-| ------ | ---------- | --------------------------------------- | ------------------------------------------------ |
-| `GET`  | `/health`  | none                                    | `{ "status": "ok" }`                             |
-| `POST` | `/render`  | `Authorization: Bearer $PPTX_SERVICE_TOKEN` | The `.pptx` (`proposta.pptx`)                |
+| Method | Path      | Auth                                        | Returns                       |
+| ------ | --------- | ------------------------------------------- | ----------------------------- |
+| `GET`  | `/health` | none                                        | `{ "status": "ok" }`          |
+| `POST` | `/render` | `Authorization: Bearer $PPTX_SERVICE_TOKEN` | The `.pptx` (`proposta.pptx`) |
 
 Errors: `401` wrong or missing token, `503` when `PPTX_SERVICE_TOKEN` is not set on the service, `422` for an unknown value or a text over its limit.
 
@@ -25,16 +25,16 @@ Errors: `401` wrong or missing token, `503` when `PPTX_SERVICE_TOKEN` is not set
 
 Body of `POST /render` (all optional, all plain text; an unknown key is refused):
 
-| Value                                                    | Type            | Limit             | Where it goes                                  |
-| -------------------------------------------------------- | --------------- | ----------------- | ---------------------------------------------- |
-| `client`, `project_name`, `city_state`, `date`           | string          | 200 characters    | Cover lines                                    |
-| `plan_title`                                             | string          | 200 characters    | Title of the plan card                         |
-| `plan_description`                                       | string          | 600 characters    | Text under the title                           |
-| `plan_items`                                             | list of strings | 20 entries        | One paragraph each, prefixed with a check mark |
-| `price`                                                  | string          | 40 characters     | Price box, already formatted (e.g. `R$ 4.500,00`) |
-| `excluded_items`                                         | list of strings | 20 entries        | Bullets of "Itens não incluídos"; defaults to Moura's four standard exclusions |
-| `notes`                                                  | list of strings | 20 entries        | Lines of "Observações importantes"             |
-| `contact_phone`, `contact_site`, `contact_email`         | string          | 200 characters    | Closing slide; default to Moura's contacts     |
+| Value                                            | Type            | Limit          | Where it goes                                                                  |
+| ------------------------------------------------ | --------------- | -------------- | ------------------------------------------------------------------------------ |
+| `client`, `project_name`, `city_state`, `date`   | string          | 200 characters | Cover lines                                                                    |
+| `plan_title`                                     | string          | 200 characters | Title of the plan card                                                         |
+| `plan_description`                               | string          | 600 characters | Text under the title                                                           |
+| `plan_items`                                     | list of strings | 20 entries     | One paragraph each, prefixed with a check mark                                 |
+| `price`                                          | string          | 40 characters  | Price box, already formatted (e.g. `R$ 4.500,00`)                              |
+| `excluded_items`                                 | list of strings | 20 entries     | Bullets of "Itens não incluídos"; defaults to Moura's four standard exclusions |
+| `notes`                                          | list of strings | 20 entries     | Lines of "Observações importantes"                                             |
+| `contact_phone`, `contact_site`, `contact_email` | string          | 200 characters | Closing slide; default to Moura's contacts                                     |
 
 ## Rules and behavior
 

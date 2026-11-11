@@ -48,3 +48,12 @@ Pressing the active status button clears it. A note is saved when the field lose
 
 - "No checklist imported" → the seed migrations were not applied → apply `20261109000000` and `20261109000100`.
 - Answers vanish after a new checklist version is imported → the screen shows the newest version and answers are per version → answers of the old version are still in `ppci_answers`.
+
+## Pending-items report
+
+`GET /api/documents/projects/:id/ppci/report` returns `pendencias-ppci.pdf`, the report for the drafter. The "Relatório de pendências (PDF)" button in the checklist downloads it.
+
+- Content: a header with the project name, the technical lead (`technical_name` and `technical_registry` of the project data, when filled) and the date in São Paulo time, then each group with at least one item answered Adequar, in checklist order, with the item's sub-heading and note. Groups with none are left out; with none at all the page says "Nenhum item a adequar."
+- It is built as an HTML page by `reportHtml` (all project text escaped) and printed to PDF by the PDF microservice's Chromium route. No model takes part.
+- Errors: 400 invalid project id, 404 `Project not found` or no checklist imported, 503 when `PDF_SERVICE_URL` is not set, 502 when the PDF service fails.
+- Items answered Atende or Não se aplica, and items never answered, are not in the report.

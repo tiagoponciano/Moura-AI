@@ -12,7 +12,9 @@ import {
 } from "@/components/ui/collapsible";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { PpciAgentPanel } from "./ppci-agent-panel";
 import { usePpciChecklist } from "../hooks/use-ppci-checklist";
+import { unansweredItems } from "../lib/ppci-agent";
 import {
   ANSWER_LABEL,
   ANSWER_STATUSES,
@@ -93,6 +95,12 @@ export function PpciChecklist({ projectId }: PpciChecklistProps) {
           {error ?? reportError}
         </p>
       )}
+      <PpciAgentPanel
+        projectId={projectId}
+        groups={checklist.groups}
+        answers={answers}
+        onAnswer={answer}
+      />
       <ControlPanel groups={checklist.groups} answers={answers} />
       {checklist.groups.map((group, index) => (
         <GroupSection
@@ -175,6 +183,39 @@ function GroupSection({
         </span>
       </CollapsibleTrigger>
       <CollapsibleContent className="flex flex-col divide-y border-t">
+        <div className="flex flex-wrap items-center gap-2 p-3">
+          <Button
+            type="button"
+            size="sm"
+            variant="outline"
+            disabled={unansweredItems(group, answers).length === 0}
+            onClick={() => {
+              for (const item of unansweredItems(group, answers)) {
+                onAnswer(group.position, item.position, { status: "na" });
+              }
+            }}
+          >
+            Este grupo não se aplica ao projeto
+          </Button>
+          <Button
+            type="button"
+            size="sm"
+            variant="ghost"
+            disabled={stats.notApplicable === 0}
+            onClick={() => {
+              for (const item of group.items) {
+                const current = answers.get(
+                  answerKey(group.position, item.position),
+                );
+                if (current?.status === "na") {
+                  onAnswer(group.position, item.position, { status: null });
+                }
+              }
+            }}
+          >
+            Desfazer os “Não se aplica”
+          </Button>
+        </div>
         {group.items.map((item, index) => {
           const current = answers.get(answerKey(group.position, item.position));
           const newSection =

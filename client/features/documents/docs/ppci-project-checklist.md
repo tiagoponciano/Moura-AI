@@ -57,3 +57,15 @@ Pressing the active status button clears it. A note is saved when the field lose
 - It is built as an HTML page by `reportHtml` (all project text escaped) and printed to PDF by the PDF microservice's Chromium route. No model takes part.
 - Errors: 400 invalid project id, 404 `Project not found` or no checklist imported, 503 when `PDF_SERVICE_URL` is not set, 502 when the PDF service fails.
 - Items answered Atende or Não se aplica, and items never answered, are not in the report.
+
+## Checklist agent
+
+Above the control panel, "Conversar com o agente" goes through the checklist with the user, one group at a time, and records the answers through tools. The model never decides an answer: it extracts what the user said, and code applies it.
+
+- **Current group:** the group picked in the selector, else the first group with an unanswered item, else the last group. Answering the last item of a group moves the conversation to the next one on its own.
+- **What the model receives:** `POST /api/documents/ppci-chat` takes `{ id, messages, projectId, groupPosition }`. The server loads the checklist and the project's answers itself, and the system prompt (`buildPpciInstructions`) lists only the current group's unanswered items, with their numbers. Items already answered and other groups are not sent.
+- **Tools:** `mark_items` takes `{ items: [{ position, status, note? }] }`; `mark_group_not_applicable` takes nothing and stands for "Não se aplica" on every unanswered item of the group. Both only echo their input; the browser (`changesFromToolOutput`) drops items that are not in the current group and saves each answer like a click.
+- **Suggestions:** the prompt tells the model to say anything it infers from the project as a suggestion and to wait for the user to confirm before recording it.
+- **Whole groups that do not apply:** each group also has the button "Este grupo não se aplica ao projeto", which marks its unanswered items as Não se aplica, and "Desfazer os “Não se aplica”", which clears every Não se aplica in the group. Nothing is marked on its own when the checklist opens.
+
+The conversation is not saved: closing the dialog or reloading clears it, while the recorded answers stay.

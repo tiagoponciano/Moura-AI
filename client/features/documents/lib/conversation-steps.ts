@@ -21,8 +21,13 @@ export type ConversationGuide = {
 /**
  * Splits a form into the steps the agent goes through, in document order.
  * Consecutive `( )` marks share a step, and the field right after them joins
- * it, since it usually completes the last mark ("Tem RE" + "RE").
+ * it, since it usually completes the last mark ("Tem RE" + "RE"). A numbered
+ * question ("1.12 Os chuveiros…") never shares a step with one of another
+ * section ("2.1 …"), so a checklist is asked section by section.
  */
+const SECTION = /^(\d+)\.\d+\s/;
+const sectionOf = (field: TemplateField) => field.label.match(SECTION)?.[1];
+
 export function deriveSteps(schema: TemplateSchema): ConversationStep[] {
   const steps: ConversationStep[] = [];
   let current: TemplateField[] = [];
@@ -36,8 +41,11 @@ export function deriveSteps(schema: TemplateSchema): ConversationStep[] {
     const marks = current.filter((f) => f.mark).length;
     const plain = current.length - marks;
     const full = current.length >= MAX_STEP_FIELDS;
+    const last = current.at(-1);
 
-    if (field.mark) {
+    if (last && sectionOf(last) !== sectionOf(field)) {
+      close();
+    } else if (field.mark) {
       if (plain > 0 || full) close();
     } else if (marks > 0) {
       if (plain > 0 || full) close();

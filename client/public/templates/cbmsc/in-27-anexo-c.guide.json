@@ -1,0 +1,8 @@
+{
+  "steps": [
+    {
+      "fields": ["notes"],
+      "question": "Que observações relevantes você quer registrar?"
+    }
+  ]
+}

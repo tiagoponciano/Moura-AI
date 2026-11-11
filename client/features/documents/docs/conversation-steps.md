@@ -28,6 +28,8 @@ Invariants:
 | a plain field | only plain fields, fewer than the limit | joins the step            |
 | a plain field | only plain fields, at the limit         | starts a new step         |
 
+Before those rules: a field whose label is numbered `N.M ` (as in the checklist forms, "1.12 Os chuveiros…") always starts a new step when the previous field belongs to another section (a different `N`, or none), so a checklist is asked section by section.
+
 A mark is a field with `mark: true`, a `( )` option in the document. The limit is `MAX_STEP_FIELDS` (6). So `has_re` followed by `re_number` share a step, and a run of marks such as `external_query`, `internal_query` becomes one choice.
 
 A guide is a JSON file referenced by the template's `guide` key in `public/templates/index.json`:
@@ -71,7 +73,7 @@ A guide is a JSON file referenced by the template's `guide` key in `public/templ
 - Derived steps have no `question`; the agent phrases those from the field descriptions.
 - There are no skip conditions in the guide. A follow-up field (`re_number`) sits in the same step as its mark, and the agent leaves it empty when the mark is not chosen.
 - Editing a field by hand moves the current step like any value does, but the chat's instructions only change on the next message.
-- Only IN 1 Anexo D has a guide.
+- Five forms have a guide: IN 1 Anexo D and H, IN 2 Anexo K and L, and IN 27 Anexo C, the hand-prepared ones. The other 23 use derived steps.
 
 ## Gotchas
 

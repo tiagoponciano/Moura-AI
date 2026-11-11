@@ -71,6 +71,7 @@
     "type": "docx",
     "file": "/templates/cbmsc/in-1-anexo-h.docx",
     "schema": "/templates/cbmsc/in-1-anexo-h.schema.json",
+    "guide": "/templates/cbmsc/in-1-anexo-h.guide.json",
     "cbmsc": {
       "normative": 1,
       "annex": "H",
@@ -136,6 +137,7 @@
     "type": "docx",
     "file": "/templates/cbmsc/in-2-anexo-k.docx",
     "schema": "/templates/cbmsc/in-2-anexo-k.schema.json",
+    "guide": "/templates/cbmsc/in-2-anexo-k.guide.json",
     "cbmsc": {
       "normative": 2,
       "annex": "K",
@@ -149,6 +151,7 @@
     "type": "docx",
     "file": "/templates/cbmsc/in-2-anexo-l.docx",
     "schema": "/templates/cbmsc/in-2-anexo-l.schema.json",
+    "guide": "/templates/cbmsc/in-2-anexo-l.guide.json",
     "cbmsc": {
       "normative": 2,
       "annex": "L",
@@ -318,6 +321,7 @@
     "type": "docx",
     "file": "/templates/cbmsc/in-27-anexo-c.docx",
     "schema": "/templates/cbmsc/in-27-anexo-c.schema.json",
+    "guide": "/templates/cbmsc/in-27-anexo-c.guide.json",
     "cbmsc": {
       "normative": 27,
       "annex": "C",

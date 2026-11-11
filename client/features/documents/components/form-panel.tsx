@@ -43,7 +43,9 @@ export function FormPanel({
         <div className="flex items-baseline justify-between gap-2 text-sm">
           <h2 className="font-semibold">Campos do documento</h2>
           <span className="text-xs text-muted-foreground tabular-nums">
-            {progress.filled} de {progress.total} obrigatórios
+            {progress.total > 0
+              ? `${progress.filled} de ${progress.total} obrigatórios`
+              : "Nenhum campo obrigatório"}
           </span>
         </div>
         {progress.total > 0 && (

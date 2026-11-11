@@ -25,13 +25,13 @@ Invariants:
 
 ### HTTP
 
-| Method        | Path                                  | Caller               | Returns                                                                                                                                                                                                                                                                          |
-| ------------- | ------------------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `GET`         | `/api/documents/forms`                | `useCbmscForms`      | `{ forms }`, the active official CBMSC forms; see `client/docs/cbmsc-forms-catalog.md`                                                                                                                                                                                           |
-| `GET`         | `/api/documents/forms/:docId/version` | `useFormAssistant`   | `{ textHash }` of the live form; see `cbmsc-form-templates.md`                                                                                                                                                                                                                   |
-| `POST`        | `/api/documents/chat`                 | `Chat` component     | AI SDK UI message stream (SSE). `500` with a Portuguese "Nenhum modelo de IA configurado…" message when no model is configured on `/admin` (see `client/docs/llm-configuration.md`); `400`/`413`/`429` from the request checks and quota in `client/docs/chat-request-limits.md` |
-| `POST`        | `/api/documents/generate`             | `useDocumentFilling` | The PDF or `.docx`; see `document-generation.md`                                                                                                                                                                                                                                 |
-| `GET`, `POST` | `/api/documents/projects`             | `useProjects`        | `{ projects }`; `201 { project }`. Errors: 400 for the name, 500 `Failed to load projects` or `Failed to create the project`                                                                                                                                                     |
+| Method                 | Path                                  | Caller               | Returns                                                                                                                                                                                                                                                                          |
+| ---------------------- | ------------------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `GET`                  | `/api/documents/forms`                | `useCbmscForms`      | `{ forms }`, the active official CBMSC forms; see `client/docs/cbmsc-forms-catalog.md`                                                                                                                                                                                           |
+| `GET`                  | `/api/documents/forms/:docId/version` | `useFormAssistant`   | `{ textHash }` of the live form; see `cbmsc-form-templates.md`                                                                                                                                                                                                                   |
+| `POST`                 | `/api/documents/chat`                 | `Chat` component     | AI SDK UI message stream (SSE). `500` with a Portuguese "Nenhum modelo de IA configurado…" message when no model is configured on `/admin` (see `client/docs/llm-configuration.md`); `400`/`413`/`429` from the request checks and quota in `client/docs/chat-request-limits.md` |
+| `POST`                 | `/api/documents/generate`             | `useDocumentFilling` | The PDF or `.docx`; see `document-generation.md`                                                                                                                                                                                                                                 |
+| `GET`, `POST`, `PATCH` | `/api/documents/projects`             | `useProjects`        | See `project-fields.md`                                                                                                                                                                                                                                                          |
 
 Requires a signed-in, approved user (`client/docs/authentication.md`); without Supabase it answers 503. The route takes the `schema` sent by the client after checking its shape (`documentsChatBody`), not against the template files.
 
@@ -68,8 +68,9 @@ Source tracking is app-wide, shared with Classificação, in `client/lib/field-s
 | `hooks/use-form-assistant.ts`                                                     | Compares a form's template to the live Google Doc                                                             |
 | `hooks/use-document-filling.ts`                                                   | All client state and actions: template list, schema, values, field sources, problems, generation              |
 | `components/document-workspace.tsx`                                               | Client entry point; switches between picker, loading state and chat + form panel; holds the narrow-screen tab |
-| `components/forms-home.tsx`                                                       | The page with no form open: the forms dialog, open on arrival, and "Abrir formulários" once closed            |
-| `components/project-bar.tsx`                                                      | Picks the current project or creates one                                                                      |
+| `components/forms-home.tsx`                                                       | The page with no form open: the forms dialog, open on arrival, and the card that reopens it                   |
+| `components/project-bar.tsx`                                                      | Picks the current project, creates one and opens its data                                                     |
+| `components/project-details.tsx`                                                  | "Dados do projeto": one collapsible section per group of shared fields                                        |
 | `components/form-chat-title.tsx`                                                  | Chat title: form name, project and back button                                                                |
 | `components/cbmsc-forms-browser.tsx`                                              | Dialog content: list and preview, one at a time below `lg`                                                    |
 | `components/cbmsc-form-list.tsx`                                                  | Search field and the forms grouped by IN                                                                      |
@@ -100,7 +101,7 @@ The chat is the shared `Chat` (`components/chat/chat.tsx`): props `endpoint`, `b
 // schema field
 {
   "name": "area_m2",          // must equal the tag name in the .docx; snake_case English
-  "type": "number",           // "string" | "number" | "date" | "boolean"
+  "type": "number",           // "string" | "number" | "date" | "boolean" | "choice"
   "label": "Área construída (m²)", // required; panel label and generation problems, Portuguese, 1–80 chars
   "description": "Área total construída do imóvel, em metros quadrados", // LLM hint + panel tooltip, Portuguese
   "required": true            // optional, defaults to false
@@ -131,6 +132,7 @@ The committed templates and their fields are listed in `cbmsc-form-templates.md`
 | `string`  | `z.string()`                   | `z.string().trim().min(1)` |
 | `number`  | `z.number()`                   | same                       |
 | `boolean` | `z.boolean()`                  | same                       |
+| `choice`  | `z.enum(option values)`        | same                       |
 | `date`    | string matching `DATE_PATTERN` | same                       |
 
 Every field is `.optional()` in `extraction`. In `document`, only fields with `required: true` are required. `description` is attached via `.describe()` and reaches the model through the tool's JSON Schema (dates get ` (formato DD/MM/AAAA)` appended). The generated object has `additionalProperties: false`.
@@ -160,6 +162,7 @@ Every field is `.optional()` in `extraction`. In `document`, only fields with `r
 | `number`  | `Input type="number"`; unparsable or empty → `undefined`             | required and empty                           | has a number                   |
 | `date`    | `Input` text, placeholder `DD/MM/AAAA`; not validated while typing   | required and empty                           | non-empty (format not checked) |
 | `boolean` | `Switch`                                                             | never (a boolean always has a value)         | never                          |
+| `choice`  | `Select`                                                             | never required by generated forms            | never                          |
 
 Fields are listed in schema order inside two groups, "Obrigatórios" (`required: true`) and "Opcionais"; a group with no fields is not rendered, and there is no `*` required mark. Each field is a row: status dot, the `label`, an optional source tag, and the control. Hovering the label shows the `description` and the `{{name}}` tag. Controls have no border, background or focus ring of their own; the row turns `muted` on hover and `accent` while its control has focus. Empty text, number and date controls show the placeholder "Não informado" (`DD/MM/AAAA` for dates).
 
@@ -181,9 +184,9 @@ The panel footer generates a PDF, by itself once the assistant completes the req
 
 ### Template lifecycle
 
-With no form open, the page holds only `FormsHome`: the "Anexos do CBMSC" dialog opens by itself on arrival, with the project bar on top (`ProjectBar`), and closing it leaves an "Abrir formulários" button. Without Supabase the page says "Anexos do CBMSC em breve". Choosing a prepared form replaces this with the chat and form panel; the chat title has a back button that returns to the page and reopens the dialog.
+With no form open, the page holds only `FormsHome`: the "Anexos do CBMSC" dialog opens by itself on arrival, with the project bar on top (`ProjectBar`), and closing it leaves the "Anexos do CBMSC" card that reopens it. Without Supabase the page says "Anexos do CBMSC em breve". Choosing a prepared form replaces this with the chat and form panel; the chat title has a back button that returns to the page and reopens the dialog.
 
-Projects are shared by every approved user (`20261105000200_projects.sql`: approved users read and add, nobody deletes). `GET` and `POST /api/documents/projects` list them by name and create one from `{ name }` (1–120 characters after trimming), and a new project becomes the current one. A project holds only its name, and the current one lasts until the page reloads and shows in the chat title. It does not fill any field.
+Projects are shared by every approved user, and the current one fills the fields it knows when a form opens; see `project-fields.md`.
 
 From `lg` (1024px) up, the chat and a 360px form panel sit side by side, separated by the panel's left border. Below `lg`, only one is shown at a time and `WorkspaceTabs` (`client/components/shared/workspace-tabs.tsx`, shared with Classificação) switches between "Conversa" and "Campos <filled>/<total>"; the tab starts on "Conversa", is not reset when the template changes, and tool results fill the fields while the "Campos" tab is hidden.
 

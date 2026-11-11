@@ -5,175 +5,200 @@
       "type": "string",
       "label": "Nome do responsável",
       "description": "Nome do responsável técnico",
-      "required": true
+      "required": true,
+      "projectKey": "technical_name"
     },
     {
       "name": "responsible_phone",
       "type": "string",
       "label": "Telefone do responsável",
       "description": "Telefone(s) do responsável técnico",
-      "required": false
+      "required": false,
+      "projectKey": "technical_phone"
     },
     {
       "name": "responsible_tax_id",
       "type": "string",
       "label": "CPF/CNPJ do responsável",
       "description": "CPF ou CNPJ do responsável técnico",
-      "required": true
+      "required": true,
+      "projectKey": "technical_tax_id"
     },
     {
       "name": "responsible_id_card",
       "type": "string",
       "label": "RG do responsável",
       "description": "RG do responsável técnico",
-      "required": false
+      "required": false,
+      "projectKey": "technical_id_card"
     },
     {
       "name": "responsible_email",
       "type": "string",
       "label": "E-mail do responsável",
       "description": "E-mail do responsável técnico",
-      "required": false
+      "required": false,
+      "projectKey": "technical_email"
     },
     {
       "name": "responsible_registry",
       "type": "string",
       "label": "Registro no conselho",
       "description": "Número de registro do responsável no conselho de classe profissional",
-      "required": true
+      "required": true,
+      "projectKey": "technical_registry"
     },
     {
       "name": "responsible_street",
       "type": "string",
       "label": "Logradouro do responsável",
       "description": "Logradouro do responsável técnico",
-      "required": false
+      "required": false,
+      "projectKey": "technical_street"
     },
     {
       "name": "responsible_street_number",
       "type": "string",
       "label": "Número do responsável",
       "description": "Número no logradouro do responsável técnico",
-      "required": false
+      "required": false,
+      "projectKey": "technical_number"
     },
     {
       "name": "responsible_complement",
       "type": "string",
       "label": "Complemento do responsável",
       "description": "Complemento do endereço do responsável técnico",
-      "required": false
+      "required": false,
+      "projectKey": "technical_complement"
     },
     {
       "name": "responsible_district",
       "type": "string",
       "label": "Bairro do responsável",
       "description": "Bairro do responsável técnico",
-      "required": false
+      "required": false,
+      "projectKey": "technical_district"
     },
     {
       "name": "responsible_city",
       "type": "string",
       "label": "Cidade do responsável",
       "description": "Cidade do responsável técnico",
-      "required": false
+      "required": false,
+      "projectKey": "technical_city"
     },
     {
       "name": "responsible_postal_code",
       "type": "string",
       "label": "CEP do responsável",
       "description": "CEP do responsável técnico",
-      "required": false
+      "required": false,
+      "projectKey": "technical_postal_code"
     },
     {
       "name": "re_number",
       "type": "string",
       "label": "RE",
       "description": "Registro de edificação (RE) do imóvel",
-      "required": false
+      "required": false,
+      "projectKey": "property_re"
     },
     {
       "name": "building_cnpj",
       "type": "string",
       "label": "CNPJ do imóvel",
       "description": "CNPJ ligado ao imóvel",
-      "required": false
+      "required": false,
+      "projectKey": "property_cnpj"
     },
     {
       "name": "protocol",
       "type": "string",
       "label": "Protocolo",
       "description": "Número de protocolo do imóvel",
-      "required": false
+      "required": false,
+      "projectKey": "property_protocol"
     },
     {
       "name": "occupancy",
       "type": "string",
       "label": "Ocupação",
       "description": "Ocupação do imóvel",
-      "required": true
+      "required": true,
+      "projectKey": "property_occupancy"
     },
     {
       "name": "street",
       "type": "string",
       "label": "Logradouro do imóvel",
       "description": "Logradouro do imóvel",
-      "required": true
+      "required": true,
+      "projectKey": "property_street"
     },
     {
       "name": "street_number",
       "type": "string",
       "label": "Número do imóvel",
       "description": "Número do imóvel no logradouro",
-      "required": false
+      "required": false,
+      "projectKey": "property_number"
     },
     {
       "name": "district",
       "type": "string",
       "label": "Bairro do imóvel",
       "description": "Bairro do imóvel",
-      "required": false
+      "required": false,
+      "projectKey": "property_district"
     },
     {
       "name": "city",
       "type": "string",
       "label": "Cidade do imóvel",
       "description": "Cidade do imóvel",
-      "required": true
+      "required": true,
+      "projectKey": "property_city"
     },
     {
       "name": "postal_code",
       "type": "string",
       "label": "CEP do imóvel",
       "description": "CEP do imóvel",
-      "required": false
+      "required": false,
+      "projectKey": "property_postal_code"
     },
     {
       "name": "address_complement",
       "type": "string",
       "label": "Complemento do imóvel",
       "description": "Complemento do endereço do imóvel",
-      "required": false
+      "required": false,
+      "projectKey": "property_complement"
     },
     {
       "name": "building_name",
       "type": "string",
       "label": "Nome da edificação",
       "description": "Nome da edificação",
-      "required": false
+      "required": false,
+      "projectKey": "property_building_name"
     },
     {
       "name": "company_name",
       "type": "string",
       "label": "Nome da empresa",
       "description": "Nome da empresa no imóvel",
-      "required": false
+      "required": false,
+      "projectKey": "property_company_name"
     },
     {
       "name": "address_details",
       "type": "string",
       "label": "Detalhes do imóvel",
       "description": "Detalhes do imóvel, se houver",
-      "required": false
+      "required": false,
+      "projectKey": "property_details"
     }
   ]
 }

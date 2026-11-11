@@ -1,0 +1,140 @@
+{
+  "fields": [
+    {
+      "name": "field_001",
+      "type": "string",
+      "label": "Nome",
+      "description": "1. Solicitante: Nome:",
+      "required": false,
+      "projectKey": "owner_name"
+    },
+    {
+      "name": "field_002",
+      "type": "string",
+      "label": "E-mail",
+      "description": "1. Solicitante: E-mail:",
+      "required": false,
+      "projectKey": "owner_email"
+    },
+    {
+      "name": "field_003",
+      "type": "string",
+      "label": "Telefone(s)",
+      "description": "1. Solicitante: Telefone(s):",
+      "required": false,
+      "projectKey": "owner_phone"
+    },
+    {
+      "name": "field_004",
+      "type": "boolean",
+      "label": "RE (se houver)",
+      "description": "2. Dados do processo: RE (se houver)",
+      "mark": true
+    },
+    {
+      "name": "field_005",
+      "type": "string",
+      "label": "RE (se houver)",
+      "description": "2. Dados do processo: ( ) RE (se houver)",
+      "required": false
+    },
+    {
+      "name": "field_006",
+      "type": "boolean",
+      "label": "processo (se houver)",
+      "description": "2. Dados do processo: processo (se houver)",
+      "mark": true
+    },
+    {
+      "name": "field_007",
+      "type": "string",
+      "label": "processo (se houver)",
+      "description": "2. Dados do processo: ( ) processo (se houver)",
+      "required": false
+    },
+    {
+      "name": "field_008",
+      "type": "boolean",
+      "label": "área específica do imóvel?",
+      "description": "2. Dados do processo: área específica do imóvel?",
+      "mark": true
+    },
+    {
+      "name": "field_009",
+      "type": "string",
+      "label": "área específica do imóvel?",
+      "description": "2. Dados do processo: ( ) área específica do imóvel?",
+      "required": false
+    },
+    {
+      "name": "field_010",
+      "type": "string",
+      "label": "CPF",
+      "description": "3. Dados da edificação objeto do requerimento: CPF:",
+      "required": false,
+      "projectKey": "owner_tax_id"
+    },
+    {
+      "name": "field_011",
+      "type": "string",
+      "label": "CNPJ",
+      "description": "3. Dados da edificação objeto do requerimento: CNPJ:",
+      "required": false
+    },
+    {
+      "name": "field_012",
+      "type": "string",
+      "label": "Logradouro",
+      "description": "3. Dados da edificação objeto do requerimento: Logradouro:",
+      "required": false,
+      "projectKey": "owner_street"
+    },
+    {
+      "name": "field_013",
+      "type": "string",
+      "label": "Nº",
+      "description": "3. Dados da edificação objeto do requerimento: Nº:",
+      "required": false,
+      "projectKey": "owner_number"
+    },
+    {
+      "name": "field_014",
+      "type": "string",
+      "label": "Complemento",
+      "description": "3. Dados da edificação objeto do requerimento: Complemento:",
+      "required": false,
+      "projectKey": "owner_complement"
+    },
+    {
+      "name": "field_015",
+      "type": "string",
+      "label": "Bairro",
+      "description": "3. Dados da edificação objeto do requerimento: Bairro:",
+      "required": false,
+      "projectKey": "owner_district"
+    },
+    {
+      "name": "field_016",
+      "type": "string",
+      "label": "Cidade",
+      "description": "3. Dados da edificação objeto do requerimento: Cidade:",
+      "required": false,
+      "projectKey": "owner_city"
+    },
+    {
+      "name": "field_017",
+      "type": "string",
+      "label": "CEP",
+      "description": "3. Dados da edificação objeto do requerimento: CEP:",
+      "required": false,
+      "projectKey": "owner_postal_code"
+    },
+    {
+      "name": "field_018",
+      "type": "string",
+      "label": "Detalhes (se houver)",
+      "description": "3. Dados da edificação objeto do requerimento: Detalhes (se houver):",
+      "required": false
+    }
+  ]
+}

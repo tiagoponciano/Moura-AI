@@ -1,0 +1,123 @@
+{
+  "fields": [
+    {
+      "name": "field_001",
+      "type": "string",
+      "label": "RELATÓRIO DE ATIVIDADES DO ANO DE 20",
+      "description": "RELATÓRIO DE ATIVIDADES DO ANO DE 20",
+      "required": false
+    },
+    {
+      "name": "field_002",
+      "type": "string",
+      "label": "1.1 Razão Social",
+      "description": "1. DADOS DA EMPRESA DE FORMAÇÃO: 1.1 Razão Social",
+      "required": false
+    },
+    {
+      "name": "field_003",
+      "type": "string",
+      "label": "1.2 Nome Fantasia",
+      "description": "1. DADOS DA EMPRESA DE FORMAÇÃO: 1.2 Nome Fantasia",
+      "required": false
+    },
+    {
+      "name": "field_004",
+      "type": "string",
+      "label": "1.3 CNPJ",
+      "description": "1. DADOS DA EMPRESA DE FORMAÇÃO: 1.3 CNPJ",
+      "required": false
+    },
+    {
+      "name": "field_005",
+      "type": "string",
+      "label": "1.4 Nº Credenciamento CBMSC",
+      "description": "1. DADOS DA EMPRESA DE FORMAÇÃO: 1.4 Nº Credenciamento CBMSC",
+      "required": false
+    },
+    {
+      "name": "field_006",
+      "type": "string",
+      "label": "1.6 Bairro",
+      "description": "1. DADOS DA EMPRESA DE FORMAÇÃO: 1.6 Bairro",
+      "required": false
+    },
+    {
+      "name": "field_007",
+      "type": "string",
+      "label": "1.7 Endereço",
+      "description": "1. DADOS DA EMPRESA DE FORMAÇÃO: 1.7 Endereço",
+      "required": false
+    },
+    {
+      "name": "field_008",
+      "type": "string",
+      "label": "Nº",
+      "description": "1. DADOS DA EMPRESA DE FORMAÇÃO: Nº",
+      "required": false
+    },
+    {
+      "name": "field_009",
+      "type": "string",
+      "label": "1.9 Telefones de contato",
+      "description": "1. DADOS DA EMPRESA DE FORMAÇÃO: 1.9 Telefones de contato",
+      "required": false
+    },
+    {
+      "name": "field_010",
+      "type": "string",
+      "label": "1.10 Complemento",
+      "description": "1. DADOS DA EMPRESA DE FORMAÇÃO: 1.10 Complemento",
+      "required": false
+    },
+    {
+      "name": "field_011",
+      "type": "string",
+      "label": "Número de turmas realizadas",
+      "description": "2. DADOS DOS CURSOS: Número de turmas realizadas",
+      "required": false
+    },
+    {
+      "name": "field_012",
+      "type": "string",
+      "label": "2.3 Quadro de instrutores (informar quantos e quem são)",
+      "description": "2. DADOS DOS CURSOS: 2.3 Quadro de instrutores (informar quantos e quem são)",
+      "required": false
+    },
+    {
+      "name": "field_013",
+      "type": "string",
+      "label": "2.4 Observações e Sugestões",
+      "description": "2. DADOS DOS CURSOS: 2.4 Observações e Sugestões",
+      "required": false
+    },
+    {
+      "name": "field_014",
+      "type": "string",
+      "label": "Local e data",
+      "description": "3. DECLARAÇÃO: Local e data:",
+      "required": false
+    },
+    {
+      "name": "field_015",
+      "type": "string",
+      "label": "3. DECLARAÇÃO",
+      "description": "3. DECLARAÇÃO: 3. DECLARAÇÃO",
+      "required": false
+    },
+    {
+      "name": "field_016",
+      "type": "string",
+      "label": "Nome do Proprietário/Diretor/Presidente",
+      "description": "3. DECLARAÇÃO: Nome do Proprietário/Diretor/Presidente:",
+      "required": false
+    },
+    {
+      "name": "field_017",
+      "type": "string",
+      "label": "Assinatura",
+      "description": "3. DECLARAÇÃO: Assinatura:",
+      "required": false
+    }
+  ]
+}

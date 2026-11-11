@@ -1,0 +1,217 @@
+{
+  "fields": [
+    {
+      "name": "field_001",
+      "type": "string",
+      "label": "Nome/Razão Social",
+      "description": "1. RESPONSÁVEL PELO IMÓVEL: Nome/Razão Social",
+      "required": false,
+      "projectKey": "owner_name"
+    },
+    {
+      "name": "field_002",
+      "type": "string",
+      "label": "Telefone(s)",
+      "description": "1. RESPONSÁVEL PELO IMÓVEL: Telefone(s):",
+      "required": false,
+      "projectKey": "owner_phone"
+    },
+    {
+      "name": "field_003",
+      "type": "string",
+      "label": "CPF/CNPJ",
+      "description": "1. RESPONSÁVEL PELO IMÓVEL: CPF/CNPJ:",
+      "required": false,
+      "projectKey": "owner_tax_id"
+    },
+    {
+      "name": "field_004",
+      "type": "string",
+      "label": "RG",
+      "description": "1. RESPONSÁVEL PELO IMÓVEL: RG:",
+      "required": false,
+      "projectKey": "owner_id_card"
+    },
+    {
+      "name": "field_005",
+      "type": "string",
+      "label": "E-mail",
+      "description": "1. RESPONSÁVEL PELO IMÓVEL: E-mail:",
+      "required": false,
+      "projectKey": "owner_email"
+    },
+    {
+      "name": "field_006",
+      "type": "string",
+      "label": "Logradouro",
+      "description": "1. RESPONSÁVEL PELO IMÓVEL: Logradouro:",
+      "required": false,
+      "projectKey": "owner_street"
+    },
+    {
+      "name": "field_007",
+      "type": "string",
+      "label": "Nº",
+      "description": "1. RESPONSÁVEL PELO IMÓVEL: Nº:",
+      "required": false,
+      "projectKey": "owner_number"
+    },
+    {
+      "name": "field_008",
+      "type": "string",
+      "label": "Complemento",
+      "description": "1. RESPONSÁVEL PELO IMÓVEL: Complemento:",
+      "required": false,
+      "projectKey": "owner_complement"
+    },
+    {
+      "name": "field_009",
+      "type": "string",
+      "label": "Bairro",
+      "description": "1. RESPONSÁVEL PELO IMÓVEL: Bairro:",
+      "required": false,
+      "projectKey": "owner_district"
+    },
+    {
+      "name": "field_010",
+      "type": "string",
+      "label": "Cidade",
+      "description": "1. RESPONSÁVEL PELO IMÓVEL: Cidade:",
+      "required": false,
+      "projectKey": "owner_city"
+    },
+    {
+      "name": "field_011",
+      "type": "string",
+      "label": "CEP",
+      "description": "1. RESPONSÁVEL PELO IMÓVEL: CEP:",
+      "required": false,
+      "projectKey": "owner_postal_code"
+    },
+    {
+      "name": "field_012",
+      "type": "string",
+      "label": "RE",
+      "description": "2. Descrição do imóvel: RE:",
+      "required": false,
+      "projectKey": "property_re"
+    },
+    {
+      "name": "field_013",
+      "type": "string",
+      "label": "CNPJ",
+      "description": "2. Descrição do imóvel: CNPJ:",
+      "required": false,
+      "projectKey": "property_cnpj"
+    },
+    {
+      "name": "field_014",
+      "type": "string",
+      "label": "Protocolo",
+      "description": "2. Descrição do imóvel: Protocolo:",
+      "required": false,
+      "projectKey": "property_protocol"
+    },
+    {
+      "name": "field_015",
+      "type": "string",
+      "label": "Ocupação",
+      "description": "2. Descrição do imóvel: Ocupação:",
+      "required": false,
+      "projectKey": "property_occupancy"
+    },
+    {
+      "name": "field_016",
+      "type": "string",
+      "label": "Logradouro",
+      "description": "2. Descrição do imóvel: Logradouro:",
+      "required": false,
+      "projectKey": "property_street"
+    },
+    {
+      "name": "field_017",
+      "type": "string",
+      "label": "Nº",
+      "description": "2. Descrição do imóvel: Nº:",
+      "required": false,
+      "projectKey": "property_number"
+    },
+    {
+      "name": "field_018",
+      "type": "string",
+      "label": "Bairro",
+      "description": "2. Descrição do imóvel: Bairro:",
+      "required": false,
+      "projectKey": "property_district"
+    },
+    {
+      "name": "field_019",
+      "type": "string",
+      "label": "Cidade",
+      "description": "2. Descrição do imóvel: Cidade:",
+      "required": false,
+      "projectKey": "property_city"
+    },
+    {
+      "name": "field_020",
+      "type": "string",
+      "label": "CEP",
+      "description": "2. Descrição do imóvel: CEP:",
+      "required": false,
+      "projectKey": "property_postal_code"
+    },
+    {
+      "name": "field_021",
+      "type": "string",
+      "label": "Complemento",
+      "description": "2. Descrição do imóvel: Complemento:",
+      "required": false,
+      "projectKey": "property_complement"
+    },
+    {
+      "name": "field_022",
+      "type": "string",
+      "label": "Nome da edificação",
+      "description": "2. Descrição do imóvel: Nome da edificação:",
+      "required": false,
+      "projectKey": "property_building_name"
+    },
+    {
+      "name": "field_023",
+      "type": "string",
+      "label": "Nome da empresa",
+      "description": "2. Descrição do imóvel: Nome da empresa:",
+      "required": false,
+      "projectKey": "property_company_name"
+    },
+    {
+      "name": "field_024",
+      "type": "string",
+      "label": "Detalhes (se houver)",
+      "description": "2. Descrição do imóvel: Detalhes (se houver):",
+      "required": false,
+      "projectKey": "property_details"
+    },
+    {
+      "name": "field_025",
+      "type": "boolean",
+      "label": "Para",
+      "description": "3. Termo de responsabilidade: Para",
+      "mark": true
+    },
+    {
+      "name": "field_026",
+      "type": "boolean",
+      "label": "Para",
+      "description": "3. Termo de responsabilidade: Para",
+      "mark": true
+    },
+    {
+      "name": "field_027",
+      "type": "boolean",
+      "label": "Para fins de ATESTADO PARA HABITE-SE para o imóvel supracitado, atesto que os…",
+      "description": "3. Termo de responsabilidade: Para fins de ATESTADO PARA HABITE-SE para o imóvel supracitado, atesto que os sistemas e medidas de segurança contra incêndio e pânico (SMSCI) estão executados em conformidade com o Relatório Preventivo Contra Incêndio (RPCI) e as normas do Corpo de Bombeiros Militar de Santa Catarina. (Assinale esta alternativa se o imóvel é risco II com menos de 200 m²).",
+      "mark": true
+    }
+  ]
+}

@@ -19,7 +19,7 @@ import { buildInstructions } from "./instructions";
 export async function handleDocumentsChat(req: Request): Promise<Response> {
   const body = await parseJsonBody(req, documentsChatBody);
   if (body.error) return body.error;
-  const { id, templateId, schema } = body.data;
+  const { id, templateId, schema, values } = body.data;
   const messages = await parseChatMessages(body.data.messages);
   if (!messages) {
     return Response.json({ error: "Invalid messages" }, { status: 400 });
@@ -32,7 +32,7 @@ export async function handleDocumentsChat(req: Request): Promise<Response> {
 
   const result = streamText({
     model,
-    instructions: buildInstructions(templateId, schema),
+    instructions: buildInstructions(templateId, schema, values),
     messages: await convertToModelMessages(messages),
     tools: {
       [FILL_FIELDS_TOOL]: tool({

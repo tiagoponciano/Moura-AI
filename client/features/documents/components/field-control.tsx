@@ -1,6 +1,13 @@
 "use client";
 
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
@@ -44,6 +51,30 @@ export function FieldControl({
           {value === true ? "Sim" : "Não"}
         </span>
       </div>
+    );
+  }
+
+  if (field.type === "choice") {
+    return (
+      <Select
+        value={typeof value === "string" ? value : ""}
+        onValueChange={(choice) => onChange(choice)}
+      >
+        <SelectTrigger
+          id={id}
+          aria-invalid={invalid}
+          className="h-auto min-h-0 w-full border-0 bg-transparent p-0 font-medium shadow-none"
+        >
+          <SelectValue placeholder="Não informado" />
+        </SelectTrigger>
+        <SelectContent>
+          {field.options?.map((option) => (
+            <SelectItem key={option.tag} value={option.value}>
+              {option.value}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
     );
   }
 

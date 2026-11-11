@@ -1,0 +1,309 @@
+{
+  "fields": [
+    {
+      "name": "field_001",
+      "type": "string",
+      "label": "Nome",
+      "description": "1. Responsável técnico pela execução da obra ou responsável pelo imóvel: Nome:",
+      "required": false,
+      "projectKey": "technical_name"
+    },
+    {
+      "name": "field_002",
+      "type": "string",
+      "label": "Telefone(s)",
+      "description": "1. Responsável técnico pela execução da obra ou responsável pelo imóvel: Telefone(s):",
+      "required": false,
+      "projectKey": "technical_phone"
+    },
+    {
+      "name": "field_003",
+      "type": "string",
+      "label": "CPF/CNPJ",
+      "description": "1. Responsável técnico pela execução da obra ou responsável pelo imóvel: CPF/CNPJ:",
+      "required": false,
+      "projectKey": "technical_tax_id"
+    },
+    {
+      "name": "field_004",
+      "type": "string",
+      "label": "RG",
+      "description": "1. Responsável técnico pela execução da obra ou responsável pelo imóvel: RG:",
+      "required": false,
+      "projectKey": "technical_id_card"
+    },
+    {
+      "name": "field_005",
+      "type": "string",
+      "label": "Nº de registro no conselho de classe (se RT)",
+      "description": "1. Responsável técnico pela execução da obra ou responsável pelo imóvel: Nº de registro no conselho de classe (se RT):",
+      "required": false,
+      "projectKey": "technical_registry"
+    },
+    {
+      "name": "field_006",
+      "type": "string",
+      "label": "E-mail",
+      "description": "1. Responsável técnico pela execução da obra ou responsável pelo imóvel: E-mail:",
+      "required": false,
+      "projectKey": "technical_email"
+    },
+    {
+      "name": "field_007",
+      "type": "string",
+      "label": "Logradouro",
+      "description": "1. Responsável técnico pela execução da obra ou responsável pelo imóvel: Logradouro:",
+      "required": false,
+      "projectKey": "technical_street"
+    },
+    {
+      "name": "field_008",
+      "type": "string",
+      "label": "Nº",
+      "description": "1. Responsável técnico pela execução da obra ou responsável pelo imóvel: Nº:",
+      "required": false,
+      "projectKey": "technical_number"
+    },
+    {
+      "name": "field_009",
+      "type": "string",
+      "label": "Complemento",
+      "description": "1. Responsável técnico pela execução da obra ou responsável pelo imóvel: Complemento:",
+      "required": false,
+      "projectKey": "technical_complement"
+    },
+    {
+      "name": "field_010",
+      "type": "string",
+      "label": "Bairro",
+      "description": "1. Responsável técnico pela execução da obra ou responsável pelo imóvel: Bairro:",
+      "required": false,
+      "projectKey": "technical_district"
+    },
+    {
+      "name": "field_011",
+      "type": "string",
+      "label": "Cidade",
+      "description": "1. Responsável técnico pela execução da obra ou responsável pelo imóvel: Cidade:",
+      "required": false,
+      "projectKey": "technical_city"
+    },
+    {
+      "name": "field_012",
+      "type": "string",
+      "label": "CEP",
+      "description": "1. Responsável técnico pela execução da obra ou responsável pelo imóvel: CEP:",
+      "required": false,
+      "projectKey": "technical_postal_code"
+    },
+    {
+      "name": "field_013",
+      "type": "string",
+      "label": "RE",
+      "description": "2. Descrição do imóvel: RE:",
+      "required": false,
+      "projectKey": "property_re"
+    },
+    {
+      "name": "field_014",
+      "type": "string",
+      "label": "CNPJ",
+      "description": "2. Descrição do imóvel: CNPJ:",
+      "required": false,
+      "projectKey": "property_cnpj"
+    },
+    {
+      "name": "field_015",
+      "type": "string",
+      "label": "Protocolo",
+      "description": "2. Descrição do imóvel: Protocolo:",
+      "required": false,
+      "projectKey": "property_protocol"
+    },
+    {
+      "name": "field_016",
+      "type": "string",
+      "label": "Ocupação",
+      "description": "2. Descrição do imóvel: Ocupação:",
+      "required": false,
+      "projectKey": "property_occupancy"
+    },
+    {
+      "name": "field_017",
+      "type": "string",
+      "label": "Logradouro",
+      "description": "2. Descrição do imóvel: Logradouro:",
+      "required": false,
+      "projectKey": "property_street"
+    },
+    {
+      "name": "field_018",
+      "type": "string",
+      "label": "Nº",
+      "description": "2. Descrição do imóvel: Nº:",
+      "required": false,
+      "projectKey": "property_number"
+    },
+    {
+      "name": "field_019",
+      "type": "string",
+      "label": "Bairro",
+      "description": "2. Descrição do imóvel: Bairro:",
+      "required": false,
+      "projectKey": "property_district"
+    },
+    {
+      "name": "field_020",
+      "type": "string",
+      "label": "Cidade",
+      "description": "2. Descrição do imóvel: Cidade:",
+      "required": false,
+      "projectKey": "property_city"
+    },
+    {
+      "name": "field_021",
+      "type": "string",
+      "label": "CEP",
+      "description": "2. Descrição do imóvel: CEP:",
+      "required": false,
+      "projectKey": "property_postal_code"
+    },
+    {
+      "name": "field_022",
+      "type": "string",
+      "label": "Complemento",
+      "description": "2. Descrição do imóvel: Complemento:",
+      "required": false,
+      "projectKey": "property_complement"
+    },
+    {
+      "name": "field_023",
+      "type": "string",
+      "label": "Nome da edificação",
+      "description": "2. Descrição do imóvel: Nome da edificação:",
+      "required": false,
+      "projectKey": "property_building_name"
+    },
+    {
+      "name": "field_024",
+      "type": "string",
+      "label": "Nome da empresa",
+      "description": "2. Descrição do imóvel: Nome da empresa:",
+      "required": false,
+      "projectKey": "property_company_name"
+    },
+    {
+      "name": "field_025",
+      "type": "string",
+      "label": "Detalhes (se houver)",
+      "description": "2. Descrição do imóvel: Detalhes (se houver):",
+      "required": false,
+      "projectKey": "property_details"
+    },
+    {
+      "name": "field_026",
+      "type": "string",
+      "label": "Acesso de Viaturas – Justificativa em caso de desconformidade",
+      "description": "3. Relatório dos Sistemas e Medidas de Segurança Contra Incêndio e Pânico: Acesso de Viaturas – Justificativa em caso de desconformidade",
+      "required": false
+    },
+    {
+      "name": "field_027",
+      "type": "string",
+      "label": "Materiais de acabamento e revestimento – Justificativa em caso de desconformi…",
+      "description": "3. Relatório dos Sistemas e Medidas de Segurança Contra Incêndio e Pânico: Materiais de acabamento e revestimento – Justificativa em caso de desconformidade",
+      "required": false
+    },
+    {
+      "name": "field_028",
+      "type": "string",
+      "label": "Detecção automática de incêndio – Justificativa em caso de desconformidade",
+      "description": "3. Relatório dos Sistemas e Medidas de Segurança Contra Incêndio e Pânico: Detecção automática de incêndio – Justificativa em caso de desconformidade",
+      "required": false
+    },
+    {
+      "name": "field_029",
+      "type": "string",
+      "label": "Gás combustível – Justificativa em caso de desconformidade",
+      "description": "3. Relatório dos Sistemas e Medidas de Segurança Contra Incêndio e Pânico: Gás combustível – Justificativa em caso de desconformidade",
+      "required": false
+    },
+    {
+      "name": "field_030",
+      "type": "string",
+      "label": "Iluminação de Emergência – Justificativa em caso de desconformidade",
+      "description": "3. Relatório dos Sistemas e Medidas de Segurança Contra Incêndio e Pânico: Iluminação de Emergência – Justificativa em caso de desconformidade",
+      "required": false
+    },
+    {
+      "name": "field_031",
+      "type": "string",
+      "label": "Plano de emergência – Justificativa em caso de desconformidade",
+      "description": "3. Relatório dos Sistemas e Medidas de Segurança Contra Incêndio e Pânico: Plano de emergência – Justificativa em caso de desconformidade",
+      "required": false
+    },
+    {
+      "name": "field_032",
+      "type": "string",
+      "label": "Proteção estrutural contra incêndio – Justificativa em caso de desconformidade",
+      "description": "3. Relatório dos Sistemas e Medidas de Segurança Contra Incêndio e Pânico: Proteção estrutural contra incêndio – Justificativa em caso de desconformidade",
+      "required": false
+    },
+    {
+      "name": "field_033",
+      "type": "string",
+      "label": "Brigada de incêndio – Justificativa em caso de desconformidade",
+      "description": "3. Relatório dos Sistemas e Medidas de Segurança Contra Incêndio e Pânico: Brigada de incêndio – Justificativa em caso de desconformidade",
+      "required": false
+    },
+    {
+      "name": "field_034",
+      "type": "string",
+      "label": "Alarme de incêndio – Justificativa em caso de desconformidade",
+      "description": "3. Relatório dos Sistemas e Medidas de Segurança Contra Incêndio e Pânico: Alarme de incêndio – Justificativa em caso de desconformidade",
+      "required": false
+    },
+    {
+      "name": "field_035",
+      "type": "string",
+      "label": "Extintores – Justificativa em caso de desconformidade",
+      "description": "3. Relatório dos Sistemas e Medidas de Segurança Contra Incêndio e Pânico: Extintores – Justificativa em caso de desconformidade",
+      "required": false
+    },
+    {
+      "name": "field_036",
+      "type": "string",
+      "label": "Hidráulico preventivo – Justificativa em caso de desconformidade",
+      "description": "3. Relatório dos Sistemas e Medidas de Segurança Contra Incêndio e Pânico: Hidráulico preventivo – Justificativa em caso de desconformidade",
+      "required": false
+    },
+    {
+      "name": "field_037",
+      "type": "string",
+      "label": "Instalações elétricas – Justificativa em caso de desconformidade",
+      "description": "3. Relatório dos Sistemas e Medidas de Segurança Contra Incêndio e Pânico: Instalações elétricas – Justificativa em caso de desconformidade",
+      "required": false
+    },
+    {
+      "name": "field_038",
+      "type": "string",
+      "label": "Sinalização abandono de local – Justificativa em caso de desconformidade",
+      "description": "3. Relatório dos Sistemas e Medidas de Segurança Contra Incêndio e Pânico: Sinalização abandono de local – Justificativa em caso de desconformidade",
+      "required": false
+    },
+    {
+      "name": "field_039",
+      "type": "string",
+      "label": "Saídas de emergência – Justificativa em caso de desconformidade",
+      "description": "3. Relatório dos Sistemas e Medidas de Segurança Contra Incêndio e Pânico: Saídas de emergência – Justificativa em caso de desconformidade",
+      "required": false
+    },
+    {
+      "name": "field_040",
+      "type": "string",
+      "label": "Outros – Justificativa em caso de desconformidade",
+      "description": "3. Relatório dos Sistemas e Medidas de Segurança Contra Incêndio e Pânico: Outros – Justificativa em caso de desconformidade",
+      "required": false
+    }
+  ]
+}

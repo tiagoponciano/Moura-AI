@@ -1,0 +1,1170 @@
+{
+  "fields": [
+    {
+      "name": "field_001",
+      "type": "string",
+      "label": "Logradouro público",
+      "description": "Logradouro público",
+      "required": false,
+      "projectKey": "property_street"
+    },
+    {
+      "name": "field_002",
+      "type": "string",
+      "label": "N.º",
+      "description": "N.º.",
+      "required": false,
+      "projectKey": "property_number"
+    },
+    {
+      "name": "field_003",
+      "type": "string",
+      "label": "Complemento",
+      "description": "Complemento:",
+      "required": false,
+      "projectKey": "property_complement"
+    },
+    {
+      "name": "field_004",
+      "type": "string",
+      "label": "Bairro",
+      "description": "Bairro",
+      "required": false,
+      "projectKey": "property_district"
+    },
+    {
+      "name": "field_005",
+      "type": "string",
+      "label": "Município",
+      "description": "Município",
+      "required": false,
+      "projectKey": "property_city"
+    },
+    {
+      "name": "field_006",
+      "type": "string",
+      "label": "RE",
+      "description": "RE:",
+      "required": false,
+      "projectKey": "property_re"
+    },
+    {
+      "name": "field_007",
+      "type": "string",
+      "label": "Responsável pelo imóvel",
+      "description": "Responsável pelo imóvel",
+      "required": false,
+      "projectKey": "owner_name"
+    },
+    {
+      "name": "field_008",
+      "type": "string",
+      "label": "Telefone",
+      "description": "Telefone",
+      "required": false,
+      "projectKey": "owner_phone"
+    },
+    {
+      "name": "field_009",
+      "type": "string",
+      "label": "e-mail",
+      "description": "e-mail",
+      "required": false,
+      "projectKey": "owner_email"
+    },
+    {
+      "name": "field_010",
+      "type": "string",
+      "label": "Responsável Técnico",
+      "description": "Responsável Técnico",
+      "required": false,
+      "projectKey": "technical_name"
+    },
+    {
+      "name": "field_011",
+      "type": "string",
+      "label": "Número de registro do profissional",
+      "description": "Número de registro do profissional",
+      "required": false,
+      "projectKey": "technical_registry"
+    },
+    {
+      "name": "field_012",
+      "type": "string",
+      "label": "Telefone",
+      "description": "Telefone",
+      "required": false,
+      "projectKey": "technical_phone"
+    },
+    {
+      "name": "field_013",
+      "type": "string",
+      "label": "e-mail",
+      "description": "e-mail",
+      "required": false,
+      "projectKey": "technical_email"
+    },
+    {
+      "name": "field_014",
+      "type": "string",
+      "label": "Quantidade de Elevador(es) de Emergência",
+      "description": "Quantidade de Elevador(es) de Emergência:",
+      "required": false
+    },
+    {
+      "name": "field_015",
+      "type": "string",
+      "label": "Altura da edificação (m)",
+      "description": "Altura da edificação (m)",
+      "required": false
+    },
+    {
+      "name": "field_016",
+      "type": "choice",
+      "label": "1.1 A(s) porta(s) do (s) elevador (es) de emergência abre(m) dentro de antecâ…",
+      "description": "1. ELEVADOR DE EMERGÊNCIA (GERAL): 1.1 A(s) porta(s) do (s) elevador (es) de emergência abre(m) dentro de antecâmara, varanda, balcão ou terraço (com ventilação para o exterior) ou hall pressurizado?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_016_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_016_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_016_3"
+        }
+      ]
+    },
+    {
+      "name": "field_017",
+      "type": "choice",
+      "label": "1.2 O(s) elevador(es) de emergência é (são) alimentado(s) por gerador de emer…",
+      "description": "1. ELEVADOR DE EMERGÊNCIA (GERAL): 1.2 O(s) elevador(es) de emergência é (são) alimentado(s) por gerador de emergência?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_017_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_017_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_017_3"
+        }
+      ]
+    },
+    {
+      "name": "field_018",
+      "type": "choice",
+      "label": "1.3 Possui detecção automática de incêndio na casa de máquinas ou no maquinár…",
+      "description": "1. ELEVADOR DE EMERGÊNCIA (GERAL): 1.3 Possui detecção automática de incêndio na casa de máquinas ou no maquinário do próprio elevador?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_018_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_018_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_018_3"
+        }
+      ]
+    },
+    {
+      "name": "field_019",
+      "type": "choice",
+      "label": "1.4 Possui intercomunicadores de duas vias no interior do elevador e na antec…",
+      "description": "1. ELEVADOR DE EMERGÊNCIA (GERAL): 1.4 Possui intercomunicadores de duas vias no interior do elevador e na antecâmara que se comuniquem diretamente com intercomunicador instalado junto à central de alarme da edificação, todos obrigatoriamente instalados com placas de orientação de uso?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_019_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_019_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_019_3"
+        }
+      ]
+    },
+    {
+      "name": "field_020",
+      "type": "choice",
+      "label": "1.5 A central de alarme é do tipo analógica ou algorítmica?",
+      "description": "1. ELEVADOR DE EMERGÊNCIA (GERAL): 1.5 A central de alarme é do tipo analógica ou algorítmica?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_020_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_020_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_020_3"
+        }
+      ]
+    },
+    {
+      "name": "field_021",
+      "type": "choice",
+      "label": "1.6 Para edificações com mais de 100m de altura (exceto A-2), o interior da a…",
+      "description": "1. ELEVADOR DE EMERGÊNCIA (GERAL): 1.6 Para edificações com mais de 100m de altura (exceto A-2), o interior da antecâmara do elevador possui câmeras para seu monitoramento e vídeo-monitor junto à central de alarme?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_021_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_021_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_021_3"
+        }
+      ]
+    },
+    {
+      "name": "field_022",
+      "type": "choice",
+      "label": "1.7 A central de alarme possui painel que indica o status de ocupação e a pos…",
+      "description": "1. ELEVADOR DE EMERGÊNCIA (GERAL): 1.7 A central de alarme possui painel que indica o status de ocupação e a posição de cada elevador de emergência?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_022_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_022_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_022_3"
+        }
+      ]
+    },
+    {
+      "name": "field_023",
+      "type": "choice",
+      "label": "1.8 Os elevadores de emergência entram automaticamente e imediatamente em mod…",
+      "description": "1. ELEVADOR DE EMERGÊNCIA (GERAL): 1.8 Os elevadores de emergência entram automaticamente e imediatamente em modo de “evacuação total da edificação” em caso de incêndio?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_023_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_023_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_023_3"
+        }
+      ]
+    },
+    {
+      "name": "field_024",
+      "type": "choice",
+      "label": "2.1 No primeiro momento, o elevador atende somente as chamadas oriundas da zo…",
+      "description": "2. MODO \"EVACUAÇÃO TOTAL\": 2.1 No primeiro momento, o elevador atende somente as chamadas oriundas da zona de incêndio (ou zonas de incêndio de forma sequencial, caso seja detectado incêndio em mais de um pavimento), composta pelo pavimento sinistrado (prioridade máxima), pelos dois pavimentos imediatamente acima e pelos dois pavimentos imediatamente abaixo, conduzindo os ocupantes ao pavimento de descarga, ignorando outras chamadas?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_024_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_024_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_024_3"
+        }
+      ]
+    },
+    {
+      "name": "field_025",
+      "type": "choice",
+      "label": "2.2 O elevador quando não possui chamadas em zonas de incêndio, atende os dem…",
+      "description": "2. MODO \"EVACUAÇÃO TOTAL\": 2.2 O elevador quando não possui chamadas em zonas de incêndio, atende os demais pavimentos do mais elevado para o menos elevado?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_025_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_025_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_025_3"
+        }
+      ]
+    },
+    {
+      "name": "field_026",
+      "type": "choice",
+      "label": "2.3 Para edificações que dispõem de reduto resistente ao fogo: a prioridade é…",
+      "description": "2. MODO \"EVACUAÇÃO TOTAL\": 2.3 Para edificações que dispõem de reduto resistente ao fogo: a prioridade é para os chamados oriundos do segmento de pavimentos entre o topo da edificação e o 1º RRF (do mais elevado para o menos elevado), posteriormente para os chamados realizados a partir dos redutos, não havendo chamados nos redutos, ou quando a capacidade de carga permitir, para os demais pavimentos (do mais elevado para o menos elevado)?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_026_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_026_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_026_3"
+        }
+      ]
+    },
+    {
+      "name": "field_027",
+      "type": "choice",
+      "label": "2.4 Enquanto os passageiros estiverem entrando no elevador de emergência num …",
+      "description": "2. MODO \"EVACUAÇÃO TOTAL\": 2.4 Enquanto os passageiros estiverem entrando no elevador de emergência num andar em evacuação, se a carga exceder 100% da capacidade, as portas abrem e permanecem abertas, e uma notificação de voz e um sinal visual indica que o carro está sobrecarregado?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_027_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_027_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_027_3"
+        }
+      ]
+    },
+    {
+      "name": "field_028",
+      "type": "choice",
+      "label": "2.5 Os elevadores possuem sinalização visual indicando quando o elevador está…",
+      "description": "2. MODO \"EVACUAÇÃO TOTAL\": 2.5 Os elevadores possuem sinalização visual indicando quando o elevador está em modo de “evacuação total da edificação”, bem como sistema de notificação por voz que oriente os ocupantes quanto aos procedimentos a serem adotados enquanto estiverem no elevador, para maior segurança e eficiência na evacuação?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_028_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_028_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_028_3"
+        }
+      ]
+    },
+    {
+      "name": "field_029",
+      "type": "choice",
+      "label": "3.1 Para edificações com mais de 150m de altura: possui painéis de mensagens …",
+      "description": "3. PAINÉIS DE MENSAGENS (somente para edificações com mais de 150 m de altura): 3.1 Para edificações com mais de 150m de altura: possui painéis de mensagens variáveis com notificação por voz dentro das antecâmaras dos elevadores, em todos os pavimentos, situados a uma altura entre 2,1 m e 3 m, em local visível, alimentados obrigatoriamente por fonte de emergência com autonomia de 3 horas em caso de falta de energia?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_029_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_029_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_029_3"
+        }
+      ]
+    },
+    {
+      "name": "field_030",
+      "type": "choice",
+      "label": "3.2.1 Em todos os pavimentos em procedimento de evacuação, é indicado que os …",
+      "description": "3. PAINÉIS DE MENSAGENS (somente para edificações com mais de 150 m de altura): 3.2.1 Em todos os pavimentos em procedimento de evacuação, é indicado que os elevadores estão disponíveis para evacuação e o tempo estimado de duração em minutos para o próximo elevador chegar?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_030_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_030_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_030_3"
+        }
+      ]
+    },
+    {
+      "name": "field_031",
+      "type": "choice",
+      "label": "3.2.2 Nos pavimentos que não estejam em procedimento de evacuação é indicado …",
+      "description": "3. PAINÉIS DE MENSAGENS (somente para edificações com mais de 150 m de altura): 3.2.2 Nos pavimentos que não estejam em procedimento de evacuação é indicado que o serviço de elevador não está disponível?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_031_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_031_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_031_3"
+        }
+      ]
+    },
+    {
+      "name": "field_032",
+      "type": "choice",
+      "label": "3.2.3 No pavimento de descarga dos elevadores, há indicação de que os carros …",
+      "description": "3. PAINÉIS DE MENSAGENS (somente para edificações com mais de 150 m de altura): 3.2.3 No pavimento de descarga dos elevadores, há indicação de que os carros estão em modo de evacuação e que os passageiros não devem usar elevadores?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_032_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_032_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_032_3"
+        }
+      ]
+    },
+    {
+      "name": "field_033",
+      "type": "choice",
+      "label": "3.2.4 Se não houver elevadores disponíveis para o ocupante, em razão de opera…",
+      "description": "3. PAINÉIS DE MENSAGENS (somente para edificações com mais de 150 m de altura): 3.2.4 Se não houver elevadores disponíveis para o ocupante, em razão de operação por bombeiros, inspeção, desligamento, entre outros, há indicação de que o serviço de elevador não está disponível?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_033_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_033_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_033_3"
+        }
+      ]
+    },
+    {
+      "name": "field_034",
+      "type": "choice",
+      "label": "4.1 O controle do(s) elevador(es) de emergência é(são) baseado(s) em duas fas…",
+      "description": "4. CONTROLES DURANTE EMERGÊNCIA: 4.1 O controle do(s) elevador(es) de emergência é(são) baseado(s) em duas fases - Reversão de emergência (fase 1) e Operação de emergência (fase 2)?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_034_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_034_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_034_3"
+        }
+      ]
+    },
+    {
+      "name": "field_035",
+      "type": "choice",
+      "label": "4.2.1 Caso seja detectada fumaça no poço ou na sala de máquinas, o elevador r…",
+      "description": "4. CONTROLES DURANTE EMERGÊNCIA: 4.2.1 Caso seja detectada fumaça no poço ou na sala de máquinas, o elevador retorna ao pavimento de descarga (ou a pavimento alternativo caso seja detectada fumaça no pavimento de descarga), permanecendo com as portas abertas até a tomada de decisão do bombeiro (Fase 2: Operação de emergência)?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_035_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_035_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_035_3"
+        }
+      ]
+    },
+    {
+      "name": "field_036",
+      "type": "choice",
+      "label": "4.2.2 Possui, junto a cada elevador de emergência no pavimento de descarga, u…",
+      "description": "4. CONTROLES DURANTE EMERGÊNCIA: 4.2.2 Possui, junto a cada elevador de emergência no pavimento de descarga, um painel de comando individual com um comutador de três posições (RESET/OFF/ON), nessa ordem no sentido horário, com a posição OFF centralizada), operado por chave. A chave só pode ser removida nas posições OFF e ON, sendo que na posição ON, o elevador retorna ao pavimento de descarga e permanece com as portas abertas até a decisão da equipe de emergência (Fase 2: Operação de emergência)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_036_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_036_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_036_3"
+        }
+      ]
+    },
+    {
+      "name": "field_037",
+      "type": "choice",
+      "label": "4.2.3 Para cancelar a Fase 1, o comutador deve ser colocado na posição RESET …",
+      "description": "4. CONTROLES DURANTE EMERGÊNCIA: 4.2.3 Para cancelar a Fase 1, o comutador deve ser colocado na posição RESET e em seguida na posição OFF?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_037_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_037_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_037_3"
+        }
+      ]
+    },
+    {
+      "name": "field_038",
+      "type": "choice",
+      "label": "4.2.4 Junto ao painel de comando previsto no pavimento de descarga: a) Possui…",
+      "description": "4. CONTROLES DURANTE EMERGÊNCIA: 4.2.4 Junto ao painel de comando previsto no pavimento de descarga: a) Possui placa com os dizeres “OPERAÇÃO POR BOMBEIROS”, com breve orientação sobre o uso do comutador em caso de emergência? b) Possui sinalizador luminoso que indique as condições previstas nos itens 4.2.1 e 4.2.2, por meio de sinalização constante ou intermitente, respectivamente, conforme o caso, devendo permanecer ativo até o retorno do elevador à operação automática?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_038_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_038_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_038_3"
+        }
+      ]
+    },
+    {
+      "name": "field_039",
+      "type": "choice",
+      "label": "4.2.5 Possui sinalizador luminoso (obrigatoriamente com formato de capacete d…",
+      "description": "4. CONTROLES DURANTE EMERGÊNCIA: 4.2.5 Possui sinalizador luminoso (obrigatoriamente com formato de capacete de bombeiro ou outro símbolo igualmente intuitivo) que indique as condições previstas nos itens 4.2.1 e 4.2.2, por meio de sinalização constante ou intermitente, respectivamente, o qual permanece ativo até o retorno do elevador à operação automática?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_039_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_039_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_039_3"
+        }
+      ]
+    },
+    {
+      "name": "field_040",
+      "type": "choice",
+      "label": "4.2.6 A ativação da Fase 1 interrompe o modo de “evacuação total da edificaçã…",
+      "description": "4. CONTROLES DURANTE EMERGÊNCIA: 4.2.6 A ativação da Fase 1 interrompe o modo de “evacuação total da edificação”?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_040_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_040_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_040_3"
+        }
+      ]
+    },
+    {
+      "name": "field_041",
+      "type": "choice",
+      "label": "4.3.1 Em qualquer momento, se o comutador OFF/HOLD/ON for colocado na posição…",
+      "description": "4. CONTROLES DURANTE EMERGÊNCIA: 4.3.1 Em qualquer momento, se o comutador OFF/HOLD/ON for colocado na posição OFF, as portas fecham e o elevador retorna para o piso de descarga, onde permanece com as portas abertas até nova tomada de decisão da equipe de emergência?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_041_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_041_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_041_3"
+        }
+      ]
+    },
+    {
+      "name": "field_042",
+      "type": "choice",
+      "label": "4.3.2 A opção HOLD do comutador OFF/HOLD/ON garante que este permaneça num pa…",
+      "description": "4. CONTROLES DURANTE EMERGÊNCIA: 4.3.2 A opção HOLD do comutador OFF/HOLD/ON garante que este permaneça num pavimento, com as portas totalmente abertas, desabilitando as opções de abrir/fechar portas e as chamadas internas?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_042_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_042_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_042_3"
+        }
+      ]
+    },
+    {
+      "name": "field_043",
+      "type": "choice",
+      "label": "5.1 Está protegido por tampa com fechadura, cuja chave para abertura deve ser…",
+      "description": "5. PAINEL DE COMANDO INTERNO: 5.1 Está protegido por tampa com fechadura, cuja chave para abertura deve ser a mesma do comutador OFF/HOLD/ON?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_043_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_043_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_043_3"
+        }
+      ]
+    },
+    {
+      "name": "field_044",
+      "type": "choice",
+      "label": "5.2 Está instalado de maneira que todos os dispositivos de comando bem como a…",
+      "description": "5. PAINEL DE COMANDO INTERNO: 5.2 Está instalado de maneira que todos os dispositivos de comando bem como a fechadura estejam localizados em altura superior a 1,22 m e inferior a 1,83 m?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_044_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_044_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_044_3"
+        }
+      ]
+    },
+    {
+      "name": "field_045",
+      "type": "choice",
+      "label": "5.3 Está localizado na mesma face do elevador que o painel de seleção de cham…",
+      "description": "5. PAINEL DE COMANDO INTERNO: 5.3 Está localizado na mesma face do elevador que o painel de seleção de chamadas?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_045_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_045_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_045_3"
+        }
+      ]
+    },
+    {
+      "name": "field_046",
+      "type": "choice",
+      "label": "5.4 Possui na parte externa de sua tampa identificação com os dizeres “OPERAÇ…",
+      "description": "5. PAINEL DE COMANDO INTERNO: 5.4 Possui na parte externa de sua tampa identificação com os dizeres “OPERAÇÃO POR BOMBEIROS”, em letras vermelhas?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_046_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_046_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_046_3"
+        }
+      ]
+    },
+    {
+      "name": "field_047",
+      "type": "choice",
+      "label": "5.5 Possui em seu interior sinalizador luminoso adicional com as mesmas carac…",
+      "description": "5. PAINEL DE COMANDO INTERNO: 5.5 Possui em seu interior sinalizador luminoso adicional com as mesmas características do previsto no item 4.2.4?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_047_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_047_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_047_3"
+        }
+      ]
+    },
+    {
+      "name": "field_048",
+      "type": "choice",
+      "label": "5.6 Possui, em sua parte interna, uma placa contendo breves orientações sobre…",
+      "description": "5. PAINEL DE COMANDO INTERNO: 5.6 Possui, em sua parte interna, uma placa contendo breves orientações sobre o uso de cada botão e comutador, e sobre o significado das sinalizações visuais?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_048_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_048_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_048_3"
+        }
+      ]
+    },
+    {
+      "name": "field_049",
+      "type": "choice",
+      "label": "5.7.1 O comutador (operado com chave) de três posições (OFF/HOLD/ON, nessa se…",
+      "description": "5. PAINEL DE COMANDO INTERNO: 5.7.1 O comutador (operado com chave) de três posições (OFF/HOLD/ON, nessa sequência, no sentido horário) - com possibilidade de retirada da chave somente nas posições OFF e HOLD -, na posição ON libera o elevador para uso da equipe de emergência, operável somente se já tiver sido acionada a Fase 1, devendo permanecer indisponíveis às chamadas externas nos pavimentos?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_049_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_049_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_049_3"
+        }
+      ]
+    },
+    {
+      "name": "field_050",
+      "type": "choice",
+      "label": "5.7.2 Possui botão de “abrir porta” com funcionamento à pressão contínua, ist…",
+      "description": "5. PAINEL DE COMANDO INTERNO: 5.7.2 Possui botão de “abrir porta” com funcionamento à pressão contínua, isto é, ele deve permanecer pressionado até a abertura completa da porta, caso contrário, a porta se fechará automaticamente?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_050_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_050_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_050_3"
+        }
+      ]
+    },
+    {
+      "name": "field_051",
+      "type": "choice",
+      "label": "5.7.3 Possui botão de “fechar porta” com funcionamento à pressão contínua, is…",
+      "description": "5. PAINEL DE COMANDO INTERNO: 5.7.3 Possui botão de “fechar porta” com funcionamento à pressão contínua, isto é, ele deve permanecer pressionado até o fechamento completo da porta, caso contrário, a porta se abrirá automaticamente?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_051_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_051_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_051_3"
+        }
+      ]
+    },
+    {
+      "name": "field_052",
+      "type": "choice",
+      "label": "5.7.4 Possui botão de cancelamento de chamadas internas do elevador, que canc…",
+      "description": "5. PAINEL DE COMANDO INTERNO: 5.7.4 Possui botão de cancelamento de chamadas internas do elevador, que cancela chamadas realizadas internamente no elevador pela equipe de emergência, e faz com que o elevador pare com as portas fechadas no próximo pavimento disponível, até que seja dado novo comando?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_052_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_052_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_052_3"
+        }
+      ]
+    },
+    {
+      "name": "field_053",
+      "type": "choice",
+      "label": "5.7.5 Possui comutador (operado sem chave) de duas posições (RUN/STOP), poden…",
+      "description": "5. PAINEL DE COMANDO INTERNO: 5.7.5 Possui comutador (operado sem chave) de duas posições (RUN/STOP), podendo ser substituído por dois botões com funções equivalentes, que na posição STOP cancele as chamadas internas e corte a alimentação do motor elétrico do elevador (fazendo-o parar imediatamente), até que o comutador seja colocado novamente na posição RUN e seja dado um novo comando?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_053_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_053_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_053_3"
+        }
+      ]
+    },
+    {
+      "name": "field_054",
+      "type": "string",
+      "label": "Possui comutador (operado sem chave) de duas posições (RUN/STOP), podendo ser…",
+      "description": "5. PAINEL DE COMANDO INTERNO: Possui comutador (operado sem chave) de duas posições (RUN/STOP), podendo ser substituído por dois botões com funções equivalentes, que na posição STOP cancele as chamadas internas e corte a alimentação do motor elétrico do elevador (fazendo-o parar imediatamente), até que o comutador seja colocado novamente na posição RUN e seja dado um novo comando?",
+      "required": false
+    },
+    {
+      "name": "field_055",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 2)",
+      "description": "5. PAINEL DE COMANDO INTERNO: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 2)",
+      "required": false
+    },
+    {
+      "name": "field_056",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 3)",
+      "description": "5. PAINEL DE COMANDO INTERNO: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 3)",
+      "required": false
+    },
+    {
+      "name": "field_057",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 4)",
+      "description": "5. PAINEL DE COMANDO INTERNO: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 4)",
+      "required": false
+    },
+    {
+      "name": "field_058",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 5)",
+      "description": "5. PAINEL DE COMANDO INTERNO: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 5)",
+      "required": false
+    },
+    {
+      "name": "field_059",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 6)",
+      "description": "5. PAINEL DE COMANDO INTERNO: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 6)",
+      "required": false
+    },
+    {
+      "name": "field_060",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 7)",
+      "description": "5. PAINEL DE COMANDO INTERNO: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 7)",
+      "required": false
+    },
+    {
+      "name": "field_061",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 8)",
+      "description": "5. PAINEL DE COMANDO INTERNO: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 8)",
+      "required": false
+    },
+    {
+      "name": "field_062",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 9)",
+      "description": "5. PAINEL DE COMANDO INTERNO: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 9)",
+      "required": false
+    },
+    {
+      "name": "field_063",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 10)",
+      "description": "5. PAINEL DE COMANDO INTERNO: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 10)",
+      "required": false
+    },
+    {
+      "name": "field_064",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 11)",
+      "description": "5. PAINEL DE COMANDO INTERNO: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 11)",
+      "required": false
+    },
+    {
+      "name": "field_065",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 12)",
+      "description": "5. PAINEL DE COMANDO INTERNO: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 12)",
+      "required": false
+    },
+    {
+      "name": "field_066",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 13)",
+      "description": "5. PAINEL DE COMANDO INTERNO: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 13)",
+      "required": false
+    },
+    {
+      "name": "field_067",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 14)",
+      "description": "5. PAINEL DE COMANDO INTERNO: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 14)",
+      "required": false
+    },
+    {
+      "name": "field_068",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 15)",
+      "description": "5. PAINEL DE COMANDO INTERNO: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 15)",
+      "required": false
+    },
+    {
+      "name": "field_069",
+      "type": "string",
+      "label": "Tipo (linha 2)",
+      "description": "5. PAINEL DE COMANDO INTERNO: Tipo (linha 2)",
+      "required": false
+    },
+    {
+      "name": "field_070",
+      "type": "string",
+      "label": "Fabricante (linha 2)",
+      "description": "5. PAINEL DE COMANDO INTERNO: Fabricante (linha 2)",
+      "required": false
+    },
+    {
+      "name": "field_071",
+      "type": "choice",
+      "label": "Não",
+      "description": "5. PAINEL DE COMANDO INTERNO: ( ) Sim ( ) Não",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_071_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_071_2"
+        }
+      ]
+    },
+    {
+      "name": "field_072",
+      "type": "string",
+      "label": "Tipo (linha 3)",
+      "description": "5. PAINEL DE COMANDO INTERNO: Tipo (linha 3)",
+      "required": false
+    },
+    {
+      "name": "field_073",
+      "type": "string",
+      "label": "Fabricante (linha 3)",
+      "description": "5. PAINEL DE COMANDO INTERNO: Fabricante (linha 3)",
+      "required": false
+    },
+    {
+      "name": "field_074",
+      "type": "choice",
+      "label": "Não",
+      "description": "5. PAINEL DE COMANDO INTERNO: ( ) Sim ( ) Não",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_074_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_074_2"
+        }
+      ]
+    },
+    {
+      "name": "field_075",
+      "type": "string",
+      "label": "Tipo (linha 4)",
+      "description": "5. PAINEL DE COMANDO INTERNO: Tipo (linha 4)",
+      "required": false
+    },
+    {
+      "name": "field_076",
+      "type": "string",
+      "label": "Fabricante (linha 4)",
+      "description": "5. PAINEL DE COMANDO INTERNO: Fabricante (linha 4)",
+      "required": false
+    },
+    {
+      "name": "field_077",
+      "type": "choice",
+      "label": "Não",
+      "description": "5. PAINEL DE COMANDO INTERNO: ( ) Sim ( ) Não",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_077_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_077_2"
+        }
+      ]
+    },
+    {
+      "name": "field_078",
+      "type": "string",
+      "label": "Tipo (linha 5)",
+      "description": "5. PAINEL DE COMANDO INTERNO: Tipo (linha 5)",
+      "required": false
+    },
+    {
+      "name": "field_079",
+      "type": "string",
+      "label": "Fabricante (linha 5)",
+      "description": "5. PAINEL DE COMANDO INTERNO: Fabricante (linha 5)",
+      "required": false
+    },
+    {
+      "name": "field_080",
+      "type": "choice",
+      "label": "Não",
+      "description": "5. PAINEL DE COMANDO INTERNO: ( ) Sim ( ) Não",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_080_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_080_2"
+        }
+      ]
+    },
+    {
+      "name": "field_081",
+      "type": "string",
+      "label": "Data da inspeção: / /",
+      "description": "5. PAINEL DE COMANDO INTERNO: Data da inspeção: / /",
+      "required": false
+    },
+    {
+      "name": "field_082",
+      "type": "string",
+      "label": "Título profissional",
+      "description": "5. PAINEL DE COMANDO INTERNO: Título profissional",
+      "required": false
+    },
+    {
+      "name": "field_083",
+      "type": "string",
+      "label": "Nome do Resp. Técnico",
+      "description": "5. PAINEL DE COMANDO INTERNO: Nome do Resp. Técnico",
+      "required": false
+    }
+  ]
+}

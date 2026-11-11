@@ -1,0 +1,688 @@
+{
+  "fields": [
+    {
+      "name": "field_001",
+      "type": "string",
+      "label": "Endereço",
+      "description": "Endereço",
+      "required": false,
+      "projectKey": "property_street"
+    },
+    {
+      "name": "field_002",
+      "type": "string",
+      "label": "Nº",
+      "description": "Nº",
+      "required": false,
+      "projectKey": "property_number"
+    },
+    {
+      "name": "field_003",
+      "type": "string",
+      "label": "Complemento",
+      "description": "Complemento",
+      "required": false,
+      "projectKey": "property_complement"
+    },
+    {
+      "name": "field_004",
+      "type": "string",
+      "label": "Bairro",
+      "description": "Bairro",
+      "required": false,
+      "projectKey": "property_district"
+    },
+    {
+      "name": "field_005",
+      "type": "string",
+      "label": "Município- UF",
+      "description": "Município- UF",
+      "required": false,
+      "projectKey": "property_city"
+    },
+    {
+      "name": "field_006",
+      "type": "string",
+      "label": "RE",
+      "description": "RE",
+      "required": false,
+      "projectKey": "property_re"
+    },
+    {
+      "name": "field_007",
+      "type": "string",
+      "label": "Proprietário",
+      "description": "Proprietário",
+      "required": false,
+      "projectKey": "owner_name"
+    },
+    {
+      "name": "field_008",
+      "type": "string",
+      "label": "e-mail",
+      "description": "e-mail",
+      "required": false,
+      "projectKey": "owner_email"
+    },
+    {
+      "name": "field_009",
+      "type": "string",
+      "label": "Responsável uso/brigadista",
+      "description": "Responsável uso/brigadista",
+      "required": false
+    },
+    {
+      "name": "field_010",
+      "type": "string",
+      "label": "e-mail",
+      "description": "e-mail",
+      "required": false
+    },
+    {
+      "name": "field_011",
+      "type": "string",
+      "label": "Responsável Técnico pelo comissionamento/inspeção",
+      "description": "Responsável Técnico pelo comissionamento/inspeção",
+      "required": false,
+      "projectKey": "technical_name"
+    },
+    {
+      "name": "field_012",
+      "type": "string",
+      "label": "Número do registro do profissional",
+      "description": "Número do registro do profissional",
+      "required": false,
+      "projectKey": "technical_registry"
+    },
+    {
+      "name": "field_013",
+      "type": "string",
+      "label": "e-mail",
+      "description": "e-mail",
+      "required": false,
+      "projectKey": "technical_email"
+    },
+    {
+      "name": "field_014",
+      "type": "string",
+      "label": "Ocupação e tipo ( Tabela 1 do Anexo B da IN 1 parte 2)",
+      "description": "Ocupação e tipo ( Tabela 1 do Anexo B da IN 1 parte 2)",
+      "required": false
+    },
+    {
+      "name": "field_015",
+      "type": "choice",
+      "label": "1.1 O sistema de hidrantes/mangotinhos atende ao leiaute da edificação confor…",
+      "description": "1. HIDRANTES/MANGOTINHOS: 1.1 O sistema de hidrantes/mangotinhos atende ao leiaute da edificação conforme projeto técnico aprovado?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_015_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_015_2"
+        }
+      ]
+    },
+    {
+      "name": "field_016",
+      "type": "choice",
+      "label": "1.2 Todos os ambientes estão protegidos por hidrantes/mangotinhos?",
+      "description": "1. HIDRANTES/MANGOTINHOS: 1.2 Todos os ambientes estão protegidos por hidrantes/mangotinhos?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_016_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_016_2"
+        }
+      ]
+    },
+    {
+      "name": "field_017",
+      "type": "choice",
+      "label": "1.3 Os hidrantes/mangotinhos estão instalados na posição correta, conforme pr…",
+      "description": "1. HIDRANTES/MANGOTINHOS: 1.3 Os hidrantes/mangotinhos estão instalados na posição correta, conforme projeto técnico aprovado?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_017_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_017_2"
+        }
+      ]
+    },
+    {
+      "name": "field_018",
+      "type": "choice",
+      "label": "1.4 Os hidrantes/mangotinhos estão desobstruídos e sinalizados conforme a IN …",
+      "description": "1. HIDRANTES/MANGOTINHOS: 1.4 Os hidrantes/mangotinhos estão desobstruídos e sinalizados conforme a IN 7?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_018_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_018_2"
+        }
+      ]
+    },
+    {
+      "name": "field_019",
+      "type": "choice",
+      "label": "1.5 Os hidrantes/mangotinhos estão sem vazamentos?",
+      "description": "1. HIDRANTES/MANGOTINHOS: 1.5 Os hidrantes/mangotinhos estão sem vazamentos?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_019_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_019_2"
+        }
+      ]
+    },
+    {
+      "name": "field_020",
+      "type": "choice",
+      "label": "1.6 As mangueiras de incêndio estão em bom estado de conservação e possuem as…",
+      "description": "1. HIDRANTES/MANGOTINHOS: 1.6 As mangueiras de incêndio estão em bom estado de conservação e possuem as demarcações de certificação?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_020_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_020_2"
+        }
+      ]
+    },
+    {
+      "name": "field_021",
+      "type": "choice",
+      "label": "1.7 Os abrigos estão de acordo com os parâmetros da IN 7?",
+      "description": "1. HIDRANTES/MANGOTINHOS: 1.7 Os abrigos estão de acordo com os parâmetros da IN 7?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_021_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_021_2"
+        }
+      ]
+    },
+    {
+      "name": "field_022",
+      "type": "choice",
+      "label": "1.8 Os abrigos possuem os equipamentos necessários( esguichos e chaves de man…",
+      "description": "1. HIDRANTES/MANGOTINHOS: 1.8 Os abrigos possuem os equipamentos necessários( esguichos e chaves de mangueiras)?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_022_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_022_2"
+        }
+      ]
+    },
+    {
+      "name": "field_023",
+      "type": "choice",
+      "label": "2.1 A bomba de incêndio está adequadamente instalada?",
+      "description": "2. CONJUNTO BOMBA DE INCÊNDIO (Bomba+Motor+Painel de controle e partida).: 2.1 A bomba de incêndio está adequadamente instalada?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_023_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_023_2"
+        }
+      ]
+    },
+    {
+      "name": "field_024",
+      "type": "choice",
+      "label": "2.2 Existe bomba \"jóquey\" instalada? Caso positivo, a mesma está adequadament…",
+      "description": "2. CONJUNTO BOMBA DE INCÊNDIO (Bomba+Motor+Painel de controle e partida).: 2.2 Existe bomba \"jóquey\" instalada? Caso positivo, a mesma está adequadamente instalada?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_024_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_024_2"
+        }
+      ]
+    },
+    {
+      "name": "field_025",
+      "type": "choice",
+      "label": "2.3 A bomba de incêndio está em compartimento protegido contra o fogo?",
+      "description": "2. CONJUNTO BOMBA DE INCÊNDIO (Bomba+Motor+Painel de controle e partida).: 2.3 A bomba de incêndio está em compartimento protegido contra o fogo?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_025_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_025_2"
+        }
+      ]
+    },
+    {
+      "name": "field_026",
+      "type": "choice",
+      "label": "2.4 A bomba de incêndio está em compartimento sem acúmulo de materiais combus…",
+      "description": "2. CONJUNTO BOMBA DE INCÊNDIO (Bomba+Motor+Painel de controle e partida).: 2.4 A bomba de incêndio está em compartimento sem acúmulo de materiais combustíveis?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_026_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_026_2"
+        }
+      ]
+    },
+    {
+      "name": "field_027",
+      "type": "choice",
+      "label": "2.5 A bomba de incêndio está sem vazamentos? (teste)",
+      "description": "2. CONJUNTO BOMBA DE INCÊNDIO (Bomba+Motor+Painel de controle e partida).: 2.5 A bomba de incêndio está sem vazamentos? (teste)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_027_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_027_2"
+        }
+      ]
+    },
+    {
+      "name": "field_028",
+      "type": "choice",
+      "label": "2.6 A bomba de incêndio está instalada com vazão e pressão de acordo com proj…",
+      "description": "2. CONJUNTO BOMBA DE INCÊNDIO (Bomba+Motor+Painel de controle e partida).: 2.6 A bomba de incêndio está instalada com vazão e pressão de acordo com projeto técnico aprovado?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_028_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_028_2"
+        }
+      ]
+    },
+    {
+      "name": "field_029",
+      "type": "choice",
+      "label": "2.7 Os manômetros e pressostatos estão em boas condições e funcionando corret…",
+      "description": "2. CONJUNTO BOMBA DE INCÊNDIO (Bomba+Motor+Painel de controle e partida).: 2.7 Os manômetros e pressostatos estão em boas condições e funcionando corretamente?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_029_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_029_2"
+        }
+      ]
+    },
+    {
+      "name": "field_030",
+      "type": "choice",
+      "label": "2.8 As válvulas de bloqueio (exceto no cabeçote de testes, se houver) estão t…",
+      "description": "2. CONJUNTO BOMBA DE INCÊNDIO (Bomba+Motor+Painel de controle e partida).: 2.8 As válvulas de bloqueio (exceto no cabeçote de testes, se houver) estão travadas e na posição correta?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_030_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_030_2"
+        }
+      ]
+    },
+    {
+      "name": "field_031",
+      "type": "choice",
+      "label": "2.9 A fixação da bomba de incêndio está adequada?",
+      "description": "2. CONJUNTO BOMBA DE INCÊNDIO (Bomba+Motor+Painel de controle e partida).: 2.9 A fixação da bomba de incêndio está adequada?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_031_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_031_2"
+        }
+      ]
+    },
+    {
+      "name": "field_032",
+      "type": "choice",
+      "label": "2.10 Painel de sinalização corretamente instalado e em local com vigilância o…",
+      "description": "2. CONJUNTO BOMBA DE INCÊNDIO (Bomba+Motor+Painel de controle e partida).: 2.10 Painel de sinalização corretamente instalado e em local com vigilância ou próximo à central de alarme?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_032_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_032_2"
+        }
+      ]
+    },
+    {
+      "name": "field_033",
+      "type": "choice",
+      "label": "3.1 Tubulação sem danos mecânicos?",
+      "description": "3. TUBULAÇÃO: 3.1 Tubulação sem danos mecânicos?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_033_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_033_2"
+        }
+      ]
+    },
+    {
+      "name": "field_034",
+      "type": "choice",
+      "label": "3.2 Tubulação sem vazamentos? (teste)",
+      "description": "3. TUBULAÇÃO: 3.2 Tubulação sem vazamentos? (teste)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_034_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_034_2"
+        }
+      ]
+    },
+    {
+      "name": "field_035",
+      "type": "choice",
+      "label": "3.3 Tubulação sem corrosão ou obstrução interna?",
+      "description": "3. TUBULAÇÃO: 3.3 Tubulação sem corrosão ou obstrução interna?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_035_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_035_2"
+        }
+      ]
+    },
+    {
+      "name": "field_036",
+      "type": "choice",
+      "label": "3.4 Tubulação adequadamente alinhada?",
+      "description": "3. TUBULAÇÃO: 3.4 Tubulação adequadamente alinhada?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_036_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_036_2"
+        }
+      ]
+    },
+    {
+      "name": "field_037",
+      "type": "choice",
+      "label": "3.5 Tubulação aparente pintada na cor vermelha?",
+      "description": "3. TUBULAÇÃO: 3.5 Tubulação aparente pintada na cor vermelha?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_037_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_037_2"
+        }
+      ]
+    },
+    {
+      "name": "field_038",
+      "type": "choice",
+      "label": "3.6 Suportes e braçadeiras adequados?",
+      "description": "3. TUBULAÇÃO: 3.6 Suportes e braçadeiras adequados?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_038_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_038_2"
+        }
+      ]
+    },
+    {
+      "name": "field_039",
+      "type": "choice",
+      "label": "4.1 Conexão de recalque está sinalizada?",
+      "description": "4. CONEXÃO DE RECALQUE: 4.1 Conexão de recalque está sinalizada?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_039_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_039_2"
+        }
+      ]
+    },
+    {
+      "name": "field_040",
+      "type": "choice",
+      "label": "4.2 Conexão de recalque está desobstruída?",
+      "description": "4. CONEXÃO DE RECALQUE: 4.2 Conexão de recalque está desobstruída?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_040_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_040_2"
+        }
+      ]
+    },
+    {
+      "name": "field_041",
+      "type": "choice",
+      "label": "4.3 Conexão de recalque está sem vazamentos?",
+      "description": "4. CONEXÃO DE RECALQUE: 4.3 Conexão de recalque está sem vazamentos?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_041_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_041_2"
+        }
+      ]
+    },
+    {
+      "name": "field_042",
+      "type": "choice",
+      "label": "5 .1 Reservatório de incêndio possui volume adequado de acordo como projeto t…",
+      "description": "5 .1: 5 .1 Reservatório de incêndio possui volume adequado de acordo como projeto técnico aprovado?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_042_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_042_2"
+        }
+      ]
+    },
+    {
+      "name": "field_043",
+      "type": "choice",
+      "label": "5.2 Reservatório de incêndio possui válvulas completamente abertas?",
+      "description": "5 .1: 5.2 Reservatório de incêndio possui válvulas completamente abertas?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_043_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_043_2"
+        }
+      ]
+    },
+    {
+      "name": "field_044",
+      "type": "choice",
+      "label": "5.3 Reservatório de incêndio possui tubulação e válvulas adequadas?",
+      "description": "5 .1: 5.3 Reservatório de incêndio possui tubulação e válvulas adequadas?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_044_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_044_2"
+        }
+      ]
+    },
+    {
+      "name": "field_045",
+      "type": "choice",
+      "label": "5.4 O reservatório está em compartimento protegido contra o fogo?",
+      "description": "5 .1: 5.4 O reservatório está em compartimento protegido contra o fogo?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_045_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_045_2"
+        }
+      ]
+    },
+    {
+      "name": "field_046",
+      "type": "choice",
+      "label": "6.1 A partida das motobombas ocorre de maneira automática, obedecendo aos dem…",
+      "description": "6. TESTE DE FUNCIONAMENTO DO SHP: 6.1 A partida das motobombas ocorre de maneira automática, obedecendo aos demais parâmetros exigidos?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_046_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_046_2"
+        }
+      ]
+    },
+    {
+      "name": "field_047",
+      "type": "choice",
+      "label": "Qual o valor da vazão medida no hidrante menos favorável hidraulicamente, em …",
+      "description": "6. TESTE DE FUNCIONAMENTO DO SHP: Qual o valor da vazão medida no hidrante menos favorável hidraulicamente, em L/min?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_047_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_047_2"
+        }
+      ]
+    },
+    {
+      "name": "field_048",
+      "type": "string",
+      "label": "Justificativas técnicas para não atendimento dos itens assinalados - a ser pr…",
+      "description": "6. TESTE DE FUNCIONAMENTO DO SHP: Justificativas técnicas para não atendimento dos itens assinalados - a ser preenchido pelo Responsável Técnico. (linha 1)",
+      "required": false
+    },
+    {
+      "name": "field_049",
+      "type": "string",
+      "label": "Data da comissionamento/inspeção",
+      "description": "6. TESTE DE FUNCIONAMENTO DO SHP: Data da comissionamento/inspeção:",
+      "required": false
+    }
+  ]
+}

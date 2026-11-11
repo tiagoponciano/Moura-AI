@@ -1,6 +1,6 @@
 "use client";
 
-import { Loader2, Plus } from "lucide-react";
+import { ClipboardList, Loader2, Plus } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,15 +15,26 @@ import type { useProjects } from "../hooks/use-projects";
 
 type ProjectBarProps = {
   projects: ReturnType<typeof useProjects>;
+  showingDetails: boolean;
+  onToggleDetails: () => void;
+  onCreated: () => void;
 };
 
 /** Picks the project being worked on, or creates a new one. */
-export function ProjectBar({ projects }: ProjectBarProps) {
+export function ProjectBar({
+  projects,
+  showingDetails,
+  onToggleDetails,
+  onCreated,
+}: ProjectBarProps) {
   const [name, setName] = useState("");
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    if (await projects.create(name)) setName("");
+    if (await projects.create(name)) {
+      setName("");
+      onCreated();
+    }
   }
 
   return (
@@ -51,6 +62,16 @@ export function ProjectBar({ projects }: ProjectBarProps) {
             ))}
           </SelectContent>
         </Select>
+        <Button
+          type="button"
+          variant={showingDetails ? "secondary" : "outline"}
+          disabled={!projects.selected}
+          aria-pressed={showingDetails}
+          onClick={onToggleDetails}
+        >
+          <ClipboardList />
+          {showingDetails ? "Ver formulários" : "Dados do projeto"}
+        </Button>
         <form
           onSubmit={handleSubmit}
           className="flex min-w-60 flex-1 items-center gap-2"

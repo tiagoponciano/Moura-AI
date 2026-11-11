@@ -90,3 +90,26 @@ describe("schemaToZod in document mode", () => {
     expect(result.error?.issues[0].message).toBe("Use o formato DD/MM/AAAA");
   });
 });
+
+describe("schemaToZod with a choice field", () => {
+  const schema: TemplateSchema = {
+    fields: [
+      {
+        name: "q",
+        type: "choice",
+        label: "1.1",
+        description: "",
+        options: [
+          { value: "Sim", tag: "q_1" },
+          { value: "Não", tag: "q_2" },
+        ],
+      },
+    ],
+  };
+
+  it("accepts its options and refuses anything else", () => {
+    const zod = schemaToZod(schema, "extraction");
+    expect(zod.safeParse({ q: "Sim" }).success).toBe(true);
+    expect(zod.safeParse({ q: "Talvez" }).success).toBe(false);
+  });
+});

@@ -140,9 +140,11 @@ export type Database = {
           name: string;
           created_by: string | null;
           created_at: string;
+          data: Json;
         };
         Insert: {
           id?: string;
+          data?: Json;
           name: string;
           created_by?: string | null;
           created_at?: string;

@@ -4,11 +4,11 @@ How an official CBMSC form becomes fillable by the assistant now: the tagged cop
 
 ## What this is
 
-Official forms have no `{{tags}}`, only `____`, `( )` and empty table cells, so the assistant works from a reviewed copy in `public/templates/cbmsc/` with tags in the blanks. Each copy is an ordinary template in `public/templates/index.json`, with an extra `cbmsc` object naming the form it came from. Its fields are hand-written per form, so the code never guesses which blank is which.
+Official forms have no `{{tags}}`, only `____`, `( )` and empty table cells, so the assistant works from a reviewed copy in `public/templates/cbmsc/` with tags in the blanks. Each copy is an ordinary template in `public/templates/index.json`, with an extra `cbmsc` object naming the form it came from. Every form in the catalog's seed has one. Five have hand-written fields; the others get theirs from the document's structure, so their labels are a best reading of the form and the dialog asks the user to check the result.
 
 Invariants:
 
-- **Prepared forms are a list in code.** `FORMS` in `client/scripts/prepare-cbmsc-templates.mjs` holds each form's steps. Every other form shows the button disabled.
+- **The seed migration is the list of forms.** `client/scripts/prepare-cbmsc-templates.mjs` reads it, and `template-files.test.ts` fails if a seeded form has no template. `FORMS` in that script holds the hand-written ones; a new form in the catalog after the seed has no template, and its button says "Assistente em preparação".
 - **A copy is tied to the text it was made from.** `cbmsc.sourceTextHash` is compared to the live Google Doc when the form opens, and a different text blocks the assistant until the copy is regenerated and reviewed.
 - **A template is found by IN and annex, not by Google Doc id,** so replacing a form's link in the catalog keeps its template.
 
@@ -82,9 +82,25 @@ A field with `mark: true` prints `X` when true and nothing when false, so `( )` 
 | `match`, `to`      | A custom pattern                          | A custom replacement                                          |
 | `clearNextBlocks`  | The next N runs of underscores and spaces | Empties them, for a free-text block spanning several runs     |
 
-A tagged run also loses its `w:color`, because blanks are drawn in light gray.
+A tagged run also loses its `w:color`, because blanks are drawn in light gray. Each copy also loses the red header note on how to copy the Google Doc ("Essa versão do documento é de uso exclusivo do CBMSC…"), which means nothing on a finished form; the rest of the header stays, and the hash is not affected because it reads only the body. A form's `projectKeys` ties its fields to the project (`project-fields.md`).
 
 ### Preparing another form
+
+Without an entry in `FORMS`, `autoTagDocument` (`scripts/cbmsc-auto-fields.mjs`) finds the blanks in document order:
+
+| Found                                                     | Becomes                                                                  |
+| --------------------------------------------------------- | ------------------------------------------------------------------------ |
+| A run of underscores, or a date or time made of them      | A text field named by the text before it; consecutive runs are one field |
+| `( )` next to Sim, Não or NA                              | A `choice` field per table row                                           |
+| Any other `( )`                                           | A `mark` boolean                                                         |
+| `Fone: ( )`                                               | A text field inside the parentheses                                      |
+| Empty cells at the end of a row, under Sim, Não, NA       | A `choice` field per row                                                 |
+| An empty cell at least 1400 twips wide, by the table grid | A text field named by its row and column                                 |
+| A label ending in `:` or `Nº` with nothing after it       | A text field after the label                                             |
+
+It leaves alone signature lines, `Data: … Hora: …`, and everything from "Resposta" or "Bombeiro militar" on, which the CBMSC fills. On IN 1, 2, 7, 9, 10 and 15 it also ties fields to project keys, from the label and the role of the last heading or label that named one.
+
+To write a form by hand instead:
 
 1. Add it to `FORMS`, reading its runs first: the blanks must be listed in document order, and blanks the CBMSC or a signature fills stay out.
 2. Run the script, render the `.docx` with a value in every field, and look at every page. `template-files.test.ts` proves tags and fields match, not that a value landed in the right place.
@@ -92,11 +108,12 @@ A tagged run also loses its `w:color`, because blanks are drawn in light gray.
 
 ## What this does NOT do
 
-- Only IN 1 Anexo D and Anexo H are prepared. Tables with Sim/Não columns, such as IN 7 Anexo C, have no helper yet.
+- Generated forms are not all read page by page: `reviewed: false` marks them, and the dialog says "Os campos deste formulário foram identificados automaticamente. Confira o documento gerado."
+- Instruction rows with no blank, such as "(Especificar os Equipamentos…)" in IN 28 Anexo C, get no field. Neither do labels without a colon, like "Nome do responsável" or "Se não, explicar" in a cell of their own.
+- The drawing of IN 27 Anexo C is not filled, only its observations, and LibreOffice can clip the text inside its shapes.
 - No warning to admins when a copy goes stale: users see "Modelo em revisão", and the site check does not compare text.
 - Option groups are independent booleans: nothing stops both `( ) externa` and `( ) interna` from being marked.
 - The date and signature blocks stay blank, to be filled when signing.
-- The red notice in the official header ("Essa versão do documento é de uso exclusivo do CBMSC…") stays in generated documents, because the copy changes only the blanks.
 - The assistant reads only what is typed. Files attached in the chat are stored for reference and never reach the model (`client/docs/attachments.md`).
 
 ## Gotchas

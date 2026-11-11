@@ -16,11 +16,11 @@ Invariants:
 
 All routes except `/health` need `Authorization: Bearer $DWG_SERVICE_TOKEN`; `401` for a wrong or missing token, `503` when the service has no token configured. Files are limited to 20 MB (`413`), an empty or unreadable file is `422`.
 
-| Method | Path       | Takes                                   | Returns                                                                                      |
-| ------ | ---------- | --------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `GET`  | `/health`  | none                                    | `{ status: "ok", dwg: boolean }`; `dwg` tells whether the DWG converter is installed          |
-| `POST` | `/convert` | multipart `file`; query `format=dxf\|dwg` | The drawing. Headers `X-Mode` (`vector` or `raster`) and `X-Warnings` (comma separated)      |
-| `POST` | `/crops`   | multipart `file`                        | `{ crops: [{ name, png_base64 }] }`: `title_block` and `scale_strip`, each at most 800 px    |
+| Method | Path       | Takes                                     | Returns                                                                                   |
+| ------ | ---------- | ----------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `GET`  | `/health`  | none                                      | `{ status: "ok", dwg: boolean }`; `dwg` tells whether the DWG converter is installed      |
+| `POST` | `/convert` | multipart `file`; query `format=dxf\|dwg` | The drawing. Headers `X-Mode` (`vector` or `raster`) and `X-Warnings` (comma separated)   |
+| `POST` | `/crops`   | multipart `file`                          | `{ crops: [{ name, png_base64 }] }`: `title_block` and `scale_strip`, each at most 800 px |
 
 `format=dwg` answers `501` when `dxf2dwg` is not installed and `502` when it fails.
 

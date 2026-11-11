@@ -134,6 +134,32 @@ export type Database = {
         >;
         Relationships: [];
       };
+      project_changes: {
+        Row: {
+          id: number;
+          project_id: string;
+          field: string;
+          old_value: string | null;
+          new_value: string | null;
+          changed_by: string | null;
+          changed_by_name: string | null;
+          changed_at: string;
+        };
+        Insert: {
+          id?: number;
+          project_id: string;
+          field: string;
+          old_value?: string | null;
+          new_value?: string | null;
+          changed_by?: string | null;
+          changed_by_name?: string | null;
+          changed_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["project_changes"]["Insert"]
+        >;
+        Relationships: [];
+      };
       projects: {
         Row: {
           id: string;

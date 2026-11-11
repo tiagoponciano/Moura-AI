@@ -15,6 +15,7 @@ import {
   type ProjectChange,
 } from "../lib/project-fields";
 import type { Project } from "../lib/projects";
+import { ProjectHistory } from "./project-history";
 
 type ProjectDetailsProps = {
   project: Project;
@@ -71,6 +72,7 @@ export function ProjectDetails({ project, onChange }: ProjectDetailsProps) {
           </Collapsible>
         );
       })}
+      <ProjectHistory projectId={project.id} />
     </div>
   );
 }

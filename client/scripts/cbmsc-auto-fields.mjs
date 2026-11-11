@@ -181,7 +181,7 @@ const TECHNICAL = /respons[aá]vel t[eé]cnico|\bRT\b/i;
 
 const PROPERTY_KEYS = [
   [/^(logradouro|endere[cç]o|end)\b/, "street"],
-  [/^n\.?\s?[º°]/, "number"],
+  [/^n\.?\s?[º°]\.?$/, "number"],
   [/^complemento/, "complement"],
   [/^bairro/, "district"],
   [/^(cidade|munic[ií]pio)/, "city"],
@@ -201,8 +201,14 @@ function projectKeyFor(label, role) {
     if (/^nome da edifica/.test(text)) return "property_building_name";
     if (/^nome da empresa/.test(text)) return "property_company_name";
     if (/^detalhes/.test(text)) return "property_details";
+    if (/^[aá]rea total/.test(text)) return "property_total_area";
+    if (/^n\.?\s?[º°] de pavimentos/.test(text)) return "property_floors";
+    if (/^n\.?\s?[º°] de blocos/.test(text)) return "property_blocks";
   }
   if (role === "owner") {
+    if (address) return `owner_${address}`;
+    if (/^cpf/.test(text)) return "owner_tax_id";
+    if (/^rg\b/.test(text)) return "owner_id_card";
     if (/^(nome|respons[aá]vel pelo im|propriet)/.test(text))
       return "owner_name";
     if (/^e-?mail/.test(text)) return "owner_email";
@@ -564,7 +570,7 @@ export function autoTagDocument(xml, { shareWithProject }) {
           NUMBER_LABEL.test(clean(run.value)) &&
           clean(run.value).length < 30
         ) {
-          run.value = `${run.value} {{${addText("Nº")}}}  `;
+          run.value = `${run.value} {{${addText(clean(run.original))}}}  `;
           run.tagged = true;
           return;
         }
@@ -589,7 +595,7 @@ export function autoTagDocument(xml, { shareWithProject }) {
         !paragraph.runs.some((run) => run.tagged)
       ) {
         const run = paragraph.runs.at(-1);
-        run.value = `${run.value} {{${addText("Nº")}}}`;
+        run.value = `${run.value} {{${addText(finalText)}}}`;
         run.tagged = true;
       }
     }

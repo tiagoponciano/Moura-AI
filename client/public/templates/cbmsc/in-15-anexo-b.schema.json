@@ -11,8 +11,8 @@
     {
       "name": "field_002",
       "type": "string",
-      "label": "Nº",
-      "description": "Nº",
+      "label": "N.º",
+      "description": "N.º.",
       "required": false,
       "projectKey": "property_number"
     },
@@ -534,8 +534,7 @@
       "type": "string",
       "label": "Nº em uso",
       "description": "2. Instruções de operação, cuidados e manutenção: Nº em uso",
-      "required": false,
-      "projectKey": "technical_number"
+      "required": false
     },
     {
       "name": "field_053",
@@ -687,9 +686,10 @@
     {
       "name": "field_064",
       "type": "string",
-      "label": "Nº",
-      "description": "2. Instruções de operação, cuidados e manutenção: Nº",
-      "required": false
+      "label": "Nº. do Registro Profissional",
+      "description": "2. Instruções de operação, cuidados e manutenção: Nº. do Registro Profissional",
+      "required": false,
+      "projectKey": "technical_registry"
     },
     {
       "name": "field_065",

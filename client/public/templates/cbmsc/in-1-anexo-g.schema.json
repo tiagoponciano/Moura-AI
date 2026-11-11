@@ -21,14 +21,16 @@
       "type": "string",
       "label": "CPF/CNPJ",
       "description": "1. RESPONSÁVEL PELO IMÓVEL: CPF/CNPJ:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_tax_id"
     },
     {
       "name": "field_004",
       "type": "string",
       "label": "RG",
       "description": "1. RESPONSÁVEL PELO IMÓVEL: RG:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_id_card"
     },
     {
       "name": "field_005",
@@ -43,42 +45,48 @@
       "type": "string",
       "label": "Logradouro",
       "description": "1. RESPONSÁVEL PELO IMÓVEL: Logradouro:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_street"
     },
     {
       "name": "field_007",
       "type": "string",
       "label": "Nº",
       "description": "1. RESPONSÁVEL PELO IMÓVEL: Nº:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_number"
     },
     {
       "name": "field_008",
       "type": "string",
       "label": "Complemento",
       "description": "1. RESPONSÁVEL PELO IMÓVEL: Complemento:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_complement"
     },
     {
       "name": "field_009",
       "type": "string",
       "label": "Bairro",
       "description": "1. RESPONSÁVEL PELO IMÓVEL: Bairro:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_district"
     },
     {
       "name": "field_010",
       "type": "string",
       "label": "Cidade",
       "description": "1. RESPONSÁVEL PELO IMÓVEL: Cidade:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_city"
     },
     {
       "name": "field_011",
       "type": "string",
       "label": "CEP",
       "description": "1. RESPONSÁVEL PELO IMÓVEL: CEP:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_postal_code"
     },
     {
       "name": "field_012",

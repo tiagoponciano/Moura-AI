@@ -21,14 +21,16 @@
       "type": "string",
       "label": "CPF/CNPJ",
       "description": "1. Responsável pelo imóvel: CPF/CNPJ:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_tax_id"
     },
     {
       "name": "field_004",
       "type": "string",
       "label": "RG",
       "description": "1. Responsável pelo imóvel: RG:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_id_card"
     },
     {
       "name": "field_005",
@@ -43,42 +45,48 @@
       "type": "string",
       "label": "Logradouro",
       "description": "1. Responsável pelo imóvel: Logradouro:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_street"
     },
     {
       "name": "field_007",
       "type": "string",
       "label": "Nº",
       "description": "1. Responsável pelo imóvel: Nº:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_number"
     },
     {
       "name": "field_008",
       "type": "string",
       "label": "Complemento",
       "description": "1. Responsável pelo imóvel: Complemento:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_complement"
     },
     {
       "name": "field_009",
       "type": "string",
       "label": "Bairro",
       "description": "1. Responsável pelo imóvel: Bairro:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_district"
     },
     {
       "name": "field_010",
       "type": "string",
       "label": "Cidade",
       "description": "1. Responsável pelo imóvel: Cidade:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_city"
     },
     {
       "name": "field_011",
       "type": "string",
       "label": "CEP",
       "description": "1. Responsável pelo imóvel: CEP:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_postal_code"
     },
     {
       "name": "field_012",
@@ -118,7 +126,7 @@
       "label": "Nº de registro no conselho de classe",
       "description": "2. Responsável técnico pela execução da obra: Nº de registro no conselho de classe:",
       "required": false,
-      "projectKey": "technical_number"
+      "projectKey": "technical_registry"
     },
     {
       "name": "field_017",
@@ -197,7 +205,8 @@
       "type": "string",
       "label": "Área total da solicitação (m²)",
       "description": "4. Dados da solicitação: Área total da solicitação (m²):",
-      "required": false
+      "required": false,
+      "projectKey": "property_total_area"
     },
     {
       "name": "field_027",
@@ -255,14 +264,16 @@
       "type": "string",
       "label": "Nº de pavimentos",
       "description": "4. Dados da solicitação: Risco: ( ) II ( ) III ( ) IV ( ) V Nº de pavimentos:",
-      "required": false
+      "required": false,
+      "projectKey": "property_floors"
     },
     {
       "name": "field_035",
       "type": "string",
       "label": "Nº de blocos",
       "description": "4. Dados da solicitação: Nº de blocos:",
-      "required": false
+      "required": false,
+      "projectKey": "property_blocks"
     },
     {
       "name": "field_036",

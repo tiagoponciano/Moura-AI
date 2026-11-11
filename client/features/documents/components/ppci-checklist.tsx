@@ -1,7 +1,9 @@
 "use client";
 
-import { ChevronDown, Loader2 } from "lucide-react";
+import { ChevronDown, FileDown, Loader2 } from "lucide-react";
+import { saveAs } from "file-saver";
 import { useState } from "react";
+import { errorMessage } from "@/lib/api/request-json";
 import { Button } from "@/components/ui/button";
 import {
   Collapsible,
@@ -30,6 +32,27 @@ const dateTime = new Intl.DateTimeFormat("pt-BR", {
 /** Moura's PPCI checklist for a project: the control panel and one toggle per group. */
 export function PpciChecklist({ projectId }: PpciChecklistProps) {
   const { checklist, answers, error, answer } = usePpciChecklist(projectId);
+  const [reportError, setReportError] = useState<string>();
+  const [downloading, setDownloading] = useState(false);
+
+  async function downloadReport() {
+    setDownloading(true);
+    setReportError(undefined);
+    try {
+      const response = await fetch(
+        `/api/documents/projects/${projectId}/ppci/report`,
+      );
+      if (!response.ok) {
+        const body = await response.json().catch(() => undefined);
+        throw new Error(body?.error ?? "Não foi possível gerar o relatório.");
+      }
+      saveAs(await response.blob(), "pendencias-ppci.pdf");
+    } catch (cause) {
+      setReportError(errorMessage(cause));
+    } finally {
+      setDownloading(false);
+    }
+  }
 
   if (!checklist) {
     return error ? (
@@ -50,9 +73,24 @@ export function PpciChecklist({ projectId }: PpciChecklistProps) {
         Marque cada item como Atende, Adequar ou Não se aplica. As marcações
         ficam salvas no projeto, com quem marcou e quando.
       </p>
-      {error && (
+      <div className="flex flex-wrap items-center gap-2">
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          disabled={downloading}
+          onClick={downloadReport}
+        >
+          {downloading ? <Loader2 className="animate-spin" /> : <FileDown />}
+          Relatório de pendências (PDF)
+        </Button>
+        <span className="text-xs text-muted-foreground">
+          Só os itens marcados Adequar, com as notas.
+        </span>
+      </div>
+      {(error ?? reportError) && (
         <p role="alert" className="text-xs text-destructive">
-          {error}
+          {error ?? reportError}
         </p>
       )}
       <ControlPanel groups={checklist.groups} answers={answers} />

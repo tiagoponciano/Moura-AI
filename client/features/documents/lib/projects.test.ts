@@ -58,7 +58,9 @@ describe("projectUpdateSchema", () => {
   });
 
   it("accepts a new name alone", () => {
-    expect(projectUpdateSchema.safeParse({ name: "Padaria" }).success).toBe(true);
+    expect(projectUpdateSchema.safeParse({ name: "Padaria" }).success).toBe(
+      true,
+    );
   });
 
   it("refuses a body with neither a name nor data", () => {

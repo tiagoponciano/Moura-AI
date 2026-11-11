@@ -154,6 +154,44 @@ export type Database = {
         Update: Partial<Database["public"]["Tables"]["projects"]["Insert"]>;
         Relationships: [];
       };
+      ppci_checklists: {
+        Row: { version: string; created_at: string };
+        Insert: { version: string; created_at?: string };
+        Update: Partial<
+          Database["public"]["Tables"]["ppci_checklists"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      ppci_checklist_groups: {
+        Row: { checklist_version: string; position: number; name: string };
+        Insert: { checklist_version: string; position: number; name: string };
+        Update: Partial<
+          Database["public"]["Tables"]["ppci_checklist_groups"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      ppci_checklist_items: {
+        Row: {
+          checklist_version: string;
+          group_position: number;
+          position: number;
+          section: string | null;
+          text: string;
+          reference: string | null;
+        };
+        Insert: {
+          checklist_version: string;
+          group_position: number;
+          position: number;
+          section?: string | null;
+          text: string;
+          reference?: string | null;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["ppci_checklist_items"]["Insert"]
+        >;
+        Relationships: [];
+      };
       cbmsc_site_check: {
         Row: {
           id: boolean;

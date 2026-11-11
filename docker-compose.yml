@@ -15,3 +15,11 @@ services:
       - "127.0.0.1:3002:8000"
     environment:
       PPTX_SERVICE_TOKEN: local-only
+
+  # Local plan conversion service; same note about the token as above.
+  dwg:
+    build: services/dwg
+    ports:
+      - "127.0.0.1:3003:8000"
+    environment:
+      DWG_SERVICE_TOKEN: local-only

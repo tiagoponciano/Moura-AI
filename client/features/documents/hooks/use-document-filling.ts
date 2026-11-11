@@ -15,6 +15,7 @@ import {
   requiredProgress,
   validateForDocument,
 } from "../lib/form-values";
+import { fetchFillings, saveFilling, type Filling } from "../lib/fillings";
 import { generateDocument } from "../lib/generate-document";
 import {
   changedProjectData,
@@ -52,6 +53,12 @@ export function useDocumentFilling(
   const [attempted, setAttempted] = useState(false);
   /** The project's data when the form was chosen, for filling it once its fields load. */
   const [prefill, setPrefill] = useState<ProjectData>({});
+  /** What was saved for each form, with the project it belongs to. */
+  const [saved, setSaved] = useState<{ projectId?: string; list: Filling[] }>({
+    list: [],
+  });
+  /** The project the open form's saved values are loaded for, fixed when the form is chosen. */
+  const [loadProjectId, setLoadProjectId] = useState<string>();
   const [pdf, setPdf] = useState<{ url: string; fileName: string }>();
   const [notice, setNotice] = useState<string>();
   /** The values as of the last change, for generating right after a merge. */
@@ -61,10 +68,26 @@ export function useDocumentFilling(
   const pendingSave = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const template = templates.find((entry) => entry.id === selectedId);
+  const projectId = project?.id;
+  const fillings = saved.projectId === projectId ? saved.list : [];
   const steps = useMemo(
     () => (schema ? conversationSteps(schema, guide) : []),
     [schema, guide],
   );
+
+  useEffect(() => {
+    if (!projectId) return;
+    let cancelled = false;
+    fetchFillings(projectId).then(
+      (body) => {
+        if (!cancelled) setSaved({ projectId, list: body.fillings });
+      },
+      () => undefined,
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [projectId]);
 
   useEffect(() => {
     loadTemplateIndex()
@@ -77,14 +100,37 @@ export function useDocumentFilling(
   useEffect(() => {
     if (!template) return;
     let cancelled = false;
-    Promise.all([loadTemplateSchema(template), loadTemplateGuide(template)])
-      .then(([loaded, loadedGuide]) => {
+    const savedFillings = loadProjectId
+      ? fetchFillings(loadProjectId).then(
+          (body) => body.fillings,
+          () => [] as Filling[],
+        )
+      : Promise.resolve([] as Filling[]);
+    Promise.all([
+      loadTemplateSchema(template),
+      loadTemplateGuide(template),
+      savedFillings,
+    ])
+      .then(([loaded, loadedGuide, filledForms]) => {
         if (cancelled) return;
         setGuide(loadedGuide);
-        const known = valuesFromProject(loaded, prefill);
+        setSaved({ projectId: loadProjectId, list: filledForms });
+        const own = filledForms.find(
+          (filling) => filling.template_id === template.id,
+        );
+        const known = {
+          ...valuesFromProject(loaded, prefill),
+          ...pickExtractedValues(loaded, own?.values),
+        };
         latestValues.current = known;
         setValues(known);
-        setSources(recordSources({}, Object.keys(known), "project"));
+        setSources(
+          recordSources(
+            recordSources({}, Object.keys(known), "project"),
+            Object.keys(pickExtractedValues(loaded, own?.values)),
+            "user",
+          ),
+        );
         setSchema(loaded);
       })
       .catch(() => {
@@ -96,7 +142,7 @@ export function useDocumentFilling(
     return () => {
       cancelled = true;
     };
-  }, [template, prefill]);
+  }, [template, prefill, loadProjectId]);
 
   function discardPdf() {
     pdfRequest.current += 1;
@@ -117,6 +163,36 @@ export function useDocumentFilling(
       }
     },
     [project, saveProjectData],
+  );
+
+  /** Saves this form's values for the project; a form with nothing filled is not saved. */
+  const persistFilling = useCallback(
+    (current: FieldValues) => {
+      if (!project || !template) return;
+      const values = Object.fromEntries(
+        Object.entries(current).filter(([, value]) => value !== undefined),
+      );
+      if (Object.keys(values).length === 0) return;
+      const templateId = template.id;
+      saveFilling(project.id, templateId, current).then(
+        () =>
+          setSaved((current) => ({
+            projectId: project.id,
+            list: [
+              {
+                template_id: templateId,
+                values,
+                updated_at: new Date().toISOString(),
+              },
+              ...(current.projectId === project.id ? current.list : []).filter(
+                (filling) => filling.template_id !== templateId,
+              ),
+            ],
+          })),
+        (cause) => setNotice(errorMessage(cause)),
+      );
+    },
+    [project, template],
   );
 
   const generatePdf = useCallback(
@@ -152,6 +228,7 @@ export function useDocumentFilling(
     setNotice(undefined);
     clearTimeout(pendingSave.current);
     setPrefill(project?.data ?? {});
+    setLoadProjectId(project?.id);
     setSelectedId(id);
     setSchema(undefined);
     setGuide(undefined);
@@ -190,11 +267,12 @@ export function useDocumentFilling(
       );
       setProblems([]);
       saveToProject(schema, merged);
+      persistFilling(merged);
       // The assistant filled the form: once it is complete, the PDF follows by itself.
       const validation = validateForDocument(schema, merged);
       if (validation.ok) void generatePdf(template.id, validation.values);
     },
-    [schema, steps, template, generatePdf, saveToProject],
+    [schema, steps, template, generatePdf, saveToProject, persistFilling],
   );
 
   function updateField(name: string, value: FieldValue | undefined) {
@@ -205,6 +283,7 @@ export function useDocumentFilling(
     clearTimeout(pendingSave.current);
     pendingSave.current = setTimeout(() => {
       if (schema) saveToProject(schema, latestValues.current);
+      persistFilling(latestValues.current);
     }, 800);
     setSources((current) => recordSources(current, [name], "user"));
   }
@@ -245,6 +324,7 @@ export function useDocumentFilling(
 
   return {
     templates,
+    fillings,
     template,
     schema,
     values,

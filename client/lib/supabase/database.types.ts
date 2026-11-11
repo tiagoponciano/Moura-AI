@@ -134,6 +134,32 @@ export type Database = {
         >;
         Relationships: [];
       };
+      project_changes: {
+        Row: {
+          id: number;
+          project_id: string;
+          field: string;
+          old_value: string | null;
+          new_value: string | null;
+          changed_by: string | null;
+          changed_by_name: string | null;
+          changed_at: string;
+        };
+        Insert: {
+          id?: number;
+          project_id: string;
+          field: string;
+          old_value?: string | null;
+          new_value?: string | null;
+          changed_by?: string | null;
+          changed_by_name?: string | null;
+          changed_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["project_changes"]["Insert"]
+        >;
+        Relationships: [];
+      };
       projects: {
         Row: {
           id: string;
@@ -152,6 +178,52 @@ export type Database = {
           archived_at?: string | null;
         };
         Update: Partial<Database["public"]["Tables"]["projects"]["Insert"]>;
+        Relationships: [];
+      };
+      form_fillings: {
+        Row: {
+          project_id: string;
+          template_id: string;
+          values: Json;
+          updated_by: string | null;
+          updated_at: string;
+        };
+        Insert: {
+          project_id: string;
+          template_id: string;
+          values?: Json;
+          updated_by?: string | null;
+          updated_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["form_fillings"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      ppci_answers: {
+        Row: {
+          project_id: string;
+          checklist_version: string;
+          group_position: number;
+          item_position: number;
+          status: "atende" | "adequar" | "na" | null;
+          note: string | null;
+          updated_by: string | null;
+          updated_by_name: string | null;
+          updated_at: string;
+        };
+        Insert: {
+          project_id: string;
+          checklist_version: string;
+          group_position: number;
+          item_position: number;
+          status?: "atende" | "adequar" | "na" | null;
+          note?: string | null;
+          updated_by?: string | null;
+          updated_by_name?: string | null;
+          updated_at?: string;
+        };
+        Update: Partial<Database["public"]["Tables"]["ppci_answers"]["Insert"]>;
         Relationships: [];
       };
       ppci_checklists: {

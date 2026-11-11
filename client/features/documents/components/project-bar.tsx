@@ -1,6 +1,12 @@
 "use client";
 
-import { ClipboardList, Loader2, Plus } from "lucide-react";
+import {
+  ClipboardCheck,
+  ClipboardList,
+  FileText,
+  Loader2,
+  Plus,
+} from "lucide-react";
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,18 +20,21 @@ import {
 import type { useProjects } from "../hooks/use-projects";
 import { ProjectActions } from "./project-actions";
 
+/** What the dialog shows under the project bar. */
+export type ProjectView = "forms" | "details" | "checklist" | "proposal";
+
 type ProjectBarProps = {
   projects: ReturnType<typeof useProjects>;
-  showingDetails: boolean;
-  onToggleDetails: () => void;
+  view: ProjectView;
+  onView: (view: ProjectView) => void;
   onCreated: () => void;
 };
 
 /** Picks the project being worked on, or creates a new one. */
 export function ProjectBar({
   projects,
-  showingDetails,
-  onToggleDetails,
+  view,
+  onView,
   onCreated,
 }: ProjectBarProps) {
   const [name, setName] = useState("");
@@ -73,13 +82,33 @@ export function ProjectBar({
         )}
         <Button
           type="button"
-          variant={showingDetails ? "secondary" : "outline"}
+          variant={view === "details" ? "secondary" : "outline"}
           disabled={!projects.selected}
-          aria-pressed={showingDetails}
-          onClick={onToggleDetails}
+          aria-pressed={view === "details"}
+          onClick={() => onView(view === "details" ? "forms" : "details")}
         >
           <ClipboardList />
-          {showingDetails ? "Ver formulários" : "Dados do projeto"}
+          {view === "details" ? "Ver formulários" : "Dados do projeto"}
+        </Button>
+        <Button
+          type="button"
+          variant={view === "checklist" ? "secondary" : "outline"}
+          disabled={!projects.selected}
+          aria-pressed={view === "checklist"}
+          onClick={() => onView(view === "checklist" ? "forms" : "checklist")}
+        >
+          <ClipboardCheck />
+          {view === "checklist" ? "Ver formulários" : "Checklist PPCI"}
+        </Button>
+        <Button
+          type="button"
+          variant={view === "proposal" ? "secondary" : "outline"}
+          disabled={!projects.selected}
+          aria-pressed={view === "proposal"}
+          onClick={() => onView(view === "proposal" ? "forms" : "proposal")}
+        >
+          <FileText />
+          {view === "proposal" ? "Ver formulários" : "Proposta"}
         </Button>
         <form
           onSubmit={handleSubmit}

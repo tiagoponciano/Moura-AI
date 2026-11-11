@@ -12,21 +12,33 @@ import {
 } from "@/components/ui/dialog";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import type { useProjects } from "../hooks/use-projects";
+import type { Filling } from "../lib/fillings";
+import { startedForms } from "../lib/started-forms";
 import type { TemplateEntry } from "../lib/templates";
 import { CbmscFormsBrowser } from "./cbmsc-forms-browser";
-import { ProjectBar } from "./project-bar";
+import { PpciChecklist } from "./ppci-checklist";
+import { ProjectBar, type ProjectView } from "./project-bar";
+import { ProposalForm } from "./proposal-form";
 import { ProjectDetails } from "./project-details";
+import { StartedForms } from "./started-forms";
 
 type FormsHomeProps = {
   templates: TemplateEntry[];
+  fillings: Filling[];
   projects: ReturnType<typeof useProjects>;
   onFill: (templateId: string) => void;
 };
 
 /** The page with no form open: the forms dialog, already open on arrival. */
-export function FormsHome({ templates, projects, onFill }: FormsHomeProps) {
-  const [showDetails, setShowDetails] = useState(false);
+export function FormsHome({
+  templates,
+  fillings,
+  projects,
+  onFill,
+}: FormsHomeProps) {
+  const [view, setView] = useState<ProjectView>("forms");
   const project = projects.selected;
+  const shown = project ? view : "forms";
 
   if (!isSupabaseConfigured()) {
     return (
@@ -66,18 +78,30 @@ export function FormsHome({ templates, projects, onFill }: FormsHomeProps) {
           </DialogHeader>
           <ProjectBar
             projects={projects}
-            showingDetails={showDetails && project !== undefined}
-            onToggleDetails={() => setShowDetails((showing) => !showing)}
-            onCreated={() => setShowDetails(true)}
+            view={shown}
+            onView={setView}
+            onCreated={() => setView("details")}
           />
-          {showDetails && project ? (
+          {project && shown === "details" ? (
             <ProjectDetails
               key={project.id}
               project={project}
               onChange={(change) => projects.saveData(project.id, change)}
             />
+          ) : project && shown === "checklist" ? (
+            <PpciChecklist key={project.id} projectId={project.id} />
+          ) : project && shown === "proposal" ? (
+            <ProposalForm key={project.id} project={project} />
           ) : (
-            <CbmscFormsBrowser templates={templates} onFill={onFill} />
+            <>
+              {project && (
+                <StartedForms
+                  forms={startedForms(fillings, templates)}
+                  onOpen={onFill}
+                />
+              )}
+              <CbmscFormsBrowser templates={templates} onFill={onFill} />
+            </>
           )}
         </DialogContent>
       </Dialog>

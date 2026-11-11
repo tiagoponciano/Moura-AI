@@ -34,6 +34,7 @@ export function DocumentWorkspace() {
       {!template ? (
         <FormsHome
           templates={filling.templates}
+          fillings={filling.fillings}
           projects={projects}
           onFill={filling.selectTemplate}
         />

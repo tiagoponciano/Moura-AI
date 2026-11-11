@@ -6,4 +6,5 @@ export {
   handleListProjects,
   handleUpdateProject,
 } from "./projects-handler";
+export { handleGetPpci, handleSaveAnswer } from "./ppci-handler";
 export { handleGetFormVersion, handleListCbmscForms } from "./forms-handler";

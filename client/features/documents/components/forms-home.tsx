@@ -1,6 +1,7 @@
 "use client";
 
 import { Landmark } from "lucide-react";
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -14,6 +15,7 @@ import type { useProjects } from "../hooks/use-projects";
 import type { TemplateEntry } from "../lib/templates";
 import { CbmscFormsBrowser } from "./cbmsc-forms-browser";
 import { ProjectBar } from "./project-bar";
+import { ProjectDetails } from "./project-details";
 
 type FormsHomeProps = {
   templates: TemplateEntry[];
@@ -23,6 +25,9 @@ type FormsHomeProps = {
 
 /** The page with no form open: the forms dialog, already open on arrival. */
 export function FormsHome({ templates, projects, onFill }: FormsHomeProps) {
+  const [showDetails, setShowDetails] = useState(false);
+  const project = projects.selected;
+
   if (!isSupabaseConfigured()) {
     return (
       <p className="flex flex-1 items-center justify-center text-sm text-muted-foreground">
@@ -59,8 +64,21 @@ export function FormsHome({ templates, projects, onFill }: FormsHomeProps) {
               publicada pelo CBMSC.
             </DialogDescription>
           </DialogHeader>
-          <ProjectBar projects={projects} />
-          <CbmscFormsBrowser templates={templates} onFill={onFill} />
+          <ProjectBar
+            projects={projects}
+            showingDetails={showDetails && project !== undefined}
+            onToggleDetails={() => setShowDetails((showing) => !showing)}
+            onCreated={() => setShowDetails(true)}
+          />
+          {showDetails && project ? (
+            <ProjectDetails
+              key={project.id}
+              project={project}
+              onChange={(change) => projects.saveData(project.id, change)}
+            />
+          ) : (
+            <CbmscFormsBrowser templates={templates} onFill={onFill} />
+          )}
         </DialogContent>
       </Dialog>
     </div>

@@ -1,0 +1,784 @@
+{
+  "fields": [
+    {
+      "name": "field_001",
+      "type": "string",
+      "label": "Endereço",
+      "description": "Endereço",
+      "required": false,
+      "projectKey": "property_street"
+    },
+    {
+      "name": "field_002",
+      "type": "string",
+      "label": "Nº",
+      "description": "Nº",
+      "required": false,
+      "projectKey": "property_number"
+    },
+    {
+      "name": "field_003",
+      "type": "string",
+      "label": "Complemento",
+      "description": "Complemento",
+      "required": false,
+      "projectKey": "property_complement"
+    },
+    {
+      "name": "field_004",
+      "type": "string",
+      "label": "Bairro",
+      "description": "Bairro",
+      "required": false,
+      "projectKey": "property_district"
+    },
+    {
+      "name": "field_005",
+      "type": "string",
+      "label": "Município- UF",
+      "description": "Município- UF",
+      "required": false,
+      "projectKey": "property_city"
+    },
+    {
+      "name": "field_006",
+      "type": "string",
+      "label": "RE",
+      "description": "RE",
+      "required": false,
+      "projectKey": "property_re"
+    },
+    {
+      "name": "field_007",
+      "type": "string",
+      "label": "Proprietário",
+      "description": "Proprietário",
+      "required": false,
+      "projectKey": "owner_name"
+    },
+    {
+      "name": "field_008",
+      "type": "string",
+      "label": "e-mail",
+      "description": "e-mail",
+      "required": false,
+      "projectKey": "owner_email"
+    },
+    {
+      "name": "field_009",
+      "type": "string",
+      "label": "Responsável uso/brigadista",
+      "description": "Responsável uso/brigadista",
+      "required": false
+    },
+    {
+      "name": "field_010",
+      "type": "string",
+      "label": "e-mail",
+      "description": "e-mail",
+      "required": false
+    },
+    {
+      "name": "field_011",
+      "type": "string",
+      "label": "Responsável Técnico pelo comissionamento/inspeção",
+      "description": "Responsável Técnico pelo comissionamento/inspeção",
+      "required": false,
+      "projectKey": "technical_name"
+    },
+    {
+      "name": "field_012",
+      "type": "string",
+      "label": "Número do registro do profissional",
+      "description": "Número do registro do profissional",
+      "required": false,
+      "projectKey": "technical_registry"
+    },
+    {
+      "name": "field_013",
+      "type": "string",
+      "label": "e-mail",
+      "description": "e-mail",
+      "required": false,
+      "projectKey": "technical_email"
+    },
+    {
+      "name": "field_014",
+      "type": "string",
+      "label": "Ocupação e tipo ( Tabela 1 do Anexo B da IN 1 parte 2)",
+      "description": "Ocupação e tipo ( Tabela 1 do Anexo B da IN 1 parte 2)",
+      "required": false
+    },
+    {
+      "name": "field_015",
+      "type": "choice",
+      "label": "Projeto Instalação em conformidade com o projeto? Sim ( Não",
+      "description": "Projeto Instalação em conformidade com o projeto? Sim ( Não (",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_015_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_015_2"
+        }
+      ]
+    },
+    {
+      "name": "field_016",
+      "type": "choice",
+      "label": "Equipamentos usados correspondem aos especificados no projeto? Sim ( Não",
+      "description": "Equipamentos usados correspondem aos especificados no projeto? Sim ( Não (",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_016_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_016_2"
+        }
+      ]
+    },
+    {
+      "name": "field_017",
+      "type": "choice",
+      "label": "1. Memorial descritivo e especificações técnicas dos principais equipamentos …",
+      "description": "1. Memorial descritivo e especificações técnicas dos principais equipamentos e materiais: 1. Memorial descritivo e especificações técnicas dos principais equipamentos e materiais Sim ( Não (",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_017_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_017_2"
+        }
+      ]
+    },
+    {
+      "name": "field_018",
+      "type": "choice",
+      "label": "2. Cálculo das aberturas de extração natural e/ou vazão da extração mecânica …",
+      "description": "2. Cálculo das aberturas de extração natural e/ou vazão da extração mecânica da fumaça: 2. Cálculo das aberturas de extração natural e/ou vazão da extração mecânica da fumaça Sim ( Não (",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_018_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_018_2"
+        }
+      ]
+    },
+    {
+      "name": "field_019",
+      "type": "choice",
+      "label": "3. Folha de dados dos equipamentos e/ou extratores Sim ( Não",
+      "description": "3. Folha de dados dos equipamentos e/ou extratores: 3. Folha de dados dos equipamentos e/ou extratores Sim ( Não (",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_019_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_019_2"
+        }
+      ]
+    },
+    {
+      "name": "field_020",
+      "type": "choice",
+      "label": "4. Tabela de marca, modelo, potência elétrica e vazão dos equipamentos Sim ( …",
+      "description": "4. Tabela de marca, modelo, potência elétrica e vazão dos equipamentos: 4. Tabela de marca, modelo, potência elétrica e vazão dos equipamentos Sim ( Não (",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_020_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_020_2"
+        }
+      ]
+    },
+    {
+      "name": "field_021",
+      "type": "choice",
+      "label": "5. Execução de diagrama de ar Sim ( Não",
+      "description": "5. Execução de diagrama de ar: 5. Execução de diagrama de ar Sim ( Não (",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_021_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_021_2"
+        }
+      ]
+    },
+    {
+      "name": "field_022",
+      "type": "choice",
+      "label": "6. Desenho do sistema (plantas e principais cortes da rede de dutos) Sim ( Não",
+      "description": "6. Desenho do sistema (plantas e principais cortes da rede de dutos): 6. Desenho do sistema (plantas e principais cortes da rede de dutos) Sim ( Não (",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_022_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_022_2"
+        }
+      ]
+    },
+    {
+      "name": "field_023",
+      "type": "choice",
+      "label": "7. Desenhos das casas de máquinas de ventilação (planta e principais cortes) …",
+      "description": "7. Desenhos das casas de máquinas de ventilação (planta e principais cortes): 7. Desenhos das casas de máquinas de ventilação (planta e principais cortes) Sim ( Não (",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_023_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_023_2"
+        }
+      ]
+    },
+    {
+      "name": "field_024",
+      "type": "choice",
+      "label": "8. Informações e diagrama elétrico dos sistemas Sim ( Não",
+      "description": "8. Informações e diagrama elétrico dos sistemas: 8. Informações e diagrama elétrico dos sistemas Sim ( Não (",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_024_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_024_2"
+        }
+      ]
+    },
+    {
+      "name": "field_025",
+      "type": "string",
+      "label": "Velocidade do vento – INFORMAÇÕES CLIMÁTICAS DO DIA DO COMISSIONAMENTO",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Velocidade do vento – INFORMAÇÕES CLIMÁTICAS DO DIA DO COMISSIONAMENTO",
+      "required": false
+    },
+    {
+      "name": "field_026",
+      "type": "string",
+      "label": "Velocidade do vento Temperatura Externa – INFORMAÇÕES CLIMÁTICAS DO DIA DO CO…",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Velocidade do vento Temperatura Externa – INFORMAÇÕES CLIMÁTICAS DO DIA DO COMISSIONAMENTO",
+      "required": false
+    },
+    {
+      "name": "field_027",
+      "type": "string",
+      "label": "Direção do Vento – INFORMAÇÕES CLIMÁTICAS DO DIA DO COMISSIONAMENTO",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Direção do Vento – INFORMAÇÕES CLIMÁTICAS DO DIA DO COMISSIONAMENTO",
+      "required": false
+    },
+    {
+      "name": "field_028",
+      "type": "string",
+      "label": "Direção do Vento Pressão atmosférica – INFORMAÇÕES CLIMÁTICAS DO DIA DO COMIS…",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Direção do Vento Pressão atmosférica – INFORMAÇÕES CLIMÁTICAS DO DIA DO COMISSIONAMENTO",
+      "required": false
+    },
+    {
+      "name": "field_029",
+      "type": "choice",
+      "label": "Ensaios Extrator mecânico (ventilador e motor) em funcionamento com fonte de …",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Ensaios Extrator mecânico (ventilador e motor) em funcionamento com fonte de energia primária (rede) e com fonte de energia reserva (grupo gerador)? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_029_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_029_2"
+        }
+      ]
+    },
+    {
+      "name": "field_030",
+      "type": "choice",
+      "label": "Manobra automática de energia primária para a reserva (grupo motogerador)? Si…",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Manobra automática de energia primária para a reserva (grupo motogerador)? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_030_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_030_2"
+        }
+      ]
+    },
+    {
+      "name": "field_031",
+      "type": "choice",
+      "label": "Funcionamento correto da reversão do ventilador principal para o reserva? Sim…",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Funcionamento correto da reversão do ventilador principal para o reserva? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_031_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_031_2"
+        }
+      ]
+    },
+    {
+      "name": "field_032",
+      "type": "choice",
+      "label": "A qualidade da energia elétrica fornecida está adequada (tensão e corrente el…",
+      "description": "8. Informações e diagrama elétrico dos sistemas: A qualidade da energia elétrica fornecida está adequada (tensão e corrente elétrica, frequência e aterramento)? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_032_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_032_2"
+        }
+      ]
+    },
+    {
+      "name": "field_033",
+      "type": "choice",
+      "label": "O tempo de ativação do sistema de controle de fumaça corresponde ao tempo de …",
+      "description": "8. Informações e diagrama elétrico dos sistemas: O tempo de ativação do sistema de controle de fumaça corresponde ao tempo de projeto? Tempo para ativação: segundos. Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_033_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_033_2"
+        }
+      ]
+    },
+    {
+      "name": "field_034",
+      "type": "choice",
+      "label": "Há equilíbrio de fases do sistema elétrico? Sim Não",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Há equilíbrio de fases do sistema elétrico? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_034_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_034_2"
+        }
+      ]
+    },
+    {
+      "name": "field_035",
+      "type": "choice",
+      "label": "Fiação e ligações elétricas corretamente executados? Sim Não",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Fiação e ligações elétricas corretamente executados? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_035_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_035_2"
+        }
+      ]
+    },
+    {
+      "name": "field_036",
+      "type": "choice",
+      "label": "Quadros elétricos com componentes devidamente identificados e presentes? Sim …",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Quadros elétricos com componentes devidamente identificados e presentes? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_036_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_036_2"
+        }
+      ]
+    },
+    {
+      "name": "field_037",
+      "type": "choice",
+      "label": "Funcionamento correto do extrator natural com respectivos atuadores? Sim Não",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Funcionamento correto do extrator natural com respectivos atuadores? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_037_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_037_2"
+        }
+      ]
+    },
+    {
+      "name": "field_038",
+      "type": "choice",
+      "label": "Registros corta-fogo e/ou fumaça presentes e operantes? Sim Não",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Registros corta-fogo e/ou fumaça presentes e operantes? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_038_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_038_2"
+        }
+      ]
+    },
+    {
+      "name": "field_039",
+      "type": "choice",
+      "label": "Registros de entrada de ar presente e operante? Sim Não",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Registros de entrada de ar presente e operante? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_039_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_039_2"
+        }
+      ]
+    },
+    {
+      "name": "field_040",
+      "type": "choice",
+      "label": "Registros de sobrepressão presente e operante? Sim Não",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Registros de sobrepressão presente e operante? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_040_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_040_2"
+        }
+      ]
+    },
+    {
+      "name": "field_041",
+      "type": "choice",
+      "label": "Venezianas e grelhas de ar presentes, desobstruídas e corretamente instaladas…",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Venezianas e grelhas de ar presentes, desobstruídas e corretamente instaladas? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_041_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_041_2"
+        }
+      ]
+    },
+    {
+      "name": "field_042",
+      "type": "choice",
+      "label": "Rede de dutos devidamente fixados, sem vazamentos e desobstruídos? Sim Não",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Rede de dutos devidamente fixados, sem vazamentos e desobstruídos? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_042_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_042_2"
+        }
+      ]
+    },
+    {
+      "name": "field_043",
+      "type": "choice",
+      "label": "Vazão de ar medida confere com a vazão de projeto? Sim Não",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Vazão de ar medida confere com a vazão de projeto? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_043_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_043_2"
+        }
+      ]
+    },
+    {
+      "name": "field_044",
+      "type": "choice",
+      "label": "Taxa volumétrica das grelhas de extração de fumaça e instrução de ar confere …",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Taxa volumétrica das grelhas de extração de fumaça e instrução de ar confere com a de projeto? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_044_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_044_2"
+        }
+      ]
+    },
+    {
+      "name": "field_045",
+      "type": "choice",
+      "label": "Direção do fluxo de ar de acordo com a necessidade e projeto? Sim Não",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Direção do fluxo de ar de acordo com a necessidade e projeto? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_045_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_045_2"
+        }
+      ]
+    },
+    {
+      "name": "field_046",
+      "type": "choice",
+      "label": "Quando constantes em projeto, o enclausuramento e abertura das portas estão d…",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Quando constantes em projeto, o enclausuramento e abertura das portas estão de acordo com as especificações? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_046_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_046_2"
+        }
+      ]
+    },
+    {
+      "name": "field_047",
+      "type": "choice",
+      "label": "Os diferenciais de pressão estão dentro da faixa de operação? Sim Não",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Os diferenciais de pressão estão dentro da faixa de operação? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_047_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_047_2"
+        }
+      ]
+    },
+    {
+      "name": "field_048",
+      "type": "choice",
+      "label": "O sistema de controle de temperatura está corretamente instalado e operaciona…",
+      "description": "8. Informações e diagrama elétrico dos sistemas: O sistema de controle de temperatura está corretamente instalado e operacional? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_048_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_048_2"
+        }
+      ]
+    },
+    {
+      "name": "field_049",
+      "type": "choice",
+      "label": "Variadores de frequência com sensores de pressão? Sim Não",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Variadores de frequência com sensores de pressão? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_049_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_049_2"
+        }
+      ]
+    },
+    {
+      "name": "field_050",
+      "type": "choice",
+      "label": "Sistema de supervisão e controles presente e funcional? Sim Não",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Sistema de supervisão e controles presente e funcional? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_050_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_050_2"
+        }
+      ]
+    },
+    {
+      "name": "field_051",
+      "type": "choice",
+      "label": "Sistema de detecção presente e devidamente instalado? Sim Não",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Sistema de detecção presente e devidamente instalado? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_051_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_051_2"
+        }
+      ]
+    },
+    {
+      "name": "field_052",
+      "type": "choice",
+      "label": "Sistema de alarme de incêndio devidamente instalado e operacional com interli…",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Sistema de alarme de incêndio devidamente instalado e operacional com interligação com os detectores de fumaça e sistema de controle de fumaça? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_052_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_052_2"
+        }
+      ]
+    },
+    {
+      "name": "field_053",
+      "type": "choice",
+      "label": "Interligação do sistema de controle de fumaça com os detectores de fumaça dev…",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Interligação do sistema de controle de fumaça com os detectores de fumaça devidamente instalado e operacional? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_053_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_053_2"
+        }
+      ]
+    },
+    {
+      "name": "field_054",
+      "type": "choice",
+      "label": "Instalação, apoios, fixação e sustentação de todos os componentes devidamente…",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Instalação, apoios, fixação e sustentação de todos os componentes devidamente executados? Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_054_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_054_2"
+        }
+      ]
+    },
+    {
+      "name": "field_055",
+      "type": "choice",
+      "label": "Conclusão Após a realização e verificação dos resultados dos ensaios, atesto …",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Conclusão Após a realização e verificação dos resultados dos ensaios, atesto que o sistema se encontra em condição de operação: Sim ( ) Não ( )",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_055_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_055_2"
+        }
+      ]
+    },
+    {
+      "name": "field_056",
+      "type": "string",
+      "label": "Data em que a instalação foi entregue em funcionamento",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Data em que a instalação foi entregue em funcionamento",
+      "required": false
+    },
+    {
+      "name": "field_057",
+      "type": "string",
+      "label": "Nº. do Registro Profissional",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Nº. do Registro Profissional",
+      "required": false
+    }
+  ]
+}

@@ -35,7 +35,11 @@ export function CbmscFormPreview({
   const [loaded, setLoaded] = useState(false);
   const urls = googleDocUrls(form.googleDocId);
   const assistant = useFormAssistant(form, template);
-  const note = ASSISTANT_NOTES[assistant];
+  const note =
+    ASSISTANT_NOTES[assistant] ??
+    (template?.cbmsc?.reviewed === false
+      ? "Os campos deste formulário foram identificados automaticamente. Confira o documento gerado."
+      : undefined);
 
   return (
     <div className="flex min-h-0 flex-1 flex-col gap-3">

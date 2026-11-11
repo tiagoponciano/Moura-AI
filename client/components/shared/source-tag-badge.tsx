@@ -1,7 +1,7 @@
 import type { SourceTag } from "@/lib/field-sources";
 import { cn } from "@/lib/utils";
 
-/** "IA" or "editado" pill shown next to a field label. */
+/** "IA", "editado" or "projeto" pill shown next to a field label. */
 export function SourceTagBadge({ tag }: { tag: SourceTag }) {
   return (
     <span

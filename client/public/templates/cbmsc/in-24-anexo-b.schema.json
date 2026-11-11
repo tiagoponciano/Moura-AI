@@ -1,0 +1,340 @@
+{
+  "fields": [
+    {
+      "name": "field_001",
+      "type": "string",
+      "label": "Nome do evento",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Nome do evento",
+      "required": false
+    },
+    {
+      "name": "field_002",
+      "type": "string",
+      "label": "Início",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Início:",
+      "required": false
+    },
+    {
+      "name": "field_003",
+      "type": "string",
+      "label": "Horário",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Horário:",
+      "required": false
+    },
+    {
+      "name": "field_004",
+      "type": "string",
+      "label": "Encerramento",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Encerramento:",
+      "required": false
+    },
+    {
+      "name": "field_005",
+      "type": "string",
+      "label": "Horário",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Horário:",
+      "required": false
+    },
+    {
+      "name": "field_006",
+      "type": "string",
+      "label": "Público total previsto",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Público total previsto:",
+      "required": false
+    },
+    {
+      "name": "field_007",
+      "type": "string",
+      "label": "End",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: End.",
+      "required": false
+    },
+    {
+      "name": "field_008",
+      "type": "string",
+      "label": "Nº",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Nº",
+      "required": false
+    },
+    {
+      "name": "field_009",
+      "type": "string",
+      "label": "CEP",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: CEP",
+      "required": false
+    },
+    {
+      "name": "field_010",
+      "type": "string",
+      "label": "Bairro",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Bairro",
+      "required": false
+    },
+    {
+      "name": "field_011",
+      "type": "string",
+      "label": "Cidade",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Cidade",
+      "required": false
+    },
+    {
+      "name": "field_012",
+      "type": "string",
+      "label": "Complemento/Ponto de referência",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Complemento/Ponto de referência",
+      "required": false
+    },
+    {
+      "name": "field_013",
+      "type": "string",
+      "label": "Responsável pelo Evento",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Responsável pelo Evento",
+      "required": false
+    },
+    {
+      "name": "field_014",
+      "type": "string",
+      "label": "CPF/CNPJ",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: CPF/CNPJ",
+      "required": false
+    },
+    {
+      "name": "field_015",
+      "type": "string",
+      "label": "Fone",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Fone",
+      "required": false
+    },
+    {
+      "name": "field_016",
+      "type": "string",
+      "label": "Área total utilizada no evento",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Área total utilizada no evento:",
+      "required": false
+    },
+    {
+      "name": "field_017",
+      "type": "string",
+      "label": "Área das instalações permanentes",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Área das instalações permanentes:",
+      "required": false
+    },
+    {
+      "name": "field_018",
+      "type": "string",
+      "label": "Área das estruturas provisórias",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Área das estruturas provisórias:",
+      "required": false
+    },
+    {
+      "name": "field_019",
+      "type": "choice",
+      "label": "O evento será realizado ao ar livre, sem delimitação de área?",
+      "description": "2. CARACTERÍSTICAS DO EVENTO: O evento será realizado ao ar livre, sem delimitação de área?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_019_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_019_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_019_3"
+        }
+      ]
+    },
+    {
+      "name": "field_020",
+      "type": "choice",
+      "label": "O evento será realizado ao ar livre, com delimitação de área e com limitação …",
+      "description": "2. CARACTERÍSTICAS DO EVENTO: O evento será realizado ao ar livre, com delimitação de área e com limitação de público de até 1.000 pessoas?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_020_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_020_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_020_3"
+        }
+      ]
+    },
+    {
+      "name": "field_021",
+      "type": "choice",
+      "label": "O evento será realizado em local ou estrutura coberto e aberto nas laterais, …",
+      "description": "2. CARACTERÍSTICAS DO EVENTO: O evento será realizado em local ou estrutura coberto e aberto nas laterais, possuindo ou não delimitação de área por barreira física nas laterais, desde que estas não comprometam a ventilação, com previsão de público de até 500 pessoas?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_021_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_021_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_021_3"
+        }
+      ]
+    },
+    {
+      "name": "field_022",
+      "type": "choice",
+      "label": "O evento será realizado em local ou estrutura coberto e fechado nas laterais,…",
+      "description": "2. CARACTERÍSTICAS DO EVENTO: O evento será realizado em local ou estrutura coberto e fechado nas laterais, com previsão de público de até 100 pessoas?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_022_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_022_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_022_3"
+        }
+      ]
+    },
+    {
+      "name": "field_023",
+      "type": "choice",
+      "label": "Será utilizado mais de 90 kg de GLP3?",
+      "description": "2. CARACTERÍSTICAS DO EVENTO: Será utilizado mais de 90 kg de GLP3?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_023_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_023_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_023_3"
+        }
+      ]
+    },
+    {
+      "name": "field_024",
+      "type": "choice",
+      "label": "Serão utilizadas tendas ou blocos de tendas com mais de 100 m² cada, que não …",
+      "description": "2. CARACTERÍSTICAS DO EVENTO: Serão utilizadas tendas ou blocos de tendas com mais de 100 m² cada, que não possuam isolamento de no mínimo 2 metros entre si?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_024_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_024_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_024_3"
+        }
+      ]
+    },
+    {
+      "name": "field_025",
+      "type": "choice",
+      "label": "Serão utilizadas arquibancadas provisórias?",
+      "description": "2. CARACTERÍSTICAS DO EVENTO: Serão utilizadas arquibancadas provisórias?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_025_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_025_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_025_3"
+        }
+      ]
+    },
+    {
+      "name": "field_026",
+      "type": "choice",
+      "label": "Serão utilizadas estruturas provisórias como tablados, camarotes e estruturas…",
+      "description": "2. CARACTERÍSTICAS DO EVENTO: Serão utilizadas estruturas provisórias como tablados, camarotes e estruturas congêneres destinadas ao público, essas com nível superior a 60 cm de altura do seu piso em relação ao solo?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_026_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_026_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_026_3"
+        }
+      ]
+    },
+    {
+      "name": "field_027",
+      "type": "choice",
+      "label": "Serão utilizados grandes brinquedos mecânicos denominados “atrações”, como os…",
+      "description": "2. CARACTERÍSTICAS DO EVENTO: Serão utilizados grandes brinquedos mecânicos denominados “atrações”, como os de parques temáticos ou de diversão4?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_027_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_027_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_027_3"
+        }
+      ]
+    },
+    {
+      "name": "field_028",
+      "type": "string",
+      "label": "2. CARACTERÍSTICAS DO EVENTO",
+      "description": "2. CARACTERÍSTICAS DO EVENTO: 2. CARACTERÍSTICAS DO EVENTO",
+      "required": false
+    },
+    {
+      "name": "field_029",
+      "type": "string",
+      "label": "2. CARACTERÍSTICAS DO EVENTO",
+      "description": "2. CARACTERÍSTICAS DO EVENTO: ,",
+      "required": false
+    },
+    {
+      "name": "field_030",
+      "type": "string",
+      "label": "2. CARACTERÍSTICAS DO EVENTO",
+      "description": "2. CARACTERÍSTICAS DO EVENTO: 2. CARACTERÍSTICAS DO EVENTO",
+      "required": false
+    }
+  ]
+}

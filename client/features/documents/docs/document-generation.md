@@ -67,7 +67,7 @@ Only the newest request may show its result: when several `fill_fields` results 
 
 ### Rendering
 
-`Docxtemplater` with `{{`/`}}` delimiters, `paragraphLoop`, `linebreaks`, and an empty string for missing values. `toDocumentText` formats values: marks print `X` or nothing, other booleans `Sim` or `Não`, numbers with `toLocaleString("pt-BR")` (`1234.5` → `1.234,5`), strings as they are. A blank left empty prints nothing, so its underline does not come back.
+`Docxtemplater` with `{{`/`}}` delimiters, `paragraphLoop`, `linebreaks`, and an empty string for missing values. `toDocumentText` formats values: a `choice` prints `X` on the tag of the chosen option and nothing on the others, marks print `X` or nothing, other booleans `Sim` or `Não`, numbers with `toLocaleString("pt-BR")` (`1234.5` → `1.234,5`), strings as they are. A blank left empty prints nothing, so its underline does not come back.
 
 ### The route reads files from disk
 

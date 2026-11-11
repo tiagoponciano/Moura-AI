@@ -4,6 +4,6 @@ export {
   handleArchiveProject,
   handleCreateProject,
   handleListProjects,
-  handleRenameProject,
+  handleUpdateProject,
 } from "./projects-handler";
 export { handleGetFormVersion, handleListCbmscForms } from "./forms-handler";

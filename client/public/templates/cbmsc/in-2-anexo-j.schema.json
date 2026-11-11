@@ -1,0 +1,191 @@
+{
+  "fields": [
+    {
+      "name": "field_001",
+      "type": "string",
+      "label": "Recurso referente ao Auto de Infração Nº",
+      "description": "Recurso referente ao Auto de Infração Nº",
+      "required": false
+    },
+    {
+      "name": "field_002",
+      "type": "string",
+      "label": "Recebido em",
+      "description": "Recebido em:",
+      "required": false
+    },
+    {
+      "name": "field_003",
+      "type": "string",
+      "label": "Nome",
+      "description": "1. Autuado: Nome:",
+      "required": false,
+      "projectKey": "owner_name"
+    },
+    {
+      "name": "field_004",
+      "type": "string",
+      "label": "CPF/CNPJ",
+      "description": "1. Autuado: CPF/CNPJ:",
+      "required": false,
+      "projectKey": "owner_tax_id"
+    },
+    {
+      "name": "field_005",
+      "type": "string",
+      "label": "E-mail",
+      "description": "1. Autuado: E-mail:",
+      "required": false,
+      "projectKey": "owner_email"
+    },
+    {
+      "name": "field_006",
+      "type": "string",
+      "label": "Telefone(s)",
+      "description": "1. Autuado: Telefone(s):",
+      "required": false,
+      "projectKey": "owner_phone"
+    },
+    {
+      "name": "field_007",
+      "type": "string",
+      "label": "Logradouro",
+      "description": "1. Autuado: Logradouro:",
+      "required": false,
+      "projectKey": "owner_street"
+    },
+    {
+      "name": "field_008",
+      "type": "string",
+      "label": "Nº",
+      "description": "1. Autuado: Nº:",
+      "required": false,
+      "projectKey": "owner_number"
+    },
+    {
+      "name": "field_009",
+      "type": "string",
+      "label": "Complemento",
+      "description": "1. Autuado: Complemento:",
+      "required": false,
+      "projectKey": "owner_complement"
+    },
+    {
+      "name": "field_010",
+      "type": "string",
+      "label": "Bairro",
+      "description": "1. Autuado: Bairro:",
+      "required": false,
+      "projectKey": "owner_district"
+    },
+    {
+      "name": "field_011",
+      "type": "string",
+      "label": "Cidade",
+      "description": "1. Autuado: Cidade:",
+      "required": false,
+      "projectKey": "owner_city"
+    },
+    {
+      "name": "field_012",
+      "type": "string",
+      "label": "CEP",
+      "description": "1. Autuado: CEP:",
+      "required": false,
+      "projectKey": "owner_postal_code"
+    },
+    {
+      "name": "field_013",
+      "type": "string",
+      "label": "RE",
+      "description": "2. Descrição do imóvel: RE:",
+      "required": false,
+      "projectKey": "property_re"
+    },
+    {
+      "name": "field_014",
+      "type": "string",
+      "label": "CNPJ",
+      "description": "2. Descrição do imóvel: CNPJ:",
+      "required": false,
+      "projectKey": "property_cnpj"
+    },
+    {
+      "name": "field_015",
+      "type": "string",
+      "label": "Logradouro",
+      "description": "2. Descrição do imóvel: Logradouro:",
+      "required": false,
+      "projectKey": "property_street"
+    },
+    {
+      "name": "field_016",
+      "type": "string",
+      "label": "Nº",
+      "description": "2. Descrição do imóvel: Nº:",
+      "required": false,
+      "projectKey": "property_number"
+    },
+    {
+      "name": "field_017",
+      "type": "string",
+      "label": "Complemento",
+      "description": "2. Descrição do imóvel: Complemento:",
+      "required": false,
+      "projectKey": "property_complement"
+    },
+    {
+      "name": "field_018",
+      "type": "string",
+      "label": "Bairro",
+      "description": "2. Descrição do imóvel: Bairro:",
+      "required": false,
+      "projectKey": "property_district"
+    },
+    {
+      "name": "field_019",
+      "type": "string",
+      "label": "Cidade",
+      "description": "2. Descrição do imóvel: Cidade:",
+      "required": false,
+      "projectKey": "property_city"
+    },
+    {
+      "name": "field_020",
+      "type": "string",
+      "label": "CEP",
+      "description": "2. Descrição do imóvel: CEP:",
+      "required": false,
+      "projectKey": "property_postal_code"
+    },
+    {
+      "name": "field_021",
+      "type": "string",
+      "label": "Detalhes (se houver)",
+      "description": "2. Descrição do imóvel: Detalhes (se houver):",
+      "required": false,
+      "projectKey": "property_details"
+    },
+    {
+      "name": "field_022",
+      "type": "string",
+      "label": "Nome",
+      "description": "4. Responsável por este recurso: Nome:",
+      "required": false
+    },
+    {
+      "name": "field_023",
+      "type": "string",
+      "label": "4. Responsável por este recurso",
+      "description": "4. Responsável por este recurso: 4. Responsável por este recurso",
+      "required": false
+    },
+    {
+      "name": "field_024",
+      "type": "string",
+      "label": "CPF",
+      "description": "4. Responsável por este recurso: CPF:",
+      "required": false
+    }
+  ]
+}

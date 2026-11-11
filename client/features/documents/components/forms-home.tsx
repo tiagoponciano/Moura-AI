@@ -1,7 +1,7 @@
 "use client";
 
-import { FileText } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Landmark } from "lucide-react";
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -15,6 +15,7 @@ import type { useProjects } from "../hooks/use-projects";
 import type { TemplateEntry } from "../lib/templates";
 import { CbmscFormsBrowser } from "./cbmsc-forms-browser";
 import { ProjectBar } from "./project-bar";
+import { ProjectDetails } from "./project-details";
 
 type FormsHomeProps = {
   templates: TemplateEntry[];
@@ -24,6 +25,9 @@ type FormsHomeProps = {
 
 /** The page with no form open: the forms dialog, already open on arrival. */
 export function FormsHome({ templates, projects, onFill }: FormsHomeProps) {
+  const [showDetails, setShowDetails] = useState(false);
+  const project = projects.selected;
+
   if (!isSupabaseConfigured()) {
     return (
       <p className="flex flex-1 items-center justify-center text-sm text-muted-foreground">
@@ -33,12 +37,24 @@ export function FormsHome({ templates, projects, onFill }: FormsHomeProps) {
   }
 
   return (
-    <div className="flex flex-1 items-center justify-center">
+    <div className="flex flex-1 items-center justify-center p-4">
       <Dialog defaultOpen>
         <DialogTrigger asChild>
-          <Button>
-            <FileText /> Abrir formulários
-          </Button>
+          <button
+            type="button"
+            className="group flex w-44 flex-col gap-2.5 text-left focus-visible:outline-none"
+          >
+            <span className="flex aspect-[210/297] w-full flex-col items-center justify-center gap-2 rounded-md border bg-card px-4 text-center text-xs text-muted-foreground transition group-hover:-translate-y-0.5 group-hover:border-primary group-hover:shadow-md group-focus-visible:border-primary group-focus-visible:ring-3 group-focus-visible:ring-ring/50">
+              <Landmark className="size-6 text-primary" />
+              Formulários oficiais, sempre atualizados
+            </span>
+            <span className="flex flex-col gap-0.5">
+              <span className="text-sm font-medium">Anexos do CBMSC</span>
+              <span className="w-fit rounded border px-1.5 font-mono text-[11px] text-muted-foreground">
+                Google Docs
+              </span>
+            </span>
+          </button>
         </DialogTrigger>
         <DialogContent className="flex h-[85vh] flex-col sm:max-w-5xl">
           <DialogHeader>
@@ -48,8 +64,21 @@ export function FormsHome({ templates, projects, onFill }: FormsHomeProps) {
               publicada pelo CBMSC.
             </DialogDescription>
           </DialogHeader>
-          <ProjectBar projects={projects} />
-          <CbmscFormsBrowser templates={templates} onFill={onFill} />
+          <ProjectBar
+            projects={projects}
+            showingDetails={showDetails && project !== undefined}
+            onToggleDetails={() => setShowDetails((showing) => !showing)}
+            onCreated={() => setShowDetails(true)}
+          />
+          {showDetails && project ? (
+            <ProjectDetails
+              key={project.id}
+              project={project}
+              onChange={(change) => projects.saveData(project.id, change)}
+            />
+          ) : (
+            <CbmscFormsBrowser templates={templates} onFill={onFill} />
+          )}
         </DialogContent>
       </Dialog>
     </div>

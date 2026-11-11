@@ -48,3 +48,9 @@ describe("sourceTag", () => {
     expect(sourceTag(undefined, "Padaria Silva")).toBeUndefined();
   });
 });
+
+describe("sourceTag for a saved project", () => {
+  it("tags a value that came from the project", () => {
+    expect(sourceTag("project", "Rua X")).toBe("projeto");
+  });
+});

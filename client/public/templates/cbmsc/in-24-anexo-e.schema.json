@@ -1,0 +1,1033 @@
+{
+  "fields": [
+    {
+      "name": "field_001",
+      "type": "string",
+      "label": "Nome do evento",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Nome do evento",
+      "required": false
+    },
+    {
+      "name": "field_002",
+      "type": "string",
+      "label": "Descrição do evento",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Descrição do evento",
+      "required": false
+    },
+    {
+      "name": "field_003",
+      "type": "string",
+      "label": "Início",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Início:",
+      "required": false
+    },
+    {
+      "name": "field_004",
+      "type": "string",
+      "label": "Horário",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Horário:",
+      "required": false
+    },
+    {
+      "name": "field_005",
+      "type": "string",
+      "label": "Encerramento",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Encerramento:",
+      "required": false
+    },
+    {
+      "name": "field_006",
+      "type": "string",
+      "label": "Horário",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Horário:",
+      "required": false
+    },
+    {
+      "name": "field_007",
+      "type": "string",
+      "label": "Protocolo de funcionamento",
+      "description": "1. IDENTIFICAÇÃO DO EVENTO: Protocolo de funcionamento",
+      "required": false
+    },
+    {
+      "name": "field_008",
+      "type": "choice",
+      "label": "O Memorial Técnico de Segurança Contra Incêndio, DRT e croqui apresentados es…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: O Memorial Técnico de Segurança Contra Incêndio, DRT e croqui apresentados estão de acordo com o evento temporário?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_008_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_008_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_008_3"
+        }
+      ]
+    },
+    {
+      "name": "field_009",
+      "type": "choice",
+      "label": "Os documentos previstos no artigo 34 da IN 24, referentes à execução dos SMSC…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Os documentos previstos no artigo 34 da IN 24, referentes à execução dos SMSCI e das eventuais estruturas montadas no evento, foram emitidos e estão de acordo com as NSCI²?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_009_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_009_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_009_3"
+        }
+      ]
+    },
+    {
+      "name": "field_010",
+      "type": "choice",
+      "label": "Nas estruturas como tablados, camarotes e estruturas congêneres destinadas ao…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Nas estruturas como tablados, camarotes e estruturas congêneres destinadas ao público, foram previstos guarda-corpos em desníveis superiores a 60 cm de altura do seu piso em relação ao solo, bom como corrimãos nas escadas?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_010_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_010_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_010_3"
+        }
+      ]
+    },
+    {
+      "name": "field_011",
+      "type": "choice",
+      "label": "A quantidade de recipientes de GLP está de acordo com o previsto no Memorial …",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: A quantidade de recipientes de GLP está de acordo com o previsto no Memorial Técnico? Os recipientes estão posicionados em locais comprovadamente sem acesso ao público e protegidos das intempéries?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_011_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_011_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_011_3"
+        }
+      ]
+    },
+    {
+      "name": "field_012",
+      "type": "choice",
+      "label": "Os aparelhos de queima do GLP estão situados em locais com ventilação natural…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Os aparelhos de queima do GLP estão situados em locais com ventilação natural permanente?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_012_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_012_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_012_3"
+        }
+      ]
+    },
+    {
+      "name": "field_013",
+      "type": "string",
+      "label": "Informe a quantidade total de extintores instalados no evento (portáteis e so…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Informe a quantidade total de extintores instalados no evento (portáteis e sobrerrodas):",
+      "required": false
+    },
+    {
+      "name": "field_014",
+      "type": "choice",
+      "label": "Os extintores estão em condições de uso e de acordo com as NSCI?",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Os extintores estão em condições de uso e de acordo com as NSCI?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_014_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_014_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_014_3"
+        }
+      ]
+    },
+    {
+      "name": "field_015",
+      "type": "choice",
+      "label": "As saídas de emergência estão de acordo com as NSCI?",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: As saídas de emergência estão de acordo com as NSCI?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_015_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_015_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_015_3"
+        }
+      ]
+    },
+    {
+      "name": "field_016",
+      "type": "choice",
+      "label": "Todos os ambientes do evento possuem saídas de emergência em quantidade sufic…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Todos os ambientes do evento possuem saídas de emergência em quantidade suficiente e dimensionadas para o público previsto para o local, de acordo com a tabela de dimensionamento das saídas de emergência, item 3 do Memorial Técnico de Segurança Contra Incêndio?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_016_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_016_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_016_3"
+        }
+      ]
+    },
+    {
+      "name": "field_017",
+      "type": "choice",
+      "label": "Foram atendidas as larguras mínimas das rotas de fuga horizontais (acessos) e…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Foram atendidas as larguras mínimas das rotas de fuga horizontais (acessos) e verticais (escadas e rampas)?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_017_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_017_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_017_3"
+        }
+      ]
+    },
+    {
+      "name": "field_018",
+      "type": "choice",
+      "label": "Foram atendidas as larguras mínimas das portas?",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Foram atendidas as larguras mínimas das portas?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_018_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_018_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_018_3"
+        }
+      ]
+    },
+    {
+      "name": "field_019",
+      "type": "choice",
+      "label": "As portas de saída são do tipo “de abrir” e têm sentido de abertura igual ao …",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: As portas de saída são do tipo “de abrir” e têm sentido de abertura igual ao do fluxo de saída?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_019_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_019_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_019_3"
+        }
+      ]
+    },
+    {
+      "name": "field_020",
+      "type": "choice",
+      "label": "As portas que não abrem no sentido do fluxo de saída permanecerão abertas dur…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: As portas que não abrem no sentido do fluxo de saída permanecerão abertas durante toda a realização do evento?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_020_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_020_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_020_3"
+        }
+      ]
+    },
+    {
+      "name": "field_021",
+      "type": "choice",
+      "label": "As barras antipânico previstas estão executadas nas portas de saída?",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: As barras antipânico previstas estão executadas nas portas de saída?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_021_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_021_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_021_3"
+        }
+      ]
+    },
+    {
+      "name": "field_022",
+      "type": "choice",
+      "label": "Foi executada a área de dispersão?",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Foi executada a área de dispersão?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_022_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_022_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_022_3"
+        }
+      ]
+    },
+    {
+      "name": "field_023",
+      "type": "choice",
+      "label": "A placa de lotação máxima foi instalada próximo à entrada de cada ambiente co…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: A placa de lotação máxima foi instalada próximo à entrada de cada ambiente com reunião de público do evento?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_023_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_023_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_023_3"
+        }
+      ]
+    },
+    {
+      "name": "field_024",
+      "type": "string",
+      "label": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: (",
+      "required": false
+    },
+    {
+      "name": "field_025",
+      "type": "string",
+      "label": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: (",
+      "required": false
+    },
+    {
+      "name": "field_026",
+      "type": "choice",
+      "label": "Para controle de público automatizado, foi instalado monitor ou placar eletrô…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Para controle de público automatizado, foi instalado monitor ou placar eletrônico exibindo a lotação existente no local?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_026_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_026_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_026_3"
+        }
+      ]
+    },
+    {
+      "name": "field_027",
+      "type": "choice",
+      "label": "As distâncias máximas a serem percorridas (caminhamento) estão de acordo com …",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: As distâncias máximas a serem percorridas (caminhamento) estão de acordo com o Memorial Técnico de Segurança Contra Incêndio?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_027_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_027_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_027_3"
+        }
+      ]
+    },
+    {
+      "name": "field_028",
+      "type": "choice",
+      "label": "As arquibancadas instaladas atendem aos requisitos da IN 9?",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: As arquibancadas instaladas atendem aos requisitos da IN 9?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_028_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_028_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_028_3"
+        }
+      ]
+    },
+    {
+      "name": "field_029",
+      "type": "choice",
+      "label": "As rampas instaladas atendem aos requisitos da IN 9?",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: As rampas instaladas atendem aos requisitos da IN 9?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_029_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_029_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_029_3"
+        }
+      ]
+    },
+    {
+      "name": "field_030",
+      "type": "choice",
+      "label": "As escadas de emergência instaladas atendem aos requisitos da IN 9?",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: As escadas de emergência instaladas atendem aos requisitos da IN 9?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_030_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_030_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_030_3"
+        }
+      ]
+    },
+    {
+      "name": "field_031",
+      "type": "choice",
+      "label": "As passarelas instaladas atendem aos requisitos da IN 9?",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: As passarelas instaladas atendem aos requisitos da IN 9?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_031_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_031_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_031_3"
+        }
+      ]
+    },
+    {
+      "name": "field_032",
+      "type": "choice",
+      "label": "Foram instaladas luminárias de emergência em todos os locais com desníveis, m…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Foram instaladas luminárias de emergência em todos os locais com desníveis, mudanças de direção e intersecções de corredores na rota de fuga, etc? Estão todas funcionando?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_032_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_032_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_032_3"
+        }
+      ]
+    },
+    {
+      "name": "field_033",
+      "type": "choice",
+      "label": "A distância máxima entre dois pontos de SIE atende ao limite de quatro vezes …",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: A distância máxima entre dois pontos de SIE atende ao limite de quatro vezes a altura de instalação destes em relação ao piso?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_033_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_033_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_033_3"
+        }
+      ]
+    },
+    {
+      "name": "field_034",
+      "type": "string",
+      "label": "Informe a quantidade de luminárias instaladas no evento?",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Informe a quantidade de luminárias instaladas no evento?",
+      "required": false
+    },
+    {
+      "name": "field_035",
+      "type": "choice",
+      "label": "Foram instaladas placas de SAL para assinalar todas as mudanças de direção, s…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Foram instaladas placas de SAL para assinalar todas as mudanças de direção, saídas, obstáculos, etc, de tal forma que em cada ponto de SAL seja possível visualizar o ponto seguinte?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_035_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_035_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_035_3"
+        }
+      ]
+    },
+    {
+      "name": "field_036",
+      "type": "string",
+      "label": "As placas indicativas de fluxo previstas no Memorial Técnico de Segurança Con…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: As placas indicativas de fluxo previstas no Memorial Técnico de Segurança Contra Incêndio foram instaladas no local? Informe a quantidade de placas instaladas no evento?",
+      "required": false
+    },
+    {
+      "name": "field_037",
+      "type": "choice",
+      "label": "Foram instaladas as placas de SAL conforme as dimensões e distâncias de visua…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Foram instaladas as placas de SAL conforme as dimensões e distâncias de visualização previstas no Memorial Técnico de Segurança Contra Incêndio?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_037_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_037_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_037_3"
+        }
+      ]
+    },
+    {
+      "name": "field_038",
+      "type": "choice",
+      "label": "Para eventos que se assemelham a boates ou shows musicais quando realizados e…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Para eventos que se assemelham a boates ou shows musicais quando realizados em locais cobertos e fechados nas laterais, foram instaladas placas luminosas que permanecerão constantemente iluminadas durante todo o evento?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_038_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_038_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_038_3"
+        }
+      ]
+    },
+    {
+      "name": "field_039",
+      "type": "choice",
+      "label": "Foram apresentados os laudos, junto com o DRT de execução/instalação, de todo…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Foram apresentados os laudos, junto com o DRT de execução/instalação, de todos os materiais de acabamento e revestimento de acordo com os requisitos da IN 18 - CMAR2?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_039_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_039_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_039_3"
+        }
+      ]
+    },
+    {
+      "name": "field_040",
+      "type": "choice",
+      "label": "O grupo motogerador foi instalado prevendo seu isolamento e exaustão de gases…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: O grupo motogerador foi instalado prevendo seu isolamento e exaustão de gases da combustão?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_040_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_040_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_040_3"
+        }
+      ]
+    },
+    {
+      "name": "field_041",
+      "type": "choice",
+      "label": "Os brigadistas previstos no Memorial Técnico de Segurança Contra Incêndio est…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Os brigadistas previstos no Memorial Técnico de Segurança Contra Incêndio estão certificados/credenciados e permanecerão durante todo o funcionamento do evento?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_041_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_041_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_041_3"
+        }
+      ]
+    },
+    {
+      "name": "field_042",
+      "type": "choice",
+      "label": "Foram instalados/executados os parâmetros necessários ao acesso de viaturas, …",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Foram instalados/executados os parâmetros necessários ao acesso de viaturas, conforme IN 35?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_042_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_042_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_042_3"
+        }
+      ]
+    },
+    {
+      "name": "field_043",
+      "type": "choice",
+      "label": "Os demais SMSCI necessários para o evento, de acordo com as Tabelas 1 e 2 da …",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Os demais SMSCI necessários para o evento, de acordo com as Tabelas 1 e 2 da IN 24, foram instalados e estão em condições de uso de acordo com as NSCI?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_043_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_043_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_043_3"
+        }
+      ]
+    },
+    {
+      "name": "field_044",
+      "type": "choice",
+      "label": "Os laudos e documentos previstos na IN 27 referentes a espetáculos pirotécnic…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Os laudos e documentos previstos na IN 27 referentes a espetáculos pirotécnicos foram emitidos e estão de acordo com as NSCI²?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_044_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_044_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_044_3"
+        }
+      ]
+    },
+    {
+      "name": "field_045",
+      "type": "choice",
+      "label": "Para espetáculos pirotécnicos em ambientes abertos, foi atendido o diâmetro m…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Para espetáculos pirotécnicos em ambientes abertos, foi atendido o diâmetro mínimo de segurança da área de queima, em conformidade com a Tabela 1 da IN 27?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_045_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_045_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_045_3"
+        }
+      ]
+    },
+    {
+      "name": "field_046",
+      "type": "choice",
+      "label": "Para espetáculos pirotécnicos em ambientes abertos, foi atendido o afastament…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Para espetáculos pirotécnicos em ambientes abertos, foi atendido o afastamento mínimo de segurança entre a área de queima e os espectadores, em conformidade com a Tabela 2 da IN 27?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_046_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_046_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_046_3"
+        }
+      ]
+    },
+    {
+      "name": "field_047",
+      "type": "choice",
+      "label": "Para espetáculos pirotécnicos em ambientes fechados, foram previstos fogos es…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Para espetáculos pirotécnicos em ambientes fechados, foram previstos fogos específicos para esse tipo de ambiente, em conformidade com o artigo 9º da IN 27?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_047_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_047_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_047_3"
+        }
+      ]
+    },
+    {
+      "name": "field_048",
+      "type": "choice",
+      "label": "Para espetáculos pirotécnicos em ambientes fechados, foi atendido o afastamen…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Para espetáculos pirotécnicos em ambientes fechados, foi atendido o afastamento mínimo de segurança, em conformidade com o artigo 26 da IN 27?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_048_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_048_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_048_3"
+        }
+      ]
+    },
+    {
+      "name": "field_049",
+      "type": "choice",
+      "label": "Sendo o público previsto igual ou superior a 1.500 pessoas, está disponível n…",
+      "description": "2. SEGURANÇA CONTRA INCÊNDIO E PÂNICO DO EVENTO: Sendo o público previsto igual ou superior a 1.500 pessoas, está disponível no local do evento um desfibrilador externo automático (DEA) conforme indicado no Memorial Técnico de Segurança Contra Incêndio?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_049_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_049_2"
+        },
+        {
+          "value": "NA",
+          "tag": "field_049_3"
+        }
+      ]
+    },
+    {
+      "name": "field_050",
+      "type": "string",
+      "label": "Nº documento de RT",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: Nº documento de RT",
+      "required": false
+    },
+    {
+      "name": "field_051",
+      "type": "string",
+      "label": "Nome",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: Nome",
+      "required": false
+    },
+    {
+      "name": "field_052",
+      "type": "string",
+      "label": "Nº C. Classe",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: Nº C. Classe",
+      "required": false
+    },
+    {
+      "name": "field_053",
+      "type": "string",
+      "label": "End",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: End.",
+      "required": false
+    },
+    {
+      "name": "field_054",
+      "type": "string",
+      "label": "Nº",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: Nº",
+      "required": false
+    },
+    {
+      "name": "field_055",
+      "type": "string",
+      "label": "CEP",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: CEP",
+      "required": false
+    },
+    {
+      "name": "field_056",
+      "type": "string",
+      "label": "Bairro",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: Bairro",
+      "required": false
+    },
+    {
+      "name": "field_057",
+      "type": "string",
+      "label": "Cidade",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: Cidade",
+      "required": false
+    },
+    {
+      "name": "field_058",
+      "type": "string",
+      "label": "Complemento/Ponto de referência",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: Complemento/Ponto de referência",
+      "required": false
+    },
+    {
+      "name": "field_059",
+      "type": "string",
+      "label": "E-mail",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: E-mail",
+      "required": false
+    },
+    {
+      "name": "field_060",
+      "type": "string",
+      "label": "Telefone",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: Telefone",
+      "required": false
+    },
+    {
+      "name": "field_061",
+      "type": "string",
+      "label": "Nome",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: Nome",
+      "required": false
+    },
+    {
+      "name": "field_062",
+      "type": "string",
+      "label": "CPF",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: CPF",
+      "required": false
+    },
+    {
+      "name": "field_063",
+      "type": "string",
+      "label": "End",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: End.",
+      "required": false
+    },
+    {
+      "name": "field_064",
+      "type": "string",
+      "label": "Nº",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: Nº",
+      "required": false
+    },
+    {
+      "name": "field_065",
+      "type": "string",
+      "label": "CEP",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: CEP",
+      "required": false
+    },
+    {
+      "name": "field_066",
+      "type": "string",
+      "label": "Bairro",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: Bairro",
+      "required": false
+    },
+    {
+      "name": "field_067",
+      "type": "string",
+      "label": "Cidade",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: Cidade",
+      "required": false
+    },
+    {
+      "name": "field_068",
+      "type": "string",
+      "label": "Complemento/Ponto de referência",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: Complemento/Ponto de referência",
+      "required": false
+    },
+    {
+      "name": "field_069",
+      "type": "string",
+      "label": "E-mail",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: E-mail",
+      "required": false
+    },
+    {
+      "name": "field_070",
+      "type": "string",
+      "label": "Telefone",
+      "description": "3. RESPONSÁVEIS PELO EVENTO: Telefone",
+      "required": false
+    },
+    {
+      "name": "field_071",
+      "type": "string",
+      "label": "4. TERMO DE RESPONSABILIDADE DO RT",
+      "description": "4. TERMO DE RESPONSABILIDADE DO RT: 4. TERMO DE RESPONSABILIDADE DO RT",
+      "required": false
+    },
+    {
+      "name": "field_072",
+      "type": "string",
+      "label": "4. TERMO DE RESPONSABILIDADE DO RT",
+      "description": "4. TERMO DE RESPONSABILIDADE DO RT: ,",
+      "required": false
+    },
+    {
+      "name": "field_073",
+      "type": "string",
+      "label": "4. TERMO DE RESPONSABILIDADE DO RT",
+      "description": "4. TERMO DE RESPONSABILIDADE DO RT: 4. TERMO DE RESPONSABILIDADE DO RT",
+      "required": false
+    }
+  ]
+}

@@ -18,8 +18,8 @@ import { FormsHome } from "./forms-home";
 
 /** The forms dialog, then the assistant chat and form panel of the chosen form. */
 export function DocumentWorkspace() {
-  const filling = useDocumentFilling();
   const projects = useProjects(isSupabaseConfigured());
+  const filling = useDocumentFilling(projects.selected, projects.saveData);
   const { template, schema, progress } = filling;
   const [tab, setTab] = useState<WorkspaceTab>("chat");
 

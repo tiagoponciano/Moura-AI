@@ -88,6 +88,8 @@ Enforced by `no-restricted-imports` in `client/eslint.config.mjs`; `pnpm run lin
 
 ## 8. Verification and documentation
 
+The PR size limit of the working agreement (Rule 8) does not apply in this repository. The checks below run in CI (`.github/workflows/ci.yml`) on every pull request and on pushes to `main`.
+
 Before opening a PR, from `client/`:
 
 ```bash

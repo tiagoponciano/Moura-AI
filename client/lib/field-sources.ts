@@ -1,9 +1,9 @@
-/** Who last wrote a field value: an assistant tool or the user in the panel. */
-export type FieldSource = "assistant" | "user";
+/** Who last wrote a field value: an assistant tool, the user in the panel, or a saved project. */
+export type FieldSource = "assistant" | "user" | "project";
 
 export type FieldSources = Record<string, FieldSource | undefined>;
 
-export type SourceTag = "IA" | "editado";
+export type SourceTag = "IA" | "editado" | "projeto";
 
 /** Returns a copy of `sources` with every field in `names` set to `source`. */
 export function recordSources(
@@ -25,5 +25,6 @@ export function sourceTag(
   const empty =
     value === undefined || (typeof value === "string" && value.trim() === "");
   if (!source || empty) return undefined;
+  if (source === "project") return "projeto";
   return source === "assistant" ? "IA" : "editado";
 }

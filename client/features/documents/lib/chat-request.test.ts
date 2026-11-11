@@ -87,3 +87,35 @@ describe("documentsChatBody field marks", () => {
     expect(result.success).toBe(true);
   });
 });
+
+describe("documentsChatBody filled values", () => {
+  const body = {
+    id: "chat",
+    messages: [],
+    templateId: "in-1-anexo-d",
+    schema: {
+      fields: [
+        {
+          name: "street",
+          type: "string",
+          label: "Rua",
+          description: "Rua",
+          projectKey: "property_street",
+        },
+      ],
+    },
+  };
+
+  it("accepts a project key and the fields already filled", () => {
+    expect(
+      documentsChatBody.safeParse({ ...body, values: { street: "Rua X" } })
+        .success,
+    ).toBe(true);
+  });
+
+  it("refuses nested values", () => {
+    expect(
+      documentsChatBody.safeParse({ ...body, values: { street: {} } }).success,
+    ).toBe(false);
+  });
+});

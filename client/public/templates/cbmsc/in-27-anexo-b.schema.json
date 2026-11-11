@@ -1,0 +1,284 @@
+{
+  "fields": [
+    {
+      "name": "field_001",
+      "type": "string",
+      "label": "Data",
+      "description": "1. Sobre o evento: Data:",
+      "required": false
+    },
+    {
+      "name": "field_002",
+      "type": "string",
+      "label": "Horário de início",
+      "description": "1. Sobre o evento: Horário de início:",
+      "required": false
+    },
+    {
+      "name": "field_003",
+      "type": "string",
+      "label": "Logradouro",
+      "description": "1. Sobre o evento: Logradouro:",
+      "required": false
+    },
+    {
+      "name": "field_004",
+      "type": "string",
+      "label": "N°",
+      "description": "1. Sobre o evento: N°:",
+      "required": false
+    },
+    {
+      "name": "field_005",
+      "type": "string",
+      "label": "Complemento",
+      "description": "1. Sobre o evento: Complemento:",
+      "required": false
+    },
+    {
+      "name": "field_006",
+      "type": "string",
+      "label": "Bairro",
+      "description": "1. Sobre o evento: Bairro:",
+      "required": false
+    },
+    {
+      "name": "field_007",
+      "type": "string",
+      "label": "Cidade",
+      "description": "1. Sobre o evento: Cidade:",
+      "required": false
+    },
+    {
+      "name": "field_008",
+      "type": "string",
+      "label": "CEP",
+      "description": "1. Sobre o evento: CEP:",
+      "required": false
+    },
+    {
+      "name": "field_009",
+      "type": "string",
+      "label": "Descrição do evento",
+      "description": "1. Sobre o evento: Descrição do evento:",
+      "required": false
+    },
+    {
+      "name": "field_010",
+      "type": "string",
+      "label": "Nome",
+      "description": "2. Sobre o promotor do evento: Nome:",
+      "required": false
+    },
+    {
+      "name": "field_011",
+      "type": "string",
+      "label": "CPF ou CNPJ",
+      "description": "2. Sobre o promotor do evento: CPF ou CNPJ:",
+      "required": false
+    },
+    {
+      "name": "field_012",
+      "type": "string",
+      "label": "Fone",
+      "description": "2. Sobre o promotor do evento: Fone:",
+      "required": false
+    },
+    {
+      "name": "field_013",
+      "type": "string",
+      "label": "E-mail",
+      "description": "2. Sobre o promotor do evento: E-mail:",
+      "required": false
+    },
+    {
+      "name": "field_014",
+      "type": "string",
+      "label": "Logradouro",
+      "description": "2. Sobre o promotor do evento: Logradouro:",
+      "required": false
+    },
+    {
+      "name": "field_015",
+      "type": "string",
+      "label": "N°",
+      "description": "2. Sobre o promotor do evento: N°:",
+      "required": false
+    },
+    {
+      "name": "field_016",
+      "type": "string",
+      "label": "Complemento",
+      "description": "2. Sobre o promotor do evento: Complemento:",
+      "required": false
+    },
+    {
+      "name": "field_017",
+      "type": "string",
+      "label": "Bairro",
+      "description": "2. Sobre o promotor do evento: Bairro:",
+      "required": false
+    },
+    {
+      "name": "field_018",
+      "type": "string",
+      "label": "Cidade",
+      "description": "2. Sobre o promotor do evento: Cidade:",
+      "required": false
+    },
+    {
+      "name": "field_019",
+      "type": "string",
+      "label": "CEP",
+      "description": "2. Sobre o promotor do evento: CEP:",
+      "required": false
+    },
+    {
+      "name": "field_020",
+      "type": "string",
+      "label": "Nome",
+      "description": "3. Sobre o blaster: Nome:",
+      "required": false
+    },
+    {
+      "name": "field_021",
+      "type": "string",
+      "label": "Nº do registro no exército",
+      "description": "3. Sobre o blaster: Nº do registro no exército:",
+      "required": false
+    },
+    {
+      "name": "field_022",
+      "type": "string",
+      "label": "Fone",
+      "description": "3. Sobre o blaster: Fone:",
+      "required": false
+    },
+    {
+      "name": "field_023",
+      "type": "string",
+      "label": "E-mail",
+      "description": "3. Sobre o blaster: E-mail:",
+      "required": false
+    },
+    {
+      "name": "field_024",
+      "type": "string",
+      "label": "Logradouro",
+      "description": "3. Sobre o blaster: Logradouro:",
+      "required": false
+    },
+    {
+      "name": "field_025",
+      "type": "string",
+      "label": "N°",
+      "description": "3. Sobre o blaster: N°:",
+      "required": false
+    },
+    {
+      "name": "field_026",
+      "type": "string",
+      "label": "Complemento",
+      "description": "3. Sobre o blaster: Complemento:",
+      "required": false
+    },
+    {
+      "name": "field_027",
+      "type": "string",
+      "label": "Bairro",
+      "description": "3. Sobre o blaster: Bairro:",
+      "required": false
+    },
+    {
+      "name": "field_028",
+      "type": "string",
+      "label": "Cidade",
+      "description": "3. Sobre o blaster: Cidade:",
+      "required": false
+    },
+    {
+      "name": "field_029",
+      "type": "string",
+      "label": "CEP",
+      "description": "3. Sobre o blaster: CEP:",
+      "required": false
+    },
+    {
+      "name": "field_030",
+      "type": "boolean",
+      "label": "se for o blaster, assinalar esta alternativa e não preencher novamente",
+      "description": "4. Sobre o responsável técnico pelo espetáculo pirotécnico: se for o blaster, assinalar esta alternativa e não preencher novamente",
+      "mark": true
+    },
+    {
+      "name": "field_031",
+      "type": "string",
+      "label": "Nome",
+      "description": "4. Sobre o responsável técnico pelo espetáculo pirotécnico: Nome:",
+      "required": false
+    },
+    {
+      "name": "field_032",
+      "type": "string",
+      "label": "Nº do registro",
+      "description": "4. Sobre o responsável técnico pelo espetáculo pirotécnico: Nº do registro:",
+      "required": false
+    },
+    {
+      "name": "field_033",
+      "type": "string",
+      "label": "Fone",
+      "description": "4. Sobre o responsável técnico pelo espetáculo pirotécnico: Fone:",
+      "required": false
+    },
+    {
+      "name": "field_034",
+      "type": "string",
+      "label": "E-mail",
+      "description": "4. Sobre o responsável técnico pelo espetáculo pirotécnico: E-mail:",
+      "required": false
+    },
+    {
+      "name": "field_035",
+      "type": "string",
+      "label": "Logradouro",
+      "description": "4. Sobre o responsável técnico pelo espetáculo pirotécnico: Logradouro:",
+      "required": false
+    },
+    {
+      "name": "field_036",
+      "type": "string",
+      "label": "N°",
+      "description": "4. Sobre o responsável técnico pelo espetáculo pirotécnico: N°:",
+      "required": false
+    },
+    {
+      "name": "field_037",
+      "type": "string",
+      "label": "Complemento",
+      "description": "4. Sobre o responsável técnico pelo espetáculo pirotécnico: Complemento:",
+      "required": false
+    },
+    {
+      "name": "field_038",
+      "type": "string",
+      "label": "Bairro",
+      "description": "4. Sobre o responsável técnico pelo espetáculo pirotécnico: Bairro:",
+      "required": false
+    },
+    {
+      "name": "field_039",
+      "type": "string",
+      "label": "Cidade",
+      "description": "4. Sobre o responsável técnico pelo espetáculo pirotécnico: Cidade:",
+      "required": false
+    },
+    {
+      "name": "field_040",
+      "type": "string",
+      "label": "CEP",
+      "description": "4. Sobre o responsável técnico pelo espetáculo pirotécnico: CEP:",
+      "required": false
+    }
+  ]
+}

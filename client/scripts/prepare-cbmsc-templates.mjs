@@ -1,12 +1,14 @@
-// Downloads the official CBMSC forms listed below and writes, under
+// Downloads every official CBMSC form in the catalog's seed and writes, under
 // public/templates/cbmsc/, a copy with {{tags}} in the blanks, its schema and
-// its entry in index.json. Review the output before committing it: see
-// client/features/documents/docs/cbmsc-form-templates.md.
+// its entry in index.json. Forms in FORMS have hand-written steps; the others
+// get their fields from the document's structure. Review the output before
+// committing it: see client/features/documents/docs/cbmsc-form-templates.md.
 import { readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import PizZip from "pizzip";
 import { docxTextHash } from "../lib/cbmsc-forms/doc-text.ts";
+import { autoTagDocument } from "./cbmsc-auto-fields.mjs";
 
 const TEMPLATES = join(
   dirname(fileURLToPath(import.meta.url)),
@@ -31,13 +33,209 @@ const mark = (name, label, description) => ({
   to: `( {{${name}}} )`,
 });
 
+/** Text the CBMSC left as an example, replaced by a field. */
+const placeholder = (name, label, description, match, required = false) => ({
+  field: { name, type: "string", label, description, required },
+  match,
+  to: `{{${name}}}`,
+});
+
+/** Text removed from the copy, with no field of its own. */
+const erase = (match) => ({ match, to: "" });
+
+const FINE_REQUEST_END = [
+  placeholder(
+    "fine_number",
+    "Nº da multa",
+    "Número da multa (MUL…)",
+    /MULX+\/XX/,
+    true,
+  ),
+  placeholder(
+    "fine_amount",
+    "Valor da multa",
+    "Valor da multa em reais, com o valor por extenso",
+    /X\.XXX,XX \(valor por extenso\)/,
+    true,
+  ),
+  placeholder(
+    "street",
+    "Logradouro",
+    "Logradouro da edificação",
+    /nome da rua/,
+  ),
+  placeholder("street_number", "Número", "Número da edificação", /^\s*XXX\s*$/),
+  placeholder("district", "Bairro", "Bairro da edificação", /nome do bairro/),
+  placeholder(
+    "city",
+    "Município",
+    "Município da edificação",
+    /nome do município/,
+  ),
+  placeholder(
+    "re_number",
+    "RE",
+    "RE da edificação ou outros dados de identificação junto ao SSCI",
+    /XXXX \(ou outros dados[^<]*\)/,
+  ),
+  placeholder(
+    "reasons",
+    "Motivos",
+    "Argumentação do requerimento",
+    /^- Motivo 1;$/,
+    true,
+  ),
+  erase(/^- Motivo 2;$/),
+  erase(/^- Motivo 3\.$/),
+  placeholder(
+    "signed_city",
+    "Município da assinatura",
+    "Município onde o requerimento é assinado",
+    /^Município,\s*$/,
+  ),
+  placeholder("signed_day", "Dia", "Dia da assinatura", /^XX$/),
+  placeholder(
+    "signed_month",
+    "Mês",
+    "Mês da assinatura, por extenso",
+    /^X{8}\s*$/,
+  ),
+  placeholder(
+    "signed_year",
+    "Ano",
+    "Dois últimos dígitos do ano da assinatura",
+    /^XX$/,
+  ),
+];
+
+const FINE_REQUEST_KEYS = {
+  street: "property_street",
+  street_number: "property_number",
+  district: "property_district",
+  city: "property_city",
+  re_number: "property_re",
+};
+
 const FORMS = [
+  {
+    id: "in-27-anexo-c",
+    docId: "1JvsXb9q5vRd-k7hf634M7eF7inQpbtilKd247bA4nzA",
+    normative: 27,
+    annex: "C",
+    name: "IN 27 – Anexo C – Sugestão de modelo de Croqui",
+    projectKeys: {},
+    steps: [
+      {
+        field: {
+          name: "notes",
+          type: "string",
+          label: "Observações relevantes",
+          description: "Observações relevantes acerca do evento pirotécnico",
+          required: false,
+        },
+        match: /Observações relevantes acerca do evento pirotécnico/,
+        to: "Observações relevantes acerca do evento pirotécnico: {{notes}}",
+      },
+    ],
+  },
+  {
+    id: "in-2-anexo-k",
+    docId: "1fhyQzBFl2QVCF4-_7KTk6A1uT-UOQgqZdrY0hAyK3l0",
+    normative: 2,
+    annex: "K",
+    name: "IN 2 – Anexo K – Ressarcimento de multa (pessoa física)",
+    projectKeys: FINE_REQUEST_KEYS,
+    steps: [
+      placeholder(
+        "office_city",
+        "Município do SSCI",
+        "Município do Serviço de Segurança Contra Incêndio",
+        /\(digite o município\)/,
+        true,
+      ),
+      placeholder(
+        "requester_name",
+        "Nome",
+        "Nome do requerente por extenso",
+        /\(seu nome por extenso\)/,
+        true,
+      ),
+      placeholder(
+        "requester_cpf",
+        "CPF",
+        "CPF do requerente",
+        /XXX\.XXX\.XXX-XX/,
+        true,
+      ),
+      ...FINE_REQUEST_END,
+    ],
+  },
+  {
+    id: "in-2-anexo-l",
+    docId: "1IfIcY3-tQFsPNHm59A9trMBbR4a1GZJLLaRXszCfXXA",
+    normative: 2,
+    annex: "L",
+    name: "IN 2 – Anexo L – Ressarcimento de multa (pessoa jurídica)",
+    projectKeys: { ...FINE_REQUEST_KEYS, company_cnpj: "property_cnpj" },
+    steps: [
+      placeholder(
+        "office_city",
+        "Município do SSCI",
+        "Município do Serviço de Segurança Contra Incêndio",
+        /\(digite o município\)/,
+        true,
+      ),
+      placeholder(
+        "requester_name",
+        "Nome",
+        "Nome do representante legal por extenso",
+        /\(seu nome por extenso\)/,
+        true,
+      ),
+      placeholder(
+        "requester_cpf",
+        "CPF",
+        "CPF do representante legal",
+        /XXX\.XXX\.XXX-XX/,
+        true,
+      ),
+      placeholder(
+        "company_name",
+        "Razão social",
+        "Razão social da empresa",
+        /\(descreva a Razão Social\)/,
+        true,
+      ),
+      placeholder(
+        "company_cnpj",
+        "CNPJ",
+        "CNPJ da empresa",
+        /XX\.XXX\.XXX\/XXXX-XX/,
+        true,
+      ),
+      ...FINE_REQUEST_END,
+    ],
+  },
   {
     id: "in-1-anexo-d",
     docId: "1K6DrXe04P4pBnT3zcNB736g_H2_PyUZSXe-_FkTH8qs",
     normative: 1,
     annex: "D",
     name: "IN 1 – Anexo D – Consulta técnica",
+    projectKeys: {
+      requester_name: "owner_name",
+      requester_email: "owner_email",
+      requester_phone: "owner_phone",
+      re_number: "property_re",
+      building_cnpj: "property_cnpj",
+      street: "property_street",
+      street_number: "property_number",
+      address_complement: "property_complement",
+      district: "property_district",
+      city: "property_city",
+      postal_code: "property_postal_code",
+      address_details: "property_details",
+    },
     steps: [
       mark(
         "external_query",
@@ -124,6 +322,33 @@ const FORMS = [
     normative: 1,
     annex: "H",
     name: "IN 1 – Anexo H – Declaração do responsável",
+    projectKeys: {
+      responsible_name: "technical_name",
+      responsible_phone: "technical_phone",
+      responsible_tax_id: "technical_tax_id",
+      responsible_id_card: "technical_id_card",
+      responsible_email: "technical_email",
+      responsible_registry: "technical_registry",
+      responsible_street: "technical_street",
+      responsible_street_number: "technical_number",
+      responsible_complement: "technical_complement",
+      responsible_district: "technical_district",
+      responsible_city: "technical_city",
+      responsible_postal_code: "technical_postal_code",
+      re_number: "property_re",
+      building_cnpj: "property_cnpj",
+      protocol: "property_protocol",
+      occupancy: "property_occupancy",
+      street: "property_street",
+      street_number: "property_number",
+      district: "property_district",
+      city: "property_city",
+      postal_code: "property_postal_code",
+      address_complement: "property_complement",
+      building_name: "property_building_name",
+      company_name: "property_company_name",
+      address_details: "property_details",
+    },
     steps: [
       text(
         "responsible_name",
@@ -238,7 +463,7 @@ function tagDocument(xml, form) {
       cursor += 1;
     }
     if (cursor === runs.length) {
-      throw new Error(`${form.id}: no match for ${step.field.name}`);
+      throw new Error(`${form.id}: no match for ${step.match}`);
     }
     const run = runs[cursor];
     run.value = run.value.replace(step.match, step.to);
@@ -263,45 +488,107 @@ function tagDocument(xml, form) {
   });
 }
 
-const index = JSON.parse(await readFile(join(TEMPLATES, "index.json"), "utf8"));
+const NOTICE = /uso exclusivo do CBMSC|Para utilizar este modelo/;
 
-for (const form of FORMS) {
+/** Empties the note on how to copy the Google Doc, which means nothing on a finished form. */
+function removeCopyNotice(zip) {
+  for (const path of Object.keys(zip.files)) {
+    if (!/^word\/header\d*\.xml$/.test(path)) continue;
+    const xml = zip.file(path).asText();
+    zip.file(
+      path,
+      xml.replace(/<w:p[ >](?:(?!<\/w:p>).)*<\/w:p>/gs, (paragraph) =>
+        NOTICE.test(paragraph.replace(/<[^>]+>/g, ""))
+          ? paragraph.replace(/(<w:t(?: [^>]*)?>)[^<]*(<\/w:t>)/g, "$1$2")
+          : paragraph,
+      ),
+    );
+  }
+}
+
+/** The forms of the catalog's seed; the form list has one source. */
+async function readCatalog() {
+  const sql = await readFile(
+    join(
+      TEMPLATES,
+      "../../../supabase/migrations/20261105000000_cbmsc_forms.sql",
+    ),
+    "utf8",
+  );
+  return [
+    ...sql.matchAll(/\('([\w-]{20,})', (\d+), '([A-Z]+)', '(.*)'\)/g),
+  ].map(([, docId, normative, annex, name]) => ({
+    docId,
+    normative: Number(normative),
+    annex,
+    name,
+  }));
+}
+
+/** INs about a building; events and companies have no property to share. */
+const BUILDING_NORMATIVES = new Set([1, 2, 7, 9, 10, 15]);
+
+const entries = [];
+
+for (const form of await readCatalog()) {
+  const handWritten = FORMS.find((other) => other.docId === form.docId);
+  const id = `in-${form.normative}-anexo-${form.annex.toLowerCase()}`;
   const response = await fetch(
     `https://docs.google.com/document/d/${form.docId}/export?format=docx`,
   );
-  if (!response.ok) throw new Error(`${form.id}: HTTP ${response.status}`);
+  if (!response.ok) throw new Error(`${id}: HTTP ${response.status}`);
   const source = new Uint8Array(await response.arrayBuffer());
 
   const zip = new PizZip(source);
   const xml = zip.file("word/document.xml").asText();
-  zip.file("word/document.xml", tagDocument(xml, form));
+  let fields;
+  if (handWritten) {
+    zip.file("word/document.xml", tagDocument(xml, handWritten));
+    fields = handWritten.steps.flatMap((step) =>
+      step.field
+        ? {
+            ...step.field,
+            ...(handWritten.projectKeys[step.field.name] && {
+              projectKey: handWritten.projectKeys[step.field.name],
+            }),
+          }
+        : [],
+    );
+  } else {
+    const tagged = autoTagDocument(xml, {
+      shareWithProject: BUILDING_NORMATIVES.has(form.normative),
+    });
+    if (!tagged.fields.length) throw new Error(`${id}: no blanks found`);
+    zip.file("word/document.xml", tagged.xml);
+    fields = tagged.fields;
+  }
+  removeCopyNotice(zip);
   await writeFile(
-    join(TEMPLATES, `cbmsc/${form.id}.docx`),
+    join(TEMPLATES, `cbmsc/${id}.docx`),
     zip.generate({ type: "nodebuffer" }),
   );
   await writeFile(
-    join(TEMPLATES, `cbmsc/${form.id}.schema.json`),
-    `${JSON.stringify({ fields: form.steps.map((step) => step.field) }, null, 2)}\n`,
+    join(TEMPLATES, `cbmsc/${id}.schema.json`),
+    `${JSON.stringify({ fields }, null, 2)}\n`,
   );
-
-  const entry = {
-    id: form.id,
-    name: form.name,
+  entries.push({
+    id,
+    name:
+      handWritten?.name ??
+      `IN ${form.normative} – Anexo ${form.annex} – ${form.name}`,
     type: "docx",
-    file: `/templates/cbmsc/${form.id}.docx`,
-    schema: `/templates/cbmsc/${form.id}.schema.json`,
+    file: `/templates/cbmsc/${id}.docx`,
+    schema: `/templates/cbmsc/${id}.schema.json`,
     cbmsc: {
       normative: form.normative,
       annex: form.annex,
       sourceTextHash: docxTextHash(source),
+      reviewed: Boolean(handWritten),
     },
-  };
-  const position = index.findIndex((other) => other.id === form.id);
-  if (position === -1) index.push(entry);
-  else index[position] = entry;
+  });
 }
 
 await writeFile(
   join(TEMPLATES, "index.json"),
-  `${JSON.stringify(index, null, 2)}\n`,
+  `${JSON.stringify(entries, null, 2)}\n`,
 );

@@ -15,6 +15,10 @@ function fieldToZod(field: TemplateField, mode: Mode): z.ZodType {
       return z.number().describe(field.description);
     case "boolean":
       return z.boolean().describe(field.description);
+    case "choice":
+      return z
+        .enum((field.options ?? []).map((option) => option.value))
+        .describe(field.description);
     case "date":
       return z
         .string()

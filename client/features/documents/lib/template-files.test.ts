@@ -3,6 +3,7 @@ import { join } from "node:path";
 import Docxtemplater from "docxtemplater";
 import PizZip from "pizzip";
 import { describe, expect, it } from "vitest";
+import { isProjectFieldKey } from "./project-fields";
 import type { TemplateEntry, TemplateSchema } from "./templates";
 
 const PUBLIC = join(__dirname, "../../../public");
@@ -28,9 +29,35 @@ describe.each(entries)("template $id", (entry) => {
   const schema = JSON.parse(read(entry.schema).toString()) as TemplateSchema;
 
   it("has exactly one field per tag in the document", () => {
-    expect([...tagsOf(entry.file)].sort()).toEqual(
-      schema.fields.map((field) => field.name).sort(),
+    const expected = schema.fields.flatMap((field) =>
+      field.options ? field.options.map((option) => option.tag) : field.name,
     );
+    expect([...tagsOf(entry.file)].sort()).toEqual(expected.sort());
+  });
+
+  it("ties fields only to keys a project shares, each once", () => {
+    const keys = schema.fields.flatMap((field) => field.projectKey ?? []);
+    expect(keys.filter((key) => !isProjectFieldKey(key))).toEqual([]);
+    expect(new Set(keys).size).toBe(keys.length);
+  });
+
+  it("ties a number key only to a field that is a street number", () => {
+    const wrong = schema.fields.filter(
+      (field) =>
+        field.projectKey?.endsWith("_number") &&
+        !/^(n\.?\s?[º°]|n[uú]mero)/i.test(field.label),
+    );
+    expect(wrong.map((field) => field.label)).toEqual([]);
+  });
+
+  it("has no note about copying the Google Doc in its headers", () => {
+    const zip = new PizZip(read(entry.file));
+    const headers = Object.keys(zip.files)
+      .filter((path) => /^word\/header\d*\.xml$/.test(path))
+      .map((path) => zip.file(path)?.asText() ?? "")
+      .join("");
+    expect(headers).not.toContain("uso exclusivo do CBMSC");
+    expect(headers).not.toContain("fazer uma cópia");
   });
 
   it("renders with no tag left", () => {
@@ -44,6 +71,22 @@ describe.each(entries)("template $id", (entry) => {
     const xml = doc.getZip().file("word/document.xml")?.asText() ?? "";
     expect(xml).not.toContain("{{");
   });
+});
+
+it("has a template for every form in the catalog's seed", () => {
+  const sql = readFileSync(
+    join(PUBLIC, "../../supabase/migrations/20261105000000_cbmsc_forms.sql"),
+    "utf8",
+  );
+  const seeded = [...sql.matchAll(/', (\d+), '([A-Z]+)', '/g)].map(
+    (match) => `${match[1]}-${match[2]}`,
+  );
+  expect(seeded).toHaveLength(28);
+  expect(
+    entries
+      .map((entry) => `${entry.cbmsc?.normative}-${entry.cbmsc?.annex}`)
+      .sort(),
+  ).toEqual(seeded.sort());
 });
 
 it("gives each official form at most one template", () => {

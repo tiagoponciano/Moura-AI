@@ -1,0 +1,1672 @@
+{
+  "fields": [
+    {
+      "name": "field_001",
+      "type": "string",
+      "label": "Logradouro público",
+      "description": "Logradouro público",
+      "required": false,
+      "projectKey": "property_street"
+    },
+    {
+      "name": "field_002",
+      "type": "string",
+      "label": "N.º",
+      "description": "N.º.",
+      "required": false,
+      "projectKey": "property_number"
+    },
+    {
+      "name": "field_003",
+      "type": "string",
+      "label": "Complemento",
+      "description": "Complemento:",
+      "required": false,
+      "projectKey": "property_complement"
+    },
+    {
+      "name": "field_004",
+      "type": "string",
+      "label": "Bairro",
+      "description": "Bairro",
+      "required": false,
+      "projectKey": "property_district"
+    },
+    {
+      "name": "field_005",
+      "type": "string",
+      "label": "Município",
+      "description": "Município",
+      "required": false,
+      "projectKey": "property_city"
+    },
+    {
+      "name": "field_006",
+      "type": "string",
+      "label": "RE",
+      "description": "RE:",
+      "required": false,
+      "projectKey": "property_re"
+    },
+    {
+      "name": "field_007",
+      "type": "string",
+      "label": "Responsável pelo imóvel",
+      "description": "Responsável pelo imóvel",
+      "required": false,
+      "projectKey": "owner_name"
+    },
+    {
+      "name": "field_008",
+      "type": "string",
+      "label": "e-mail",
+      "description": "e-mail",
+      "required": false,
+      "projectKey": "owner_email"
+    },
+    {
+      "name": "field_009",
+      "type": "string",
+      "label": "il",
+      "description": "il",
+      "required": false
+    },
+    {
+      "name": "field_010",
+      "type": "string",
+      "label": "Telefone",
+      "description": "Telefone",
+      "required": false,
+      "projectKey": "owner_phone"
+    },
+    {
+      "name": "field_011",
+      "type": "string",
+      "label": "Responsável Técnico",
+      "description": "Responsável Técnico",
+      "required": false,
+      "projectKey": "technical_name"
+    },
+    {
+      "name": "field_012",
+      "type": "string",
+      "label": "Número de registro do profissional",
+      "description": "Número de registro do profissional:",
+      "required": false,
+      "projectKey": "technical_registry"
+    },
+    {
+      "name": "field_013",
+      "type": "string",
+      "label": "e-mail",
+      "description": "e-mail",
+      "required": false,
+      "projectKey": "technical_email"
+    },
+    {
+      "name": "field_014",
+      "type": "string",
+      "label": "Telefone",
+      "description": "Telefone",
+      "required": false,
+      "projectKey": "technical_phone"
+    },
+    {
+      "name": "field_015",
+      "type": "string",
+      "label": "Ocupação (IN-01)",
+      "description": "Ocupação (IN-01)",
+      "required": false
+    },
+    {
+      "name": "field_016",
+      "type": "string",
+      "label": "Ocupações (Tab. A-1 da NBR 10.897)",
+      "description": "Ocupações (Tab. A-1 da NBR 10.897)",
+      "required": false
+    },
+    {
+      "name": "field_017",
+      "type": "string",
+      "label": "Válvula de Governo E Alarme nº",
+      "description": "Válvula de Governo E Alarme nº:",
+      "required": false
+    },
+    {
+      "name": "field_018",
+      "type": "string",
+      "label": "Método de armazenagem (3)",
+      "description": "Método de armazenagem (3)",
+      "required": false
+    },
+    {
+      "name": "field_019",
+      "type": "string",
+      "label": "Altura da edificação (3)",
+      "description": "Altura da edificação (3):",
+      "required": false
+    },
+    {
+      "name": "field_020",
+      "type": "string",
+      "label": "Altura de armazenagem (3)",
+      "description": "Altura de armazenagem (3)",
+      "required": false
+    },
+    {
+      "name": "field_021",
+      "type": "boolean",
+      "label": "Leve",
+      "description": "Leve",
+      "mark": true
+    },
+    {
+      "name": "field_022",
+      "type": "boolean",
+      "label": "Ordinário I",
+      "description": "Ordinário I",
+      "mark": true
+    },
+    {
+      "name": "field_023",
+      "type": "boolean",
+      "label": "Ordinário II",
+      "description": "Ordinário II",
+      "mark": true
+    },
+    {
+      "name": "field_024",
+      "type": "boolean",
+      "label": "Extraordinário I",
+      "description": "Extraordinário I",
+      "mark": true
+    },
+    {
+      "name": "field_025",
+      "type": "boolean",
+      "label": "Extraordinário II",
+      "description": "Extraordinário II",
+      "mark": true
+    },
+    {
+      "name": "field_026",
+      "type": "boolean",
+      "label": "Classe I",
+      "description": "Classe I",
+      "mark": true
+    },
+    {
+      "name": "field_027",
+      "type": "boolean",
+      "label": "Classe II",
+      "description": "Classe II",
+      "mark": true
+    },
+    {
+      "name": "field_028",
+      "type": "boolean",
+      "label": "Molhado",
+      "description": "Molhado",
+      "mark": true
+    },
+    {
+      "name": "field_029",
+      "type": "choice",
+      "label": "1.1 O sistema de chuveiros automáticos está adaptado ao leiaute da edificação…",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.1 O sistema de chuveiros automáticos está adaptado ao leiaute da edificação conforme projeto técnico aprovado?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_029_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_029_2"
+        }
+      ]
+    },
+    {
+      "name": "field_030",
+      "type": "choice",
+      "label": "1.2 Os compartimentos classificados como Risco Leve, possuem chuveiros automá…",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.2 Os compartimentos classificados como Risco Leve, possuem chuveiros automáticos de resposta rápida?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_030_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_030_2"
+        }
+      ]
+    },
+    {
+      "name": "field_031",
+      "type": "choice",
+      "label": "1.3 Todos os compartimentos, exceto os isentos de acordo com a NBR 10.897 e I…",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.3 Todos os compartimentos, exceto os isentos de acordo com a NBR 10.897 e IT 23, estão protegidos por chuveiros automáticos? (1)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_031_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_031_2"
+        }
+      ]
+    },
+    {
+      "name": "field_032",
+      "type": "choice",
+      "label": "1.4 Os modelos dos chuveiros automáticos estão conforme o projeto aprovado? (…",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.4 Os modelos dos chuveiros automáticos estão conforme o projeto aprovado? (2)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_032_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_032_2"
+        }
+      ]
+    },
+    {
+      "name": "field_033",
+      "type": "choice",
+      "label": "1.4 Os chuveiros estão isentos de corpos estranhos (inclusive tinta) ou danos…",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.4 Os chuveiros estão isentos de corpos estranhos (inclusive tinta) ou danos físicos como indicado pelo catálogo do fabricante?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_033_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_033_2"
+        }
+      ]
+    },
+    {
+      "name": "field_034",
+      "type": "choice",
+      "label": "1.5 Os chuveiros estão isentos de corpos estranhos (inclusive tinta) ou danos…",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.5 Os chuveiros estão isentos de corpos estranhos (inclusive tinta) ou danos físicos como indicado pelo catálogo do fabricante?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_034_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_034_2"
+        }
+      ]
+    },
+    {
+      "name": "field_035",
+      "type": "choice",
+      "label": "1.6 Os chuveiros estão instalados na posição correta, conforme projeto técnic…",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.6 Os chuveiros estão instalados na posição correta, conforme projeto técnico aprovado (teto, prateleiras, etc.)?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_035_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_035_2"
+        }
+      ]
+    },
+    {
+      "name": "field_036",
+      "type": "choice",
+      "label": "1.7 A distância entre os chuveiros ou entre os chuveiros e as paredes está co…",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.7 A distância entre os chuveiros ou entre os chuveiros e as paredes está correta?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_036_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_036_2"
+        }
+      ]
+    },
+    {
+      "name": "field_037",
+      "type": "choice",
+      "label": "1.8 Os chuveiros estão desobstruídos em relação a obstruções junto ao teto ta…",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.8 Os chuveiros estão desobstruídos em relação a obstruções junto ao teto tais como vigas, treliças, terças, dutos e afins? (1)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_037_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_037_2"
+        }
+      ]
+    },
+    {
+      "name": "field_038",
+      "type": "choice",
+      "label": "1.9 Os chuveiros próximos ao teto estão desobstruídos em relação a elementos …",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.9 Os chuveiros próximos ao teto estão desobstruídos em relação a elementos tais como luminárias, dutos, eletrocalhas, passarelas, ventiladores e afins? (1)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_038_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_038_2"
+        }
+      ]
+    },
+    {
+      "name": "field_039",
+      "type": "choice",
+      "label": "1.10 Os chuveiros estão desobstruídos em relação a elementos verticais de mei…",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.10 Os chuveiros estão desobstruídos em relação a elementos verticais de meia altura tais como biombos, divisórias baixas e afins? (1)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_039_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_039_2"
+        }
+      ]
+    },
+    {
+      "name": "field_040",
+      "type": "choice",
+      "label": "1.11 Os chuveiros estão desobstruídos em relação aos pilares? (1)",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.11 Os chuveiros estão desobstruídos em relação aos pilares? (1)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_040_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_040_2"
+        }
+      ]
+    },
+    {
+      "name": "field_041",
+      "type": "choice",
+      "label": "1.12 Os chuveiros estão a uma distância adequada do forro ou teto?",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.12 Os chuveiros estão a uma distância adequada do forro ou teto?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_041_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_041_2"
+        }
+      ]
+    },
+    {
+      "name": "field_042",
+      "type": "choice",
+      "label": "1.13 Em áreas de armazenagem, a distância entre os chuveiros e o topo do mate…",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.13 Em áreas de armazenagem, a distância entre os chuveiros e o topo do material armazenado é adequada?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_042_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_042_2"
+        }
+      ]
+    },
+    {
+      "name": "field_043",
+      "type": "choice",
+      "label": "1.14 Os chuveiros estão sem corrosão?",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.14 Os chuveiros estão sem corrosão?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_043_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_043_2"
+        }
+      ]
+    },
+    {
+      "name": "field_044",
+      "type": "choice",
+      "label": "1.15 Há chuveiros sobressalentes e chave especial para retirada e instalação?",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.15 Há chuveiros sobressalentes e chave especial para retirada e instalação?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_044_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_044_2"
+        }
+      ]
+    },
+    {
+      "name": "field_045",
+      "type": "choice",
+      "label": "1.16 Os produtos utilizados na instalação estão de acordo com o regulamentado…",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.16 Os produtos utilizados na instalação estão de acordo com o regulamentado pelo CBMSC?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_045_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_045_2"
+        }
+      ]
+    },
+    {
+      "name": "field_046",
+      "type": "choice",
+      "label": "1.17 Os chuveiros automáticos de resposta rápida fabricados há mais de 20 ano…",
+      "description": "1. CHUVEIROS AUTOMÁTICOS: 1.17 Os chuveiros automáticos de resposta rápida fabricados há mais de 20 anos e/ou os chuveiros automáticos de resposta padrão fabricados há mais de 50 anos foram ensaiados?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_046_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_046_2"
+        }
+      ]
+    },
+    {
+      "name": "field_047",
+      "type": "choice",
+      "label": "2.1 As válvulas estão corretamente identificadas, conforme item 10.2 da NBR 1…",
+      "description": "2. VÁLVULA DE GOVERNO E ALARME (VGA): 2.1 As válvulas estão corretamente identificadas, conforme item 10.2 da NBR 10.897?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_047_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_047_2"
+        }
+      ]
+    },
+    {
+      "name": "field_048",
+      "type": "choice",
+      "label": "2.2 As válvulas de bloqueio estão travadas com correntes e/ou cadeados na pos…",
+      "description": "2. VÁLVULA DE GOVERNO E ALARME (VGA): 2.2 As válvulas de bloqueio estão travadas com correntes e/ou cadeados na posição completamente abertas? (1)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_048_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_048_2"
+        }
+      ]
+    },
+    {
+      "name": "field_049",
+      "type": "choice",
+      "label": "2.3 As válvulas de bloqueio são do tipo indicadora e com fechamento lento?",
+      "description": "2. VÁLVULA DE GOVERNO E ALARME (VGA): 2.3 As válvulas de bloqueio são do tipo indicadora e com fechamento lento?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_049_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_049_2"
+        }
+      ]
+    },
+    {
+      "name": "field_050",
+      "type": "choice",
+      "label": "2.4 As válvulas estão livres de danos mecânicos? (teste)",
+      "description": "2. VÁLVULA DE GOVERNO E ALARME (VGA): 2.4 As válvulas estão livres de danos mecânicos? (teste)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_050_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_050_2"
+        }
+      ]
+    },
+    {
+      "name": "field_051",
+      "type": "choice",
+      "label": "2.5 As válvulas estão acessíveis?",
+      "description": "2. VÁLVULAS DE GOVERNO E ALARME (VGA): 2.5 As válvulas estão acessíveis?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_051_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_051_2"
+        }
+      ]
+    },
+    {
+      "name": "field_052",
+      "type": "choice",
+      "label": "2.6 As válvulas estão isentas de vazamento? (teste)",
+      "description": "2. VÁLVULAS DE GOVERNO E ALARME (VGA): 2.6 As válvulas estão isentas de vazamento? (teste)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_052_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_052_2"
+        }
+      ]
+    },
+    {
+      "name": "field_053",
+      "type": "choice",
+      "label": "2.7 As válvulas estão isentas de corrosão?",
+      "description": "2. VÁLVULAS DE GOVERNO E ALARME (VGA): 2.7 As válvulas estão isentas de corrosão?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_053_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_053_2"
+        }
+      ]
+    },
+    {
+      "name": "field_054",
+      "type": "choice",
+      "label": "2.8 Há um fluxostato ligado à central de alarme? (teste) (1)",
+      "description": "2. VÁLVULAS DE GOVERNO E ALARME (VGA): 2.8 Há um fluxostato ligado à central de alarme? (teste) (1)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_054_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_054_2"
+        }
+      ]
+    },
+    {
+      "name": "field_055",
+      "type": "choice",
+      "label": "2.9 A fiação do fluxostato está protegida?",
+      "description": "2. VÁLVULAS DE GOVERNO E ALARME (VGA): 2.9 A fiação do fluxostato está protegida?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_055_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_055_2"
+        }
+      ]
+    },
+    {
+      "name": "field_056",
+      "type": "choice",
+      "label": "2.10 O gongo hidráulico (quando instalado) funciona corretamente? (teste)",
+      "description": "2. VÁLVULAS DE GOVERNO E ALARME (VGA): 2.10 O gongo hidráulico (quando instalado) funciona corretamente? (teste)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_056_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_056_2"
+        }
+      ]
+    },
+    {
+      "name": "field_057",
+      "type": "choice",
+      "label": "2.11 Existe conexão de teste de alarme para cada Válvula de Governo e funcion…",
+      "description": "2. VÁLVULAS DE GOVERNO E ALARME (VGA): 2.11 Existe conexão de teste de alarme para cada Válvula de Governo e funciona corretamente?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_057_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_057_2"
+        }
+      ]
+    },
+    {
+      "name": "field_058",
+      "type": "choice",
+      "label": "2.12 A central de alarme reconhece o sinal da conexão de teste e alarme em no…",
+      "description": "2. VÁLVULAS DE GOVERNO E ALARME (VGA): 2.12 A central de alarme reconhece o sinal da conexão de teste e alarme em no máximo 90 segundos? (teste)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_058_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_058_2"
+        }
+      ]
+    },
+    {
+      "name": "field_059",
+      "type": "choice",
+      "label": "2.13 Os manômetros estão instalados e em boas condições? (visual e operação)",
+      "description": "2. VÁLVULAS DE GOVERNO E ALARME (VGA): 2.13 Os manômetros estão instalados e em boas condições? (visual e operação)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_059_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_059_2"
+        }
+      ]
+    },
+    {
+      "name": "field_060",
+      "type": "choice",
+      "label": "3.1 As conexões setoriais estão adequadamente instaladas?",
+      "description": "3. CONEXÕES SETORIAIS DE DRENO, ENSAIO E ALARME (CS): 3.1 As conexões setoriais estão adequadamente instaladas?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_060_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_060_2"
+        }
+      ]
+    },
+    {
+      "name": "field_061",
+      "type": "choice",
+      "label": "3.2 As conexões setoriais estão sinalizadas?",
+      "description": "3. CONEXÕES SETORIAIS DE DRENO, ENSAIO E ALARME (CS): 3.2 As conexões setoriais estão sinalizadas?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_061_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_061_2"
+        }
+      ]
+    },
+    {
+      "name": "field_062",
+      "type": "choice",
+      "label": "3.3 Há um fluxostato ligado à central de alarme? (teste)",
+      "description": "3. CONEXÕES SETORIAIS DE DRENO, ENSAIO E ALARME (CS): 3.3 Há um fluxostato ligado à central de alarme? (teste)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_062_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_062_2"
+        }
+      ]
+    },
+    {
+      "name": "field_063",
+      "type": "choice",
+      "label": "3.4 A central de alarme reconhece o sinal da conexão de teste e alarme em no …",
+      "description": "3. CONEXÕES SETORIAIS DE DRENO, ENSAIO E ALARME (CS): 3.4 A central de alarme reconhece o sinal da conexão de teste e alarme em no máximo 90 segundos? (teste)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_063_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_063_2"
+        }
+      ]
+    },
+    {
+      "name": "field_064",
+      "type": "choice",
+      "label": "3.5 A fiação do fluxostato está protegida?",
+      "description": "3. CONEXÕES SETORIAIS DE DRENO, ENSAIO E ALARME (CS): 3.5 A fiação do fluxostato está protegida?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_064_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_064_2"
+        }
+      ]
+    },
+    {
+      "name": "field_065",
+      "type": "choice",
+      "label": "3.6 As válvulas estão acessíveis?",
+      "description": "3. CONEXÕES SETORIAIS DE DRENO, ENSAIO E ALARME (CS): 3.6 As válvulas estão acessíveis?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_065_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_065_2"
+        }
+      ]
+    },
+    {
+      "name": "field_066",
+      "type": "choice",
+      "label": "3.7 As válvulas de bloqueio estão travadas com correntes e/ou cadeados na pos…",
+      "description": "3. CONEXÕES SETORIAIS DE DRENO, ENSAIO E ALARME (CS): 3.7 As válvulas de bloqueio estão travadas com correntes e/ou cadeados na posição completamente abertas?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_066_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_066_2"
+        }
+      ]
+    },
+    {
+      "name": "field_067",
+      "type": "choice",
+      "label": "3.8 As válvulas de bloqueio são do tipo indicadora e com fechamento lento?",
+      "description": "3. CONEXÕES SETORIAIS DE DRENO, ENSAIO E ALARME (CS): 3.8 As válvulas de bloqueio são do tipo indicadora e com fechamento lento?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_067_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_067_2"
+        }
+      ]
+    },
+    {
+      "name": "field_068",
+      "type": "choice",
+      "label": "4.1 A bomba de incêndio está adequadamente instalada?",
+      "description": "4. CONJUNTO BOMBA DE INCÊNDIO (Bomba + Motor + Painel de controle e partida): 4.1 A bomba de incêndio está adequadamente instalada?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_068_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_068_2"
+        }
+      ]
+    },
+    {
+      "name": "field_069",
+      "type": "choice",
+      "label": "4.2 Foi apresentada curva de desempenho (vazão X pressão) da bomba de incêndi…",
+      "description": "4. CONJUNTO BOMBA DE INCÊNDIO (Bomba + Motor + Painel de controle e partida): 4.2 Foi apresentada curva de desempenho (vazão X pressão) da bomba de incêndio preparada pelo fabricante antes da instalação da unidade?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_069_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_069_2"
+        }
+      ]
+    },
+    {
+      "name": "field_070",
+      "type": "choice",
+      "label": "4.3 Foi apresentada curva de desempenho (vazão X pressão) da bomba de incêndi…",
+      "description": "4. CONJUNTO BOMBA DE INCÊNDIO (Bomba + Motor + Painel de controle e partida): 4.3 Foi apresentada curva de desempenho (vazão X pressão) da bomba de incêndio produzida nos últimos 36 meses?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_070_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_070_2"
+        }
+      ]
+    },
+    {
+      "name": "field_071",
+      "type": "choice",
+      "label": "4.4 A bomba de incêndio está em compartimento protegido contra o fogo?",
+      "description": "4. CONJUNTO BOMBA DE INCÊNDIO (Bomba + Motor + Painel de controle e partida): 4.4 A bomba de incêndio está em compartimento protegido contra o fogo?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_071_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_071_2"
+        }
+      ]
+    },
+    {
+      "name": "field_072",
+      "type": "choice",
+      "label": "4.5 A B.I. está em compartimento sem acúmulo de materiais combustíveis?",
+      "description": "4. CONJUNTO BOMBA DE INCÊNDIO (Bomba + Motor + Painel de controle e partida): 4.5 A B.I. está em compartimento sem acúmulo de materiais combustíveis?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_072_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_072_2"
+        }
+      ]
+    },
+    {
+      "name": "field_073",
+      "type": "choice",
+      "label": "4.6 A bomba de incêndio não apresenta vazamentos? (teste)",
+      "description": "4. CONJUNTO BOMBA DE INCÊNDIO (Bomba + Motor + Painel de controle e partida): 4.6 A bomba de incêndio não apresenta vazamentos? (teste)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_073_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_073_2"
+        }
+      ]
+    },
+    {
+      "name": "field_074",
+      "type": "choice",
+      "label": "4.7 A bomba de incêndio está instalada com vazão e pressão de acordo com proj…",
+      "description": "4. CONJUNTO BOMBA DE INCÊNDIO (Bomba + Motor + Painel de controle e partida): 4.7 A bomba de incêndio está instalada com vazão e pressão de acordo com projeto técnico aprovado?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_074_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_074_2"
+        }
+      ]
+    },
+    {
+      "name": "field_075",
+      "type": "choice",
+      "label": "4.8 As válvulas de bloqueio (exceto no cabeçote de testes, se houver) estão t…",
+      "description": "4. CONJUNTO BOMBA DE INCÊNDIO (Bomba + Motor + Painel de controle e partida): 4.8 As válvulas de bloqueio (exceto no cabeçote de testes, se houver) estão travadas na posição completamente aberta?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_075_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_075_2"
+        }
+      ]
+    },
+    {
+      "name": "field_076",
+      "type": "choice",
+      "label": "4.9 A fixação da bomba de incêndio está adequada?",
+      "description": "4. CONJUNTO BOMBA DE INCÊNDIO (Bomba + Motor + Painel de controle e partida): 4.9 A fixação da bomba de incêndio está adequada?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_076_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_076_2"
+        }
+      ]
+    },
+    {
+      "name": "field_077",
+      "type": "choice",
+      "label": "4.10 Existe medidor de vazão para realização do teste anual?",
+      "description": "4. CONJUNTO BOMBA DE INCÊNDIO (Bomba + Motor + Painel de controle e partida): 4.10 Existe medidor de vazão para realização do teste anual?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_077_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_077_2"
+        }
+      ]
+    },
+    {
+      "name": "field_078",
+      "type": "choice",
+      "label": "4.11 Existe cabeçote de teste para realização do teste anual?",
+      "description": "4. CONJUNTO BOMBA DE INCÊNDIO (Bomba + Motor + Painel de controle e partida): 4.11 Existe cabeçote de teste para realização do teste anual?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_078_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_078_2"
+        }
+      ]
+    },
+    {
+      "name": "field_079",
+      "type": "choice",
+      "label": "4.12 O painel da central de alarme acusa todos os eventos previstos no Anexo …",
+      "description": "4. CONJUNTO BOMBA DE INCÊNDIO (Bomba + Motor + Painel de controle e partida): 4.12 O painel da central de alarme acusa todos os eventos previstos no Anexo B da NBR 10897 para supervisão constante das bombas?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_079_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_079_2"
+        }
+      ]
+    },
+    {
+      "name": "field_080",
+      "type": "choice",
+      "label": "5.1 Tubulação sem danos mecânicos?",
+      "description": "5. TUBULAÇÃO: 5.1 Tubulação sem danos mecânicos?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_080_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_080_2"
+        }
+      ]
+    },
+    {
+      "name": "field_081",
+      "type": "choice",
+      "label": "5.2 Tubulação sem vazamentos? (teste)",
+      "description": "5. TUBULAÇÃO: 5.2 Tubulação sem vazamentos? (teste)",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_081_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_081_2"
+        }
+      ]
+    },
+    {
+      "name": "field_082",
+      "type": "choice",
+      "label": "5.3 Tubulação sem corrosão ou obstrução interna?",
+      "description": "5. TUBULAÇÃO: 5.3 Tubulação sem corrosão ou obstrução interna?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_082_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_082_2"
+        }
+      ]
+    },
+    {
+      "name": "field_083",
+      "type": "choice",
+      "label": "5.4 Tubulação adequadamente alinhada?",
+      "description": "5. TUBULAÇÃO: 5.4 Tubulação adequadamente alinhada?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_083_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_083_2"
+        }
+      ]
+    },
+    {
+      "name": "field_084",
+      "type": "choice",
+      "label": "5.5 Tubulação pintada e identificada?",
+      "description": "5. TUBULAÇÃO: 5.5 Tubulação pintada e identificada?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_084_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_084_2"
+        }
+      ]
+    },
+    {
+      "name": "field_085",
+      "type": "choice",
+      "label": "5.6 Suportes e braçadeiras adequados?",
+      "description": "5. TUBULAÇÃO: 5.6 Suportes e braçadeiras adequados?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_085_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_085_2"
+        }
+      ]
+    },
+    {
+      "name": "field_086",
+      "type": "choice",
+      "label": "6.1 Conexão de recalque está sinalizado?",
+      "description": "6. CONEXÃO DE RECALQUE: 6.1 Conexão de recalque está sinalizado?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_086_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_086_2"
+        }
+      ]
+    },
+    {
+      "name": "field_087",
+      "type": "choice",
+      "label": "6.2 Conexão de recalque está desobstruída?",
+      "description": "6. CONEXÃO DE RECALQUE: 6.2 Conexão de recalque está desobstruída?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_087_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_087_2"
+        }
+      ]
+    },
+    {
+      "name": "field_088",
+      "type": "choice",
+      "label": "6.3 Conexão de recalque está isento de vazamentos?",
+      "description": "6. CONEXÃO DE RECALQUE: 6.3 Conexão de recalque está isento de vazamentos?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_088_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_088_2"
+        }
+      ]
+    },
+    {
+      "name": "field_089",
+      "type": "choice",
+      "label": "7.1 O reservatório de incêndio possui volume adequado de acordo com o projeto…",
+      "description": "7. TANQUES E RESERVATÓRIOS: 7.1 O reservatório de incêndio possui volume adequado de acordo com o projeto técnico aprovado?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_089_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_089_2"
+        }
+      ]
+    },
+    {
+      "name": "field_090",
+      "type": "choice",
+      "label": "7.2 O reservatório de incêndio possui válvulas completamente abertas?",
+      "description": "7. TANQUES E RESERVATÓRIOS: 7.2 O reservatório de incêndio possui válvulas completamente abertas?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_090_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_090_2"
+        }
+      ]
+    },
+    {
+      "name": "field_091",
+      "type": "choice",
+      "label": "7.3 O reservatório de incêndio possui tubulação e válvulas adequadas?",
+      "description": "7. TANQUES E RESERVATÓRIOS: 7.3 O reservatório de incêndio possui tubulação e válvulas adequadas?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_091_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_091_2"
+        }
+      ]
+    },
+    {
+      "name": "field_092",
+      "type": "choice",
+      "label": "7.4 Existe indicador de nível instalado no tanque?",
+      "description": "7. TANQUES E RESERVATÓRIOS: 7.4 Existe indicador de nível instalado no tanque?",
+      "required": false,
+      "options": [
+        {
+          "value": "Sim",
+          "tag": "field_092_1"
+        },
+        {
+          "value": "Não",
+          "tag": "field_092_2"
+        }
+      ]
+    },
+    {
+      "name": "field_093",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 2)",
+      "description": "7. TANQUES E RESERVATÓRIOS: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 2)",
+      "required": false
+    },
+    {
+      "name": "field_094",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 3)",
+      "description": "7. TANQUES E RESERVATÓRIOS: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 3)",
+      "required": false
+    },
+    {
+      "name": "field_095",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 4)",
+      "description": "7. TANQUES E RESERVATÓRIOS: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 4)",
+      "required": false
+    },
+    {
+      "name": "field_096",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 5)",
+      "description": "7. TANQUES E RESERVATÓRIOS: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 5)",
+      "required": false
+    },
+    {
+      "name": "field_097",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 6)",
+      "description": "7. TANQUES E RESERVATÓRIOS: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 6)",
+      "required": false
+    },
+    {
+      "name": "field_098",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 7)",
+      "description": "7. TANQUES E RESERVATÓRIOS: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 7)",
+      "required": false
+    },
+    {
+      "name": "field_099",
+      "type": "string",
+      "label": "JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 8)",
+      "description": "7. TANQUES E RESERVATÓRIOS: JUSTIFICATIVAS DE NÃO ATENDIMENTO (linha 8)",
+      "required": false
+    },
+    {
+      "name": "field_100",
+      "type": "string",
+      "label": "Tipo (linha 2)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Tipo (linha 2)",
+      "required": false
+    },
+    {
+      "name": "field_101",
+      "type": "string",
+      "label": "Fabricante (linha 2)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Fabricante (linha 2)",
+      "required": false
+    },
+    {
+      "name": "field_102",
+      "type": "string",
+      "label": "Código de identificação (linha 2)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Código de identificação (linha 2)",
+      "required": false
+    },
+    {
+      "name": "field_103",
+      "type": "string",
+      "label": "Ano de fabricação (linha 2)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Ano de fabricação (linha 2)",
+      "required": false
+    },
+    {
+      "name": "field_104",
+      "type": "string",
+      "label": "Tempo de Resposta (linha 2)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Tempo de Resposta (linha 2)",
+      "required": false
+    },
+    {
+      "name": "field_105",
+      "type": "string",
+      "label": "Posição de Instalação (linha 2)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Posição de Instalação (linha 2)",
+      "required": false
+    },
+    {
+      "name": "field_106",
+      "type": "string",
+      "label": "Temperatura (linha 2)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Temperatura (linha 2)",
+      "required": false
+    },
+    {
+      "name": "field_107",
+      "type": "string",
+      "label": "Tipo (linha 3)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Tipo (linha 3)",
+      "required": false
+    },
+    {
+      "name": "field_108",
+      "type": "string",
+      "label": "Fabricante (linha 3)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Fabricante (linha 3)",
+      "required": false
+    },
+    {
+      "name": "field_109",
+      "type": "string",
+      "label": "Código de identificação (linha 3)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Código de identificação (linha 3)",
+      "required": false
+    },
+    {
+      "name": "field_110",
+      "type": "string",
+      "label": "Ano de fabricação (linha 3)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Ano de fabricação (linha 3)",
+      "required": false
+    },
+    {
+      "name": "field_111",
+      "type": "string",
+      "label": "Tempo de Resposta (linha 3)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Tempo de Resposta (linha 3)",
+      "required": false
+    },
+    {
+      "name": "field_112",
+      "type": "string",
+      "label": "Posição de Instalação (linha 3)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Posição de Instalação (linha 3)",
+      "required": false
+    },
+    {
+      "name": "field_113",
+      "type": "string",
+      "label": "Temperatura (linha 3)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Temperatura (linha 3)",
+      "required": false
+    },
+    {
+      "name": "field_114",
+      "type": "string",
+      "label": "Tipo (linha 4)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Tipo (linha 4)",
+      "required": false
+    },
+    {
+      "name": "field_115",
+      "type": "string",
+      "label": "Fabricante (linha 4)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Fabricante (linha 4)",
+      "required": false
+    },
+    {
+      "name": "field_116",
+      "type": "string",
+      "label": "Código de identificação (linha 4)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Código de identificação (linha 4)",
+      "required": false
+    },
+    {
+      "name": "field_117",
+      "type": "string",
+      "label": "Ano de fabricação (linha 4)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Ano de fabricação (linha 4)",
+      "required": false
+    },
+    {
+      "name": "field_118",
+      "type": "string",
+      "label": "Tempo de Resposta (linha 4)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Tempo de Resposta (linha 4)",
+      "required": false
+    },
+    {
+      "name": "field_119",
+      "type": "string",
+      "label": "Posição de Instalação (linha 4)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Posição de Instalação (linha 4)",
+      "required": false
+    },
+    {
+      "name": "field_120",
+      "type": "string",
+      "label": "Temperatura (linha 4)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Temperatura (linha 4)",
+      "required": false
+    },
+    {
+      "name": "field_121",
+      "type": "string",
+      "label": "Tipo (linha 5)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Tipo (linha 5)",
+      "required": false
+    },
+    {
+      "name": "field_122",
+      "type": "string",
+      "label": "Fabricante (linha 5)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Fabricante (linha 5)",
+      "required": false
+    },
+    {
+      "name": "field_123",
+      "type": "string",
+      "label": "Código de identificação (linha 5)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Código de identificação (linha 5)",
+      "required": false
+    },
+    {
+      "name": "field_124",
+      "type": "string",
+      "label": "Ano de fabricação (linha 5)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Ano de fabricação (linha 5)",
+      "required": false
+    },
+    {
+      "name": "field_125",
+      "type": "string",
+      "label": "Tempo de Resposta (linha 5)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Tempo de Resposta (linha 5)",
+      "required": false
+    },
+    {
+      "name": "field_126",
+      "type": "string",
+      "label": "Posição de Instalação (linha 5)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Posição de Instalação (linha 5)",
+      "required": false
+    },
+    {
+      "name": "field_127",
+      "type": "string",
+      "label": "Temperatura (linha 5)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Temperatura (linha 5)",
+      "required": false
+    },
+    {
+      "name": "field_128",
+      "type": "string",
+      "label": "Tipo (linha 6)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Tipo (linha 6)",
+      "required": false
+    },
+    {
+      "name": "field_129",
+      "type": "string",
+      "label": "Fabricante (linha 6)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Fabricante (linha 6)",
+      "required": false
+    },
+    {
+      "name": "field_130",
+      "type": "string",
+      "label": "Código de identificação (linha 6)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Código de identificação (linha 6)",
+      "required": false
+    },
+    {
+      "name": "field_131",
+      "type": "string",
+      "label": "Ano de fabricação (linha 6)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Ano de fabricação (linha 6)",
+      "required": false
+    },
+    {
+      "name": "field_132",
+      "type": "string",
+      "label": "Tempo de Resposta (linha 6)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Tempo de Resposta (linha 6)",
+      "required": false
+    },
+    {
+      "name": "field_133",
+      "type": "string",
+      "label": "Posição de Instalação (linha 6)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Posição de Instalação (linha 6)",
+      "required": false
+    },
+    {
+      "name": "field_134",
+      "type": "string",
+      "label": "Temperatura (linha 6)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Temperatura (linha 6)",
+      "required": false
+    },
+    {
+      "name": "field_135",
+      "type": "string",
+      "label": "Tipo (linha 7)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Tipo (linha 7)",
+      "required": false
+    },
+    {
+      "name": "field_136",
+      "type": "string",
+      "label": "Fabricante (linha 7)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Fabricante (linha 7)",
+      "required": false
+    },
+    {
+      "name": "field_137",
+      "type": "string",
+      "label": "Código de identificação (linha 7)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Código de identificação (linha 7)",
+      "required": false
+    },
+    {
+      "name": "field_138",
+      "type": "string",
+      "label": "Ano de fabricação (linha 7)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Ano de fabricação (linha 7)",
+      "required": false
+    },
+    {
+      "name": "field_139",
+      "type": "string",
+      "label": "Tempo de Resposta (linha 7)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Tempo de Resposta (linha 7)",
+      "required": false
+    },
+    {
+      "name": "field_140",
+      "type": "string",
+      "label": "Posição de Instalação (linha 7)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Posição de Instalação (linha 7)",
+      "required": false
+    },
+    {
+      "name": "field_141",
+      "type": "string",
+      "label": "Temperatura (linha 7)",
+      "description": "7. TANQUES E RESERVATÓRIOS: Temperatura (linha 7)",
+      "required": false
+    },
+    {
+      "name": "field_142",
+      "type": "string",
+      "label": "Data da inspeção",
+      "description": "7. TANQUES E RESERVATÓRIOS: Data da inspeção",
+      "required": false
+    },
+    {
+      "name": "field_143",
+      "type": "string",
+      "label": "Responsável pela inspeção",
+      "description": "7. TANQUES E RESERVATÓRIOS: Responsável pela inspeção",
+      "required": false
+    },
+    {
+      "name": "field_144",
+      "type": "string",
+      "label": "Título profissional",
+      "description": "7. TANQUES E RESERVATÓRIOS: Título profissional",
+      "required": false
+    },
+    {
+      "name": "field_145",
+      "type": "string",
+      "label": "Nome do Resp. Técnico",
+      "description": "7. TANQUES E RESERVATÓRIOS: Nome do Resp. Técnico",
+      "required": false
+    }
+  ]
+}

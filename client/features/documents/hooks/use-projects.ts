@@ -1,12 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { errorMessage } from "@/lib/api/request-json";
+import { mergeProjectData, type ProjectChange } from "../lib/project-fields";
 import {
   archiveProject,
   createProject,
   fetchProjects,
   renameProject,
+  updateProjectData,
   type Project,
 } from "../lib/projects";
 
@@ -77,6 +79,20 @@ export function useProjects(enabled: boolean) {
     }
   }
 
+  /** Merges keys into a project, here at once and on the server behind it. */
+  const saveData = useCallback((id: string, change: ProjectChange) => {
+    setProjects((current) =>
+      current.map((project) =>
+        project.id === id
+          ? { ...project, data: mergeProjectData(project.data, change) }
+          : project,
+      ),
+    );
+    updateProjectData(id, change).catch((cause) =>
+      setError(errorMessage(cause)),
+    );
+  }, []);
+
   return {
     projects,
     selected: projects.find((project) => project.id === selectedId),
@@ -84,6 +100,8 @@ export function useProjects(enabled: boolean) {
     create,
     rename,
     archive,
+
+    saveData,
     creating,
     error,
   };

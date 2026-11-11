@@ -154,6 +154,26 @@ export type Database = {
         Update: Partial<Database["public"]["Tables"]["projects"]["Insert"]>;
         Relationships: [];
       };
+      form_fillings: {
+        Row: {
+          project_id: string;
+          template_id: string;
+          values: Json;
+          updated_by: string | null;
+          updated_at: string;
+        };
+        Insert: {
+          project_id: string;
+          template_id: string;
+          values?: Json;
+          updated_by?: string | null;
+          updated_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["form_fillings"]["Insert"]
+        >;
+        Relationships: [];
+      };
       ppci_answers: {
         Row: {
           project_id: string;
@@ -164,12 +184,6 @@ export type Database = {
           note: string | null;
           updated_by: string | null;
           updated_by_name: string | null;
-      form_fillings: {
-        Row: {
-          project_id: string;
-          template_id: string;
-          values: Json;
-          updated_by: string | null;
           updated_at: string;
         };
         Insert: {
@@ -184,14 +198,6 @@ export type Database = {
           updated_at?: string;
         };
         Update: Partial<Database["public"]["Tables"]["ppci_answers"]["Insert"]>;
-          template_id: string;
-          values?: Json;
-          updated_by?: string | null;
-          updated_at?: string;
-        };
-        Update: Partial<
-          Database["public"]["Tables"]["form_fillings"]["Insert"]
-        >;
         Relationships: [];
       };
       ppci_checklists: {

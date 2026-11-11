@@ -53,8 +53,12 @@ export function useDocumentFilling(
   const [attempted, setAttempted] = useState(false);
   /** The project's data when the form was chosen, for filling it once its fields load. */
   const [prefill, setPrefill] = useState<ProjectData>({});
-  /** What was saved for each form of the current project. */
-  const [fillings, setFillings] = useState<Filling[]>([]);
+  /** What was saved for each form, with the project it belongs to. */
+  const [saved, setSaved] = useState<{ projectId?: string; list: Filling[] }>({
+    list: [],
+  });
+  /** The project the open form's saved values are loaded for, fixed when the form is chosen. */
+  const [loadProjectId, setLoadProjectId] = useState<string>();
   const [pdf, setPdf] = useState<{ url: string; fileName: string }>();
   const [notice, setNotice] = useState<string>();
   /** The values as of the last change, for generating right after a merge. */
@@ -65,20 +69,18 @@ export function useDocumentFilling(
 
   const template = templates.find((entry) => entry.id === selectedId);
   const projectId = project?.id;
-  const projectIdRef = useRef(projectId);
-  projectIdRef.current = projectId;
+  const fillings = saved.projectId === projectId ? saved.list : [];
   const steps = useMemo(
     () => (schema ? conversationSteps(schema, guide) : []),
     [schema, guide],
   );
 
   useEffect(() => {
-    setFillings([]);
     if (!projectId) return;
     let cancelled = false;
     fetchFillings(projectId).then(
       (body) => {
-        if (!cancelled) setFillings(body.fillings);
+        if (!cancelled) setSaved({ projectId, list: body.fillings });
       },
       () => undefined,
     );
@@ -98,8 +100,8 @@ export function useDocumentFilling(
   useEffect(() => {
     if (!template) return;
     let cancelled = false;
-    const saved = projectIdRef.current
-      ? fetchFillings(projectIdRef.current).then(
+    const savedFillings = loadProjectId
+      ? fetchFillings(loadProjectId).then(
           (body) => body.fillings,
           () => [] as Filling[],
         )
@@ -107,13 +109,13 @@ export function useDocumentFilling(
     Promise.all([
       loadTemplateSchema(template),
       loadTemplateGuide(template),
-      saved,
+      savedFillings,
     ])
-      .then(([loaded, loadedGuide, savedFillings]) => {
+      .then(([loaded, loadedGuide, filledForms]) => {
         if (cancelled) return;
         setGuide(loadedGuide);
-        setFillings(savedFillings);
-        const own = savedFillings.find(
+        setSaved({ projectId: loadProjectId, list: filledForms });
+        const own = filledForms.find(
           (filling) => filling.template_id === template.id,
         );
         const known = {
@@ -140,7 +142,7 @@ export function useDocumentFilling(
     return () => {
       cancelled = true;
     };
-  }, [template, prefill]);
+  }, [template, prefill, loadProjectId]);
 
   function discardPdf() {
     pdfRequest.current += 1;
@@ -174,14 +176,19 @@ export function useDocumentFilling(
       const templateId = template.id;
       saveFilling(project.id, templateId, current).then(
         () =>
-          setFillings((list) => [
-            {
-              template_id: templateId,
-              values,
-              updated_at: new Date().toISOString(),
-            },
-            ...list.filter((filling) => filling.template_id !== templateId),
-          ]),
+          setSaved((current) => ({
+            projectId: project.id,
+            list: [
+              {
+                template_id: templateId,
+                values,
+                updated_at: new Date().toISOString(),
+              },
+              ...(current.projectId === project.id ? current.list : []).filter(
+                (filling) => filling.template_id !== templateId,
+              ),
+            ],
+          })),
         (cause) => setNotice(errorMessage(cause)),
       );
     },
@@ -221,6 +228,7 @@ export function useDocumentFilling(
     setNotice(undefined);
     clearTimeout(pendingSave.current);
     setPrefill(project?.data ?? {});
+    setLoadProjectId(project?.id);
     setSelectedId(id);
     setSchema(undefined);
     setGuide(undefined);

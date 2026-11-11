@@ -7,3 +7,11 @@ services:
     environment:
       GOTENBERG_API_BASIC_AUTH_USERNAME: local
       GOTENBERG_API_BASIC_AUTH_PASSWORD: local-only
+
+  # Local proposal service; same note about the token as above.
+  pptx:
+    build: services/pptx
+    ports:
+      - "127.0.0.1:3002:8000"
+    environment:
+      PPTX_SERVICE_TOKEN: local-only

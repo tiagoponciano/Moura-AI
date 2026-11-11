@@ -12,6 +12,36 @@ Internal platform for Moura Soluções em Engenharia, a fire-prevention engineer
 
 ![Moura AI home page: a 3D building with sprinklers and a fire on one floor, and a card for each module](docs/assets/home.png)
 
+## Built with
+
+<table>
+<tr>
+<td align="center" width="140"><img src="docs/assets/icons/typescript.svg" alt="TypeScript" height="40" /><br />TypeScript</td>
+<td align="center" width="140"><img src="docs/assets/icons/nextdotjs.svg" alt="Next.js" height="40" /><br />Next.js</td>
+<td align="center" width="140"><img src="docs/assets/icons/tailwindcss.svg" alt="Tailwind CSS" height="40" /><br />Tailwind CSS</td>
+<td align="center" width="140"><img src="docs/assets/icons/zod.svg" alt="Zod" height="40" /><br />Zod</td>
+<td align="center" width="140"><img src="docs/assets/icons/supabase.svg" alt="Supabase" height="40" /><br />Supabase</td>
+</tr>
+<tr>
+<td align="center"><img src="docs/assets/icons/python.svg" alt="Python" height="40" /><br />Python</td>
+<td align="center"><img src="docs/assets/icons/docker.svg" alt="Docker" height="40" /><br />Docker</td>
+<td align="center"><img src="docs/assets/icons/vercel.svg" alt="Vercel" height="40" /><br />Vercel</td>
+<td align="center" colspan="2"></td>
+</tr>
+</table>
+
+### AI providers
+
+An admin picks the provider and model on `/admin`; the code is the same for all of them.
+
+<table>
+<tr>
+<td align="center" width="200"><img src="docs/assets/icons/claude.svg" alt="Claude" height="40" /><br />Claude (Anthropic)</td>
+<td align="center" width="200"><img src="docs/assets/icons/openai.svg" alt="OpenAI" height="40" /><br />ChatGPT (OpenAI)</td>
+<td align="center" width="200"><img src="docs/assets/icons/googlegemini.svg" alt="Gemini" height="40" /><br />Gemini (Google)</td>
+</tr>
+</table>
+
 ## What it does
 
 Preparing a fire-prevention project (PPCI) for the Santa Catarina fire department (CBMSC) means filling the same official `.docx` forms over and over, checking the project against a review checklist, and sending the client a proposal. Moura AI does that work inside one app, organized in three modules.
@@ -22,7 +52,9 @@ The model never writes a document. It extracts data from the conversation into a
 | ----------------------- | ----------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Documents               | `/documents`      | Working | Fills the CBMSC forms from a chat, saves each filling per project, keeps the shared project data and its change history, answers Moura's PPCI checklist, and generates the commercial proposal (`.pptx`/PDF) |
 | Classification          | `/classification` | Preview | Lists the preventive systems a building needs from four answers (area, height, floors, occupancy). The rule set is provisional and is not the CBMSC Normative Instructions yet                               |
-| Floor plans (PDF → DWG) | `/floor-plans`    | Preview | Uploads and previews a floor plan PDF. The conversion to DWG is not built yet                                                                                                                                |
+| Floor plans (PDF → DWG) | `/floor-plans`    | Preview | Uploads a floor plan (PDF, JPEG or PNG), reads its scale and converts it to DXF or DWG through the `services/dwg` microservice. Not tried on real Moura plans yet                                            |
+
+![Floor plans module: upload area, drawing scale field and the DXF and DWG download buttons](docs/assets/floor-plans.png)
 
 ![Classification module: a building form with four unanswered fields and the list of required preventive systems](docs/assets/classification.png)
 
@@ -52,13 +84,14 @@ Tested with Node.js 24 and pnpm 10.33. CI uses Node 22+ and, for the proposal se
 
 4. Open <http://localhost:3000>.
 
-With the Supabase variables left empty, the app runs without login or persistence: the home page, Classification and Floor plans work, but chats cannot answer and Documents shows only a placeholder, because the form catalog, projects and AI model settings live in Supabase. To turn those on, follow the Setup section of [`authentication.md`](client/docs/authentication.md): create the project, apply `supabase/migrations/` in filename order, configure Google in Supabase Auth and create the first admin with SQL. Then sign in, open "Administração", pick the AI provider and model and save its API key.
+With the Supabase variables left empty, the app runs without login or persistence: the home page, Classification and the Floor plans screen work, but chats cannot answer and Documents shows only a placeholder, because the form catalog, projects and AI model settings live in Supabase. To turn those on, follow the Setup section of [`authentication.md`](client/docs/authentication.md): create the project, apply `supabase/migrations/` in filename order, configure Google in Supabase Auth and create the first admin with SQL. Then sign in, open "Administração", pick the AI provider and model and save its API key.
 
-The two microservices are optional and run with Docker:
+The three microservices are optional and run with Docker:
 
 ```bash
 docker compose up -d pdf    # PDF output, http://localhost:3001
 docker compose up -d pptx   # commercial proposal, http://localhost:3002
+docker compose up -d dwg    # floor plan conversion
 ```
 
 The local credentials for `client/.env.local` are in `docker-compose.yml`.
@@ -76,6 +109,7 @@ Every variable is listed in [`.env.example`](.env.example). Server-only variable
 | `CRON_SECRET`                                                 | for the daily check | Authenticates Vercel Cron on `/api/cron/cbmsc-forms`; without it the route answers 503          |
 | `PDF_SERVICE_URL`, `PDF_SERVICE_USER`, `PDF_SERVICE_PASSWORD` | for PDF             | The `services/pdf` microservice. Without the URL only the `.docx` is generated                  |
 | `PPTX_SERVICE_URL`, `PPTX_SERVICE_TOKEN`                      | for proposals       | The `services/pptx` microservice that fills the proposal template                               |
+| `DWG_SERVICE_URL`, `DWG_SERVICE_TOKEN`                        | for floor plans     | The `services/dwg` microservice that converts plans to DXF/DWG                                  |
 
 ## Layout
 
@@ -89,6 +123,7 @@ client/                 # the app: Next.js App Router, TypeScript, Tailwind v4, 
 └── proxy.ts            #   login gate for every page and API route
 services/pdf/           # PDF microservice (Gotenberg); no AI, storage or database
 services/pptx/          # proposal microservice (FastAPI + python-pptx); no AI, storage or database
+services/dwg/           # plan to DXF/DWG microservice; no AI, storage or database
 supabase/migrations/    # the only place tables, RLS and storage buckets are defined
 docs/assets/            # screenshots used by this README
 ```

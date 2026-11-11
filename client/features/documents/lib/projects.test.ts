@@ -27,6 +27,12 @@ describe("projectUpdateSchema", () => {
     ).toBe(true);
   });
 
+  it("accepts null to clear a field", () => {
+    expect(
+      projectUpdateSchema.safeParse({ data: { owner_name: null } }).success,
+    ).toBe(true);
+  });
+
   it("refuses a key the project does not share", () => {
     expect(
       projectUpdateSchema.safeParse({ data: { question: "x" } }).success,

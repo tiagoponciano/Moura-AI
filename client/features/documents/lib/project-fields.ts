@@ -1,41 +1,112 @@
 import type { FieldValues, TemplateSchema } from "./templates";
 
-/** What a project remembers across forms: the property, its owner and the engineer. */
-export const PROJECT_FIELD_KEYS = [
-  "property_street",
-  "property_number",
-  "property_complement",
-  "property_district",
-  "property_city",
-  "property_postal_code",
-  "property_re",
-  "property_cnpj",
-  "property_protocol",
-  "property_occupancy",
-  "property_building_name",
-  "property_company_name",
-  "property_details",
-  "owner_name",
-  "owner_email",
-  "owner_phone",
-  "technical_name",
-  "technical_tax_id",
-  "technical_id_card",
-  "technical_email",
-  "technical_phone",
-  "technical_registry",
-  "technical_street",
-  "technical_number",
-  "technical_complement",
-  "technical_district",
-  "technical_city",
-  "technical_postal_code",
+/** What a project remembers across forms, as its panel shows it (labels are UI copy). */
+export const PROJECT_FIELD_GROUPS = [
+  {
+    id: "property",
+    title: "Imóvel",
+    fields: [
+      { key: "property_street", label: "Logradouro" },
+      { key: "property_number", label: "Número" },
+      { key: "property_complement", label: "Complemento" },
+      { key: "property_district", label: "Bairro" },
+      { key: "property_city", label: "Cidade" },
+      { key: "property_postal_code", label: "CEP" },
+      { key: "property_re", label: "RE" },
+      { key: "property_cnpj", label: "CNPJ" },
+      { key: "property_protocol", label: "Protocolo" },
+      { key: "property_occupancy", label: "Ocupação" },
+      { key: "property_building_name", label: "Nome da edificação" },
+      { key: "property_company_name", label: "Nome da empresa" },
+      { key: "property_total_area", label: "Área total (m²)" },
+      { key: "property_floors", label: "Nº de pavimentos" },
+      { key: "property_blocks", label: "Nº de blocos" },
+      { key: "property_details", label: "Detalhes" },
+    ],
+  },
+  {
+    id: "owner",
+    title: "Responsável pelo imóvel",
+    fields: [
+      { key: "owner_name", label: "Nome ou razão social" },
+      { key: "owner_tax_id", label: "CPF/CNPJ" },
+      { key: "owner_id_card", label: "RG" },
+      { key: "owner_email", label: "E-mail" },
+      { key: "owner_phone", label: "Telefone" },
+      { key: "owner_street", label: "Logradouro" },
+      { key: "owner_number", label: "Número" },
+      { key: "owner_complement", label: "Complemento" },
+      { key: "owner_district", label: "Bairro" },
+      { key: "owner_city", label: "Cidade" },
+      { key: "owner_postal_code", label: "CEP" },
+    ],
+  },
+  {
+    id: "technical",
+    title: "Responsável técnico",
+    fields: [
+      { key: "technical_name", label: "Nome" },
+      { key: "technical_tax_id", label: "CPF/CNPJ" },
+      { key: "technical_id_card", label: "RG" },
+      { key: "technical_registry", label: "Nº de registro" },
+      { key: "technical_email", label: "E-mail" },
+      { key: "technical_phone", label: "Telefone" },
+      { key: "technical_street", label: "Logradouro" },
+      { key: "technical_number", label: "Número" },
+      { key: "technical_complement", label: "Complemento" },
+      { key: "technical_district", label: "Bairro" },
+      { key: "technical_city", label: "Cidade" },
+      { key: "technical_postal_code", label: "CEP" },
+    ],
+  },
 ] as const;
+
+export type ProjectFieldGroup = (typeof PROJECT_FIELD_GROUPS)[number];
+
+export const PROJECT_FIELD_KEYS: readonly string[] =
+  PROJECT_FIELD_GROUPS.flatMap((group) =>
+    group.fields.map((field) => field.key),
+  );
 
 export type ProjectData = Record<string, string>;
 
+/** Keys to merge into a project's data; `null` clears one. */
+export type ProjectChange = Record<string, string | null>;
+
 export const isProjectFieldKey = (key: string) =>
-  (PROJECT_FIELD_KEYS as readonly string[]).includes(key);
+  PROJECT_FIELD_KEYS.includes(key);
+
+/** A project's data after a change: other keys stay, and `null` removes a key. */
+export function mergeProjectData(
+  data: ProjectData,
+  change: ProjectChange,
+): ProjectData {
+  const merged: ProjectData = { ...data };
+  for (const [key, value] of Object.entries(change)) {
+    if (value === null) delete merged[key];
+    else merged[key] = value;
+  }
+  return merged;
+}
+
+/** How many of a group's fields the project has, for its toggle. */
+export function groupProgress(group: ProjectFieldGroup, data: ProjectData) {
+  return {
+    filled: group.fields.filter((field) => data[field.key]).length,
+    total: group.fields.length,
+  };
+}
+
+/** What a field edited in the panel changes; `undefined` when nothing did. */
+export function fieldChange(
+  key: string,
+  value: string,
+  data: ProjectData,
+): ProjectChange | undefined {
+  const clean = value.trim();
+  if (clean === (data[key] ?? "")) return undefined;
+  return { [key]: clean || null };
+}
 
 /** The form values a project already knows. */
 export function valuesFromProject(

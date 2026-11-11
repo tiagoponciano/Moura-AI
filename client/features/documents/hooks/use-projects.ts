@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { errorMessage } from "@/lib/api/request-json";
-import type { ProjectData } from "../lib/project-fields";
+import { mergeProjectData, type ProjectChange } from "../lib/project-fields";
 import {
   createProject,
   fetchProjects,
@@ -47,15 +47,17 @@ export function useProjects(enabled: boolean) {
   }
 
   /** Merges keys into a project, here at once and on the server behind it. */
-  const saveData = useCallback((id: string, data: ProjectData) => {
+  const saveData = useCallback((id: string, change: ProjectChange) => {
     setProjects((current) =>
       current.map((project) =>
         project.id === id
-          ? { ...project, data: { ...project.data, ...data } }
+          ? { ...project, data: mergeProjectData(project.data, change) }
           : project,
       ),
     );
-    updateProjectData(id, data).catch((cause) => setError(errorMessage(cause)));
+    updateProjectData(id, change).catch((cause) =>
+      setError(errorMessage(cause)),
+    );
   }, []);
 
   return {

@@ -1,6 +1,7 @@
 import { parseJsonBody } from "@/lib/api/parse-json-body";
 import { requireUser } from "@/lib/auth/require-user";
 import { z } from "zod";
+import { mergeProjectData, type ProjectData } from "../lib/project-fields";
 import { projectCreateSchema, projectUpdateSchema } from "../lib/projects";
 
 const failure = (message: string, cause: unknown) => {
@@ -70,7 +71,7 @@ export async function handleUpdateProject(
   const { error } = await session.supabase
     .from("projects")
     .update({
-      data: { ...(current.data as Record<string, string>), ...body.data.data },
+      data: mergeProjectData(current.data as ProjectData, body.data.data),
     })
     .eq("id", id);
   if (error) return failure("Failed to update the project", error);

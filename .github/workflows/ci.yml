@@ -32,3 +32,19 @@ jobs:
       - run: npx tsc --noEmit
       - run: pnpm run test
       - run: pnpm run build
+
+  dwg-service:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: services/dwg
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: services/dwg/requirements-dev.txt
+      - run: pip install -r requirements-dev.txt
+      - run: python -m pytest -q

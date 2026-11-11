@@ -18,6 +18,7 @@ import type { TemplateEntry } from "../lib/templates";
 import { CbmscFormsBrowser } from "./cbmsc-forms-browser";
 import { PpciChecklist } from "./ppci-checklist";
 import { ProjectBar, type ProjectView } from "./project-bar";
+import { ProposalForm } from "./proposal-form";
 import { ProjectDetails } from "./project-details";
 import { StartedForms } from "./started-forms";
 
@@ -89,6 +90,8 @@ export function FormsHome({
             />
           ) : project && shown === "checklist" ? (
             <PpciChecklist key={project.id} projectId={project.id} />
+          ) : project && shown === "proposal" ? (
+            <ProposalForm key={project.id} project={project} />
           ) : (
             <>
               {project && (

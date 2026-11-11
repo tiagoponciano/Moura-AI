@@ -1,6 +1,12 @@
 "use client";
 
-import { ClipboardCheck, ClipboardList, Loader2, Plus } from "lucide-react";
+import {
+  ClipboardCheck,
+  ClipboardList,
+  FileText,
+  Loader2,
+  Plus,
+} from "lucide-react";
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,7 +21,7 @@ import type { useProjects } from "../hooks/use-projects";
 import { ProjectActions } from "./project-actions";
 
 /** What the dialog shows under the project bar. */
-export type ProjectView = "forms" | "details" | "checklist";
+export type ProjectView = "forms" | "details" | "checklist" | "proposal";
 
 type ProjectBarProps = {
   projects: ReturnType<typeof useProjects>;
@@ -93,6 +99,16 @@ export function ProjectBar({
         >
           <ClipboardCheck />
           {view === "checklist" ? "Ver formulários" : "Checklist PPCI"}
+        </Button>
+        <Button
+          type="button"
+          variant={view === "proposal" ? "secondary" : "outline"}
+          disabled={!projects.selected}
+          aria-pressed={view === "proposal"}
+          onClick={() => onView(view === "proposal" ? "forms" : "proposal")}
+        >
+          <FileText />
+          {view === "proposal" ? "Ver formulários" : "Proposta"}
         </Button>
         <form
           onSubmit={handleSubmit}

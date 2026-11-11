@@ -88,3 +88,19 @@ def test_it_is_unavailable_without_a_configured_token(monkeypatch):
 def test_health_says_whether_dwg_is_available(monkeypatch):
     monkeypatch.setattr(main, "dwg_converter", lambda: None)
     assert client.get("/health").json() == {"status": "ok", "dwg": False}
+
+
+def test_the_scale_multiplies_every_coordinate():
+    one = client.post("/convert", files=upload(vector_pdf()), headers=AUTH)
+    hundred = client.post("/convert?scale=100", files=upload(vector_pdf()), headers=AUTH)
+
+    def widest(text: str) -> float:
+        doc = ezdxf.read(io.StringIO(text))
+        return max(abs(e.dxf.end.x - e.dxf.start.x) for e in doc.modelspace() if e.dxftype() == "LINE")
+
+    assert widest(hundred.text) == pytest.approx(widest(one.text) * 100)
+
+
+def test_a_scale_outside_1_to_5000_is_refused():
+    response = client.post("/convert?scale=0", files=upload(vector_pdf()), headers=AUTH)
+    assert response.status_code == 422

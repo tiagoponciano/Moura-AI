@@ -15,6 +15,7 @@ from fastapi import FastAPI, File, Header, HTTPException, Query, Response, Uploa
 
 from .crops import crop_regions
 from .dxf import dwg_converter, dxf_to_dwg, to_dxf
+from .geometry import scaled
 from .raster import read_image
 from .vector import read_vector_pdf
 
@@ -71,9 +72,10 @@ def health() -> dict[str, object]:
 async def convert(
     file: UploadFile = File(...),
     format: Literal["dxf", "dwg"] = Query("dxf"),
+    scale: int = Query(1, ge=1, le=5000),
     authorization: str | None = Header(default=None),
 ) -> Response:
-    """The plan as DXF or DWG. `X-Mode` is `vector` or `raster`; `X-Warnings` lists quality problems."""
+    """The plan as DXF or DWG. `scale` is the drawing's scale denominator (100 for 1:100), applied to every coordinate. `X-Mode` is `vector` or `raster`; `X-Warnings` lists quality problems."""
     check_token(authorization)
     data = await read_upload(file)
 
@@ -92,7 +94,7 @@ async def convert(
     if plan is None:
         plan = read_image(image, RASTER_DPI)
 
-    dxf = to_dxf(plan)
+    dxf = to_dxf(scaled(plan, scale) if scale != 1 else plan)
     if format == "dwg":
         if dwg_converter() is None:
             raise HTTPException(501, "DWG conversion is not available on this service")

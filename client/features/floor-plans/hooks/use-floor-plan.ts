@@ -6,9 +6,14 @@ import {
   checkFloorPlanFile,
 } from "../lib/floor-plan-file";
 
-export type SelectedFloorPlan = { name: string; url: string };
+export type SelectedFloorPlan = {
+  name: string;
+  url: string;
+  file: File;
+  isImage: boolean;
+};
 
-/** The PDF chosen for conversion, kept in the browser until the converter exists. */
+/** The plan chosen for conversion, kept in the browser until it is converted. */
 export function useFloorPlan() {
   const [plan, setPlan] = useState<SelectedFloorPlan>();
   const [problem, setProblem] = useState<string>();
@@ -28,7 +33,12 @@ export function useFloorPlan() {
       return;
     }
     setProblem(undefined);
-    setPlan({ name: file.name, url: URL.createObjectURL(file) });
+    setPlan({
+      name: file.name,
+      url: URL.createObjectURL(file),
+      file,
+      isImage: file.type.startsWith("image/"),
+    });
   }
 
   function clear() {

@@ -18,15 +18,21 @@ describe("checkFloorPlanFile", () => {
     ).toBeUndefined();
   });
 
-  it("rejects files that are not PDFs, including images and DWG", () => {
+  it("accepts a JPEG and a PNG within the size limit", () => {
     expect(
       checkFloorPlanFile({ mimeType: "image/jpeg", sizeBytes: 1024 }),
-    ).toBe("not_pdf");
+    ).toBeUndefined();
+    expect(
+      checkFloorPlanFile({ mimeType: "image/png", sizeBytes: 1024 }),
+    ).toBeUndefined();
+  });
+
+  it("rejects other types, including DWG and an unknown type", () => {
     expect(
       checkFloorPlanFile({ mimeType: "image/vnd.dwg", sizeBytes: 1024 }),
-    ).toBe("not_pdf");
+    ).toBe("unsupported");
     expect(checkFloorPlanFile({ mimeType: "", sizeBytes: 1024 })).toBe(
-      "not_pdf",
+      "unsupported",
     );
   });
 

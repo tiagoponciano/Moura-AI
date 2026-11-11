@@ -10,7 +10,7 @@ type PlanDropZoneProps = {
   onSelect: (file: File) => void;
 };
 
-/** Click or drop target for the floor plan PDF. */
+/** Click or drop target for the floor plan. */
 export function PlanDropZone({ problem, onSelect }: PlanDropZoneProps) {
   const [dragging, setDragging] = useState(false);
 
@@ -38,7 +38,9 @@ export function PlanDropZone({ problem, onSelect }: PlanDropZoneProps) {
         <div className="flex size-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
           <FileUp className="size-5" />
         </div>
-        <span className="text-sm font-medium">Enviar planta em PDF</span>
+        <span className="text-sm font-medium">
+          Enviar a planta (PDF, JPEG ou PNG)
+        </span>
         <span className="text-xs text-muted-foreground">
           Clique ou arraste o arquivo (até 20 MB)
         </span>

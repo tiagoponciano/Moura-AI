@@ -1,16 +1,19 @@
 import { ATTACHMENT_MAX_BYTES } from "@/lib/attachments/rules";
 
-export type FloorPlanFileProblem = "not_pdf" | "empty" | "too_large";
+export type FloorPlanFileProblem = "unsupported" | "empty" | "too_large";
+
+const FLOOR_PLAN_TYPES = ["application/pdf", "image/jpeg", "image/png"];
 
 /** `accept` attribute of the floor plan input. */
-export const FLOOR_PLAN_ACCEPT = ".pdf,application/pdf";
+export const FLOOR_PLAN_ACCEPT =
+  ".pdf,.jpg,.jpeg,.png,application/pdf,image/jpeg,image/png";
 
 /** Shown under the drop zone. */
 export const FLOOR_PLAN_PROBLEM_MESSAGE: Record<FloorPlanFileProblem, string> =
   {
-    not_pdf: "Envie a planta em PDF.",
+    unsupported: "Envie a planta em PDF, JPEG ou PNG.",
     empty: "O arquivo está vazio.",
-    too_large: "O PDF passa de 20 MB.",
+    too_large: "O arquivo passa de 20 MB.",
   };
 
 /**
@@ -24,7 +27,7 @@ export function checkFloorPlanFile({
   mimeType: string;
   sizeBytes: number;
 }): FloorPlanFileProblem | undefined {
-  if (mimeType !== "application/pdf") return "not_pdf";
+  if (!FLOOR_PLAN_TYPES.includes(mimeType)) return "unsupported";
   if (sizeBytes <= 0) return "empty";
   if (sizeBytes > ATTACHMENT_MAX_BYTES) return "too_large";
   return undefined;

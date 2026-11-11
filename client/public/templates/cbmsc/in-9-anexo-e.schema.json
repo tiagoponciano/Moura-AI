@@ -11,8 +11,8 @@
     {
       "name": "field_002",
       "type": "string",
-      "label": "Nº",
-      "description": "Nº",
+      "label": "N.º",
+      "description": "N.º.",
       "required": false,
       "projectKey": "property_number"
     },

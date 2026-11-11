@@ -11,8 +11,8 @@
     {
       "name": "field_002",
       "type": "string",
-      "label": "Nº",
-      "description": "Nº",
+      "label": "N.º",
+      "description": "N.º.",
       "required": false,
       "projectKey": "property_number"
     },
@@ -99,10 +99,10 @@
     {
       "name": "field_013",
       "type": "string",
-      "label": "Nº",
-      "description": "Nº",
+      "label": "Nº. do Registro Profissional",
+      "description": "Nº. do Registro Profissional",
       "required": false,
-      "projectKey": "technical_number"
+      "projectKey": "technical_registry"
     },
     {
       "name": "field_014",
@@ -720,8 +720,8 @@
     {
       "name": "field_053",
       "type": "string",
-      "label": "Nº",
-      "description": "Nº",
+      "label": "Nº. do Registro Profissional",
+      "description": "Nº. do Registro Profissional",
       "required": false
     },
     {
@@ -1193,8 +1193,8 @@
     {
       "name": "field_082",
       "type": "string",
-      "label": "Nº",
-      "description": "Nº",
+      "label": "Nº. do Registro Profissional",
+      "description": "Nº. do Registro Profissional",
       "required": false
     }
   ]

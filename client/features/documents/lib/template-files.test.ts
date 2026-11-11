@@ -41,6 +41,15 @@ describe.each(entries)("template $id", (entry) => {
     expect(new Set(keys).size).toBe(keys.length);
   });
 
+  it("ties a number key only to a field that is a street number", () => {
+    const wrong = schema.fields.filter(
+      (field) =>
+        field.projectKey?.endsWith("_number") &&
+        !/^(n\.?\s?[º°]|n[uú]mero)/i.test(field.label),
+    );
+    expect(wrong.map((field) => field.label)).toEqual([]);
+  });
+
   it("has no note about copying the Google Doc in its headers", () => {
     const zip = new PizZip(read(entry.file));
     const headers = Object.keys(zip.files)

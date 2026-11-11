@@ -38,7 +38,7 @@
       "label": "Nº de registro no conselho de classe (se RT)",
       "description": "1. Responsável técnico pela execução da obra ou responsável pelo imóvel: Nº de registro no conselho de classe (se RT):",
       "required": false,
-      "projectKey": "technical_number"
+      "projectKey": "technical_registry"
     },
     {
       "name": "field_006",
@@ -61,7 +61,8 @@
       "type": "string",
       "label": "Nº",
       "description": "1. Responsável técnico pela execução da obra ou responsável pelo imóvel: Nº:",
-      "required": false
+      "required": false,
+      "projectKey": "technical_number"
     },
     {
       "name": "field_009",

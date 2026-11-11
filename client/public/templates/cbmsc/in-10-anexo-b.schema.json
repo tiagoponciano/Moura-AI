@@ -776,10 +776,9 @@
     {
       "name": "field_057",
       "type": "string",
-      "label": "Nº",
-      "description": "8. Informações e diagrama elétrico dos sistemas: Nº",
-      "required": false,
-      "projectKey": "technical_number"
+      "label": "Nº. do Registro Profissional",
+      "description": "8. Informações e diagrama elétrico dos sistemas: Nº. do Registro Profissional",
+      "required": false
     }
   ]
 }

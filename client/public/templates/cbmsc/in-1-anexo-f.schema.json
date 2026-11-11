@@ -71,7 +71,8 @@
       "type": "string",
       "label": "CPF",
       "description": "3. Dados da edificação objeto do requerimento: CPF:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_tax_id"
     },
     {
       "name": "field_011",
@@ -85,42 +86,48 @@
       "type": "string",
       "label": "Logradouro",
       "description": "3. Dados da edificação objeto do requerimento: Logradouro:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_street"
     },
     {
       "name": "field_013",
       "type": "string",
       "label": "Nº",
       "description": "3. Dados da edificação objeto do requerimento: Nº:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_number"
     },
     {
       "name": "field_014",
       "type": "string",
       "label": "Complemento",
       "description": "3. Dados da edificação objeto do requerimento: Complemento:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_complement"
     },
     {
       "name": "field_015",
       "type": "string",
       "label": "Bairro",
       "description": "3. Dados da edificação objeto do requerimento: Bairro:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_district"
     },
     {
       "name": "field_016",
       "type": "string",
       "label": "Cidade",
       "description": "3. Dados da edificação objeto do requerimento: Cidade:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_city"
     },
     {
       "name": "field_017",
       "type": "string",
       "label": "CEP",
       "description": "3. Dados da edificação objeto do requerimento: CEP:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_postal_code"
     },
     {
       "name": "field_018",

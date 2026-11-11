@@ -27,7 +27,8 @@
       "type": "string",
       "label": "CPF/CNPJ",
       "description": "1. Autuado: CPF/CNPJ:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_tax_id"
     },
     {
       "name": "field_005",
@@ -50,42 +51,48 @@
       "type": "string",
       "label": "Logradouro",
       "description": "1. Autuado: Logradouro:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_street"
     },
     {
       "name": "field_008",
       "type": "string",
       "label": "Nº",
       "description": "1. Autuado: Nº:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_number"
     },
     {
       "name": "field_009",
       "type": "string",
       "label": "Complemento",
       "description": "1. Autuado: Complemento:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_complement"
     },
     {
       "name": "field_010",
       "type": "string",
       "label": "Bairro",
       "description": "1. Autuado: Bairro:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_district"
     },
     {
       "name": "field_011",
       "type": "string",
       "label": "Cidade",
       "description": "1. Autuado: Cidade:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_city"
     },
     {
       "name": "field_012",
       "type": "string",
       "label": "CEP",
       "description": "1. Autuado: CEP:",
-      "required": false
+      "required": false,
+      "projectKey": "owner_postal_code"
     },
     {
       "name": "field_013",

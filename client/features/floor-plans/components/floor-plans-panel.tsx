@@ -3,6 +3,7 @@
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { SelectedFloorPlan } from "../hooks/use-floor-plan";
+import type { useFloorPlanConversion } from "../hooks/use-floor-plan-conversion";
 import { ConversionNotice } from "./conversion-notice";
 import { ConversionResult } from "./conversion-result";
 import { PlanDropZone } from "./plan-drop-zone";
@@ -10,14 +11,16 @@ import { PlanPreview } from "./plan-preview";
 
 type FloorPlansPanelProps = {
   plan?: SelectedFloorPlan;
+  conversion: ReturnType<typeof useFloorPlanConversion>;
   problem?: string;
   onSelect: (file: File) => void;
   onClear: () => void;
 };
 
-/** Side panel: the PDF upload and preview, the conversion result and the notice. */
+/** Side panel: the plan upload and preview, the conversion and the notice. */
 export function FloorPlansPanel({
   plan,
+  conversion,
   problem,
   onSelect,
   onClear,
@@ -33,7 +36,10 @@ export function FloorPlansPanel({
             <PlanDropZone problem={problem} onSelect={onSelect} />
           )}
         </section>
-        <ConversionResult />
+        <ConversionResult
+          hasPlan={plan !== undefined}
+          conversion={conversion}
+        />
       </div>
       <div className="flex flex-col gap-2 border-t px-5 py-4">
         <ConversionNotice />

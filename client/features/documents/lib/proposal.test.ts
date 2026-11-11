@@ -75,8 +75,9 @@ describe("proposalValues", () => {
 
 describe("proposalBody", () => {
   it("defaults the validity to 10 days", () => {
-    const { validityDays: _ignored, ...rest } = request;
-    expect(proposalBody.parse(rest).validityDays).toBe(10);
+    const withoutValidity: Partial<typeof request> = { ...request };
+    delete withoutValidity.validityDays;
+    expect(proposalBody.parse(withoutValidity).validityDays).toBe(10);
   });
 
   it("refuses an unknown plan", () => {

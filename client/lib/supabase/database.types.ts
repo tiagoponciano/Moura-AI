@@ -174,6 +174,32 @@ export type Database = {
         >;
         Relationships: [];
       };
+      ppci_answers: {
+        Row: {
+          project_id: string;
+          checklist_version: string;
+          group_position: number;
+          item_position: number;
+          status: "atende" | "adequar" | "na" | null;
+          note: string | null;
+          updated_by: string | null;
+          updated_by_name: string | null;
+          updated_at: string;
+        };
+        Insert: {
+          project_id: string;
+          checklist_version: string;
+          group_position: number;
+          item_position: number;
+          status?: "atende" | "adequar" | "na" | null;
+          note?: string | null;
+          updated_by?: string | null;
+          updated_by_name?: string | null;
+          updated_at?: string;
+        };
+        Update: Partial<Database["public"]["Tables"]["ppci_answers"]["Insert"]>;
+        Relationships: [];
+      };
       ppci_checklists: {
         Row: { version: string; created_at: string };
         Insert: { version: string; created_at?: string };

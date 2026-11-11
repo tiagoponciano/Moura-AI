@@ -16,7 +16,8 @@ import type { Filling } from "../lib/fillings";
 import { startedForms } from "../lib/started-forms";
 import type { TemplateEntry } from "../lib/templates";
 import { CbmscFormsBrowser } from "./cbmsc-forms-browser";
-import { ProjectBar } from "./project-bar";
+import { PpciChecklist } from "./ppci-checklist";
+import { ProjectBar, type ProjectView } from "./project-bar";
 import { ProjectDetails } from "./project-details";
 import { StartedForms } from "./started-forms";
 
@@ -34,8 +35,9 @@ export function FormsHome({
   projects,
   onFill,
 }: FormsHomeProps) {
-  const [showDetails, setShowDetails] = useState(false);
+  const [view, setView] = useState<ProjectView>("forms");
   const project = projects.selected;
+  const shown = project ? view : "forms";
 
   if (!isSupabaseConfigured()) {
     return (
@@ -75,16 +77,18 @@ export function FormsHome({
           </DialogHeader>
           <ProjectBar
             projects={projects}
-            showingDetails={showDetails && project !== undefined}
-            onToggleDetails={() => setShowDetails((showing) => !showing)}
-            onCreated={() => setShowDetails(true)}
+            view={shown}
+            onView={setView}
+            onCreated={() => setView("details")}
           />
-          {showDetails && project ? (
+          {project && shown === "details" ? (
             <ProjectDetails
               key={project.id}
               project={project}
               onChange={(change) => projects.saveData(project.id, change)}
             />
+          ) : project && shown === "checklist" ? (
+            <PpciChecklist key={project.id} projectId={project.id} />
           ) : (
             <>
               {project && (

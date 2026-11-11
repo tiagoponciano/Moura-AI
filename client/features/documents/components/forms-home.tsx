@@ -12,19 +12,28 @@ import {
 } from "@/components/ui/dialog";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import type { useProjects } from "../hooks/use-projects";
+import type { Filling } from "../lib/fillings";
+import { startedForms } from "../lib/started-forms";
 import type { TemplateEntry } from "../lib/templates";
 import { CbmscFormsBrowser } from "./cbmsc-forms-browser";
 import { ProjectBar } from "./project-bar";
 import { ProjectDetails } from "./project-details";
+import { StartedForms } from "./started-forms";
 
 type FormsHomeProps = {
   templates: TemplateEntry[];
+  fillings: Filling[];
   projects: ReturnType<typeof useProjects>;
   onFill: (templateId: string) => void;
 };
 
 /** The page with no form open: the forms dialog, already open on arrival. */
-export function FormsHome({ templates, projects, onFill }: FormsHomeProps) {
+export function FormsHome({
+  templates,
+  fillings,
+  projects,
+  onFill,
+}: FormsHomeProps) {
   const [showDetails, setShowDetails] = useState(false);
   const project = projects.selected;
 
@@ -77,7 +86,15 @@ export function FormsHome({ templates, projects, onFill }: FormsHomeProps) {
               onChange={(change) => projects.saveData(project.id, change)}
             />
           ) : (
-            <CbmscFormsBrowser templates={templates} onFill={onFill} />
+            <>
+              {project && (
+                <StartedForms
+                  forms={startedForms(fillings, templates)}
+                  onOpen={onFill}
+                />
+              )}
+              <CbmscFormsBrowser templates={templates} onFill={onFill} />
+            </>
           )}
         </DialogContent>
       </Dialog>

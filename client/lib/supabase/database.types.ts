@@ -140,6 +140,7 @@ export type Database = {
           name: string;
           created_by: string | null;
           created_at: string;
+          archived_at: string | null;
           data: Json;
         };
         Insert: {
@@ -148,6 +149,7 @@ export type Database = {
           name: string;
           created_by?: string | null;
           created_at?: string;
+          archived_at?: string | null;
         };
         Update: Partial<Database["public"]["Tables"]["projects"]["Insert"]>;
         Relationships: [];

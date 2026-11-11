@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { projectCreateSchema, projectUpdateSchema } from "./projects";
+import {
+  projectCreateSchema,
+  projectIdSchema,
+  projectUpdateSchema,
+} from "./projects";
 
 describe("projectCreateSchema", () => {
   it("trims the name", () => {
@@ -20,6 +24,20 @@ describe("projectCreateSchema", () => {
   });
 });
 
+describe("projectIdSchema", () => {
+  it("accepts a uuid", () => {
+    expect(
+      projectIdSchema.safeParse("3f2c1a9e-8b7d-4c6e-9a10-5d4e3f2a1b0c").success,
+    ).toBe(true);
+  });
+
+  it("refuses an id that is not a uuid", () => {
+    expect(projectIdSchema.safeParse("1; drop table projects").success).toBe(
+      false,
+    );
+  });
+});
+
 describe("projectUpdateSchema", () => {
   it("accepts known project fields", () => {
     expect(
@@ -37,5 +55,15 @@ describe("projectUpdateSchema", () => {
     expect(
       projectUpdateSchema.safeParse({ data: { question: "x" } }).success,
     ).toBe(false);
+  });
+
+  it("accepts a new name alone", () => {
+    expect(projectUpdateSchema.safeParse({ name: "Padaria" }).success).toBe(
+      true,
+    );
+  });
+
+  it("refuses a body with neither a name nor data", () => {
+    expect(projectUpdateSchema.safeParse({}).success).toBe(false);
   });
 });

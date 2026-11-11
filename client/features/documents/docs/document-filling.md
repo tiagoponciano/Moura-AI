@@ -69,7 +69,8 @@ Source tracking is app-wide, shared with Classificação, in `client/lib/field-s
 | `hooks/use-document-filling.ts`                                                   | All client state and actions: template list, schema, values, field sources, problems, generation              |
 | `components/document-workspace.tsx`                                               | Client entry point; switches between picker, loading state and chat + form panel; holds the narrow-screen tab |
 | `components/forms-home.tsx`                                                       | The page with no form open: the forms dialog, open on arrival, and the card that reopens it                   |
-| `components/project-bar.tsx`                                                      | Picks the current project or creates one                                                                      |
+| `components/project-bar.tsx`                                                      | Picks the current project, creates one and opens its data                                                     |
+| `components/project-details.tsx`                                                  | "Dados do projeto": one collapsible section per group of shared fields                                        |
 | `components/form-chat-title.tsx`                                                  | Chat title: form name, project and back button                                                                |
 | `components/cbmsc-forms-browser.tsx`                                              | Dialog content: list and preview, one at a time below `lg`                                                    |
 | `components/cbmsc-form-list.tsx`                                                  | Search field and the forms grouped by IN                                                                      |

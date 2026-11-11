@@ -19,6 +19,7 @@ client/
 └── scripts/      # one-off generators
 
 services/pdf/          # PDF microservice; has no AI, storage or database
+services/pptx/         # proposal (.pptx) microservice; has no AI, storage or database
 services/dwg/          # plan to DXF/DWG microservice; has no AI, storage or database
 supabase/migrations/   # database schema; the only place tables, RLS and buckets are defined
 ```

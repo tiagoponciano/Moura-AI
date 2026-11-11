@@ -154,6 +154,26 @@ export type Database = {
         Update: Partial<Database["public"]["Tables"]["projects"]["Insert"]>;
         Relationships: [];
       };
+      form_fillings: {
+        Row: {
+          project_id: string;
+          template_id: string;
+          values: Json;
+          updated_by: string | null;
+          updated_at: string;
+        };
+        Insert: {
+          project_id: string;
+          template_id: string;
+          values?: Json;
+          updated_by?: string | null;
+          updated_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["form_fillings"]["Insert"]
+        >;
+        Relationships: [];
+      };
       ppci_checklists: {
         Row: { version: string; created_at: string };
         Insert: { version: string; created_at?: string };

@@ -7,10 +7,17 @@ import {
   resolveChatModel,
   toChatResponse,
 } from "@/lib/llm";
+import { z } from "zod";
 import { documentsChatBody } from "../lib/chat-request";
+import {
+  conversationSteps,
+  SKIP_STEP_FIELD,
+  stepProgress,
+} from "../lib/conversation-steps";
 import { schemaToZod } from "../lib/schema-to-zod";
 import { FILL_FIELDS_TOOL } from "../lib/templates";
 import { buildInstructions } from "./instructions";
+import { loadTemplateGuide } from "./template-files";
 
 /**
  * Streams the documents assistant; the `fill_fields` tool echoes extracted
@@ -19,7 +26,7 @@ import { buildInstructions } from "./instructions";
 export async function handleDocumentsChat(req: Request): Promise<Response> {
   const body = await parseJsonBody(req, documentsChatBody);
   if (body.error) return body.error;
-  const { id, templateId, schema, values } = body.data;
+  const { id, templateId, schema, values = {}, skipped } = body.data;
   const messages = await parseChatMessages(body.data.messages);
   if (!messages) {
     return Response.json({ error: "Invalid messages" }, { status: 400 });
@@ -30,15 +37,25 @@ export async function handleDocumentsChat(req: Request): Promise<Response> {
   const { model, error } = await resolveChatModel();
   if (error) return error;
 
+  const steps = conversationSteps(schema, await loadTemplateGuide(templateId));
+  const progress = stepProgress(schema, steps, values, skipped);
+
   const result = streamText({
     model,
-    instructions: buildInstructions(templateId, schema, values),
+    instructions: buildInstructions(templateId, schema, values, progress),
     messages: await convertToModelMessages(messages),
     tools: {
       [FILL_FIELDS_TOOL]: tool({
         description:
           "Records the fields extracted from the conversation in the form. Send only fields with new or corrected data.",
-        inputSchema: schemaToZod(schema, "extraction"),
+        inputSchema: schemaToZod(schema, "extraction").extend({
+          [SKIP_STEP_FIELD]: z
+            .boolean()
+            .optional()
+            .describe(
+              "True when the user says the current step does not apply",
+            ),
+        }),
         execute: async (fields) => fields,
       }),
     },

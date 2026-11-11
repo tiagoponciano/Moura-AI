@@ -1,6 +1,7 @@
 "use client";
 
 import type { FieldSources } from "@/lib/field-sources";
+import type { StepProgress } from "../lib/conversation-steps";
 import { cn } from "@/lib/utils";
 import type { FieldValue, FieldValues, TemplateField } from "../lib/templates";
 import { FieldList } from "./field-list";
@@ -12,6 +13,7 @@ type FormPanelProps = {
   values: FieldValues;
   sources: FieldSources;
   progress: { filled: number; total: number };
+  step?: StepProgress;
   problems: string[];
   showMissing: boolean;
   generating: boolean;
@@ -28,6 +30,7 @@ export function FormPanel({
   values,
   sources,
   progress,
+  step,
   problems,
   showMissing,
   generating,
@@ -67,6 +70,13 @@ export function FormPanel({
               />
             ))}
           </div>
+        )}
+        {step && step.total > 0 && (
+          <p className="text-xs text-muted-foreground tabular-nums">
+            {step.index < step.total
+              ? `Conversa: etapa ${step.index + 1} de ${step.total}`
+              : "Conversa: todas as etapas respondidas"}
+          </p>
         )}
       </div>
       <div className="min-h-0 flex-1 overflow-y-auto px-3 pb-4">

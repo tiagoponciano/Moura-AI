@@ -22,15 +22,21 @@ const schema: TemplateSchema = {
 };
 
 describe("chatEmptyState", () => {
-  it("names the required fields", () => {
-    expect(chatEmptyState(schema)).toContain(
-      "Para começar, preciso de: Nome, Descrição.",
+  it("asks the current step's question when it has one", () => {
+    expect(
+      chatEmptyState(schema, { fields: ["a"], question: "Quem pede?" }),
+    ).toContain("Quem pede?");
+  });
+
+  it("names the step's fields when it has no question", () => {
+    expect(chatEmptyState(schema, { fields: ["a", "b"] })).toContain(
+      "Para começar: Nome, E-mail.",
     );
   });
 
-  it("omits the list when no field is required", () => {
-    expect(chatEmptyState({ fields: [schema.fields[1]] })).not.toContain(
-      "preciso de",
+  it("says every step is answered when there is no current step", () => {
+    expect(chatEmptyState(schema)).toContain(
+      "Todas as etapas já estão respondidas.",
     );
   });
 });

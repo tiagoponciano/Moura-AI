@@ -18,6 +18,7 @@
     "type": "docx",
     "file": "/templates/cbmsc/in-1-anexo-d.docx",
     "schema": "/templates/cbmsc/in-1-anexo-d.schema.json",
+    "guide": "/templates/cbmsc/in-1-anexo-d.guide.json",
     "cbmsc": {
       "normative": 1,
       "annex": "D",

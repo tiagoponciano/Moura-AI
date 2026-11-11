@@ -1,3 +1,5 @@
+import type { ConversationGuide, ConversationStep } from "./conversation-steps";
+
 /** Name of the LLM tool that writes extracted values into the form. */
 export const FILL_FIELDS_TOOL = "fill_fields";
 
@@ -29,6 +31,8 @@ export type TemplateEntry = {
   type: "docx";
   file: string;
   schema: string;
+  /** Hand-written conversation steps; see `conversation-steps.ts`. */
+  guide?: string;
   /** Set on a tagged copy of an official form: which form, and the text it was made from. */
   cbmsc?: {
     normative: number;
@@ -42,16 +46,19 @@ export type TemplateEntry = {
 export type FieldValue = string | number | boolean;
 export type FieldValues = Record<string, FieldValue | undefined>;
 
-/** What the chat tells the user before the first message (UI copy). */
-export function chatEmptyState(schema: TemplateSchema): string {
-  const required = schema.fields
-    .filter((field) => field.required)
-    .map((field) => field.label);
+/** What the chat tells the user before the first message (UI copy): the current step's question. */
+export function chatEmptyState(
+  schema: TemplateSchema,
+  step?: ConversationStep,
+): string {
   const intro =
-    "Conte os dados com as suas palavras, tudo de uma vez ou aos poucos. A Moura AI preenche os campos ao lado e pergunta o que faltar.";
-  return required.length
-    ? `${intro} Para começar, preciso de: ${required.join(", ")}.`
-    : intro;
+    "Vou perguntar etapa por etapa. Responda com as suas palavras; a Moura AI preenche os campos ao lado.";
+  if (!step) return `${intro} Todas as etapas já estão respondidas.`;
+  if (step.question) return `${intro} ${step.question}`;
+  const labels = schema.fields
+    .filter((field) => step.fields.includes(field.name))
+    .map((field) => field.label);
+  return `${intro} Para começar: ${labels.join(", ")}.`;
 }
 
 async function fetchJson<T>(url: string): Promise<T> {
@@ -64,6 +71,14 @@ async function fetchJson<T>(url: string): Promise<T> {
 
 export function loadTemplateIndex(): Promise<TemplateEntry[]> {
   return fetchJson<TemplateEntry[]>("/templates/index.json");
+}
+
+export async function loadTemplateGuide(
+  template: TemplateEntry,
+): Promise<ConversationGuide | undefined> {
+  return template.guide
+    ? fetchJson<ConversationGuide>(template.guide)
+    : undefined;
 }
 
 export function loadTemplateSchema(

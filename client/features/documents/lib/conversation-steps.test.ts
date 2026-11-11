@@ -53,6 +53,29 @@ describe("deriveSteps", () => {
     ]);
   });
 
+  it("keeps a numbered checklist section together and starts the next one apart", () => {
+    const question = (name: string, number: string) => ({
+      ...text(name),
+      label: `${number} Pergunta ${name}`,
+    });
+    const steps = deriveSteps({
+      fields: [
+        question("a", "1.1"),
+        question("b", "1.2"),
+        question("c", "2.1"),
+        question("d", "2.2"),
+      ],
+    });
+    expect(steps).toEqual([{ fields: ["a", "b"] }, { fields: ["c", "d"] }]);
+  });
+
+  it("does not mix an unnumbered field into a numbered section", () => {
+    const steps = deriveSteps({
+      fields: [text("intro"), { ...text("q"), label: "1.1 Pergunta" }],
+    });
+    expect(steps).toEqual([{ fields: ["intro"] }, { fields: ["q"] }]);
+  });
+
   it("splits plain fields past the step limit", () => {
     const names = Array.from(
       { length: MAX_STEP_FIELDS + 1 },

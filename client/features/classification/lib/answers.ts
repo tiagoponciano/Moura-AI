@@ -20,7 +20,8 @@ function valid(question: Question, value: unknown): FactValue | undefined {
       ? value
       : undefined;
   }
-  if (typeof value !== "number" || !Number.isFinite(value) || value <= 0) {
+  const floor = question.allowZero ? 0 : Number.MIN_VALUE;
+  if (typeof value !== "number" || !Number.isFinite(value) || value < floor) {
     return undefined;
   }
   return question.integer && !Number.isInteger(value) ? undefined : value;

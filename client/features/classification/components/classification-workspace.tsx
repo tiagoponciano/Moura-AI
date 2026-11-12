@@ -8,20 +8,27 @@ import {
 } from "@/components/shared/workspace-tabs";
 import { cn } from "@/lib/utils";
 import { useClassification } from "../hooks/use-classification";
-import { QUESTION_COUNT } from "../lib/building";
 import { ClassificationPanel } from "./classification-panel";
 
-/** Extraction chat with the key questions and provisional requirements beside it. */
+/** Chat that asks the questions, with the answers and the systems they imply beside it. */
 export function ClassificationWorkspace() {
-  const classification = useClassification();
+  const {
+    answers,
+    sources,
+    classification,
+    handleToolResult,
+    updateAnswer,
+    reset,
+  } = useClassification();
   const [tab, setTab] = useState<WorkspaceTab>("chat");
+  const { answered, total } = classification.progress;
 
   return (
     <div className="flex min-h-0 flex-1 flex-col lg:grid lg:grid-cols-[minmax(0,1fr)_360px]">
       <WorkspaceTabs
         value={tab}
         onChange={setTab}
-        panelLabel={`Classificação ${classification.answered}/${QUESTION_COUNT}`}
+        panelLabel={`Classificação ${answered}/${total}`}
         className="lg:hidden"
       />
       <div
@@ -29,10 +36,11 @@ export function ClassificationWorkspace() {
       >
         <Chat
           endpoint="/api/classification/chat"
-          onToolResult={classification.handleToolResult}
+          body={{ facts: answers }}
+          onToolResult={handleToolResult}
           history={{ module: "classification" }}
-          placeholder="Ex.: loja de 750 m², comercial, 2 pavimentos, 8 m de altura"
-          emptyState="Descreva a edificação. A Moura AI registra área, altura, pavimentos e ocupação ao lado."
+          placeholder="Ex.: loja de roupas com 1.800 m², 2 pavimentos e 9 m de altura"
+          emptyState="Descreva o imóvel comercial. A Moura AI faz as perguntas que faltam e mostra ao lado os sistemas exigidos, com a fonte na norma."
           className="rounded-none border-0 bg-transparent"
         />
       </div>
@@ -43,12 +51,11 @@ export function ClassificationWorkspace() {
         )}
       >
         <ClassificationPanel
-          building={classification.building}
-          sources={classification.sources}
-          answered={classification.answered}
-          groups={classification.groups}
-          onChange={classification.updateAnswer}
-          onReset={classification.reset}
+          answers={answers}
+          sources={sources}
+          classification={classification}
+          onChange={updateAnswer}
+          onReset={reset}
         />
       </div>
     </div>

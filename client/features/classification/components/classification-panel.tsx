@@ -3,30 +3,27 @@
 import { RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { FieldSources } from "@/lib/field-sources";
-import type { Building } from "../lib/building";
-import type { RequirementGroups } from "../lib/evaluate";
+import type { Classification } from "../lib/classify";
+import type { Facts } from "../lib/engine/types";
+import { AnalysisNotice } from "./analysis-notice";
 import { BuildingForm } from "./building-form";
+import { NextQuestions } from "./next-questions";
 import { ProvisionalNotice } from "./provisional-notice";
 import { RequirementsList } from "./requirements-list";
 
 type ClassificationPanelProps = {
-  building: Building;
+  answers: Facts;
   sources: FieldSources;
-  answered: number;
-  groups: RequirementGroups;
-  onChange: <K extends keyof Building>(
-    field: K,
-    value: Building[K] | undefined,
-  ) => void;
+  classification: Classification;
+  onChange: (fact: string, value: unknown) => void;
   onReset: () => void;
 };
 
-/** Side panel: the key questions, the systems they imply and the provisional notice. */
+/** Side panel: the questions, what is next, the systems they imply and the provisional notice. */
 export function ClassificationPanel({
-  building,
+  answers,
   sources,
-  answered,
-  groups,
+  classification,
   onChange,
   onReset,
 }: ClassificationPanelProps) {
@@ -34,16 +31,22 @@ export function ClassificationPanel({
     <aside className="flex min-h-0 flex-1 flex-col bg-card lg:border-l">
       <div className="min-h-0 flex-1 overflow-y-auto">
         <BuildingForm
-          building={building}
+          answers={answers}
           sources={sources}
-          answered={answered}
+          progress={classification.progress}
           onChange={onChange}
         />
-        <RequirementsList groups={groups} />
+        <NextQuestions classification={classification} />
+        <AnalysisNotice analyses={classification.analyses} />
+        <RequirementsList classification={classification} />
       </div>
       <div className="flex flex-col gap-2 border-t px-5 py-4">
         <ProvisionalNotice />
-        <Button variant="outline" onClick={onReset} disabled={answered === 0}>
+        <Button
+          variant="outline"
+          onClick={onReset}
+          disabled={classification.progress.answered === 0}
+        >
           <RotateCcw />
           Limpar respostas
         </Button>

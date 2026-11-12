@@ -49,11 +49,11 @@ Preparing a fire-prevention project (PPCI) for the Santa Catarina fire departmen
 
 The model never writes a document. It extracts data from the conversation into a JSON object whose schema comes from code; deterministic code validates it and injects it into the original `.docx` template, so the layout the fire department expects is never touched.
 
-| Module                  | Route             | Status  | What it does                                                                                                                                                                   |
-| ----------------------- | ----------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Documents               | `/documents`      | Working | Fills the CBMSC forms from a chat, saves each filling per project, keeps the shared project data and its change history, and generates the commercial proposal (`.pptx`/PDF)   |
-| Classification          | `/classification` | Preview | Lists the preventive systems a building needs from four answers (area, height, floors, occupancy). The rule set is provisional and is not the CBMSC Normative Instructions yet |
-| Floor plans (PDF → DWG) | `/floor-plans`    | Preview | Uploads a floor plan (PDF, JPEG or PNG), reads its scale and converts it to DXF or DWG through the `services/dwg` microservice. Not tried on real Moura plans yet              |
+| Module                  | Route             | Status  | What it does                                                                                                                                                                                                                                              |
+| ----------------------- | ----------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Documents               | `/documents`      | Working | Fills the CBMSC forms from a chat, saves each filling per project, keeps the shared project data and its change history, and generates the commercial proposal (`.pptx`/PDF)                                                                              |
+| Classification          | `/classification` | Preview | Asks, in a chat, the questions a commercial building needs and lists the preventive systems it requires, each with its source in IN 1 parte 2. Only Grupo C (commerce) is covered, and the readings of the norm are provisional until Moura confirms them |
+| Floor plans (PDF → DWG) | `/floor-plans`    | Preview | Uploads a floor plan (PDF, JPEG or PNG), reads its scale and converts it to DXF or DWG through the `services/dwg` microservice. Not tried on real Moura plans yet                                                                                         |
 
 ![Moura AI home page in use: hovering each module card while the 3D scene plays](docs/assets/home-demo.gif)
 

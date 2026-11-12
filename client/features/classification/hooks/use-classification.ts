@@ -2,54 +2,47 @@
 
 import { useCallback, useMemo, useState } from "react";
 import { recordSources, type FieldSources } from "@/lib/field-sources";
-import {
-  countAnswers,
-  pickBuildingAnswers,
-  RECORD_BUILDING_TOOL,
-  type Building,
-} from "../lib/building";
-import { evaluateBuilding, groupRequirements } from "../lib/evaluate";
-import { PROVISIONAL_RULES } from "../lib/rules";
+import { applyAnswers, applyEdit, pickAnswers } from "../lib/answers";
+import { classify } from "../lib/classify";
+import type { Facts } from "../lib/engine/types";
+import { RECORD_ANSWERS_TOOL } from "../lib/questions";
+import { analysisDate } from "../lib/today";
 
-/** Building answers (from the chat or typed) and the requirements they imply. */
+/** The answers (from the chat or typed in the panel) and the classification they give. */
 export function useClassification() {
-  const [building, setBuilding] = useState<Building>({});
+  const [answers, setAnswers] = useState<Facts>({});
   const [sources, setSources] = useState<FieldSources>({});
+  const [date] = useState(() => analysisDate());
 
-  const requirements = useMemo(
-    () => evaluateBuilding(PROVISIONAL_RULES, building),
-    [building],
+  const classification = useMemo(
+    () => classify(answers, date),
+    [answers, date],
   );
-  const groups = useMemo(() => groupRequirements(requirements), [requirements]);
 
   const handleToolResult = useCallback((toolName: string, output: unknown) => {
-    if (toolName !== RECORD_BUILDING_TOOL) return;
-    const answers = pickBuildingAnswers(output);
-    if (Object.keys(answers).length === 0) return;
-    setBuilding((current) => ({ ...current, ...answers }));
-    setSources((current) =>
-      recordSources(current, Object.keys(answers), "assistant"),
-    );
+    if (toolName !== RECORD_ANSWERS_TOOL) return;
+    const picked = pickAnswers(output);
+    const touched = [...Object.keys(picked.values), ...picked.unknown];
+    if (touched.length === 0) return;
+    setAnswers((current) => applyAnswers(current, picked));
+    setSources((current) => recordSources(current, touched, "assistant"));
   }, []);
 
-  function updateAnswer<K extends keyof Building>(
-    field: K,
-    value: Building[K] | undefined,
-  ) {
-    setBuilding((current) => ({ ...current, [field]: value }));
-    setSources((current) => recordSources(current, [field], "user"));
+  /** A value typed in the panel; `null` is "não sei" and `undefined` clears the answer. */
+  function updateAnswer(fact: string, value: unknown) {
+    setAnswers((current) => applyEdit(current, fact, value));
+    setSources((current) => recordSources(current, [fact], "user"));
   }
 
   function reset() {
-    setBuilding({});
+    setAnswers({});
     setSources({});
   }
 
   return {
-    building,
+    answers,
     sources,
-    answered: countAnswers(building),
-    groups,
+    classification,
     handleToolResult,
     updateAnswer,
     reset,

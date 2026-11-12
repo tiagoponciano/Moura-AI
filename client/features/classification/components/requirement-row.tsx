@@ -1,40 +1,74 @@
 import { ChevronDown } from "lucide-react";
-import { BUILDING_FIELD_LABEL } from "../lib/building";
-import type { Requirement } from "../lib/evaluate";
+import type { SystemView } from "../lib/classify";
 
-/** One system as a panel row: required ones expand to their checks, pending ones list the missing answers. */
-export function RequirementRow({ requirement }: { requirement: Requirement }) {
-  if (requirement.status === "required") {
+/** One system as a panel row: required ones expand to why, pending ones list the missing answers. */
+export function RequirementRow({ system }: { system: SystemView }) {
+  if (system.status === "required") {
+    const summary = system.partial
+      ? "Exigido em parte do imóvel"
+      : system.reasons[0]?.locator;
     return (
       <details className="group rounded-lg transition-colors open:bg-muted/50">
         <summary className="grid cursor-pointer list-none grid-cols-[8px_minmax(0,1fr)_16px] gap-x-3 gap-y-0.5 rounded-lg p-2 transition-colors hover:bg-muted focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none [&::-webkit-details-marker]:hidden">
           <span aria-hidden className="mt-1.5 size-2 rounded-full bg-primary" />
           <span className="text-sm leading-snug font-medium">
-            {requirement.system}
+            {system.label}
+            {system.vital && (
+              <span className="ml-2 text-[10px] font-medium tracking-wider text-primary uppercase">
+                vital
+              </span>
+            )}
           </span>
           <ChevronDown className="mt-0.5 size-4 text-muted-foreground transition-transform group-open:rotate-180" />
-          <span className="col-start-2 text-xs leading-snug text-muted-foreground first-letter:uppercase">
-            {requirement.reason}
-          </span>
+          {summary && (
+            <span className="col-start-2 text-xs leading-snug text-muted-foreground">
+              {summary}
+            </span>
+          )}
         </summary>
-        {requirement.checks.length > 0 && (
-          <ul className="flex flex-col gap-1.5 pt-0.5 pr-2 pb-3 pl-7">
-            {requirement.checks.map((check) => (
-              <li key={check} className="flex gap-2 text-[13px] leading-snug">
-                <span
-                  aria-hidden
-                  className="mt-0.5 size-3.5 shrink-0 rounded border-[1.5px] border-input"
-                />
-                {check}
-              </li>
-            ))}
-          </ul>
-        )}
+        <div className="flex flex-col gap-2.5 pr-2 pb-3 pl-7 text-[13px] leading-snug">
+          {system.reasons.map((reason) => (
+            <div key={reason.locator} className="flex flex-col gap-0.5">
+              <span className="font-medium">{reason.locator}</span>
+              {reason.quote && (
+                <span className="text-xs text-muted-foreground">
+                  {reason.quote}
+                </span>
+              )}
+            </div>
+          ))}
+          {system.scopes.length > 0 && (
+            <p>
+              <span className="font-medium">Limitado a:</span>{" "}
+              {system.scopes.join("; ")}
+            </p>
+          )}
+          {system.substitutions.map((substitution) => (
+            <p key={substitution.by.join("+")}>
+              <span className="font-medium">
+                A norma permite substituir por:
+              </span>{" "}
+              {substitution.by.join(" + ")}
+              {substitution.alreadyRequired.length > 0 &&
+                ` (já exigido: ${substitution.alreadyRequired.join(", ")})`}
+              {substitution.note && (
+                <span className="block text-xs text-muted-foreground">
+                  {substitution.note}
+                </span>
+              )}
+            </p>
+          ))}
+          {system.notes.map((note) => (
+            <p key={note} className="text-xs text-muted-foreground">
+              {note}
+            </p>
+          ))}
+        </div>
       </details>
     );
   }
 
-  const pending = requirement.status === "needs_info";
+  const pending = system.status === "needs_info";
 
   return (
     <div className="grid grid-cols-[8px_minmax(0,1fr)] gap-x-3 gap-y-1 rounded-lg p-2">
@@ -53,17 +87,17 @@ export function RequirementRow({ requirement }: { requirement: Requirement }) {
             : "text-sm leading-snug text-muted-foreground"
         }
       >
-        {requirement.system}
+        {system.label}
       </span>
-      {pending && (
+      {pending && system.missing.length > 0 && (
         <span className="col-start-2 flex flex-wrap items-center gap-1 text-xs text-muted-foreground">
           Falta
-          {requirement.missing.map((field) => (
+          {system.missing.map((label) => (
             <span
-              key={field}
+              key={label}
               className="rounded bg-muted px-1.5 text-[10px] leading-4 font-medium"
             >
-              {BUILDING_FIELD_LABEL[field].toLowerCase()}
+              {label.toLowerCase()}
             </span>
           ))}
         </span>

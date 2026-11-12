@@ -76,6 +76,15 @@ describe("recordAnswers", () => {
     expect(out.answers).toEqual({ area_m2: 800 });
   });
 
+  it("names the recorded facts in `fields`, for the chat's status line", () => {
+    const out = recordAnswers(
+      { area_m2: 800, storeys: 2, unknown: ["single_use"] },
+      {},
+      DATE,
+    );
+    expect(out.fields).toEqual(["area_m2", "storeys", "single_use"]);
+  });
+
   it("returns the não sei facts", () => {
     const out = recordAnswers({ unknown: ["single_use"] }, {}, DATE);
     expect(out.unknown).toEqual(["single_use"]);

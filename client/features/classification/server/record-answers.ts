@@ -49,6 +49,8 @@ export function recordAnswers(
   return {
     answers: picked.values,
     unknown: picked.unknown,
+    /** The fact ids shown in the chat as "Campos atualizados". */
+    fields: [...Object.keys(picked.values), ...picked.unknown],
     status: result.status,
     next: result.nextQuestions
       .slice(0, 1)

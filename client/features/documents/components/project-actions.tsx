@@ -12,7 +12,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import type { Project } from "../lib/projects";
+import { type Project } from "@/lib/projects/project";
 
 type ProjectActionsProps = {
   project: Project;

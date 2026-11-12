@@ -1,3 +1,4 @@
+import type { ProjectChange, ProjectData } from "@/lib/projects/project";
 import type { FieldValues, TemplateSchema } from "./templates";
 
 /** What a project remembers across forms, as its panel shows it (labels are UI copy). */
@@ -68,26 +69,8 @@ export const PROJECT_FIELD_KEYS: readonly string[] =
     group.fields.map((field) => field.key),
   );
 
-export type ProjectData = Record<string, string>;
-
-/** Keys to merge into a project's data; `null` clears one. */
-export type ProjectChange = Record<string, string | null>;
-
 export const isProjectFieldKey = (key: string) =>
   PROJECT_FIELD_KEYS.includes(key);
-
-/** A project's data after a change: other keys stay, and `null` removes a key. */
-export function mergeProjectData(
-  data: ProjectData,
-  change: ProjectChange,
-): ProjectData {
-  const merged: ProjectData = { ...data };
-  for (const [key, value] of Object.entries(change)) {
-    if (value === null) delete merged[key];
-    else merged[key] = value;
-  }
-  return merged;
-}
 
 /** How many of a group's fields the project has, for its toggle. */
 export function groupProgress(group: ProjectFieldGroup, data: ProjectData) {

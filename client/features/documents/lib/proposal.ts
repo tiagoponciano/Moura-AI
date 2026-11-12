@@ -1,5 +1,5 @@
 import { z } from "zod";
-import type { ProjectData } from "./project-fields";
+import { type ProjectData } from "@/lib/projects/project";
 
 export type ProposalPlan = {
   id: string;

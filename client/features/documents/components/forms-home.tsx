@@ -11,7 +11,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
-import type { useProjects } from "../hooks/use-projects";
+import type { useProjects } from "@/hooks/use-projects";
 import type { Filling } from "../lib/fillings";
 import { startedForms } from "../lib/started-forms";
 import type { TemplateEntry } from "../lib/templates";

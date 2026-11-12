@@ -1,11 +1,12 @@
 import { parseJsonBody } from "@/lib/api/parse-json-body";
 import { requireUser } from "@/lib/auth/require-user";
-import { mergeProjectData, type ProjectData } from "../lib/project-fields";
+import { projectUpdateSchema } from "../lib/projects";
 import {
+  type ProjectData,
+  mergeProjectData,
   projectCreateSchema,
   projectIdSchema,
-  projectUpdateSchema,
-} from "../lib/projects";
+} from "@/lib/projects/project";
 
 const failure = (message: string, cause: unknown) => {
   console.error(message, cause);

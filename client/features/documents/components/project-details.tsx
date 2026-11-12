@@ -12,10 +12,9 @@ import {
   fieldChange,
   groupProgress,
   PROJECT_FIELD_GROUPS,
-  type ProjectChange,
 } from "../lib/project-fields";
-import type { Project } from "../lib/projects";
 import { ProjectHistory } from "./project-history";
+import { type Project, type ProjectChange } from "@/lib/projects/project";
 
 type ProjectDetailsProps = {
   project: Project;

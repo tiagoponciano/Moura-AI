@@ -8,35 +8,26 @@ import {
   resolveChatModel,
   toChatResponse,
 } from "@/lib/llm";
-import { OCCUPANCY_IDS, RECORD_BUILDING_TOOL } from "../lib/building";
+import { pickFacts } from "../lib/answers";
+import { RECORD_ANSWERS_TOOL } from "../lib/questions";
+import { analysisDate } from "../lib/today";
 import { buildInstructions } from "./instructions";
-
-const recordBuildingInput = z.object({
-  area_m2: z
-    .number()
-    .positive()
-    .optional()
-    .describe("Total built area, in square meters"),
-  height_m: z
-    .number()
-    .positive()
-    .optional()
-    .describe("Building height, in meters"),
-  floor_count: z
-    .number()
-    .int()
-    .positive()
-    .optional()
-    .describe("Number of floors"),
-  occupancy: z.enum(OCCUPANCY_IDS).optional().describe("Occupancy id"),
-});
-
-/** Body of `POST /api/classification/chat`; `messages` is checked by `parseChatMessages`. */
-const chatBody = z.object({ id: z.unknown(), messages: z.unknown() });
+import { recordAnswers, recordAnswersInput } from "./record-answers";
 
 /**
- * Streams the classification assistant; `record_building` echoes the answers
- * back to the client. The chat is saved when history is available.
+ * Body of `POST /api/classification/chat`; `messages` is checked by
+ * `parseChatMessages` and `facts` (what the panel already holds) by `pickFacts`.
+ */
+const chatBody = z.object({
+  id: z.unknown(),
+  messages: z.unknown(),
+  facts: z.unknown().optional(),
+});
+
+/**
+ * Streams the classification assistant. `record_answers` echoes the validated
+ * answers back to the client and tells the model what to ask next; the chat is
+ * saved when history is available.
  */
 export async function handleClassificationChat(
   req: Request,
@@ -53,16 +44,19 @@ export async function handleClassificationChat(
   const { model, error } = await resolveChatModel();
   if (error) return error;
 
+  const state = pickFacts(body.data.facts);
+  const date = analysisDate();
+
   const result = streamText({
     model,
-    instructions: buildInstructions(),
+    instructions: buildInstructions(state, date),
     messages: await convertToModelMessages(messages),
     tools: {
-      [RECORD_BUILDING_TOOL]: tool({
+      [RECORD_ANSWERS_TOOL]: tool({
         description:
-          "Records the building answers given in the conversation. Send only new or corrected answers.",
-        inputSchema: recordBuildingInput,
-        execute: async (answers) => answers,
+          "Records the building answers given in the conversation. Send only new or corrected answers, and list in `unknown` what the user does not know.",
+        inputSchema: recordAnswersInput,
+        execute: async (input) => recordAnswers(input, state, date),
       }),
     },
     stopWhen: isStepCount(5),

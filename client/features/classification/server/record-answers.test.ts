@@ -21,7 +21,7 @@ describe("recordAnswersInput", () => {
     for (const bad of [
       { area_m2: -1 },
       { storeys: 1.5 },
-      { division: "D-1" },
+      { division: "Z-9" },
       { single_block: "yes" },
       { fire_load_class: "huge" },
     ]) {
@@ -45,12 +45,10 @@ describe("recordAnswersInput", () => {
     expect(Object.keys(schema.properties).sort()).toEqual(
       [...QUESTIONS.map((q) => q.fact), "unknown"].sort(),
     );
-    expect(schema.properties.division.enum).toEqual([
-      "C-1",
-      "C-2",
-      "C-3",
-      "other",
-    ]);
+    expect(schema.properties.division.enum).toEqual(
+      expect.arrayContaining(["C-1", "C-2", "C-3", "D-1", "M-11", "other"]),
+    );
+    expect(schema.properties.division.enum).not.toContain("Z-9");
     expect(schema.properties.storeys.type).toBe("integer");
   });
 

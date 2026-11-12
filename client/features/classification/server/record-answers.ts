@@ -9,6 +9,7 @@ const UNKNOWN_FACTS = QUESTIONS.filter((q) => q.allowUnknown).map(
 ) as [string, ...string[]];
 
 function fieldSchema(question: Question): z.ZodType {
+  if (question.kind === "activity") return z.string();
   if (question.kind === "boolean") return z.boolean();
   if (question.kind === "enum") {
     return z.enum(

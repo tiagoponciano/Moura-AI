@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { ACTIVITIES } from "./catalog/activities";
 import { classify } from "./classify";
 import type { Facts } from "./engine/types";
 
@@ -273,5 +274,112 @@ describe("classify: single-storey buildings", () => {
       DATE,
     );
     expect(result.table).toBe("Tabela 5, coluna Térreo");
+  });
+});
+
+describe("classify: the activity", () => {
+  const base = { storeys: 2, height_m: 9, area_m2: 1800 };
+  const scope = {
+    single_block: true,
+    single_use: true,
+    storage_over_3_5m: false,
+  };
+
+  it("fills the division and the fire load from the activity", () => {
+    const result = classify(
+      { ...base, ...scope, activity: "C-2-vestuario-e-acessorios" },
+      DATE,
+    );
+    expect(result.derived).toEqual([
+      {
+        label: "Divisão",
+        value: "C-2",
+        source: "IN 3, Anexo A · C-2 Vestuário e acessórios",
+      },
+      {
+        label: "Carga de incêndio",
+        value: "600 MJ/m² (média)",
+        source: "IN 3, Anexo A · C-2 Vestuário e acessórios",
+      },
+    ]);
+    expect(result.status).toBe("complete");
+    expect(result.table).toBe("Tabela 5, coluna 6 < H ≤ 12");
+  });
+
+  it("does not ask the division or the fire load once the activity says them", () => {
+    const result = classify(
+      {
+        ...base,
+        ...scope,
+        area_m2: 3200,
+        activity: "C-2-vestuario-e-acessorios",
+      },
+      DATE,
+    );
+    expect(result.nextQuestions).toEqual([]);
+    // a medium fire load does not meet note 2, so no sprinklers and nothing pending
+    expect(result.groups.needsInfo).toEqual([]);
+  });
+
+  it("counts the division the activity gave as answered", () => {
+    const result = classify({ activity: "C-2-vestuario-e-acessorios" }, DATE);
+    expect(result.progress.answered).toBe(1);
+    expect(result.nextQuestions[0].fact).toBe("area_m2");
+  });
+
+  it("lets what the user typed win, and says when the activity disagrees", () => {
+    const result = classify(
+      {
+        ...base,
+        ...scope,
+        division: "C-1",
+        activity: "C-2-vestuario-e-acessorios",
+      },
+      DATE,
+    );
+    expect(result.derived.map((d) => d.label)).toEqual(["Carga de incêndio"]);
+    expect(result.conflicts).toEqual([
+      'A atividade "Vestuário e acessórios" é da divisão C-2, mas a divisão informada é C-1.',
+    ]);
+  });
+
+  it("keeps a fire load class the user gave instead of the activity's load", () => {
+    const result = classify(
+      {
+        ...base,
+        ...scope,
+        area_m2: 3200,
+        fire_load_class: "high",
+        activity: "C-2-vestuario-e-acessorios",
+      },
+      DATE,
+    );
+    expect(result.derived.map((d) => d.label)).toEqual(["Divisão"]);
+    expect(result.groups.required.map((s) => s.id)).toContain("sprinklers");
+  });
+
+  it("sends an activity of another group to analysis, naming its division", () => {
+    const result = classify(
+      { ...base, ...scope, activity: "D-1-cabeleireiro-manicure-e-pedicure" },
+      DATE,
+    );
+    expect(result.derived[0]).toMatchObject({ label: "Divisão", value: "D-1" });
+    expect(result.status).toBe("analysis");
+  });
+
+  it("says when the norm points to another annex for the load", () => {
+    const silos = ACTIVITIES.find((a) => a.division === "M-5")!;
+    const result = classify({ activity: silos.id }, DATE);
+    expect(result.derived).toContainEqual({
+      label: "Carga de incêndio",
+      value: "a norma remete ao Anexo C",
+      source: expect.stringContaining("M-5"),
+    });
+  });
+
+  it("ignores an activity id that is not in the catalog", () => {
+    const result = classify({ activity: "C-9-invented" }, DATE);
+    expect(result.derived).toEqual([]);
+    expect(result.nextQuestions[0].fact).toBe("division");
   });
 });

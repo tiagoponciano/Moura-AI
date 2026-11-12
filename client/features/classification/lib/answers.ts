@@ -1,10 +1,16 @@
 import type { Facts, FactValue } from "./engine/types";
+import { ACTIVITY_BY_ID } from "./catalog/activities";
 import { QUESTION_BY_FACT, QUESTIONS, type Question } from "./questions";
 
 /** Answers picked from a tool output: values, and the facts the user said "não sei" to. */
 export type PickedAnswers = { values: Facts; unknown: string[] };
 
 function valid(question: Question, value: unknown): FactValue | undefined {
+  if (question.kind === "activity") {
+    return typeof value === "string" && ACTIVITY_BY_ID.has(value)
+      ? value
+      : undefined;
+  }
   if (question.kind === "boolean") {
     return typeof value === "boolean" ? value : undefined;
   }

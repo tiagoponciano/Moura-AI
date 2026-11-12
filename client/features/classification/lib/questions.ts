@@ -14,6 +14,12 @@ type Base = {
   allowUnknown: boolean;
   /** False for a fact that is only an alternative way to answer another one. */
   askable: boolean;
+  /**
+   * For a confirmation that keeps the building inside what the rules cover:
+   * `clause` is true of an in-scope building and `inScope` is the fact's value
+   * then. Open ones are asked together.
+   */
+  scope?: { clause: string; inScope: boolean };
 };
 
 export type Question = Base &
@@ -114,6 +120,10 @@ export const QUESTIONS: Question[] = [
       "True when the property is a single block or area; false when there is more than one block or area on the property.",
     allowUnknown: true,
     askable: true,
+    scope: {
+      clause: "é um bloco só (sem outras edificações no terreno)",
+      inScope: true,
+    },
   },
   {
     fact: "single_use",
@@ -124,6 +134,10 @@ export const QUESTIONS: Question[] = [
       "True when the whole property has one use; false when other uses are mixed in (mixed, subsidiary or secondary occupancy).",
     allowUnknown: true,
     askable: true,
+    scope: {
+      clause: "tem uma só atividade (sem outra ocupação misturada)",
+      inScope: true,
+    },
   },
   {
     fact: "storage_over_3_5m",
@@ -134,6 +148,10 @@ export const QUESTIONS: Question[] = [
       "True when materials are stored higher than 3.5 meters; false when not.",
     allowUnknown: true,
     askable: true,
+    scope: {
+      clause: "não tem armazenamento acima de 3,5 m",
+      inScope: false,
+    },
   },
 ];
 
@@ -144,3 +162,24 @@ export const ASKABLE_QUESTIONS = QUESTIONS.filter((q) => q.askable);
 
 export const questionFor = (fact: string): Question | undefined =>
   QUESTION_BY_FACT.get(fact);
+
+/** What to ask now: one question, or one for every scope confirmation still open. */
+export type NextAsk = { ask: string; facts: string[] };
+
+export function nextAsk(questions: Question[]): NextAsk | undefined {
+  const first = questions[0];
+  if (!first) return undefined;
+  const scoped = questions.filter((q) => q.scope);
+  if (first.scope && scoped.length > 1) {
+    const clauses = scoped.map((q) => q.scope!.clause);
+    const list =
+      clauses.length > 2
+        ? `${clauses.slice(0, -1).join(", ")} e ${clauses[clauses.length - 1]}`
+        : clauses.join(" e ");
+    return {
+      ask: `O imóvel ${list}? Se algum desses pontos não for verdade, diga qual.`,
+      facts: scoped.map((q) => q.fact),
+    };
+  }
+  return { ask: first.ask, facts: [first.fact] };
+}

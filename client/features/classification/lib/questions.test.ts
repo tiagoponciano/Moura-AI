@@ -3,6 +3,7 @@ import type { Condition } from "./engine/types";
 import { GROUP_C_RULES } from "./rulesets/group-c";
 import {
   ASKABLE_QUESTIONS,
+  nextAsk,
   QUESTION_BY_FACT,
   QUESTIONS,
   type Question,
@@ -74,6 +75,55 @@ describe("question registry", () => {
       "single_block",
       "single_use",
       "storage_over_3_5m",
+    ]);
+  });
+});
+
+describe("nextAsk", () => {
+  const ask = (facts: string[]) =>
+    nextAsk(facts.map((f) => QUESTION_BY_FACT.get(f)!));
+
+  it("asks nothing when nothing is open", () => {
+    expect(nextAsk([])).toBeUndefined();
+  });
+
+  it("asks the first question on its own when it is not a scope confirmation", () => {
+    expect(ask(["storeys", "single_block", "single_use"])).toEqual({
+      ask: "Quantos pavimentos tem o imóvel?",
+      facts: ["storeys"],
+    });
+  });
+
+  it("asks one question for every scope confirmation still open", () => {
+    expect(ask(["single_block", "single_use", "storage_over_3_5m"])).toEqual({
+      ask: "O imóvel é um bloco só (sem outras edificações no terreno), tem uma só atividade (sem outra ocupação misturada) e não tem armazenamento acima de 3,5 m? Se algum desses pontos não for verdade, diga qual.",
+      facts: ["single_block", "single_use", "storage_over_3_5m"],
+    });
+  });
+
+  it("joins only the confirmations still open", () => {
+    expect(ask(["single_use", "storage_over_3_5m"])).toEqual({
+      ask: "O imóvel tem uma só atividade (sem outra ocupação misturada) e não tem armazenamento acima de 3,5 m? Se algum desses pontos não for verdade, diga qual.",
+      facts: ["single_use", "storage_over_3_5m"],
+    });
+  });
+
+  it("asks a lone scope confirmation with its own wording", () => {
+    expect(ask(["storage_over_3_5m"])).toEqual({
+      ask: "Existe armazenamento de materiais com mais de 3,5 m de altura?",
+      facts: ["storage_over_3_5m"],
+    });
+  });
+
+  it("marks only the three scope facts, with the value that keeps the building in scope", () => {
+    const scoped = QUESTIONS.filter((q) => q.scope).map((q) => [
+      q.fact,
+      q.scope!.inScope,
+    ]);
+    expect(scoped).toEqual([
+      ["single_block", true],
+      ["single_use", true],
+      ["storage_over_3_5m", false],
     ]);
   });
 });

@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/select";
 import { sourceTag, type FieldSources } from "@/lib/field-sources";
 import { cn } from "@/lib/utils";
+import { ACTIVITY_BY_ID, activityLabel } from "../lib/catalog/activities";
 import type { Classification } from "../lib/classify";
 import type { Facts, FactValue } from "../lib/engine/types";
 import { QUESTIONS, type Question } from "../lib/questions";
@@ -80,6 +81,33 @@ function AnswerControl({
   onChange: (value: unknown) => void;
 }) {
   const id = `answer-${question.fact}`;
+
+  if (question.kind === "activity") {
+    const activity =
+      typeof value === "string" ? ACTIVITY_BY_ID.get(value) : undefined;
+    return (
+      <div className="flex items-center justify-between gap-2">
+        <span
+          id={id}
+          className={cn(
+            "text-sm",
+            activity ? "font-medium" : "text-muted-foreground",
+          )}
+        >
+          {activity ? activityLabel(activity) : "Não informada"}
+        </span>
+        {activity && (
+          <button
+            type="button"
+            onClick={() => onChange(undefined)}
+            className="text-xs text-muted-foreground underline-offset-2 hover:underline"
+          >
+            limpar
+          </button>
+        )}
+      </div>
+    );
+  }
 
   if (question.kind === "number") {
     return (

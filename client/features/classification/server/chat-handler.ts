@@ -9,10 +9,11 @@ import {
   toChatResponse,
 } from "@/lib/llm";
 import { pickFacts } from "../lib/answers";
-import { RECORD_ANSWERS_TOOL } from "../lib/questions";
+import { RECORD_ANSWERS_TOOL, SEARCH_ACTIVITY_TOOL } from "../lib/questions";
 import { analysisDate } from "../lib/today";
 import { buildInstructions } from "./instructions";
 import { recordAnswers, recordAnswersInput } from "./record-answers";
+import { searchActivity, searchActivityInput } from "./search-activity";
 
 /**
  * Body of `POST /api/classification/chat`; `messages` is checked by
@@ -57,6 +58,12 @@ export async function handleClassificationChat(
           "Records the building answers given in the conversation. Send only new or corrected answers, and list in `unknown` what the user does not know.",
         inputSchema: recordAnswersInput,
         execute: async (input) => recordAnswers(input, state, date),
+      }),
+      [SEARCH_ACTIVITY_TOOL]: tool({
+        description:
+          "Looks an activity up in IN 3, Annex A and returns the matching activities with their division and fire load. Use it with the user's own words before recording the activity.",
+        inputSchema: searchActivityInput,
+        execute: async (input) => searchActivity(input),
       }),
     },
     stopWhen: isStepCount(5),

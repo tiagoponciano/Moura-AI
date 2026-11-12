@@ -21,6 +21,15 @@ describe("buildInstructions", () => {
     expect(text).toContain("`record_answers`");
   });
 
+  it("teaches the model to search the activity, confirm it with the user and not ask what it sets", () => {
+    const text = buildInstructions({}, DATE);
+    expect(text).toContain("`search_activity`");
+    expect(text).toContain("even when only one matches");
+    expect(text).toContain("never invent an id");
+    expect(text).toContain("so do not ask for those");
+    expect(text).toContain("not listed in the norm");
+  });
+
   it("says nothing is recorded yet and asks the division first", () => {
     const text = buildInstructions({}, DATE);
     expect(text).toContain("none yet");

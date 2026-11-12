@@ -1,0 +1,2110 @@
+{
+  "doc": "IN-3",
+  "table": "Anexo A",
+  "title": "Cargas de incêndio específicas por ocupação",
+  "pages": [4, 5, 6, 7, 8, 9, 10],
+  "rows": [
+    {
+      "group": "A",
+      "division": "A-1",
+      "destination": "todas",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 4
+    },
+    {
+      "group": "A",
+      "division": "A-2",
+      "destination": "todas",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 4
+    },
+    {
+      "group": "A",
+      "division": "A-3",
+      "destination": "todas",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 4
+    },
+    {
+      "group": "B",
+      "division": "B-1",
+      "destination": "Campings",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 4
+    },
+    {
+      "group": "B",
+      "division": "B-1",
+      "destination": "todas as demais",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 4
+    },
+    {
+      "group": "B",
+      "division": "B-2",
+      "destination": "todas",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Açougue",
+      "qfi_mj_m2": 40,
+      "qfi_raw": "40",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Aparelhos eletrodomésticos",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Armas",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Artigos de bijouteria, metal ou vidro",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Automóveis",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Bicicletas e triciclos; peças e acessórios",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Cal, areia, pedra britada, tijolos e telhas",
+      "qfi_mj_m2": 40,
+      "qfi_raw": "40",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Ferragens e ferramentas",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Floricultura",
+      "qfi_mj_m2": 80,
+      "qfi_raw": "80",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Galeria de quadros",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Hortifrutigranjeiro",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Joalheria",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Máquinas de costura ou de escritório",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Fotográficos e filmagem",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Óptica",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Suvenires e artesanatos",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Verduras frescas",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Vidros",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "destination": "Vinhos, cervejas e bebidas fermentadas",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Animais (“pet shop”)",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Antiguidades",
+      "qfi_mj_m2": 700,
+      "qfi_raw": "700",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Aparelhos eletrônicos",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Armarinhos",
+      "qfi_mj_m2": 700,
+      "qfi_raw": "700",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Artigos de cera",
+      "qfi_mj_m2": 2100,
+      "qfi_raw": "2100",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Artigos de couro, borracha, esportivos",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Artigos esportivos",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Bebidas destiladas",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Brinquedos",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Caça, pesca e camping",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Calçados",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Cama, mesa e banho",
+      "qfi_mj_m2": 700,
+      "qfi_raw": "700",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Cosméticos, perfumaria e higiene pessoal",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Couro, artigos de",
+      "qfi_mj_m2": 700,
+      "qfi_raw": "700",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Doces, balas, bombons e semelhantes",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Drogarias (incluindo depósitos)",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Esportes, artigos de",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Farmacêuticos; produtos",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Iluminação",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Informática; suprimentos de",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Laticínios e frios",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Livrarias",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 4
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Lojas de departamento",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 5
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Materiais de construção",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 5
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Materiais hidráulicos",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 5
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Mercadorias em geral, com predominância de produtos alimentícios",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 5
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Móveis",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 5
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Musicais; instrumentos",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 5
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Papelarias",
+      "qfi_mj_m2": 700,
+      "qfi_raw": "700",
+      "page": 5
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Perfumarias",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 5
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Produtos têxteis",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 5
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Relojoarias",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 5
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Supermercados (vendas)",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 5
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Tapetes, cortinas e persianas",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 5
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Tecidos",
+      "qfi_mj_m2": 700,
+      "qfi_raw": "700",
+      "page": 5
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Tintas e vernizes",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 5
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Vestuário e acessórios",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 5
+    },
+    {
+      "group": "C",
+      "division": "C-2",
+      "destination": "Vulcanização",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 5
+    },
+    {
+      "group": "C",
+      "division": "C-3",
+      "destination": "Centro de compras em geral (shoppings)",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-1",
+      "destination": "Agências de correios",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-1",
+      "destination": "Captação, tratamento e distribuição de água",
+      "qfi_mj_m2": 80,
+      "qfi_raw": "80",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-1",
+      "destination": "Centrais telefônicas",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-1",
+      "destination": "Cabeleireiro, manicure e pedicure",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-1",
+      "destination": "Copiadora",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-1",
+      "destination": "Correio Nacional e suas franquias",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-1",
+      "destination": "Encadernadoras",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-1",
+      "destination": "Escritórios",
+      "qfi_mj_m2": 700,
+      "qfi_raw": "700",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-1",
+      "destination": "Estúdios de rádio ou de televisão ou de fotografia",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-1",
+      "destination": "Gestão de redes de esgoto (exceto a gestão das redes)",
+      "qfi_mj_m2": 40,
+      "qfi_raw": "40",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-1",
+      "destination": "Processamentos de dados",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-1",
+      "destination": "Salas de acesso à Internet",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-1",
+      "destination": "Serviços de cremação, sepultamento e funerárias",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-1",
+      "destination": "Serviços de entrega rápida",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-1",
+      "destination": "Tatuagem e colocação de piercing",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-2",
+      "destination": "Agências bancárias",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-3",
+      "destination": "Lavanderias",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-3",
+      "destination": "Oficinas elétricas",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-3",
+      "destination": "Oficinas hidráulicas ou mecânicas",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-3",
+      "destination": "Pinturas",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-4",
+      "destination": "Laboratórios químicos",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 5
+    },
+    {
+      "group": "D",
+      "division": "D-4",
+      "destination": "Laboratórios (outros)",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 5
+    },
+    {
+      "group": "E",
+      "division": "E-1",
+      "destination": "todas",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 5
+    },
+    {
+      "group": "E",
+      "division": "E-2",
+      "destination": "todas",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 5
+    },
+    {
+      "group": "E",
+      "division": "E-3",
+      "destination": "todas",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 5
+    },
+    {
+      "group": "E",
+      "division": "E-4",
+      "destination": "todas",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 5
+    },
+    {
+      "group": "E",
+      "division": "E-5",
+      "destination": "todas",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 5
+    },
+    {
+      "group": "E",
+      "division": "E-6",
+      "destination": "todas",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 5
+    },
+    {
+      "group": "F",
+      "division": "F-1",
+      "destination": "Bibliotecas e assemelhados",
+      "qfi_mj_m2": 2000,
+      "qfi_raw": "2000",
+      "page": 5
+    },
+    {
+      "group": "F",
+      "division": "F-1",
+      "destination": "Museus",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 5
+    },
+    {
+      "group": "F",
+      "division": "F-2",
+      "destination": "Igrejas e templos",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 5
+    },
+    {
+      "group": "F",
+      "division": "F-3",
+      "destination": "Centros esportivos e de exibição",
+      "qfi_mj_m2": 150,
+      "qfi_raw": "150",
+      "page": 6
+    },
+    {
+      "group": "F",
+      "division": "F-4",
+      "destination": "todas",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 6
+    },
+    {
+      "group": "F",
+      "division": "F-5",
+      "destination": "Cinemas, teatros e similares",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 6
+    },
+    {
+      "group": "F",
+      "division": "F-6",
+      "destination": "Clubes sociais e salão de festas",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 6
+    },
+    {
+      "group": "F",
+      "division": "F-6",
+      "destination": "Lan house, jogos eletrônicos",
+      "qfi_mj_m2": 450,
+      "qfi_raw": "450",
+      "page": 6
+    },
+    {
+      "group": "F",
+      "division": "F-7",
+      "destination": "Circos e assemelhados",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 6
+    },
+    {
+      "group": "F",
+      "division": "F-8",
+      "destination": "Padarias comerciais",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 6
+    },
+    {
+      "group": "F",
+      "division": "F-8",
+      "destination": "Restaurantes, Lanchonetes, Bares, Cafés, Refeitórios, Cantinas e assemelhados",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 6
+    },
+    {
+      "group": "F",
+      "division": "F-9",
+      "destination": "todas",
+      "qfi_mj_m2": null,
+      "qfi_raw": "Anexo B ou D",
+      "page": 6
+    },
+    {
+      "group": "F",
+      "division": "F-10",
+      "destination": "Exposições de objetos e animais",
+      "qfi_mj_m2": null,
+      "qfi_raw": "Anexo B ou D",
+      "page": 6
+    },
+    {
+      "group": "F",
+      "division": "F-11",
+      "destination": "todas",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 6
+    },
+    {
+      "group": "G",
+      "division": "G-1",
+      "destination": "todas",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 6
+    },
+    {
+      "group": "G",
+      "division": "G-2",
+      "destination": "todas",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 6
+    },
+    {
+      "group": "G",
+      "division": "G-3",
+      "destination": "Postos de abastecimentos (tanque enterrado)",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 6
+    },
+    {
+      "group": "G",
+      "division": "G-4",
+      "destination": "Oficinas de conserto de veículos e manutenção",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 6
+    },
+    {
+      "group": "G",
+      "division": "G-5",
+      "destination": "Abrigos para aeronaves com ou sem abastecimento",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 6
+    },
+    {
+      "group": "H",
+      "division": "H-1",
+      "destination": "Veterinárias",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 6
+    },
+    {
+      "group": "H",
+      "division": "H-2",
+      "destination": "todas",
+      "qfi_mj_m2": 350,
+      "qfi_raw": "350",
+      "page": 6
+    },
+    {
+      "group": "H",
+      "division": "H-3",
+      "destination": "Hospitais em geral",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 6
+    },
+    {
+      "group": "H",
+      "division": "H-4",
+      "destination": "Todas",
+      "qfi_mj_m2": 450,
+      "qfi_raw": "450",
+      "page": 6
+    },
+    {
+      "group": "H",
+      "division": "H-5",
+      "destination": "Presídios e similares",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 6
+    },
+    {
+      "group": "H",
+      "division": "H-6",
+      "destination": "todas",
+      "qfi_mj_m2": 250,
+      "qfi_raw": "250",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Acessórios para automóveis",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Aço, corte e dobra, sem pintura, sem embalagem",
+      "qfi_mj_m2": 40,
+      "qfi_raw": "40",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Adubos e fertilizantes",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Artigos de argila, cerâmica ou porcelanas",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Artigos de bijuteria",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Artigos de gesso",
+      "qfi_mj_m2": 80,
+      "qfi_raw": "80",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Artigos de mármore",
+      "qfi_mj_m2": 40,
+      "qfi_raw": "40",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Artigos de metal, forjados",
+      "qfi_mj_m2": 80,
+      "qfi_raw": "80",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Artigos de metal, fresados",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Artigos de tabaco",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Artigos de vidro",
+      "qfi_mj_m2": 80,
+      "qfi_raw": "80",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Automotiva e autopeças (exceto pintura)",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Balanças",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Bebidas não alcoólicas",
+      "qfi_mj_m2": 80,
+      "qfi_raw": "80",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Bicicletas",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Cal e gesso",
+      "qfi_mj_m2": 80,
+      "qfi_raw": "80",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Cerâmica",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Cervejarias",
+      "qfi_mj_m2": 80,
+      "qfi_raw": "80",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Chapas de aglomerado ou compensado",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Cimento",
+      "qfi_mj_m2": 40,
+      "qfi_raw": "40",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Condimentos, conservas",
+      "qfi_mj_m2": 40,
+      "qfi_raw": "40",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Defumados",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Ferragens",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Fibras sintéticas",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 6
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Fios elétricos",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Flores artificiais",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Fundições de metal",
+      "qfi_mj_m2": 40,
+      "qfi_raw": "40",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Galvanoplastia",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Gesso",
+      "qfi_mj_m2": 80,
+      "qfi_raw": "80",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Guarda-chuvas",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Joias",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Laboratórios farmacêuticos",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Lâmpadas",
+      "qfi_mj_m2": 40,
+      "qfi_raw": "40",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Latas metálicas, sem embalagem",
+      "qfi_mj_m2": 100,
+      "qfi_raw": "100",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Laticínios",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Malharias",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Máquinas de lavar, de costura ou de escritório",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Matadouro",
+      "qfi_mj_m2": 40,
+      "qfi_raw": "40",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Medicamentos",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Metalúrgica",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Montagens de automóveis",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Motocicletas",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Motores elétricos",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Olarias",
+      "qfi_mj_m2": 100,
+      "qfi_raw": "100",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Papéis (preparo de celulose)",
+      "qfi_mj_m2": 80,
+      "qfi_raw": "80",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Pedras",
+      "qfi_mj_m2": 60,
+      "qfi_raw": "60",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Perfumes",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Produtos de adubo químico",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Produtos com ácido acético",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Produtos com ácido carbônico",
+      "qfi_mj_m2": 40,
+      "qfi_raw": "40",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Produtos com ácido inorgânico",
+      "qfi_mj_m2": 80,
+      "qfi_raw": "80",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Produtos com soda",
+      "qfi_mj_m2": 40,
+      "qfi_raw": "40",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Produtos refratários",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Relógios",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Sabões",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Serralheria",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Sorvetes",
+      "qfi_mj_m2": 80,
+      "qfi_raw": "80",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Sucos de fruta",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Tintas não-inflamáveis",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Transformadores",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Tratores",
+      "qfi_mj_m2": 300,
+      "qfi_raw": "300",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Vagões",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Vidros ou espelhos",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-1",
+      "destination": "Vinagres",
+      "qfi_mj_m2": 80,
+      "qfi_raw": "80",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Aparelhos eletroeletrônicos, fotográficos, ópticos",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Acetileno",
+      "qfi_mj_m2": 700,
+      "qfi_raw": "700",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Alimentação (alimentos)",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Artigos de borracha, cortiça, couro, feltro, espuma",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Artigos de cera",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Artigos de madeira em geral",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Artigos de peles",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Artigos de plásticos em geral",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Asfalto, manipulação de",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 7
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Automotiva e autopeças (pintura)",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Aviões",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Barcos de madeira ou de plástico",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Barcos de metal",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Baterias/Acumuladores",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Bebidas destilada",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Brinquedos",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Café (inclusive torrefação)",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Caixotes barris ou pallets de madeira",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Calçados",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Carpintarias e marcenarias",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Chocolate",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Cobertores, tapetes",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Colas",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Colchões (exceto espuma)",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Confeitarias",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Congelados",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Cortiça, artigos de",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Cosméticos, perfumaria e higiene pessoal",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Couro, curtume",
+      "qfi_mj_m2": 700,
+      "qfi_raw": "700",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Couro sintético",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Discos de música",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Doces",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Estaleiros",
+      "qfi_mj_m2": 700,
+      "qfi_raw": "700",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Estaleiros",
+      "qfi_mj_m2": 700,
+      "qfi_raw": "700",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Feltros",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Fermentos",
+      "qfi_mj_m2": 110,
+      "qfi_raw": "110",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Fiações",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Fornos de secagem (grade de madeira)",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Galpões de secagem (grade de madeira)",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Geladeiras",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Gelatinas",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Gorduras comestíveis",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Gráficas (produção)",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Instrumentos musicais",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Janelas e portas de madeira",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Laboratórios químicos",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Lápis",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Malas, fábrica",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Massas alimentícias",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Mastiques",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Móveis",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Óleos comestíveis e óleos em geral",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Padarias industriais",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Papéis (acabamento)",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Papéis (procedimento)",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Papelão ondulado",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Pneus",
+      "qfi_mj_m2": 700,
+      "qfi_raw": "700",
+      "page": 8
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Produtos adesivos",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 9
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Produtos alimentícios (expedição)",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 9
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Produtos com alcatrão",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 9
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Produtos graxos",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 9
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Rações balanceadas",
+      "qfi_mj_m2": 1100,
+      "qfi_raw": "1100",
+      "page": 9
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Resinas, em placas",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 9
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Roupas",
+      "qfi_mj_m2": 550,
+      "qfi_raw": "550",
+      "page": 9
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Sacos de papel",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 9
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Sacos de juta",
+      "qfi_mj_m2": 500,
+      "qfi_raw": "500",
+      "page": 9
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Tapetes",
+      "qfi_mj_m2": 600,
+      "qfi_raw": "600",
+      "page": 9
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Têxteis em geral (tecidos)",
+      "qfi_mj_m2": 700,
+      "qfi_raw": "700",
+      "page": 9
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Tintas látex",
+      "qfi_mj_m2": 800,
+      "qfi_raw": "800",
+      "page": 9
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Vassouras ou escovas",
+      "qfi_mj_m2": 700,
+      "qfi_raw": "700",
+      "page": 9
+    },
+    {
+      "group": "I",
+      "division": "I-2",
+      "destination": "Vulcanização",
+      "qfi_mj_m2": 1000,
+      "qfi_raw": "1000",
+      "page": 9
+    },
+    {
+      "group": "M",
+      "division": "M-2",
+      "destination": "Edificação destinada a produção, manipulação, armazenamento e distribuição de líquidos ou gases inflamáveis ou combustíveis, exceto os postos de revenda de GLP",
+      "qfi_mj_m2": 2100,
+      "qfi_raw": "2100",
+      "page": 10
+    },
+    {
+      "group": "M",
+      "division": "M-3",
+      "destination": "Centros de comunicação, centrais de transmissão, centros de computação, estações de Rádio ou TV",
+      "qfi_mj_m2": 100,
+      "qfi_raw": "100",
+      "page": 10
+    },
+    {
+      "group": "M",
+      "division": "M-4",
+      "destination": "Locais em construção ou demolição e assemelhados",
+      "qfi_mj_m2": 400,
+      "qfi_raw": "400",
+      "page": 10
+    },
+    {
+      "group": "M",
+      "division": "M-5",
+      "destination": "Silos, moegas, correias transportadoras e secadores de grãos ou folhas e similares",
+      "qfi_mj_m2": null,
+      "qfi_raw": "Anexo C",
+      "page": 10
+    },
+    {
+      "group": "M",
+      "division": "M-6",
+      "destination": "Floresta, reserva ecológica, parque florestal e assemelhados",
+      "qfi_mj_m2": null,
+      "qfi_raw": "Anexo C",
+      "page": 10
+    },
+    {
+      "group": "M",
+      "division": "M-7",
+      "destination": "Área aberta destinada a armazenamento de contêineres",
+      "qfi_mj_m2": null,
+      "qfi_raw": "Anexo C",
+      "page": 10
+    },
+    {
+      "group": "M",
+      "division": "M-8",
+      "destination": "PRGLP classes I, II, III e IV",
+      "qfi_mj_m2": 4000,
+      "qfi_raw": "4000",
+      "page": 10
+    },
+    {
+      "group": "M",
+      "division": "M-9",
+      "destination": "PRGLP classes V, VI, VII e Especial",
+      "qfi_mj_m2": 4000,
+      "qfi_raw": "4000",
+      "page": 10
+    },
+    {
+      "group": "M",
+      "division": "M-10",
+      "destination": "Mina para exploração de jazidas ou minérios",
+      "qfi_mj_m2": 3000,
+      "qfi_raw": "3000",
+      "page": 10
+    },
+    {
+      "group": "M",
+      "division": "M-11",
+      "destination": "Estufas para secagem, galpões para estocagem de forrageiras ou fardos",
+      "qfi_mj_m2": 200,
+      "qfi_raw": "200",
+      "page": 10
+    }
+  ],
+  "checks": {
+    "needs_human_look": [
+      "5 row(s) whose load is not a plain number: ['Anexo B ou D', 'Anexo C']",
+      "duplicate division and destination: ['I-2 Estaleiros']"
+    ]
+  }
+}

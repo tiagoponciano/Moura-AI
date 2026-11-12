@@ -7,6 +7,7 @@ import type { Classification } from "../lib/classify";
 import type { Facts } from "../lib/engine/types";
 import { AnalysisNotice } from "./analysis-notice";
 import { BuildingForm } from "./building-form";
+import { DerivedData } from "./derived-data";
 import { NextQuestions } from "./next-questions";
 import { ProvisionalNotice } from "./provisional-notice";
 import { RequirementsList } from "./requirements-list";
@@ -35,6 +36,10 @@ export function ClassificationPanel({
           sources={sources}
           progress={classification.progress}
           onChange={onChange}
+        />
+        <DerivedData
+          derived={classification.derived}
+          conflicts={classification.conflicts}
         />
         <NextQuestions classification={classification} />
         <AnalysisNotice analyses={classification.analyses} />

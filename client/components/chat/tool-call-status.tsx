@@ -14,7 +14,10 @@ export function ToolCallStatus({
     done && part.output && typeof part.output === "object"
       ? (part.output as Record<string, unknown>)
       : undefined;
-  // A tool whose output carries more than the recorded fields names them in `fields`.
+  // A tool whose output carries more than the recorded fields names them in `fields`,
+  // and one that records nothing says what it did in `summary`.
+  const summary =
+    typeof output?.summary === "string" ? output.summary : undefined;
   const fields = output
     ? Array.isArray(output.fields)
       ? output.fields.filter((f): f is string => typeof f === "string")
@@ -41,7 +44,8 @@ export function ToolCallStatus({
         {failed
           ? `Falha ao registrar campos: ${part.errorText}`
           : done
-            ? `Campos atualizados: ${fields.join(", ") || "nenhum"}`
+            ? (summary ??
+              `Campos atualizados: ${fields.join(", ") || "nenhum"}`)
             : "Registrando campos…"}
       </span>
     </div>

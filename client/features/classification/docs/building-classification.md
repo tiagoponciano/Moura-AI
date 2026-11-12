@@ -4,7 +4,7 @@ How the Classificação module (`/classification`) works now: a chat that asks t
 
 ## What this is
 
-The user describes a commercial building in the chat, or types the answers in the side panel. After every change the page runs the Grupo C rules over the answers and lists each system as required, not required or waiting for an answer; for a required one it shows where in IN 1 parte 2 it comes from. A case the tables do not settle (exactly 750 m² or 12 m, several blocks, mixed use, a division outside Grupo C…) shows its reason instead of a list. The assistant asks one question at a time, taken from what the engine could not settle.
+The user describes a commercial building in the chat, or types the answers in the side panel. After every change the page runs the Grupo C rules over the answers and lists each system as required, not required or waiting for an answer; for a required one it shows where in IN 1 parte 2 it comes from. A case the tables do not settle (exactly 750 m² or 12 m, several blocks, mixed use, a division outside Grupo C…) shows its reason instead of a list. The assistant finds the activity in IN 3, Annex A and asks the user to confirm it, which sets the division and the fire load; then it asks one question at a time, taken from what the engine could not settle.
 
 Invariants:
 
@@ -37,7 +37,7 @@ Requires a signed-in, approved user (`client/docs/authentication.md`); without S
 | `classify(answers, analysisDate, rules?)`             | `classify.ts`  | The `Classification` shown on screen; `rules` defaults to `GROUP_C_RULES`                               |
 | `analysisDate(now?)`                                  | `today.ts`     | `YYYY-MM-DD` in `America/Sao_Paulo`                                                                     |
 
-Server (`server/`): `recordAnswersInput` (zod, generated from the registry), `recordAnswers(input, state, date)`, `buildInstructions(state, date)` and `handleClassificationChat`.
+Server (`server/`): `recordAnswersInput` (zod, generated from the registry), `recordAnswers(input, state, date)`, `searchActivityInput` and `searchActivity(input)` (the `search_activity` tool, see `activity-catalog.md`), `buildInstructions(state, date)` and `handleClassificationChat`. `lib/catalog/activities.ts` holds the activity catalog.
 
 ### Feature layout
 
@@ -62,7 +62,7 @@ Server (`server/`): `recordAnswersInput` (zod, generated from the registry), `re
 
 ## Data shapes
 
-Answers are engine facts (`Record<fact, number | string | boolean | null | undefined>`): `undefined` is not answered yet, `null` is "não sei". The nine facts and their units are in `group-c-rules.md`; `QUESTIONS` holds, per fact, its panel label, the Portuguese question, the English description given to the model, and whether "não sei" is allowed.
+Answers are engine facts (`Record<fact, number | string | boolean | null | undefined>`): `undefined` is not answered yet, `null` is "não sei". The facts and their units are in `group-c-rules.md`; `activity` (the id of a catalog activity) is the tenth and is not asked directly, and `division` accepts every division of IN 3, Annex A; `QUESTIONS` holds, per fact, its panel label, the Portuguese question, the English description given to the model, and whether "não sei" is allowed.
 
 `record_answers` input (all fields optional; zod enforces positive numbers, an integer `storeys` and the listed option values):
 
@@ -81,22 +81,25 @@ Answers are engine facts (`Record<fact, number | string | boolean | null | undef
 
 `Classification` (what `classify` returns):
 
-| Field             | Meaning                                                                                                                                  |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `status`          | `analysis` when a rule stops at a specific analysis; `pending` when a question is unanswered or answered "não sei"; `complete` otherwise |
-| `analyses`        | `{ reason, locator, quote? }` per specific analysis, in Portuguese                                                                       |
-| `table`           | Which table and column applied, once known, e.g. `Tabela 5, coluna 6 < H ≤ 12`                                                           |
-| `groups`          | `required`, `needsInfo` and `notRequired`, each a list of `SystemView`; all three are empty while `status` is `analysis`                 |
-| `nextQuestions`   | Askable questions the engine still needs, in registry order                                                                              |
-| `next`            | What the assistant asks now: `{ ask, facts }`. While two or more scope confirmations are open it is one question that covers them all    |
-| `declaredUnknown` | Askable questions answered "não sei" that the engine needs                                                                               |
-| `progress`        | `{ answered, total }`: askable facts with an answer (including "não sei"), and that plus `nextQuestions`                                 |
-| `provisional`     | `true` while any rule that took part is not approved                                                                                     |
+| Field             | Meaning                                                                                                                                          |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `status`          | `analysis` when a rule stops at a specific analysis; `pending` when a question is unanswered or answered "não sei"; `complete` otherwise         |
+| `analyses`        | `{ reason, locator, quote? }` per specific analysis, in Portuguese                                                                               |
+| `table`           | Which table and column applied, once known, e.g. `Tabela 5, coluna 6 < H ≤ 12`                                                                   |
+| `groups`          | `required`, `needsInfo` and `notRequired`, each a list of `SystemView`; all three are empty while `status` is `analysis`                         |
+| `derived`         | `{ label, value, source }` for what the chosen activity set (division, fire load), with `IN 3, Anexo A · <division> <destination>` as the source |
+| `conflicts`       | Warnings when the activity points one way and an answer another; the answer wins                                                                 |
+| `nextQuestions`   | Askable questions the engine still needs, in registry order                                                                                      |
+| `next`            | What the assistant asks now: `{ ask, facts }`. While two or more scope confirmations are open it is one question that covers them all            |
+| `declaredUnknown` | Askable questions answered "não sei" that the engine needs                                                                                       |
+| `progress`        | `{ answered, total }`: askable facts with an answer (including "não sei"), and that plus `nextQuestions`                                         |
+| `provisional`     | `true` while any rule that took part is not approved                                                                                             |
 
 `SystemView`: `id`, `label`, `status`, `vital`, `partial`, `scopes`, `substitutions` (`by`, `alreadyRequired`, `note?`, as system names), `reasons` (`locator`, `quote?` of the cells and notes behind a required system, empty otherwise), `notes` (observations that do not change the requirement) and `missing` (labels of the answers that would settle a pending one). Systems are ordered as in the system catalog.
 
 ## Rules and behavior
 
+- **Activity.** The assistant calls `search_activity` with the user's words, shows the options and records the confirmed id as `activity`; `classify` then fills the division and the fire load unless the user already gave them. A description the annex does not list is recorded as division `other`.
 - **Chat.** On each `record_answers` result, `pickAnswers` keeps valid values and `applyAnswers` merges them over the current answers; facts the user listed in `unknown` become `null`. Manual edits to other fields are kept. Reopening a saved chat from "Histórico" replays its `record_answers` results the same way, over whatever answers are on screen.
 - **Panel edits.** `applyEdit` validates like the tool: an empty, non-numeric, zero, negative or fractional-`storeys` value clears the fact; "Não sei" is offered only where the registry allows it.
 - **Sources.** Every answer kept from a `record_answers` result, including a "não sei", is marked `assistant`; any edit in the panel marks that field `user`, even when the typed value is invalid and clears the fact. The row shows "IA" or "editado" from `sourceTag`, and nothing while the answer is empty. A later tool result marks it `assistant` again.
@@ -111,10 +114,11 @@ From `lg` (1024px) up, the chat fills the left and a 360px panel (`bg-card`, lef
 
 Panel, top to bottom:
 
-1. **Dados da edificação**: `<answered> de <total> respondidas` and one bar segment per question, the first `<answered>` in `success`. Then one row per entry of `QUESTIONS` (including the optional fire load in MJ/m²): status dot (`success` when answered), label, optional source tag and a borderless control — a number input, or a select with "Sim"/"Não" or the options, plus "Não sei" where allowed.
-2. **Próxima pergunta**: `next.ask`, the wording the assistant uses, and "Depois: …" with the labels of the `nextQuestions` it does not cover. A second paragraph, "Pendente de profissional habilitado", lists `declaredUnknown`. Hidden while `status` is `analysis` or nothing is pending.
-3. **Caso para análise específica**: each analysis' reason and its source, only while `status` is `analysis`.
-4. **Sistemas preventivos**: while nothing is answered, a sentence explaining what the panel will show. Otherwise `<required> exigidos · <pending> pendentes`, the line "Aplicando: <table>" once known, a bar segment per system (required `primary`, pending `input`, not required `muted`) and up to three groups:
+1. **Dados da edificação**: `<answered> de <total> respondidas` and one bar segment per question, the first `<answered>` in `success`. Then one row per entry of `QUESTIONS` (the activity first, read-only with a "limpar" link, and including the optional fire load in MJ/m²): status dot (`success` when answered), label, optional source tag and a borderless control — a number input, or a select with "Sim"/"Não" or the options, plus "Não sei" where allowed.
+2. **Da atividade escolhida**: what `derived` holds with its source, and the warnings of `conflicts`. Hidden when both are empty.
+3. **Próxima pergunta**: `next.ask`, the wording the assistant uses, and "Depois: …" with the labels of the `nextQuestions` it does not cover. A second paragraph, "Pendente de profissional habilitado", lists `declaredUnknown`. Hidden while `status` is `analysis` or nothing is pending.
+4. **Caso para análise específica**: each analysis' reason and its source, only while `status` is `analysis`.
+5. **Sistemas preventivos**: while nothing is answered, a sentence explaining what the panel will show. Otherwise `<required> exigidos · <pending> pendentes`, the line "Aplicando: <table>" once known, a bar segment per system (required `primary`, pending `input`, not required `muted`) and up to three groups:
 
 | Group                 | Row                                                                                                                                                                                                                |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -122,7 +126,7 @@ Panel, top to bottom:
 | Dependem de respostas | Hollow dot, name, "Falta" and one pill per missing answer. When two or more systems are pending, what all of them wait for is said once above them ("Todos aguardam: …") and left out of the rows                  |
 | Não exigidos          | `input` dot, name in muted text                                                                                                                                                                                    |
 
-5. **Footer**: the provisional notice (`accent`) and the outline "Limpar respostas" button.
+6. **Footer**: the provisional notice (`accent`) and the outline "Limpar respostas" button.
 
 ## What this does NOT do
 

@@ -1,3 +1,4 @@
+import { ACTIVITY_BY_ID } from "./catalog/activities";
 import { evaluateRules } from "./engine/evaluate-rules";
 import type { Facts, Rule } from "./engine/types";
 import {
@@ -7,11 +8,17 @@ import {
   type Question,
 } from "./questions";
 import { GROUP_C_RULES } from "./rulesets/group-c";
-import { HEIGHT_CLASSES } from "./rulesets/group-c-conditions";
+import {
+  FIRE_LOAD_CLASSES,
+  HEIGHT_CLASSES,
+} from "./rulesets/group-c-conditions";
 import { SYSTEMS, systemLabel } from "./rulesets/systems";
 
 /** The printed source of a decision, for "why is this required?". */
 export type Reason = { locator: string; quote?: string };
+
+/** A value the rules got from the chosen activity instead of from the user. */
+export type Derived = { label: string; value: string; source: string };
 
 export type SystemView = {
   id: string;
@@ -43,6 +50,10 @@ export type Classification = {
     needsInfo: SystemView[];
     notRequired: SystemView[];
   };
+  /** Values taken from the chosen activity (IN 3, Annex A). */
+  derived: Derived[];
+  /** The activity points one way and an answer another; the answer wins. */
+  conflicts: string[];
   nextQuestions: Question[];
   /** What the assistant asks now; one question can cover several of `nextQuestions`. */
   next?: NextAsk;
@@ -66,7 +77,60 @@ export function classify(
   analysisDate: string,
   rules: Rule[] = GROUP_C_RULES,
 ): Classification {
-  const evaluation = evaluateRules(rules, answers, analysisDate);
+  // The activity fills the division and the fire load unless the user already gave them.
+  const facts: Facts = { ...answers };
+  const derived: Derived[] = [];
+  const conflicts: string[] = [];
+  const activity =
+    typeof answers.activity === "string"
+      ? ACTIVITY_BY_ID.get(answers.activity)
+      : undefined;
+  const fromActivity = activity
+    ? `IN 3, Anexo A · ${activity.division} ${activity.destination}`
+    : "";
+  if (activity) {
+    if (answers.division === undefined) {
+      facts.division = activity.division;
+      derived.push({
+        label: "Divisão",
+        value: activity.division,
+        source: fromActivity,
+      });
+    } else if (answers.division !== activity.division) {
+      conflicts.push(
+        `A atividade "${activity.destination}" é da divisão ${activity.division}, mas a divisão informada é ${String(answers.division)}.`,
+      );
+    }
+    if (activity.qfi !== undefined) {
+      if (
+        answers.fire_load_class === undefined &&
+        answers.fire_load_mj_m2 === undefined
+      ) {
+        facts.fire_load_mj_m2 = activity.qfi;
+      }
+    } else if (activity.qfiRef) {
+      derived.push({
+        label: "Carga de incêndio",
+        value: `a norma remete ao ${activity.qfiRef}`,
+        source: fromActivity,
+      });
+    }
+  }
+  const evaluation = evaluateRules(rules, facts, analysisDate);
+  if (
+    activity?.qfi !== undefined &&
+    facts.fire_load_mj_m2 === activity.qfi &&
+    answers.fire_load_mj_m2 === undefined
+  ) {
+    const cls = FIRE_LOAD_CLASSES.find(
+      (c) => c.id === evaluation.facts.fire_load_class,
+    );
+    derived.push({
+      label: "Carga de incêndio",
+      value: `${activity.qfi.toLocaleString("pt-BR")} MJ/m²${cls ? ` (${cls.label.toLowerCase()})` : ""}`,
+      source: fromActivity,
+    });
+  }
   const byId = new Map(rules.map((rule) => [rule.id, rule]));
   const reasonOf = (id: string): Reason => {
     const source = byId.get(id)?.source;
@@ -119,7 +183,7 @@ export function classify(
   // A specific analysis replaces the list: the tables behind it say "not required" for a case they do not settle.
   const listed = analyses.length === 0 ? views : [];
   const answered = ASKABLE_QUESTIONS.filter(
-    (q) => answers[q.fact] !== undefined,
+    (q) => facts[q.fact] !== undefined,
   ).length;
 
   return {
@@ -136,6 +200,8 @@ export function classify(
       needsInfo: listed.filter((s) => s.status === "needs_info"),
       notRequired: listed.filter((s) => s.status === "not_required"),
     },
+    derived,
+    conflicts,
     nextQuestions,
     next: nextAsk(nextQuestions),
     declaredUnknown,

@@ -1,5 +1,17 @@
+import { DIVISIONS } from "./catalog/activities";
+
 /** Name of the LLM tool that records the answers to the questions. */
 export const RECORD_ANSWERS_TOOL = "record_answers";
+
+/** Name of the LLM tool that looks an activity up in IN 3, Annex A. */
+export const SEARCH_ACTIVITY_TOOL = "search_activity";
+
+/** The division options: Grupo C with its description from IN 1 parte 2, Tabela 1, the rest by id. */
+const DIVISION_LABEL: Record<string, string> = {
+  "C-1": "C-1 · Comércio de baixa carga de incêndio",
+  "C-2": "C-2 · Comércio de média, alta ou altíssima carga de incêndio",
+  "C-3": "C-3 · Shopping center",
+};
 
 type Base = {
   /** The fact the engine reads. */
@@ -24,6 +36,7 @@ type Base = {
 
 export type Question = Base &
   (
+    | { kind: "activity" }
     | { kind: "number"; unit: string; integer?: boolean }
     | { kind: "boolean" }
     | { kind: "enum"; options: { value: string; label: string }[] }
@@ -32,20 +45,28 @@ export type Question = Base &
 /** In the order the assistant asks them. */
 export const QUESTIONS: Question[] = [
   {
+    fact: "activity",
+    kind: "activity",
+    label: "Atividade (IN 3, Anexo A)",
+    ask: "Qual é a atividade do imóvel? Por exemplo: loja de roupas, supermercado ou shopping.",
+    description:
+      "Id of the activity found with the search_activity tool, never one you made up. Recording it sets the division and, when the norm gives it, the fire load. Record it only after the user confirms which activity it is.",
+    allowUnknown: false,
+    askable: false,
+  },
+  {
     fact: "division",
     kind: "enum",
     label: "Divisão da ocupação",
-    ask: "Qual é a atividade do imóvel? Por exemplo: loja, supermercado ou shopping.",
+    ask: "Qual é a atividade do imóvel? Por exemplo: loja de roupas, supermercado ou shopping.",
     description:
-      "Occupancy division from IN 1 parte 2, Tabela 1. C-1: commerce with low fire load (butcher, metal or glass goods, appliances, florist, cars, fermented drinks). C-2: commerce with medium, high or very high fire load (department stores, supermarkets, galleries, shoes, drugstores, bookstores, textiles, furniture). C-3: shopping centers. other: any use outside commerce.",
+      "Occupancy division id such as C-2 (IN 1 parte 2, Tabela 1). Prefer recording the activity, which sets it. Only C-1 (commerce with low fire load), C-2 (medium, high or very high) and C-3 (shopping centers) have rules; other divisions are accepted and get a specific analysis. Use other for an activity the norm does not list.",
     options: [
-      { value: "C-1", label: "C-1 · Comércio de baixa carga de incêndio" },
-      {
-        value: "C-2",
-        label: "C-2 · Comércio de média, alta ou altíssima carga de incêndio",
-      },
-      { value: "C-3", label: "C-3 · Shopping center" },
-      { value: "other", label: "Outra ocupação (fora do comércio)" },
+      ...DIVISIONS.map((division) => ({
+        value: division,
+        label: DIVISION_LABEL[division] ?? division,
+      })),
+      { value: "other", label: "Outra ocupação (não listada)" },
     ],
     allowUnknown: false,
     askable: true,

@@ -14,11 +14,31 @@ describe("pickAnswers", () => {
         area_m2: -5,
         height_m: "8",
         storeys: 2.5,
-        division: "D-1",
+        division: "Z-9",
         single_block: "yes",
         fire_load_class: "huge",
       }).values,
     ).toEqual({});
+  });
+
+  it("keeps an activity id from the catalog and drops one that is not in it", () => {
+    expect(
+      pickAnswers({ activity: "C-2-vestuario-e-acessorios" }).values,
+    ).toEqual({
+      activity: "C-2-vestuario-e-acessorios",
+    });
+    expect(pickAnswers({ activity: "C-9-invented" }).values).toEqual({});
+    expect(pickAnswers({ activity: 7 }).values).toEqual({});
+  });
+
+  it("accepts any division of the norm, and only those", () => {
+    expect(pickAnswers({ division: "D-1" }).values).toEqual({
+      division: "D-1",
+    });
+    expect(pickAnswers({ division: "other" }).values).toEqual({
+      division: "other",
+    });
+    expect(pickAnswers({ division: "Z-9" }).values).toEqual({});
   });
 
   it("drops a fact it does not know", () => {

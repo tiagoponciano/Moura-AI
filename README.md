@@ -16,19 +16,28 @@ Internal platform for Moura Soluções em Engenharia, a fire-prevention engineer
 
 <table>
 <tr>
-<td align="center" width="120"><img src="docs/assets/icons/typescript.svg" alt="TypeScript" height="40" /><br />TypeScript</td>
-<td align="center" width="120"><img src="docs/assets/icons/nextdotjs.svg" alt="Next.js" height="40" /><br />Next.js</td>
-<td align="center" width="120"><img src="docs/assets/icons/tailwindcss.svg" alt="Tailwind CSS" height="40" /><br />Tailwind CSS</td>
-<td align="center" width="120"><img src="docs/assets/icons/zod.svg" alt="Zod" height="40" /><br />Zod</td>
-<td align="center" width="120"><img src="docs/assets/icons/supabase.svg" alt="Supabase" height="40" /><br />Supabase</td>
-<td align="center" width="120"><img src="docs/assets/icons/vercel.svg" alt="Vercel" height="40" /><br />Vercel</td>
+<th align="center">Frontend</th>
+<th align="center">Data</th>
+<th align="center">AI</th>
+<th align="center">Services and deploy</th>
 </tr>
 <tr>
-<td align="center" width="120"><img src="docs/assets/icons/python.svg" alt="Python" height="40" /><br />Python</td>
-<td align="center" width="120"><img src="docs/assets/icons/docker.svg" alt="Docker" height="40" /><br />Docker</td>
-<td align="center" width="120"><img src="docs/assets/icons/claude.svg" alt="Claude" height="40" /><br />Claude</td>
-<td align="center" width="120"><img src="docs/assets/icons/openai.svg" alt="ChatGPT" height="40" /><br />ChatGPT</td>
-<td align="center" width="120"><img src="docs/assets/icons/googlegemini.svg" alt="Gemini" height="40" /><br />Gemini</td>
+<td align="center" width="180"><img src="docs/assets/icons/typescript.svg" alt="TypeScript" height="36" /><br /><sub>TypeScript</sub></td>
+<td align="center" width="180"><img src="docs/assets/icons/zod.svg" alt="Zod" height="36" /><br /><sub>Zod</sub></td>
+<td align="center" width="180"><img src="docs/assets/icons/claude.svg" alt="Claude" height="36" /><br /><sub>Claude</sub></td>
+<td align="center" width="180"><img src="docs/assets/icons/python.svg" alt="Python" height="36" /><br /><sub>Python</sub></td>
+</tr>
+<tr>
+<td align="center" width="180"><img src="docs/assets/icons/nextdotjs.svg" alt="Next.js" height="36" /><br /><sub>Next.js</sub></td>
+<td align="center" width="180"><img src="docs/assets/icons/supabase.svg" alt="Supabase" height="36" /><br /><sub>Supabase</sub></td>
+<td align="center" width="180"><img src="docs/assets/icons/openai.svg" alt="ChatGPT" height="36" /><br /><sub>ChatGPT</sub></td>
+<td align="center" width="180"><img src="docs/assets/icons/docker.svg" alt="Docker" height="36" /><br /><sub>Docker</sub></td>
+</tr>
+<tr>
+<td align="center" width="180"><img src="docs/assets/icons/tailwindcss.svg" alt="Tailwind CSS" height="36" /><br /><sub>Tailwind CSS</sub></td>
+<td></td>
+<td align="center" width="180"><img src="docs/assets/icons/googlegemini.svg" alt="Gemini" height="36" /><br /><sub>Gemini</sub></td>
+<td align="center" width="180"><img src="docs/assets/icons/vercel.svg" alt="Vercel" height="36" /><br /><sub>Vercel</sub></td>
 </tr>
 </table>
 
@@ -49,42 +58,6 @@ The model never writes a document. It extracts data from the conversation into a
 ![Moura AI home page in use: hovering each module card while the 3D scene plays](docs/assets/home-demo.gif)
 
 Access is closed: people sign in with Google, an admin approves them on `/admin`, and the same screen sets the AI provider, model, API keys and the allowed e-mail domain.
-
-## Running it locally
-
-Tested with Node.js 24 and pnpm 10.33. CI uses Node 22+ and, for the proposal service, Python 3.13.
-
-1. Install the dependencies from the repository root:
-
-   ```bash
-   pnpm install
-   ```
-
-2. Create the environment file:
-
-   ```bash
-   cp .env.example client/.env.local
-   ```
-
-3. Start the app:
-
-   ```bash
-   pnpm run dev
-   ```
-
-4. Open <http://localhost:3000>.
-
-With the Supabase variables left empty, the app runs without login or persistence: the home page, Classification and the Floor plans screen work, but chats cannot answer and Documents shows only a placeholder, because the form catalog, projects and AI model settings live in Supabase. To turn those on, follow the Setup section of [`authentication.md`](client/docs/authentication.md): create the project, apply `supabase/migrations/` in filename order, configure Google in Supabase Auth and create the first admin with SQL. Then sign in, open "Administração", pick the AI provider and model and save its API key.
-
-The three microservices are optional and run with Docker:
-
-```bash
-docker compose up -d pdf    # PDF output, http://localhost:3001
-docker compose up -d pptx   # commercial proposal, http://localhost:3002
-docker compose up -d dwg    # floor plan conversion
-```
-
-The local credentials for `client/.env.local` are in `docker-compose.yml`.
 
 ## Configuration
 

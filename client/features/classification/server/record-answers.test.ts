@@ -107,6 +107,9 @@ describe("recordAnswers", () => {
       single_block: true,
       single_use: true,
       storage_over_3_5m: false,
+      special_risks: false,
+      risk_exempt: false,
+      fire_load_class: "medium",
     };
     const out = recordAnswers({ storeys: 1 }, state, DATE);
     expect(out.next).toEqual([]);
@@ -121,6 +124,9 @@ describe("recordAnswers", () => {
       single_block: true,
       single_use: true,
       storage_over_3_5m: false,
+      special_risks: false,
+      risk_exempt: false,
+      fire_load_class: "medium",
     };
     const out = recordAnswers({ area_m2: 750 }, state, DATE);
     expect(out.status).toBe("analysis");

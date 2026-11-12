@@ -12,6 +12,7 @@ import {
   FIRE_LOAD_CLASSES,
   HEIGHT_CLASSES,
 } from "./rulesets/group-c-conditions";
+import { RISK_PROCESS } from "./rulesets/group-c-risk";
 import { SYSTEMS, systemLabel } from "./rulesets/systems";
 
 /** The printed source of a decision, for "why is this required?". */
@@ -19,6 +20,12 @@ export type Reason = { locator: string; quote?: string };
 
 /** A value the rules got from the chosen activity instead of from the user. */
 export type Derived = { label: string; value: string; source: string };
+
+/** The risk level I–V and what it means for the process, once the rules settle it. */
+export type RiskView =
+  | { status: "decided"; level: string; process: string; reason: Reason }
+  | { status: "pending" }
+  | { status: "not_covered" };
 
 export type SystemView = {
   id: string;
@@ -45,6 +52,8 @@ export type Classification = {
   analyses: (Reason & { reason: string })[];
   /** Which table and column applied, once known. */
   table?: string;
+  /** Absent while a specific analysis replaces the result. */
+  risk?: RiskView;
   groups: {
     required: SystemView[];
     needsInfo: SystemView[];
@@ -137,8 +146,10 @@ export function classify(
     return { locator: source?.locator ?? id, quote: source?.quote };
   };
 
-  const nextQuestions = ASKABLE_QUESTIONS.filter((q) =>
-    evaluation.unanswered.includes(q.fact),
+  const nextQuestions = ASKABLE_QUESTIONS.filter(
+    (q) =>
+      evaluation.unanswered.includes(q.fact) &&
+      (!q.askAfter || facts[q.askAfter.fact] === q.askAfter.value),
   );
   const declaredUnknown = ASKABLE_QUESTIONS.filter((q) =>
     evaluation.declaredUnknown.includes(q.fact),
@@ -150,6 +161,19 @@ export function classify(
     reason: a.reason,
     ...reasonOf(a.ruleId),
   }));
+
+  const riskOutcome = evaluation.risk;
+  const risk: RiskView =
+    riskOutcome.status === "decided"
+      ? {
+          status: "decided",
+          level: riskOutcome.level,
+          process: RISK_PROCESS[riskOutcome.level] ?? "",
+          reason: reasonOf(riskOutcome.ruleId),
+        }
+      : riskOutcome.status === "pending"
+        ? { status: "pending" }
+        : { status: "not_covered" };
 
   const views: SystemView[] = evaluation.systems.map((system) => {
     const rulesOf = system.ruleIds.map((id) => byId.get(id));
@@ -195,6 +219,7 @@ export function classify(
           : "complete",
     analyses,
     table: tableHint(evaluation.facts),
+    risk: analyses.length === 0 ? risk : undefined,
     groups: {
       required: listed.filter((s) => s.status === "required"),
       needsInfo: listed.filter((s) => s.status === "needs_info"),

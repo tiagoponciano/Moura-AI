@@ -13,6 +13,9 @@ const shop = (overrides: Facts = {}): Facts => ({
   single_block: true,
   single_use: true,
   storage_over_3_5m: false,
+  special_risks: false,
+  risk_exempt: false,
+  fire_load_class: "medium",
   ...overrides,
 });
 
@@ -47,35 +50,48 @@ describe("classify: nothing answered", () => {
 });
 
 describe("classify: the scope confirmations", () => {
-  const open = { division: "C-2", area_m2: 1800, storeys: 2, height_m: 9 };
+  const open = {
+    division: "C-2",
+    area_m2: 1800,
+    storeys: 2,
+    height_m: 9,
+    fire_load_class: "medium",
+  };
 
-  it("asks the three at once", () => {
+  it("asks the four that keep the building in scope at once", () => {
     const result = classify(open, DATE);
     expect(result.next?.facts).toEqual([
       "single_block",
       "single_use",
       "storage_over_3_5m",
+      "special_risks",
     ]);
     expect(result.next?.ask).toContain("é um bloco só");
-    expect(result.nextQuestions).toHaveLength(3);
+    expect(result.next?.ask).toContain("não tem GLP");
+    expect(result.nextQuestions).toHaveLength(4);
   });
 
   it("asks only what is still open once one is answered", () => {
     const result = classify({ ...open, single_block: true }, DATE);
-    expect(result.next?.facts).toEqual(["single_use", "storage_over_3_5m"]);
+    expect(result.next?.facts).toEqual([
+      "single_use",
+      "storage_over_3_5m",
+      "special_risks",
+    ]);
   });
 
-  it("has nothing to ask once all three are answered", () => {
-    const result = classify(
-      {
-        ...open,
-        single_block: true,
-        single_use: true,
-        storage_over_3_5m: false,
-      },
-      DATE,
-    );
-    expect(result.next).toBeUndefined();
+  it("asks about the risk I exemptions after the others, and then nothing", () => {
+    const four = {
+      ...open,
+      single_block: true,
+      single_use: true,
+      storage_over_3_5m: false,
+      special_risks: false,
+    };
+    expect(classify(four, DATE).next?.facts).toEqual(["risk_exempt"]);
+    expect(
+      classify({ ...four, risk_exempt: false }, DATE).next,
+    ).toBeUndefined();
   });
 });
 
@@ -121,7 +137,7 @@ describe("classify: a complete small shop", () => {
   });
 
   it("counts the answers and what is still needed", () => {
-    expect(result.progress).toEqual({ answered: 7, total: 7 });
+    expect(result.progress).toEqual({ answered: 10, total: 10 });
   });
 });
 
@@ -283,6 +299,8 @@ describe("classify: the activity", () => {
     single_block: true,
     single_use: true,
     storage_over_3_5m: false,
+    special_risks: false,
+    risk_exempt: false,
   };
 
   it("fills the division and the fire load from the activity", () => {
@@ -381,5 +399,62 @@ describe("classify: the activity", () => {
     const result = classify({ activity: "C-9-invented" }, DATE);
     expect(result.derived).toEqual([]);
     expect(result.nextQuestions[0].fact).toBe("division");
+  });
+});
+
+describe("classify: the risk level", () => {
+  it("decides II for a small shop, with the norm's process and source", () => {
+    const result = classify(shop(), DATE);
+    expect(result.risk).toMatchObject({
+      status: "decided",
+      level: "II",
+      reason: { locator: "Anexo A, Quadro 1" },
+    });
+    expect(result.risk?.status === "decided" && result.risk.process).toContain(
+      "autodeclaração (Anexo G)",
+    );
+  });
+
+  it("is pending until the fire load is known, because risk V needs it", () => {
+    const result = classify(shop({ fire_load_class: undefined }), DATE);
+    expect(result.risk).toEqual({ status: "pending" });
+    expect(result.nextQuestions.map((q) => q.fact)).toEqual([
+      "fire_load_class",
+    ]);
+  });
+
+  it("asks the amounts only when there is something special", () => {
+    const withSpecial = classify(shop({ special_risks: true }), DATE);
+    expect(withSpecial.nextQuestions.map((q) => q.fact)).toEqual([
+      "hazardous_substances",
+      "flammable_internal_l",
+      "flammable_external_m3",
+    ]);
+    const without = classify(shop({ special_risks: undefined }), DATE);
+    expect(without.nextQuestions.map((q) => q.fact)).toEqual(["special_risks"]);
+  });
+
+  it("is not shown while a specific analysis replaces the result", () => {
+    expect(classify(shop({ area_m2: 750 }), DATE).risk).toBeUndefined();
+  });
+
+  it("is not covered outside Grupo C", () => {
+    const result = classify(
+      { ...shop(), activity: undefined, division: "D-1" },
+      DATE,
+    );
+    expect(result.risk).toBeUndefined();
+  });
+
+  it("takes the fire load from the activity, so it is not asked", () => {
+    const result = classify(
+      {
+        ...shop({ fire_load_class: undefined }),
+        division: undefined,
+        activity: "C-2-vestuario-e-acessorios",
+      },
+      DATE,
+    );
+    expect(result.risk).toMatchObject({ status: "decided", level: "II" });
   });
 });

@@ -11,6 +11,7 @@ import { DerivedData } from "./derived-data";
 import { NextQuestions } from "./next-questions";
 import { ProvisionalNotice } from "./provisional-notice";
 import { RequirementsList } from "./requirements-list";
+import { RiskLevel } from "./risk-level";
 
 type ClassificationPanelProps = {
   answers: Facts;
@@ -43,6 +44,7 @@ export function ClassificationPanel({
         />
         <NextQuestions classification={classification} />
         <AnalysisNotice analyses={classification.analyses} />
+        <RiskLevel risk={classification.risk} />
         <RequirementsList classification={classification} />
       </div>
       <div className="flex flex-col gap-2 border-t px-5 py-4">

@@ -45,6 +45,39 @@ describe("classify: nothing answered", () => {
   });
 });
 
+describe("classify: the scope confirmations", () => {
+  const open = { division: "C-2", area_m2: 1800, storeys: 2, height_m: 9 };
+
+  it("asks the three at once", () => {
+    const result = classify(open, DATE);
+    expect(result.next?.facts).toEqual([
+      "single_block",
+      "single_use",
+      "storage_over_3_5m",
+    ]);
+    expect(result.next?.ask).toContain("é um bloco só");
+    expect(result.nextQuestions).toHaveLength(3);
+  });
+
+  it("asks only what is still open once one is answered", () => {
+    const result = classify({ ...open, single_block: true }, DATE);
+    expect(result.next?.facts).toEqual(["single_use", "storage_over_3_5m"]);
+  });
+
+  it("has nothing to ask once all three are answered", () => {
+    const result = classify(
+      {
+        ...open,
+        single_block: true,
+        single_use: true,
+        storage_over_3_5m: false,
+      },
+      DATE,
+    );
+    expect(result.next).toBeUndefined();
+  });
+});
+
 describe("classify: a complete small shop", () => {
   const result = classify(shop(), DATE);
 

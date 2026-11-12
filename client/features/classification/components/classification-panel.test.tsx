@@ -57,6 +57,38 @@ describe("ClassificationPanel", () => {
     expect(html).toContain("Próxima pergunta");
   });
 
+  it("says once what every pending system waits for instead of repeating it on each row", () => {
+    const html = render({
+      division: "C-2",
+      area_m2: 1800,
+      storeys: 2,
+      height_m: 9,
+    });
+    expect(html).toContain(
+      "Todos aguardam: bloco único, uma só ocupação, armazenamento acima de 3,5 m.",
+    );
+    expect(html).not.toContain("Falta");
+  });
+
+  it("asks the three scope confirmations as one question", () => {
+    const html = render({
+      division: "C-2",
+      area_m2: 1800,
+      storeys: 2,
+      height_m: 9,
+    });
+    expect(html).toContain(
+      "O imóvel é um bloco só (sem outras edificações no terreno)",
+    );
+    expect(html).not.toContain("Depois:");
+  });
+
+  it("still names what is only one system's own", () => {
+    const html = render({ ...shop, area_m2: 3200 });
+    expect(html).toContain("Falta");
+    expect(html).not.toContain("Todos aguardam");
+  });
+
   it("flags what only a professional can answer after a não sei", () => {
     const html = render({ ...shop, area_m2: 3200, fire_load_class: null });
     expect(html).toContain("Pendente de profissional habilitado");

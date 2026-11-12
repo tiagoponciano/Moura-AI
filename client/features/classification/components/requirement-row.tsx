@@ -2,7 +2,14 @@ import { ChevronDown } from "lucide-react";
 import type { SystemView } from "../lib/classify";
 
 /** One system as a panel row: required ones expand to why, pending ones list the missing answers. */
-export function RequirementRow({ system }: { system: SystemView }) {
+export function RequirementRow({
+  system,
+  omitMissing = [],
+}: {
+  system: SystemView;
+  /** Missing answers already said for the whole list. */
+  omitMissing?: string[];
+}) {
   if (system.status === "required") {
     const summary = system.partial
       ? "Exigido em parte do imóvel"
@@ -69,6 +76,9 @@ export function RequirementRow({ system }: { system: SystemView }) {
   }
 
   const pending = system.status === "needs_info";
+  const missing = system.missing.filter(
+    (label) => !omitMissing.includes(label),
+  );
 
   return (
     <div className="grid grid-cols-[8px_minmax(0,1fr)] gap-x-3 gap-y-1 rounded-lg p-2">
@@ -89,10 +99,10 @@ export function RequirementRow({ system }: { system: SystemView }) {
       >
         {system.label}
       </span>
-      {pending && system.missing.length > 0 && (
+      {pending && missing.length > 0 && (
         <span className="col-start-2 flex flex-wrap items-center gap-1 text-xs text-muted-foreground">
           Falta
-          {system.missing.map((label) => (
+          {missing.map((label) => (
             <span
               key={label}
               className="rounded bg-muted px-1.5 text-[10px] leading-4 font-medium"

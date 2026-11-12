@@ -25,16 +25,17 @@ Requires a signed-in, approved user (`client/docs/authentication.md`); without S
 
 ### Library (`client/features/classification/lib/`)
 
-| Export                                                | File           | Contract                                                                                        |
-| ----------------------------------------------------- | -------------- | ----------------------------------------------------------------------------------------------- |
-| `RECORD_ANSWERS_TOOL`                                 | `questions.ts` | `"record_answers"`, shared by the route and the hook                                            |
-| `QUESTIONS`, `ASKABLE_QUESTIONS`, `questionFor(fact)` | `questions.ts` | The registry in the order the assistant asks; `ASKABLE_QUESTIONS` leaves out `fire_load_mj_m2`  |
-| `pickAnswers(output)`                                 | `answers.ts`   | `{ values, unknown }` from a tool output, keeping only what the registry accepts                |
-| `applyAnswers(facts, picked)`                         | `answers.ts`   | Merges picked answers over the facts; a "não sei" becomes `null`                                |
-| `applyEdit(facts, fact, value)`                       | `answers.ts`   | A value typed in the panel, checked like a tool answer; an invalid or empty one clears the fact |
-| `pickFacts(raw)`                                      | `answers.ts`   | The panel's facts sent with a chat request, validated                                           |
-| `classify(answers, analysisDate, rules?)`             | `classify.ts`  | The `Classification` shown on screen; `rules` defaults to `GROUP_C_RULES`                       |
-| `analysisDate(now?)`                                  | `today.ts`     | `YYYY-MM-DD` in `America/Sao_Paulo`                                                             |
+| Export                                                | File           | Contract                                                                                                |
+| ----------------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------- |
+| `RECORD_ANSWERS_TOOL`                                 | `questions.ts` | `"record_answers"`, shared by the route and the hook                                                    |
+| `QUESTIONS`, `ASKABLE_QUESTIONS`, `questionFor(fact)` | `questions.ts` | The registry in the order the assistant asks; `ASKABLE_QUESTIONS` leaves out `fire_load_mj_m2`          |
+| `pickAnswers(output)`                                 | `answers.ts`   | `{ values, unknown }` from a tool output, keeping only what the registry accepts                        |
+| `applyAnswers(facts, picked)`                         | `answers.ts`   | Merges picked answers over the facts; a "não sei" becomes `null`                                        |
+| `applyEdit(facts, fact, value)`                       | `answers.ts`   | A value typed in the panel, checked like a tool answer; an invalid or empty one clears the fact         |
+| `pickFacts(raw)`                                      | `answers.ts`   | The panel's facts sent with a chat request, validated                                                   |
+| `nextAsk(questions)`                                  | `questions.ts` | The question to ask now and the facts it covers; one combined question for the open scope confirmations |
+| `classify(answers, analysisDate, rules?)`             | `classify.ts`  | The `Classification` shown on screen; `rules` defaults to `GROUP_C_RULES`                               |
+| `analysisDate(now?)`                                  | `today.ts`     | `YYYY-MM-DD` in `America/Sao_Paulo`                                                                     |
 
 Server (`server/`): `recordAnswersInput` (zod, generated from the registry), `recordAnswers(input, state, date)`, `buildInstructions(state, date)` and `handleClassificationChat`.
 
@@ -76,7 +77,7 @@ Answers are engine facts (`Record<fact, number | string | boolean | null | undef
 }
 ```
 
-`unknown` lists facts the user does not know; only facts that allow "não sei" are accepted. What the tool returns: `answers` (the validated values) and `unknown` for the client, `status` and `next` (the next question's `fact` and Portuguese `ask`, at most one) for the model.
+`unknown` lists facts the user does not know; only facts that allow "não sei" are accepted. What the tool returns: `answers` (the validated values), `unknown` and `fields` (the fact ids the chat's status line lists as "Campos atualizados") for the client, and `status` and `next` (`{ facts, ask }`, at most one, with the Portuguese question) for the model.
 
 `Classification` (what `classify` returns):
 
@@ -87,6 +88,7 @@ Answers are engine facts (`Record<fact, number | string | boolean | null | undef
 | `table`           | Which table and column applied, once known, e.g. `Tabela 5, coluna 6 < H ≤ 12`                                                           |
 | `groups`          | `required`, `needsInfo` and `notRequired`, each a list of `SystemView`; all three are empty while `status` is `analysis`                 |
 | `nextQuestions`   | Askable questions the engine still needs, in registry order                                                                              |
+| `next`            | What the assistant asks now: `{ ask, facts }`. While two or more scope confirmations are open it is one question that covers them all    |
 | `declaredUnknown` | Askable questions answered "não sei" that the engine needs                                                                               |
 | `progress`        | `{ answered, total }`: askable facts with an answer (including "não sei"), and that plus `nextQuestions`                                 |
 | `provisional`     | `true` while any rule that took part is not approved                                                                                     |
@@ -98,10 +100,10 @@ Answers are engine facts (`Record<fact, number | string | boolean | null | undef
 - **Chat.** On each `record_answers` result, `pickAnswers` keeps valid values and `applyAnswers` merges them over the current answers; facts the user listed in `unknown` become `null`. Manual edits to other fields are kept. Reopening a saved chat from "Histórico" replays its `record_answers` results the same way, over whatever answers are on screen.
 - **Panel edits.** `applyEdit` validates like the tool: an empty, non-numeric, zero, negative or fractional-`storeys` value clears the fact; "Não sei" is offered only where the registry allows it.
 - **Sources.** Every answer kept from a `record_answers` result, including a "não sei", is marked `assistant`; any edit in the panel marks that field `user`, even when the typed value is invalid and clears the fact. The row shows "IA" or "editado" from `sourceTag`, and nothing while the answer is empty. A later tool result marks it `assistant` again.
-- **The prompt.** `buildInstructions` lists every fact with its description, the answers already recorded (the panel's, with "não sei" for `null`) and the next question, which is the first of `nextQuestions`. It tells the model to ask one question at a time, to put what the user does not know in `unknown`, to map the activity to C-1, C-2, C-3 or `other` and ask when it fits more than one, never to state requirements or cite norms, and to answer in Brazilian Portuguese.
+- **The prompt.** `buildInstructions` lists every fact with its description, the answers already recorded (the panel's, with "não sei" for `null`) and the next question, which is `next.ask`. It tells the model to ask one question at a time, to record a plain "sim" to a combined question as every point being true of the building (`single_block` true, `single_use` true, `storage_over_3_5m` false) and a denial as that one point only, to put what the user does not know in `unknown`, to map the activity to C-1, C-2, C-3 or `other` and ask when it fits more than one, never to state requirements or cite norms, and to answer in Brazilian Portuguese.
 - **The analysis date** is today in `America/Sao_Paulo`: on the server per request, in the browser once when the page mounts.
 - **Reset.** "Limpar respostas" clears all answers and their sources but not the chat; it is disabled while `progress.answered` is 0.
-- **Questions.** `nextQuestions` is what the engine reported unanswered, in registry order. A single-storey building is never asked its height, and a Grupo C building outside the fire-load cases is never asked its fire load, because the rules do not need them.
+- **Questions.** `nextQuestions` is what the engine reported unanswered, in registry order. The three scope confirmations (one block, one use, no storage above 3,5 m) carry a `scope` in the registry; while two or more are open they are asked as one sentence built from their clauses. A single-storey building is never asked its height, and a Grupo C building outside the fire-load cases is never asked its fire load, because the rules do not need them.
 
 ### Display
 
@@ -110,14 +112,14 @@ From `lg` (1024px) up, the chat fills the left and a 360px panel (`bg-card`, lef
 Panel, top to bottom:
 
 1. **Dados da edificação**: `<answered> de <total> respondidas` and one bar segment per question, the first `<answered>` in `success`. Then one row per entry of `QUESTIONS` (including the optional fire load in MJ/m²): status dot (`success` when answered), label, optional source tag and a borderless control — a number input, or a select with "Sim"/"Não" or the options, plus "Não sei" where allowed.
-2. **Próxima pergunta**: the first of `nextQuestions` in the wording the assistant uses, and "Depois: …" with the labels of the rest. A second paragraph, "Pendente de profissional habilitado", lists `declaredUnknown`. Hidden while `status` is `analysis` or nothing is pending.
+2. **Próxima pergunta**: `next.ask`, the wording the assistant uses, and "Depois: …" with the labels of the `nextQuestions` it does not cover. A second paragraph, "Pendente de profissional habilitado", lists `declaredUnknown`. Hidden while `status` is `analysis` or nothing is pending.
 3. **Caso para análise específica**: each analysis' reason and its source, only while `status` is `analysis`.
 4. **Sistemas preventivos**: while nothing is answered, a sentence explaining what the panel will show. Otherwise `<required> exigidos · <pending> pendentes`, the line "Aplicando: <table>" once known, a bar segment per system (required `primary`, pending `input`, not required `muted`) and up to three groups:
 
 | Group                 | Row                                                                                                                                                                                                                |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Exigidos              | `primary` dot, name, "vital" when vital, and the first source or "Exigido em parte do imóvel"; a `<details>` with each source and its printed text, "Limitado a:", "A norma permite substituir por:" and the notes |
-| Dependem de respostas | Hollow dot, name, "Falta" and one pill per missing answer                                                                                                                                                          |
+| Dependem de respostas | Hollow dot, name, "Falta" and one pill per missing answer. When two or more systems are pending, what all of them wait for is said once above them ("Todos aguardam: …") and left out of the rows                  |
 | Não exigidos          | `input` dot, name in muted text                                                                                                                                                                                    |
 
 5. **Footer**: the provisional notice (`accent`) and the outline "Limpar respostas" button.

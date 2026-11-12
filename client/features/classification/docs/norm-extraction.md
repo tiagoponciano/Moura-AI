@@ -95,7 +95,7 @@ Output, for the committed run:
 2. **Header vs data rows.** The first data row is the first row whose first cell is non-empty and whose non-empty cells after the first two all start with `x` or `-`; from there on, any row with a label is data. Rows before it are header rows, kept as printed.
 3. **Cell grammar.** A cell is a mark, footnote references and an optional "(V)". Unicode superscripts are read as digits and the superscript minus as `-`. `ok` is `false` when anything else is left over. A cell with more than one reference (`x⁴⁻⁵`, `x 3_7`) is `multi_ref`: the separator could mean a list or a range, so a person confirms it.
 4. **Notes.** Lines below a grid, not inside any grid, are note lines. A note number sits at the vertical centre of a multi-line note, so each text line is assigned to the nearest number. The split is then validated: numbers must run 1..N, each number must lie within its own lines, and each note must start with a capital and end with a period or parenthesis. A failure becomes a `needs_human_look` entry and the notes are still written as split.
-5. **Text normalization.** Whitespace is collapsed and typographic ligatures (ﬁ, ﬂ…) are expanded; units such as `m²` are kept.
+5. **Text normalization.** Whitespace is collapsed and ligatures are expanded: ﬁ, ﬂ, ﬀ, ﬃ, ﬄ and the PDF's own glyph for "ft" (`ϔ`, as in "shafts"). Units such as `m²` are kept.
 
 `needs_human_look` entries and what to do:
 

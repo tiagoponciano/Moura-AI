@@ -114,7 +114,16 @@ export function evaluateRules(
   }
 
   // Systems: required when any rule says so; pending when none does but one could not be settled.
-  const requiredBy = new Map<string, { rules: string[]; vital: boolean }>();
+  const requiredBy = new Map<
+    string,
+    { rules: string[]; vital: boolean; scopes: string[]; unscoped: boolean }
+  >();
+  const substitutes: {
+    system: string;
+    ruleId: string;
+    by: string[];
+    note?: string;
+  }[] = [];
   const unsettled = new Map<string, { rules: string[]; missing: string[] }>();
   const order: string[] = [];
   const systemRules = inStage("systems");
@@ -129,13 +138,33 @@ export function evaluateRules(
       }
       continue;
     }
+    if ("substitute" in rule.then) {
+      if (result.outcome === "true") {
+        substitutes.push({
+          system: rule.then.substitute,
+          ruleId: rule.id,
+          by: rule.then.by,
+          note: rule.then.note,
+        });
+      }
+      continue;
+    }
     if (!("require" in rule.then)) misplaced(rule, "systems");
     const id = rule.then.require;
     if (!order.includes(id)) order.push(id);
     if (result.outcome === "true") {
-      const entry = requiredBy.get(id) ?? { rules: [], vital: false };
+      const entry = requiredBy.get(id) ?? {
+        rules: [],
+        vital: false,
+        scopes: [],
+        unscoped: false,
+      };
       entry.rules.push(rule.id);
       entry.vital = entry.vital || rule.then.vital === true;
+      if (rule.then.scope === undefined) entry.unscoped = true;
+      else if (!entry.scopes.includes(rule.then.scope)) {
+        entry.scopes.push(rule.then.scope);
+      }
       requiredBy.set(id, entry);
     } else if (result.outcome === "unknown") {
       const entry = unsettled.get(id) ?? { rules: [], missing: [] };
@@ -151,6 +180,9 @@ export function evaluateRules(
         id,
         status: "required",
         vital: required.vital,
+        scopes: required.scopes,
+        partial: !required.unscoped,
+        substitutions: [],
         ruleIds: required.rules,
         missing: [],
       };
@@ -161,6 +193,9 @@ export function evaluateRules(
         id,
         status: "needs_info",
         vital: false,
+        scopes: [],
+        partial: false,
+        substitutions: [],
         ruleIds: pending.rules,
         missing: pending.missing,
       };
@@ -169,10 +204,27 @@ export function evaluateRules(
       id,
       status: "not_required",
       vital: false,
+      scopes: [],
+      partial: false,
+      substitutions: [],
       ruleIds: [],
       missing: [],
     };
   });
+
+  // Substitutions: shown for required systems; never applied.
+  for (const substitute of substitutes) {
+    const system = systems.find((s) => s.id === substitute.system);
+    if (system?.status !== "required") continue;
+    system.substitutions.push({
+      ruleId: substitute.ruleId,
+      by: substitute.by,
+      alreadyRequired: substitute.by.filter((id) =>
+        systems.some((s) => s.id === id && s.status === "required"),
+      ),
+      note: substitute.note,
+    });
+  }
 
   // Overlay: labels only systems that are already required; it can never add one.
   for (const rule of inStage("overlay")) {

@@ -336,3 +336,99 @@ describe("evaluateRules: provenance", () => {
     );
   });
 });
+
+describe("evaluateRules: substitutions", () => {
+  const rules = [
+    rule("compartment", "systems", always, { require: "compartmentation" }),
+    rule("detection", "systems", always, { require: "detection" }),
+    rule("sub-by-detection", "systems", area("lte", 5000), {
+      substitute: "compartmentation",
+      by: ["detection", "sprinklers"],
+      note: "Pode ser substituída",
+    }),
+  ];
+
+  it("lists the replacements the norm allows and which are already required", () => {
+    const result = evaluateRules(rules, { area_m2: 3000 }, DATE);
+    const system = result.systems.find((s) => s.id === "compartmentation")!;
+    expect(system.substitutions).toEqual([
+      {
+        ruleId: "sub-by-detection",
+        by: ["detection", "sprinklers"],
+        alreadyRequired: ["detection"],
+        note: "Pode ser substituída",
+      },
+    ]);
+  });
+
+  it("never drops the substituted system", () => {
+    const result = evaluateRules(rules, { area_m2: 3000 }, DATE);
+    expect(
+      result.systems.find((s) => s.id === "compartmentation")?.status,
+    ).toBe("required");
+  });
+
+  it("shows nothing when the substitution condition is false or unknown", () => {
+    for (const facts of [{ area_m2: 9000 }, {}]) {
+      const result = evaluateRules(rules, facts, DATE);
+      expect(
+        result.systems.find((s) => s.id === "compartmentation")?.substitutions,
+      ).toEqual([]);
+    }
+  });
+
+  it("ignores a substitution for a system that is not required", () => {
+    const result = evaluateRules(
+      [rules[2], rule("alarm", "systems", always, { require: "alarm" })],
+      { area_m2: 3000 },
+      DATE,
+    );
+    expect(result.systems.map((s) => s.id)).toEqual(["alarm"]);
+  });
+});
+
+describe("evaluateRules: scope", () => {
+  it("marks a system required only in part of the building as partial", () => {
+    const rules = [
+      rule("atrium", "systems", always, {
+        require: "smoke_control",
+        scope: "atria over 12 m",
+      }),
+    ];
+    const system = evaluateRules(rules, {}, DATE).systems[0];
+    expect(system).toMatchObject({
+      status: "required",
+      partial: true,
+      scopes: ["atria over 12 m"],
+    });
+  });
+
+  it("is not partial when any rule that required it covers the whole building", () => {
+    const rules = [
+      rule("atrium", "systems", always, {
+        require: "smoke_control",
+        scope: "atria over 12 m",
+      }),
+      rule(
+        "whole",
+        "systems",
+        always,
+        { require: "smoke_control" },
+        { priority: 20 },
+      ),
+    ];
+    const system = evaluateRules(rules, {}, DATE).systems[0];
+    expect(system).toMatchObject({
+      partial: false,
+      scopes: ["atria over 12 m"],
+    });
+  });
+
+  it("a rule with no scope leaves scopes empty", () => {
+    const rules = [rule("whole", "systems", always, { require: "s" })];
+    expect(evaluateRules(rules, {}, DATE).systems[0]).toMatchObject({
+      partial: false,
+      scopes: [],
+    });
+  });
+});

@@ -53,7 +53,13 @@ describe("buildInstructions", () => {
 
   it("asks the open scope confirmations together and says how to record a plain yes", () => {
     const text = buildInstructions(
-      { division: "C-2", area_m2: 1800, storeys: 2, height_m: 9 },
+      {
+        division: "C-2",
+        area_m2: 1800,
+        storeys: 2,
+        height_m: 9,
+        fire_load_class: "medium",
+      },
       DATE,
     );
     expect(text).toContain('Next question to ask: "O imóvel é um bloco só');
@@ -72,6 +78,9 @@ describe("buildInstructions", () => {
         single_block: true,
         single_use: true,
         storage_over_3_5m: false,
+        special_risks: false,
+        risk_exempt: false,
+        fire_load_class: "medium",
       },
       DATE,
     );

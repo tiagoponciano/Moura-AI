@@ -14,6 +14,9 @@ const shop: Facts = {
   single_block: true,
   single_use: true,
   storage_over_3_5m: false,
+  special_risks: false,
+  risk_exempt: false,
+  fire_load_class: "medium",
 };
 
 function render(answers: Facts): string {
@@ -50,7 +53,7 @@ describe("ClassificationPanel", () => {
   });
 
   it("shows what is missing when only the fire load is unanswered", () => {
-    const html = render({ ...shop, area_m2: 3200 });
+    const html = render({ ...shop, area_m2: 3200, fire_load_class: undefined });
     expect(html).toContain("Dependem de respostas");
     expect(html).toContain("Falta");
     expect(html).toContain("carga de incêndio");
@@ -63,6 +66,7 @@ describe("ClassificationPanel", () => {
       area_m2: 1800,
       storeys: 2,
       height_m: 9,
+      fire_load_class: "medium",
     });
     expect(html).toContain(
       "Todos aguardam: bloco único, uma só ocupação, armazenamento acima de 3,5 m.",
@@ -76,15 +80,17 @@ describe("ClassificationPanel", () => {
       area_m2: 1800,
       storeys: 2,
       height_m: 9,
+      fire_load_class: "medium",
     });
     expect(html).toContain(
       "O imóvel é um bloco só (sem outras edificações no terreno)",
     );
+    expect(html).toContain("não tem GLP");
     expect(html).not.toContain("Depois:");
   });
 
   it("still names what is only one system's own", () => {
-    const html = render({ ...shop, area_m2: 3200 });
+    const html = render({ ...shop, area_m2: 3200, fire_load_class: undefined });
     expect(html).toContain("Falta");
     expect(html).not.toContain("Todos aguardam");
   });
@@ -122,6 +128,7 @@ describe("ClassificationPanel", () => {
       ...shop,
       activity: "C-2-vestuario-e-acessorios",
       division: undefined,
+      fire_load_class: undefined,
     });
     expect(html).toContain("Da atividade escolhida");
     expect(html).toContain("IN 3, Anexo A · C-2 Vestuário e acessórios");
@@ -148,6 +155,24 @@ describe("ClassificationPanel", () => {
     ).toContain("limpar");
     expect(render(shop)).toContain("Não informada");
     expect(render(shop)).not.toContain("limpar");
+  });
+
+  it("shows the risk level, what it means for the process and its source", () => {
+    const html = render(shop);
+    expect(html).toContain("Risco II");
+    expect(html).toContain("sem prévia regularização e fiscalização do imóvel");
+    expect(html).toContain("Anexo A, Quadro 1");
+  });
+
+  it("says the risk depends on the answers that are missing, without a level", () => {
+    const html = render({ ...shop, fire_load_class: undefined });
+    expect(html).toContain("Nível de risco");
+    expect(html).toContain("Depende das respostas que faltam.");
+    expect(html).not.toContain("Risco II");
+  });
+
+  it("shows no risk while a specific analysis replaces the result", () => {
+    expect(render({ ...shop, area_m2: 750 })).not.toContain("Nível de risco");
   });
 
   it("lists every question as a row and always carries the provisional notice", () => {

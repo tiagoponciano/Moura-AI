@@ -32,12 +32,14 @@ type Base = {
    * then. Open ones are asked together.
    */
   scope?: { clause: string; inScope: boolean };
+  /** Asked only once `fact` has this value, because the rules read it only then. */
+  askAfter?: { fact: string; value: boolean };
 };
 
 export type Question = Base &
   (
     | { kind: "activity" }
-    | { kind: "number"; unit: string; integer?: boolean }
+    | { kind: "number"; unit: string; integer?: boolean; allowZero?: boolean }
     | { kind: "boolean" }
     | { kind: "enum"; options: { value: string; label: string }[] }
   );
@@ -171,6 +173,86 @@ export const QUESTIONS: Question[] = [
     askable: true,
     scope: {
       clause: "não tem armazenamento acima de 3,5 m",
+      inScope: false,
+    },
+  },
+  {
+    fact: "special_risks",
+    kind: "boolean",
+    label: "Riscos especiais",
+    ask: "Há GLP, líquidos inflamáveis ou combustíveis, ou substâncias radioativas, tóxicas, explosivas, fogos de artifício ou munições no imóvel?",
+    description:
+      "True when the property has any LPG, flammable or combustible liquids, or radioactive, toxic, explosive, pyrotechnic or ammunition substances; false when it has none of them.",
+    allowUnknown: true,
+    askable: true,
+    scope: {
+      clause:
+        "não tem GLP, líquidos inflamáveis ou combustíveis, nem substâncias radioativas, tóxicas ou explosivas",
+      inScope: false,
+    },
+  },
+  {
+    fact: "hazardous_substances",
+    kind: "boolean",
+    label: "Substâncias perigosas",
+    ask: "Há substâncias radioativas, tóxicas, explosivas, artefatos pirotécnicos ou munições no imóvel?",
+    description:
+      "True when radioactive, toxic or explosive substances, pyrotechnic articles or ammunition are made, handled, stored or sold on the property.",
+    allowUnknown: true,
+    askable: true,
+    askAfter: { fact: "special_risks", value: true },
+  },
+  {
+    fact: "glp_kg",
+    kind: "number",
+    unit: "kg",
+    allowZero: true,
+    label: "GLP (kg)",
+    ask: "Qual é a quantidade total de GLP usada ou armazenada, em kg?",
+    description:
+      "Total LPG used or stored on the property, in kilograms; 0 when none.",
+    allowUnknown: true,
+    askable: true,
+    askAfter: { fact: "special_risks", value: true },
+  },
+  {
+    fact: "flammable_internal_l",
+    kind: "number",
+    unit: "L",
+    allowZero: true,
+    label: "Líquidos inflamáveis/combustíveis em área interna (L)",
+    ask: "Qual é o volume de líquidos inflamáveis ou combustíveis em área interna, em litros?",
+    description:
+      "Flammable or combustible liquids kept inside the building, in liters; 0 when none.",
+    allowUnknown: true,
+    askable: true,
+    askAfter: { fact: "special_risks", value: true },
+  },
+  {
+    fact: "flammable_external_m3",
+    kind: "number",
+    unit: "m³",
+    allowZero: true,
+    label: "Líquidos inflamáveis/combustíveis em área externa (m³)",
+    ask: "Qual é o volume de líquidos inflamáveis ou combustíveis em área externa, em m³?",
+    description:
+      "Flammable or combustible liquids kept outside the building, in cubic meters; 0 when none.",
+    allowUnknown: true,
+    askable: true,
+    askAfter: { fact: "special_risks", value: true },
+  },
+  {
+    fact: "risk_exempt",
+    kind: "boolean",
+    label: "Dispensada do risco I",
+    ask: "A atividade se enquadra numa das dispensas do risco I: sem estabelecimento, ambulante, em residência unifamiliar de até 200 m² com no máximo 1 empregado, agropastoril familiar, condomínio horizontal de até 6 unidades ou coworking?",
+    description:
+      "True when the activity is one of the risk I exemptions of IN 1 parte 1, art. 5: no establishment, street vendor, in a single-family home up to 200 m² with at most one employee, family farming, horizontal condominium of up to 6 units, or coworking; false otherwise.",
+    allowUnknown: true,
+    askable: true,
+    scope: {
+      clause:
+        "não é uma atividade dispensada do risco I (como ambulante, em residência de até 200 m² ou coworking)",
       inScope: false,
     },
   },

@@ -2,6 +2,7 @@ import type { Condition, Rule } from "../engine/types";
 import table2Json from "../../norms/in-1-p2/tables/table-02.json";
 import table5Json from "../../norms/in-1-p2/tables/table-05.json";
 import { compileTable, NORM_VALID_FROM } from "./compile-table";
+import { GROUP_C_RISK_RULES } from "./group-c-risk";
 import {
   DIVISION_C,
   FIRE_LOAD_CLASSES,
@@ -193,6 +194,7 @@ export const GROUP_C_RULES: Rule[] = [
   ...deriveRegime,
   ...deriveHeightClass,
   ...guards,
+  ...GROUP_C_RISK_RULES,
   ...compileTable(table2, TABLE_2_SPEC),
   ...compileTable(table5, TABLE_5_SPEC),
 ];

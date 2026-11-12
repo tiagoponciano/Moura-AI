@@ -16,7 +16,7 @@ function fieldSchema(question: Question): z.ZodType {
       question.options.map((o) => o.value) as [string, ...string[]],
     );
   }
-  const number = z.number().positive();
+  const number = question.allowZero ? z.number().min(0) : z.number().positive();
   return question.integer ? number.int() : number;
 }
 

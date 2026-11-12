@@ -75,6 +75,12 @@ describe("question registry", () => {
       "single_block",
       "single_use",
       "storage_over_3_5m",
+      "special_risks",
+      "hazardous_substances",
+      "glp_kg",
+      "flammable_internal_l",
+      "flammable_external_m3",
+      "risk_exempt",
     ]);
   });
 });
@@ -115,7 +121,7 @@ describe("nextAsk", () => {
     });
   });
 
-  it("marks only the three scope facts, with the value that keeps the building in scope", () => {
+  it("marks only the scope facts, with the value that keeps the building in scope", () => {
     const scoped = QUESTIONS.filter((q) => q.scope).map((q) => [
       q.fact,
       q.scope!.inScope,
@@ -124,6 +130,8 @@ describe("nextAsk", () => {
       ["single_block", true],
       ["single_use", true],
       ["storage_over_3_5m", false],
+      ["special_risks", false],
+      ["risk_exempt", false],
     ]);
   });
 });

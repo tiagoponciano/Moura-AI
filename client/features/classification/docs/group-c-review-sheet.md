@@ -5,7 +5,7 @@ Gerada a partir do código (`lib/rulesets/review-sheet.ts`); não edite à mão.
 ## Estado
 
 - **Todas as regras são provisórias.** Nenhuma foi aprovada por uma pessoa.
-- Fonte: IN 1 parte 2, Anexo B, Tabelas 2 (coluna C) e 5, e IN 3, arts. 8º e 11. Em vigor desde 24/04/2024 (IN 1 parte 2, art. 31; IN 3, art. 14).
+- Fonte: IN 1 parte 2, Anexo B, Tabelas 2 (coluna C) e 5; IN 3, arts. 8º e 11 e Anexo A; IN 1 parte 1, art. 5º e Anexo A (risco). Em vigor desde 24/04/2024 (IN 1 parte 2, art. 31; IN 3, art. 14; IN 1 parte 1, art. 165).
 - Cobertura: só o Grupo C (comercial: C-1, C-2 e C-3). As demais divisões respondem "análise específica".
 
 ## Perguntas para a Moura
@@ -19,7 +19,12 @@ Gerada a partir do código (`lib/rulesets/review-sheet.ts`); não edite à mão.
 5. **Carga de incêndio.** O código aceita a classe (desprezível a altíssima) ou o valor em MJ/m² e deriva a classe pelos limites da IN 3, art. 11. Quem informa esse valor para o cliente? A IN 3 tem uma tabela por atividade (Anexo B) que ainda não está carregada.
 6. **Divisão C-1, C-2 ou C-3.** A divisão vem da conversa (o assistente propõe a partir da descrição e o usuário confirma). Quem valida a divisão final?
 7. **Escopo desta versão.** Só entra: Grupo C, um bloco, uma ocupação e armazenamento até 3,5 m. Fora disso o resultado é "análise específica". É aceitável como primeira entrega?
-8. **Ainda não existe:** o nível de risco I a V (IN 1 parte 1) e o tratamento de edificações existentes (IN 5). O resultado mostra só os sistemas exigidos.
+8. **Nível de risco (IN 1 parte 1, art. 5º e Anexo A).** O código avalia na ordem V, I, II, III e IV. A carga de incêndio é necessária mesmo para um imóvel pequeno, porque o risco V é "carga acima de 2.280 MJ/m²". Confirmar essa leitura.
+9. **Risco I.** Foi reduzido a uma pergunta de sim/não ("a atividade se enquadra numa das dispensas?"). As dispensas têm detalhes (ambulante com tenda de até 50 m², residência de até 200 m² com no máximo 1 empregado…). Quem responde, e basta o sim/não?
+10. **Risco III para C-2.** O Quadro 2 só traz C-2 de carga média e de carga alta. Um C-2 com carga baixa ou desprezível não tem linha, e o código o enquadra no risco IV. Confirmar, ou indicar a linha que vale.
+11. **Líquidos inflamáveis e combustíveis.** A norma fala em inflamável classe I acima de 1.000 L para o risco V e em "líquido inflamável" (interno) e "inflamável/combustível" (externo) para o risco II. O código pergunta um volume só de "inflamáveis ou combustíveis" em área interna e outro em área externa. Basta, ou é preciso separar a classe?
+12. **Altura no risco.** O código usa a mesma altura da exigência dos sistemas (art. 8º: térreo vale 0) também para o Quadro 2. Confirmar.
+13. **Ainda não existe:** a camada de edificações existentes e recentes (IN 5), que rotula cada sistema como vital, indispensável ou adequável. O resultado mostra o enquadramento de risco e os sistemas exigidos.
 
 ### Por nota
 

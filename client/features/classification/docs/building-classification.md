@@ -81,19 +81,20 @@ Answers are engine facts (`Record<fact, number | string | boolean | null | undef
 
 `Classification` (what `classify` returns):
 
-| Field             | Meaning                                                                                                                                          |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `status`          | `analysis` when a rule stops at a specific analysis; `pending` when a question is unanswered or answered "não sei"; `complete` otherwise         |
-| `analyses`        | `{ reason, locator, quote? }` per specific analysis, in Portuguese                                                                               |
-| `table`           | Which table and column applied, once known, e.g. `Tabela 5, coluna 6 < H ≤ 12`                                                                   |
-| `groups`          | `required`, `needsInfo` and `notRequired`, each a list of `SystemView`; all three are empty while `status` is `analysis`                         |
-| `derived`         | `{ label, value, source }` for what the chosen activity set (division, fire load), with `IN 3, Anexo A · <division> <destination>` as the source |
-| `conflicts`       | Warnings when the activity points one way and an answer another; the answer wins                                                                 |
-| `nextQuestions`   | Askable questions the engine still needs, in registry order                                                                                      |
-| `next`            | What the assistant asks now: `{ ask, facts }`. While two or more scope confirmations are open it is one question that covers them all            |
-| `declaredUnknown` | Askable questions answered "não sei" that the engine needs                                                                                       |
-| `progress`        | `{ answered, total }`: askable facts with an answer (including "não sei"), and that plus `nextQuestions`                                         |
-| `provisional`     | `true` while any rule that took part is not approved                                                                                             |
+| Field             | Meaning                                                                                                                                                                                                      |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `status`          | `analysis` when a rule stops at a specific analysis; `pending` when a question is unanswered or answered "não sei"; `complete` otherwise                                                                     |
+| `analyses`        | `{ reason, locator, quote? }` per specific analysis, in Portuguese                                                                                                                                           |
+| `table`           | Which table and column applied, once known, e.g. `Tabela 5, coluna 6 < H ≤ 12`                                                                                                                               |
+| `risk`            | `decided` with `level`, the `process` the norm describes and the `reason` (source); `pending` while answers are missing; `not_covered` outside Grupo C. Absent while a specific analysis replaces the result |
+| `groups`          | `required`, `needsInfo` and `notRequired`, each a list of `SystemView`; all three are empty while `status` is `analysis`                                                                                     |
+| `derived`         | `{ label, value, source }` for what the chosen activity set (division, fire load), with `IN 3, Anexo A · <division> <destination>` as the source                                                             |
+| `conflicts`       | Warnings when the activity points one way and an answer another; the answer wins                                                                                                                             |
+| `nextQuestions`   | Askable questions the engine still needs, in registry order                                                                                                                                                  |
+| `next`            | What the assistant asks now: `{ ask, facts }`. While two or more scope confirmations are open it is one question that covers them all                                                                        |
+| `declaredUnknown` | Askable questions answered "não sei" that the engine needs                                                                                                                                                   |
+| `progress`        | `{ answered, total }`: askable facts with an answer (including "não sei"), and that plus `nextQuestions`                                                                                                     |
+| `provisional`     | `true` while any rule that took part is not approved                                                                                                                                                         |
 
 `SystemView`: `id`, `label`, `status`, `vital`, `partial`, `scopes`, `substitutions` (`by`, `alreadyRequired`, `note?`, as system names), `reasons` (`locator`, `quote?` of the cells and notes behind a required system, empty otherwise), `notes` (observations that do not change the requirement) and `missing` (labels of the answers that would settle a pending one). Systems are ordered as in the system catalog.
 
@@ -118,7 +119,8 @@ Panel, top to bottom:
 2. **Da atividade escolhida**: what `derived` holds with its source, and the warnings of `conflicts`. Hidden when both are empty.
 3. **Próxima pergunta**: `next.ask`, the wording the assistant uses, and "Depois: …" with the labels of the `nextQuestions` it does not cover. A second paragraph, "Pendente de profissional habilitado", lists `declaredUnknown`. Hidden while `status` is `analysis` or nothing is pending.
 4. **Caso para análise específica**: each analysis' reason and its source, only while `status` is `analysis`.
-5. **Sistemas preventivos**: while nothing is answered, a sentence explaining what the panel will show. Otherwise `<required> exigidos · <pending> pendentes`, the line "Aplicando: <table>" once known, a bar segment per system (required `primary`, pending `input`, not required `muted`) and up to three groups:
+5. **Nível de risco**: "Risco <level>", what the norm says about the process at that level and the source of the decision; "Depende das respostas que faltam." while pending; hidden when it is not covered or a specific analysis replaces the result.
+6. **Sistemas preventivos**: while nothing is answered, a sentence explaining what the panel will show. Otherwise `<required> exigidos · <pending> pendentes`, the line "Aplicando: <table>" once known, a bar segment per system (required `primary`, pending `input`, not required `muted`) and up to three groups:
 
 | Group                 | Row                                                                                                                                                                                                                |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -126,11 +128,11 @@ Panel, top to bottom:
 | Dependem de respostas | Hollow dot, name, "Falta" and one pill per missing answer. When two or more systems are pending, what all of them wait for is said once above them ("Todos aguardam: …") and left out of the rows                  |
 | Não exigidos          | `input` dot, name in muted text                                                                                                                                                                                    |
 
-6. **Footer**: the provisional notice (`accent`) and the outline "Limpar respostas" button.
+7. **Footer**: the provisional notice (`accent`) and the outline "Limpar respostas" button.
 
 ## What this does NOT do
 
-- **Only Grupo C.** Another division gets a specific analysis. There is no risk level I–V and nothing for existing buildings.
+- **Only Grupo C.** Another division gets a specific analysis. Nothing for existing buildings (IN 5).
 - **No sizing.** It says which systems are required, not how many extinguishers or how large a reservoir; that is in the IN of each system.
 - **No approved rules.** The result stays provisional until a person confirms the readings in `group-c-review-sheet.md`.
 - **No export and no link to Documentos or Plantas.** Answers and results are not saved; only the conversation is.

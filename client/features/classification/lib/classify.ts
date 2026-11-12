@@ -1,6 +1,11 @@
 import { evaluateRules } from "./engine/evaluate-rules";
 import type { Facts, Rule } from "./engine/types";
-import { ASKABLE_QUESTIONS, type Question } from "./questions";
+import {
+  ASKABLE_QUESTIONS,
+  nextAsk,
+  type NextAsk,
+  type Question,
+} from "./questions";
 import { GROUP_C_RULES } from "./rulesets/group-c";
 import { HEIGHT_CLASSES } from "./rulesets/group-c-conditions";
 import { SYSTEMS, systemLabel } from "./rulesets/systems";
@@ -39,6 +44,8 @@ export type Classification = {
     notRequired: SystemView[];
   };
   nextQuestions: Question[];
+  /** What the assistant asks now; one question can cover several of `nextQuestions`. */
+  next?: NextAsk;
   declaredUnknown: Question[];
   progress: { answered: number; total: number };
   provisional: boolean;
@@ -130,6 +137,7 @@ export function classify(
       notRequired: listed.filter((s) => s.status === "not_required"),
     },
     nextQuestions,
+    next: nextAsk(nextQuestions),
     declaredUnknown,
     progress: { answered, total: answered + nextQuestions.length },
     provisional: evaluation.provisional,

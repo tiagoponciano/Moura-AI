@@ -127,6 +127,10 @@ describe("IN 1 parte 2 extracted tables", () => {
     expect(note.text.endsWith("quando houver.")).toBe(true);
   });
 
+  it("has no unmapped ligature glyph or replacement character", () => {
+    expect(JSON.stringify(tables.map((t) => t.table))).not.toMatch(/ϔ|\uFFFD/);
+  });
+
   it("flags the tables a person still has to look at", () => {
     const flagged = tables
       .filter(({ table }) => table.checks.needs_human_look.length > 0)

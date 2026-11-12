@@ -1,0 +1,518 @@
+{
+  "doc": "IN-1-P2",
+  "table": "Tabela 1",
+  "title": "Classificação das ocupações",
+  "pages": [17, 18, 19],
+  "rows": [
+    {
+      "group": "A",
+      "occupation": "Residencial",
+      "division": "A-1",
+      "description": "Multifamiliar horizontal e unifamiliar",
+      "destination": "Condomínios horizontais, casas geminadas/conjugadas e residências unifamiliares mistas",
+      "page": 17
+    },
+    {
+      "group": "A",
+      "occupation": "Residencial",
+      "division": "A-2",
+      "description": "Multifamiliar vertical",
+      "destination": "Edifícios de apartamentos em geral",
+      "page": 17
+    },
+    {
+      "group": "A",
+      "occupation": "Residencial",
+      "division": "A-3",
+      "description": "Coletiva",
+      "destination": "Pensionatos, internatos, alojamentos, mosteiros, conventos. Capacidade máxima de 16 leitos",
+      "page": 17
+    },
+    {
+      "group": "B",
+      "occupation": "Serviço de Hospedagem",
+      "division": "B-1",
+      "description": "Hotel e assemelhado",
+      "destination": "Hotéis, motéis, pensões, hospedarias, pousadas, albergues, casas de cômodos, divisão A-3 com mais de 16 leitos",
+      "page": 17
+    },
+    {
+      "group": "B",
+      "occupation": "Serviço de Hospedagem",
+      "division": "B-2",
+      "description": "Hotel residencial",
+      "destination": "Hotéis e assemelhados com cozinha própria nos apartamentos (incluem-se apart-hotéis, flats, hotéis residenciais)",
+      "page": 17
+    },
+    {
+      "group": "C",
+      "occupation": "Comercial",
+      "division": "C-1",
+      "description": "Comércio com baixa carga de incêndio",
+      "destination": "Açougue, artigos de metal ou vidro, bijuterias, louças, artigos hospitalares, eletrodomésticos, açougue, verdureiras, floricultura, automóveis, bebidas fermentadas (vinhos, cervejas) outros",
+      "page": 17
+    },
+    {
+      "group": "C",
+      "occupation": "Comercial",
+      "division": "C-2",
+      "description": "Comércio com média, alta ou altíssima carga de incêndio",
+      "destination": "Edifícios de lojas de departamentos, magazines, armarinhos, galerias comerciais, supermercados em geral, mercados, bebidas destiladas, brinquedos, calçados, drogarias, artigos em couro, artigos esportivos, livrarias, têxteis, móveis e outros",
+      "page": 17
+    },
+    {
+      "group": "C",
+      "occupation": "Comercial",
+      "division": "C-3",
+      "description": "Shopping centers",
+      "destination": "Centro de compras em geral (shopping centers)",
+      "page": 17
+    },
+    {
+      "group": "D",
+      "occupation": "Serviço profissional",
+      "division": "D-1",
+      "description": "Local para prestação de serviço profissional ou condução de negócios",
+      "destination": "Escritórios administrativos ou técnicos, instituições financeiras (que não estejam incluídas em D-2), repartições públicas, cabeleireiros, centros profissionais e assemelhados, agências de correios, processamento de dados",
+      "page": 17
+    },
+    {
+      "group": "D",
+      "occupation": "Serviço profissional",
+      "division": "D-2",
+      "description": "Agência bancária",
+      "destination": "Agências bancárias e assemelhados",
+      "page": 17
+    },
+    {
+      "group": "D",
+      "occupation": "Serviço profissional",
+      "division": "D-3",
+      "description": "Serviço de reparação (exceto os classificados em G-4)",
+      "destination": "Lavanderias, assistência técnica, reparação e manutenção de aparelhos eletrodomésticos, chaveiros, pintura de letreiros, oficinas elétricas, oficinas hidráulicas ou mecânicas, oficina de pintura e outros",
+      "page": 17
+    },
+    {
+      "group": "D",
+      "occupation": "Serviço profissional",
+      "division": "D-4",
+      "description": "Laboratório",
+      "destination": "Laboratórios de análises clínicas sem internação, laboratórios químicos, fotográficos e assemelhados",
+      "page": 17
+    },
+    {
+      "group": "E",
+      "occupation": "Educacional e cultura física",
+      "division": "E-1",
+      "description": "Escola em geral",
+      "destination": "Escolas de primeiro, segundo e terceiro graus, cursos supletivos e pré-universitário e assemelhados",
+      "page": 17
+    },
+    {
+      "group": "E",
+      "occupation": "Educacional e cultura física",
+      "division": "E-2",
+      "description": "Escola especial",
+      "destination": "Escolas de artes e artesanato, de línguas, de cultura geral, de cultura estrangeira, escolas religiosas e assemelhados",
+      "page": 17
+    },
+    {
+      "group": "E",
+      "occupation": "Educacional e cultura física",
+      "division": "E-3",
+      "description": "Espaço para cultura física",
+      "destination": "Locais de ensino e/ou práticas de artes marciais, natação, ginástica (artística, dança, musculação e outros) esportes coletivos (tênis, futebol e outros que não estejam incluídos em F-3), sauna, casas de fisioterapia e assemelhados. Sem arquibancadas.",
+      "page": 17
+    },
+    {
+      "group": "E",
+      "occupation": "Educacional e cultura física",
+      "division": "E-4",
+      "description": "Centro de treinamento profissional",
+      "destination": "Escolas profissionais em geral",
+      "page": 17
+    },
+    {
+      "group": "E",
+      "occupation": "Educacional e cultura física",
+      "division": "E-5",
+      "description": "Pré-escola",
+      "destination": "Creches, escolas maternais, jardins de infância",
+      "page": 17
+    },
+    {
+      "group": "E",
+      "occupation": "Educacional e cultura física",
+      "division": "E-6",
+      "description": "Escola para portadores de deficiências",
+      "destination": "Escolas para excepcionais, deficientes visuais e auditivos e assemelhados",
+      "page": 17
+    },
+    {
+      "group": "F",
+      "occupation": "Local de Reunião de Público",
+      "division": "F-1",
+      "description": "Local onde há objeto de valor inestimável",
+      "destination": "Museus, centro de documentos históricos, galerias de arte, bibliotecas e assemelhados",
+      "page": 17
+    },
+    {
+      "group": "F",
+      "occupation": "Local de Reunião de Público",
+      "division": "F-2",
+      "description": "Local religioso e velório",
+      "destination": "Igrejas, capelas, sinagogas, mesquitas, templos, cemitérios, crematórios, necrotérios, salas de funerais e assemelhados",
+      "page": 17
+    },
+    {
+      "group": "F",
+      "occupation": "Local de Reunião de Público",
+      "division": "F-3",
+      "description": "Centro esportivo e de exibição",
+      "destination": "Arenas em geral, estádios, ginásios, piscinas, rodeios, autódromos, sambódromos, pista de patinação e assemelhados. Todos com arquibancadas",
+      "page": 17
+    },
+    {
+      "group": "F",
+      "occupation": "Local de Reunião de Público",
+      "division": "F-4",
+      "description": "Estação e terminal de passageiros",
+      "destination": "Estações rodoferroviárias e marítimas, portos, metrô, aeroportos, heliponto, estações de transbordo em geral e assemelhados",
+      "page": 17
+    },
+    {
+      "group": "F",
+      "occupation": "Local de Reunião de Público",
+      "division": "F-5",
+      "description": "Arte cênica e auditório",
+      "destination": "Teatros em geral, cinemas, óperas, auditórios de estúdios de rádio e televisão, auditórios em geral e assemelhados",
+      "page": 18
+    },
+    {
+      "group": "F",
+      "occupation": "Local de Reunião de Público",
+      "division": "F-6",
+      "description": "Clubes sociais e diversão",
+      "destination": "Salões de festa (buffet), centro de eventos, restaurantes dançantes, clubes sociais, bingo, bilhares, tiro ao alvo, boliche e assemelhados",
+      "page": 18
+    },
+    {
+      "group": "F",
+      "occupation": "Local de Reunião de Público",
+      "division": "F-7",
+      "description": "Construção provisória",
+      "destination": "Circos, palcos, estruturas temporárias diversas",
+      "page": 18
+    },
+    {
+      "group": "F",
+      "occupation": "Local de Reunião de Público",
+      "division": "F-8",
+      "description": "Local para refeição",
+      "destination": "Restaurantes, lanchonetes, bares, cafés, refeitórios, cantinas e assemelhados",
+      "page": 18
+    },
+    {
+      "group": "F",
+      "occupation": "Local de Reunião de Público",
+      "division": "F-9",
+      "description": "Recreação pública",
+      "destination": "Jardim zoológico, parques recreativos e temáticos, parques aquáticos e assemelhados",
+      "page": 18
+    },
+    {
+      "group": "F",
+      "occupation": "Local de Reunião de Público",
+      "division": "F-10",
+      "description": "Exposição de objetos ou animais",
+      "destination": "Salões e salas para exposição de objetos ou animais. Edificações permanentes",
+      "page": 18
+    },
+    {
+      "group": "F",
+      "occupation": "Local de Reunião de Público",
+      "division": "F-11",
+      "description": "Boate",
+      "destination": "Casas noturnas, danceterias, discotecas, e assemelhados",
+      "page": 18
+    },
+    {
+      "group": "G",
+      "occupation": "Serviço automotivo e assemelhados",
+      "division": "G-1",
+      "description": "Garagem sem acesso de público e sem abastecimento",
+      "destination": "Garagens automáticas, garagens com manobristas, estacionamentos",
+      "page": 18
+    },
+    {
+      "group": "G",
+      "occupation": "Serviço automotivo e assemelhados",
+      "division": "G-2",
+      "description": "Garagem com acesso de público e sem abastecimento",
+      "destination": "Garagens coletivas sem automação, em geral, sem abastecimento (exceto veículos de carga e coletivos)",
+      "page": 18
+    },
+    {
+      "group": "G",
+      "occupation": "Serviço automotivo e assemelhados",
+      "division": "G-3",
+      "description": "Local dotado de abastecimento de combustível",
+      "destination": "Postos de abastecimento (tanque subterrâneo) e serviço, garagens (exceto veículos de carga e coletivos)",
+      "page": 18
+    },
+    {
+      "group": "G",
+      "occupation": "Serviço automotivo e assemelhados",
+      "division": "G-4",
+      "description": "Serviço de conservação, manutenção e reparos",
+      "destination": "Oficinas de conserto de veículos, borracharia (sem recauchutagem). Oficinas e garagens de veículos de carga e coletivos, máquinas agrícolas e rodoviárias, retificadoras de motores",
+      "page": 18
+    },
+    {
+      "group": "G",
+      "occupation": "Serviço automotivo e assemelhados",
+      "division": "G-5",
+      "description": "Hangares",
+      "destination": "Abrigos para aeronaves com ou sem abastecimento",
+      "page": 18
+    },
+    {
+      "group": "H",
+      "occupation": "Serviço de saúde e institucional",
+      "division": "H-1",
+      "description": "Hospital veterinário e assemelhados",
+      "destination": "Hospitais, clínicas e consultórios veterinários e assemelhados (inclui-se alojamento com ou sem adestramento)",
+      "page": 18
+    },
+    {
+      "group": "H",
+      "occupation": "Serviço de saúde e institucional",
+      "division": "H-2",
+      "description": "Local onde pessoas requerem cuidados especiais por limitações físicas ou mentais",
+      "destination": "Asilos, orfanatos, abrigos geriátricos, hospitais psiquiátricos, reformatórios, tratamento de dependentes de drogas, álcool. E assemelhados. Todos sem celas",
+      "page": 18
+    },
+    {
+      "group": "H",
+      "occupation": "Serviço de saúde e institucional",
+      "division": "H-3",
+      "description": "Hospitalar",
+      "destination": "Hospitais, casa de saúde, prontos-socorros, clínicas com internação, ambulatórios e postos de atendimento de urgência, postos de saúde e puericultura e assemelhados com internação*",
+      "page": 18
+    },
+    {
+      "group": "H",
+      "occupation": "Serviço de saúde e institucional",
+      "division": "H-4",
+      "description": "Edificação Pública",
+      "destination": "Edificações dos poderes executivo, legislativo e judiciário, cartórios, quartéis, delegacias, postos policiais, consulados e assemelhados",
+      "page": 18
+    },
+    {
+      "group": "H",
+      "occupation": "Serviço de saúde e institucional",
+      "division": "H-5",
+      "description": "Local onde a liberdade das pessoas sofre restrições",
+      "destination": "Hospitais psiquiátricos, manicômios, reformatórios, prisões em geral (casa de detenção, penitenciárias, presídios) e instituições assemelhadas. Todos com celas",
+      "page": 18
+    },
+    {
+      "group": "H",
+      "occupation": "Serviço de saúde e institucional",
+      "division": "H-6",
+      "description": "Clínica e consultório médico e odontológico",
+      "destination": "Clínicas médicas, consultórios em geral, unidades de hemodiálise, ambulatórios, postos de saúde e assemelhados. Todos sem internação*",
+      "page": 18
+    },
+    {
+      "group": "I",
+      "occupation": "Indústria",
+      "division": "I-1",
+      "description": "Locais onde a carga de incêndio é de até 300 MJ/m²",
+      "destination": "Atividades industriais fabricantes de aço, artigos de metal, gesso, cimento, concreto, cerâmica, olarias, esculturas de pedra, ferramentas, jóias, relógios, sabão, serralheria, suco de frutas, louças, vidro, acessórios automotivos, bicicletas, bebidas não alcoólicas, cervejarias, condimentos, conservas, lâmpadas, laticínios e outros",
+      "page": 18
+    },
+    {
+      "group": "I",
+      "occupation": "Indústria",
+      "division": "I-2",
+      "description": "Locais com média carga de incêndio",
+      "destination": "Atividades industriais fabricantes de automóveis, bebidas destiladas, instrumentos musicais, móveis, alimentos, marcenarias, fábricas de caixas, artigos em couro, artigos em plásticos, baterias, calçados, colchões, eletrodomésticos, massas alimentícias, óleos comestíveis, tintas látex, têxteis em geral e outros",
+      "page": 18
+    },
+    {
+      "group": "I",
+      "occupation": "Indústria",
+      "division": "I-3",
+      "description": "Locais com alta ou altíssima carga de incêndio",
+      "destination": "Atividades industriais fabricantes de inflamáveis, combustíveis, materiais oxidantes, ceras, espuma sintética, grãos, tintas, borracha, processamento de lixo, artigos em madeira, cereais, espumas, estaleiros, gráficas, materiais sintéticos, papelão, produtos de limpeza, resinas, tintas vernizes e solventes, e outros",
+      "page": 19
+    },
+    {
+      "group": "J",
+      "occupation": "Depósito",
+      "division": "J-1",
+      "description": "Depósitos de material incombustível",
+      "destination": "Edificações sem processo industrial que armazenam tijolos, pedras, areias, cimentos, metais e outros materiais incombustíveis. Todos sem embalagem",
+      "page": 19
+    },
+    {
+      "group": "J",
+      "occupation": "Depósito",
+      "division": "J-2",
+      "description": "Depósito com baixa carga de incêndio",
+      "destination": "Depósitos com carga de incêndio até 300 MJ/m² - galpões, centros de distribuição, centro atacadista",
+      "page": 19
+    },
+    {
+      "group": "J",
+      "occupation": "Depósito",
+      "division": "J-3",
+      "description": "Depósito com média carga de incêndio",
+      "destination": "Depósitos com carga de incêndio entre 300 a 1.200 MJ/m² - galpões, centros de distribuição, centro atacadista",
+      "page": 19
+    },
+    {
+      "group": "J",
+      "occupation": "Depósito",
+      "division": "J-4",
+      "description": "Depósito com alta ou altíssima carga de incêndio",
+      "destination": "Depósitos onde a carga de incêndio ultrapassa a 1.200 MJ/m² - galpões, centros de distribuição, centro atacadista",
+      "page": 19
+    },
+    {
+      "group": "K",
+      "occupation": "Energia",
+      "division": "K-1",
+      "description": "Central de transmissão e distribuição de energia",
+      "destination": "Subestações elétricas",
+      "page": 19
+    },
+    {
+      "group": "K",
+      "occupation": "Energia",
+      "division": "K-2",
+      "description": "Usinas",
+      "destination": "Hidroelétrica, termoelétrica, usina fotovoltaica, usina eólica",
+      "page": 19
+    },
+    {
+      "group": "L",
+      "occupation": "Explosivo",
+      "division": "L-1",
+      "description": "Comércio",
+      "destination": "Comércio em geral de fogos de artifício e assemelhados",
+      "page": 19
+    },
+    {
+      "group": "L",
+      "occupation": "Explosivo",
+      "division": "L-2",
+      "description": "Indústria",
+      "destination": "Indústria de material explosivo",
+      "page": 19
+    },
+    {
+      "group": "L",
+      "occupation": "Explosivo",
+      "division": "L-3",
+      "description": "Depósito",
+      "destination": "Depósito de material explosivo",
+      "page": 19
+    },
+    {
+      "group": "M",
+      "occupation": "Especial",
+      "division": "M-1",
+      "description": "Túnel",
+      "destination": "Túnel rodoferroviário e marítimo, destinados a transporte de passageiros ou cargas diversas, galerias destinadas a passagem de pedestres",
+      "page": 19
+    },
+    {
+      "group": "M",
+      "occupation": "Especial",
+      "division": "M-2",
+      "description": "Líquido ou gás inflamáveis ou combustíveis",
+      "destination": "Edificação destinada a produção, manipulação, armazenamento e distribuição de líquidos ou gases inflamáveis ou combustíveis, exceto os postos de revenda de GLP",
+      "page": 19
+    },
+    {
+      "group": "M",
+      "occupation": "Especial",
+      "division": "M-3",
+      "description": "Central de TV, rádio, computação",
+      "destination": "Centros de comunicação, centrais de transmissão, centros de computação, estações de Rádio ou TV",
+      "page": 19
+    },
+    {
+      "group": "M",
+      "occupation": "Especial",
+      "division": "M-4",
+      "description": "Canteiro de Obras",
+      "destination": "Locais em construção ou demolição e assemelhados",
+      "page": 19
+    },
+    {
+      "group": "M",
+      "occupation": "Especial",
+      "division": "M-5",
+      "description": "Silos, moegas, correias transportadoras e secadores",
+      "destination": "Silos, moegas, correias transportadoras e secadores de grãos ou folhas e similares",
+      "page": 19
+    },
+    {
+      "group": "M",
+      "occupation": "Especial",
+      "division": "M-6",
+      "description": "Floresta nativa ou de cultivo",
+      "destination": "Floresta, reserva ecológica, parque florestal e assemelhados",
+      "page": 19
+    },
+    {
+      "group": "M",
+      "occupation": "Especial",
+      "division": "M-7",
+      "description": "Pátio de contêineres",
+      "destination": "Área aberta destinada a armazenamento de contêineres",
+      "page": 19
+    },
+    {
+      "group": "M",
+      "occupation": "Especial",
+      "division": "M-8",
+      "description": "Posto de revenda de GLP risco I",
+      "destination": "PRGLP classes I, II, III e IV",
+      "page": 19
+    },
+    {
+      "group": "M",
+      "occupation": "Especial",
+      "division": "M-9",
+      "description": "Posto de revenda de GLP risco II",
+      "destination": "PRGLP classes V, VI, VII e Especial",
+      "page": 19
+    },
+    {
+      "group": "M",
+      "occupation": "Especial",
+      "division": "M-10",
+      "description": "Minas subterrâneas",
+      "destination": "Mina para exploração de jazidas ou minérios",
+      "page": 19
+    },
+    {
+      "group": "M",
+      "occupation": "Especial",
+      "division": "M-11",
+      "description": "Estufas e galpões",
+      "destination": "Estufas para secagem, galpões para estocagem de forrageiras ou fardos",
+      "page": 19
+    }
+  ],
+  "notes": [
+    "* Internação hospitalar: admissão de pacientes para ocupação de um leito por peŕiodo igual ou superior a 24 horas."
+  ],
+  "checks": {
+    "needs_human_look": []
+  }
+}

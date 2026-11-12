@@ -6,17 +6,17 @@ export function NextQuestions({
 }: {
   classification: Classification;
 }) {
-  const { nextQuestions, declaredUnknown, status } = classification;
+  const { nextQuestions, next, declaredUnknown, status } = classification;
   if (status === "analysis") return null;
-  if (nextQuestions.length === 0 && declaredUnknown.length === 0) return null;
-  const [first, ...rest] = nextQuestions;
+  if (!next && declaredUnknown.length === 0) return null;
+  const rest = nextQuestions.filter((q) => !next?.facts.includes(q.fact));
 
   return (
     <section className="flex flex-col gap-2 border-t px-5 py-4">
-      {first && (
+      {next && (
         <div className="flex flex-col gap-1">
           <h2 className="text-sm font-semibold">Próxima pergunta</h2>
-          <p className="text-[13px] leading-snug">{first.ask}</p>
+          <p className="text-[13px] leading-snug">{next.ask}</p>
           {rest.length > 0 && (
             <p className="text-xs text-muted-foreground">
               Depois: {rest.map((q) => q.label.toLowerCase()).join(", ")}.

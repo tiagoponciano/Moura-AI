@@ -70,6 +70,19 @@ describe("ClassificationPanel", () => {
     expect(html).not.toContain("Falta");
   });
 
+  it("asks the three scope confirmations as one question", () => {
+    const html = render({
+      division: "C-2",
+      area_m2: 1800,
+      storeys: 2,
+      height_m: 9,
+    });
+    expect(html).toContain(
+      "O imóvel é um bloco só (sem outras edificações no terreno)",
+    );
+    expect(html).not.toContain("Depois:");
+  });
+
   it("still names what is only one system's own", () => {
     const html = render({ ...shop, area_m2: 3200 });
     expect(html).toContain("Falta");

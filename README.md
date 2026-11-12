@@ -4,7 +4,7 @@
 
 # Moura AI
 
-Internal platform for Moura Soluções em Engenharia, a fire-prevention engineering firm in Santa Catarina, that fills CBMSC forms, tracks PPCI reviews and drafts proposals for its projects.
+Internal platform for Moura Soluções em Engenharia, a fire-prevention engineering firm in Santa Catarina, that fills CBMSC forms, classifies buildings against the CBMSC norms and drafts proposals for its projects.
 
 [![CI](https://github.com/tiagoponciano/Moura-AI/actions/workflows/ci.yml/badge.svg)](https://github.com/tiagoponciano/Moura-AI/actions/workflows/ci.yml)
 
@@ -45,15 +45,15 @@ Claude, ChatGPT and Gemini are interchangeable: an admin picks the provider and 
 
 ## What it does
 
-Preparing a fire-prevention project (PPCI) for the Santa Catarina fire department (CBMSC) means filling the same official `.docx` forms over and over, checking the project against a review checklist, and sending the client a proposal. Moura AI does that work inside one app, organized in three modules.
+Preparing a fire-prevention project (PPCI) for the Santa Catarina fire department (CBMSC) means filling the same official `.docx` forms over and over, working out which preventive systems the building needs, and sending the client a proposal. Moura AI does that work inside one app, organized in three modules.
 
 The model never writes a document. It extracts data from the conversation into a JSON object whose schema comes from code; deterministic code validates it and injects it into the original `.docx` template, so the layout the fire department expects is never touched.
 
-| Module                  | Route             | Status  | What it does                                                                                                                                                                                                 |
-| ----------------------- | ----------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Documents               | `/documents`      | Working | Fills the CBMSC forms from a chat, saves each filling per project, keeps the shared project data and its change history, answers Moura's PPCI checklist, and generates the commercial proposal (`.pptx`/PDF) |
-| Classification          | `/classification` | Preview | Lists the preventive systems a building needs from four answers (area, height, floors, occupancy). The rule set is provisional and is not the CBMSC Normative Instructions yet                               |
-| Floor plans (PDF → DWG) | `/floor-plans`    | Preview | Uploads a floor plan (PDF, JPEG or PNG), reads its scale and converts it to DXF or DWG through the `services/dwg` microservice. Not tried on real Moura plans yet                                            |
+| Module                  | Route             | Status  | What it does                                                                                                                                                                   |
+| ----------------------- | ----------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Documents               | `/documents`      | Working | Fills the CBMSC forms from a chat, saves each filling per project, keeps the shared project data and its change history, and generates the commercial proposal (`.pptx`/PDF)   |
+| Classification          | `/classification` | Preview | Lists the preventive systems a building needs from four answers (area, height, floors, occupancy). The rule set is provisional and is not the CBMSC Normative Instructions yet |
+| Floor plans (PDF → DWG) | `/floor-plans`    | Preview | Uploads a floor plan (PDF, JPEG or PNG), reads its scale and converts it to DXF or DWG through the `services/dwg` microservice. Not tried on real Moura plans yet              |
 
 ![Moura AI home page in use: hovering each module card while the 3D scene plays](docs/assets/home-demo.gif)
 

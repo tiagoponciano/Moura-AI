@@ -16,7 +16,6 @@ import type { Filling } from "../lib/fillings";
 import { startedForms } from "../lib/started-forms";
 import type { TemplateEntry } from "../lib/templates";
 import { CbmscFormsBrowser } from "./cbmsc-forms-browser";
-import { PpciChecklist } from "./ppci-checklist";
 import { ProjectBar, type ProjectView } from "./project-bar";
 import { ProposalForm } from "./proposal-form";
 import { ProjectDetails } from "./project-details";
@@ -88,8 +87,6 @@ export function FormsHome({
               project={project}
               onChange={(change) => projects.saveData(project.id, change)}
             />
-          ) : project && shown === "checklist" ? (
-            <PpciChecklist key={project.id} projectId={project.id} />
           ) : project && shown === "proposal" ? (
             <ProposalForm key={project.id} project={project} />
           ) : (

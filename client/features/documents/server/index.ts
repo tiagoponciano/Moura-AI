@@ -8,8 +8,5 @@ export {
 } from "./projects-handler";
 export { handleProjectHistory } from "./history-handler";
 export { handleProposal } from "./proposal-handler";
-export { handlePpciChat } from "./ppci-chat-handler";
-export { handlePpciReport } from "./ppci-report-handler";
-export { handleGetPpci, handleSaveAnswer } from "./ppci-handler";
 export { handleListFillings, handleSaveFilling } from "./fillings-handler";
 export { handleGetFormVersion, handleListCbmscForms } from "./forms-handler";

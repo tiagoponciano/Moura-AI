@@ -1,6 +1,6 @@
 # Document conversion microservice: LibreOffice behind Gotenberg's HTTP API.
 # The app sends it a rendered .docx and gets the PDF back; it has no AI, no
-# storage and no database. Chromium prints our own HTML (the PPCI report) from
+# storage and no database. Chromium prints our own HTML from
 # an uploaded file; the allow list refuses every other URL.
 # See client/features/documents/docs/document-generation.md.
 FROM gotenberg/gotenberg:8.40.0

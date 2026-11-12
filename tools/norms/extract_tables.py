@@ -21,7 +21,15 @@ import pymupdf
 TOOL_VERSION = 1
 SUPERSCRIPTS = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹⁻", "0123456789-")
 LIGATURES = str.maketrans(
-    {"ﬁ": "fi", "ﬂ": "fl", "ﬀ": "ff", "ﬃ": "ffi", "ﬄ": "ffl", "\u00a0": " "}
+    {
+        "ﬁ": "fi",
+        "ﬂ": "fl",
+        "ﬀ": "ff",
+        "ﬃ": "ffi",
+        "ﬄ": "ffl",
+        "ϔ": "ft",  # the "ft" ligature glyph, as in "shafts"
+        "\u00a0": " ",
+    }
 )
 TITLE_RE = re.compile(r"^TABELA\s+(\d+)\s*-\s*(.+)$")
 NUMBER_RE = re.compile(r"^(\d{1,2})(?:\s{2,}(.*))?$")

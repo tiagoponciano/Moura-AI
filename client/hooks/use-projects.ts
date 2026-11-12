@@ -8,7 +8,7 @@ import {
   fetchProjects,
   renameProject,
   updateProjectData,
-} from "../lib/projects";
+} from "@/lib/projects/api";
 import {
   type Project,
   type ProjectChange,

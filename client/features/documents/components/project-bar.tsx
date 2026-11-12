@@ -11,7 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import type { useProjects } from "../hooks/use-projects";
+import type { useProjects } from "@/hooks/use-projects";
 import { ProjectActions } from "./project-actions";
 
 /** What the dialog shows under the project bar. */

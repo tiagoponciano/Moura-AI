@@ -10,10 +10,16 @@ export function ToolCallStatus({
 }) {
   const done = part.state === "output-available";
   const failed = part.state === "output-error";
-  const fields =
+  const output =
     done && part.output && typeof part.output === "object"
-      ? Object.keys(part.output)
-      : [];
+      ? (part.output as Record<string, unknown>)
+      : undefined;
+  // A tool whose output carries more than the recorded fields names them in `fields`.
+  const fields = output
+    ? Array.isArray(output.fields)
+      ? output.fields.filter((f): f is string => typeof f === "string")
+      : Object.keys(output)
+    : [];
 
   return (
     <div

@@ -1,4 +1,6 @@
 import { describe, expect, it } from "vitest";
+import { z } from "zod";
+import { QUESTIONS } from "../lib/questions";
 import { recordAnswers, recordAnswersInput } from "./record-answers";
 
 const DATE = "2026-11-12";
@@ -34,6 +36,22 @@ describe("recordAnswersInput", () => {
     expect(recordAnswersInput.safeParse({ unknown: ["area_m2"] }).success).toBe(
       false,
     );
+  });
+
+  it("serializes to the JSON schema the model provider receives, with every fact", () => {
+    const schema = z.toJSONSchema(recordAnswersInput) as {
+      properties: Record<string, { enum?: string[]; type?: string }>;
+    };
+    expect(Object.keys(schema.properties).sort()).toEqual(
+      [...QUESTIONS.map((q) => q.fact), "unknown"].sort(),
+    );
+    expect(schema.properties.division.enum).toEqual([
+      "C-1",
+      "C-2",
+      "C-3",
+      "other",
+    ]);
+    expect(schema.properties.storeys.type).toBe("integer");
   });
 
   it("describes each field for the model", () => {

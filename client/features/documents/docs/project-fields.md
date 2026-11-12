@@ -22,13 +22,13 @@ Invariants:
 
 Database: `20261105000200_projects.sql` and `20261105000300_project_data.sql`. Approved users read, add and update every project; nobody deletes.
 
-| Export                                                                 | File                    | Contract                                                 |
-| ---------------------------------------------------------------------- | ----------------------- | -------------------------------------------------------- |
-| `PROJECT_FIELD_GROUPS`, `PROJECT_FIELD_KEYS`, `isProjectFieldKey(key)` | `lib/project-fields.ts` | The shared keys and how the panel groups and labels them |
-| `mergeProjectData(data, change)`                                       | `lib/project-fields.ts` | Applies a change; `null` removes a key                   |
-| `fieldChange(key, value, data)`, `groupProgress(group, data)`          | `lib/project-fields.ts` | The change from one edited field; a group's filled count |
-| `valuesFromProject(schema, data)`                                      | `lib/project-fields.ts` | The form values a project already knows                  |
-| `changedProjectData(schema, values, data)`                             | `lib/project-fields.ts` | Trimmed shared values that differ from the project       |
+| Export                                                                 | File                             | Contract                                                 |
+| ---------------------------------------------------------------------- | -------------------------------- | -------------------------------------------------------- |
+| `PROJECT_FIELD_GROUPS`, `PROJECT_FIELD_KEYS`, `isProjectFieldKey(key)` | `lib/project-fields.ts`          | The shared keys and how the panel groups and labels them |
+| `mergeProjectData(data, change)`                                       | `client/lib/projects/project.ts` | Applies a change; `null` removes a key                   |
+| `fieldChange(key, value, data)`, `groupProgress(group, data)`          | `lib/project-fields.ts`          | The change from one edited field; a group's filled count |
+| `valuesFromProject(schema, data)`                                      | `lib/project-fields.ts`          | The form values a project already knows                  |
+| `changedProjectData(schema, values, data)`                             | `lib/project-fields.ts`          | Trimmed shared values that differ from the project       |
 
 ## Data shapes
 

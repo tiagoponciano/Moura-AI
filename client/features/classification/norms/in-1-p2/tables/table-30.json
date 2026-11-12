@@ -1,0 +1,146 @@
+{
+  "table": 30,
+  "title": "MEDIDAS ADICIONAIS PARA OCUPAÇÃO DE SUBSOLOS",
+  "pages": [47],
+  "grids": [
+    {
+      "page": 47,
+      "header_rows": [
+        [
+          "Área ocupada (m²) subsolo(s)",
+          "",
+          "Ocupação subsolo",
+          "Medidas de segurança adicionais no subsolo 7"
+        ],
+        [
+          "No primeiro\nou segundo\nsubsolo",
+          "Até 100",
+          "Todas",
+          "- Sem exigências adicionais"
+        ],
+        [
+          "",
+          "Entre\n100 e 250",
+          "Depósito",
+          "- Depósitos individuais¹ com área máxima até 5m² cada; ou\n- Ambientes subdividos¹ com área máxima até 50m², detecção automática de incêndio no\ndepósito; ou\n- Chuveiros automáticos³ de resposta rápida no depósito; ou\n- Controle de fumaça nos ambientes ocupados."
+        ],
+        [
+          "",
+          "",
+          "Divisões\nF-1, F-3, F-5, F-6,\nF-10 e F-11",
+          "- Detecção automática de incêndio em todo o subsolo, exaustão de fumaça⁴ e duas saídas\nde emergência; ou\n- Chuveiros automáticos³ de resposta rápida em todo o subsolo e exaustão; ou\n- Controle de fumaça."
+        ],
+        [
+          "",
+          "",
+          "Outras ocupações",
+          "- Detecção automática de incêndio nos ambientes ocupados e exaustão de fumaça⁴; ou\n- Chuveiros automáticos² de resposta rápida;\n- Controle de fumaça nos ambientes ocupados."
+        ],
+        [
+          "",
+          "Entre\n250 e 500",
+          "Depósito⁵",
+          "- Depósitos individuais¹, em edificações residenciais, com área máxima até 5 m² cada; ou\n- Detecção automática de incêndio em todo o subsolo e exaustão de fumaça⁴; ou\n- Chuveiros automáticos³ de resposta rápida em todo o subsolo; ou\n- Controle de fumaça."
+        ],
+        [
+          "",
+          "",
+          "Divisões\nF-1, F-3, F-5, F-6,\nF-10 e F-11",
+          "- Detecção automática de incêndio em todo o subsolo, exaustão de fumaça⁴ duas saídas de\nemergência em lados opostos; ou\n- Chuveiros automáticos³ de resposta rápida em todo o subsolo e exaustão de fumaça; ou\n- Controle de fumaça."
+        ],
+        [
+          "",
+          "",
+          "Outras ocupações",
+          "- Detecção automática de incêndio em todo o subsolo e exaustão de fumaça⁴; ou\n- Chuveiros automáticos³ de resposta rápida em todo o subsolo e exaustão; ou\n- Controle de fumaça nos ambientes ocupados."
+        ],
+        [
+          "",
+          "Acima de 500",
+          "Depósito⁵",
+          "- Depósitos individuais¹, em edificações residenciais, com área máxima até 5m² cada; ou\n- Chuveiros automáticos³ de resposta rápida e detecção automática de incêndio, em todo\no subsolo, duas saídas de emergência em lados opostos e controle de fumaça."
+        ],
+        [
+          "",
+          "",
+          "Outras ocupações",
+          "- Chuveiros automáticos³ de resposta rápida e detecção automática de incêndio, em todo\no subsolo, duas saídas de emergência em lados opostos e controle de fumaça."
+        ],
+        [
+          "Nos demais\nsubsolos",
+          "Até 100",
+          "Depósito",
+          "- Depósitos individuais¹ com área máxima até 5 m² cada; ou\n- Depósitos individuais¹ com área máxima até 25 m² cada e detecção automática de\nincêndio no depósito; ou\n- Chuveiros automáticos² de resposta rápida no depósito; ou\n- Controle de fumaça."
+        ],
+        [
+          "",
+          "",
+          "Divisões\nF-1, F-3, F-5, F-6,\nF-10 e F-11",
+          "- Detecção automática de incêndio em todo o subsolo, controle de fumaça⁴ duas saídas de\nemergência; ou\n- Chuveiros automáticos³ de resposta rápida em todo o subsolo e controle de fumaça⁴."
+        ],
+        [
+          "",
+          "",
+          "Outras ocupações",
+          "- Detecção automática de incêndio nos ambientes ocupados e exaustão de fumaça⁴; ou\n- Chuveiros automáticos² de resposta rápida nos ambientes ocupados; ou\n- Controle de fumaça."
+        ],
+        [
+          "",
+          "Acima de 100",
+          "Depósito⁵",
+          "- Depósitos individuais¹, em edificações residenciais, com área máxima até 5m² cada; ou\n- Chuveiros automáticos³ de resposta rápida e detecção automática de incêndio, em todo\no subsolo, duas saídas de emergência em lados opostos e controle de fumaça."
+        ],
+        [
+          "",
+          "",
+          "Outras ocupações",
+          "- Chuveiros automáticos³ de resposta rápida e detecção automática de incêndio, em todo\no subsolo, duas saídas de emergência⁶ em lados opostos e controle de fumaça."
+        ]
+      ]
+    }
+  ],
+  "rows": [],
+  "notes": [
+    {
+      "number": 1,
+      "text": "As paredes dos compartimentos devem ser construídas com TRRF igual ao da edificação, e no mínimo 60 minutos."
+    },
+    {
+      "number": 2,
+      "text": "Pode ser interligado à rede de hidrantes pressurizada, utilizando-se da bomba e da reserva de incêndio dimensionada para o sistema de hidrantes."
+    },
+    {
+      "number": 3,
+      "text": "Pode ser interligado à rede de hidrantes pressurizada, utilizando-se da reserva de incêndio dimensionada para o sistema de hidrantes, entretanto a bomba de incêndio deve ser dimensionada considerando o funcionamento simultâneo de seis bicos e um hidrante. Havendo chuveiros automáticos instalados no edifício, não há necessidade de trocar os bicos de projeto por bicos de resposta rápida."
+    },
+    {
+      "number": 4,
+      "text": "IN 10 do CBMSC."
+    },
+    {
+      "number": 5,
+      "text": "Somente depósitos situados em edificações residenciais."
+    },
+    {
+      "number": 6,
+      "text": "Se a rota de fuga se encontrar fora do ambiente ocupado, as proteções previstas nesta tabela devem ser para todo o subsolo."
+    },
+    {
+      "number": 7,
+      "text": "Os subsolos das edificações devem ser compartimentados em relação aos demais pisos contíguos, observadas as isenções previstas no artigo 10."
+    }
+  ],
+  "general_notes_raw": [
+    "a Ocupações permitidas nos subsolos (qualquer nível) sem necessidade de medidas adicionais: garagem de veículos (desde que possua exaustão de fumaça), lavagem de",
+    "autos, vestiários até 100 m², banheiros, áreas técnicas não habitadas (elétrica, telefonia, lógica, motogerador) e assemelhados.",
+    "b Medidas adicionais são complementares às prescritas ao imóvel.",
+    "c Para área total ocupada até 500 m², se a compartimentação estiver de acordo com a IN 14 entre os ambientes, exigências desta tabela podem ser consideradas",
+    "individualmente."
+  ],
+  "checks": {
+    "needs_human_look": [
+      "no data rows in a grid (not an x/- table)",
+      "footnote references [] differ from note numbers [1, 2, 3, 4, 5, 6, 7]"
+    ]
+  }
+}

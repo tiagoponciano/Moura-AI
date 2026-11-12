@@ -1,0 +1,129 @@
+{
+  "table": 27,
+  "title": "DIVISÃO M-5",
+  "pages": [45],
+  "grids": [
+    {
+      "page": 45,
+      "header_rows": [
+        ["Grupo M - Especiais", "", ""],
+        ["M-5", "", ""],
+        ["SMSCI", "IN", "Qualquer área"]
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "page": 45,
+      "system": "Brigada de incêndio",
+      "norm": "IN 28",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x¹",
+          "mark": "x",
+          "refs": [1],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 45,
+      "system": "Extintores",
+      "norm": "IN 6",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x²",
+          "mark": "x",
+          "refs": [2],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 45,
+      "system": "Hidráulico preventivo",
+      "norm": "IN 7",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x³",
+          "mark": "x",
+          "refs": [3],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 45,
+      "system": "Iluminação de Emergência",
+      "norm": "IN 11",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x 4",
+          "mark": "x",
+          "refs": [4],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 45,
+      "system": "Saídas de emergência",
+      "norm": "IN 9",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x 5",
+          "mark": "x",
+          "refs": [5],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "number": 1,
+      "text": "Exige-se brigadistas orgânicos de acordo com população fixa (ver IN 28)."
+    },
+    {
+      "number": 2,
+      "text": "Atenderá os requisitos da IN 6 e da IN 34."
+    },
+    {
+      "number": 3,
+      "text": "Sistema Hidráulico deve ser instalado se as construções de apoio do silo somarem área maior ou igual a 750 m², atendendo, neste caso, os requisitos das IN 7 e 34."
+    },
+    {
+      "number": 4,
+      "text": "Atenderá os requisitos da IN 11 e da IN 34."
+    },
+    {
+      "number": 5,
+      "text": "Atenderá os requisitos da IN 9 e da IN 34."
+    },
+    {
+      "number": 6,
+      "text": "Atenderá os requisitos da IN 13 e da IN 34."
+    }
+  ],
+  "general_notes_raw": [],
+  "checks": {
+    "needs_human_look": [
+      "footnote references [1, 2, 3, 4, 5] differ from note numbers [1, 2, 3, 4, 5, 6]"
+    ]
+  }
+}

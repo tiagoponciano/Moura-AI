@@ -1,0 +1,2 @@
+# Written by tools/norms/extract_tables.py; review the extractor, not these files.
+client/features/classification/norms/**/*.json linguist-generated=true

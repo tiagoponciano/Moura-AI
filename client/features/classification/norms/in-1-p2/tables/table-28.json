@@ -1,0 +1,64 @@
+{
+  "table": 28,
+  "title": "DIVISÃO M-6",
+  "pages": [46],
+  "grids": [
+    {
+      "page": 46,
+      "header_rows": [
+        ["Grupo M - Especiais", "", ""],
+        ["M-6", "", ""],
+        ["SMSCI", "IN", "Classificação quanto à altura (em metros)"],
+        ["", "", "Área de plantio > 500 ha"]
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "page": 46,
+      "system": "Brigada de incêndio",
+      "norm": "IN 28",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x¹",
+          "mark": "x",
+          "refs": [1],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 46,
+      "system": "Plano de emergência",
+      "norm": "IN 31",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x²",
+          "mark": "x",
+          "refs": [2],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "number": 1,
+      "text": "Exige-se brigadistas orgânicos de acordo com população fixa (ver IN 28)."
+    },
+    {
+      "number": 2,
+      "text": "O plano de emergência deve contemplar o plano de regulação de material combustível e ações de apoio às operações de combate à incêndios, sendo competência do responsável técnico o seu dimensionamento."
+    }
+  ],
+  "general_notes_raw": [],
+  "checks": {
+    "needs_human_look": []
+  }
+}

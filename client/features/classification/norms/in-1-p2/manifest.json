@@ -1,0 +1,214 @@
+{
+  "doc": "IN-1-P2",
+  "source_url": "https://drive.google.com/file/d/1NRKJlIiaHAZiBwxAdXkIWYEb0TYSZfPI/view",
+  "retrieved": "2026-11-12",
+  "pdf_sha256": "d591d685744595c50ec4c70ff5f09eba97dc0cc712869f51fbd68244cea4ecf4",
+  "pdf_pages": 47,
+  "tool_version": 1,
+  "pymupdf": "1.28.2",
+  "tables": [
+    {
+      "table": 2,
+      "title": "IMÓVEIS COM ÁREA ≤ 750 m² E ALTURA ≤ 12 m",
+      "pages": [20],
+      "sha256": "ad7c246267b15f7a8ae8f16143433d535fa28574a1060d26537df18fb0da19b0",
+      "needs_human_look": 0
+    },
+    {
+      "table": 3,
+      "title": "IMÓVEIS DO GRUPO A",
+      "pages": [21, 22],
+      "sha256": "daa5332e9e31a6d2943b093cfd40c003a6793aab50aa003358f7022fc58ea3cb",
+      "needs_human_look": 8
+    },
+    {
+      "table": 4,
+      "title": "GRUPO B COM ÁREA ≥ 750 m² OU ALTURA ≥ 12 m",
+      "pages": [23],
+      "sha256": "00224af877c1e093b9c8a3f5d88a0676bda17a42f1fcf025b1bb46c2b09cd63a",
+      "needs_human_look": 0
+    },
+    {
+      "table": 5,
+      "title": "GRUPO C COM ÁREA ≥ 750 m² OU ALTURA ≥ 12 m",
+      "pages": [24],
+      "sha256": "6e960b8eb469bc833547c4df6663975a7fc2380cc21f631627ddf2cec60c6d2a",
+      "needs_human_look": 0
+    },
+    {
+      "table": 6,
+      "title": "GRUPO D COM ÁREA ≥ 750 m² OU ALTURA ≥ 12 m",
+      "pages": [25],
+      "sha256": "f7b3c8a307b96510e30f65537a02499021e09c5254499e980ac5a1abc3392b0f",
+      "needs_human_look": 0
+    },
+    {
+      "table": 7,
+      "title": "GRUPO E COM ÁREA ≥ 750 m² OU ALTURA ≥ 12 m",
+      "pages": [26],
+      "sha256": "e251606dd6bf08fbf855970c45dc7270fbd8da45a7c76c1db29cb49197dbed8b",
+      "needs_human_look": 1
+    },
+    {
+      "table": 8,
+      "title": "DIVISÕES F-1 e F-2 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12,00 m",
+      "pages": [27],
+      "sha256": "c2fd6b805287f7c62be0b894cbb76ff10a6b8527a6634d7d0fb583b82d747f3c",
+      "needs_human_look": 1
+    },
+    {
+      "table": 9,
+      "title": "DIVISÕES F-3 e F-9 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12,00 m",
+      "pages": [28],
+      "sha256": "9e902abaf1ca9a9dec1ada54d56481afdcf5d3f2b90170e59d46ac74ee794e31",
+      "needs_human_look": 0
+    },
+    {
+      "table": 10,
+      "title": "DIVISÕES F-5, F-6, F-8 e F-10 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12,00 m",
+      "pages": [29],
+      "sha256": "31c22dd59c02e8a661f6536618b5d2b8ac5fc6f3031e872af0aac950be5b0941",
+      "needs_human_look": 1
+    },
+    {
+      "table": 11,
+      "title": "DIVISÃO F-4 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12,00 m",
+      "pages": [30],
+      "sha256": "fe3e4d14609788ed4c558d2505b7a9adc43521d9f9acb153622d045e0a32f87c",
+      "needs_human_look": 0
+    },
+    {
+      "table": 12,
+      "title": "DIVISÃO F-11 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12,00 m",
+      "pages": [31],
+      "sha256": "e81408fb15f726830b73cf10e23e0ad58a6b6d672683478fef369c578d7b35b0",
+      "needs_human_look": 1
+    },
+    {
+      "table": 13,
+      "title": "DIVISÕES G-1, G-2 e G-5 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12,00 m",
+      "pages": [32],
+      "sha256": "6e65f282088b4ef72e6f8baa85d8ec7aa7220866814b6d4bb026e4f89cfd40c8",
+      "needs_human_look": 0
+    },
+    {
+      "table": 14,
+      "title": "DIVISÕES G-3 e G-4 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12,00 m",
+      "pages": [33],
+      "sha256": "4550ab3801ee96af739a37bcb7c261a20d01090b25889925be9e0744052f2010",
+      "needs_human_look": 1
+    },
+    {
+      "table": 15,
+      "title": "DIVISÕES H-1, H-2 e H-6 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12,00 m",
+      "pages": [34],
+      "sha256": "e09fddd8cf26e82de23cde593c6e9512204803ccce2bd463038c722062696e75",
+      "needs_human_look": 1
+    },
+    {
+      "table": 16,
+      "title": "DIVISÃO H-3 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12,00 m",
+      "pages": [35],
+      "sha256": "7a5ab97c56bd48aab78c8dccbf16cd3fbc2e0f0c9ae3c76f4be024ade904f894",
+      "needs_human_look": 0
+    },
+    {
+      "table": 17,
+      "title": "DIVISÕES H-4 e H-5 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12,00 m",
+      "pages": [36],
+      "sha256": "e08c612cf232c2826b443f92c237944f4c1b3f5165459ac4ca322c3362ae69a7",
+      "needs_human_look": 0
+    },
+    {
+      "table": 18,
+      "title": "DIVISÕES I-1 e I-2 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12,00 m",
+      "pages": [37],
+      "sha256": "db5fe1c9128a460b4cd3d4275fbe2935972e93c0d98e671588f81cd2aabcbee6",
+      "needs_human_look": 0
+    },
+    {
+      "table": 19,
+      "title": "DIVISÃO I-3 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12,00 m",
+      "pages": [38],
+      "sha256": "a82f790d3c92967b9605a565d1832f9fd9d15f5866456796943511cb6f5f577f",
+      "needs_human_look": 0
+    },
+    {
+      "table": 20,
+      "title": "DIVISÕES J-1 e J-2 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12,00 m",
+      "pages": [39],
+      "sha256": "7ef5d16474ae0137816590b870c2b16b70f8e5186cbba37cba3cbf5d3078f1b0",
+      "needs_human_look": 1
+    },
+    {
+      "table": 21,
+      "title": "DIVISÕES J-3 e J-4 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12,00 m",
+      "pages": [40],
+      "sha256": "78796799df457278b2a8fb502622cd18a6bf03d24a5b12986e9cb99f2b15a910",
+      "needs_human_look": 0
+    },
+    {
+      "table": 22,
+      "title": "DIVISÕES K-1 e K-2",
+      "pages": [41],
+      "sha256": "10923bdb7f16d2e32b1c2fe9c06185070a05dd59a3e419cee34c01b624a809ed",
+      "needs_human_look": 1
+    },
+    {
+      "table": 23,
+      "title": "DIVISÃO M-1",
+      "pages": [42],
+      "sha256": "ff068a6c41c8e514d2ec6bca86f4dd0053c02a40145be6d704ccdbb349dc62b1",
+      "needs_human_look": 0
+    },
+    {
+      "table": 24,
+      "title": "DIVISÃO M-2 (INDEPENDENTE DE ÁREA OU ALTURA)",
+      "pages": [43],
+      "sha256": "c923805e2eb4c15e72e742a43d4df115da5fafc7afd6f1d7d4df3c4fdfea0ecc",
+      "needs_human_look": 2
+    },
+    {
+      "table": 25,
+      "title": "DIVISÃO M-3 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12,00 m",
+      "pages": [44],
+      "sha256": "d7b29b9915ed350f28294de3b0fe7aefc67cae931d2115deba1197b045d86e85",
+      "needs_human_look": 0
+    },
+    {
+      "table": 26,
+      "title": "DIVISÕES M-4 e M-7",
+      "pages": [45],
+      "sha256": "4cd9c86569fa693eeddfa1abb411abe2fd7afce1b3f87ec9410f17518a978183",
+      "needs_human_look": 1
+    },
+    {
+      "table": 27,
+      "title": "DIVISÃO M-5",
+      "pages": [45],
+      "sha256": "8d85194bc6db6b07279e33579542df83df0ac05df92d309e303f2919d3be7e0c",
+      "needs_human_look": 1
+    },
+    {
+      "table": 28,
+      "title": "DIVISÃO M-6",
+      "pages": [46],
+      "sha256": "9eea1c8be798de8f4e0b3fad4e08dca5d2dba631d371c7ccf34dfd56dc92dc2f",
+      "needs_human_look": 0
+    },
+    {
+      "table": 29,
+      "title": "DIVISÃO M-11 INDEPENDENTE DE ÁREA OU ALTURA",
+      "pages": [46],
+      "sha256": "91bee73ebca41f9557d18f3f4b749d815058706497daa189011b488ea29edbc7",
+      "needs_human_look": 0
+    },
+    {
+      "table": 30,
+      "title": "MEDIDAS ADICIONAIS PARA OCUPAÇÃO DE SUBSOLOS",
+      "pages": [47],
+      "sha256": "99b69f7ef2e756a7376f4a5e7c941aeaca054f73ad860bd24dd3182c27cf2e44",
+      "needs_human_look": 2
+    }
+  ]
+}

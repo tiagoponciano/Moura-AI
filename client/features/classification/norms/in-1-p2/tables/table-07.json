@@ -1,0 +1,1162 @@
+{
+  "table": 7,
+  "title": "GRUPO E COM ÁREA ≥ 750 m² OU ALTURA ≥ 12 m",
+  "pages": [26],
+  "grids": [
+    {
+      "page": 26,
+      "header_rows": [
+        ["Grupo E - Educacional e Cultural", "", "", "", "", "", "", ""],
+        ["E-1, E-2, E-3, E-4, E-5 e E-6", "", "", "", "", "", "", ""],
+        [
+          "SMSCI",
+          "IN",
+          "Classificação quanto à altura (em metros)",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "",
+          "",
+          "Térrea",
+          "H ≤ 6",
+          "6 < H ≤ 12",
+          "12 < H ≤ 23",
+          "23 < H ≤ 30",
+          "> 30"
+        ]
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "page": 26,
+      "system": "Acesso de viaturas na edificação",
+      "norm": "IN 35",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Alarme de incêndio",
+      "norm": "IN 12",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x¹",
+          "mark": "x",
+          "refs": [1],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x¹",
+          "mark": "x",
+          "refs": [1],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x¹",
+          "mark": "x",
+          "refs": [1],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Brigada de incêndio",
+      "norm": "IN 28",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x²",
+          "mark": "x",
+          "refs": [2],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x²",
+          "mark": "x",
+          "refs": [2],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x²",
+          "mark": "x",
+          "refs": [2],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x²",
+          "mark": "x",
+          "refs": [2],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x²",
+          "mark": "x",
+          "refs": [2],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x²",
+          "mark": "x",
+          "refs": [2],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Chuveiros automáticos",
+      "norm": "IN 15",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x³",
+          "mark": "x",
+          "refs": [3],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Compartimentação horizontal ou de áreas",
+      "norm": "IN 14",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x⁴",
+          "mark": "x",
+          "refs": [4],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Compartimentação vertical",
+      "norm": "IN 14",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x⁵",
+          "mark": "x",
+          "refs": [5],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x⁵",
+          "mark": "x",
+          "refs": [5],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x¹²",
+          "mark": "x",
+          "refs": [12],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Controle de fumaça",
+      "norm": "IN 10",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x⁶",
+          "mark": "x",
+          "refs": [6],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Controle de materiais de acabamento",
+      "norm": "IN 18",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Detecção automática de incêndio",
+      "norm": "IN 12",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x⁷⁻⁸",
+          "mark": "x",
+          "refs": [7, 8],
+          "vital": false,
+          "ok": true,
+          "multi_ref": true
+        },
+        {
+          "raw": "x⁷⁻⁸",
+          "mark": "x",
+          "refs": [7, 8],
+          "vital": false,
+          "ok": true,
+          "multi_ref": true
+        },
+        {
+          "raw": "x⁷",
+          "mark": "x",
+          "refs": [7],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x⁷",
+          "mark": "x",
+          "refs": [7],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x⁷",
+          "mark": "x",
+          "refs": [7],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Elevador de emergência",
+      "norm": "IN 9",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x⁹ _ ¹³",
+          "mark": "x",
+          "refs": [9, 13],
+          "vital": false,
+          "ok": true,
+          "multi_ref": true
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Extintores",
+      "norm": "IN 6",
+      "vital_on_label": true,
+      "cells": [
+        {
+          "raw": "x 10",
+          "mark": "x",
+          "refs": [10],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x 10",
+          "mark": "x",
+          "refs": [10],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x 10",
+          "mark": "x",
+          "refs": [10],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x 10",
+          "mark": "x",
+          "refs": [10],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x 10",
+          "mark": "x",
+          "refs": [10],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x 10",
+          "mark": "x",
+          "refs": [10],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Gás combustível",
+      "norm": "IN 8",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Hidráulico preventivo",
+      "norm": "IN 7",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Iluminação de emergência",
+      "norm": "IN 11",
+      "vital_on_label": true,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Instalação elétrica de baixa tensão",
+      "norm": "IN 19",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Plano de Emergência",
+      "norm": "IN 31",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x 11",
+          "mark": "x",
+          "refs": [11],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x 11",
+          "mark": "x",
+          "refs": [11],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x 11",
+          "mark": "x",
+          "refs": [11],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Proteção estrutural (TRRF)",
+      "norm": "IN 14",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Saídas de emergência",
+      "norm": "IN 9",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "system": "Sinalização para abandono de local",
+      "norm": "IN 13",
+      "vital_on_label": true,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "number": 1,
+      "text": "Para as ocupações E-1, E-2, E-3 e E-4 exige-se se imóvel tem área igual ou superior à 1.500 m²."
+    },
+    {
+      "number": 2,
+      "text": "Exige-se brigadistas orgânicos de acordo com população fixa do imóvel (IN 28)."
+    },
+    {
+      "number": 3,
+      "text": "Chuveiros automáticos são exigidos para imóveis que possuam altura igual ou superior à 75 m."
+    },
+    {
+      "number": 4,
+      "text": "Pode ser substituído por detecção automática e chuveiro automático."
+    },
+    {
+      "number": 5,
+      "text": "No mínimo a compartimentação de fachadas, shaϔ e dutos."
+    },
+    {
+      "number": 6,
+      "text": "Exigido para imóveis com altura igual ou superior a 90 m."
+    },
+    {
+      "number": 7,
+      "text": "Para as divisões E-5 e E-6 acima de 750 m² de área, para as demais acima de 5.000 m² de área. Exceto para E-5 e E-6 considera-se para efeitos de dispensa a compartimentação entre blocos, não sendo necessário o isolamento entre os blocos. Sempre que exigidos, os detectores devem ser instalados em depósitos com carga de incêndio superior a 300 MJ/m² e e em todos os locais com carga de incêndio superior a 1.200 MJ/m²."
+    },
+    {
+      "number": 8,
+      "text": "Isento para edificações térreas ou com no máximo 2 pavimentos que possuam a maior parte das salas de aula com saída direto para área externa aberta."
+    },
+    {
+      "number": 9,
+      "text": "Exigido para imóveis que possuam altura igual ou superior a 90 m."
+    },
+    {
+      "number": 10,
+      "text": "Nas ocupações E-1, quando apontadas ocorrências de vandalismo, admite-se a alocação dos extintores no interior das salas de aula ou em locais protegidos distribuídos pela edificação."
+    },
+    {
+      "number": 11,
+      "text": "Exigido somente para E-5 e E-6."
+    },
+    {
+      "number": 12,
+      "text": "Pode ser substituído por controle de fumaça, chuveiros automáticos, e detecção automática até 90 m de altura, exceto para a compartimentação de fachadas, shaϔs e dutos de instalações."
+    },
+    {
+      "number": 13,
+      "text": "Dispensado para E-3 subsidiários a ocupações dos grupos A e B."
+    }
+  ],
+  "general_notes_raw": [
+    "b Observar IN 9 em relação a exigência de área de refúgio."
+  ],
+  "checks": {
+    "needs_human_look": [
+      "a cell has several footnote references (list or range?)"
+    ]
+  }
+}

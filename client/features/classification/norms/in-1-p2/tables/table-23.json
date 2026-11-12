@@ -1,0 +1,512 @@
+{
+  "table": 23,
+  "title": "DIVISÃO M-1",
+  "pages": [42],
+  "grids": [
+    {
+      "page": 42,
+      "header_rows": [
+        ["Grupo M – Especiais", "", "", "", "", ""],
+        ["M-1 Túnel", "", "", "", "", ""],
+        ["SMSCI", "IN", "Extensão em metros (m)", "", "", ""],
+        ["", "", "≤ 200 m", "200 ≤ 500 m", "500 ≤ 1.000 m", "> 1.000 m"]
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "page": 42,
+      "system": "Brigada de incêndio",
+      "norm": "IN 28",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x¹",
+          "mark": "x",
+          "refs": [1],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x¹",
+          "mark": "x",
+          "refs": [1],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x¹",
+          "mark": "x",
+          "refs": [1],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 42,
+      "system": "Controle de fumaça",
+      "norm": "IN 10",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 42,
+      "system": "Detecção automática de incêndio",
+      "norm": "IN 12",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x²",
+          "mark": "x",
+          "refs": [2],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 42,
+      "system": "Extintores",
+      "norm": "IN 6",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 42,
+      "system": "Hidráulico preventivo",
+      "norm": "IN 7",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 42,
+      "system": "Instalação elétrica de baixa tensão",
+      "norm": "IN 19",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 42,
+      "system": "Plano de Emergência",
+      "norm": "IN 31",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 42,
+      "system": "Proteção Estrutural",
+      "norm": "IN 14",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 42,
+      "system": "Saídas de Emergência",
+      "norm": "IN 9",
+      "vital_on_label": true,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 42,
+      "system": "Sinalização de Emergência",
+      "norm": "IN 13",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 42,
+      "system": "Sistema de Comunicação",
+      "norm": "-",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 42,
+      "system": "Sistema de Circuito de TV (monitoramento)",
+      "norm": "-",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "number": 1,
+      "text": "Exige-se brigadistas orgânicos de acordo com população fixa (ver IN 28)."
+    },
+    {
+      "number": 2,
+      "text": "Exige-se em toda a extensão do túnel, em conjunto possuir monitoramento da concentração de monóxido de carbono (CO)."
+    }
+  ],
+  "general_notes_raw": [],
+  "checks": {
+    "needs_human_look": []
+  }
+}

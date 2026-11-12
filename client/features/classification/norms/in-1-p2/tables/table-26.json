@@ -1,0 +1,248 @@
+{
+  "table": 26,
+  "title": "DIVISÕES M-4 e M-7",
+  "pages": [45],
+  "grids": [
+    {
+      "page": 45,
+      "header_rows": [
+        ["Grupo M - Especiais", "", "", ""],
+        ["M-4 e M-7", "", "", ""],
+        [
+          "SMSCI",
+          "IN",
+          "M-4 (acima de 1.500 m²)",
+          "M-7 (térreo – áreas externas)¹"
+        ]
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "page": 45,
+      "system": "Acesso de viaturas na edificação",
+      "norm": "IN 35",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 45,
+      "system": "Brigada de incêndio",
+      "norm": "IN 28",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x²",
+          "mark": "x",
+          "refs": [2],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 45,
+      "system": "Espuma",
+      "norm": "NBR 12232",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x⁵",
+          "mark": "x",
+          "refs": [5],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 45,
+      "system": "Extintores",
+      "norm": "IN 6",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 45,
+      "system": "Hidráulico preventivo",
+      "norm": "IN 7",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x³",
+          "mark": "x",
+          "refs": [3],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 45,
+      "system": "Plano de emergência",
+      "norm": "IN 31",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 45,
+      "system": "Saídas de emergência",
+      "norm": "IN 9",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x⁴",
+          "mark": "x",
+          "refs": [4],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x⁴",
+          "mark": "x",
+          "refs": [4],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 45,
+      "system": "Sinalização para abandono de local",
+      "norm": "IN 13",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "number": 1,
+      "text": "Para ocupações subsidiárias, verificar SMSCI específicos para a ocupação."
+    },
+    {
+      "number": 2,
+      "text": "Exige-se brigadistas orgânicos de acordo com população fixa (ver IN 28)."
+    },
+    {
+      "number": 3,
+      "text": "Conforme IN específica (IN 22 sobre pátio de contêineres)."
+    },
+    {
+      "number": 4,
+      "text": "Para M-4: aceitam-se as próprias saídas da edificação, podendo as escadas ser do tipo NE. Para M-7: aceitam-se os arruamentos entre as quadras de armazenamento conforme IN especifica."
+    },
+    {
+      "number": 5,
+      "text": "Quando houver armazenamento de tanque portátil (isotanque) com líquidos inflamáveis ou combustíveis com capacidade total acima de 20 m³."
+    }
+  ],
+  "general_notes_raw": [
+    "a",
+    "As área a serem consideradas para M-7 são as áreas dos terrenos abertos onde há depósito de contêineres.",
+    "b Devem ser verificadas as exigências quanto ao armazenamento e processamento (produção, manipulação, etc.).",
+    "c",
+    "Considera-se para efeitos de gases inflamáveis a capacidade total do volume em água que o recipiente pode comportar, expressa em m³."
+  ],
+  "checks": {
+    "needs_human_look": [
+      "footnote references [2, 3, 4, 5] differ from note numbers [1, 2, 3, 4, 5]"
+    ]
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "table": 29,
+  "title": "DIVISÃO M-11 INDEPENDENTE DE ÁREA OU ALTURA",
+  "pages": [46],
+  "grids": [
+    {
+      "page": 46,
+      "header_rows": [
+        ["Grupo M - Especiais", "", "", ""],
+        ["M-11", "", "", ""],
+        ["SMSCI", "IN", "Em relação a área (m²)", ""],
+        ["", "", "< 750 m²", "≥ 750 m²"]
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "page": 46,
+      "system": "Extintores",
+      "norm": "IN 6",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 46,
+      "system": "Gás combustível",
+      "norm": "IN 8",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x 1",
+          "mark": "x",
+          "refs": [1],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x 1",
+          "mark": "x",
+          "refs": [1],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 46,
+      "system": "Iluminação de Emergência",
+      "norm": "IN 11",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x 2",
+          "mark": "x",
+          "refs": [2],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 46,
+      "system": "Instalação elétrica de baixa tensão",
+      "norm": "IN 19",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 46,
+      "system": "Saídas de emergência",
+      "norm": "IN 9",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    },
+    {
+      "page": 46,
+      "system": "Sinalização para abandono de local",
+      "norm": "IN 13",
+      "vital_on_label": false,
+      "cells": [
+        {
+          "raw": "-",
+          "mark": "-",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        },
+        {
+          "raw": "x",
+          "mark": "x",
+          "refs": [],
+          "vital": false,
+          "ok": true,
+          "multi_ref": false
+        }
+      ]
+    }
+  ],
+  "notes": [
+    {
+      "number": 1,
+      "text": "Para estufas que utilizam gás combustível."
+    },
+    {
+      "number": 2,
+      "text": "Exigido para áreas maiores que 300 m²."
+    }
+  ],
+  "general_notes_raw": [],
+  "checks": {
+    "needs_human_look": []
+  }
+}

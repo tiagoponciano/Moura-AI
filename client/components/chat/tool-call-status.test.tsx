@@ -35,6 +35,15 @@ describe("ToolCallStatus", () => {
     expect(html).not.toContain("status");
   });
 
+  it("shows a tool's own summary instead of a list of fields", () => {
+    const html = render({
+      matches: [],
+      summary: "Nenhuma atividade encontrada na IN 3",
+    });
+    expect(html).toContain("Nenhuma atividade encontrada na IN 3");
+    expect(html).not.toContain("Campos atualizados");
+  });
+
   it("says none when nothing was recorded", () => {
     expect(render({ fields: [] })).toContain("Campos atualizados: nenhum");
   });

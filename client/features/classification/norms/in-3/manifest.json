@@ -1,0 +1,15 @@
+{
+  "doc": "IN-3",
+  "source_url": "https://drive.google.com/file/d/1VHU5PfbkwquON6xAn1oyu85yI2sFZhok/view",
+  "retrieved": "2026-11-12",
+  "pdf_sha256": "ecae6a4cded7973d60b57f8d7c93bdc22d618cf9ed8d5f549c526b794f19b958",
+  "pdf_pages": 16,
+  "tool_version": 1,
+  "pymupdf": "1.28.2",
+  "annex_a": {
+    "pages": [4, 5, 6, 7, 8, 9, 10],
+    "rows": 262,
+    "sha256": "64a630c684c111532a8252c22206661eba18487841eb9083e7556e7a4e61eff7",
+    "needs_human_look": 2
+  }
+}

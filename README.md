@@ -16,31 +16,23 @@ Internal platform for Moura Soluções em Engenharia, a fire-prevention engineer
 
 <table>
 <tr>
-<td align="center" width="140"><img src="docs/assets/icons/typescript.svg" alt="TypeScript" height="40" /><br />TypeScript</td>
-<td align="center" width="140"><img src="docs/assets/icons/nextdotjs.svg" alt="Next.js" height="40" /><br />Next.js</td>
-<td align="center" width="140"><img src="docs/assets/icons/tailwindcss.svg" alt="Tailwind CSS" height="40" /><br />Tailwind CSS</td>
-<td align="center" width="140"><img src="docs/assets/icons/zod.svg" alt="Zod" height="40" /><br />Zod</td>
-<td align="center" width="140"><img src="docs/assets/icons/supabase.svg" alt="Supabase" height="40" /><br />Supabase</td>
+<td align="center" width="120"><img src="docs/assets/icons/typescript.svg" alt="TypeScript" height="40" /><br />TypeScript</td>
+<td align="center" width="120"><img src="docs/assets/icons/nextdotjs.svg" alt="Next.js" height="40" /><br />Next.js</td>
+<td align="center" width="120"><img src="docs/assets/icons/tailwindcss.svg" alt="Tailwind CSS" height="40" /><br />Tailwind CSS</td>
+<td align="center" width="120"><img src="docs/assets/icons/zod.svg" alt="Zod" height="40" /><br />Zod</td>
+<td align="center" width="120"><img src="docs/assets/icons/supabase.svg" alt="Supabase" height="40" /><br />Supabase</td>
+<td align="center" width="120"><img src="docs/assets/icons/vercel.svg" alt="Vercel" height="40" /><br />Vercel</td>
 </tr>
 <tr>
-<td align="center"><img src="docs/assets/icons/python.svg" alt="Python" height="40" /><br />Python</td>
-<td align="center"><img src="docs/assets/icons/docker.svg" alt="Docker" height="40" /><br />Docker</td>
-<td align="center"><img src="docs/assets/icons/vercel.svg" alt="Vercel" height="40" /><br />Vercel</td>
-<td align="center" colspan="2"></td>
+<td align="center" width="120"><img src="docs/assets/icons/python.svg" alt="Python" height="40" /><br />Python</td>
+<td align="center" width="120"><img src="docs/assets/icons/docker.svg" alt="Docker" height="40" /><br />Docker</td>
+<td align="center" width="120"><img src="docs/assets/icons/claude.svg" alt="Claude" height="40" /><br />Claude</td>
+<td align="center" width="120"><img src="docs/assets/icons/openai.svg" alt="ChatGPT" height="40" /><br />ChatGPT</td>
+<td align="center" width="120"><img src="docs/assets/icons/googlegemini.svg" alt="Gemini" height="40" /><br />Gemini</td>
 </tr>
 </table>
 
-### AI providers
-
-An admin picks the provider and model on `/admin`; the code is the same for all of them.
-
-<table>
-<tr>
-<td align="center" width="200"><img src="docs/assets/icons/claude.svg" alt="Claude" height="40" /><br />Claude (Anthropic)</td>
-<td align="center" width="200"><img src="docs/assets/icons/openai.svg" alt="OpenAI" height="40" /><br />ChatGPT (OpenAI)</td>
-<td align="center" width="200"><img src="docs/assets/icons/googlegemini.svg" alt="Gemini" height="40" /><br />Gemini (Google)</td>
-</tr>
-</table>
+Claude, ChatGPT and Gemini are interchangeable: an admin picks the provider and model on `/admin`, and the code is the same for all of them.
 
 ## What it does
 
@@ -123,7 +115,7 @@ services/pdf/           # PDF microservice (Gotenberg); no AI, storage or databa
 services/pptx/          # proposal microservice (FastAPI + python-pptx); no AI, storage or database
 services/dwg/           # plan to DXF/DWG microservice; no AI, storage or database
 supabase/migrations/    # the only place tables, RLS and storage buckets are defined
-docs/assets/            # screenshots used by this README
+docs/assets/            # images used by this README
 ```
 
 Each module documents its behavior under `client/features/<module>/docs/`, and app-wide behavior lives in [`client/docs/`](client/docs). Conventions for changing the code, including the module boundaries that `pnpm run lint` enforces, are in [`AGENTS.md`](AGENTS.md). Adding a CBMSC form template is described in [`cbmsc-form-templates.md`](client/features/documents/docs/cbmsc-form-templates.md).

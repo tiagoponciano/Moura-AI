@@ -4,7 +4,7 @@ How the activities of IN 3, Annex A become something the chat can search and the
 
 ## What this is
 
-Annex A of IN 3 lists, for every occupancy group, what a building is used for (the "destinação") and its specific fire load in MJ/m². `tools/norms/extract_annex_a.py` dumps it to `norms/in-3/annex-a.json`; `lib/catalog/activities.ts` loads it as `ACTIVITIES` and searches it. When the user confirms an activity, recording its id sets the division and, when the norm gives a number, the fire load, so the assistant does not ask for them.
+Annex A of IN 3 lists, for every occupancy group, what a building is used for (the "destinação") and its specific fire load in MJ/m². `tools/norms/extract_annex_a.py` dumps it to `norms/in-3/annex-a.json`; `lib/catalog/activities.ts` loads it as `ACTIVITIES` and searches it. `tools/norms/extract_occupations.py` does the same for Tabela 1 of IN 1 parte 2 (`norms/in-1-p2/occupations.json`), and `lib/catalog/occupations.ts` loads its 63 divisions with the group name, the description and the destination as printed. When the user confirms an activity, recording its id sets the division and, when the norm gives a number, the fire load, so the assistant does not ask for them.
 
 Invariants:
 
@@ -14,15 +14,16 @@ Invariants:
 
 ## Surface
 
-| Export                                         | File                        | Contract                                                                                |
-| ---------------------------------------------- | --------------------------- | --------------------------------------------------------------------------------------- |
-| `ACTIVITIES`, `ACTIVITY_BY_ID`                 | `lib/catalog/activities.ts` | 261 activities, one per division and destination, each with a stable id                 |
-| `DIVISIONS`                                    | `lib/catalog/activities.ts` | Every division that has an activity, in group and number order                          |
-| `searchActivities(query, limit = 5)`           | `lib/catalog/activities.ts` | `{ activity, score }[]`, best first; empty when the annex does not list the description |
-| `activityLabel(activity)`                      | `lib/catalog/activities.ts` | `"C-2 · Vestuário e acessórios"`                                                        |
-| `searchActivityInput`, `searchActivity(input)` | `server/search-activity.ts` | The `search_activity` tool: `{ matches, note, summary }`                                |
+| Export                                                                                    | File                         | Contract                                                                                     |
+| ----------------------------------------------------------------------------------------- | ---------------------------- | -------------------------------------------------------------------------------------------- |
+| `ACTIVITIES`, `ACTIVITY_BY_ID`                                                            | `lib/catalog/activities.ts`  | 261 activities, one per division and destination, each with a stable id                      |
+| `DIVISIONS`                                                                               | `lib/catalog/activities.ts`  | Every division that has an activity, in group and number order                               |
+| `searchActivities(query, limit = 5)`                                                      | `lib/catalog/activities.ts`  | `{ activity, score }[]`, best first; empty when the annex does not list the description      |
+| `activityLabel(activity)`                                                                 | `lib/catalog/activities.ts`  | `"C-2 · Vestuário e acessórios"`                                                             |
+| `OCCUPATIONS`, `OCCUPATION_BY_DIVISION`, `divisionLabel(division)`, `groupName(division)` | `lib/catalog/occupations.ts` | The 63 divisions of Tabela 1; the label "C-3 · Shopping centers"; the group name "Comercial" |
+| `searchActivityInput`, `searchActivity(input)`                                            | `server/search-activity.ts`  | The `search_activity` tool: `{ matches, note, summary }`                                     |
 
-Extraction: `python tools/norms/extract_annex_a.py <IN3.pdf> --out client/features/classification/norms/in-3 [--url …] [--verify]`. It writes `annex-a.json` and `manifest.json` (PDF hash, row count and a hash of the table); `--verify` writes nothing and exits 1 when the PDF no longer gives the committed table. `norms/in-3/annex-a.test.ts` validates the committed files.
+Extraction: `python tools/norms/extract_occupations.py <IN1P2.pdf> --out client/features/classification/norms/in-1-p2` for Tabela 1 (`occupations.json` and `occupations.manifest.json`, with the same `--verify`), and `python tools/norms/extract_annex_a.py <IN3.pdf> --out client/features/classification/norms/in-3 [--url …] [--verify]`. It writes `annex-a.json` and `manifest.json` (PDF hash, row count and a hash of the table); `--verify` writes nothing and exits 1 when the PDF no longer gives the committed table. `norms/in-3/annex-a.test.ts` validates the committed files.
 
 ## Data shapes
 
@@ -38,7 +39,7 @@ type Activity = {
 };
 ```
 
-`search_activity` returns `{ matches, note, summary }`: each match is `{ id, division, destination, fire_load_mj_m2, fire_load_ref }` (one of the two load fields is `null`), `note` tells the model what to do next and `summary` is the line the chat shows.
+`search_activity` returns `{ matches, note, summary }`: each match is `{ id, division, occupation, destination, fire_load_mj_m2, fire_load_ref }` (`occupation` is the group name, e.g. "Comercial") (one of the two load fields is `null`), `note` tells the model what to do next and `summary` is the line the chat shows.
 
 ## Rules and behavior
 
@@ -54,7 +55,7 @@ type Activity = {
 - **No similarity.** An activity the annex does not list is not matched to the nearest one; the norm assigns that to a person.
 - **No other annex.** Annex B (load by storage height), C (deterministic method), D (calorific potential) and E (worksheet) are not loaded. The five loads that point to them (F-9, F-10, M-5, M-6, M-7) have no number here.
 - **No ranking beyond the words and the cues.** It does not know which activity is more common.
-- **It does not describe the groups.** A division other than C-1, C-2 and C-3 is shown by its id; the catalog of occupations (Tabela 1 of IN 1 parte 2) is not loaded.
+- **It does not classify by Tabela 1.** The occupations are loaded to name a division ("C-2 · Comércio com média, alta ou altíssima carga de incêndio"); only Grupo C has rules.
 - **The model can still misread.** A confirmed activity can be the wrong one if the user confirms without reading; the panel shows what was recorded.
 
 ## Gotchas
@@ -62,4 +63,4 @@ type Activity = {
 - "Roupas" finds a factory, not a shop → in Annex A the word belongs to I-2; the shop is "Vestuário e acessórios" in C-2 → say "loja" (the cue) or rely on the synonym; the user confirms either way.
 - "Padaria" gives two options → the norm lists "Padarias comerciais" (F-8) and "Padarias industriais" (I-2), and neither is Grupo C → the assistant asks which one and the result is a specific analysis.
 - An id stops resolving after a re-extraction → the destination text changed in the norm and so did its slug → ids are stable only while the printed text is; a saved answer that holds an id would need migrating.
-- A division is missing from `DIVISIONS` → the annex has no activity for it (for example the groups J, K and L) → it can still be recorded as an answer only if it is in the registry's options, which come from this list.
+- A division has no activity → Annex A of IN 3 has none for it (for example the groups J, K and L) → it can still be recorded as an answer, because the registry's options are the 63 divisions of Tabela 1, not `DIVISIONS`.

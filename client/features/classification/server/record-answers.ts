@@ -52,8 +52,6 @@ export function recordAnswers(
     /** The fact ids shown in the chat as "Campos atualizados". */
     fields: [...Object.keys(picked.values), ...picked.unknown],
     status: result.status,
-    next: result.nextQuestions
-      .slice(0, 1)
-      .map((q) => ({ fact: q.fact, ask: q.ask })),
+    next: result.next ? [result.next] : [],
   };
 }

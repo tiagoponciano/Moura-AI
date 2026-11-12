@@ -42,6 +42,18 @@ describe("buildInstructions", () => {
     );
   });
 
+  it("asks the open scope confirmations together and says how to record a plain yes", () => {
+    const text = buildInstructions(
+      { division: "C-2", area_m2: 1800, storeys: 2, height_m: 9 },
+      DATE,
+    );
+    expect(text).toContain('Next question to ask: "O imóvel é um bloco só');
+    expect(text).toContain("single_block = true when the user confirms");
+    expect(text).toContain(
+      "storage_over_3_5m = false when the user confirms that the building não tem armazenamento acima de 3,5 m",
+    );
+  });
+
   it("says there is nothing to ask once every needed answer is in", () => {
     const text = buildInstructions(
       {

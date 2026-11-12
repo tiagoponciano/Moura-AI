@@ -96,7 +96,7 @@ describe("recordAnswers", () => {
     expect(out.status).toBe("pending");
     expect(out.next).toEqual([
       {
-        fact: "height_m",
+        facts: ["height_m"],
         ask: "Qual é a altura da edificação, em metros, do piso mais baixo ocupado ao piso do último pavimento?",
       },
     ]);

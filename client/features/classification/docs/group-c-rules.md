@@ -4,7 +4,7 @@ How the rule set for Grupo C (comercial: C-1, C-2, C-3) is built from the extrac
 
 ## What this is
 
-`GROUP_C_RULES` (`lib/rulesets/group-c.ts`) is a list of engine rules (see `rule-engine.md`) for the systems required in a Grupo C building. Most of them are compiled from the cells of two tables of IN 1 parte 2, extracted as JSON (see `norm-extraction.md`): Tabela 2, column C (area ≤ 750 m² and height ≤ 12 m) and Tabela 5 (area ≥ 750 m² or height ≥ 12 m, one column per height class). The rest derive the fire load class (IN 3, art. 11), say which table and column apply, and stop the answer in cases the tables do not settle.
+`GROUP_C_RULES` (`lib/rulesets/group-c.ts`) is a list of engine rules (see `rule-engine.md`) for the systems required in a Grupo C building. Most of them are compiled from the cells of two tables of IN 1 parte 2, extracted as JSON (see `norm-extraction.md`): Tabela 2, column C (area ≤ 750 m² and height ≤ 12 m) and Tabela 5 (area ≥ 750 m² or height ≥ 12 m, one column per height class). `GROUP_C_RISK_RULES` (`group-c-risk.ts`) decide the risk level I–V from IN 1 parte 1. The rest derive the fire load class (IN 3, art. 11), say which table and column apply, and stop the answer in cases the tables do not settle.
 
 Invariants:
 
@@ -30,19 +30,25 @@ Invariants:
 
 Facts the rules read. Areas are in m², heights in m, loads in MJ/m².
 
-| Fact                | Type    | Meaning                                                                                                      |
-| ------------------- | ------- | ------------------------------------------------------------------------------------------------------------ |
-| `division`          | string  | `C-1`, `C-2` or `C-3`; any other value is outside the rule set                                               |
-| `area_m2`           | number  | Total built area (IN 1 parte 2, art. 7)                                                                      |
-| `height_m`          | number  | Lowest occupied floor to the floor of the last storey (art. 8)                                               |
-| `storeys`           | number  | Number of storeys; `1` is a single-storey building, whose height counts as 0 (art. 8, inciso V)              |
-| `fire_load_class`   | string  | `negligible`, `low`, `medium`, `high` or `very_high`                                                         |
-| `fire_load_mj_m2`   | number  | Optional. When `fire_load_class` is absent, the class is derived from it (≤100, ≤300, ≤1.200, ≤2.280, above) |
-| `single_block`      | boolean | `false` means more than one block or area                                                                    |
-| `single_use`        | boolean | `false` means mixed, subsidiary or secondary occupancy                                                       |
-| `storage_over_3_5m` | boolean | Storage of materials higher than 3,5 m                                                                       |
+| Fact                    | Type    | Meaning                                                                                                                              |
+| ----------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `division`              | string  | `C-1`, `C-2` or `C-3`; any other value is outside the rule set                                                                       |
+| `area_m2`               | number  | Total built area (IN 1 parte 2, art. 7)                                                                                              |
+| `height_m`              | number  | Lowest occupied floor to the floor of the last storey (art. 8)                                                                       |
+| `storeys`               | number  | Number of storeys; `1` is a single-storey building, whose height counts as 0 (art. 8, inciso V)                                      |
+| `fire_load_class`       | string  | `negligible`, `low`, `medium`, `high` or `very_high`                                                                                 |
+| `fire_load_mj_m2`       | number  | Optional. When `fire_load_class` is absent, the class is derived from it (≤100, ≤300, ≤1.200, ≤2.280, above)                         |
+| `single_block`          | boolean | `false` means more than one block or area                                                                                            |
+| `single_use`            | boolean | `false` means mixed, subsidiary or secondary occupancy                                                                               |
+| `storage_over_3_5m`     | boolean | Storage of materials higher than 3,5 m                                                                                               |
+| `special_risks`         | boolean | `true` when there is any LPG, flammable or combustible liquid, or radioactive, toxic, explosive, pyrotechnic or ammunition substance |
+| `hazardous_substances`  | boolean | The radioactive, toxic, explosive, pyrotechnic or ammunition substances; asked only when `special_risks` is `true`                   |
+| `glp_kg`                | number  | LPG used or stored, kg; 0 is valid; asked only when `special_risks` is `true`                                                        |
+| `flammable_internal_l`  | number  | Flammable or combustible liquids inside the building, L; 0 is valid; asked only when `special_risks` is `true`                       |
+| `flammable_external_m3` | number  | The same outside, m³; 0 is valid; asked only when `special_risks` is `true`                                                          |
+| `risk_exempt`           | boolean | `true` when the activity is one of the risk I exemptions (IN 1 parte 1, art. 5º, § 2º, I)                                            |
 
-Derived for the screen: `regime` (`small` or `large`) and `height_class` (`ground`, `h0_6`, `h6_12`, `h12_23`, `h23_30`, `h30p`).
+Derived for the screen and for the rules: `risk_level` (`I` to `V`), `regime` (`small` or `large`) and `height_class` (`ground`, `h0_6`, `h6_12`, `h12_23`, `h23_30`, `h30p`).
 
 Rule ids: `IN1P2-T<table>-<system>-<column>-req[N]` and `-sub[N]` for compiled rules; `IN3-FIRE-LOAD-<class>`, `IN1P2-REGIME-<regime>`, `IN1P2-HEIGHT-<class>` for derived facts; `GUARD-<case>` for guards.
 
@@ -53,6 +59,18 @@ Rule ids: `IN1P2-T<table>-<system>-<column>-req[N]` and `-sub[N]` for compiled r
 **Height.** A single-storey building has height 0, so it is below and at most any limit and above none, whatever `height_m` says. This is written once in `heightBelow`, `heightAtMost`, `heightAbove` and `heightAtLeast`. A 14 m single-storey building with 700 m² is `small` and in column "Térreo".
 
 **Columns of Tabela 5.** `ground` is a single-storey building. The others need more than one storey and split `height_m` at 6, 12, 23 and 30 (upper bounds inclusive). A height of exactly 12 m is in "6 < H ≤ 12".
+
+**Risk level** (`risk` stage, IN 1 parte 1, in force since 2024-04-24). Checked in the order of the specification; the first rule that holds decides, and one that cannot be evaluated stops the cascade and its missing answers are asked:
+
+| Level | Rule (`IN1P1-RISK-…`)                                                                                                                                            | Source                   |
+| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ |
+| V     | fire load class `very_high` (above 2.280 MJ/m²); or special risks and dangerous substances, flammable liquids above 1.000 L inside or 40 m³ outside              | Art. 5º, § 2º, V; Nota 3 |
+| I     | `risk_exempt` is `true`                                                                                                                                          | Art. 5º, § 2º, I         |
+| II    | area ≤ 750 m², storeys ≤ 3, and (no special risks, or LPG ≤ 190 kg, liquids ≤ 250 L inside and ≤ 20 m³ outside)                                                  | Anexo A, Quadro 1        |
+| III   | one row of Quadro 2 for C-1 (≤ 21 m, ≤ 5.000 m²), C-2 medium (≤ 12 m, ≤ 5.000 m²), C-2 high (≤ 12 m, ≤ 3.000 m²), C-3 (≤ 6 m, ≤ 5.000 m²; 6 to 12 m, ≤ 3.000 m²) | Anexo A, Quadro 2        |
+| IV    | none of the above, for Grupo C                                                                                                                                   | Art. 5º, § 2º, IV        |
+
+Height in Quadro 2 is the same height as for the systems (single-storey is 0). The fire load class is needed for every building, even a small one, because risk V depends on it; it is asked only when no activity supplied it. A division outside Grupo C gets no level. `RISK_PROCESS` holds, per level, what the norm says about the process (art. 5º, § 2º), shown with the result. Risk II and III rows are encoded by hand from the quadros; the rules carry the printed text.
 
 **Guards** (`systems` stage, specific analysis):
 
@@ -85,7 +103,9 @@ Outcomes for a Grupo C building (one block, one use, storage up to 3,5 m), all p
 ## What this does NOT do
 
 - **It is not wired to the page.** `/classification` still uses the placeholder rules; nothing imports `GROUP_C_RULES` yet.
-- **It does not compute the risk level I–V or anything for existing buildings.** Those are in IN 1 parte 1 and IN 5.
+- **It does nothing for existing buildings.** That is IN 5.
+- **Risk I is a yes/no.** The exemptions of art. 5º have details (a tent of up to 50 m², a home of up to 200 m² with one employee…); the user's answer stands for them.
+- **A C-2 with a low or negligible fire load has no Quadro 2 row,** so it falls to risk IV; the review sheet asks Moura about it.
 - **It covers only Grupo C.** Other divisions get `GUARD-not-group-c`.
 - **It does not handle several blocks, mixed occupancy or high storage.** Each returns a specific analysis.
 - **It does not exclude basements, mezzanines or technical floors from the storey count or the height** (art. 8, parágrafo único); it uses the numbers it is given.
@@ -95,6 +115,8 @@ Outcomes for a Grupo C building (one block, one use, storage up to 3,5 m), all p
 - **It does not approve a reading.** The questions in the review sheet are open until a person answers them.
 
 ## Gotchas
+
+- A small shop asks for the fire load → risk V depends on it (above 2.280 MJ/m²) → give it, or choose an activity from IN 3, Annex A that carries it.
 
 - `UncodedNoteError: Tabela N: note M is cited by a cell but has no reading` → a spec lists a column whose cells cite a note that has no `NoteSpec` → add the reading, with its questions.
 - `Unknown system label` → a table row uses a label that is not in `ALIASES` → add the alias after checking it is the same system, never by editing the table JSON.

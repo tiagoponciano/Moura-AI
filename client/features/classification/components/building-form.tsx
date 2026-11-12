@@ -13,39 +13,25 @@ import {
 } from "@/components/ui/select";
 import { sourceTag, type FieldSources } from "@/lib/field-sources";
 import { cn } from "@/lib/utils";
-import {
-  OCCUPANCIES,
-  QUESTION_COUNT,
-  type Building,
-  type OccupancyId,
-} from "../lib/building";
+import type { Classification } from "../lib/classify";
+import type { Facts, FactValue } from "../lib/engine/types";
+import { QUESTIONS, type Question } from "../lib/questions";
 
 type BuildingFormProps = {
-  building: Building;
+  answers: Facts;
   sources: FieldSources;
-  answered: number;
-  onChange: <K extends keyof Building>(
-    field: K,
-    value: Building[K] | undefined,
-  ) => void;
+  progress: Classification["progress"];
+  onChange: (fact: string, value: unknown) => void;
 };
-
-const MEASURES = [
-  { field: "areaM2", label: "Área construída (m²)", integer: false },
-  { field: "heightM", label: "Altura (m)", integer: false },
-  { field: "floorCount", label: "Pavimentos", integer: true },
-] as const;
 
 /** Strips the input chrome; the surrounding row shows hover and focus. */
 const BARE_INPUT =
   "h-auto min-h-0 rounded-none border-0 bg-transparent p-0 font-medium shadow-none placeholder:font-normal focus-visible:ring-0 dark:bg-transparent";
 
-function parsePositive(raw: string, integer: boolean): number | undefined {
-  const parsed = Number(raw);
-  if (raw.trim() === "" || !Number.isFinite(parsed) || parsed <= 0)
-    return undefined;
-  return integer ? Math.trunc(parsed) : parsed;
-}
+const BARE_SELECT =
+  "h-auto w-full rounded-none border-0 bg-transparent p-0 font-medium shadow-none focus-visible:ring-0 data-placeholder:font-normal data-[size=default]:h-auto dark:bg-transparent dark:hover:bg-transparent";
+
+const UNKNOWN = "unknown";
 
 type AnswerRowProps = {
   id: string;
@@ -77,11 +63,85 @@ function AnswerRow({ id, label, filled, tag, children }: AnswerRowProps) {
   );
 }
 
-/** The four key questions as field rows, editable by hand and filled by the assistant. */
+/** The select value for an answer: "" while unanswered, "unknown" for não sei. */
+function selectValue(value: FactValue | undefined): string {
+  if (value === undefined) return "";
+  if (value === null) return UNKNOWN;
+  return String(value);
+}
+
+function AnswerControl({
+  question,
+  value,
+  onChange,
+}: {
+  question: Question;
+  value: FactValue | undefined;
+  onChange: (value: unknown) => void;
+}) {
+  const id = `answer-${question.fact}`;
+
+  if (question.kind === "number") {
+    return (
+      <Input
+        id={id}
+        type="number"
+        min={0}
+        step={question.integer ? 1 : "any"}
+        inputMode={question.integer ? "numeric" : "decimal"}
+        placeholder="Não informado"
+        value={typeof value === "number" ? value : ""}
+        onChange={(event) =>
+          onChange(
+            event.target.value.trim() === ""
+              ? undefined
+              : Number(event.target.value),
+          )
+        }
+        className={BARE_INPUT}
+      />
+    );
+  }
+
+  const options =
+    question.kind === "boolean"
+      ? [
+          { value: "true", label: "Sim" },
+          { value: "false", label: "Não" },
+        ]
+      : question.options;
+
+  return (
+    <Select
+      value={selectValue(value)}
+      onValueChange={(next) => {
+        if (next === UNKNOWN) onChange(null);
+        else if (question.kind === "boolean") onChange(next === "true");
+        else onChange(next);
+      }}
+    >
+      <SelectTrigger id={id} className={BARE_SELECT}>
+        <SelectValue placeholder="Não informado" />
+      </SelectTrigger>
+      <SelectContent>
+        {options.map((option) => (
+          <SelectItem key={option.value} value={option.value}>
+            {option.label}
+          </SelectItem>
+        ))}
+        {question.allowUnknown && (
+          <SelectItem value={UNKNOWN}>Não sei</SelectItem>
+        )}
+      </SelectContent>
+    </Select>
+  );
+}
+
+/** The questions as field rows, editable by hand and filled by the assistant. */
 export function BuildingForm({
-  building,
+  answers,
   sources,
-  answered,
+  progress,
   onChange,
 }: BuildingFormProps) {
   return (
@@ -90,79 +150,50 @@ export function BuildingForm({
         <div className="flex items-baseline justify-between gap-2 text-sm">
           <h2 className="font-semibold">Dados da edificação</h2>
           <span className="text-xs text-muted-foreground tabular-nums">
-            {answered} de {QUESTION_COUNT} respondidas
+            {progress.answered} de {progress.total} respondidas
           </span>
         </div>
         <div
           role="progressbar"
           aria-label="Perguntas respondidas"
           aria-valuemin={0}
-          aria-valuemax={QUESTION_COUNT}
-          aria-valuenow={answered}
+          aria-valuemax={progress.total}
+          aria-valuenow={progress.answered}
           className="flex gap-1"
         >
-          {Array.from({ length: QUESTION_COUNT }, (_, index) => (
+          {Array.from({ length: Math.max(progress.total, 1) }, (_, index) => (
             <span
               key={index}
               className={cn(
                 "h-1 flex-1 rounded-full bg-muted transition-colors",
-                index < answered && "bg-success",
+                index < progress.answered && "bg-success",
               )}
             />
           ))}
         </div>
       </div>
       <div className="flex flex-col px-3 pb-2">
-        {MEASURES.map(({ field, label, integer }) => (
-          <AnswerRow
-            key={field}
-            id={`building-${field}`}
-            label={label}
-            filled={building[field] !== undefined}
-            tag={sourceTag(sources[field], building[field])}
-          >
-            <Input
-              id={`building-${field}`}
-              type="number"
-              min={0}
-              step={integer ? 1 : "any"}
-              inputMode={integer ? "numeric" : "decimal"}
-              placeholder="Não informado"
-              value={building[field] ?? ""}
-              onChange={(event) =>
-                onChange(field, parsePositive(event.target.value, integer))
-              }
-              className={BARE_INPUT}
-            />
-          </AnswerRow>
-        ))}
-        <AnswerRow
-          id="building-occupancy"
-          label="Ocupação"
-          filled={building.occupancy !== undefined}
-          tag={sourceTag(sources.occupancy, building.occupancy)}
-        >
-          <Select
-            value={building.occupancy ?? ""}
-            onValueChange={(value) =>
-              onChange("occupancy", value as OccupancyId)
-            }
-          >
-            <SelectTrigger
-              id="building-occupancy"
-              className="h-auto w-full rounded-none border-0 bg-transparent p-0 font-medium shadow-none focus-visible:ring-0 data-placeholder:font-normal data-[size=default]:h-auto dark:bg-transparent dark:hover:bg-transparent"
+        {QUESTIONS.map((question) => {
+          const value = answers[question.fact];
+          return (
+            <AnswerRow
+              key={question.fact}
+              id={`answer-${question.fact}`}
+              label={question.label}
+              filled={value !== undefined}
+              tag={sourceTag(
+                sources[question.fact],
+                value === null ? "não sei" : value,
+              )}
             >
-              <SelectValue placeholder="Não informado" />
-            </SelectTrigger>
-            <SelectContent>
-              {OCCUPANCIES.map((occupancy) => (
-                <SelectItem key={occupancy.id} value={occupancy.id}>
-                  {occupancy.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </AnswerRow>
+              <AnswerControl
+                question={question}
+                value={value}
+                onChange={(next) => onChange(question.fact, next)}
+              />
+            </AnswerRow>
+          );
+        })}
       </div>
     </section>
   );

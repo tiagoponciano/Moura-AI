@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import type { Requirement, RequirementGroups } from "../lib/evaluate";
+import type { Classification, SystemView } from "../lib/classify";
 import { RequirementRow } from "./requirement-row";
 
 /** Summary bar segment color for each status. */
@@ -7,10 +7,15 @@ const SEGMENT = {
   required: "bg-primary",
   needs_info: "bg-input",
   not_required: "bg-muted",
-} satisfies Record<Requirement["status"], string>;
+} satisfies Record<SystemView["status"], string>;
 
 /** Systems summary bar and the systems grouped by status. */
-export function RequirementsList({ groups }: { groups: RequirementGroups }) {
+export function RequirementsList({
+  classification,
+}: {
+  classification: Classification;
+}) {
+  const { groups, table, progress, status } = classification;
   const sections = [
     { title: "Exigidos", items: groups.required },
     { title: "Dependem de respostas", items: groups.needsInfo },
@@ -22,6 +27,20 @@ export function RequirementsList({ groups }: { groups: RequirementGroups }) {
     ...groups.notRequired,
   ];
 
+  if (status === "analysis") return null;
+
+  if (progress.answered === 0) {
+    return (
+      <section className="flex flex-col gap-1 border-t px-5 py-4">
+        <h2 className="text-sm font-semibold">Sistemas preventivos</h2>
+        <p className="text-xs leading-relaxed text-muted-foreground">
+          Responda às perguntas, aqui ou na conversa, para ver os sistemas
+          exigidos e de onde cada um vem na norma.
+        </p>
+      </section>
+    );
+  }
+
   return (
     <section className="flex flex-col border-t">
       <div className="flex flex-col gap-2.5 px-5 pt-4 pb-3">
@@ -32,17 +51,20 @@ export function RequirementsList({ groups }: { groups: RequirementGroups }) {
             pendentes
           </span>
         </div>
+        {table && (
+          <p className="text-xs text-muted-foreground">Aplicando: {table}</p>
+        )}
         <div
           role="img"
           aria-label={`${groups.required.length} exigidos, ${groups.needsInfo.length} pendentes, ${groups.notRequired.length} não exigidos`}
           className="flex gap-1"
         >
-          {ordered.map((requirement) => (
+          {ordered.map((system) => (
             <span
-              key={requirement.id}
+              key={system.id}
               className={cn(
                 "h-1 flex-1 rounded-full transition-colors",
-                SEGMENT[requirement.status],
+                SEGMENT[system.status],
               )}
             />
           ))}
@@ -54,8 +76,8 @@ export function RequirementsList({ groups }: { groups: RequirementGroups }) {
             <h3 className="px-2 pb-1 text-[11px] font-medium tracking-wider text-muted-foreground uppercase">
               {section.title}
             </h3>
-            {section.items.map((requirement) => (
-              <RequirementRow key={requirement.id} requirement={requirement} />
+            {section.items.map((system) => (
+              <RequirementRow key={system.id} system={system} />
             ))}
           </div>
         ))}

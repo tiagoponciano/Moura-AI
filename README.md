@@ -59,42 +59,6 @@ The model never writes a document. It extracts data from the conversation into a
 
 Access is closed: people sign in with Google, an admin approves them on `/admin`, and the same screen sets the AI provider, model, API keys and the allowed e-mail domain.
 
-## Running it locally
-
-Tested with Node.js 24 and pnpm 10.33. CI uses Node 22+ and, for the proposal service, Python 3.13.
-
-1. Install the dependencies from the repository root:
-
-   ```bash
-   pnpm install
-   ```
-
-2. Create the environment file:
-
-   ```bash
-   cp .env.example client/.env.local
-   ```
-
-3. Start the app:
-
-   ```bash
-   pnpm run dev
-   ```
-
-4. Open <http://localhost:3000>.
-
-With the Supabase variables left empty, the app runs without login or persistence: the home page, Classification and the Floor plans screen work, but chats cannot answer and Documents shows only a placeholder, because the form catalog, projects and AI model settings live in Supabase. To turn those on, follow the Setup section of [`authentication.md`](client/docs/authentication.md): create the project, apply `supabase/migrations/` in filename order, configure Google in Supabase Auth and create the first admin with SQL. Then sign in, open "Administração", pick the AI provider and model and save its API key.
-
-The three microservices are optional and run with Docker:
-
-```bash
-docker compose up -d pdf    # PDF output, http://localhost:3001
-docker compose up -d pptx   # commercial proposal, http://localhost:3002
-docker compose up -d dwg    # floor plan conversion
-```
-
-The local credentials for `client/.env.local` are in `docker-compose.yml`.
-
 ## Configuration
 
 Every variable is listed in [`.env.example`](.env.example). Server-only variables never get the `NEXT_PUBLIC_` prefix. The AI provider, model and key are not environment variables: an admin saves them on `/admin` (see [`llm-configuration.md`](client/docs/llm-configuration.md)).

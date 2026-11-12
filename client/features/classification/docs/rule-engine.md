@@ -16,12 +16,17 @@ Invariants:
 
 Exports of `lib/engine/`:
 
-| Export                                | Signature                                    | Contract                                                                                               |
-| ------------------------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `evaluateCondition` (`condition.ts`)  | `(condition, facts) => { outcome, missing }` | Three-valued evaluation; `missing` names the facts that made it unknown                                |
-| `evaluateRules` (`evaluate-rules.ts`) | `(rules, facts, analysisDate) => Evaluation` | Runs the rules in force on `analysisDate` through the four stages                                      |
-| `RISK_FACT` (`evaluate-rules.ts`)     | `"risk_level"`                               | The fact the risk stage sets, for `systems` rules to read                                              |
-| Types (`types.ts`)                    | `Facts`, `Condition`, `Rule`, `Evaluation`…  | `FactValue` is `number \| string \| boolean \| null`; `null` is "não sei", an absent key is unanswered |
+| Export                                 | Signature                                       | Contract                                                                                                                                                  |
+| -------------------------------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `evaluateCondition` (`condition.ts`)   | `(condition, facts) => { outcome, missing }`    | Three-valued evaluation; `missing` names the facts that made it unknown                                                                                   |
+| `evaluateRules` (`evaluate-rules.ts`)  | `(rules, facts, analysisDate) => Evaluation`    | Runs the rules in force on `analysisDate` through the four stages                                                                                         |
+| `inForce` (`evaluate-rules.ts`)        | `(rule, analysisDate) => boolean`               | Whether the rule's validity window includes the date, both ends inclusive                                                                                 |
+| `lintRules` (`lint-rules.ts`)          | `(rules) => LintIssue[]`                        | Structural problems of a rule set: duplicate ids, bad validity, missing source, misplaced results, rules that compete for one slot with the same priority |
+| `findDeriveOverlaps` (`lint-rules.ts`) | `(rules, samples, analysisDate) => LintIssue[]` | Derive rules for one fact that are true together on a sample                                                                                              |
+| `numericThresholds` (`lint-rules.ts`)  | `(rules) => Record<fact, number[]>`             | Every number a rule compares a fact with                                                                                                                  |
+| `boundarySamples` (`lint-rules.ts`)    | `(rules, step = 0.01) => Facts[]`               | One sample per combination of just below, exactly at and just above each threshold                                                                        |
+| `RISK_FACT` (`evaluate-rules.ts`)      | `"risk_level"`                                  | The fact the risk stage sets, for `systems` rules to read                                                                                                 |
+| Types (`types.ts`)                     | `Facts`, `Condition`, `Rule`, `Evaluation`…     | `FactValue` is `number \| string \| boolean \| null`; `null` is "não sei", an absent key is unanswered                                                    |
 
 ## Data shapes
 
@@ -45,12 +50,12 @@ Conditions: `{ fact, op: "lt" | "lte" | "gt" | "gte", value: number }`, `{ fact,
 
 Results by stage:
 
-| Stage     | Allowed `then`                                                            |
-| --------- | ------------------------------------------------------------------------- |
-| `derive`  | `{ set: { fact, value } }`                                                |
-| `risk`    | `{ set: { fact: "risk_level", value } }` or `{ specificAnalysis }`        |
-| `systems` | `{ require: systemId, vital? }` or `{ specificAnalysis }`                 |
-| `overlay` | `{ overlay: systemId, class: "vital" \| "indispensable" \| "adaptable" }` |
+| Stage     | Allowed `then`                                                                                                       |
+| --------- | -------------------------------------------------------------------------------------------------------------------- |
+| `derive`  | `{ set: { fact, value } }`                                                                                           |
+| `risk`    | `{ set: { fact: "risk_level", value } }` or `{ specificAnalysis }`                                                   |
+| `systems` | `{ require: systemId, vital?, scope? }`, `{ substitute: systemId, by: systemId[], note? }` or `{ specificAnalysis }` |
+| `overlay` | `{ overlay: systemId, class: "vital" \| "indispensable" \| "adaptable" }`                                            |
 
 `Evaluation`: `facts` (input plus derived), `risk`, `systems`, `systemsCovered`, `specificAnalyses`, `declaredUnknown`, `unanswered`, `provisional`, `trace`.
 
@@ -70,7 +75,7 @@ Conditions:
 
 1. **`derive`.** A rule sets its fact when its condition is true. First match per fact wins, and a fact that already has a value, including `null`, is never overwritten. Derived facts feed every later stage.
 2. **`risk`.** An ordered cascade. A `false` rule is skipped. The first `true` rule decides: `decided` with the level, or `specific_analysis` with its reason. If a rule is `unknown` before any rule decided, the cascade stops with `pending` (`blockedBy`, `missing`), even when a later rule would match. If no rule decides, the result is `no_rule`, never a level.
-3. **`systems`.** All rules run. A system is `required` when any of its rules is true (`vital` when any true rule says so, `ruleIds` lists the true ones); otherwise `needs_info` when some rule of it is unknown (`missing` names the facts); otherwise `not_required`. Systems appear in the order their ids first show up in the sorted rules. A true `specificAnalysis` rule is added to `specificAnalyses`.
+3. **`systems`.** All rules run. A system is `required` when any of its `require` rules is true (`vital` when any true rule says so, `ruleIds` lists the true ones); otherwise `needs_info` when some rule of it is unknown (`missing` names the facts); otherwise `not_required`. A `require` rule may carry a `scope` (a part of the building); `scopes` lists the scopes of the true rules and `partial` is true when every true rule has one. A true `substitute` rule adds an entry to `substitutions` of that system, with `by` and the ones of `by` that are already required (`alreadyRequired`); it is kept only for required systems and never changes a status. Systems appear in the order their ids first show up in the sorted rules. A true `specificAnalysis` rule is added to `specificAnalyses`.
 4. **`overlay`.** For each true rule, the system's `overlayClass` is set only if the system is `required` and has no class yet (first by priority wins). A system that is not required is never added or labelled.
 
 Result fields:
@@ -88,7 +93,9 @@ Result fields:
 - **It is not wired into the page.** `/classification` still evaluates `PROVISIONAL_RULES` with `evaluateBuilding`; nothing imports this engine yet, and no rule set is loaded from it.
 - **It holds no normative values.** The engine has no thresholds, occupancy codes or system lists; they belong to rule sets.
 - **It does not convert units or parse input.** Facts arrive already as numbers, strings or booleans.
-- **It does not validate a rule set.** Overlapping rules at the same priority, a rule without a boundary test and a stale source document are not detected here.
+- **`evaluateRules` does not validate the rule set.** `lintRules` and `findDeriveOverlaps` do, and the caller runs them; a rule without a boundary test and a stale source document are not detected by either.
+- **It does not apply a substitution.** `substitutions` is information for the screen: a system the norm lets another replace stays `required`, and whether the replacement is in place is for a person to judge.
+- **It cannot see an overlap that no sample reaches.** `findDeriveOverlaps` checks the samples it is given; `boundarySamples` generates the ones at every threshold, which is where two rules usually both claim a value.
 - **It does not read the norm documents.** A rule's `source` is a label for people; the engine never opens it.
 - **A `false` provisional rule still makes the result provisional.** `provisional` looks at every evaluated rule, not only the ones that fired, because a wrong false is as harmful as a wrong true.
 

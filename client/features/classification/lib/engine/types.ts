@@ -23,8 +23,16 @@ export type OverlayClass = "vital" | "indispensable" | "adaptable";
 export type RuleResult =
   /** Derive a fact (occupancy group, fire load class, risk level…). */
   | { set: { fact: string; value: FactValue } }
-  /** The system is required. */
-  | { require: string; vital?: boolean }
+  /**
+   * The system is required. `scope` says it applies only to part of the
+   * building ("atrium over 12 m"); without it, to the whole building.
+   */
+  | { require: string; vital?: boolean; scope?: string }
+  /**
+   * The norm lets `by` replace the system under the same condition. Display
+   * only: the engine never drops the system because of it.
+   */
+  | { substitute: string; by: string[]; note?: string }
   /** Label an already required system for an existing building. */
   | { overlay: string; class: OverlayClass }
   /** The norm leaves this case to a specific analysis; the engine never decides it. */
@@ -74,10 +82,25 @@ export type RiskOutcome =
   /** No active risk rule matched; never read as "no risk". */
   | { status: "no_rule" };
 
+export type Substitution = {
+  ruleId: string;
+  /** Systems the norm accepts instead. */
+  by: string[];
+  /** The ones of `by` that are already required for this building. */
+  alreadyRequired: string[];
+  note?: string;
+};
+
 export type SystemOutcome = {
   id: string;
   status: "required" | "not_required" | "needs_info";
   vital: boolean;
+  /** Parts of the building the requirement is limited to; empty for the whole building. */
+  scopes: string[];
+  /** True when every rule that required it is limited to a part of the building. */
+  partial: boolean;
+  /** Replacements the norm allows; only for required systems. */
+  substitutions: Substitution[];
   overlayClass?: OverlayClass;
   /** Rules that required it, or that could not be settled. */
   ruleIds: string[];

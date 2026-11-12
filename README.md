@@ -54,9 +54,7 @@ The model never writes a document. It extracts data from the conversation into a
 | Classification          | `/classification` | Preview | Lists the preventive systems a building needs from four answers (area, height, floors, occupancy). The rule set is provisional and is not the CBMSC Normative Instructions yet                               |
 | Floor plans (PDF → DWG) | `/floor-plans`    | Preview | Uploads a floor plan (PDF, JPEG or PNG), reads its scale and converts it to DXF or DWG through the `services/dwg` microservice. Not tried on real Moura plans yet                                            |
 
-![Floor plans module: upload area, drawing scale field and the DXF and DWG download buttons](docs/assets/floor-plans.png)
-
-![Classification module: a building form with four unanswered fields and the list of required preventive systems](docs/assets/classification.png)
+![Moura AI home page in use: hovering each module card while the 3D scene plays](docs/assets/home-demo.gif)
 
 Access is closed: people sign in with Google, an admin approves them on `/admin`, and the same screen sets the AI provider, model, API keys and the allowed e-mail domain.
 

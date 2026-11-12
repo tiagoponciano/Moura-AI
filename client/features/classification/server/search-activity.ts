@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { searchActivities } from "../lib/catalog/activities";
+import { groupName } from "../lib/catalog/occupations";
 
 /** Input of the `search_activity` tool. */
 export const searchActivityInput = z.object({
@@ -19,6 +20,7 @@ export function searchActivity(input: { query: string }) {
   const matches = searchActivities(input.query, 5).map(({ activity }) => ({
     id: activity.id,
     division: activity.division,
+    occupation: groupName(activity.division) ?? null,
     destination: activity.destination,
     fire_load_mj_m2: activity.qfi ?? null,
     fire_load_ref: activity.qfiRef ?? null,

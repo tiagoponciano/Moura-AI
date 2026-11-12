@@ -1,4 +1,5 @@
 import { ACTIVITY_BY_ID } from "./catalog/activities";
+import { divisionLabel } from "./catalog/occupations";
 import { evaluateRules } from "./engine/evaluate-rules";
 import type { Facts, Rule } from "./engine/types";
 import {
@@ -102,7 +103,7 @@ export function classify(
       facts.division = activity.division;
       derived.push({
         label: "Divisão",
-        value: activity.division,
+        value: divisionLabel(activity.division),
         source: fromActivity,
       });
     } else if (answers.division !== activity.division) {

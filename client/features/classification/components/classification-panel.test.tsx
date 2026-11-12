@@ -132,6 +132,9 @@ describe("ClassificationPanel", () => {
     });
     expect(html).toContain("Da atividade escolhida");
     expect(html).toContain("IN 3, Anexo A · C-2 Vestuário e acessórios");
+    expect(html).toContain(
+      "Comércio com média, alta ou altíssima carga de incêndio",
+    );
     expect(html).toContain("600 MJ/m² (média)");
     expect(html).toContain("C-2 · Vestuário e acessórios");
     expect(render(shop)).not.toContain("Da atividade escolhida");

@@ -1,17 +1,10 @@
-import { DIVISIONS } from "./catalog/activities";
+import { OCCUPATIONS, divisionLabel } from "./catalog/occupations";
 
 /** Name of the LLM tool that records the answers to the questions. */
 export const RECORD_ANSWERS_TOOL = "record_answers";
 
 /** Name of the LLM tool that looks an activity up in IN 3, Annex A. */
 export const SEARCH_ACTIVITY_TOOL = "search_activity";
-
-/** The division options: Grupo C with its description from IN 1 parte 2, Tabela 1, the rest by id. */
-const DIVISION_LABEL: Record<string, string> = {
-  "C-1": "C-1 · Comércio de baixa carga de incêndio",
-  "C-2": "C-2 · Comércio de média, alta ou altíssima carga de incêndio",
-  "C-3": "C-3 · Shopping center",
-};
 
 type Base = {
   /** The fact the engine reads. */
@@ -64,9 +57,9 @@ export const QUESTIONS: Question[] = [
     description:
       "Occupancy division id such as C-2 (IN 1 parte 2, Tabela 1). Prefer recording the activity, which sets it. Only C-1 (commerce with low fire load), C-2 (medium, high or very high) and C-3 (shopping centers) have rules; other divisions are accepted and get a specific analysis. Use other for an activity the norm does not list.",
     options: [
-      ...DIVISIONS.map((division) => ({
-        value: division,
-        label: DIVISION_LABEL[division] ?? division,
+      ...OCCUPATIONS.map((o) => ({
+        value: o.division,
+        label: divisionLabel(o.division),
       })),
       { value: "other", label: "Outra ocupação (não listada)" },
     ],

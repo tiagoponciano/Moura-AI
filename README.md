@@ -16,19 +16,28 @@ Internal platform for Moura Soluções em Engenharia, a fire-prevention engineer
 
 <table>
 <tr>
-<td align="center" width="120"><img src="docs/assets/icons/typescript.svg" alt="TypeScript" height="40" /><br />TypeScript</td>
-<td align="center" width="120"><img src="docs/assets/icons/nextdotjs.svg" alt="Next.js" height="40" /><br />Next.js</td>
-<td align="center" width="120"><img src="docs/assets/icons/tailwindcss.svg" alt="Tailwind CSS" height="40" /><br />Tailwind CSS</td>
-<td align="center" width="120"><img src="docs/assets/icons/zod.svg" alt="Zod" height="40" /><br />Zod</td>
-<td align="center" width="120"><img src="docs/assets/icons/supabase.svg" alt="Supabase" height="40" /><br />Supabase</td>
-<td align="center" width="120"><img src="docs/assets/icons/vercel.svg" alt="Vercel" height="40" /><br />Vercel</td>
+<th align="center">Frontend</th>
+<th align="center">Data</th>
+<th align="center">AI</th>
+<th align="center">Services and deploy</th>
 </tr>
 <tr>
-<td align="center" width="120"><img src="docs/assets/icons/python.svg" alt="Python" height="40" /><br />Python</td>
-<td align="center" width="120"><img src="docs/assets/icons/docker.svg" alt="Docker" height="40" /><br />Docker</td>
-<td align="center" width="120"><img src="docs/assets/icons/claude.svg" alt="Claude" height="40" /><br />Claude</td>
-<td align="center" width="120"><img src="docs/assets/icons/openai.svg" alt="ChatGPT" height="40" /><br />ChatGPT</td>
-<td align="center" width="120"><img src="docs/assets/icons/googlegemini.svg" alt="Gemini" height="40" /><br />Gemini</td>
+<td align="center" width="180"><img src="docs/assets/icons/typescript.svg" alt="TypeScript" height="36" /><br /><sub>TypeScript</sub></td>
+<td align="center" width="180"><img src="docs/assets/icons/zod.svg" alt="Zod" height="36" /><br /><sub>Zod</sub></td>
+<td align="center" width="180"><img src="docs/assets/icons/claude.svg" alt="Claude" height="36" /><br /><sub>Claude</sub></td>
+<td align="center" width="180"><img src="docs/assets/icons/python.svg" alt="Python" height="36" /><br /><sub>Python</sub></td>
+</tr>
+<tr>
+<td align="center" width="180"><img src="docs/assets/icons/nextdotjs.svg" alt="Next.js" height="36" /><br /><sub>Next.js</sub></td>
+<td align="center" width="180"><img src="docs/assets/icons/supabase.svg" alt="Supabase" height="36" /><br /><sub>Supabase</sub></td>
+<td align="center" width="180"><img src="docs/assets/icons/openai.svg" alt="ChatGPT" height="36" /><br /><sub>ChatGPT</sub></td>
+<td align="center" width="180"><img src="docs/assets/icons/docker.svg" alt="Docker" height="36" /><br /><sub>Docker</sub></td>
+</tr>
+<tr>
+<td align="center" width="180"><img src="docs/assets/icons/tailwindcss.svg" alt="Tailwind CSS" height="36" /><br /><sub>Tailwind CSS</sub></td>
+<td></td>
+<td align="center" width="180"><img src="docs/assets/icons/googlegemini.svg" alt="Gemini" height="36" /><br /><sub>Gemini</sub></td>
+<td align="center" width="180"><img src="docs/assets/icons/vercel.svg" alt="Vercel" height="36" /><br /><sub>Vercel</sub></td>
 </tr>
 </table>
 

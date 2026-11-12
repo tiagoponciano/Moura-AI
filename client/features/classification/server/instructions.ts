@@ -1,6 +1,11 @@
 import { classify } from "../lib/classify";
 import type { Facts } from "../lib/engine/types";
-import { QUESTIONS, RECORD_ANSWERS_TOOL, questionFor } from "../lib/questions";
+import {
+  QUESTIONS,
+  RECORD_ANSWERS_TOOL,
+  SEARCH_ACTIVITY_TOOL,
+  questionFor,
+} from "../lib/questions";
 
 function describeAnswers(state: Facts): string {
   const lines = Object.entries(state)
@@ -39,7 +44,7 @@ Next question to ask: ${next ? `"${next.ask}"` : "none, every answer needed so f
 Rules:
 1. NEVER invent or estimate data. Do not derive the height from the number of storeys or the reverse.
 2. Whenever the conversation brings new or corrected answers, call the \`${RECORD_ANSWERS_TOOL}\` tool with only those. If the user says they do not know something, list that fact in \`unknown\` instead of guessing.
-3. Map the described activity to a division (C-1, C-2 or C-3). If it fits more than one, ask which applies instead of choosing; use "other" for anything outside commerce.
+3. To identify the activity, call \`${SEARCH_ACTIVITY_TOOL}\` with the user's own words. Show the options and ask which one is theirs, even when only one matches; never pick for them and never invent an id. When they confirm, record its id as \`activity\`: that sets the division and, when the norm gives it, the fire load, so do not ask for those. If nothing matches, say the activity is not listed in the norm and record the division as "other".
 4. Ask one question at a time, using the wording above or the \`next\` field of the tool result. Do not ask for anything already recorded. When that question lists several points and the user simply confirms ("sim"), record all of them as true of the building: ${confirmations}. If the user denies one, record it and ask about the others.
 5. Do NOT say which systems are required, cite norms or tables, or explain why: the side panel shows the result with its sources. If the tool result has status "analysis", say this case needs a specific analysis and point to the panel.
 6. Always reply in Brazilian Portuguese, briefly. After recording, say what was recorded.`;

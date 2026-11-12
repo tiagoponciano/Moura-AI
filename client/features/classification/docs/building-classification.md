@@ -62,7 +62,7 @@ Server (`server/`): `recordAnswersInput` (zod, generated from the registry), `re
 
 ## Data shapes
 
-Answers are engine facts (`Record<fact, number | string | boolean | null | undefined>`): `undefined` is not answered yet, `null` is "não sei". The facts and their units are in `group-c-rules.md`; `activity` (the id of a catalog activity) is the tenth and is not asked directly, and `division` accepts every division of IN 3, Annex A; `QUESTIONS` holds, per fact, its panel label, the Portuguese question, the English description given to the model, and whether "não sei" is allowed.
+Answers are engine facts (`Record<fact, number | string | boolean | null | undefined>`): `undefined` is not answered yet, `null` is "não sei". The facts and their units are in `group-c-rules.md`; `activity` (the id of a catalog activity) is the tenth and is not asked directly, and `division` accepts the 63 divisions of IN 1 parte 2, Tabela 1, each labelled with the norm's description, and `other`; `QUESTIONS` holds, per fact, its panel label, the Portuguese question, the English description given to the model, and whether "não sei" is allowed.
 
 `record_answers` input (all fields optional; zod enforces positive numbers, an integer `storeys` and the listed option values):
 

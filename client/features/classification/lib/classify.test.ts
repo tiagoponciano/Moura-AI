@@ -311,7 +311,7 @@ describe("classify: the activity", () => {
     expect(result.derived).toEqual([
       {
         label: "Divisão",
-        value: "C-2",
+        value: "C-2 · Comércio com média, alta ou altíssima carga de incêndio",
         source: "IN 3, Anexo A · C-2 Vestuário e acessórios",
       },
       {
@@ -381,7 +381,10 @@ describe("classify: the activity", () => {
       { ...base, ...scope, activity: "D-1-cabeleireiro-manicure-e-pedicure" },
       DATE,
     );
-    expect(result.derived[0]).toMatchObject({ label: "Divisão", value: "D-1" });
+    expect(result.derived[0]).toMatchObject({
+      label: "Divisão",
+      value: expect.stringContaining("D-1 ·"),
+    });
     expect(result.status).toBe("analysis");
   });
 

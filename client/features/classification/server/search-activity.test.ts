@@ -30,6 +30,7 @@ describe("searchActivity", () => {
     expect(out.matches[0]).toEqual({
       id: "C-2-vestuario-e-acessorios",
       division: "C-2",
+      occupation: "Comercial",
       destination: "Vestuário e acessórios",
       fire_load_mj_m2: 600,
       fire_load_ref: null,

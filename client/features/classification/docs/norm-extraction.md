@@ -115,7 +115,7 @@ Tables flagged in the committed run: 3, 7, 8, 10, 12, 14, 15, 20, 22, 24, 26, 27
 - **It does not say what a cell requires.** An `x` with a footnote is a conditional requirement; the condition is in the note and is not encoded here.
 - **It does not resolve "list or range".** `x⁴⁻⁵` is stored as references `[4, 5]`, which assumes a list; the flag asks a person to confirm.
 - **It does not map system names to ids.** The same system appears under different labels across tables, and some rows cite an NBR instead of an IN.
-- **It does not read Tabela 1 (occupancy classification) or any other document.** `extract_tables.py` handles only Annex B of IN 1 parte 2. Annex A of IN 3 has its own tool, `extract_annex_a.py`, described in `activity-catalog.md`.
+- **It does not read Tabela 1 (occupancy classification) or any other document.** `extract_tables.py` handles only Annex B of IN 1 parte 2. Tabela 1 and Annex A of IN 3 have their own tools, `extract_occupations.py` and `extract_annex_a.py`, described in `activity-catalog.md`.
 - **It does not handle Tabela 30.** Its cells are alternative sets of measures in prose; it is dumped with a flag.
 - **It does not check the PDF is the current norm.** The manifest records the hash of the file it was given; comparing against the source is a separate step.
 

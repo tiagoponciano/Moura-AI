@@ -19,7 +19,7 @@ function assertIsoDate(value: string, what: string) {
 }
 
 /** Both ends are inclusive, so a rule is in force on its first and its last day. */
-function inForce(rule: Rule, analysisDate: string): boolean {
+export function inForce(rule: Rule, analysisDate: string): boolean {
   assertIsoDate(rule.validFrom, `Rule ${rule.id}: validFrom`);
   if (rule.validTo !== undefined) {
     assertIsoDate(rule.validTo, `Rule ${rule.id}: validTo`);

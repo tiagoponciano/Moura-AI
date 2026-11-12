@@ -117,9 +117,43 @@ describe("ClassificationPanel", () => {
     expect(html).toContain("A norma permite substituir por:");
   });
 
+  it("shows what the chosen activity set, where it came from, and nothing without one", () => {
+    const html = render({
+      ...shop,
+      activity: "C-2-vestuario-e-acessorios",
+      division: undefined,
+    });
+    expect(html).toContain("Da atividade escolhida");
+    expect(html).toContain("IN 3, Anexo A · C-2 Vestuário e acessórios");
+    expect(html).toContain("600 MJ/m² (média)");
+    expect(html).toContain("C-2 · Vestuário e acessórios");
+    expect(render(shop)).not.toContain("Da atividade escolhida");
+  });
+
+  it("warns when the activity disagrees with the division that was given", () => {
+    const html = render({
+      ...shop,
+      activity: "C-2-vestuario-e-acessorios",
+      division: "C-1",
+    });
+    expect(html).toContain(
+      "A atividade &quot;Vestuário e acessórios&quot; é da divisão C-2",
+    );
+    expect(html).toContain("Vale a divisão informada.");
+  });
+
+  it("lets the user clear the activity", () => {
+    expect(
+      render({ ...shop, activity: "C-2-vestuario-e-acessorios" }),
+    ).toContain("limpar");
+    expect(render(shop)).toContain("Não informada");
+    expect(render(shop)).not.toContain("limpar");
+  });
+
   it("lists every question as a row and always carries the provisional notice", () => {
     const html = render({});
     for (const label of [
+      "Atividade (IN 3, Anexo A)",
       "Divisão da ocupação",
       "Área construída (m²)",
       "Pavimentos",

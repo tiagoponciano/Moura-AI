@@ -1,24 +1,11 @@
 import { z } from "zod";
 import { requestJson } from "@/lib/api/request-json";
+import { isProjectFieldKey } from "./project-fields";
 import {
-  isProjectFieldKey,
+  projectCreateSchema,
+  type Project,
   type ProjectChange,
-  type ProjectData,
-} from "./project-fields";
-
-export type Project = { id: string; name: string; data: ProjectData };
-
-/** Body of `POST /api/documents/projects`; the message is shown on screen. */
-export const projectCreateSchema = z.strictObject({
-  name: z
-    .string()
-    .trim()
-    .min(1, "Informe o nome do projeto")
-    .max(120, "Nome muito longo"),
-});
-
-/** Id segment of `/api/documents/projects/[id]`. */
-export const projectIdSchema = z.uuid();
+} from "@/lib/projects/project";
 
 /** Body of `PATCH /api/documents/projects/:id`: a new name, keys to merge into its data (`null` clears one), or both. */
 export const projectUpdateSchema = z

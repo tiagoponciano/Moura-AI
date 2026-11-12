@@ -17,12 +17,7 @@ import {
 } from "../lib/form-values";
 import { fetchFillings, saveFilling, type Filling } from "../lib/fillings";
 import { generateDocument } from "../lib/generate-document";
-import {
-  changedProjectData,
-  valuesFromProject,
-  type ProjectData,
-} from "../lib/project-fields";
-import type { Project } from "../lib/projects";
+import { changedProjectData, valuesFromProject } from "../lib/project-fields";
 import {
   FILL_FIELDS_TOOL,
   loadTemplateGuide,
@@ -33,6 +28,7 @@ import {
   type TemplateEntry,
   type TemplateSchema,
 } from "../lib/templates";
+import { type Project, type ProjectData } from "@/lib/projects/project";
 
 /** State and actions of the documents workspace: template, form values and the generated document. */
 export function useDocumentFilling(

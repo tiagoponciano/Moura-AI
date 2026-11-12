@@ -4,7 +4,6 @@ import {
   fieldChange,
   groupProgress,
   isProjectFieldKey,
-  mergeProjectData,
   PROJECT_FIELD_GROUPS,
   PROJECT_FIELD_KEYS,
   valuesFromProject,
@@ -75,22 +74,6 @@ describe("isProjectFieldKey", () => {
 describe("PROJECT_FIELD_GROUPS", () => {
   it("lists each key in one group only", () => {
     expect(new Set(PROJECT_FIELD_KEYS).size).toBe(PROJECT_FIELD_KEYS.length);
-  });
-});
-
-describe("mergeProjectData", () => {
-  it("adds and replaces keys, keeping the others", () => {
-    expect(mergeProjectData({ a: "1", b: "2" }, { b: "3", c: "4" })).toEqual({
-      a: "1",
-      b: "3",
-      c: "4",
-    });
-  });
-
-  it("removes a key set to null", () => {
-    expect(mergeProjectData({ a: "1", b: "2" }, { a: null })).toEqual({
-      b: "2",
-    });
   });
 });
 

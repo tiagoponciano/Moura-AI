@@ -1,10 +1,9 @@
 import { parseJsonBody } from "@/lib/api/parse-json-body";
 import { requireUser } from "@/lib/auth/require-user";
-import type { ProjectData } from "../lib/project-fields";
-import { projectIdSchema } from "../lib/projects";
 import { proposalBody, proposalValues } from "../lib/proposal";
 import { convertPptxToPdf, isPdfServiceConfigured } from "./pdf-service";
 import { isPptxServiceConfigured, renderProposal } from "./pptx-service";
+import { type ProjectData, projectIdSchema } from "@/lib/projects/project";
 
 const MIME_TYPES = {
   pptx: "application/vnd.openxmlformats-officedocument.presentationml.presentation",

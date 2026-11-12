@@ -1,7 +1,7 @@
 import { parseJsonBody } from "@/lib/api/parse-json-body";
 import { requireUser } from "@/lib/auth/require-user";
 import { fillingBody, templateIdSchema } from "../lib/fillings";
-import { projectIdSchema } from "../lib/projects";
+import { projectIdSchema } from "@/lib/projects/project";
 
 const failure = (message: string, cause: unknown) => {
   console.error(message, cause);

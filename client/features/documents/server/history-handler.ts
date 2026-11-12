@@ -1,5 +1,5 @@
 import { requireUser } from "@/lib/auth/require-user";
-import { projectIdSchema } from "../lib/projects";
+import { projectIdSchema } from "@/lib/projects/project";
 
 const LIMIT = 100;
 

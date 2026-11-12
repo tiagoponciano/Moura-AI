@@ -2,15 +2,18 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { errorMessage } from "@/lib/api/request-json";
-import { mergeProjectData, type ProjectChange } from "../lib/project-fields";
 import {
   archiveProject,
   createProject,
   fetchProjects,
   renameProject,
   updateProjectData,
-  type Project,
 } from "../lib/projects";
+import {
+  type Project,
+  type ProjectChange,
+  mergeProjectData,
+} from "@/lib/projects/project";
 
 /** The team's projects and the one being worked on; a new project becomes the current one. */
 export function useProjects(enabled: boolean) {

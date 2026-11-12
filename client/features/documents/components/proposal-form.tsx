@@ -19,7 +19,7 @@ import {
   PROPOSAL_PLANS,
   type ProposalRequest,
 } from "../lib/proposal";
-import type { Project } from "../lib/projects";
+import { type Project } from "@/lib/projects/project";
 
 type ProposalFormProps = { project: Project };
 

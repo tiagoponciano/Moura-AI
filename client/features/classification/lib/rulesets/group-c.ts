@@ -6,6 +6,7 @@ import { GROUP_C_RISK_RULES } from "./group-c-risk";
 import {
   COVERED_DIVISIONS,
   DIVISION_C,
+  declaresGuard,
   FIRE_LOAD_CLASSES,
   HEIGHT_CLASSES,
   REGIME_BOUNDARY,
@@ -149,7 +150,7 @@ const guards: Rule[] = [
   guard(
     "GUARD-boundary",
     "Exatamente 750 m² ou 12 m",
-    { all: [COVERED_DIVISIONS, REGIME_BOUNDARY] },
+    { all: [declaresGuard("boundary"), REGIME_BOUNDARY] },
     "Exatamente 750 m² (com altura até 12 m) ou exatamente 12 m (com área até 750 m²): a Tabela 2 e as tabelas por altura valem ao mesmo tempo, e a norma não diz qual prevalece. Análise específica.",
     {
       doc: "IN-1-P2",
@@ -161,7 +162,12 @@ const guards: Rule[] = [
   guard(
     "GUARD-multiple-blocks",
     "Mais de um bloco",
-    fact("single_block", "eq", false),
+    {
+      all: [
+        declaresGuard("multiple-blocks"),
+        fact("single_block", "eq", false),
+      ],
+    },
     "Mais de um bloco ou área no imóvel: a área considerada depende do isolamento de risco entre eles. Análise específica.",
     {
       doc: "IN-1-P2",
@@ -175,6 +181,7 @@ const guards: Rule[] = [
     "Ocupação mista ou secundária",
     {
       all: [
+        declaresGuard("mixed-use"),
         fact("single_use", "eq", false),
         fact("only_subsidiary", "eq", false),
       ],

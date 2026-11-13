@@ -142,7 +142,7 @@ const guards: Rule[] = [
     "GUARD-not-covered",
     "Divisão sem regras carregadas",
     { not: COVERED_DIVISIONS },
-    "Esta divisão ainda não está coberta: só os Grupos C (comércio) e D (serviços profissionais) têm regras carregadas.",
+    "Esta divisão ainda não está coberta: só os Grupos C (comércio), D (serviços profissionais) e E (educacional) têm regras carregadas.",
     { doc: "IN-1-P2", locator: "Anexo B" },
   ),
   guard(

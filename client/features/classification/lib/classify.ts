@@ -76,6 +76,8 @@ const CATALOG_ORDER = Object.keys(SYSTEMS);
 
 /** The table by height of each covered division in IN 1 parte 2, Anexo B. */
 const LARGE_TABLE: Record<string, number> = {
+  "A-2": 3,
+  "A-3": 3,
   "B-1": 4,
   "B-2": 4,
   "C-1": 5,
@@ -98,18 +100,31 @@ const LARGE_TABLE: Record<string, number> = {
   "G-4": 14,
 };
 
+/** The column of the A-2 and A-3 grid of Tabela 3, which splits at 6, 15 and 30 m. */
+function tableThreeColumn(facts: Facts): string | undefined {
+  if (facts.storeys === 1) return "Térrea";
+  const h = facts.height_m;
+  if (typeof h !== "number") return undefined;
+  if (h <= 6) return "H ≤ 6";
+  if (h <= 15) return "6 < H ≤ 15";
+  if (h <= 30) return "15 < H ≤ 30";
+  return "> 30";
+}
+
 function tableHint(facts: Facts): string | undefined {
   if (facts.regime === "small") return "Tabela 2 (imóvel até 750 m² e 12 m)";
   if (facts.regime !== "large") return undefined;
   const table = LARGE_TABLE[String(facts.division)];
   const label = table ? `Tabela ${table}` : "Tabela por altura";
   const column = HEIGHT_CLASSES.find((h) => h.id === facts.height_class);
-  // Tabela 4 has one column for 12 to 30 m where the other tables split at 23 m.
+  // Tabelas 3 and 4 split the heights differently from the others.
   const name =
     table === 4 &&
     (facts.height_class === "h12_23" || facts.height_class === "h23_30")
       ? "12 < H ≤ 30"
-      : column?.label;
+      : table === 3
+        ? tableThreeColumn(facts)
+        : column?.label;
   return name ? `${label}, coluna ${name}` : label;
 }
 

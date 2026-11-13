@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { evaluateRules } from "../engine/evaluate-rules";
 import type { Facts } from "../engine/types";
+import { ALL_RULES } from "./all-rules";
 import { GROUP_C_RULES } from "./group-c";
 
 const DATE = "2026-11-12";
@@ -232,5 +233,28 @@ describe("risk: what it asks and what it does not decide", () => {
       locator: "Anexo A, Quadro 1",
     });
     expect(rule.validFrom).toBe("2024-04-24");
+  });
+});
+
+describe("risk: the order of the rules of every group", () => {
+  const riskRules = ALL_RULES.filter((r) => r.stage === "risk");
+  const iv = riskRules.find((r) => r.id === "IN1P1-RISK-IV")!;
+
+  it("has every rule that decides a level before the risk IV rule, which takes what is left", () => {
+    for (const rule of riskRules) {
+      if (rule === iv) continue;
+      expect(rule.priority, rule.id).toBeLessThan(iv.priority);
+    }
+  });
+
+  it("has V, I and II before the rows of Quadro 2", () => {
+    const order = (id: string) => riskRules.find((r) => r.id === id)!.priority;
+    for (const rule of riskRules.filter((r) =>
+      r.id.startsWith("IN1P1-RISK-III-"),
+    )) {
+      expect(rule.priority, rule.id).toBeGreaterThan(order("IN1P1-RISK-II"));
+    }
+    expect(order("IN1P1-RISK-V")).toBeLessThan(order("IN1P1-RISK-I"));
+    expect(order("IN1P1-RISK-I")).toBeLessThan(order("IN1P1-RISK-II"));
   });
 });

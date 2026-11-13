@@ -4,6 +4,7 @@ import { chatPersistence } from "@/lib/chat-history/server";
 import {
   consumeChatQuota,
   parseChatMessages,
+  recentMessages,
   resolveChatModel,
   toChatResponse,
 } from "@/lib/llm";
@@ -43,7 +44,8 @@ export async function handleDocumentsChat(req: Request): Promise<Response> {
   const result = streamText({
     model,
     instructions: buildInstructions(templateId, schema, values, progress),
-    messages: await convertToModelMessages(messages),
+    // The instructions carry the recorded state, so only the latest turns go to the model.
+    messages: await convertToModelMessages(recentMessages(messages)),
     tools: {
       [FILL_FIELDS_TOOL]: tool({
         description:

@@ -1,7 +1,11 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { describeCondition, renderGroupCReviewSheet } from "./review-sheet";
+import {
+  describeCondition,
+  renderGroupCReviewSheet,
+  renderGroupDReviewSheet,
+} from "./review-sheet";
 import { fact, C2, C3 } from "./group-c-conditions";
 
 const SHEET = join(__dirname, "../../docs/group-c-review-sheet.md");
@@ -81,5 +85,28 @@ describe("renderGroupCReviewSheet", () => {
   it("is the committed sheet", () => {
     if (process.env.UPDATE_REVIEW_SHEET === "1") writeFileSync(SHEET, sheet);
     expect(readFileSync(SHEET, "utf-8")).toBe(sheet);
+  });
+});
+
+describe("renderGroupDReviewSheet", () => {
+  const sheet = renderGroupDReviewSheet();
+  const FILE = join(__dirname, "../../docs/group-d-review-sheet.md");
+
+  it("covers Tabela 6 and the notes of the shared Tabela 2 column", () => {
+    for (let n = 1; n <= 10; n++)
+      expect(sheet).toContain(`### Tabela 6, nota ${n}\n`);
+    expect(sheet).toContain("### Tabela 2, nota 1\n");
+    expect(sheet).toContain("**Todas as regras são provisórias.**");
+  });
+
+  it("asks what is specific to the group and leaves out what belongs to Grupo C", () => {
+    expect(sheet).toContain("**Coluna compartilhada da Tabela 2.**");
+    expect(sheet).toContain("**Risco III do Grupo D.**");
+    expect(sheet).not.toContain("**Risco III para C-2.**");
+  });
+
+  it("is the committed sheet", () => {
+    if (process.env.UPDATE_REVIEW_SHEET === "1") writeFileSync(FILE, sheet);
+    expect(readFileSync(FILE, "utf-8")).toBe(sheet);
   });
 });

@@ -1,13 +1,16 @@
 import type { Condition } from "../engine/types";
 import table2Json from "../../norms/in-1-p2/tables/table-02.json";
 import table5Json from "../../norms/in-1-p2/tables/table-05.json";
+import table6Json from "../../norms/in-1-p2/tables/table-06.json";
 import { TABLE_2_SPEC, TABLE_5_SPEC } from "./group-c";
+import { TABLE_2_D_SPEC, TABLE_6_SPEC } from "./group-d";
 import { NORM_VALID_FROM } from "./compile-table";
 import { systemIdFromLabel, systemLabel } from "./systems";
 import type { ExtractedTable, NoteEffect, NoteSpec, TableSpec } from "./types";
 
 const table2 = table2Json as unknown as ExtractedTable;
 const table5 = table5Json as unknown as ExtractedTable;
+const table6 = table6Json as unknown as ExtractedTable;
 
 const number = (n: number) => n.toLocaleString("pt-BR");
 
@@ -135,11 +138,6 @@ export const GENERAL_QUESTIONS = [
   "**Ainda não existe:** a camada de edificações existentes e recentes (IN 5), que rotula cada sistema como vital, indispensável ou adequável. O resultado mostra o enquadramento de risco e os sistemas exigidos.",
 ];
 
-const SPECS: { spec: TableSpec; table: ExtractedTable }[] = [
-  { spec: TABLE_2_SPEC, table: table2 },
-  { spec: TABLE_5_SPEC, table: table5 },
-];
-
 function noteSection(table: ExtractedTable, note: NoteSpec): string[] {
   const printed = table.notes.find((n) => n.number === note.number)?.text ?? "";
   const lines = [
@@ -188,39 +186,47 @@ function matrix(table: ExtractedTable, spec: TableSpec): string[] {
 }
 
 /** The Portuguese review sheet for the Grupo C rules; generated, never edited by hand. */
-export function renderGroupCReviewSheet(): string {
+type SheetConfig = {
+  title: string;
+  source: string;
+  coverage: string;
+  general: string[];
+  specs: { spec: TableSpec; table: ExtractedTable }[];
+};
+
+function renderReviewSheet(config: SheetConfig): string {
   const out: string[] = [
-    "# Regras do Grupo C: folha de revisão",
+    `# ${config.title}`,
     "",
     "Gerada a partir do código (`lib/rulesets/review-sheet.ts`); não edite à mão. Serve para conferir se cada nota da norma foi lida corretamente e para levar as perguntas em aberto à Moura.",
     "",
     "## Estado",
     "",
     "- **Todas as regras são provisórias.** Nenhuma foi aprovada por uma pessoa.",
-    `- Fonte: IN 1 parte 2, Anexo B, Tabelas 2 (coluna C) e 5; IN 3, arts. 8º e 11 e Anexo A; IN 1 parte 1, art. 5º e Anexo A (risco). Em vigor desde ${NORM_VALID_FROM.split("-").reverse().join("/")} (IN 1 parte 2, art. 31; IN 3, art. 14; IN 1 parte 1, art. 165).`,
-    '- Cobertura: só o Grupo C (comercial: C-1, C-2 e C-3). As demais divisões respondem "análise específica".',
+    `- Fonte: ${config.source}. Em vigor desde ${NORM_VALID_FROM.split("-").reverse().join("/")} (IN 1 parte 2, art. 31; IN 3, art. 14; IN 1 parte 1, art. 165).`,
+    `- Cobertura: ${config.coverage}`,
     "",
     "## Perguntas para a Moura",
     "",
     "### Gerais",
     "",
-    ...GENERAL_QUESTIONS.map((q, i) => `${i + 1}. ${q}`),
+    ...config.general.map((q, i) => `${i + 1}. ${q}`),
     "",
     "### Por nota",
     "",
   ];
-  for (const { spec, table } of SPECS) {
+  for (const { spec, table } of config.specs) {
     for (const note of spec.notes) {
       for (const q of note.questions)
         out.push(`- Tabela ${table.table}, nota ${note.number}: ${q}`);
     }
   }
   out.push("", "## Como o código lê cada nota", "");
-  for (const { spec, table } of SPECS) {
+  for (const { spec, table } of config.specs) {
     for (const note of spec.notes) out.push(...noteSection(table, note));
   }
   out.push("## Tabelas como estão impressas na norma", "");
-  for (const { spec, table } of SPECS) {
+  for (const { spec, table } of config.specs) {
     out.push(
       `### Tabela ${table.table}: ${table.title}`,
       "",
@@ -229,4 +235,50 @@ export function renderGroupCReviewSheet(): string {
     );
   }
   return `${out.join("\n").trimEnd()}\n`;
+}
+
+const SPECS_C = [
+  { spec: TABLE_2_SPEC, table: table2 },
+  { spec: TABLE_5_SPEC, table: table5 },
+];
+
+/** The Portuguese review sheet for the Grupo C rules; generated, never edited by hand. */
+export function renderGroupCReviewSheet(): string {
+  return renderReviewSheet({
+    title: "Regras do Grupo C: folha de revisão",
+    source:
+      "IN 1 parte 2, Anexo B, Tabelas 2 (coluna C) e 5; IN 3, arts. 8º e 11 e Anexo A; IN 1 parte 1, art. 5º e Anexo A (risco)",
+    coverage:
+      'o Grupo C (comercial: C-1, C-2 e C-3); o Grupo D tem a sua própria folha. As divisões sem regras carregadas respondem "análise específica".',
+    general: GENERAL_QUESTIONS,
+    specs: SPECS_C,
+  });
+}
+
+/** The questions of the Grupo C sheet that hold for any group, plus the ones of Grupo D. */
+export const GENERAL_QUESTIONS_D = [
+  ...GENERAL_QUESTIONS.slice(0, 5),
+  "**Divisão D-1 a D-4.** A divisão vem da conversa (o assistente propõe a partir da descrição e o usuário confirma). Quem valida a divisão final?",
+  '**Escopo do Grupo D.** Só entra: Grupo D, um bloco e uma ocupação. O armazenamento acima de 3,5 m é regra do Grupo C (IN 3, art. 8º) e não é perguntado. Fora disso o resultado é "análise específica". É aceitável?',
+  '**Coluna compartilhada da Tabela 2.** A coluna "A-2, A-3, D, E e G" vale para o Grupo D, e a nota 1 (isenção de brigadistas) cita só A-1, A-2 e J-1. Confirmar que a brigada é exigida para o D.',
+  ...GENERAL_QUESTIONS.slice(7, 9),
+  ...GENERAL_QUESTIONS.slice(10, 12),
+  '**Risco III do Grupo D.** O Quadro 2 traz uma linha "D, Todas" por faixa de altura (até 6 m, 6 a 12 m, 12 a 21 m). O código aplica as três às divisões D-1 a D-4. Confirmar.',
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 1],
+];
+
+/** The Portuguese review sheet for the Grupo D rules; generated, never edited by hand. */
+export function renderGroupDReviewSheet(): string {
+  return renderReviewSheet({
+    title: "Regras do Grupo D: folha de revisão",
+    source:
+      "IN 1 parte 2, Anexo B, Tabelas 2 (coluna A-2, A-3, D, E e G) e 6; IN 3, arts. 11 e Anexo A; IN 1 parte 1, art. 5º e Anexo A (risco)",
+    coverage:
+      'o Grupo D (serviços profissionais: D-1 a D-4), com as regras de nível de risco, travas e carga de incêndio que ele compartilha com o Grupo C. As divisões sem regras carregadas respondem "análise específica".',
+    general: GENERAL_QUESTIONS_D,
+    specs: [
+      { spec: TABLE_2_D_SPEC, table: table2 },
+      { spec: TABLE_6_SPEC, table: table6 },
+    ],
+  });
 }

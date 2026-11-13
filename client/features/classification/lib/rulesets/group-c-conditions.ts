@@ -40,6 +40,26 @@ export const DIVISION_B = fact("division", "in", ["B-1", "B-2"]);
 export const A2 = fact("division", "eq", "A-2");
 export const A3 = fact("division", "eq", "A-3");
 export const DIVISION_A_2_3 = fact("division", "in", ["A-2", "A-3"]);
+export const H1 = fact("division", "eq", "H-1");
+export const H2 = fact("division", "eq", "H-2");
+export const H3 = fact("division", "eq", "H-3");
+export const H4 = fact("division", "eq", "H-4");
+export const H5 = fact("division", "eq", "H-5");
+export const H6 = fact("division", "eq", "H-6");
+export const DIVISION_H = fact("division", "in", [
+  "H-1",
+  "H-2",
+  "H-3",
+  "H-4",
+  "H-5",
+  "H-6",
+]);
+/** The three sets of divisions of the tables by height of Grupo H. */
+export const DIVISION_H_1_2_6 = fact("division", "in", ["H-1", "H-2", "H-6"]);
+export const DIVISION_H_4_5 = fact("division", "in", ["H-4", "H-5"]);
+/** The two columns of Tabela 2 for Grupo H. */
+export const DIVISION_H_1_4_6 = fact("division", "in", ["H-1", "H-4", "H-6"]);
+export const DIVISION_H_2_3_5 = fact("division", "in", ["H-2", "H-3", "H-5"]);
 /** Every division that has rules loaded. */
 export const COVERED_DIVISIONS = fact("division", "in", [
   "A-2",
@@ -64,6 +84,12 @@ export const COVERED_DIVISIONS = fact("division", "in", [
   "G-3",
   "G-4",
   "G-5",
+  "H-1",
+  "H-2",
+  "H-3",
+  "H-4",
+  "H-5",
+  "H-6",
 ]);
 
 const singleStorey = fact("storeys", "eq", 1);

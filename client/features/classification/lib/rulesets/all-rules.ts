@@ -4,6 +4,7 @@ import { GROUP_C_RULES } from "./group-c";
 import { GROUP_D_RULES } from "./group-d";
 import { GROUP_E_RULES } from "./group-e";
 import { GROUP_G_RULES } from "./group-g";
+import { GROUP_H_RULES } from "./group-h";
 
 /**
  * Every rule loaded. `GROUP_C_RULES` also holds the rules every covered group
@@ -16,4 +17,5 @@ export const ALL_RULES = [
   ...GROUP_D_RULES,
   ...GROUP_E_RULES,
   ...GROUP_G_RULES,
+  ...GROUP_H_RULES,
 ];

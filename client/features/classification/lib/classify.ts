@@ -93,6 +93,12 @@ const SUBSIDIARY_OBSERVATIONS: Observation[] = [
 
 /** The table by height of each covered division in IN 1 parte 2, Anexo B. */
 const LARGE_TABLE: Record<string, number> = {
+  "H-1": 15,
+  "H-2": 15,
+  "H-6": 15,
+  "H-3": 16,
+  "H-4": 17,
+  "H-5": 17,
   "A-2": 3,
   "A-3": 3,
   "B-1": 4,

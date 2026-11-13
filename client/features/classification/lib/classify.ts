@@ -75,7 +75,7 @@ export type Classification = {
 const CATALOG_ORDER = Object.keys(SYSTEMS);
 
 /** The table by height of each covered group in IN 1 parte 2, Anexo B. */
-const LARGE_TABLE: Record<string, number> = { C: 5, D: 6 };
+const LARGE_TABLE: Record<string, number> = { C: 5, D: 6, E: 7 };
 
 function tableHint(facts: Facts): string | undefined {
   if (facts.regime === "small") return "Tabela 2 (imóvel até 750 m² e 12 m)";

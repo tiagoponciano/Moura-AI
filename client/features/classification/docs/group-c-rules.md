@@ -1,6 +1,6 @@
 # Grupo C rules
 
-How the rule set for Grupo C (comercial: C-1, C-2, C-3) is built from the extracted CBMSC tables and what it decides. `GROUP_C_RULES` also holds the rules every covered group shares (fire load class, regime, guards, risk V, I, II and IV); Grupo D is in `group-d-rules.md`. For developers adding other groups and for whoever reviews the readings with Moura. It describes the code as it is now.
+How the rule set for Grupo C (comercial: C-1, C-2, C-3) is built from the extracted CBMSC tables and what it decides. `GROUP_C_RULES` also holds the rules every covered group shares (fire load class, regime, guards, risk V, I, II and IV); Grupo D is in `group-d-rules.md` and Grupo E in `group-e-rules.md`. For developers adding other groups and for whoever reviews the readings with Moura. It describes the code as it is now.
 
 ## What this is
 
@@ -30,23 +30,24 @@ Invariants:
 
 Facts the rules read. Areas are in m², heights in m, loads in MJ/m².
 
-| Fact                    | Type    | Meaning                                                                                                                              |
-| ----------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `division`              | string  | `C-1`, `C-2` or `C-3`; any other value is outside the rule set                                                                       |
-| `area_m2`               | number  | Total built area (IN 1 parte 2, art. 7)                                                                                              |
-| `height_m`              | number  | Lowest occupied floor to the floor of the last storey (art. 8)                                                                       |
-| `storeys`               | number  | Number of storeys; `1` is a single-storey building, whose height counts as 0 (art. 8, inciso V)                                      |
-| `fire_load_class`       | string  | `negligible`, `low`, `medium`, `high` or `very_high`                                                                                 |
-| `fire_load_mj_m2`       | number  | Optional. When `fire_load_class` is absent, the class is derived from it (≤100, ≤300, ≤1.200, ≤2.280, above)                         |
-| `single_block`          | boolean | `false` means more than one block or area                                                                                            |
-| `single_use`            | boolean | `false` means mixed, subsidiary or secondary occupancy                                                                               |
-| `storage_over_3_5m`     | boolean | Storage of materials higher than 3,5 m                                                                                               |
-| `special_risks`         | boolean | `true` when there is any LPG, flammable or combustible liquid, or radioactive, toxic, explosive, pyrotechnic or ammunition substance |
-| `hazardous_substances`  | boolean | The radioactive, toxic, explosive, pyrotechnic or ammunition substances; asked only when `special_risks` is `true`                   |
-| `glp_kg`                | number  | LPG used or stored, kg; 0 is valid; asked only when `special_risks` is `true`                                                        |
-| `flammable_internal_l`  | number  | Flammable or combustible liquids inside the building, L; 0 is valid; asked only when `special_risks` is `true`                       |
-| `flammable_external_m3` | number  | The same outside, m³; 0 is valid; asked only when `special_risks` is `true`                                                          |
-| `risk_exempt`           | boolean | `true` when the activity is one of the risk I exemptions (IN 1 parte 1, art. 5º, § 2º, I)                                            |
+| Fact                      | Type    | Meaning                                                                                                                              |
+| ------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `division`                | string  | `C-1`, `C-2` or `C-3`; any other value is outside the rule set                                                                       |
+| `area_m2`                 | number  | Total built area (IN 1 parte 2, art. 7)                                                                                              |
+| `height_m`                | number  | Lowest occupied floor to the floor of the last storey (art. 8)                                                                       |
+| `storeys`                 | number  | Number of storeys; `1` is a single-storey building, whose height counts as 0 (art. 8, inciso V)                                      |
+| `fire_load_class`         | string  | `negligible`, `low`, `medium`, `high` or `very_high`                                                                                 |
+| `fire_load_mj_m2`         | number  | Optional. When `fire_load_class` is absent, the class is derived from it (≤100, ≤300, ≤1.200, ≤2.280, above)                         |
+| `single_block`            | boolean | `false` means more than one block or area                                                                                            |
+| `single_use`              | boolean | `false` means mixed, subsidiary or secondary occupancy                                                                               |
+| `storage_over_3_5m`       | boolean | Storage of materials higher than 3,5 m                                                                                               |
+| `classrooms_exit_outside` | boolean | Most classrooms open directly onto an open outdoor area; read only by Grupo E (note 8 of Tabela 7)                                   |
+| `special_risks`           | boolean | `true` when there is any LPG, flammable or combustible liquid, or radioactive, toxic, explosive, pyrotechnic or ammunition substance |
+| `hazardous_substances`    | boolean | The radioactive, toxic, explosive, pyrotechnic or ammunition substances; asked only when `special_risks` is `true`                   |
+| `glp_kg`                  | number  | LPG used or stored, kg; 0 is valid; asked only when `special_risks` is `true`                                                        |
+| `flammable_internal_l`    | number  | Flammable or combustible liquids inside the building, L; 0 is valid; asked only when `special_risks` is `true`                       |
+| `flammable_external_m3`   | number  | The same outside, m³; 0 is valid; asked only when `special_risks` is `true`                                                          |
+| `risk_exempt`             | boolean | `true` when the activity is one of the risk I exemptions (IN 1 parte 1, art. 5º, § 2º, I)                                            |
 
 Derived for the screen and for the rules: `risk_level` (`I` to `V`), `regime` (`small` or `large`) and `height_class` (`ground`, `h0_6`, `h6_12`, `h12_23`, `h23_30`, `h30p`).
 
@@ -88,7 +89,7 @@ Every table rule also requires `single_block`, `single_use` and `storage_over_3_
 
 **Compilation.** A cell marked `-` produces nothing. A cell marked `x` produces one rule, or one per `require_when` effect of its notes, whose condition is the table's base, the column and that effect's condition. `substitutable` effects produce `substitute` rules. `info` effects become the rule's `note`. A row is vital when its label carries "(V)" or the cell does. Each rule's `source.quote` holds the cell and the printed text of the notes it cites.
 
-**Note effects.** Each note is read as one or more of: `require_when` (the cell applies only under a condition, optionally limited to part of the building by `scope`), `substitutable` (the norm lets other systems, all together, replace it) and `info`. "Dispensado para C-1. Exigido para …" is written positively, as the condition under which it is required.
+**Note effects.** Each note is read as one or more of: `exempt_when` (the requirement does not apply where the condition holds, and combines with the other notes of the cell), `require_when` (the cell applies only under a condition, optionally limited to part of the building by `scope`), `substitutable` (the norm lets other systems, all together, replace it) and `info`. "Dispensado para C-1. Exigido para …" is written positively, as the condition under which it is required.
 
 Outcomes for a Grupo C building (one block, one use, storage up to 3,5 m), all provisional:
 

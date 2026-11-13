@@ -166,6 +166,35 @@ describe("compileTable", () => {
     expect(rule.then).toEqual({ require: "extinguishers", vital: true });
   });
 
+  it("removes the requirement where a note of the cell exempts", () => {
+    const exempt: Condition = { fact: "k", op: "eq", value: "z" };
+    const withExemption: TableSpec = {
+      ...spec,
+      notes: [
+        ...spec.notes.filter((n) => n.number !== 1),
+        {
+          number: 1,
+          effects: [
+            { kind: "require_when", when: isC2 },
+            { kind: "exempt_when", when: exempt },
+          ],
+          questions: [],
+        },
+      ],
+    };
+    const compiled = compileTable(table, withExemption);
+    const rule = compiled.find(
+      (r) => r.id === "IN1P2-T09-sprinklers-ground-req1",
+    )!;
+    expect(rule.when).toEqual({
+      all: [
+        { all: [withExemption.base, withExemption.columns[0].when] },
+        isC2,
+        { not: exempt },
+      ],
+    });
+  });
+
   it("refuses a cell whose note has no reading", () => {
     const missing: TableSpec = {
       ...spec,

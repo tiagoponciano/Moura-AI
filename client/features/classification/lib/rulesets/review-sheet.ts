@@ -2,8 +2,10 @@ import type { Condition } from "../engine/types";
 import table2Json from "../../norms/in-1-p2/tables/table-02.json";
 import table5Json from "../../norms/in-1-p2/tables/table-05.json";
 import table6Json from "../../norms/in-1-p2/tables/table-06.json";
+import table7Json from "../../norms/in-1-p2/tables/table-07.json";
 import { TABLE_2_SPEC, TABLE_5_SPEC } from "./group-c";
 import { TABLE_2_D_SPEC, TABLE_6_SPEC } from "./group-d";
+import { TABLE_2_E_SPEC, TABLE_7_SPEC } from "./group-e";
 import { NORM_VALID_FROM } from "./compile-table";
 import { systemIdFromLabel, systemLabel } from "./systems";
 import type { ExtractedTable, NoteEffect, NoteSpec, TableSpec } from "./types";
@@ -11,6 +13,7 @@ import type { ExtractedTable, NoteEffect, NoteSpec, TableSpec } from "./types";
 const table2 = table2Json as unknown as ExtractedTable;
 const table5 = table5Json as unknown as ExtractedTable;
 const table6 = table6Json as unknown as ExtractedTable;
+const table7 = table7Json as unknown as ExtractedTable;
 
 const number = (n: number) => n.toLocaleString("pt-BR");
 
@@ -24,6 +27,9 @@ const FACT: Record<string, { name: string; unit?: string }> = {
   single_block: { name: "o imóvel tem um só bloco" },
   single_use: { name: "o imóvel tem uma só ocupação" },
   storage_over_3_5m: { name: "há armazenamento acima de 3,5 m" },
+  classrooms_exit_outside: {
+    name: "a maior parte das salas de aula tem saída direta para área externa aberta",
+  },
 };
 
 const CLASS_LABEL: Record<string, string> = {
@@ -111,6 +117,9 @@ function limits(condition: Condition): string[] {
 function effectLines(effect: NoteEffect): string[] {
   if (effect.kind === "info")
     return [`Informação, sem efeito na exigência: ${effect.text}`];
+  if (effect.kind === "exempt_when") {
+    return [`Dispensado quando ${describeCondition(effect.when)}.`];
+  }
   if (effect.kind === "require_when") {
     const scope = effect.scope ? `, limitado a: ${effect.scope}` : "";
     return [`Exigido quando ${describeCondition(effect.when)}${scope}.`];
@@ -279,6 +288,36 @@ export function renderGroupDReviewSheet(): string {
     specs: [
       { spec: TABLE_2_D_SPEC, table: table2 },
       { spec: TABLE_6_SPEC, table: table6 },
+    ],
+  });
+}
+
+/** The questions of the Grupo C sheet that hold for any group, plus the ones of Grupo E. */
+export const GENERAL_QUESTIONS_E = [
+  ...GENERAL_QUESTIONS.slice(0, 5),
+  "**Divisão E-1 a E-6.** A divisão vem da conversa (o assistente propõe a partir da descrição e o usuário confirma). Quem valida a divisão final?",
+  '**Escopo do Grupo E.** Só entra: Grupo E, um bloco e uma ocupação. O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Fora disso o resultado é "análise específica". É aceitável?',
+  '**Coluna compartilhada da Tabela 2.** A coluna "A-2, A-3, D, E e G" vale para o Grupo E, e a nota 1 (isenção de brigadistas) cita só A-1, A-2 e J-1. Confirmar que a brigada é exigida para o E.',
+  '**Células com duas notas na Tabela 7.** O PDF traz "x⁷⁻⁸" (detecção) e "x⁹ _ ¹³" (elevador). O código leu como duas notas cada (7 e 8; 9 e 13), porque assim todas as 13 notas são citadas exatamente uma vez. Confirmar que não é um intervalo.',
+  "**Pergunta nova: salas de aula.** A dispensa da nota 8 depende de a maior parte das salas de aula ter saída direta para uma área externa aberta. O código pergunta isso ao usuário, só para escolas de até 2 pavimentos e só nas colunas até 6 m (onde a célula cita a nota 8). Basta um sim ou não?",
+  ...GENERAL_QUESTIONS.slice(7, 9),
+  ...GENERAL_QUESTIONS.slice(10, 12),
+  "**Risco III do Grupo E.** O Quadro 2 traz duas linhas: E-1 a E-4 (até 21 m e 5.000 m²) e E-5 e E-6 (até 12 m e 750 m²). O código as aplica como estão. Confirmar.",
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 1],
+];
+
+/** The Portuguese review sheet for the Grupo E rules; generated, never edited by hand. */
+export function renderGroupEReviewSheet(): string {
+  return renderReviewSheet({
+    title: "Regras do Grupo E: folha de revisão",
+    source:
+      "IN 1 parte 2, Anexo B, Tabelas 2 (coluna A-2, A-3, D, E e G) e 7; IN 3, art. 11 e Anexo A; IN 1 parte 1, art. 5º e Anexo A (risco)",
+    coverage:
+      'o Grupo E (educacional: E-1 a E-6), com as regras de nível de risco, travas e carga de incêndio que ele compartilha com os Grupos C e D. As divisões sem regras carregadas respondem "análise específica".',
+    general: GENERAL_QUESTIONS_E,
+    specs: [
+      { spec: TABLE_2_E_SPEC, table: table2 },
+      { spec: TABLE_7_SPEC, table: table7 },
     ],
   });
 }

@@ -312,10 +312,10 @@ describe("Grupo C: what the tables do not settle", () => {
   });
 
   it("sends a division outside Grupo C to specific analysis", () => {
-    expect(analyses(building({ division: "E-1" }))).toEqual([
+    expect(analyses(building({ division: "F-1" }))).toEqual([
       "GUARD-not-covered",
     ]);
-    expect(required(building({ division: "E-1" }))).toEqual([]);
+    expect(required(building({ division: "F-1" }))).toEqual([]);
   });
 
   it("sends several blocks, mixed use and high storage to specific analysis", () => {

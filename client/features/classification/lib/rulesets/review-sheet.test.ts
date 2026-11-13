@@ -5,6 +5,7 @@ import {
   describeCondition,
   renderGroupCReviewSheet,
   renderGroupDReviewSheet,
+  renderGroupEReviewSheet,
 } from "./review-sheet";
 import { fact, C2, C3 } from "./group-c-conditions";
 
@@ -103,6 +104,23 @@ describe("renderGroupDReviewSheet", () => {
     expect(sheet).toContain("**Coluna compartilhada da Tabela 2.**");
     expect(sheet).toContain("**Risco III do Grupo D.**");
     expect(sheet).not.toContain("**Risco III para C-2.**");
+  });
+
+  it("is the committed sheet", () => {
+    if (process.env.UPDATE_REVIEW_SHEET === "1") writeFileSync(FILE, sheet);
+    expect(readFileSync(FILE, "utf-8")).toBe(sheet);
+  });
+});
+
+describe("renderGroupEReviewSheet", () => {
+  const sheet = renderGroupEReviewSheet();
+  const FILE = join(__dirname, "../../docs/group-e-review-sheet.md");
+
+  it("covers the thirteen notes of Tabela 7 and reads the exemption of note 8", () => {
+    for (let n = 1; n <= 13; n++)
+      expect(sheet).toContain(`### Tabela 7, nota ${n}\n`);
+    expect(sheet).toContain("Dispensado quando");
+    expect(sheet).toContain("**Células com duas notas na Tabela 7.**");
   });
 
   it("is the committed sheet", () => {

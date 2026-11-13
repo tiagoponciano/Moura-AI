@@ -235,6 +235,16 @@ export const QUESTIONS: Question[] = [
     askAfter: { fact: "special_risks", value: true },
   },
   {
+    fact: "classrooms_exit_outside",
+    kind: "boolean",
+    label: "Salas de aula com saída para o exterior",
+    ask: "A maior parte das salas de aula tem saída direta para uma área externa aberta?",
+    description:
+      "True when most of the classrooms open directly onto an open outdoor area; false when not. Only asked for a school of up to two storeys.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
     fact: "risk_exempt",
     kind: "boolean",
     label: "Dispensada do risco I",

@@ -85,14 +85,29 @@ export function compileTable(table: ExtractedTable, spec: TableSpec): Rule[] {
           e.kind === "require_when",
       );
 
+      // An exemption in any note of the cell removes the requirement where it holds.
+      const notExempt: Condition[] = effects
+        .filter(
+          (e): e is Extract<NoteEffect, { kind: "exempt_when" }> =>
+            e.kind === "exempt_when",
+        )
+        .map((e) => ({ not: e.when }));
+
       if (requirements.length === 0) {
-        rules.push(make("req", base, { require: system, vital }, note));
+        rules.push(
+          make(
+            "req",
+            notExempt.length ? { all: [base, ...notExempt] } : base,
+            { require: system, vital },
+            note,
+          ),
+        );
       } else {
         requirements.forEach((e, i) =>
           rules.push(
             make(
               `req${i + 1}`,
-              { all: [base, e.when] },
+              { all: [base, e.when, ...notExempt] },
               { require: system, vital, ...(e.scope && { scope: e.scope }) },
               note,
             ),

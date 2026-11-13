@@ -253,7 +253,7 @@ describe("Grupo D: scope", () => {
 
   it("sends a division without rules to analysis", () => {
     expect(
-      classify(office({ division: "E-1" }), DATE).analyses[0].reason,
+      classify(office({ division: "F-1" }), DATE).analyses[0].reason,
     ).toContain("ainda não está coberta");
   });
 });

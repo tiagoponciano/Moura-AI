@@ -16,7 +16,11 @@ import {
   type StoredModelConfig,
 } from "./config";
 
-export { MAX_CHAT_MESSAGES, parseChatMessages } from "./chat-messages";
+export {
+  MAX_CHAT_MESSAGES,
+  parseChatMessages,
+  recentMessages,
+} from "./chat-messages";
 
 /** The admin console's choice, or `undefined` when it cannot be read. */
 async function readStoredModelConfig(): Promise<StoredModelConfig | undefined> {

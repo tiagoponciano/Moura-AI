@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { MAX_CHAT_MESSAGES, parseChatMessages } from "./chat-messages";
+import type { UIMessage } from "ai";
+import {
+  MAX_CHAT_MESSAGES,
+  parseChatMessages,
+  RECENT_CHAT_MESSAGES,
+  recentMessages,
+} from "./chat-messages";
 
 const text = (role: string, value: string, id = crypto.randomUUID()) => ({
   id,
@@ -48,5 +54,36 @@ describe("parseChatMessages", () => {
       ],
     };
     expect(await parseChatMessages([message])).toBeUndefined();
+  });
+});
+
+describe("recentMessages", () => {
+  const turns = (count: number) =>
+    Array.from({ length: count }, (_, i) =>
+      text(i % 2 === 0 ? "user" : "assistant", String(i), `m${i}`),
+    ) as UIMessage[];
+  const ids = (messages: UIMessage[]) => messages.map((m) => m.id);
+
+  it("keeps a short conversation whole", () => {
+    expect(ids(recentMessages(turns(3)))).toEqual(["m0", "m1", "m2"]);
+  });
+
+  it("keeps only the latest messages of a long one", () => {
+    const all = turns(21);
+    expect(recentMessages(all)).toHaveLength(RECENT_CHAT_MESSAGES - 1);
+    expect(ids(recentMessages(all)).at(-1)).toBe("m20");
+  });
+
+  it("starts at a user message, never at an orphan assistant reply", () => {
+    const all = turns(20);
+    expect(recentMessages(all)[0].role).toBe("user");
+  });
+
+  it("falls back to the last user message when the tail has none", () => {
+    const all = [
+      text("user", "q", "u"),
+      ...Array.from({ length: 8 }, (_, i) => text("assistant", "a", `a${i}`)),
+    ] as UIMessage[];
+    expect(ids(recentMessages(all))[0]).toBe("u");
   });
 });

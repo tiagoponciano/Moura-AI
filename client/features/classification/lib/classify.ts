@@ -37,6 +37,8 @@ export type SystemView = {
   label: string;
   status: "required" | "needs_info" | "not_required";
   vital: boolean;
+  /** IN 5 class of the system for an existing or recent building; absent otherwise. */
+  treatment?: "vital" | "indispensable" | "adaptable";
   /** Required only in part of the building; `scopes` says which parts. */
   partial: boolean;
   scopes: string[];
@@ -343,6 +345,7 @@ export function classify(
       label: systemLabel(system.id),
       status: system.status,
       vital: system.vital,
+      treatment: system.overlayClass,
       partial: system.partial,
       scopes: system.scopes,
       substitutions: system.substitutions.map((s) => ({

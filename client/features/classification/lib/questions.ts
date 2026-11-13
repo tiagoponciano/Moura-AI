@@ -128,6 +128,20 @@ export const QUESTIONS: Question[] = [
     askable: false,
   },
   {
+    fact: "building_condition",
+    kind: "enum",
+    label: "Condição da edificação",
+    ask: "A edificação é nova, ou é existente ou recente (IN 5)?",
+    description:
+      "existing when the building is existing or recent in the sense of IN 5 (built before Lei 16.157/2013, or never approved by the fire department, or approved for another use); new otherwise. Record it only when the user says so; it is not asked.",
+    options: [
+      { value: "new", label: "Nova" },
+      { value: "existing", label: "Existente ou recente" },
+    ],
+    allowUnknown: false,
+    askable: false,
+  },
+  {
     fact: "single_block",
     kind: "boolean",
     label: "Bloco único",

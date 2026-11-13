@@ -5,6 +5,7 @@ import { GROUP_D_RULES } from "./group-d";
 import { GROUP_E_RULES } from "./group-e";
 import { BASEMENT_RULES } from "./basement";
 import { GROUP_A1_RULES } from "./group-a1";
+import { IN5_RULES } from "./in5";
 import { GROUP_F_RULES } from "./group-f";
 import { GROUP_K_RULES } from "./group-k";
 import { GROUP_M_RULES } from "./group-m";
@@ -29,6 +30,7 @@ export const ALL_RULES = [
   ...GROUP_M_RULES,
   ...GROUP_M_DIVISIONS_RULES,
   ...BASEMENT_RULES,
+  ...IN5_RULES,
   ...GROUP_G_RULES,
   ...GROUP_H_RULES,
   ...GROUP_IJ_RULES,

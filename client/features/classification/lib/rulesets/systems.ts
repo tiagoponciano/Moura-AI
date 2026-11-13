@@ -50,7 +50,14 @@ const ALIASES: Record<string, SystemId> = {
 
 /** The canonical id for a table row label; throws on a label nobody reviewed, so a typo cannot drop a system. */
 export function systemIdFromLabel(label: string): SystemId {
-  const id = ALIASES[label.replace(/\s+/g, " ").trim().toLowerCase()];
+  const id =
+    ALIASES[
+      label
+        .replace(/[¹²³⁴⁵⁶⁷⁸⁹⁰]+$/, "")
+        .replace(/\s+/g, " ")
+        .trim()
+        .toLowerCase()
+    ];
   if (!id) throw new Error(`Unknown system label: "${label}"`);
   return id;
 }

@@ -82,6 +82,9 @@ describe("question registry", () => {
       "flammable_internal_l",
       "flammable_external_m3",
       "storage_area_m2",
+      "capacity_people",
+      "ends_by_18h",
+      "windowless",
       "classrooms_exit_outside",
       "risk_exempt",
     ]);

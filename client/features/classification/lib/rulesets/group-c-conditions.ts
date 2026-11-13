@@ -26,6 +26,16 @@ export const DIVISION_E_1_4 = fact("division", "in", [
   "E-4",
 ]);
 export const DIVISION_E_5_6 = fact("division", "in", ["E-5", "E-6"]);
+export const DIVISION_G = fact("division", "in", [
+  "G-1",
+  "G-2",
+  "G-3",
+  "G-4",
+  "G-5",
+]);
+export const DIVISION_G_1_2_5 = fact("division", "in", ["G-1", "G-2", "G-5"]);
+export const DIVISION_G_1_2 = fact("division", "in", ["G-1", "G-2"]);
+export const DIVISION_G_3_4 = fact("division", "in", ["G-3", "G-4"]);
 /** Every division that has rules loaded. */
 export const COVERED_DIVISIONS = fact("division", "in", [
   "C-1",
@@ -41,6 +51,11 @@ export const COVERED_DIVISIONS = fact("division", "in", [
   "E-4",
   "E-5",
   "E-6",
+  "G-1",
+  "G-2",
+  "G-3",
+  "G-4",
+  "G-5",
 ]);
 
 const singleStorey = fact("storeys", "eq", 1);

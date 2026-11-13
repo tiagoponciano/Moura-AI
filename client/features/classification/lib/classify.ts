@@ -28,6 +28,9 @@ export type RiskView =
   | { status: "pending" }
   | { status: "not_covered" };
 
+/** Something the norm adds to the result without changing which systems are listed. */
+export type Observation = { text: string; source: string };
+
 export type SystemView = {
   id: string;
   label: string;
@@ -55,6 +58,8 @@ export type Classification = {
   table?: string;
   /** Absent while a specific analysis replaces the result. */
   risk?: RiskView;
+  /** What the norm adds when the other occupations are only subsidiary (art. 10). */
+  observations: Observation[];
   groups: {
     required: SystemView[];
     needsInfo: SystemView[];
@@ -73,6 +78,18 @@ export type Classification = {
 };
 
 const CATALOG_ORDER = Object.keys(SYSTEMS);
+
+/** IN 1 parte 2, art. 10: what applies when the other occupations are subsidiary. */
+const SUBSIDIARY_OBSERVATIONS: Observation[] = [
+  {
+    text: "Os sistemas e medidas da ocupação predominante, e o seu dimensionamento, valem também para as ocupações subsidiárias.",
+    source: "IN 1 parte 2, art. 10",
+  },
+  {
+    text: "Pavimentos e áreas destinados a garagem devem ser compartimentados em relação aos acessos, às escadas e à descarga da edificação, mesmo que a compartimentação não seja exigida para a ocupação predominante. Garagem térrea com aberturas de ventilação permanente acima de 50% da área das laterais, em pelo menos 2 faces opostas, pode ser dispensada (§ 2º). Em subsolo sem a ventilação mínima, a dispensa exige detecção automática, chuveiros automáticos e barreira eficaz contra a propagação de gases e fumaça (§ 3º).",
+    source: "IN 1 parte 2, art. 10, §§ 1º a 3º",
+  },
+];
 
 /** The table by height of each covered division in IN 1 parte 2, Anexo B. */
 const LARGE_TABLE: Record<string, number> = {
@@ -202,6 +219,11 @@ export function classify(
   const declaredUnknown = ASKABLE_QUESTIONS.filter((q) =>
     evaluation.declaredUnknown.includes(q.fact),
   );
+  // A pending answer is named only once it can be asked (see `askAfter`).
+  const isAskable = (fact: string) => {
+    const q = ASKABLE_QUESTIONS.find((item) => item.fact === fact);
+    return !!q && (!q.askAfter || facts[q.askAfter.fact] === q.askAfter.value);
+  };
   const labelOf = (fact: string) =>
     ASKABLE_QUESTIONS.find((q) => q.fact === fact)?.label ?? fact;
 
@@ -245,7 +267,7 @@ export function classify(
       notes: [
         ...new Set(rulesOf.flatMap((rule) => (rule?.note ? [rule.note] : []))),
       ],
-      missing: system.missing.map(labelOf),
+      missing: system.missing.filter(isAskable).map(labelOf),
     };
   });
   views.sort(
@@ -268,6 +290,12 @@ export function classify(
     analyses,
     table: tableHint(evaluation.facts),
     risk: analyses.length === 0 ? risk : undefined,
+    observations:
+      analyses.length === 0 &&
+      facts.single_use === false &&
+      facts.only_subsidiary === true
+        ? SUBSIDIARY_OBSERVATIONS
+        : [],
     groups: {
       required: listed.filter((s) => s.status === "required"),
       needsInfo: listed.filter((s) => s.status === "needs_info"),

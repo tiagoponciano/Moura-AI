@@ -80,6 +80,7 @@ describe("question registry", () => {
       "glp_kg",
       "flammable_internal_l",
       "flammable_external_m3",
+      "classrooms_exit_outside",
       "risk_exempt",
     ]);
   });

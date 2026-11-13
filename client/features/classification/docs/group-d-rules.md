@@ -4,7 +4,7 @@ How the rule set for Grupo D (serviços profissionais: D-1 a D-4) is built and h
 
 ## What this is
 
-`GROUP_D_RULES` (`lib/rulesets/group-d.ts`) compiles two tables of IN 1 parte 2 the same way as Grupo C: Tabela 2, column "A-2, A-3, D, E e G" (area ≤ 750 m² and height ≤ 12 m) and Tabela 6 (area ≥ 750 m² or height ≥ 12 m, one column per height class). It adds the three rows of Quadro 2 for D to the risk III rules. `ALL_RULES` (`all-rules.ts`) is the Grupo C rules, which also hold what every covered group shares, plus those of Grupo D and Grupo E. `classify` runs `ALL_RULES`.
+`GROUP_D_RULES` (`lib/rulesets/group-d.ts`) compiles two tables of IN 1 parte 2 the same way as Grupo C: Tabela 2, column "A-2, A-3, D, E e G" (area ≤ 750 m² and height ≤ 12 m) and Tabela 6 (area ≥ 750 m² or height ≥ 12 m, one column per height class). It adds the three rows of Quadro 2 for D to the risk III rules. `ALL_RULES` (`all-rules.ts`) is the Grupo C rules, which also hold what every covered group shares, plus those of Grupos D, E and G. `classify` runs `ALL_RULES`.
 
 Invariants (as for Grupo C):
 

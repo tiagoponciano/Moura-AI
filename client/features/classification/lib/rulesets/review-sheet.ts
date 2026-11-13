@@ -3,9 +3,12 @@ import table2Json from "../../norms/in-1-p2/tables/table-02.json";
 import table5Json from "../../norms/in-1-p2/tables/table-05.json";
 import table6Json from "../../norms/in-1-p2/tables/table-06.json";
 import table7Json from "../../norms/in-1-p2/tables/table-07.json";
+import table13Json from "../../norms/in-1-p2/tables/table-13.json";
+import table14Json from "../../norms/in-1-p2/tables/table-14.json";
 import { TABLE_2_SPEC, TABLE_5_SPEC } from "./group-c";
 import { TABLE_2_D_SPEC, TABLE_6_SPEC } from "./group-d";
 import { TABLE_2_E_SPEC, TABLE_7_SPEC } from "./group-e";
+import { TABLE_13_SPEC, TABLE_14_SPEC, TABLE_2_G_SPEC } from "./group-g";
 import { NORM_VALID_FROM } from "./compile-table";
 import { systemIdFromLabel, systemLabel } from "./systems";
 import type { ExtractedTable, NoteEffect, NoteSpec, TableSpec } from "./types";
@@ -14,6 +17,8 @@ const table2 = table2Json as unknown as ExtractedTable;
 const table5 = table5Json as unknown as ExtractedTable;
 const table6 = table6Json as unknown as ExtractedTable;
 const table7 = table7Json as unknown as ExtractedTable;
+const table13 = table13Json as unknown as ExtractedTable;
+const table14 = table14Json as unknown as ExtractedTable;
 
 const number = (n: number) => n.toLocaleString("pt-BR");
 
@@ -318,6 +323,36 @@ export function renderGroupEReviewSheet(): string {
     specs: [
       { spec: TABLE_2_E_SPEC, table: table2 },
       { spec: TABLE_7_SPEC, table: table7 },
+    ],
+  });
+}
+
+/** The questions of the Grupo C sheet that hold for any group, plus the ones of Grupo G. */
+export const GENERAL_QUESTIONS_G = [
+  ...GENERAL_QUESTIONS.slice(0, 5),
+  "**Divisão G-1 a G-5.** A divisão vem da conversa (o assistente propõe a partir da descrição e o usuário confirma). Quem valida a divisão final? As duas tabelas por altura dependem dela: a Tabela 13 vale para G-1, G-2 e G-5, e a Tabela 14 para G-3 e G-4.",
+  '**Escopo do Grupo G.** Só entra: Grupo G, um bloco e uma ocupação. O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Fora disso o resultado é "análise específica". Uma garagem é muitas vezes ocupação subsidiária de outro imóvel, o que hoje também vai para análise específica. É aceitável?',
+  '**Coluna compartilhada da Tabela 2.** A coluna "A-2, A-3, D, E e G" vale para o Grupo G, e a nota 1 (isenção de brigadistas) cita só A-1, A-2 e J-1. Confirmar que a brigada é exigida para o G.',
+  '**Células com duas notas na Tabela 14.** O PDF traz "x²⁻³" (compartimentação horizontal). O código leu como as notas 2 e 3 (exigida só para G-4, e pode ser substituída por chuveiros), porque assim as seis notas são citadas. Confirmar que não é um intervalo.',
+  ...GENERAL_QUESTIONS.slice(7, 9),
+  ...GENERAL_QUESTIONS.slice(10, 12),
+  "**Risco III do Grupo G.** O Quadro 2 traz linhas por divisão: G-1, G-2 e G-5 (até 21 m e 5.000 m²), G-3 (térreo, até 750 m²) e G-4 (até 6 m e 5.000 m², ou de 6 a 12 m e 3.000 m²). A linha de G-3 só decide quando o risco II falha, porque ele vem antes e já cobre térreo até 750 m². Confirmar.",
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 1],
+];
+
+/** The Portuguese review sheet for the Grupo G rules; generated, never edited by hand. */
+export function renderGroupGReviewSheet(): string {
+  return renderReviewSheet({
+    title: "Regras do Grupo G: folha de revisão",
+    source:
+      "IN 1 parte 2, Anexo B, Tabelas 2 (coluna A-2, A-3, D, E e G), 13 e 14; IN 3, art. 11 e Anexo A; IN 1 parte 1, art. 5º e Anexo A (risco)",
+    coverage:
+      'o Grupo G (serviços automotivos e assemelhados: G-1 a G-5), com as regras de nível de risco, travas e carga de incêndio que ele compartilha com os demais grupos cobertos. As divisões sem regras carregadas respondem "análise específica".',
+    general: GENERAL_QUESTIONS_G,
+    specs: [
+      { spec: TABLE_2_G_SPEC, table: table2 },
+      { spec: TABLE_13_SPEC, table: table13 },
+      { spec: TABLE_14_SPEC, table: table14 },
     ],
   });
 }

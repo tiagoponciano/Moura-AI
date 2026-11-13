@@ -74,13 +74,32 @@ export type Classification = {
 
 const CATALOG_ORDER = Object.keys(SYSTEMS);
 
-/** The table by height of each covered group in IN 1 parte 2, Anexo B. */
-const LARGE_TABLE: Record<string, number> = { C: 5, D: 6, E: 7 };
+/** The table by height of each covered division in IN 1 parte 2, Anexo B. */
+const LARGE_TABLE: Record<string, number> = {
+  "C-1": 5,
+  "C-2": 5,
+  "C-3": 5,
+  "D-1": 6,
+  "D-2": 6,
+  "D-3": 6,
+  "D-4": 6,
+  "E-1": 7,
+  "E-2": 7,
+  "E-3": 7,
+  "E-4": 7,
+  "E-5": 7,
+  "E-6": 7,
+  "G-1": 13,
+  "G-2": 13,
+  "G-5": 13,
+  "G-3": 14,
+  "G-4": 14,
+};
 
 function tableHint(facts: Facts): string | undefined {
   if (facts.regime === "small") return "Tabela 2 (imóvel até 750 m² e 12 m)";
   if (facts.regime !== "large") return undefined;
-  const table = LARGE_TABLE[String(facts.division).slice(0, 1)];
+  const table = LARGE_TABLE[String(facts.division)];
   const label = table ? `Tabela ${table}` : "Tabela por altura";
   const column = HEIGHT_CLASSES.find((h) => h.id === facts.height_class);
   return column ? `${label}, coluna ${column.label}` : label;

@@ -11,6 +11,7 @@ import {
   renderGroupGReviewSheet,
   renderGroupFReviewSheet,
   renderGroupKReviewSheet,
+  renderGroupMReviewSheet,
   renderGroupHReviewSheet,
   renderGroupIJReviewSheet,
 } from "./review-sheet";
@@ -269,6 +270,25 @@ describe("renderGroupKReviewSheet", () => {
   it("covers the ten notes of Tabela 22", () => {
     for (let n = 1; n <= 10; n++)
       expect(sheet).toContain(`### Tabela 22, nota ${n}\n`);
+  });
+
+  it("is the committed sheet", () => {
+    if (process.env.UPDATE_REVIEW_SHEET === "1") writeFileSync(FILE, sheet);
+    expect(readFileSync(FILE, "utf-8")).toBe(sheet);
+  });
+});
+
+describe("renderGroupMReviewSheet", () => {
+  const sheet = renderGroupMReviewSheet();
+  const FILE = join(__dirname, "../../docs/group-m-review-sheet.md");
+
+  it("covers the notes of Tabelas 23 and 24", () => {
+    for (const [table, count] of [
+      [23, 2],
+      [24, 7],
+    ] as const)
+      for (let n = 1; n <= count; n++)
+        expect(sheet).toContain(`### Tabela ${table}, nota ${n}\n`);
   });
 
   it("is the committed sheet", () => {

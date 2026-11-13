@@ -421,6 +421,47 @@ export const QUESTIONS: Question[] = [
     askable: true,
   },
   {
+    fact: "a1_construction",
+    kind: "enum",
+    label: "Construção (A-1)",
+    ask: "A habitação é geminada ou conjugada, isolada, ou unifamiliar em edificação mista?",
+    description:
+      "How the A-1 dwelling is built: attached (semi-detached or conjoined houses), detached, or mixed_single_family (a single-family unit inside a mixed building). Asked only for A-1.",
+    options: [
+      { value: "attached", label: "Geminada ou conjugada" },
+      { value: "detached", label: "Isolada" },
+      {
+        value: "mixed_single_family",
+        label: "Unifamiliar em edificação mista",
+      },
+    ],
+    allowUnknown: true,
+    askable: true,
+  },
+  {
+    fact: "shared_gas_shelter",
+    kind: "boolean",
+    label: "Abrigo compartilhado ou central de GLP",
+    ask: "Há abrigo compartilhado ou central de GLP?",
+    description:
+      "True when the A-1 property has a shared gas shelter or a central LPG installation; false when it has none. Asked only for A-1.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
+    fact: "lot_count",
+    kind: "number",
+    unit: "lotes",
+    integer: true,
+    allowZero: true,
+    label: "Lotes do condomínio",
+    ask: "Quantos lotes o condomínio residencial horizontal prevê?",
+    description:
+      "Number of lots planned for the A-1 horizontal residential condominium; 0 when it is not a condominium. Asked only for A-1.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
     fact: "storage_area_m2",
     kind: "number",
     unit: "m²",

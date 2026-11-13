@@ -366,6 +366,61 @@ export const QUESTIONS: Question[] = [
     askable: true,
   },
   {
+    fact: "silo_support_area_m2",
+    kind: "number",
+    unit: "m²",
+    allowZero: true,
+    label: "Área das construções de apoio do silo (m²)",
+    ask: "Qual é a área somada das construções de apoio do silo, em m²?",
+    description:
+      "Sum of the floor areas of the buildings that support the silo (M-5), in square meters; 0 when there are none. Asked only for M-5.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
+    fact: "planting_area_ha",
+    kind: "number",
+    unit: "ha",
+    label: "Área de plantio (ha)",
+    ask: "Qual é a área de plantio, em hectares?",
+    description:
+      "Planted area of the M-6 property in hectares. Asked only for M-6.",
+    allowUnknown: false,
+    askable: true,
+  },
+  {
+    fact: "greenhouse_uses_gas",
+    kind: "boolean",
+    label: "Estufa com gás combustível",
+    ask: "A estufa utiliza gás combustível?",
+    description:
+      "True when the M-11 greenhouse uses fuel gas; false when it does not. Asked only for M-11.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
+    fact: "gas_suppression_system",
+    kind: "boolean",
+    label: "Sistema fixo de gases para supressão de incêndio",
+    ask: "O imóvel tem sistema fixo de gases para supressão de incêndio?",
+    description:
+      "True when the property has a fixed gas fire suppression system; false when it has none. Asked only for M-3.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
+    fact: "isotank_total_m3",
+    kind: "number",
+    unit: "m³",
+    allowZero: true,
+    label: "Tanques portáteis (isotanques) com líquidos (m³)",
+    ask: "Qual é a capacidade total dos tanques portáteis (isotanques) com líquidos inflamáveis ou combustíveis, em m³?",
+    description:
+      "Total capacity of portable tanks (isotanks) holding flammable or combustible liquids, in cubic meters; 0 when there are none. Asked only for M-7.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
     fact: "storage_area_m2",
     kind: "number",
     unit: "m²",

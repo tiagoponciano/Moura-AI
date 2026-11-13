@@ -381,7 +381,10 @@ describe("classify: the activity", () => {
       {
         ...base,
         ...scope,
-        activity: ACTIVITIES.find((a) => a.group === "M")!.id,
+        activity: ACTIVITIES.find(
+          (a) =>
+            a.group === "M" && a.division !== "M-1" && a.division !== "M-2",
+        )!.id,
       },
       DATE,
     );
@@ -447,7 +450,7 @@ describe("classify: the risk level", () => {
 
   it("is not covered outside Grupo C", () => {
     const result = classify(
-      { ...shop(), activity: undefined, division: "M-1" },
+      { ...shop(), activity: undefined, division: "M-3" },
       DATE,
     );
     expect(result.risk).toBeUndefined();

@@ -304,6 +304,68 @@ export const QUESTIONS: Question[] = [
     askable: true,
   },
   {
+    fact: "tunnel_length_m",
+    kind: "number",
+    unit: "m",
+    label: "Extensão do túnel (m)",
+    ask: "Qual é a extensão do túnel, em metros?",
+    description: "Length of the M-1 tunnel in meters. Asked only for M-1.",
+    allowUnknown: false,
+    askable: true,
+  },
+  {
+    fact: "m2_installation",
+    kind: "enum",
+    label: "Tipo de instalação (M-2)",
+    ask: "A instalação é de tanques, cilindros ou processos, uma plataforma de carregamento e descarregamento, ou produtos acondicionados?",
+    description:
+      "M-2 installation being classified: tanks_processes (tanks, cylinders and processes), loading_platform (loading and unloading platform) or packaged_products. Asked only for M-2.",
+    options: [
+      { value: "tanks_processes", label: "Tanques, cilindros e processos" },
+      {
+        value: "loading_platform",
+        label: "Plataforma de carregamento/descarregamento",
+      },
+      { value: "packaged_products", label: "Produtos acondicionados" },
+    ],
+    allowUnknown: true,
+    askable: true,
+  },
+  {
+    fact: "m2_liquid_m3",
+    kind: "number",
+    unit: "m³",
+    allowZero: true,
+    label: "Líquidos inflamáveis ou combustíveis (m³)",
+    ask: "Qual é o volume de líquidos inflamáveis ou combustíveis da instalação, em m³?",
+    description:
+      "Volume of flammable or combustible liquids of the M-2 installation, in cubic meters; 0 when none.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
+    fact: "m2_gas_quantity",
+    kind: "number",
+    unit: "m³ ou kg",
+    allowZero: true,
+    label: "Gases (m³ ou kg)",
+    ask: "Qual é a quantidade de gases da instalação: em m³ para tanques, cilindros e processos, ou em kg para produtos acondicionados?",
+    description:
+      "Quantity of gases of the M-2 installation: cubic meters for tanks_processes, kilograms for packaged_products; 0 when none.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
+    fact: "hose_reach_60m",
+    kind: "boolean",
+    label: "Mangueiras de até 60 m a partir do passeio",
+    ask: "A partir do passeio público, o caminhão consegue acessar o local mais distante com mangueiras de no máximo 60 m?",
+    description:
+      "True when, from the public sidewalk, the fire truck reaches the farthest point with hoses of at most 60 meters; false otherwise.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
     fact: "storage_area_m2",
     kind: "number",
     unit: "m²",

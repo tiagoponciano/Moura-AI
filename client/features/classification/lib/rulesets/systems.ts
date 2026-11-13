@@ -21,6 +21,8 @@ export const SYSTEMS = {
   emergency_signage: "Sinalização para abandono de local",
   foam: "Espuma",
   cooling: "Resfriamento",
+  communication_system: "Sistema de comunicação",
+  cctv: "Circuito de TV (monitoramento)",
 } as const;
 
 export type SystemId = keyof typeof SYSTEMS;
@@ -51,6 +53,11 @@ const ALIASES: Record<string, SystemId> = {
   "sinalização para abandono de local": "emergency_signage",
   "sinalização de emergência": "emergency_signage",
   espuma: "foam",
+  "detecção de incêndio": "automatic_detection",
+  "compartimentação horizontal (áreas)": "horizontal_compartmentation",
+  "iluminação de emergência 5": "emergency_lighting",
+  "sistema de comunicação": "communication_system",
+  "sistema de circuito de tv (monitoramento)": "cctv",
   resfriamento: "cooling",
 };
 

@@ -18,7 +18,7 @@ Gerada a partir do código (`lib/rulesets/review-sheet.ts`); não edite à mão.
 4. **Gás combustível (IN 8).** Aparece como exigido em todas as colunas do Grupo C. Vale para qualquer imóvel do grupo, mesmo sem instalação de gás?
 5. **Carga de incêndio.** O código aceita a classe (desprezível a altíssima) ou o valor em MJ/m² e deriva a classe pelos limites da IN 3, art. 11. Quem informa esse valor para o cliente? A IN 3 tem uma tabela por atividade (Anexo B) que ainda não está carregada.
 6. **Divisão E-1 a E-6.** A divisão vem da conversa (o assistente propõe a partir da descrição e o usuário confirma). Quem valida a divisão final?
-7. **Escopo do Grupo E.** Só entra: Grupo E, um bloco e uma ocupação. O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Fora disso o resultado é "análise específica". É aceitável?
+7. **Escopo do Grupo E.** Entra: Grupo E, um bloco e uma só ocupação (ou outras só subsidiárias). O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Fora disso o resultado é "análise específica". É aceitável?
 8. **Coluna compartilhada da Tabela 2.** A coluna "A-2, A-3, D, E e G" vale para o Grupo E, e a nota 1 (isenção de brigadistas) cita só A-1, A-2 e J-1. Confirmar que a brigada é exigida para o E.
 9. **Células com duas notas na Tabela 7.** O PDF traz "x⁷⁻⁸" (detecção) e "x⁹ _ ¹³" (elevador). O código leu como duas notas cada (7 e 8; 9 e 13), porque assim todas as 13 notas são citadas exatamente uma vez. Confirmar que não é um intervalo.
 10. **Pergunta nova: salas de aula.** A dispensa da nota 8 depende de a maior parte das salas de aula ter saída direta para uma área externa aberta. O código pergunta isso ao usuário, só para escolas de até 2 pavimentos e só nas colunas até 6 m (onde a célula cita a nota 8). Basta um sim ou não?
@@ -27,7 +27,8 @@ Gerada a partir do código (`lib/rulesets/review-sheet.ts`); não edite à mão.
 13. **Líquidos inflamáveis e combustíveis.** A norma fala em inflamável classe I acima de 1.000 L para o risco V e em "líquido inflamável" (interno) e "inflamável/combustível" (externo) para o risco II. O código pergunta um volume só de "inflamáveis ou combustíveis" em área interna e outro em área externa. Basta, ou é preciso separar a classe?
 14. **Altura no risco.** O código usa a mesma altura da exigência dos sistemas (art. 8º: térreo vale 0) também para o Quadro 2. Confirmar.
 15. **Risco III do Grupo E.** O Quadro 2 traz duas linhas: E-1 a E-4 (até 21 m e 5.000 m²) e E-5 e E-6 (até 12 m e 750 m²). O código as aplica como estão. Confirmar.
-16. **Ainda não existe:** a camada de edificações existentes e recentes (IN 5), que rotula cada sistema como vital, indispensável ou adequável. O resultado mostra o enquadramento de risco e os sistemas exigidos.
+16. **Ocupação subsidiária (IN 1 parte 2, art. 10).** Quando o usuário diz que há mais de uma ocupação, o código pergunta se as outras são só subsidiárias (vinculadas e fundamentais à principal, como garagem, salão de festas ou depósito de apoio), sem reunião de público para mais de 100 pessoas (art. 10, § 4º) e sem depósito acima de 1.000 m² (IN 1 parte 1, art. 4º, IV). Se sim, valem os sistemas da ocupação predominante, com a observação da compartimentação de garagens (§§ 1º a 3º). Se não, é ocupação mista ou secundária e vai para análise específica. Quem responde essa pergunta, e os limites usados estão certos?
+17. **Ainda não existe:** a camada de edificações existentes e recentes (IN 5), que rotula cada sistema como vital, indispensável ou adequável. O resultado mostra o enquadramento de risco e os sistemas exigidos.
 
 ### Por nota
 

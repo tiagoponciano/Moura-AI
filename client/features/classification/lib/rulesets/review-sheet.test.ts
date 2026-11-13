@@ -6,6 +6,7 @@ import {
   renderGroupCReviewSheet,
   renderGroupDReviewSheet,
   renderGroupEReviewSheet,
+  renderGroupGReviewSheet,
 } from "./review-sheet";
 import { fact, C2, C3 } from "./group-c-conditions";
 
@@ -121,6 +122,24 @@ describe("renderGroupEReviewSheet", () => {
       expect(sheet).toContain(`### Tabela 7, nota ${n}\n`);
     expect(sheet).toContain("Dispensado quando");
     expect(sheet).toContain("**Células com duas notas na Tabela 7.**");
+  });
+
+  it("is the committed sheet", () => {
+    if (process.env.UPDATE_REVIEW_SHEET === "1") writeFileSync(FILE, sheet);
+    expect(readFileSync(FILE, "utf-8")).toBe(sheet);
+  });
+});
+
+describe("renderGroupGReviewSheet", () => {
+  const sheet = renderGroupGReviewSheet();
+  const FILE = join(__dirname, "../../docs/group-g-review-sheet.md");
+
+  it("covers the notes of Tabelas 13 and 14", () => {
+    for (let n = 1; n <= 5; n++)
+      expect(sheet).toContain(`### Tabela 13, nota ${n}\n`);
+    for (let n = 1; n <= 6; n++)
+      expect(sheet).toContain(`### Tabela 14, nota ${n}\n`);
+    expect(sheet).toContain("**Células com duas notas na Tabela 14.**");
   });
 
   it("is the committed sheet", () => {

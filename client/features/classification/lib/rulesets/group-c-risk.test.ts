@@ -217,7 +217,7 @@ describe("risk: what it asks and what it does not decide", () => {
   });
 
   it("does not classify a division outside the group", () => {
-    expect(risk(shop({ division: "M-3" }))).toBe("no_rule");
+    expect(risk(shop({ division: "M-8" }))).toBe("no_rule");
   });
 
   it("quotes the norm for the level it decided", () => {

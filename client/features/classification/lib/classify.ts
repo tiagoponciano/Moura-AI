@@ -109,6 +109,7 @@ const LARGE_TABLE: Record<string, number> = {
   "F-10": 10,
   "F-4": 11,
   "F-11": 12,
+  "M-3": 25,
   "I-1": 18,
   "I-2": 18,
   "I-3": 19,
@@ -163,6 +164,15 @@ function tableTwentyTwoColumn(facts: Facts): string | undefined {
   return undefined;
 }
 
+/** Divisions whose table does not depend on area or height. */
+const NO_REGIME_TABLE: Record<string, number> = {
+  "M-4": 26,
+  "M-7": 26,
+  "M-5": 27,
+  "M-6": 28,
+  "M-11": 29,
+};
+
 const M2_COLUMNS: Record<string, string> = {
   tanks_processes: "tanques, cilindros e processos",
   loading_platform: "plataforma de carregamento",
@@ -171,6 +181,8 @@ const M2_COLUMNS: Record<string, string> = {
 
 function tableHint(facts: Facts): string | undefined {
   if (facts.division === "M-1") return "Tabela 23 (túnel)";
+  const noRegime = NO_REGIME_TABLE[String(facts.division)];
+  if (noRegime) return `Tabela ${noRegime}`;
   if (facts.division === "M-2") {
     const column = M2_COLUMNS[String(facts.m2_installation)];
     return column ? `Tabela 24, coluna ${column}` : "Tabela 24";

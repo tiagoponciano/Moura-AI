@@ -6,6 +6,7 @@ import { GROUP_E_RULES } from "./group-e";
 import { GROUP_F_RULES } from "./group-f";
 import { GROUP_K_RULES } from "./group-k";
 import { GROUP_M_RULES } from "./group-m";
+import { GROUP_M_DIVISIONS_RULES } from "./group-m-divisions";
 import { GROUP_G_RULES } from "./group-g";
 import { GROUP_H_RULES } from "./group-h";
 import { GROUP_IJ_RULES } from "./group-ij";
@@ -23,6 +24,7 @@ export const ALL_RULES = [
   ...GROUP_F_RULES,
   ...GROUP_K_RULES,
   ...GROUP_M_RULES,
+  ...GROUP_M_DIVISIONS_RULES,
   ...GROUP_G_RULES,
   ...GROUP_H_RULES,
   ...GROUP_IJ_RULES,

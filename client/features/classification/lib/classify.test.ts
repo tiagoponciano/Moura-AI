@@ -257,7 +257,7 @@ describe("classify: cases the tables do not settle", () => {
   it("sends a division outside Grupo C to analysis", () => {
     const result = classify(shop({ division: "other" }), DATE);
     expect(result.status).toBe("analysis");
-    expect(result.analyses[0].reason).toContain("Grupo C");
+    expect(result.analyses[0].reason).toContain("ainda não está coberta");
   });
 
   it("sends several blocks, mixed use and high storage to analysis", () => {
@@ -378,12 +378,16 @@ describe("classify: the activity", () => {
 
   it("sends an activity of another group to analysis, naming its division", () => {
     const result = classify(
-      { ...base, ...scope, activity: "D-1-cabeleireiro-manicure-e-pedicure" },
+      {
+        ...base,
+        ...scope,
+        activity: ACTIVITIES.find((a) => a.group === "E")!.id,
+      },
       DATE,
     );
     expect(result.derived[0]).toMatchObject({
       label: "Divisão",
-      value: expect.stringContaining("D-1 ·"),
+      value: expect.stringContaining("E-"),
     });
     expect(result.status).toBe("analysis");
   });
@@ -443,7 +447,7 @@ describe("classify: the risk level", () => {
 
   it("is not covered outside Grupo C", () => {
     const result = classify(
-      { ...shop(), activity: undefined, division: "D-1" },
+      { ...shop(), activity: undefined, division: "E-1" },
       DATE,
     );
     expect(result.risk).toBeUndefined();

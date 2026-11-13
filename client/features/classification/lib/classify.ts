@@ -8,7 +8,7 @@ import {
   type NextAsk,
   type Question,
 } from "./questions";
-import { GROUP_C_RULES } from "./rulesets/group-c";
+import { ALL_RULES } from "./rulesets/all-rules";
 import {
   FIRE_LOAD_CLASSES,
   HEIGHT_CLASSES,
@@ -74,18 +74,23 @@ export type Classification = {
 
 const CATALOG_ORDER = Object.keys(SYSTEMS);
 
+/** The table by height of each covered group in IN 1 parte 2, Anexo B. */
+const LARGE_TABLE: Record<string, number> = { C: 5, D: 6 };
+
 function tableHint(facts: Facts): string | undefined {
   if (facts.regime === "small") return "Tabela 2 (imóvel até 750 m² e 12 m)";
   if (facts.regime !== "large") return undefined;
+  const table = LARGE_TABLE[String(facts.division).slice(0, 1)];
+  const label = table ? `Tabela ${table}` : "Tabela por altura";
   const column = HEIGHT_CLASSES.find((h) => h.id === facts.height_class);
-  return column ? `Tabela 5, coluna ${column.label}` : "Tabela 5";
+  return column ? `${label}, coluna ${column.label}` : label;
 }
 
 /** Runs the rules over the answers and shapes the result for the screen. */
 export function classify(
   answers: Facts,
   analysisDate: string,
-  rules: Rule[] = GROUP_C_RULES,
+  rules: Rule[] = ALL_RULES,
 ): Classification {
   // The activity fills the division and the fire load unless the user already gave them.
   const facts: Facts = { ...answers };

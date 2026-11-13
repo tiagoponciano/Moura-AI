@@ -447,7 +447,7 @@ describe("classify: the risk level", () => {
 
   it("is not covered outside Grupo C", () => {
     const result = classify(
-      { ...shop(), activity: undefined, division: "K-1" },
+      { ...shop(), activity: undefined, division: "M-1" },
       DATE,
     );
     expect(result.risk).toBeUndefined();

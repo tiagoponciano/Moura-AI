@@ -151,7 +151,23 @@ function tableThreeColumn(facts: Facts): string | undefined {
   return "> 30";
 }
 
+/** The column of Tabela 22 (Grupo K), which is not split by area or height. */
+function tableTwentyTwoColumn(facts: Facts): string | undefined {
+  if (facts.division === "K-1") {
+    const volume = facts.combustible_liquid_m3;
+    if (typeof volume !== "number") return undefined;
+    return volume <= 20 ? "K-1, ≤ 20 m³" : "K-1, > 20 m³";
+  }
+  if (facts.power_plant_type === "hydro") return "K-2, hidroelétrica";
+  if (facts.power_plant_type === "thermal") return "K-2, termoelétrica";
+  return undefined;
+}
+
 function tableHint(facts: Facts): string | undefined {
+  if (facts.division === "K-1" || facts.division === "K-2") {
+    const column = tableTwentyTwoColumn(facts);
+    return column ? `Tabela 22, coluna ${column}` : "Tabela 22";
+  }
   if (facts.regime === "small") return "Tabela 2 (imóvel até 750 m² e 12 m)";
   if (facts.regime !== "large") return undefined;
   const table = LARGE_TABLE[String(facts.division)];

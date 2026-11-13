@@ -110,6 +110,9 @@ export const DIVISION_F_MAIN = fact("division", "in", [
 export const DIVISION_I_1_2 = fact("division", "in", ["I-1", "I-2"]);
 export const DIVISION_J_1_2 = fact("division", "in", ["J-1", "J-2"]);
 export const DIVISION_J_3_4 = fact("division", "in", ["J-3", "J-4"]);
+export const K1 = fact("division", "eq", "K-1");
+export const K2 = fact("division", "eq", "K-2");
+export const DIVISION_K = fact("division", "in", ["K-1", "K-2"]);
 /** Every division that has rules loaded. */
 const COVERED_DIVISION_IDS = [
   "A-2",
@@ -157,6 +160,8 @@ const COVERED_DIVISION_IDS = [
   "J-2",
   "J-3",
   "J-4",
+  "K-1",
+  "K-2",
 ];
 export const COVERED_DIVISIONS = fact("division", "in", COVERED_DIVISION_IDS);
 
@@ -176,6 +181,9 @@ const AREA_HEIGHT_GUARDS: readonly ScopeGuardKey[] = [
   "mixed-use",
 ];
 
+/** Grupo K (Tabela 22) is not split by area or height, so it has no regime boundary. */
+const K_GUARDS: readonly ScopeGuardKey[] = ["multiple-blocks", "mixed-use"];
+
 /**
  * The guards each covered division declares. A new division lists only the
  * guards that fit its tables (K and M do not use area or height, so they do not
@@ -183,7 +191,10 @@ const AREA_HEIGHT_GUARDS: readonly ScopeGuardKey[] = [
  */
 export const DIVISION_SCOPE_GUARDS: Record<string, readonly ScopeGuardKey[]> =
   Object.fromEntries(
-    COVERED_DIVISION_IDS.map((id) => [id, AREA_HEIGHT_GUARDS]),
+    COVERED_DIVISION_IDS.map((id) => [
+      id,
+      id.startsWith("K-") ? K_GUARDS : AREA_HEIGHT_GUARDS,
+    ]),
   );
 
 /** The condition "division is one that declares this guard". */

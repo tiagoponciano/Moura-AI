@@ -6,7 +6,7 @@ How the rule set for Grupo E (educacional: E-1 a E-6) is built and how it differ
 
 `GROUP_E_RULES` (`lib/rulesets/group-e.ts`) compiles Tabela 2, column "A-2, A-3, D, E e G" (area ≤ 750 m² and height ≤ 12 m) and Tabela 7 (area ≥ 750 m² or height ≥ 12 m, one column per height class) like the other groups, and adds the two rows of Quadro 2 for E to the risk III rules. `ALL_RULES` includes them; `classify` names the table "Tabela 7, coluna …" for this group.
 
-Invariants (as for the other groups): every rule is `provisional`; a cell with an uncoded note throws at compile time; outside the scope (several blocks, mixed use, exactly 750 m² or 12 m, a division without rules) the result is a specific analysis.
+Invariants (as for the other groups): every rule is `provisional`; a cell with an uncoded note throws at compile time; outside the scope (several blocks, mixed or secondary use, exactly 750 m² or 12 m, a division without rules) the result is a specific analysis.
 
 `docs/group-e-review-sheet.md` is generated from the code and kept equal to it by a test.
 

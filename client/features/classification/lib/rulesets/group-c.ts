@@ -12,6 +12,7 @@ import {
   REGIME_LARGE,
   REGIME_SMALL,
   fact,
+  USE_IN_SCOPE,
 } from "./group-c-conditions";
 import { TABLE_2_NOTES, TABLE_5_NOTES } from "./group-c-notes";
 import type { ExtractedTable, TableSpec } from "./types";
@@ -23,7 +24,7 @@ const table5 = table5Json as unknown as ExtractedTable;
 const WITHIN_SCOPE: Condition = {
   all: [
     fact("single_block", "eq", true),
-    fact("single_use", "eq", true),
+    USE_IN_SCOPE,
     fact("storage_over_3_5m", "eq", false),
   ],
 };
@@ -171,10 +172,15 @@ const guards: Rule[] = [
   ),
   guard(
     "GUARD-mixed-use",
-    "Mais de uma ocupação",
-    fact("single_use", "eq", false),
-    "Mais de uma ocupação no imóvel (mista, subsidiária ou secundária): os SMSCI seguem as regras dos arts. 10 a 12. Análise específica.",
-    { doc: "IN-1-P2", locator: "Arts. 10 a 12" },
+    "Ocupação mista ou secundária",
+    {
+      all: [
+        fact("single_use", "eq", false),
+        fact("only_subsidiary", "eq", false),
+      ],
+    },
+    "Há outra ocupação que não é só subsidiária (mista ou secundária): os SMSCI seguem as regras dos arts. 11 e 12. Análise específica.",
+    { doc: "IN-1-P2", locator: "Arts. 11 e 12" },
   ),
   guard(
     "GUARD-storage-over-3-5m",

@@ -30,24 +30,25 @@ Invariants:
 
 Facts the rules read. Areas are in m², heights in m, loads in MJ/m².
 
-| Fact                      | Type    | Meaning                                                                                                                              |
-| ------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `division`                | string  | `C-1`, `C-2` or `C-3`; any other value is outside the rule set                                                                       |
-| `area_m2`                 | number  | Total built area (IN 1 parte 2, art. 7)                                                                                              |
-| `height_m`                | number  | Lowest occupied floor to the floor of the last storey (art. 8)                                                                       |
-| `storeys`                 | number  | Number of storeys; `1` is a single-storey building, whose height counts as 0 (art. 8, inciso V)                                      |
-| `fire_load_class`         | string  | `negligible`, `low`, `medium`, `high` or `very_high`                                                                                 |
-| `fire_load_mj_m2`         | number  | Optional. When `fire_load_class` is absent, the class is derived from it (≤100, ≤300, ≤1.200, ≤2.280, above)                         |
-| `single_block`            | boolean | `false` means more than one block or area                                                                                            |
-| `single_use`              | boolean | `false` means mixed, subsidiary or secondary occupancy                                                                               |
-| `storage_over_3_5m`       | boolean | Storage of materials higher than 3,5 m                                                                                               |
-| `classrooms_exit_outside` | boolean | Most classrooms open directly onto an open outdoor area; read only by Grupo E (note 8 of Tabela 7)                                   |
-| `special_risks`           | boolean | `true` when there is any LPG, flammable or combustible liquid, or radioactive, toxic, explosive, pyrotechnic or ammunition substance |
-| `hazardous_substances`    | boolean | The radioactive, toxic, explosive, pyrotechnic or ammunition substances; asked only when `special_risks` is `true`                   |
-| `glp_kg`                  | number  | LPG used or stored, kg; 0 is valid; asked only when `special_risks` is `true`                                                        |
-| `flammable_internal_l`    | number  | Flammable or combustible liquids inside the building, L; 0 is valid; asked only when `special_risks` is `true`                       |
-| `flammable_external_m3`   | number  | The same outside, m³; 0 is valid; asked only when `special_risks` is `true`                                                          |
-| `risk_exempt`             | boolean | `true` when the activity is one of the risk I exemptions (IN 1 parte 1, art. 5º, § 2º, I)                                            |
+| Fact                      | Type    | Meaning                                                                                                                                                                                                                       |
+| ------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `division`                | string  | `C-1`, `C-2` or `C-3`; any other value is outside the rule set                                                                                                                                                                |
+| `area_m2`                 | number  | Total built area (IN 1 parte 2, art. 7)                                                                                                                                                                                       |
+| `height_m`                | number  | Lowest occupied floor to the floor of the last storey (art. 8)                                                                                                                                                                |
+| `storeys`                 | number  | Number of storeys; `1` is a single-storey building, whose height counts as 0 (art. 8, inciso V)                                                                                                                               |
+| `fire_load_class`         | string  | `negligible`, `low`, `medium`, `high` or `very_high`                                                                                                                                                                          |
+| `fire_load_mj_m2`         | number  | Optional. When `fire_load_class` is absent, the class is derived from it (≤100, ≤300, ≤1.200, ≤2.280, above)                                                                                                                  |
+| `single_block`            | boolean | `false` means more than one block or area                                                                                                                                                                                     |
+| `single_use`              | boolean | `false` means there is more than one occupancy                                                                                                                                                                                |
+| `only_subsidiary`         | boolean | When there is more than one occupancy: `true` when every other one is subsidiary (linked and fundamental to the main one, no assembly use above 100 people, no store above 1.000 m²); asked only when `single_use` is `false` |
+| `storage_over_3_5m`       | boolean | Storage of materials higher than 3,5 m                                                                                                                                                                                        |
+| `classrooms_exit_outside` | boolean | Most classrooms open directly onto an open outdoor area; read only by Grupo E (note 8 of Tabela 7)                                                                                                                            |
+| `special_risks`           | boolean | `true` when there is any LPG, flammable or combustible liquid, or radioactive, toxic, explosive, pyrotechnic or ammunition substance                                                                                          |
+| `hazardous_substances`    | boolean | The radioactive, toxic, explosive, pyrotechnic or ammunition substances; asked only when `special_risks` is `true`                                                                                                            |
+| `glp_kg`                  | number  | LPG used or stored, kg; 0 is valid; asked only when `special_risks` is `true`                                                                                                                                                 |
+| `flammable_internal_l`    | number  | Flammable or combustible liquids inside the building, L; 0 is valid; asked only when `special_risks` is `true`                                                                                                                |
+| `flammable_external_m3`   | number  | The same outside, m³; 0 is valid; asked only when `special_risks` is `true`                                                                                                                                                   |
+| `risk_exempt`             | boolean | `true` when the activity is one of the risk I exemptions (IN 1 parte 1, art. 5º, § 2º, I)                                                                                                                                     |
 
 Derived for the screen and for the rules: `risk_level` (`I` to `V`), `regime` (`small` or `large`) and `height_class` (`ground`, `h0_6`, `h6_12`, `h12_23`, `h23_30`, `h30p`).
 
@@ -73,6 +74,8 @@ Rule ids: `IN1P2-T<table>-<system>-<column>-req[N]` and `-sub[N]` for compiled r
 
 Height in Quadro 2 is the same height as for the systems (single-storey is 0). The fire load class is needed for every building, even a small one, because risk V depends on it; it is asked only when no activity supplied it. A division outside Grupo C gets no level. `RISK_PROCESS` holds, per level, what the norm says about the process (art. 5º, § 2º), shown with the result. Risk II and III rows are encoded by hand from the quadros; the rules carry the printed text.
 
+**Subsidiary occupations.** IN 1 parte 2, art. 10: where the other occupations are only subsidiary, the systems of the predominant occupation apply to them, so the rules read the predominant one (`USE_IN_SCOPE`), and `classify` adds the observations of art. 10 about garage compartmentation (§§ 1 to 3). The question limits follow art. 10, § 4 (an assembly use above 100 people has its own rules) and IN 1 parte 1, art. 4, IV (a store above 1.000 m² makes it mixed use). Mixed and secondary occupations (arts. 11 and 12) are not covered.
+
 **Guards** (`systems` stage, specific analysis):
 
 | Id                  | When                                                    | Source                |
@@ -82,10 +85,10 @@ Height in Quadro 2 is the same height as for the systems (single-storey is 0). T
 | `GUARD-boundary` | the regime boundary, for a covered division | Anexo B, Tabelas 2 e 3–29 |
 
 | `GUARD-multiple-blocks` | `single_block` is `false` | IN 1 parte 2, art. 7 |
-| `GUARD-mixed-use` | `single_use` is `false` | IN 1 parte 2, arts. 10–12 |
+| `GUARD-mixed-use` | `single_use` is `false` and `only_subsidiary` is `false` | IN 1 parte 2, arts. 11–12 |
 | `GUARD-storage-over-3-5m` | Grupo C and `storage_over_3_5m` is `true` | IN 3, art. 8 |
 
-Every table rule also requires `single_block`, `single_use` and `storage_over_3_5m` to be `true`/`true`/`false`, so while one of them is unanswered the systems are `needs_info`, and when one is the wrong way round no system is required.
+Every table rule also requires `single_block` to be `true`, one use (`single_use` `true`, or `only_subsidiary` `true`) and, for Grupo C, `storage_over_3_5m` to be `false`, so while one of them is unanswered the systems are `needs_info`, and when one is the wrong way round no system is required.
 
 **Compilation.** A cell marked `-` produces nothing. A cell marked `x` produces one rule, or one per `require_when` effect of its notes, whose condition is the table's base, the column and that effect's condition. `substitutable` effects produce `substitute` rules. `info` effects become the rule's `note`. A row is vital when its label carries "(V)" or the cell does. Each rule's `source.quote` holds the cell and the printed text of the notes it cites.
 
@@ -110,7 +113,7 @@ Outcomes for a Grupo C building (one block, one use, storage up to 3,5 m), all p
 - **Risk I is a yes/no.** The exemptions of art. 5º have details (a tent of up to 50 m², a home of up to 200 m² with one employee…); the user's answer stands for them.
 - **A C-2 with a low or negligible fire load has no Quadro 2 row,** so it falls to risk IV; the review sheet asks Moura about it.
 - **It covers Grupo C and, through its own document, Grupo D.** Any other division gets `GUARD-not-covered`.
-- **It does not handle several blocks, mixed occupancy or high storage.** Each returns a specific analysis.
+- **It does not handle several blocks, mixed or secondary occupancy or high storage.** Each returns a specific analysis. Other occupations that are only subsidiary do not stop the result (see the guards).
 - **It does not exclude basements, mezzanines or technical floors from the storey count or the height** (art. 8, parágrafo único); it uses the numbers it is given.
 - **It does not apply a substitution.** `substitutions` is information; the system stays required.
 - **At the 750 m² / 12 m boundary the systems show `not_required`, which is not a decision.** Every table rule is false there; a consumer must read `specificAnalyses` first and show the reason instead of the list.

@@ -8,7 +8,7 @@ How the rule set for Grupo B (serviço de hospedagem: B-1 e B-2) is built and ho
 
 **Tabela 4 has five height columns, not six**: Térrea, H ≤ 6, 6 < H ≤ 12, 12 < H ≤ 30 and > 30. The other tables split at 23 m. `group-b.ts` builds the five columns from the shared height conditions, and `classify` names the 12 to 30 m column by the table's own heading even though the derived `height_class` is `h12_23` or `h23_30`.
 
-Invariants (as for the other groups): every rule is `provisional`; a cell with an uncoded note throws at compile time; outside the scope (several blocks, mixed use, exactly 750 m² or 12 m, a division without rules) the result is a specific analysis.
+Invariants (as for the other groups): every rule is `provisional`; a cell with an uncoded note throws at compile time; outside the scope (several blocks, mixed or secondary use, exactly 750 m² or 12 m, a division without rules) the result is a specific analysis.
 
 `docs/group-b-review-sheet.md` is generated from the code and kept equal to it by a test.
 
@@ -31,7 +31,7 @@ Invariants (as for the other groups): every rule is `provisional`; a cell with a
 ## What this does NOT do
 
 - **It covers only B-1 and B-2.** Another division gets `GUARD-not-covered`.
-- **It treats a hotel with a restaurant, a party room or a garage as mixed use,** which goes to a specific analysis; the sheet asks if that is acceptable.
+- **A restaurant, party room or garage in a hotel is asked about, not assumed.** If the user says they are only subsidiary, the rules of the hotel apply (art. 10); otherwise it is mixed or secondary use and goes to a specific analysis.
 - **It does not size anything.** Which systems, not how many.
 - **It does nothing for existing buildings (IN 5).**
 - **It does not approve a reading.** The questions in the review sheet are open until a person answers them.

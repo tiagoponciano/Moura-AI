@@ -9,7 +9,7 @@ How the rule set for Grupo D (serviços profissionais: D-1 a D-4) is built and h
 Invariants (as for Grupo C):
 
 - **Every rule is `provisional`.** `compileTable` throws when a cell cites a note without a reading.
-- **Outside its scope the rule set lists nothing.** One block and one use are required; several blocks, mixed use and exactly 750 m² or 12 m return a specific analysis.
+- **Outside its scope the rule set lists nothing.** One block and one use are required; several blocks, mixed or secondary use and exactly 750 m² or 12 m return a specific analysis; other occupations that are only subsidiary follow the rules of the main one (see `group-c-rules.md`).
 
 `docs/group-d-review-sheet.md` is generated from the code (each note as printed, how it is read, its limits and the open questions for Moura), and a test keeps it equal to the code's output.
 

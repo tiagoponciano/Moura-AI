@@ -74,6 +74,7 @@ describe("question registry", () => {
       "fire_load_class",
       "single_block",
       "single_use",
+      "only_subsidiary",
       "storage_over_3_5m",
       "special_risks",
       "hazardous_substances",

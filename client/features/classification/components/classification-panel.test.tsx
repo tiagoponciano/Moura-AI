@@ -203,4 +203,17 @@ describe("ClassificationPanel", () => {
     expect(resetButton(render({}))).toContain(`disabled=""`);
     expect(resetButton(render(shop))).not.toContain(`disabled=""`);
   });
+
+  it("shows what the norm adds for subsidiary occupations, and nothing for a single use", () => {
+    const html = render({ ...shop, single_use: false, only_subsidiary: true });
+    expect(html).toContain("Observações da norma");
+    expect(html).toContain("compartimentados em relação aos acessos");
+    expect(html).toContain("IN 1 parte 2, art. 10");
+    expect(render(shop)).not.toContain("Observações da norma");
+  });
+
+  it("asks whether the other occupations are only subsidiary", () => {
+    const html = render({ ...shop, single_use: false });
+    expect(html).toContain("As outras atividades são todas subsidiárias");
+  });
 });

@@ -149,12 +149,13 @@ export const GENERAL_QUESTIONS = [
   "**Gás combustível (IN 8).** Aparece como exigido em todas as colunas do Grupo C. Vale para qualquer imóvel do grupo, mesmo sem instalação de gás?",
   "**Carga de incêndio.** O código aceita a classe (desprezível a altíssima) ou o valor em MJ/m² e deriva a classe pelos limites da IN 3, art. 11. Quem informa esse valor para o cliente? A IN 3 tem uma tabela por atividade (Anexo B) que ainda não está carregada.",
   "**Divisão C-1, C-2 ou C-3.** A divisão vem da conversa (o assistente propõe a partir da descrição e o usuário confirma). Quem valida a divisão final?",
-  '**Escopo desta versão.** Só entra: Grupo C, um bloco, uma ocupação e armazenamento até 3,5 m. Fora disso o resultado é "análise específica". É aceitável como primeira entrega?',
+  '**Escopo desta versão.** Entra: Grupo C, um bloco, uma só ocupação (ou outras ocupações só subsidiárias, ver a pergunta sobre ocupação subsidiária) e armazenamento até 3,5 m. Fora disso o resultado é "análise específica". É aceitável como primeira entrega?',
   '**Nível de risco (IN 1 parte 1, art. 5º e Anexo A).** O código avalia na ordem V, I, II, III e IV. A carga de incêndio é necessária mesmo para um imóvel pequeno, porque o risco V é "carga acima de 2.280 MJ/m²". Confirmar essa leitura.',
   '**Risco I.** Foi reduzido a uma pergunta de sim/não ("a atividade se enquadra numa das dispensas?"). As dispensas têm detalhes (ambulante com tenda de até 50 m², residência de até 200 m² com no máximo 1 empregado…). Quem responde, e basta o sim/não?',
   "**Risco III para C-2.** O Quadro 2 só traz C-2 de carga média e de carga alta. Um C-2 com carga baixa ou desprezível não tem linha, e o código o enquadra no risco IV. Confirmar, ou indicar a linha que vale.",
   '**Líquidos inflamáveis e combustíveis.** A norma fala em inflamável classe I acima de 1.000 L para o risco V e em "líquido inflamável" (interno) e "inflamável/combustível" (externo) para o risco II. O código pergunta um volume só de "inflamáveis ou combustíveis" em área interna e outro em área externa. Basta, ou é preciso separar a classe?',
   "**Altura no risco.** O código usa a mesma altura da exigência dos sistemas (art. 8º: térreo vale 0) também para o Quadro 2. Confirmar.",
+  "**Ocupação subsidiária (IN 1 parte 2, art. 10).** Quando o usuário diz que há mais de uma ocupação, o código pergunta se as outras são só subsidiárias (vinculadas e fundamentais à principal, como garagem, salão de festas ou depósito de apoio), sem reunião de público para mais de 100 pessoas (art. 10, § 4º) e sem depósito acima de 1.000 m² (IN 1 parte 1, art. 4º, IV). Se sim, valem os sistemas da ocupação predominante, com a observação da compartimentação de garagens (§§ 1º a 3º). Se não, é ocupação mista ou secundária e vai para análise específica. Quem responde essa pergunta, e os limites usados estão certos?",
   "**Ainda não existe:** a camada de edificações existentes e recentes (IN 5), que rotula cada sistema como vital, indispensável ou adequável. O resultado mostra o enquadramento de risco e os sistemas exigidos.",
 ];
 
@@ -281,11 +282,12 @@ export function renderGroupCReviewSheet(): string {
 export const GENERAL_QUESTIONS_D = [
   ...GENERAL_QUESTIONS.slice(0, 5),
   "**Divisão D-1 a D-4.** A divisão vem da conversa (o assistente propõe a partir da descrição e o usuário confirma). Quem valida a divisão final?",
-  '**Escopo do Grupo D.** Só entra: Grupo D, um bloco e uma ocupação. O armazenamento acima de 3,5 m é regra do Grupo C (IN 3, art. 8º) e não é perguntado. Fora disso o resultado é "análise específica". É aceitável?',
+  '**Escopo do Grupo D.** Entra: Grupo D, um bloco e uma só ocupação (ou outras só subsidiárias). O armazenamento acima de 3,5 m é regra do Grupo C (IN 3, art. 8º) e não é perguntado. Fora disso o resultado é "análise específica". É aceitável?',
   '**Coluna compartilhada da Tabela 2.** A coluna "A-2, A-3, D, E e G" vale para o Grupo D, e a nota 1 (isenção de brigadistas) cita só A-1, A-2 e J-1. Confirmar que a brigada é exigida para o D.',
   ...GENERAL_QUESTIONS.slice(7, 9),
   ...GENERAL_QUESTIONS.slice(10, 12),
   '**Risco III do Grupo D.** O Quadro 2 traz uma linha "D, Todas" por faixa de altura (até 6 m, 6 a 12 m, 12 a 21 m). O código aplica as três às divisões D-1 a D-4. Confirmar.',
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 2],
   GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 1],
 ];
 
@@ -309,13 +311,14 @@ export function renderGroupDReviewSheet(): string {
 export const GENERAL_QUESTIONS_E = [
   ...GENERAL_QUESTIONS.slice(0, 5),
   "**Divisão E-1 a E-6.** A divisão vem da conversa (o assistente propõe a partir da descrição e o usuário confirma). Quem valida a divisão final?",
-  '**Escopo do Grupo E.** Só entra: Grupo E, um bloco e uma ocupação. O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Fora disso o resultado é "análise específica". É aceitável?',
+  '**Escopo do Grupo E.** Entra: Grupo E, um bloco e uma só ocupação (ou outras só subsidiárias). O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Fora disso o resultado é "análise específica". É aceitável?',
   '**Coluna compartilhada da Tabela 2.** A coluna "A-2, A-3, D, E e G" vale para o Grupo E, e a nota 1 (isenção de brigadistas) cita só A-1, A-2 e J-1. Confirmar que a brigada é exigida para o E.',
   '**Células com duas notas na Tabela 7.** O PDF traz "x⁷⁻⁸" (detecção) e "x⁹ _ ¹³" (elevador). O código leu como duas notas cada (7 e 8; 9 e 13), porque assim todas as 13 notas são citadas exatamente uma vez. Confirmar que não é um intervalo.',
   "**Pergunta nova: salas de aula.** A dispensa da nota 8 depende de a maior parte das salas de aula ter saída direta para uma área externa aberta. O código pergunta isso ao usuário, só para escolas de até 2 pavimentos e só nas colunas até 6 m (onde a célula cita a nota 8). Basta um sim ou não?",
   ...GENERAL_QUESTIONS.slice(7, 9),
   ...GENERAL_QUESTIONS.slice(10, 12),
   "**Risco III do Grupo E.** O Quadro 2 traz duas linhas: E-1 a E-4 (até 21 m e 5.000 m²) e E-5 e E-6 (até 12 m e 750 m²). O código as aplica como estão. Confirmar.",
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 2],
   GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 1],
 ];
 
@@ -339,12 +342,13 @@ export function renderGroupEReviewSheet(): string {
 export const GENERAL_QUESTIONS_G = [
   ...GENERAL_QUESTIONS.slice(0, 5),
   "**Divisão G-1 a G-5.** A divisão vem da conversa (o assistente propõe a partir da descrição e o usuário confirma). Quem valida a divisão final? As duas tabelas por altura dependem dela: a Tabela 13 vale para G-1, G-2 e G-5, e a Tabela 14 para G-3 e G-4.",
-  '**Escopo do Grupo G.** Só entra: Grupo G, um bloco e uma ocupação. O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Fora disso o resultado é "análise específica". Uma garagem é muitas vezes ocupação subsidiária de outro imóvel, o que hoje também vai para análise específica. É aceitável?',
+  '**Escopo do Grupo G.** Entra: Grupo G, um bloco e uma só ocupação (ou outras só subsidiárias). O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Uma garagem que é parte de outro imóvel é ocupação subsidiária desse imóvel e segue as regras da predominante (art. 10). Fora disso o resultado é "análise específica". É aceitável?',
   '**Coluna compartilhada da Tabela 2.** A coluna "A-2, A-3, D, E e G" vale para o Grupo G, e a nota 1 (isenção de brigadistas) cita só A-1, A-2 e J-1. Confirmar que a brigada é exigida para o G.',
   '**Células com duas notas na Tabela 14.** O PDF traz "x²⁻³" (compartimentação horizontal). O código leu como as notas 2 e 3 (exigida só para G-4, e pode ser substituída por chuveiros), porque assim as seis notas são citadas. Confirmar que não é um intervalo.',
   ...GENERAL_QUESTIONS.slice(7, 9),
   ...GENERAL_QUESTIONS.slice(10, 12),
   "**Risco III do Grupo G.** O Quadro 2 traz linhas por divisão: G-1, G-2 e G-5 (até 21 m e 5.000 m²), G-3 (térreo, até 750 m²) e G-4 (até 6 m e 5.000 m², ou de 6 a 12 m e 3.000 m²). A linha de G-3 só decide quando o risco II falha, porque ele vem antes e já cobre térreo até 750 m². Confirmar.",
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 2],
   GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 1],
 ];
 
@@ -369,12 +373,13 @@ export function renderGroupGReviewSheet(): string {
 export const GENERAL_QUESTIONS_B = [
   ...GENERAL_QUESTIONS.slice(0, 5),
   "**Divisão B-1 e B-2.** A divisão vem da conversa (o assistente propõe a partir da descrição e o usuário confirma). Quem valida a divisão final?",
-  '**Escopo do Grupo B.** Só entra: Grupo B, um bloco e uma ocupação. O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Fora disso o resultado é "análise específica". Um hotel costuma ter restaurante, salão de festas e garagem; o código manda isso para análise específica por ser ocupação mista. É aceitável?',
+  '**Escopo do Grupo B.** Entra: Grupo B, um bloco e uma só ocupação (ou outras só subsidiárias). O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Um hotel costuma ter restaurante, salão de festas e garagem: o código pergunta se são só subsidiárias e, se forem, aplica as regras do hotel; se não, o resultado é "análise específica". É aceitável?',
   "**Tabela 4 tem cinco colunas de altura.** Térrea, até 6 m, de 6 a 12 m, de 12 a 30 m e acima de 30 m (as outras tabelas dividem em 23 m). O código usa as colunas como estão impressas.",
   '**Instalações elétricas vitais no B.** Na coluna B da Tabela 2 a célula das instalações elétricas traz "(V)" (vital) e a nota 2 (área a partir de 200 m²); nas outras colunas ela não é vital. O código lê assim.',
   ...GENERAL_QUESTIONS.slice(7, 9),
   ...GENERAL_QUESTIONS.slice(10, 12),
   "**Risco III do Grupo B.** O Quadro 2 traz duas linhas para B-1 e B-2: até 6 m com até 5.000 m², e de 6 a 12 m com até 4.000 m². O código as aplica às duas divisões. Confirmar.",
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 2],
   GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 1],
 ];
 
@@ -399,7 +404,7 @@ export const GENERAL_QUESTIONS_A = [
   ...GENERAL_QUESTIONS.slice(0, 5),
   "**Divisão A-2 e A-3.** A divisão vem da conversa (o assistente propõe a partir da descrição e o usuário confirma). Quem valida a divisão final?",
   '**A-1 não está coberto.** A grade do A-1 (casas e condomínios horizontais) depende do tipo de construção (geminada/conjugada, isolada, unifamiliar mista) e de fatos que o código ainda não pergunta (abrigo ou central de GLP, quantidade de lotes). O A-1 responde "análise específica". É aceitável como primeira entrega?',
-  "**Escopo do Grupo A.** Só entra: A-2 ou A-3, um bloco e uma ocupação. O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Um edifício residencial costuma ter garagem, salão de festas e academia, que a norma trata como ocupação subsidiária e o código manda para análise específica. É aceitável?",
+  '**Escopo do Grupo A.** Entra: A-2 ou A-3, um bloco e uma só ocupação (ou outras só subsidiárias). O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Um edifício residencial costuma ter garagem, salão de festas e academia: o código pergunta se são só subsidiárias e, se forem, aplica as regras do prédio; se não, o resultado é "análise específica". É aceitável?',
   "**Brigada.** Nas duas tabelas, a nota 1 diz que A-2 está isento de brigadistas. O código lê que a brigada é exigida só para A-3.",
   "**Tabela 3 divide as alturas em 6, 15 e 30 m.** As outras tabelas dividem em 6, 12, 23 e 30 m. O código usa as colunas como estão impressas.",
   '**Células com duas notas na Tabela 3.** O PDF traz "x⁹⁻¹⁰" (compartimentação vertical) e "x¹⁵⁻¹⁶" (controle de materiais de acabamento). O código leu como duas notas cada, porque assim as notas são citadas uma vez. Confirmar que não é um intervalo.',
@@ -407,6 +412,7 @@ export const GENERAL_QUESTIONS_A = [
   ...GENERAL_QUESTIONS.slice(7, 9),
   ...GENERAL_QUESTIONS.slice(10, 12),
   "**Risco III de A-2 e A-3.** O Quadro 2 traz A-1 e A-2 juntos (até 21 m e 5.000 m²) e A-3 (até 21 m e 2.500 m²). O código aplica a linha só ao A-2, porque o A-1 não está coberto. Confirmar.",
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 2],
   GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 1],
 ];
 

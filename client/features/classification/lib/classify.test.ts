@@ -263,7 +263,7 @@ describe("classify: cases the tables do not settle", () => {
   it("sends several blocks, mixed use and high storage to analysis", () => {
     for (const overrides of [
       { single_block: false },
-      { single_use: false },
+      { single_use: false, only_subsidiary: false },
       { storage_over_3_5m: true },
     ]) {
       expect(classify(shop(overrides), DATE).status).toBe("analysis");
@@ -463,5 +463,93 @@ describe("classify: the risk level", () => {
       DATE,
     );
     expect(result.risk).toMatchObject({ status: "decided", level: "II" });
+  });
+});
+
+describe("classify: other occupations that are only subsidiary", () => {
+  const shopWithGarage = (overrides: Facts = {}) =>
+    shop({ single_use: false, ...overrides });
+
+  it("asks whether they are only subsidiary once there is more than one use, and not before", () => {
+    expect(
+      classify(shop(), DATE).nextQuestions.map((q) => q.fact),
+    ).not.toContain("only_subsidiary");
+    const result = classify(shopWithGarage(), DATE);
+    expect(result.status).toBe("pending");
+    expect(result.next?.facts).toEqual(["only_subsidiary"]);
+    expect(result.next?.ask).toContain("subsidiárias");
+  });
+
+  it("applies the rules of the main occupation when they are, and says what art. 10 adds", () => {
+    const result = classify(shopWithGarage({ only_subsidiary: true }), DATE);
+    const plain = classify(shop(), DATE);
+    expect(result.status).toBe("complete");
+    expect(result.groups.required.map((s) => s.id)).toEqual(
+      plain.groups.required.map((s) => s.id),
+    );
+    expect(result.observations.map((o) => o.source)).toEqual([
+      "IN 1 parte 2, art. 10",
+      "IN 1 parte 2, art. 10, §§ 1º a 3º",
+    ]);
+    expect(result.observations[1].text).toContain("garagem");
+  });
+
+  it("sends a mixed or secondary occupation to analysis, with no observation", () => {
+    const result = classify(shopWithGarage({ only_subsidiary: false }), DATE);
+    expect(result.status).toBe("analysis");
+    expect(result.observations).toEqual([]);
+    expect(result.analyses[0].reason).toContain("mista ou secundária");
+  });
+
+  it("waits for a professional when the user does not know", () => {
+    const result = classify(shopWithGarage({ only_subsidiary: null }), DATE);
+    expect(result.status).toBe("pending");
+    expect(result.declaredUnknown.map((q) => q.fact)).toContain(
+      "only_subsidiary",
+    );
+  });
+
+  it("has no observation for a single use", () => {
+    expect(classify(shop(), DATE).observations).toEqual([]);
+  });
+
+  it("works the same for every covered group", () => {
+    const base = {
+      single_block: true,
+      single_use: false,
+      only_subsidiary: true,
+      special_risks: false,
+      risk_exempt: false,
+      fire_load_class: "low",
+    };
+    const cases: Facts[] = [
+      { division: "A-2", area_m2: 700, storeys: 2, height_m: 8 },
+      { division: "B-1", area_m2: 700, storeys: 2, height_m: 8 },
+      {
+        division: "C-2",
+        area_m2: 700,
+        storeys: 2,
+        height_m: 8,
+        storage_over_3_5m: false,
+      },
+      { division: "D-1", area_m2: 700, storeys: 2, height_m: 8 },
+      {
+        division: "E-1",
+        area_m2: 700,
+        storeys: 2,
+        height_m: 8,
+        classrooms_exit_outside: false,
+      },
+      { division: "G-1", area_m2: 700, storeys: 2, height_m: 8 },
+    ];
+    for (const facts of cases) {
+      const result = classify({ ...base, ...facts }, DATE);
+      expect(result.status, String(facts.division)).toBe("complete");
+      expect(result.observations, String(facts.division)).toHaveLength(2);
+      expect(
+        result.groups.required.length,
+        String(facts.division),
+      ).toBeGreaterThan(5);
+    }
   });
 });

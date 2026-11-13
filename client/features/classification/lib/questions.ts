@@ -156,6 +156,17 @@ export const QUESTIONS: Question[] = [
     },
   },
   {
+    fact: "only_subsidiary",
+    kind: "boolean",
+    label: "Outras ocupações só subsidiárias",
+    ask: "As outras atividades são todas subsidiárias (vinculadas e fundamentais à principal, como garagem, salão de festas ou depósito de apoio), sem reunião de público para mais de 100 pessoas e sem depósito acima de 1.000 m²?",
+    description:
+      "True when every other use on the property is subsidiary to the main one (IN 1 parte 1, art. 4: linked to it and fundamental to it, such as a garage, a party room or a supporting store), with no assembly use for more than 100 people and no store above 1,000 square meters; false when any is mixed or secondary. Asked only when the property does not have a single use.",
+    allowUnknown: true,
+    askable: true,
+    askAfter: { fact: "single_use", value: false },
+  },
+  {
     fact: "storage_over_3_5m",
     kind: "boolean",
     label: "Armazenamento acima de 3,5 m",

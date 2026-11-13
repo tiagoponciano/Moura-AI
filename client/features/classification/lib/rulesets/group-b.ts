@@ -10,6 +10,7 @@ import {
   fact,
   heightAbove,
   heightAtMost,
+  USE_IN_SCOPE,
 } from "./group-c-conditions";
 import { riskRule } from "./group-c-risk";
 import { TABLE_2_B_NOTES, TABLE_4_NOTES } from "./group-b-notes";
@@ -20,7 +21,7 @@ const table4 = table4Json as unknown as ExtractedTable;
 
 /** Grupo B needs one block and one use; the storage rule belongs to Grupo C. */
 const WITHIN_SCOPE: Condition = {
-  all: [fact("single_block", "eq", true), fact("single_use", "eq", true)],
+  all: [fact("single_block", "eq", true), USE_IN_SCOPE],
 };
 
 /** Tabela 2, column B, for area ≤ 750 m² and height ≤ 12 m. */

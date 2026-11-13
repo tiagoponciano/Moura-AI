@@ -6,7 +6,7 @@ How the rule set for Grupo G (serviços automotivos e assemelhados: G-1 a G-5) i
 
 `GROUP_G_RULES` (`lib/rulesets/group-g.ts`) compiles three tables of IN 1 parte 2 like the other groups: Tabela 2, column "A-2, A-3, D, E e G" (area ≤ 750 m² and height ≤ 12 m), and, for area ≥ 750 m² or height ≥ 12 m, **two** tables by height, one per set of divisions: Tabela 13 for G-1, G-2 and G-5 and Tabela 14 for G-3 and G-4. It adds the rows of Quadro 2 for G to the risk III rules. `ALL_RULES` includes them, and `classify` names the table from the division: "Tabela 13, coluna …" or "Tabela 14, coluna …".
 
-Invariants (as for the other groups): every rule is `provisional`; a cell with an uncoded note throws at compile time; outside the scope (several blocks, mixed use, exactly 750 m² or 12 m, a division without rules) the result is a specific analysis.
+Invariants (as for the other groups): every rule is `provisional`; a cell with an uncoded note throws at compile time; outside the scope (several blocks, mixed or secondary use, exactly 750 m² or 12 m, a division without rules) the result is a specific analysis.
 
 `docs/group-g-review-sheet.md` is generated from the code and kept equal to it by a test.
 
@@ -32,7 +32,7 @@ Invariants (as for the other groups): every rule is `provisional`; a cell with a
 
 - **It covers only G-1 to G-5.** Another division gets `GUARD-not-covered`.
 - **It does not evaluate "lateralmente abertas".** Note 4 of Tabela 13 excepts car parks that are open on the sides (IN 14); the exception stays in the printed text only.
-- **It treats a garage that is part of another building as mixed use.** A subsidiary occupation goes to a specific analysis.
+- **A garage that is part of another building is a subsidiary occupation** of it: the rules of that building apply (art. 10), with the garage compartmentation shown as an observation.
 - **It does nothing for existing buildings (IN 5).**
 - **It does not approve a reading.** The questions in the review sheet are open until a person answers them.
 

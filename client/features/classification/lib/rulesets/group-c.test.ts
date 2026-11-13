@@ -322,9 +322,9 @@ describe("Grupo C: what the tables do not settle", () => {
     expect(analyses(building({ single_block: false }))).toEqual([
       "GUARD-multiple-blocks",
     ]);
-    expect(analyses(building({ single_use: false }))).toEqual([
-      "GUARD-mixed-use",
-    ]);
+    expect(
+      analyses(building({ single_use: false, only_subsidiary: false })),
+    ).toEqual(["GUARD-mixed-use"]);
     expect(analyses(building({ storage_over_3_5m: true }))).toEqual([
       "GUARD-storage-over-3-5m",
     ]);
@@ -333,7 +333,7 @@ describe("Grupo C: what the tables do not settle", () => {
   it("lists no required system in those cases", () => {
     for (const facts of [
       building({ single_block: false }),
-      building({ single_use: false }),
+      building({ single_use: false, only_subsidiary: false }),
       building({ storage_over_3_5m: true }),
       building({ area_m2: 750 }),
     ]) {

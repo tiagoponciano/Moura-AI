@@ -266,7 +266,7 @@ describe("Grupo G: scope", () => {
     for (const overrides of [
       { area_m2: 750 },
       { single_block: false },
-      { single_use: false },
+      { single_use: false, only_subsidiary: false },
     ]) {
       expect(classify(garage(overrides), DATE).status).toBe("analysis");
     }

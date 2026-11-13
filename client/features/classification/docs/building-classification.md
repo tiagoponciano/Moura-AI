@@ -86,6 +86,7 @@ Answers are engine facts (`Record<fact, number | string | boolean | null | undef
 | `status`          | `analysis` when a rule stops at a specific analysis; `pending` when a question is unanswered or answered "não sei"; `complete` otherwise                                                                     |
 | `analyses`        | `{ reason, locator, quote? }` per specific analysis, in Portuguese                                                                                                                                           |
 | `table`           | Which table and column applied, once known, e.g. `Tabela 5, coluna 6 < H ≤ 12`                                                                                                                               |
+| `observations`    | `{ text, source }` for what art. 10 adds when the other occupations are only subsidiary; empty otherwise and while a specific analysis replaces the result                                                   |
 | `risk`            | `decided` with `level`, the `process` the norm describes and the `reason` (source); `pending` while answers are missing; `not_covered` outside Grupo C. Absent while a specific analysis replaces the result |
 | `groups`          | `required`, `needsInfo` and `notRequired`, each a list of `SystemView`; all three are empty while `status` is `analysis`                                                                                     |
 | `derived`         | `{ label, value, source }` for what the chosen activity set (division, fire load), with `IN 3, Anexo A · <division> <destination>` as the source                                                             |
@@ -107,6 +108,7 @@ Answers are engine facts (`Record<fact, number | string | boolean | null | undef
 - **The prompt.** `buildInstructions` lists every fact with its description, the answers already recorded (the panel's, with "não sei" for `null`) and the next question, which is `next.ask`. It tells the model to ask one question at a time, to record a plain "sim" to a combined question as every point being true of the building (`single_block` true, `single_use` true, `storage_over_3_5m` false) and a denial as that one point only, to put what the user does not know in `unknown`, to map the activity to C-1, C-2, C-3 or `other` and ask when it fits more than one, never to state requirements or cite norms, and to answer in Brazilian Portuguese.
 - **The analysis date** is today in `America/Sao_Paulo`: on the server per request, in the browser once when the page mounts.
 - **Reset.** "Limpar respostas" clears all answers and their sources but not the chat; it is disabled while `progress.answered` is 0.
+- **Subsidiary occupations.** When the user says there is more than one occupation, the assistant asks whether the others are only subsidiary (`only_subsidiary`). If so, the rules of the main occupation apply and the result carries `observations` (art. 10: garage compartmentation); if not, it is mixed or secondary use and a specific analysis replaces the result.
 - **Questions.** `nextQuestions` is what the engine reported unanswered, in registry order. The three scope confirmations (one block, one use, no storage above 3,5 m) carry a `scope` in the registry; while two or more are open they are asked as one sentence built from their clauses. A single-storey building is never asked its height, and a Grupo C building outside the fire-load cases is never asked its fire load, because the rules do not need them.
 
 ### Display
@@ -120,7 +122,8 @@ Panel, top to bottom:
 3. **Próxima pergunta**: `next.ask`, the wording the assistant uses, and "Depois: …" with the labels of the `nextQuestions` it does not cover. A second paragraph, "Pendente de profissional habilitado", lists `declaredUnknown`. Hidden while `status` is `analysis` or nothing is pending.
 4. **Caso para análise específica**: each analysis' reason and its source, only while `status` is `analysis`.
 5. **Nível de risco**: "Risco <level>", what the norm says about the process at that level and the source of the decision; "Depende das respostas que faltam." while pending; hidden when it is not covered or a specific analysis replaces the result.
-6. **Sistemas preventivos**: while nothing is answered, a sentence explaining what the panel will show. Otherwise `<required> exigidos · <pending> pendentes`, the line "Aplicando: <table>" once known, a bar segment per system (required `primary`, pending `input`, not required `muted`) and up to three groups:
+6. **Observações da norma**: the `observations` with their source, only while the other occupations are only subsidiary; hidden when empty.
+7. **Sistemas preventivos**: while nothing is answered, a sentence explaining what the panel will show. Otherwise `<required> exigidos · <pending> pendentes`, the line "Aplicando: <table>" once known, a bar segment per system (required `primary`, pending `input`, not required `muted`) and up to three groups:
 
 | Group                 | Row                                                                                                                                                                                                                |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -128,7 +131,7 @@ Panel, top to bottom:
 | Dependem de respostas | Hollow dot, name, "Falta" and one pill per missing answer. When two or more systems are pending, what all of them wait for is said once above them ("Todos aguardam: …") and left out of the rows                  |
 | Não exigidos          | `input` dot, name in muted text                                                                                                                                                                                    |
 
-7. **Footer**: the provisional notice (`accent`) and the outline "Limpar respostas" button.
+8. **Footer**: the provisional notice (`accent`) and the outline "Limpar respostas" button.
 
 ## What this does NOT do
 

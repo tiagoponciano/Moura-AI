@@ -15,6 +15,7 @@ const shop = (overrides: Facts = {}): Facts => ({
   fire_load_class: "medium",
   special_risks: false,
   risk_exempt: false,
+  has_basement: false,
   ...overrides,
 });
 

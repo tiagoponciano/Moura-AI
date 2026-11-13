@@ -15,6 +15,7 @@ const shop = (overrides: Facts = {}): Facts => ({
   storage_over_3_5m: false,
   special_risks: false,
   risk_exempt: false,
+  has_basement: false,
   fire_load_class: "medium",
   ...overrides,
 });
@@ -90,7 +91,7 @@ describe("classify: the scope confirmations", () => {
     };
     expect(classify(four, DATE).next?.facts).toEqual(["risk_exempt"]);
     expect(
-      classify({ ...four, risk_exempt: false }, DATE).next,
+      classify({ ...four, risk_exempt: false, has_basement: false }, DATE).next,
     ).toBeUndefined();
   });
 });
@@ -137,7 +138,7 @@ describe("classify: a complete small shop", () => {
   });
 
   it("counts the answers and what is still needed", () => {
-    expect(result.progress).toEqual({ answered: 10, total: 10 });
+    expect(result.progress).toEqual({ answered: 11, total: 11 });
   });
 });
 
@@ -301,6 +302,7 @@ describe("classify: the activity", () => {
     storage_over_3_5m: false,
     special_risks: false,
     risk_exempt: false,
+    has_basement: false,
   };
 
   it("fills the division and the fire load from the activity", () => {
@@ -525,6 +527,7 @@ describe("classify: other occupations that are only subsidiary", () => {
       only_subsidiary: true,
       special_risks: false,
       risk_exempt: false,
+      has_basement: false,
       fire_load_class: "low",
     };
     const cases: Facts[] = [

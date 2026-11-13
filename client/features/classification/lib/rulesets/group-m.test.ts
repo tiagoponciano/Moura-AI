@@ -22,6 +22,7 @@ const common: Facts = {
   single_use: true,
   special_risks: false,
   risk_exempt: false,
+  has_basement: false,
   hose_reach_60m: false,
 };
 const tunnel = (tunnel_length_m: number, o: Facts = {}): Facts => ({

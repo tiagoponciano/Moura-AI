@@ -100,6 +100,10 @@ describe("question registry", () => {
       "windowless",
       "classrooms_exit_outside",
       "risk_exempt",
+      "has_basement",
+      "basement_level",
+      "basement_area_m2",
+      "basement_use",
     ]);
   });
 });

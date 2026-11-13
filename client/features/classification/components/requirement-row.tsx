@@ -1,6 +1,16 @@
 import { ChevronDown } from "lucide-react";
 import type { SystemView } from "../lib/classify";
 
+/** What IN 5 allows for a system of an existing or recent building, by class (arts. 21, 23 and 25). */
+const TREATMENT_TEXT = {
+  vital:
+    "vital. Exigido conforme as normas em vigor; sem as substituições e isenções do anexo C, só as adequações dele. Para o atestado em edificação existente, comprovar ao menos 50% dos sistemas vitais.",
+  indispensable:
+    "indispensável. Exigido conforme as normas em vigor; sem as substituições e isenções do anexo C, só as adequações dele ou outras com justificativa do RT. Cabe atestado de regularização.",
+  adaptable:
+    "adequável. Admitem-se todas as adaptações do anexo C, com as compensações, e outras com justificativa do RT. Cabe atestado de regularização.",
+} as const;
+
 /** One system as a panel row: required ones expand to why, pending ones list the missing answers. */
 export function RequirementRow({
   system,
@@ -20,7 +30,7 @@ export function RequirementRow({
           <span aria-hidden className="mt-1.5 size-2 rounded-full bg-primary" />
           <span className="text-sm leading-snug font-medium">
             {system.label}
-            {system.vital && (
+            {(system.vital || system.treatment === "vital") && (
               <span className="ml-2 text-[10px] font-medium tracking-wider text-primary uppercase">
                 vital
               </span>
@@ -44,6 +54,12 @@ export function RequirementRow({
               )}
             </div>
           ))}
+          {system.treatment && (
+            <p>
+              <span className="font-medium">IN 5:</span>{" "}
+              {TREATMENT_TEXT[system.treatment]}
+            </p>
+          )}
           {system.scopes.length > 0 && (
             <p>
               <span className="font-medium">Limitado a:</span>{" "}

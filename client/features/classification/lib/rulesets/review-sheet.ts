@@ -6,12 +6,22 @@ import table4Json from "../../norms/in-1-p2/tables/table-04.json";
 import table6Json from "../../norms/in-1-p2/tables/table-06.json";
 import table7Json from "../../norms/in-1-p2/tables/table-07.json";
 import table13Json from "../../norms/in-1-p2/tables/table-13.json";
+import table15Json from "../../norms/in-1-p2/tables/table-15.json";
+import table16Json from "../../norms/in-1-p2/tables/table-16.json";
+import table17Json from "../../norms/in-1-p2/tables/table-17.json";
 import table14Json from "../../norms/in-1-p2/tables/table-14.json";
 import { TABLE_2_SPEC, TABLE_5_SPEC } from "./group-c";
 import { TABLE_2_D_SPEC, TABLE_6_SPEC } from "./group-d";
 import { TABLE_2_A_SPEC, TABLE_3_A23_SPEC } from "./group-a";
 import { TABLE_2_B_SPEC, TABLE_4_SPEC } from "./group-b";
 import { TABLE_2_E_SPEC, TABLE_7_SPEC } from "./group-e";
+import {
+  TABLE_15_SPEC,
+  TABLE_16_SPEC,
+  TABLE_17_SPEC,
+  TABLE_2_H146_SPEC,
+  TABLE_2_H235_SPEC,
+} from "./group-h";
 import { TABLE_13_SPEC, TABLE_14_SPEC, TABLE_2_G_SPEC } from "./group-g";
 import { NORM_VALID_FROM } from "./compile-table";
 import { systemIdFromLabel, systemLabel } from "./systems";
@@ -22,6 +32,9 @@ const table5 = table5Json as unknown as ExtractedTable;
 const table6 = table6Json as unknown as ExtractedTable;
 const table3 = table3Json as unknown as ExtractedTable;
 const table4 = table4Json as unknown as ExtractedTable;
+const table15 = table15Json as unknown as ExtractedTable;
+const table16 = table16Json as unknown as ExtractedTable;
+const table17 = table17Json as unknown as ExtractedTable;
 const table7 = table7Json as unknown as ExtractedTable;
 const table13 = table13Json as unknown as ExtractedTable;
 const table14 = table14Json as unknown as ExtractedTable;
@@ -428,6 +441,45 @@ export function renderGroupAReviewSheet(): string {
     specs: [
       { spec: TABLE_2_A_SPEC, table: table2 },
       { spec: TABLE_3_A23_SPEC, table: table3 },
+    ],
+  });
+}
+
+/** The two columns of Tabela 2 for Grupo H, printed side by side on the sheet. */
+const TABLE_2_H_SHEET_SPEC: TableSpec = {
+  ...TABLE_2_H146_SPEC,
+  columns: [...TABLE_2_H146_SPEC.columns, ...TABLE_2_H235_SPEC.columns],
+};
+
+/** The questions of the Grupo C sheet that hold for any group, plus the ones of Grupo H. */
+export const GENERAL_QUESTIONS_H = [
+  ...GENERAL_QUESTIONS.slice(0, 5),
+  "**Divisão H-1 a H-6.** A divisão vem da conversa (o assistente propõe a partir da descrição e o usuário confirma). Quem valida a divisão final? As tabelas por altura dependem dela: a Tabela 15 vale para H-1, H-2 e H-6, a Tabela 16 para H-3 e a Tabela 17 para H-4 e H-5; e a Tabela 2 tem duas colunas (H-1, H-4 e H-6; H-2, H-3 e H-5).",
+  '**Escopo do Grupo H.** Entra: Grupo H, um bloco e uma só ocupação (ou outras só subsidiárias). O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Fora disso o resultado é "análise específica". É aceitável?',
+  "**Vital nas duas colunas da Tabela 2.** Na coluna de H-1, H-4 e H-6 as instalações elétricas são vitais e a iluminação de emergência não; na de H-2, H-3 e H-5 é o contrário. O código lê como está impresso.",
+  '**Células com duas notas na Tabela 15.** O PDF traz "x⁴⁻⁵" (compartimentação vertical). O código leu como as notas 4 e 5, porque assim as onze notas são citadas. Confirmar que não é um intervalo.',
+  "**Hospitais psiquiátricos.** A nota 5 da Tabela 17 amplia os locais da detecção para hospitais psiquiátricos e assemelhados. O código não pergunta isso: o texto fica no escopo e vale como observação. É preciso perguntar?",
+  ...GENERAL_QUESTIONS.slice(7, 9),
+  ...GENERAL_QUESTIONS.slice(10, 12),
+  "**Risco III do Grupo H.** O Quadro 2 traz cinco linhas: H-1 e H-4 (até 21 m e 5.000 m²), H-2 (até 12 m e 5.000 m²), H-3 e H-5 (até 6 m e 750 m²) e H-6 (até 6 m e 5.000 m², ou de 6 a 12 m e 2.500 m²). O código as aplica como estão. Confirmar.",
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 2],
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 1],
+];
+
+/** The Portuguese review sheet for the Grupo H rules; generated, never edited by hand. */
+export function renderGroupHReviewSheet(): string {
+  return renderReviewSheet({
+    title: "Regras do Grupo H: folha de revisão",
+    source:
+      "IN 1 parte 2, Anexo B, Tabelas 2 (colunas H-1, H-4 e H-6, e H-2, H-3 e H-5), 15, 16 e 17; IN 3, art. 11 e Anexo A; IN 1 parte 1, art. 5º e Anexo A (risco)",
+    coverage:
+      'o Grupo H (serviços de saúde e institucional: H-1 a H-6), com as regras de nível de risco, travas e carga de incêndio que ele compartilha com os demais grupos cobertos. As divisões sem regras carregadas respondem "análise específica".',
+    general: GENERAL_QUESTIONS_H,
+    specs: [
+      { spec: TABLE_2_H_SHEET_SPEC, table: table2 },
+      { spec: TABLE_15_SPEC, table: table15 },
+      { spec: TABLE_16_SPEC, table: table16 },
+      { spec: TABLE_17_SPEC, table: table17 },
     ],
   });
 }

@@ -9,6 +9,10 @@ import table13Json from "../../norms/in-1-p2/tables/table-13.json";
 import table15Json from "../../norms/in-1-p2/tables/table-15.json";
 import table16Json from "../../norms/in-1-p2/tables/table-16.json";
 import table17Json from "../../norms/in-1-p2/tables/table-17.json";
+import table18Json from "../../norms/in-1-p2/tables/table-18.json";
+import table19Json from "../../norms/in-1-p2/tables/table-19.json";
+import table20Json from "../../norms/in-1-p2/tables/table-20.json";
+import table21Json from "../../norms/in-1-p2/tables/table-21.json";
 import table14Json from "../../norms/in-1-p2/tables/table-14.json";
 import { TABLE_2_SPEC, TABLE_5_SPEC } from "./group-c";
 import { TABLE_2_D_SPEC, TABLE_6_SPEC } from "./group-d";
@@ -23,6 +27,13 @@ import {
   TABLE_2_H235_SPEC,
 } from "./group-h";
 import { TABLE_13_SPEC, TABLE_14_SPEC, TABLE_2_G_SPEC } from "./group-g";
+import {
+  TABLE_18_SPEC,
+  TABLE_19_SPEC,
+  TABLE_20_SPEC,
+  TABLE_21_SPEC,
+  TABLE_2_IJ_SPEC,
+} from "./group-ij";
 import { NORM_VALID_FROM } from "./compile-table";
 import { systemIdFromLabel, systemLabel } from "./systems";
 import type { ExtractedTable, NoteEffect, NoteSpec, TableSpec } from "./types";
@@ -35,6 +46,10 @@ const table4 = table4Json as unknown as ExtractedTable;
 const table15 = table15Json as unknown as ExtractedTable;
 const table16 = table16Json as unknown as ExtractedTable;
 const table17 = table17Json as unknown as ExtractedTable;
+const table18 = table18Json as unknown as ExtractedTable;
+const table19 = table19Json as unknown as ExtractedTable;
+const table20 = table20Json as unknown as ExtractedTable;
+const table21 = table21Json as unknown as ExtractedTable;
 const table7 = table7Json as unknown as ExtractedTable;
 const table13 = table13Json as unknown as ExtractedTable;
 const table14 = table14Json as unknown as ExtractedTable;
@@ -480,6 +495,40 @@ export function renderGroupHReviewSheet(): string {
       { spec: TABLE_15_SPEC, table: table15 },
       { spec: TABLE_16_SPEC, table: table16 },
       { spec: TABLE_17_SPEC, table: table17 },
+    ],
+  });
+}
+
+/** The questions of the Grupo C sheet that hold for any group, plus the ones of groups I and J. */
+export const GENERAL_QUESTIONS_IJ = [
+  ...GENERAL_QUESTIONS.slice(0, 5),
+  '**Divisão I-1 a I-3 e J-1 a J-4.** A divisão vem da conversa e o usuário confirma. Quem valida a divisão final? A Tabela 18 vale para I-1 e I-2, a 19 para I-3, a 20 para J-1 e J-2 e a 21 para J-3 e J-4; a Tabela 2 tem uma coluna única "I, J e M3", que o código usa só para I e J (M-3 está fora).',
+  '**Escopo dos grupos I e J.** Entra: um bloco e uma só ocupação (ou outras só subsidiárias). O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Fora disso o resultado é "análise específica". É aceitável?',
+  '**Área de depósito (J).** As notas 2 da Tabela 20 e 6 da Tabela 21 usam a área de depósito, não a área total. O código acrescenta uma pergunta própria ("Área de depósito, em m²") e aceita "não sei". É assim que a norma quer? E a nota 5 da Tabela 20 ("área maior que 500 m²") foi lida como a área total.',
+  '**Brigada de J-1.** A nota 1 da Tabela 2 isenta A-1, A-2 e J-1 de brigadistas, e a Tabela 20 isenta J-1. Na coluna única "I, J e M3" o código isenta só J-1 e exige a brigada das demais divisões de I e J. Confirmar.',
+  '**Células com duas notas.** A Tabela 20 traz "x⁴⁻⁵" (compartimentação vertical). O código leu como as notas 4 e 5, porque assim as nove notas são citadas. Confirmar que não é um intervalo.',
+  ...GENERAL_QUESTIONS.slice(7, 9),
+  ...GENERAL_QUESTIONS.slice(10, 12),
+  "**Risco III dos grupos I e J.** O Quadro 2 traz: I-1 e J-1 (até 21 m e 5.000 m²), I-2 (até 12 m e 5.000 m²), I-3 e J-2 (até 6 m e 4.000 m², ou de 6 a 12 m e 3.000 m²), J-3 (até 6 m e 3.000 m²) e J-4 (até 6 m e 2.500 m²). O código as aplica como estão. Confirmar.",
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 2],
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 1],
+];
+
+/** The Portuguese review sheet for the Grupos I and J rules; generated, never edited by hand. */
+export function renderGroupIJReviewSheet(): string {
+  return renderReviewSheet({
+    title: "Regras dos Grupos I e J: folha de revisão",
+    source:
+      "IN 1 parte 2, Anexo B, Tabelas 2 (coluna I, J e M3), 18, 19, 20 e 21; IN 3, art. 11 e Anexo A; IN 1 parte 1, art. 5º e Anexo A (risco)",
+    coverage:
+      'os Grupos I (indústria: I-1 a I-3) e J (depósito: J-1 a J-4), com as regras de nível de risco, travas e carga de incêndio que eles compartilham com os demais grupos cobertos. As divisões sem regras carregadas respondem "análise específica".',
+    general: GENERAL_QUESTIONS_IJ,
+    specs: [
+      { spec: TABLE_2_IJ_SPEC, table: table2 },
+      { spec: TABLE_18_SPEC, table: table18 },
+      { spec: TABLE_19_SPEC, table: table19 },
+      { spec: TABLE_20_SPEC, table: table20 },
+      { spec: TABLE_21_SPEC, table: table21 },
     ],
   });
 }

@@ -3,6 +3,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   describeCondition,
+  renderGroupBReviewSheet,
   renderGroupCReviewSheet,
   renderGroupDReviewSheet,
   renderGroupEReviewSheet,
@@ -140,6 +141,23 @@ describe("renderGroupGReviewSheet", () => {
     for (let n = 1; n <= 6; n++)
       expect(sheet).toContain(`### Tabela 14, nota ${n}\n`);
     expect(sheet).toContain("**Células com duas notas na Tabela 14.**");
+  });
+
+  it("is the committed sheet", () => {
+    if (process.env.UPDATE_REVIEW_SHEET === "1") writeFileSync(FILE, sheet);
+    expect(readFileSync(FILE, "utf-8")).toBe(sheet);
+  });
+});
+
+describe("renderGroupBReviewSheet", () => {
+  const sheet = renderGroupBReviewSheet();
+  const FILE = join(__dirname, "../../docs/group-b-review-sheet.md");
+
+  it("covers the notes of Tabela 4 and the five columns", () => {
+    for (let n = 1; n <= 7; n++)
+      expect(sheet).toContain(`### Tabela 4, nota ${n}\n`);
+    expect(sheet).toContain("**Tabela 4 tem cinco colunas de altura.**");
+    expect(sheet).toContain("12 < H ≤ 30");
   });
 
   it("is the committed sheet", () => {

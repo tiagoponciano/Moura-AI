@@ -1,12 +1,14 @@
 import type { Condition } from "../engine/types";
 import table2Json from "../../norms/in-1-p2/tables/table-02.json";
 import table5Json from "../../norms/in-1-p2/tables/table-05.json";
+import table4Json from "../../norms/in-1-p2/tables/table-04.json";
 import table6Json from "../../norms/in-1-p2/tables/table-06.json";
 import table7Json from "../../norms/in-1-p2/tables/table-07.json";
 import table13Json from "../../norms/in-1-p2/tables/table-13.json";
 import table14Json from "../../norms/in-1-p2/tables/table-14.json";
 import { TABLE_2_SPEC, TABLE_5_SPEC } from "./group-c";
 import { TABLE_2_D_SPEC, TABLE_6_SPEC } from "./group-d";
+import { TABLE_2_B_SPEC, TABLE_4_SPEC } from "./group-b";
 import { TABLE_2_E_SPEC, TABLE_7_SPEC } from "./group-e";
 import { TABLE_13_SPEC, TABLE_14_SPEC, TABLE_2_G_SPEC } from "./group-g";
 import { NORM_VALID_FROM } from "./compile-table";
@@ -16,6 +18,7 @@ import type { ExtractedTable, NoteEffect, NoteSpec, TableSpec } from "./types";
 const table2 = table2Json as unknown as ExtractedTable;
 const table5 = table5Json as unknown as ExtractedTable;
 const table6 = table6Json as unknown as ExtractedTable;
+const table4 = table4Json as unknown as ExtractedTable;
 const table7 = table7Json as unknown as ExtractedTable;
 const table13 = table13Json as unknown as ExtractedTable;
 const table14 = table14Json as unknown as ExtractedTable;
@@ -353,6 +356,35 @@ export function renderGroupGReviewSheet(): string {
       { spec: TABLE_2_G_SPEC, table: table2 },
       { spec: TABLE_13_SPEC, table: table13 },
       { spec: TABLE_14_SPEC, table: table14 },
+    ],
+  });
+}
+
+/** The questions of the Grupo C sheet that hold for any group, plus the ones of Grupo B. */
+export const GENERAL_QUESTIONS_B = [
+  ...GENERAL_QUESTIONS.slice(0, 5),
+  "**Divisão B-1 e B-2.** A divisão vem da conversa (o assistente propõe a partir da descrição e o usuário confirma). Quem valida a divisão final?",
+  '**Escopo do Grupo B.** Só entra: Grupo B, um bloco e uma ocupação. O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Fora disso o resultado é "análise específica". Um hotel costuma ter restaurante, salão de festas e garagem; o código manda isso para análise específica por ser ocupação mista. É aceitável?',
+  "**Tabela 4 tem cinco colunas de altura.** Térrea, até 6 m, de 6 a 12 m, de 12 a 30 m e acima de 30 m (as outras tabelas dividem em 23 m). O código usa as colunas como estão impressas.",
+  '**Instalações elétricas vitais no B.** Na coluna B da Tabela 2 a célula das instalações elétricas traz "(V)" (vital) e a nota 2 (área a partir de 200 m²); nas outras colunas ela não é vital. O código lê assim.',
+  ...GENERAL_QUESTIONS.slice(7, 9),
+  ...GENERAL_QUESTIONS.slice(10, 12),
+  "**Risco III do Grupo B.** O Quadro 2 traz duas linhas para B-1 e B-2: até 6 m com até 5.000 m², e de 6 a 12 m com até 4.000 m². O código as aplica às duas divisões. Confirmar.",
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 1],
+];
+
+/** The Portuguese review sheet for the Grupo B rules; generated, never edited by hand. */
+export function renderGroupBReviewSheet(): string {
+  return renderReviewSheet({
+    title: "Regras do Grupo B: folha de revisão",
+    source:
+      "IN 1 parte 2, Anexo B, Tabelas 2 (coluna B) e 4; IN 3, art. 11 e Anexo A; IN 1 parte 1, art. 5º e Anexo A (risco)",
+    coverage:
+      'o Grupo B (serviço de hospedagem: B-1 e B-2), com as regras de nível de risco, travas e carga de incêndio que ele compartilha com os demais grupos cobertos. As divisões sem regras carregadas respondem "análise específica".',
+    general: GENERAL_QUESTIONS_B,
+    specs: [
+      { spec: TABLE_2_B_SPEC, table: table2 },
+      { spec: TABLE_4_SPEC, table: table4 },
     ],
   });
 }

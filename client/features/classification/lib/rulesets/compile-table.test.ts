@@ -209,10 +209,10 @@ describe("compileTable", () => {
   it("refuses a system label nobody reviewed", () => {
     const odd: ExtractedTable = {
       ...table,
-      rows: [{ ...table.rows[0], system: "Espuma" }],
+      rows: [{ ...table.rows[0], system: "Mystery system" }],
     };
     expect(() => compileTable(odd, spec)).toThrow(
-      'Unknown system label: "Espuma"',
+      'Unknown system label: "Mystery system"',
     );
   });
 });

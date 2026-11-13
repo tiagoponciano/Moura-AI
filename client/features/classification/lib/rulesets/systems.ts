@@ -19,6 +19,8 @@ export const SYSTEMS = {
   structural_protection: "Proteção estrutural (TRRF)",
   emergency_exits: "Saídas de emergência",
   emergency_signage: "Sinalização para abandono de local",
+  foam: "Espuma",
+  cooling: "Resfriamento",
 } as const;
 
 export type SystemId = keyof typeof SYSTEMS;
@@ -44,8 +46,12 @@ const ALIASES: Record<string, SystemId> = {
   "instalações elétricas de baixa voltagem": "low_voltage_installations",
   "plano de emergência": "emergency_plan",
   "proteção estrutural (trrf)": "structural_protection",
+  "proteção estrutural": "structural_protection",
   "saídas de emergência": "emergency_exits",
   "sinalização para abandono de local": "emergency_signage",
+  "sinalização de emergência": "emergency_signage",
+  espuma: "foam",
+  resfriamento: "cooling",
 };
 
 /** The canonical id for a table row label; throws on a label nobody reviewed, so a typo cannot drop a system. */

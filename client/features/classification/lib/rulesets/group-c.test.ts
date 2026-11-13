@@ -314,10 +314,10 @@ describe("Grupo C: what the tables do not settle", () => {
   });
 
   it("sends a division outside Grupo C to specific analysis", () => {
-    expect(analyses(building({ division: "K-1" }))).toEqual([
+    expect(analyses(building({ division: "M-1" }))).toEqual([
       "GUARD-not-covered",
     ]);
-    expect(required(building({ division: "K-1" }))).toEqual([]);
+    expect(required(building({ division: "M-1" }))).toEqual([]);
   });
 
   it("sends several blocks, mixed use and high storage to specific analysis", () => {
@@ -365,8 +365,9 @@ describe("Grupo C: what the tables do not settle", () => {
 });
 
 describe("Scope guards are declared per division", () => {
-  it("makes every covered division declare the three area-and-height guards", () => {
-    for (const keys of Object.values(DIVISION_SCOPE_GUARDS)) {
+  it("makes every division classified by area and height declare the three guards", () => {
+    for (const [id, keys] of Object.entries(DIVISION_SCOPE_GUARDS)) {
+      if (id.startsWith("K-")) continue;
       expect(keys).toEqual(["boundary", "multiple-blocks", "mixed-use"]);
     }
   });

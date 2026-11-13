@@ -11,6 +11,7 @@ import table16Json from "../../norms/in-1-p2/tables/table-16.json";
 import table8Json from "../../norms/in-1-p2/tables/table-08.json";
 import table9Json from "../../norms/in-1-p2/tables/table-09.json";
 import table10Json from "../../norms/in-1-p2/tables/table-10.json";
+import table22Json from "../../norms/in-1-p2/tables/table-22.json";
 import table11Json from "../../norms/in-1-p2/tables/table-11.json";
 import table12Json from "../../norms/in-1-p2/tables/table-12.json";
 import table17Json from "../../norms/in-1-p2/tables/table-17.json";
@@ -32,6 +33,7 @@ import {
   TABLE_2_H235_SPEC,
 } from "./group-h";
 import { TABLE_13_SPEC, TABLE_14_SPEC, TABLE_2_G_SPEC } from "./group-g";
+import { TABLE_22_SPEC } from "./group-k";
 import {
   TABLE_10_SPEC,
   TABLE_11_SPEC,
@@ -66,6 +68,7 @@ const table9 = table9Json as unknown as ExtractedTable;
 const table10 = table10Json as unknown as ExtractedTable;
 const table11 = table11Json as unknown as ExtractedTable;
 const table12 = table12Json as unknown as ExtractedTable;
+const table22 = table22Json as unknown as ExtractedTable;
 const table18 = table18Json as unknown as ExtractedTable;
 const table19 = table19Json as unknown as ExtractedTable;
 const table20 = table20Json as unknown as ExtractedTable;
@@ -596,5 +599,30 @@ export function renderGroupFReviewSheet(): string {
       { spec: TABLE_11_SPEC, table: table11 },
       { spec: TABLE_12_SPEC, table: table12 },
     ],
+  });
+}
+
+/** The questions of the Grupo C sheet that hold for any group, plus the ones of Grupo K. */
+export const GENERAL_QUESTIONS_K = [
+  ...GENERAL_QUESTIONS.slice(2, 5),
+  "**Divisão K-1 e K-2.** A divisão vem da conversa e o usuário confirma. A Tabela 22 não depende de área nem de altura: o código não aplica a trava de exatamente 750 m² ou 12 m ao Grupo K.",
+  "**Colunas.** K-1 divide por volume de líquido combustível (até 20 m³ ou acima) e K-2 por tipo de usina (hidroelétrica ou termoelétrica). O código pergunta os dois dados novos. Quem responde, e o volume vale por imóvel ou por equipamento?",
+  '**Escopo do Grupo K.** Entra: um bloco e uma só ocupação (ou outras só subsidiárias). Fora disso o resultado é "análise específica". É aceitável?',
+  "**Risco do Grupo K.** O Quadro 2 do Anexo A da IN 1 parte 1 não traz linha para K. O código usa as regras gerais de risco I, II e V e deixa o resto no risco IV. Confirmar.",
+  ...GENERAL_QUESTIONS.slice(10, 12),
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 2],
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 1],
+];
+
+/** The Portuguese review sheet for the Grupo K rules; generated, never edited by hand. */
+export function renderGroupKReviewSheet(): string {
+  return renderReviewSheet({
+    title: "Regras do Grupo K: folha de revisão",
+    source:
+      "IN 1 parte 2, Anexo B, Tabela 22; IN 3, art. 11 e Anexo A; IN 1 parte 1, art. 5º (risco)",
+    coverage:
+      'o Grupo K (energia: K-1 e K-2), com as regras de nível de risco, travas e carga de incêndio que ele compartilha com os demais grupos cobertos. As divisões sem regras carregadas respondem "análise específica".',
+    general: GENERAL_QUESTIONS_K,
+    specs: [{ spec: TABLE_22_SPEC, table: table22 }],
   });
 }

@@ -246,6 +246,64 @@ export const QUESTIONS: Question[] = [
     askAfter: { fact: "special_risks", value: true },
   },
   {
+    fact: "combustible_liquid_m3",
+    kind: "number",
+    unit: "m³",
+    allowZero: true,
+    label: "Líquido combustível (m³)",
+    ask: "Qual é o volume de líquido combustível do imóvel (óleo de transformadores e reatores, por exemplo), em m³?",
+    description:
+      "Volume of combustible liquid held on a K-1 property, in cubic meters; 0 when none. Asked only for K-1.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
+    fact: "power_plant_type",
+    kind: "enum",
+    label: "Tipo de usina",
+    ask: "A usina é hidroelétrica ou termoelétrica?",
+    description:
+      "Type of the K-2 power plant: hydro or thermal. Asked only for K-2.",
+    options: [
+      { value: "hydro", label: "Hidroelétrica" },
+      { value: "thermal", label: "Termoelétrica" },
+    ],
+    allowUnknown: true,
+    askable: true,
+  },
+  {
+    fact: "combustible_liquid_storage",
+    kind: "boolean",
+    label: "Armazenamento de líquidos combustíveis",
+    ask: "Há local de armazenamento de líquidos combustíveis?",
+    description:
+      "True when the property has a place where combustible liquids are stored; false when it has none.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
+    fact: "solid_fuel_storage_m2",
+    kind: "number",
+    unit: "m²",
+    allowZero: true,
+    label: "Área de combustíveis sólidos (m²)",
+    ask: "Qual é a área usada para armazenar combustíveis sólidos, em m²?",
+    description:
+      "Floor area used to store solid fuels, in square meters; 0 when there is none.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
+    fact: "public_road_within_50m",
+    kind: "boolean",
+    label: "Acesso a até 50 m do passeio público",
+    ask: "Há acesso a partir do passeio público com caminhamento máximo de 50 m?",
+    description:
+      "True when the building can be reached from the public sidewalk on a path of at most 50 meters; false when the path is longer.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
     fact: "storage_area_m2",
     kind: "number",
     unit: "m²",

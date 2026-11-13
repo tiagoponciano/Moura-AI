@@ -2,7 +2,7 @@ import type { Condition, Rule } from "../engine/types";
 import {
   C2,
   C3,
-  DIVISION_C,
+  COVERED_DIVISIONS,
   fact,
   heightAbove,
   heightAtMost,
@@ -14,7 +14,7 @@ const DOC = "IN-1-P1";
 
 const level = (value: string) => ({ set: { fact: "risk_level", value } });
 
-const risk = (
+export const riskRule = (
   id: string,
   name: string,
   priority: number,
@@ -52,7 +52,7 @@ const NO_SPECIAL = fact("special_risks", "eq", false);
  * evaluated stops the cascade and the missing answers are asked.
  */
 export const GROUP_C_RISK_RULES: Rule[] = [
-  risk(
+  riskRule(
     "IN1P1-RISK-V",
     "Risco V",
     10,
@@ -77,7 +77,7 @@ export const GROUP_C_RISK_RULES: Rule[] = [
     "Art. 5º, § 2º, V; Nota 3",
     "risco V: [...] depósito, manuseio, armazenamento, fabricação e/ou comércio de substâncias radioativas, inflamáveis classe I acima de 1.000 L em área interna, tóxicas ou explosivas, artefatos pirotécnicos e munições [...]; ou aquela desenvolvida em ocupação com carga de incêndio acima de 2.280 MJ/m². Volume em área externa: V > 40 m³ → Risco V",
   ),
-  risk(
+  riskRule(
     "IN1P1-RISK-I",
     "Risco I",
     20,
@@ -86,13 +86,13 @@ export const GROUP_C_RISK_RULES: Rule[] = [
     "Art. 5º, § 2º, I, alíneas a a h",
     "risco I: compreende as atividades econômicas consideradas de baixo risco [...] aquelas exercidas exclusivamente em empresas sem estabelecimento; [...] ambulantes; [...] edificação residencial privativa unifamiliar de até 200 m² de área total construída e com no máximo 1 (um) empregado; [...] escritórios virtuais ou espaços de coworking",
   ),
-  risk(
+  riskRule(
     "IN1P1-RISK-II",
     "Risco II",
     30,
     {
       all: [
-        DIVISION_C,
+        COVERED_DIVISIONS,
         fact("area_m2", "lte", 750),
         fact("storeys", "lte", 3),
         {
@@ -113,7 +113,7 @@ export const GROUP_C_RISK_RULES: Rule[] = [
     "Anexo A, Quadro 1",
     "QUADRO 1 - Características dos imóveis Risco II: Área ≤ 750 m²; Altura ≤ 3 pavimentos; Uso/Armazenamento de GLP ≤ 190 kg; Líquido inflamável em área interna ≤ 250 L; Líquido inflamável/combustível em área externa ≤ 20 m³",
   ),
-  risk(
+  riskRule(
     "IN1P1-RISK-III-C1",
     "Risco III, C-1",
     41,
@@ -128,7 +128,7 @@ export const GROUP_C_RISK_RULES: Rule[] = [
     "Anexo A, Quadro 2, C-1",
     "QUADRO 2 - Risco III (relação área e altura): C-1, altura ≤ 21 m, área ≤ 5.000 m²",
   ),
-  risk(
+  riskRule(
     "IN1P1-RISK-III-C2-medium",
     "Risco III, C-2 de carga média",
     42,
@@ -144,7 +144,7 @@ export const GROUP_C_RISK_RULES: Rule[] = [
     "Anexo A, Quadro 2, C-2 (CI média)",
     "QUADRO 2 - Risco III (relação área e altura): C-2 (CI média), altura ≤ 12 m, área ≤ 5.000 m²",
   ),
-  risk(
+  riskRule(
     "IN1P1-RISK-III-C2-high",
     "Risco III, C-2 de carga alta",
     43,
@@ -160,7 +160,7 @@ export const GROUP_C_RISK_RULES: Rule[] = [
     "Anexo A, Quadro 2, C-2 (CI alta)",
     "QUADRO 2 - Risco III (relação área e altura): C-2 (CI alta), altura ≤ 12 m, área ≤ 3.000 m²",
   ),
-  risk(
+  riskRule(
     "IN1P1-RISK-III-C3-low",
     "Risco III, C-3 até 6 m",
     44,
@@ -171,7 +171,7 @@ export const GROUP_C_RISK_RULES: Rule[] = [
     "Anexo A, Quadro 2, C-3",
     "QUADRO 2 - Risco III (relação área e altura): C-3, altura ≤ 6 m, área ≤ 5.000 m²",
   ),
-  risk(
+  riskRule(
     "IN1P1-RISK-III-C3-mid",
     "Risco III, C-3 de 6 a 12 m",
     45,
@@ -182,11 +182,11 @@ export const GROUP_C_RISK_RULES: Rule[] = [
     "Anexo A, Quadro 2, C-3",
     "QUADRO 2 - Risco III (relação área e altura): C-3, 6 < h ≤ 12 m, área ≤ 3.000 m²",
   ),
-  risk(
+  riskRule(
     "IN1P1-RISK-IV",
     "Risco IV",
     90,
-    DIVISION_C,
+    COVERED_DIVISIONS,
     "IV",
     "Art. 5º, § 2º, IV",
     "risco IV: qualquer atividade desenvolvida em imóveis com características que não se enquadram nos riscos I, II e III e V",

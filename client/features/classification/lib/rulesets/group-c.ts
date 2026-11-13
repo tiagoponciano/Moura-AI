@@ -4,6 +4,7 @@ import table5Json from "../../norms/in-1-p2/tables/table-05.json";
 import { compileTable, NORM_VALID_FROM } from "./compile-table";
 import { GROUP_C_RISK_RULES } from "./group-c-risk";
 import {
+  COVERED_DIVISIONS,
   DIVISION_C,
   FIRE_LOAD_CLASSES,
   HEIGHT_CLASSES,
@@ -138,16 +139,16 @@ const guard = (
 /** Cases the Grupo C tables do not settle: the engine says so instead of listing systems. */
 const guards: Rule[] = [
   guard(
-    "GUARD-not-group-c",
-    "Divisão fora do Grupo C",
-    { not: DIVISION_C },
-    "Esta divisão ainda não está coberta: só o Grupo C (comercial) tem regras carregadas.",
+    "GUARD-not-covered",
+    "Divisão sem regras carregadas",
+    { not: COVERED_DIVISIONS },
+    "Esta divisão ainda não está coberta: só os Grupos C (comércio) e D (serviços profissionais) têm regras carregadas.",
     { doc: "IN-1-P2", locator: "Anexo B" },
   ),
   guard(
     "GUARD-boundary",
     "Exatamente 750 m² ou 12 m",
-    { all: [DIVISION_C, REGIME_BOUNDARY] },
+    { all: [COVERED_DIVISIONS, REGIME_BOUNDARY] },
     "Exatamente 750 m² (com altura até 12 m) ou exatamente 12 m (com área até 750 m²): a Tabela 2 e as tabelas por altura valem ao mesmo tempo, e a norma não diz qual prevalece. Análise específica.",
     {
       doc: "IN-1-P2",
@@ -178,7 +179,7 @@ const guards: Rule[] = [
   guard(
     "GUARD-storage-over-3-5m",
     "Armazenamento acima de 3,5 m",
-    fact("storage_over_3_5m", "eq", true),
+    { all: [DIVISION_C, fact("storage_over_3_5m", "eq", true)] },
     "Grupo C com armazenamento acima de 3,5 m é ocupação mista (C e J) e deve usar a tabela por altura de armazenagem. Análise específica.",
     {
       doc: "IN-3",

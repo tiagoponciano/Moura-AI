@@ -6,7 +6,7 @@ Gerada a partir do código (`lib/rulesets/review-sheet.ts`); não edite à mão.
 
 - **Todas as regras são provisórias.** Nenhuma foi aprovada por uma pessoa.
 - Fonte: IN 1 parte 2, Anexo B, Tabelas 2 (coluna C) e 5; IN 3, arts. 8º e 11 e Anexo A; IN 1 parte 1, art. 5º e Anexo A (risco). Em vigor desde 24/04/2024 (IN 1 parte 2, art. 31; IN 3, art. 14; IN 1 parte 1, art. 165).
-- Cobertura: só o Grupo C (comercial: C-1, C-2 e C-3). As demais divisões respondem "análise específica".
+- Cobertura: o Grupo C (comercial: C-1, C-2 e C-3); o Grupo D tem a sua própria folha. As divisões sem regras carregadas respondem "análise específica".
 
 ## Perguntas para a Moura
 

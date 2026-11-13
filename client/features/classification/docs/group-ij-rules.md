@@ -4,7 +4,7 @@ How the rule set for Grupo I (indústria: I-1 a I-3) and Grupo J (depósito: J-1
 
 ## What this is
 
-`GROUP_IJ_RULES` (`lib/rulesets/group-ij.ts`) compiles the **"I, J e M3" column of Tabela 2** (for I and J only; M-3 is not covered) for area ≤ 750 m² and height ≤ 12 m, and **four tables by height** for area ≥ 750 m² or height ≥ 12 m: Tabela 18 for I-1 and I-2, Tabela 19 for I-3, Tabela 20 for J-1 and J-2 and Tabela 21 for J-3 and J-4. It adds the six rows of Quadro 2 for I and J to the risk III rules. `classify` names the table from the division.
+`GROUP_IJ_RULES` (`lib/rulesets/group-ij.ts`) compiles the **"I, J e M3" column of Tabela 2** (for I and J only; M-3 uses the same column, see `group-m-divisions-rules.md`) for area ≤ 750 m² and height ≤ 12 m, and **four tables by height** for area ≥ 750 m² or height ≥ 12 m: Tabela 18 for I-1 and I-2, Tabela 19 for I-3, Tabela 20 for J-1 and J-2 and Tabela 21 for J-3 and J-4. It adds the six rows of Quadro 2 for I and J to the risk III rules. `classify` names the table from the division.
 
 Invariants (as for the other groups): every rule is `provisional`; a cell with an uncoded note throws at compile time; outside the scope (several blocks, mixed or secondary use, exactly 750 m² or 12 m, a division without rules) the result is a specific analysis.
 

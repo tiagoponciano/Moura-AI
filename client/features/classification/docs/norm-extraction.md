@@ -44,6 +44,10 @@ python tools/norms/check_updates.py [--norms <dir>]
 
 Exit code: `0` every PDF is current, `1` at least one changed, `2` at least one could not be checked (not a Drive file link, or the download failed). Its unit tests run with `python -m unittest discover -s tools/norms -p "test_check_updates.py"`.
 
+## IN 5, Annex B
+
+`tools/norms/extract_in5.py <pdf> --out client/features/classification/norms/in-5` reads Annex B of IN 5 (existing and recent buildings) and writes `annex-b.json` and `manifest.json`. Each row is a group of divisions with the abbreviations of its vital, indispensable and adaptable systems (with footnote numbers), plus the printed legend and notes. Rows are found from the table rules and the columns from the header positions. `--verify` compares the hash with the manifest. The abbreviation `BI` (brigade) is used in the table but missing from the printed legend, so every row using it is listed in `checks.needs_human_look`. `norms/in-5/annex-b.test.ts` checks the committed JSON in CI.
+
 ## Data shapes
 
 ```jsonc

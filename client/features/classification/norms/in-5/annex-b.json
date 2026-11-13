@@ -1,0 +1,1589 @@
+{
+  "doc": "IN-5",
+  "table": "Anexo B",
+  "title": "Sistemas e medidas de SCI vitais, indispensáveis e adequáveis por ocupação",
+  "pages": [11, 12, 13, 14],
+  "legend": {
+    "SE": "Saídas de emergência",
+    "SPE": "Sistema preventivo por extintores",
+    "IE": "Iluminação de emergência",
+    "SA": "Sistema de alarme de incêndio",
+    "DAI": "Detecção Automática de incêndio",
+    "PE": "Plano de emergência",
+    "SAL": "Sinalização de abandono do local",
+    "AVtr": "Acesso de viaturas",
+    "IEBT": "Instalação elétrica de baixa tensão",
+    "Comp": "Compartimentação",
+    "CMAR": "Materiais de revestimento e acabamento",
+    "SPK": "Chuveiros automáticos",
+    "RES": "Resfriamento ou espuma",
+    "SHP": "Sistema hidráulico preventivo",
+    "TODOS": "Todos os sistemas e medidas de segurança previstos nas NSCI são considerados vitais",
+    "TE": "São todos os SMSCI previstos nas NSCI, exceto aqueles considerados vitais ou sem possibilidade de adequação previstos na tabela"
+  },
+  "notes": [
+    {
+      "number": 1,
+      "text": "Somente quando for exigido detecção automática para a edificação;"
+    },
+    {
+      "number": 2,
+      "text": "Somente termoelétrica;"
+    },
+    {
+      "number": 3,
+      "text": "Líquidos > 20 m³ ou gases > 10 m³. Observar ainda as exigências para os riscos específicos das respectivas Instruções Normativas."
+    }
+  ],
+  "rows": [
+    {
+      "page": 11,
+      "divisions": ["A-1"],
+      "vital": [],
+      "indispensable": [
+        {
+          "id": "AVtr",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "divisions": ["A-2", "A-3"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "DAI",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": [1]
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "divisions": ["B-1", "B-2"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "IEBT",
+          "notes": []
+        },
+        {
+          "id": "DAI",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": [1]
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "divisions": ["C-1"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "SA",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "divisions": ["C-2"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": []
+        },
+        {
+          "id": "Comp",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "divisions": ["C-3"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": []
+        },
+        {
+          "id": "DAI",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "divisions": ["D-1", "D-2", "D-3", "D-4"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "SA",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "divisions": ["E-1"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "DAI",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "divisions": ["E-2", "E-3", "E-4"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "SA",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "divisions": ["E-5", "E-6"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "DAI",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "divisions": ["F-1", "F-2"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "SA",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "divisions": ["F-3"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": []
+        },
+        {
+          "id": "CMAR",
+          "notes": []
+        },
+        {
+          "id": "SE",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "divisions": ["F-4"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "SA",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "divisions": ["F-5", "F-6"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        },
+        {
+          "id": "SE",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "CMAR",
+          "notes": []
+        },
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": []
+        },
+        {
+          "id": "DAI",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "divisions": ["F-7"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        },
+        {
+          "id": "SE",
+          "notes": []
+        },
+        {
+          "id": "IEBT",
+          "notes": []
+        },
+        {
+          "id": "CMAR",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "divisions": ["F-8"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "SE",
+          "notes": []
+        },
+        {
+          "id": "CMAR",
+          "notes": []
+        },
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": []
+        },
+        {
+          "id": "DAI",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "divisions": ["F-9"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": []
+        },
+        {
+          "id": "CMAR",
+          "notes": []
+        },
+        {
+          "id": "SE",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "divisions": ["F-10"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "CMAR",
+          "notes": []
+        },
+        {
+          "id": "SE",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "divisions": ["F-11"],
+      "vital": [
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        },
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "SE",
+          "notes": []
+        },
+        {
+          "id": "CMAR",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": []
+        },
+        {
+          "id": "DAI",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "divisions": ["G-1", "G-2"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": []
+        },
+        {
+          "id": "DAI",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "divisions": ["G-3", "G-4", "G-5"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "SA",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "divisions": ["H-1"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "divisions": ["H-2"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        },
+        {
+          "id": "DAI",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "divisions": ["H-3"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "SE",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        },
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": []
+        },
+        {
+          "id": "DAI",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "divisions": ["H-4"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "SA",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "divisions": ["H-5"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        }
+      ],
+      "indispensable": [],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "divisions": ["H-6"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "SA",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "divisions": ["I-1", "I-2"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "SA",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "divisions": ["I-3"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": []
+        },
+        {
+          "id": "DAI",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "divisions": ["J-1"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "divisions": ["J-2", "J-3"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "SA",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "divisions": ["J-4"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": []
+        },
+        {
+          "id": "DAI",
+          "notes": []
+        },
+        {
+          "id": "SPK",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "divisions": ["K-1"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "divisions": ["K-2"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": []
+        },
+        {
+          "id": "DAI",
+          "notes": []
+        },
+        {
+          "id": "SHP",
+          "notes": [2]
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "divisions": ["L-1"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "SHP",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "divisions": ["L-2", "L-3"],
+      "vital": [
+        {
+          "id": "TODOS",
+          "notes": []
+        }
+      ],
+      "indispensable": [],
+      "adaptable": []
+    },
+    {
+      "page": 13,
+      "divisions": ["M-1"],
+      "vital": [],
+      "indispensable": [
+        {
+          "id": "SE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SPE",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "divisions": ["M-2"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "PE",
+          "notes": [3]
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "SHP",
+          "notes": []
+        },
+        {
+          "id": "RES",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        },
+        {
+          "id": "PE",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "divisions": ["M-3"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "SHP",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": []
+        },
+        {
+          "id": "Comp",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "divisions": ["M-4", "M-5", "M-6"],
+      "vital": [],
+      "indispensable": [],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "divisions": ["M-7"],
+      "vital": [],
+      "indispensable": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        },
+        {
+          "id": "SHP",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "divisions": ["M-8"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        }
+      ],
+      "indispensable": [],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "divisions": ["M-9"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "IE",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "divisions": ["M-10"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        },
+        {
+          "id": "SAL",
+          "notes": []
+        }
+      ],
+      "indispensable": [
+        {
+          "id": "PE",
+          "notes": []
+        },
+        {
+          "id": "BI",
+          "notes": []
+        },
+        {
+          "id": "SA",
+          "notes": []
+        }
+      ],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "divisions": ["M-11"],
+      "vital": [
+        {
+          "id": "SPE",
+          "notes": []
+        }
+      ],
+      "indispensable": [],
+      "adaptable": [
+        {
+          "id": "TE",
+          "notes": []
+        }
+      ]
+    }
+  ],
+  "checks": {
+    "needs_human_look": [
+      "['C-3']: BI is not in the legend",
+      "['E-5', 'E-6']: BI is not in the legend",
+      "['F-1', 'F-2']: BI is not in the legend",
+      "['F-10']: BI is not in the legend",
+      "['F-11']: BI is not in the legend",
+      "['F-3']: BI is not in the legend",
+      "['F-5', 'F-6']: BI is not in the legend",
+      "['F-7']: BI is not in the legend",
+      "['F-9']: BI is not in the legend",
+      "['H-2']: BI is not in the legend",
+      "['H-3']: BI is not in the legend",
+      "['I-3']: BI is not in the legend",
+      "['J-4']: BI is not in the legend",
+      "['K-1']: BI is not in the legend",
+      "['K-2']: BI is not in the legend",
+      "['M-10']: BI is not in the legend",
+      "['M-2']: BI is not in the legend",
+      "['M-7']: BI is not in the legend",
+      "['M-9']: BI is not in the legend"
+    ]
+  }
+}

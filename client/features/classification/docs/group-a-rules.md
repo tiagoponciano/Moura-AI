@@ -1,14 +1,14 @@
 # Grupo A rules (A-2 and A-3)
 
-How the rule set for the residential divisions A-2 (multifamiliar vertical) and A-3 (coletiva) is built and how it differs from the other covered groups. For developers adding other groups and for whoever reviews the readings with Moura. It describes the code as it is now; read `group-c-rules.md` first, because it reuses its engine, facts, regime, guards and risk rules. **A-1 (houses and horizontal condominiums) is not covered.**
+How the rule set for the residential divisions A-2 (multifamiliar vertical) and A-3 (coletiva) is built and how it differs from the other covered groups. For developers adding other groups and for whoever reviews the readings with Moura. It describes the code as it is now; read `group-c-rules.md` first, because it reuses its engine, facts, regime, guards and risk rules. A-1 (houses and horizontal condominiums) is in `group-a1-rules.md`.
 
 ## What this is
 
 `GROUP_A_RULES` (`lib/rulesets/group-a.ts`) compiles Tabela 2, column "A-2, A-3, D, E e G" (area ≤ 750 m² and height ≤ 12 m) and the **A-2/A-3 grid of Tabela 3** (area ≥ 750 m² or height ≥ 12 m), and adds the A-2 and A-3 rows of Quadro 2 to the risk III rules. `classify` names the table "Tabela 3, coluna …".
 
-Tabela 3 has two grids: A-1 by type of construction, and A-2/A-3 by height. The extractor numbers them as `part` 0 and 1 (see `norm-extraction.md`); the specification names `part: 1`, so the A-1 rows are never compiled. The columns split at 6, 15 and 30 m, unlike the other tables, and `classify` names them from the height (`tableThreeColumn`) instead of from the derived `height_class`.
+Tabela 3 has two grids: A-1 by type of construction, and A-2/A-3 by height. The extractor numbers them as `part` 0 and 1 (see `norm-extraction.md`); the specification names `part: 1`, so the A-1 rows are compiled by `group-a1.ts`, not here. The columns split at 6, 15 and 30 m, unlike the other tables, and `classify` names them from the height (`tableThreeColumn`) instead of from the derived `height_class`.
 
-Invariants (as for the other groups): every rule is `provisional`; a cell with an uncoded note throws at compile time; outside the scope (several blocks, mixed or secondary use, exactly 750 m² or 12 m, a division without rules, including A-1) the result is a specific analysis.
+Invariants (as for the other groups): every rule is `provisional`; a cell with an uncoded note throws at compile time; outside the scope (several blocks, mixed or secondary use, exactly 750 m² or 12 m, a division without rules) the result is a specific analysis.
 
 `docs/group-a-review-sheet.md` is generated from the code and kept equal to it by a test.
 
@@ -32,7 +32,7 @@ Invariants (as for the other groups): every rule is `provisional`; a cell with a
 
 ## What this does NOT do
 
-- **It does not cover A-1.** The A-1 grid depends on the type of construction and on facts the code does not ask (shared LPG shelter, number of lots). Notes 11 to 14 and 18 belong to it. A-1 gets `GUARD-not-covered`.
+- **It does not cover A-1.** The A-1 grid and notes 11 to 14 and 18 are in `group-a1-rules.md`.
 - **A garage, party room or gym is asked about, not assumed.** If the user says they are only subsidiary, the rules of the A-2 or A-3 apply (art. 10); otherwise it is mixed or secondary use and goes to a specific analysis.
 - **It does not evaluate the garage and car park rules of note 17;** they stay in the printed observation.
 - **It does not ask whether an A-2 has detection installed,** which note 10 uses to move the compartmentation requirement to 60 m; the sentence is shown as information.

@@ -6,7 +6,7 @@ Gerada a partir do código (`lib/rulesets/review-sheet.ts`); não edite à mão.
 
 - **Todas as regras são provisórias.** Nenhuma foi aprovada por uma pessoa.
 - Fonte: IN 1 parte 2, Anexo B, Tabelas 2 (coluna A-2, A-3, D, E e G) e 3 (grade de A-2 e A-3); IN 3, art. 11 e Anexo A; IN 1 parte 1, art. 5º e Anexo A (risco). Em vigor desde 24/04/2024 (IN 1 parte 2, art. 31; IN 3, art. 14; IN 1 parte 1, art. 165).
-- Cobertura: o Grupo A, divisões A-2 (multifamiliar vertical) e A-3 (coletiva), com as regras de nível de risco, travas e carga de incêndio que elas compartilham com os demais grupos cobertos. O A-1 e as divisões sem regras carregadas respondem "análise específica".
+- Cobertura: o Grupo A, divisões A-2 (multifamiliar vertical) e A-3 (coletiva), com as regras de nível de risco, travas e carga de incêndio que elas compartilham com os demais grupos cobertos. O A-1 tem folha própria; as divisões sem regras carregadas respondem "análise específica".
 
 ## Perguntas para a Moura
 
@@ -18,7 +18,7 @@ Gerada a partir do código (`lib/rulesets/review-sheet.ts`); não edite à mão.
 4. **Gás combustível (IN 8).** Aparece como exigido em todas as colunas do Grupo C. Vale para qualquer imóvel do grupo, mesmo sem instalação de gás?
 5. **Carga de incêndio.** O código aceita a classe (desprezível a altíssima) ou o valor em MJ/m² e deriva a classe pelos limites da IN 3, art. 11. Quem informa esse valor para o cliente? A IN 3 tem uma tabela por atividade (Anexo B) que ainda não está carregada.
 6. **Divisão A-2 e A-3.** A divisão vem da conversa (o assistente propõe a partir da descrição e o usuário confirma). Quem valida a divisão final?
-7. **A-1 não está coberto.** A grade do A-1 (casas e condomínios horizontais) depende do tipo de construção (geminada/conjugada, isolada, unifamiliar mista) e de fatos que o código ainda não pergunta (abrigo ou central de GLP, quantidade de lotes). O A-1 responde "análise específica". É aceitável como primeira entrega?
+7. **A-1.** A grade do A-1 (casas e condomínios horizontais) está na folha própria do A-1 (`group-a1-review-sheet.md`).
 8. **Escopo do Grupo A.** Entra: A-2 ou A-3, um bloco e uma só ocupação (ou outras só subsidiárias). O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Um edifício residencial costuma ter garagem, salão de festas e academia: o código pergunta se são só subsidiárias e, se forem, aplica as regras do prédio; se não, o resultado é "análise específica". É aceitável?
 9. **Brigada.** Nas duas tabelas, a nota 1 diz que A-2 está isento de brigadistas. O código lê que a brigada é exigida só para A-3.
 10. **Tabela 3 divide as alturas em 6, 15 e 30 m.** As outras tabelas dividem em 6, 12, 23 e 30 m. O código usa as colunas como estão impressas.
@@ -28,7 +28,7 @@ Gerada a partir do código (`lib/rulesets/review-sheet.ts`); não edite à mão.
 14. **Risco I.** Foi reduzido a uma pergunta de sim/não ("a atividade se enquadra numa das dispensas?"). As dispensas têm detalhes (ambulante com tenda de até 50 m², residência de até 200 m² com no máximo 1 empregado…). Quem responde, e basta o sim/não?
 15. **Líquidos inflamáveis e combustíveis.** A norma fala em inflamável classe I acima de 1.000 L para o risco V e em "líquido inflamável" (interno) e "inflamável/combustível" (externo) para o risco II. O código pergunta um volume só de "inflamáveis ou combustíveis" em área interna e outro em área externa. Basta, ou é preciso separar a classe?
 16. **Altura no risco.** O código usa a mesma altura da exigência dos sistemas (art. 8º: térreo vale 0) também para o Quadro 2. Confirmar.
-17. **Risco III de A-2 e A-3.** O Quadro 2 traz A-1 e A-2 juntos (até 21 m e 5.000 m²) e A-3 (até 21 m e 2.500 m²). O código aplica a linha só ao A-2, porque o A-1 não está coberto. Confirmar.
+17. **Risco III de A-2 e A-3.** O Quadro 2 traz A-1 e A-2 juntos (até 21 m e 5.000 m²) e A-3 (até 21 m e 2.500 m²). O código aplica a linha a A-1 e A-2 juntos e a A-3 separadamente. Confirmar.
 18. **Ocupação subsidiária (IN 1 parte 2, art. 10).** Quando o usuário diz que há mais de uma ocupação, o código pergunta se as outras são só subsidiárias (vinculadas e fundamentais à principal, como garagem, salão de festas ou depósito de apoio), sem reunião de público para mais de 100 pessoas (art. 10, § 4º) e sem depósito acima de 1.000 m² (IN 1 parte 1, art. 4º, IV). Se sim, valem os sistemas da ocupação predominante, com a observação da compartimentação de garagens (§§ 1º a 3º). Se não, é ocupação mista ou secundária e vai para análise específica. Quem responde essa pergunta, e os limites usados estão certos?
 19. **Ainda não existe:** a camada de edificações existentes e recentes (IN 5), que rotula cada sistema como vital, indispensável ou adequável. O resultado mostra o enquadramento de risco e os sistemas exigidos.
 

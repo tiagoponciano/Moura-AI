@@ -174,6 +174,12 @@ const NO_REGIME_TABLE: Record<string, number> = {
   "M-11": 29,
 };
 
+const A1_COLUMNS: Record<string, string> = {
+  attached: "geminada/conjugada",
+  detached: "isolada",
+  mixed_single_family: "unifamiliar mista",
+};
+
 const M2_COLUMNS: Record<string, string> = {
   tanks_processes: "tanques, cilindros e processos",
   loading_platform: "plataforma de carregamento",
@@ -182,6 +188,10 @@ const M2_COLUMNS: Record<string, string> = {
 
 function tableHint(facts: Facts): string | undefined {
   if (facts.division === "M-1") return "Tabela 23 (túnel)";
+  if (facts.division === "A-1") {
+    const column = A1_COLUMNS[String(facts.a1_construction)];
+    return column ? `Tabela 3 (A-1), coluna ${column}` : "Tabela 3 (A-1)";
+  }
   const noRegime = NO_REGIME_TABLE[String(facts.division)];
   if (noRegime) return `Tabela ${noRegime}`;
   if (facts.division === "M-2") {

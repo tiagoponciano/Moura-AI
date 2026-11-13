@@ -37,6 +37,7 @@ export const DIVISION_G_1_2_5 = fact("division", "in", ["G-1", "G-2", "G-5"]);
 export const DIVISION_G_1_2 = fact("division", "in", ["G-1", "G-2"]);
 export const DIVISION_G_3_4 = fact("division", "in", ["G-3", "G-4"]);
 export const DIVISION_B = fact("division", "in", ["B-1", "B-2"]);
+export const A1 = fact("division", "eq", "A-1");
 export const A2 = fact("division", "eq", "A-2");
 export const A3 = fact("division", "eq", "A-3");
 export const DIVISION_A_2_3 = fact("division", "in", ["A-2", "A-3"]);
@@ -123,6 +124,7 @@ export const M7 = fact("division", "eq", "M-7");
 export const M11 = fact("division", "eq", "M-11");
 /** Every division that has rules loaded. */
 const COVERED_DIVISION_IDS = [
+  "A-1",
   "A-2",
   "A-3",
   "B-1",
@@ -204,6 +206,13 @@ const NO_REGIME_GUARDS: readonly ScopeGuardKey[] = [
 ];
 
 /**
+ * A-1 (houses, condominiums) is not split by area or height, a condominium is
+ * several blocks by nature, and its table already has a column for the mixed
+ * single-family house, so none of the guards fits.
+ */
+const A1_GUARDS: readonly ScopeGuardKey[] = [];
+
+/**
  * The guards each covered division declares. A new division lists only the
  * guards that fit its tables (K and M do not use area or height, so they do not
  * declare "boundary").
@@ -212,7 +221,11 @@ export const DIVISION_SCOPE_GUARDS: Record<string, readonly ScopeGuardKey[]> =
   Object.fromEntries(
     COVERED_DIVISION_IDS.map((id) => [
       id,
-      /^[KM]-/.test(id) && id !== "M-3" ? NO_REGIME_GUARDS : AREA_HEIGHT_GUARDS,
+      id === "A-1"
+        ? A1_GUARDS
+        : /^[KM]-/.test(id) && id !== "M-3"
+          ? NO_REGIME_GUARDS
+          : AREA_HEIGHT_GUARDS,
     ]),
   );
 

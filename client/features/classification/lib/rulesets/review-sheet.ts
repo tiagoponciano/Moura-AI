@@ -40,6 +40,7 @@ import {
   TABLE_2_H235_SPEC,
 } from "./group-h";
 import { TABLE_13_SPEC, TABLE_14_SPEC, TABLE_2_G_SPEC } from "./group-g";
+import { TABLE_3_A1_SPEC } from "./group-a1";
 import { TABLE_22_SPEC } from "./group-k";
 import { TABLE_23_SPEC, TABLE_24_SPEC } from "./group-m";
 import {
@@ -478,7 +479,7 @@ export function renderGroupBReviewSheet(): string {
 export const GENERAL_QUESTIONS_A = [
   ...GENERAL_QUESTIONS.slice(0, 5),
   "**Divisão A-2 e A-3.** A divisão vem da conversa (o assistente propõe a partir da descrição e o usuário confirma). Quem valida a divisão final?",
-  '**A-1 não está coberto.** A grade do A-1 (casas e condomínios horizontais) depende do tipo de construção (geminada/conjugada, isolada, unifamiliar mista) e de fatos que o código ainda não pergunta (abrigo ou central de GLP, quantidade de lotes). O A-1 responde "análise específica". É aceitável como primeira entrega?',
+  "**A-1.** A grade do A-1 (casas e condomínios horizontais) está na folha própria do A-1 (`group-a1-review-sheet.md`).",
   '**Escopo do Grupo A.** Entra: A-2 ou A-3, um bloco e uma só ocupação (ou outras só subsidiárias). O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Um edifício residencial costuma ter garagem, salão de festas e academia: o código pergunta se são só subsidiárias e, se forem, aplica as regras do prédio; se não, o resultado é "análise específica". É aceitável?',
   "**Brigada.** Nas duas tabelas, a nota 1 diz que A-2 está isento de brigadistas. O código lê que a brigada é exigida só para A-3.",
   "**Tabela 3 divide as alturas em 6, 15 e 30 m.** As outras tabelas dividem em 6, 12, 23 e 30 m. O código usa as colunas como estão impressas.",
@@ -486,7 +487,7 @@ export const GENERAL_QUESTIONS_A = [
   "**Controle de materiais de acabamento (notas 15 e 16).** O código combina as duas: acima de 12 m, e só nas áreas comuns para A-2. Nas colunas que citam só a nota 16, vale sem a altura mínima. Confirmar.",
   ...GENERAL_QUESTIONS.slice(7, 9),
   ...GENERAL_QUESTIONS.slice(10, 12),
-  "**Risco III de A-2 e A-3.** O Quadro 2 traz A-1 e A-2 juntos (até 21 m e 5.000 m²) e A-3 (até 21 m e 2.500 m²). O código aplica a linha só ao A-2, porque o A-1 não está coberto. Confirmar.",
+  "**Risco III de A-2 e A-3.** O Quadro 2 traz A-1 e A-2 juntos (até 21 m e 5.000 m²) e A-3 (até 21 m e 2.500 m²). O código aplica a linha a A-1 e A-2 juntos e a A-3 separadamente. Confirmar.",
   GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 2],
   GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 1],
 ];
@@ -498,7 +499,7 @@ export function renderGroupAReviewSheet(): string {
     source:
       "IN 1 parte 2, Anexo B, Tabelas 2 (coluna A-2, A-3, D, E e G) e 3 (grade de A-2 e A-3); IN 3, art. 11 e Anexo A; IN 1 parte 1, art. 5º e Anexo A (risco)",
     coverage:
-      'o Grupo A, divisões A-2 (multifamiliar vertical) e A-3 (coletiva), com as regras de nível de risco, travas e carga de incêndio que elas compartilham com os demais grupos cobertos. O A-1 e as divisões sem regras carregadas respondem "análise específica".',
+      'o Grupo A, divisões A-2 (multifamiliar vertical) e A-3 (coletiva), com as regras de nível de risco, travas e carga de incêndio que elas compartilham com os demais grupos cobertos. O A-1 tem folha própria; as divisões sem regras carregadas respondem "análise específica".',
     general: GENERAL_QUESTIONS_A,
     specs: [
       { spec: TABLE_2_A_SPEC, table: table2 },
@@ -711,5 +712,31 @@ export function renderGroupMDivisionsReviewSheet(): string {
       { spec: TABLE_28_SPEC, table: table28 },
       { spec: TABLE_29_SPEC, table: table29 },
     ],
+  });
+}
+
+/** The questions of the Grupo C sheet that hold for any group, plus the ones of A-1. */
+export const GENERAL_QUESTIONS_A1 = [
+  ...GENERAL_QUESTIONS.slice(2, 5),
+  "**Divisão A-1.** A divisão vem da conversa e o usuário confirma. A grade do A-1 não depende de área nem de altura: o código não aplica a ela a trava de exatamente 750 m² ou 12 m, nem as de vários blocos e de uso misto (um condomínio horizontal tem vários blocos, e a coluna da unifamiliar mista já trata a edificação mista).",
+  "**Tipo de construção.** O código pergunta se a habitação é geminada/conjugada, isolada ou unifamiliar em edificação mista, e escolhe a coluna da Tabela 3. Quem responde?",
+  '**Unifamiliar mista.** A coluna vale para H < 6 m. Com 6 m ou mais, a nota 13 remete à Tabela 2 ou 3 (como A-2) ou à ocupação predominante, a mais rigorosa: o código responde "análise específica".',
+  "**Dados novos.** O código pergunta se há abrigo compartilhado ou central de GLP (nota 12) e quantos lotes o condomínio prevê (nota 18: mais de 350 lotes). Quem responde?",
+  "**Risco III do A-1.** O Quadro 2 traz A-1 e A-2 juntos (até 21 m e 5.000 m²). O código aplica a linha às duas divisões. Confirmar.",
+  ...GENERAL_QUESTIONS.slice(10, 12),
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 2],
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 1],
+];
+
+/** The Portuguese review sheet for A-1 (Tabela 3, first grid); generated, never edited by hand. */
+export function renderGroupA1ReviewSheet(): string {
+  return renderReviewSheet({
+    title: "Regras do A-1: folha de revisão",
+    source:
+      "IN 1 parte 2, Anexo B, Tabela 3 (grade do A-1); IN 3, art. 11 e Anexo A; IN 1 parte 1, art. 5º e Anexo A (risco)",
+    coverage:
+      'a divisão A-1 (casas e condomínios horizontais), com as regras de nível de risco e carga de incêndio que ela compartilha com os demais grupos cobertos. As divisões sem regras carregadas respondem "análise específica".',
+    general: GENERAL_QUESTIONS_A1,
+    specs: [{ spec: TABLE_3_A1_SPEC, table: table3 }],
   });
 }

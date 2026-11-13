@@ -75,17 +75,8 @@ describe("rule set with Grupos A, B, C, D, E and G", () => {
     expect(TABLE_3_A23_SPEC.notes.map((n) => n.number)).toEqual(
       cited(part1, [0, 1, 2, 3, 4]),
     );
-    // Notes 11 to 14 and 18 belong to the A-1 grid, which is not loaded.
+    // Notes 11 to 14 and 18 belong to the A-1 grid, which `group-a1.ts` loads.
     expect(TABLE_3_A23_SPEC.notes.map((n) => n.number)).not.toContain(11);
-  });
-
-  it("does not load the A-1 grid", () => {
-    expect(
-      ALL_RULES.some(
-        (r) => r.id.includes("isolation") || r.id.includes("urban"),
-      ),
-    ).toBe(false);
-    expect(classify(flat({ division: "A-1" }), DATE).status).toBe("analysis");
   });
 });
 

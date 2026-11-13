@@ -3,7 +3,6 @@ import table2Json from "../../norms/in-1-p2/tables/table-02.json";
 import table3Json from "../../norms/in-1-p2/tables/table-03.json";
 import { compileTable } from "./compile-table";
 import {
-  A2,
   A3,
   DIVISION_A_2_3,
   HEIGHT_CLASSES,
@@ -74,9 +73,15 @@ export const TABLE_3_A23_SPEC: TableSpec = {
 const RISK_III_A: Rule[] = [
   riskRule(
     "IN1P1-RISK-III-A-2",
-    "Risco III, A-2",
+    "Risco III, A-1 e A-2",
     85,
-    { all: [A2, heightAtMost(21), fact("area_m2", "lte", 5000)] },
+    {
+      all: [
+        fact("division", "in", ["A-1", "A-2"]),
+        heightAtMost(21),
+        fact("area_m2", "lte", 5000),
+      ],
+    },
     "III",
     "Anexo A, Quadro 2, A-1, A-2",
     "QUADRO 2 - Risco III (relação área e altura): A, A-1, A-2, altura ≤ 21 m, área ≤ 5.000 m²",

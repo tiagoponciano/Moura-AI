@@ -9,6 +9,7 @@ import {
   renderGroupDReviewSheet,
   renderGroupEReviewSheet,
   renderGroupGReviewSheet,
+  renderGroupA1ReviewSheet,
   renderGroupFReviewSheet,
   renderGroupKReviewSheet,
   renderGroupMDivisionsReviewSheet,
@@ -184,7 +185,7 @@ describe("renderGroupAReviewSheet", () => {
     for (const n of [11, 12, 13, 14, 18]) {
       expect(sheet).not.toContain(`### Tabela 3, nota ${n}\n`);
     }
-    expect(sheet).toContain("**A-1 não está coberto.**");
+    expect(sheet).toContain("**A-1.**");
   });
 
   it("prints only the A-2 and A-3 grid, with its own columns", () => {
@@ -312,6 +313,22 @@ describe("renderGroupMDivisionsReviewSheet", () => {
     ] as const)
       for (let n = 1; n <= count; n++)
         expect(sheet).toContain(`### Tabela ${table}, nota ${n}\n`);
+  });
+
+  it("is the committed sheet", () => {
+    if (process.env.UPDATE_REVIEW_SHEET === "1") writeFileSync(FILE, sheet);
+    expect(readFileSync(FILE, "utf-8")).toBe(sheet);
+  });
+});
+
+describe("renderGroupA1ReviewSheet", () => {
+  const sheet = renderGroupA1ReviewSheet();
+  const FILE = join(__dirname, "../../docs/group-a1-review-sheet.md");
+
+  it("covers the notes of the A-1 grid", () => {
+    for (const n of [11, 12, 13, 14, 18])
+      expect(sheet).toContain(`### Tabela 3, nota ${n}\n`);
+    expect(sheet).not.toContain("### Tabela 3, nota 1\n");
   });
 
   it("is the committed sheet", () => {

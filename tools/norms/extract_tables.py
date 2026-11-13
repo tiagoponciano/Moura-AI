@@ -86,14 +86,18 @@ def page_lines(page):
 
 
 def split_notes(lines):
-    """Assign each note line to the nearest note number, then validate.
+    """Split one page's note lines into numbered notes, then validate.
 
     The number sits at the vertical centre of a multi-line note, so a naive
-    "text after the number" split is wrong. Returns (notes, ok, problems).
+    "text after the number" split is wrong, and so is "nearest number" when
+    neighbours differ in length. The notes are contiguous groups of lines, so
+    this picks the grouping in which every number lies inside its own lines,
+    and among those the one that keeps each number closest to the middle of its
+    note. Returns (notes, ok, problems).
     """
     numbers = []  # (n, y_center)
     body = []  # (y_center, text)
-    for y0, x0, y1, text in lines:
+    for y0, x0, y1, text in sorted(lines):
         centre = (y0 + y1) / 2
         match = NUMBER_RE.match(text)
         if match and x0 < 52:
@@ -105,22 +109,48 @@ def split_notes(lines):
     problems = []
     if not numbers:
         return [], True, problems
-    if [n for n, _ in numbers] != list(range(1, len(numbers) + 1)):
-        problems.append("note numbers are not 1..N in order")
-    assigned = {n: [] for n, _ in numbers}
-    for centre, text in body:
-        nearest = min(numbers, key=lambda item: abs(item[1] - centre))[0]
-        assigned[nearest].append((centre, text))
+
+    inf = float("inf")
+    k, m = len(numbers), len(body)
+
+    def cost(start, end, y):
+        centres = [c for c, _ in body[start:end]]
+        if not centres or not (min(centres) - 2 <= y <= max(centres) + 2):
+            return inf
+        return abs((min(centres) + max(centres)) / 2 - y)
+
+    best = [[inf] * (m + 1) for _ in range(k + 1)]
+    back = [[0] * (m + 1) for _ in range(k + 1)]
+    best[0][0] = 0.0
+    for j in range(1, k + 1):
+        for i in range(j, m + 1):
+            for p in range(j - 1, i):
+                step = cost(p, i, numbers[j - 1][1])
+                if best[j - 1][p] + step < best[j][i]:
+                    best[j][i] = best[j - 1][p] + step
+                    back[j][i] = p
+    groups = []
+    if best[k][m] < inf:
+        i = m
+        for j in range(k, 0, -1):
+            p = back[j][i]
+            groups.append(body[p:i])
+            i = p
+        groups.reverse()
+    else:
+        problems.append("no grouping of the lines keeps every number inside its note")
+        assigned = {n: [] for n, _ in numbers}
+        for centre, text in body:
+            nearest = min(numbers, key=lambda item: abs(item[1] - centre))[0]
+            assigned[nearest].append((centre, text))
+        groups = [assigned[n] for n, _ in numbers]
+
     notes = []
-    for n, y in numbers:
-        parts = assigned[n]
+    for (n, _), parts in zip(numbers, groups):
         if not parts:
             problems.append(f"note {n} has no text")
             continue
-        low, high = min(c for c, _ in parts), max(c for c, _ in parts)
-        if not (low - 2 <= y <= high + 2):
-            problems.append(f"note {n}: number outside its lines")
-        text = clean(" ".join(t for _, t in parts))
+        text = clean(" ".join(tx for _, tx in parts))
         if not text[:1].isupper():
             problems.append(f"note {n} does not start with a capital")
         if text[-1:] not in ".)":
@@ -175,7 +205,7 @@ def extract(pdf_path: Path):
                     "title": title,
                     "pages": [],
                     "grids": [],
-                    "heading": [],
+                    "headings": [],
                     "note_lines": [],
                     "general_notes_raw": [],
                 }
@@ -188,9 +218,20 @@ def extract(pdf_path: Path):
             if index + 1 not in record["pages"]:
                 record["pages"].append(index + 1)
             header, data = table_from_grid(grid.extract())
+            # A grid with a heading starts a new part; one without continues the last.
+            if header or not record["grids"]:
+                part = len({g["part"] for g in record["grids"]})
+            else:
+                part = record["grids"][-1]["part"]
             record["grids"].append(
-                {"page": index + 1, "header_rows": header, "data_rows": data}
+                {
+                    "page": index + 1,
+                    "part": part,
+                    "header_rows": header,
+                    "data_rows": data,
+                }
             )
+        grid_tops = [(g.bbox[1], owner(g.bbox[1])) for g in grids]
         for y0, x0, y1, text in lines:
             if y0 > FOOTER_Y or TITLE_RE.match(clean(text)) or ANNEX_B in text:
                 continue
@@ -202,6 +243,10 @@ def extract(pdf_path: Path):
             record = tables[number]
             if index + 1 not in record["pages"]:
                 record["pages"].append(index + 1)
+            # A line above a grid of the same table is a heading, not a note.
+            if any(top > y0 and who == number for top, who in grid_tops):
+                record["headings"].append(clean(text))
+                continue
             record["note_lines"].append((y0, x0, y1, text, index + 1, y0))
         if titles:
             current = titles[-1][1]
@@ -209,22 +254,30 @@ def extract(pdf_path: Path):
 
 
 def build_table(record):
-    note_area, general = [], []
-    in_general = False
-    for y0, x0, y1, text, _page, _ in record["note_lines"]:
-        flat = clean(text)
-        if flat.upper().startswith("NOTAS GERAIS"):
-            in_general = True
-            continue
-        if flat.upper().startswith("NOTAS ESPEC") or flat.upper().startswith("NOTA "):
-            continue
-        (general if in_general else note_area).append((y0, x0, y1, text))
-    notes, notes_ok, problems = split_notes(note_area)
+    notes, general, problems = [], [], []
+    for page in sorted({line[4] for line in record["note_lines"]}):
+        area, in_general = [], False
+        for y0, x0, y1, text, line_page, _ in record["note_lines"]:
+            if line_page != page:
+                continue
+            flat = clean(text)
+            if flat.upper().startswith("NOTAS GERAIS"):
+                in_general = True
+                continue
+            if flat.upper().startswith("NOTAS ESPEC") or flat.upper().startswith("NOTA "):
+                continue
+            (general if in_general else area).append((y0, x0, y1, text))
+        page_notes, _, page_problems = split_notes(area)
+        notes.extend(page_notes)
+        problems.extend(page_problems)
+    if notes and [n["number"] for n in notes] != list(range(1, len(notes) + 1)):
+        problems.append("note numbers are not 1..N in order")
+    notes_ok = not problems
 
     rows = []
     refs_used = set()
     grammar_ok = True
-    widths = set()
+    widths = {}
     for grid in record["grids"]:
         for row in grid["data_rows"]:
             cells = [parse_cell(c) for c in row[2:]]
@@ -232,12 +285,13 @@ def build_table(record):
             vital_label = bool(re.search(r"\(\s*V\s*\)\s*$", label, re.IGNORECASE))
             label = re.sub(r"\s*\(\s*V\s*\)\s*$", "", label, flags=re.IGNORECASE)
             grammar_ok = grammar_ok and all(c["ok"] for c in cells if c["raw"])
-            widths.add(len(cells))
+            widths.setdefault(grid["part"], set()).add(len(cells))
             for cell in cells:
                 refs_used.update(cell["refs"])
             rows.append(
                 {
                     "page": grid["page"],
+                    "part": grid["part"],
                     "system": label,
                     "norm": clean(row[1]),
                     "vital_on_label": vital_label,
@@ -250,8 +304,8 @@ def build_table(record):
         look.append("no data rows in a grid (not an x/- table)")
     if not grammar_ok:
         look.append("a cell does not follow the x/- footnote grammar")
-    if len(widths) > 1:
-        look.append("data rows have different cell counts across grids")
+    if any(len(counts) > 1 for counts in widths.values()):
+        look.append("data rows of one part have different cell counts")
     if not notes_ok:
         look.extend(f"notes: {p}" for p in problems)
     if notes and refs_used != note_numbers:
@@ -266,9 +320,10 @@ def build_table(record):
         "title": record["title"],
         "pages": record["pages"],
         "grids": [
-            {"page": g["page"], "header_rows": g["header_rows"]}
+            {"page": g["page"], "part": g["part"], "header_rows": g["header_rows"]}
             for g in record["grids"]
         ],
+        "headings": record["headings"],
         "rows": rows,
         "notes": notes,
         "general_notes_raw": [clean(t) for _, _, _, t in general],

@@ -10,8 +10,10 @@ type Cell = {
   vital: boolean;
   ok: boolean;
 };
-type Row = { system: string; norm: string; cells: Cell[] };
+type Row = { part: number; system: string; norm: string; cells: Cell[] };
 type Table = {
+  headings?: string[];
+  grids?: { page: number; part: number }[];
   table: number;
   title: string;
   rows: Row[];
@@ -125,6 +127,42 @@ describe("IN 1 parte 2 extracted tables", () => {
     expect(note.number).toBe(5);
     expect(note.text.startsWith("Exigido para C-2 e C-3.")).toBe(true);
     expect(note.text.endsWith("quando houver.")).toBe(true);
+  });
+
+  describe("Tabela 3, the table with two grids and notes on the next page", () => {
+    const table3 = () => byNumber(3);
+
+    it("keeps the headings between the grids out of the notes", () => {
+      expect(table3().headings).toEqual([
+        "DIVISÃO A-1 (INDEPENDENTE DE ÁREA OU ALTURA)",
+        "DIVISÕES A-2 E A-3 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12 m",
+      ]);
+      expect(table3().notes[0].text.startsWith("A-2 está isento")).toBe(true);
+      expect(table3().notes[13].text).toBe(
+        "Igual ao da ocupação predominante.",
+      );
+    });
+
+    it("has the 18 notes in order, each in its own text", () => {
+      expect(table3().notes.map((n) => n.number)).toEqual(
+        Array.from({ length: 18 }, (_, i) => i + 1),
+      );
+      expect(
+        table3().notes[4].text.startsWith("Exigido detecção automática"),
+      ).toBe(true);
+      expect(table3().notes[3].text.endsWith("somente nos átrios.")).toBe(true);
+    });
+
+    it("separates the two grids, and puts the row that falls on the next page in the second", () => {
+      const parts = (n: number) => table3().rows.filter((r) => r.part === n);
+      expect(parts(0)).toHaveLength(5);
+      expect(parts(0).every((r) => r.cells.length === 3)).toBe(true);
+      expect(parts(1)).toHaveLength(19);
+      expect(parts(1).every((r) => r.cells.length === 5)).toBe(true);
+      expect(parts(1).at(-1)?.system).toBe(
+        "Sinalização para abandono de local",
+      );
+    });
   });
 
   it("has no unmapped ligature glyph or replacement character", () => {

@@ -5,6 +5,7 @@
   "grids": [
     {
       "page": 24,
+      "part": 0,
       "header_rows": [
         ["Grupo C - Comercial", "", "", "", "", "", "", ""],
         ["C-1, C-2 e C-3", "", "", "", "", "", "", ""],
@@ -31,9 +32,11 @@
       ]
     }
   ],
+  "headings": [],
   "rows": [
     {
       "page": 24,
+      "part": 0,
       "system": "Acesso de viaturas na edificação",
       "norm": "IN 35",
       "vital_on_label": false,
@@ -90,6 +93,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Alarme de incêndio",
       "norm": "IN 12",
       "vital_on_label": false,
@@ -146,6 +150,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Brigada de incêndio",
       "norm": "IN 28",
       "vital_on_label": false,
@@ -202,6 +207,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Chuveiros automáticos",
       "norm": "IN 15",
       "vital_on_label": false,
@@ -258,6 +264,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Compartimentação horizontal ou de áreas",
       "norm": "IN 14",
       "vital_on_label": false,
@@ -314,6 +321,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Compartimentação vertical",
       "norm": "IN 14",
       "vital_on_label": false,
@@ -370,6 +378,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Controle de fumaça",
       "norm": "IN 10",
       "vital_on_label": false,
@@ -426,6 +435,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Controle de materiais de acabamento",
       "norm": "IN 18",
       "vital_on_label": false,
@@ -482,6 +492,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Detecção automática de incêndio",
       "norm": "IN 12",
       "vital_on_label": false,
@@ -538,6 +549,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Elevador de emergência",
       "norm": "IN 9",
       "vital_on_label": false,
@@ -594,6 +606,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Extintores",
       "norm": "IN 6",
       "vital_on_label": true,
@@ -650,6 +663,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Gás combustível",
       "norm": "IN 8",
       "vital_on_label": false,
@@ -706,6 +720,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Hidráulico preventivo",
       "norm": "IN 7",
       "vital_on_label": false,
@@ -762,6 +777,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Iluminação de emergência",
       "norm": "IN 11",
       "vital_on_label": true,
@@ -818,6 +834,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Instalação elétrica de baixa tensão",
       "norm": "IN 19",
       "vital_on_label": false,
@@ -874,6 +891,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Plano de emergência",
       "norm": "IN 31",
       "vital_on_label": false,
@@ -930,6 +948,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Proteção estrutural (TRRF)",
       "norm": "IN 14",
       "vital_on_label": false,
@@ -986,6 +1005,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Saídas de emergência",
       "norm": "IN 9",
       "vital_on_label": false,
@@ -1042,6 +1062,7 @@
     },
     {
       "page": 24,
+      "part": 0,
       "system": "Sinalização para abandono de local",
       "norm": "IN 13",
       "vital_on_label": true,

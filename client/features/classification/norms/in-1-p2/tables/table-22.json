@@ -5,6 +5,7 @@
   "grids": [
     {
       "page": 41,
+      "part": 0,
       "header_rows": [
         ["Grupo K - Energia", "", "", "", "", ""],
         ["K-1 e K-2", "", "", "", "", ""],
@@ -20,9 +21,11 @@
       ]
     }
   ],
+  "headings": [],
   "rows": [
     {
       "page": 41,
+      "part": 0,
       "system": "Acesso de viaturas na edificação",
       "norm": "IN 35",
       "vital_on_label": false,
@@ -63,6 +66,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Alarme de incêndio",
       "norm": "IN 12",
       "vital_on_label": false,
@@ -103,6 +107,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Brigada de incêndio",
       "norm": "IN 28",
       "vital_on_label": false,
@@ -143,6 +148,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Compartimentação horizontal ou de áreas",
       "norm": "IN 14",
       "vital_on_label": false,
@@ -183,6 +189,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Compartimentação vertical",
       "norm": "IN 14",
       "vital_on_label": false,
@@ -223,6 +230,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Chuveiros automáticos",
       "norm": "IN 15",
       "vital_on_label": false,
@@ -263,6 +271,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Detecção automática de incêndio",
       "norm": "IN 12",
       "vital_on_label": false,
@@ -303,6 +312,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Elevador de emergência",
       "norm": "IN 9",
       "vital_on_label": false,
@@ -343,6 +353,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Espuma",
       "norm": "NBR 12232",
       "vital_on_label": false,
@@ -383,6 +394,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Extintores",
       "norm": "IN 6",
       "vital_on_label": true,
@@ -423,6 +435,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Gás combustível",
       "norm": "IN 8",
       "vital_on_label": false,
@@ -463,6 +476,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Hidráulico preventivo",
       "norm": "IN 7",
       "vital_on_label": false,
@@ -503,6 +517,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Iluminação de emergência",
       "norm": "IN 11",
       "vital_on_label": true,
@@ -543,6 +558,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Instalação elétrica de baixa tensão",
       "norm": "IN 19",
       "vital_on_label": false,
@@ -583,6 +599,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Plano de emergência",
       "norm": "IN 31",
       "vital_on_label": false,
@@ -623,6 +640,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Proteção estrutural",
       "norm": "IN 14",
       "vital_on_label": false,
@@ -663,6 +681,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Saídas de emergência",
       "norm": "IN 9",
       "vital_on_label": false,
@@ -703,6 +722,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Sinalização de emergência",
       "norm": "IN 13",
       "vital_on_label": true,
@@ -743,6 +763,7 @@
     },
     {
       "page": 41,
+      "part": 0,
       "system": "Resfriamento",
       "norm": "NBR 10897 NFPA 15 NFPA 750",
       "vital_on_label": false,

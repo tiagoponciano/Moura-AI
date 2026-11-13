@@ -30,6 +30,7 @@ export class UncodedNoteError extends Error {
 export function compileTable(table: ExtractedTable, spec: TableSpec): Rule[] {
   const rules: Rule[] = [];
   for (const row of table.rows) {
+    if (spec.part !== undefined && row.part !== spec.part) continue;
     const system = systemIdFromLabel(row.system);
     for (const column of spec.columns) {
       const cell = row.cells[column.index];

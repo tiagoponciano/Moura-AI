@@ -16,6 +16,12 @@ describe("systemIdFromLabel", () => {
     expect(systemIdFromLabel("Saídas de Emergência")).toBe("emergency_exits");
   });
 
+  it("reads the label Tabela 3 prints without the final s", () => {
+    expect(systemIdFromLabel("Compartimentação horizontal ou de área")).toBe(
+      "horizontal_compartmentation",
+    );
+  });
+
   it("keeps alarm and automatic detection apart", () => {
     expect(systemIdFromLabel("Alarme de incêndio")).toBe("fire_alarm");
     expect(systemIdFromLabel("Detecção automática de incêndio")).toBe(

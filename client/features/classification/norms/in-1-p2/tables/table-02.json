@@ -5,6 +5,7 @@
   "grids": [
     {
       "page": 20,
+      "part": 0,
       "header_rows": [
         [
           "SMSCI",
@@ -38,12 +39,15 @@
     },
     {
       "page": 20,
+      "part": 1,
       "header_rows": [["NOTAS ESPECÍFICAS - (V) Sistema ou medida vital", ""]]
     }
   ],
+  "headings": [],
   "rows": [
     {
       "page": 20,
+      "part": 0,
       "system": "Brigada de Incêndio",
       "norm": "IN 28",
       "vital_on_label": false,
@@ -132,6 +136,7 @@
     },
     {
       "page": 20,
+      "part": 0,
       "system": "Controle de fumaça",
       "norm": "IN 10",
       "vital_on_label": false,
@@ -220,6 +225,7 @@
     },
     {
       "page": 20,
+      "part": 0,
       "system": "Controle de Materiais de Acabamento",
       "norm": "IN 18",
       "vital_on_label": false,
@@ -308,6 +314,7 @@
     },
     {
       "page": 20,
+      "part": 0,
       "system": "Detecção automática de incêndio",
       "norm": "IN 12",
       "vital_on_label": false,
@@ -396,6 +403,7 @@
     },
     {
       "page": 20,
+      "part": 0,
       "system": "Extintores",
       "norm": "IN 6",
       "vital_on_label": false,
@@ -484,6 +492,7 @@
     },
     {
       "page": 20,
+      "part": 0,
       "system": "Gás combustível",
       "norm": "IN 8",
       "vital_on_label": false,
@@ -572,6 +581,7 @@
     },
     {
       "page": 20,
+      "part": 0,
       "system": "Hidráulico preventivo",
       "norm": "IN 7",
       "vital_on_label": false,
@@ -660,6 +670,7 @@
     },
     {
       "page": 20,
+      "part": 0,
       "system": "Iluminação de Emergência",
       "norm": "IN 11",
       "vital_on_label": false,
@@ -748,6 +759,7 @@
     },
     {
       "page": 20,
+      "part": 0,
       "system": "Instalações elétricas de baixa voltagem",
       "norm": "IN 19",
       "vital_on_label": false,
@@ -836,6 +848,7 @@
     },
     {
       "page": 20,
+      "part": 0,
       "system": "Plano de emergência",
       "norm": "IN 31",
       "vital_on_label": false,
@@ -924,6 +937,7 @@
     },
     {
       "page": 20,
+      "part": 0,
       "system": "Proteção estrutural (TRRF)",
       "norm": "IN 14",
       "vital_on_label": false,
@@ -1012,6 +1026,7 @@
     },
     {
       "page": 20,
+      "part": 0,
       "system": "Saídas de Emergência",
       "norm": "IN 9",
       "vital_on_label": false,
@@ -1100,6 +1115,7 @@
     },
     {
       "page": 20,
+      "part": 0,
       "system": "Sinalização para abandono de local",
       "norm": "IN 13",
       "vital_on_label": false,

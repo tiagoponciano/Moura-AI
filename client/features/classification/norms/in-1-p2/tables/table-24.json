@@ -5,6 +5,7 @@
   "grids": [
     {
       "page": 43,
+      "part": 0,
       "header_rows": [
         ["Grupo M – Especiais", "", "", "", "", "", ""],
         ["M-2", "", "", "", "", "", ""],
@@ -29,9 +30,11 @@
       ]
     }
   ],
+  "headings": [],
   "rows": [
     {
       "page": 43,
+      "part": 0,
       "system": "Acesso de Viaturas na Edificação",
       "norm": "IN 35",
       "vital_on_label": false,
@@ -80,6 +83,7 @@
     },
     {
       "page": 43,
+      "part": 0,
       "system": "Alarme de Incêndio",
       "norm": "IN 12",
       "vital_on_label": false,
@@ -128,6 +132,7 @@
     },
     {
       "page": 43,
+      "part": 0,
       "system": "Brigada de Incêndio",
       "norm": "IN 28",
       "vital_on_label": false,
@@ -176,6 +181,7 @@
     },
     {
       "page": 43,
+      "part": 0,
       "system": "Compartimentação Horizontal (áreas)",
       "norm": "IN 14",
       "vital_on_label": false,
@@ -224,6 +230,7 @@
     },
     {
       "page": 43,
+      "part": 0,
       "system": "Compartimentação Vertical",
       "norm": "IN 14",
       "vital_on_label": false,
@@ -272,6 +279,7 @@
     },
     {
       "page": 43,
+      "part": 0,
       "system": "Controle de Materiais de Acabamento",
       "norm": "IN 18",
       "vital_on_label": false,
@@ -320,6 +328,7 @@
     },
     {
       "page": 43,
+      "part": 0,
       "system": "Detecção de Incêndio",
       "norm": "IN 12",
       "vital_on_label": false,
@@ -368,6 +377,7 @@
     },
     {
       "page": 43,
+      "part": 0,
       "system": "Espuma",
       "norm": "NBR 12232",
       "vital_on_label": false,
@@ -416,6 +426,7 @@
     },
     {
       "page": 43,
+      "part": 0,
       "system": "Extintores",
       "norm": "IN 6",
       "vital_on_label": false,
@@ -464,6 +475,7 @@
     },
     {
       "page": 43,
+      "part": 0,
       "system": "Hidráulico preventivo",
       "norm": "IN 7",
       "vital_on_label": false,
@@ -512,6 +524,7 @@
     },
     {
       "page": 43,
+      "part": 0,
       "system": "Iluminação de Emergência 5",
       "norm": "IN 11",
       "vital_on_label": false,
@@ -560,6 +573,7 @@
     },
     {
       "page": 43,
+      "part": 0,
       "system": "Plano de Emergência",
       "norm": "IN 31",
       "vital_on_label": false,
@@ -608,6 +622,7 @@
     },
     {
       "page": 43,
+      "part": 0,
       "system": "Proteção Estrutural",
       "norm": "IN 14",
       "vital_on_label": false,
@@ -656,6 +671,7 @@
     },
     {
       "page": 43,
+      "part": 0,
       "system": "Resfriamento",
       "norm": "NBR 10897 NFPA 15 NFPA 750",
       "vital_on_label": false,
@@ -704,6 +720,7 @@
     },
     {
       "page": 43,
+      "part": 0,
       "system": "Saídas de Emergência",
       "norm": "IN 9",
       "vital_on_label": false,
@@ -752,6 +769,7 @@
     },
     {
       "page": 43,
+      "part": 0,
       "system": "Sinalização para abandono de local",
       "norm": "IN 13",
       "vital_on_label": false,

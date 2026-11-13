@@ -3,6 +3,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   describeCondition,
+  renderGroupAReviewSheet,
   renderGroupBReviewSheet,
   renderGroupCReviewSheet,
   renderGroupDReviewSheet,
@@ -158,6 +159,32 @@ describe("renderGroupBReviewSheet", () => {
       expect(sheet).toContain(`### Tabela 4, nota ${n}\n`);
     expect(sheet).toContain("**Tabela 4 tem cinco colunas de altura.**");
     expect(sheet).toContain("12 < H ≤ 30");
+  });
+
+  it("is the committed sheet", () => {
+    if (process.env.UPDATE_REVIEW_SHEET === "1") writeFileSync(FILE, sheet);
+    expect(readFileSync(FILE, "utf-8")).toBe(sheet);
+  });
+});
+
+describe("renderGroupAReviewSheet", () => {
+  const sheet = renderGroupAReviewSheet();
+  const FILE = join(__dirname, "../../docs/group-a-review-sheet.md");
+
+  it("covers the A-2 and A-3 notes of Tabela 3 and leaves out the A-1 ones", () => {
+    for (const n of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 16, 17]) {
+      expect(sheet).toContain(`### Tabela 3, nota ${n}\n`);
+    }
+    for (const n of [11, 12, 13, 14, 18]) {
+      expect(sheet).not.toContain(`### Tabela 3, nota ${n}\n`);
+    }
+    expect(sheet).toContain("**A-1 não está coberto.**");
+  });
+
+  it("prints only the A-2 and A-3 grid, with its own columns", () => {
+    expect(sheet).toContain("6 < H ≤ 15");
+    expect(sheet).not.toContain("Isolamento entre edificações");
+    expect(sheet).not.toContain("Hidrantes Urbanos");
   });
 
   it("is the committed sheet", () => {

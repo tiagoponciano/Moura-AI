@@ -30,6 +30,7 @@ const ALIASES: Record<string, SystemId> = {
   "brigada de incêndio": "fire_brigade",
   "chuveiros automáticos": "sprinklers",
   "compartimentação horizontal ou de áreas": "horizontal_compartmentation",
+  "compartimentação horizontal ou de área": "horizontal_compartmentation",
   "compartimentação vertical": "vertical_compartmentation",
   "controle de fumaça": "smoke_control",
   "controle de materiais de acabamento": "finishing_materials_control",

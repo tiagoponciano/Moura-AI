@@ -1,6 +1,7 @@
 import type { Condition } from "../engine/types";
 import table2Json from "../../norms/in-1-p2/tables/table-02.json";
 import table5Json from "../../norms/in-1-p2/tables/table-05.json";
+import table3Json from "../../norms/in-1-p2/tables/table-03.json";
 import table4Json from "../../norms/in-1-p2/tables/table-04.json";
 import table6Json from "../../norms/in-1-p2/tables/table-06.json";
 import table7Json from "../../norms/in-1-p2/tables/table-07.json";
@@ -8,6 +9,7 @@ import table13Json from "../../norms/in-1-p2/tables/table-13.json";
 import table14Json from "../../norms/in-1-p2/tables/table-14.json";
 import { TABLE_2_SPEC, TABLE_5_SPEC } from "./group-c";
 import { TABLE_2_D_SPEC, TABLE_6_SPEC } from "./group-d";
+import { TABLE_2_A_SPEC, TABLE_3_A23_SPEC } from "./group-a";
 import { TABLE_2_B_SPEC, TABLE_4_SPEC } from "./group-b";
 import { TABLE_2_E_SPEC, TABLE_7_SPEC } from "./group-e";
 import { TABLE_13_SPEC, TABLE_14_SPEC, TABLE_2_G_SPEC } from "./group-g";
@@ -18,6 +20,7 @@ import type { ExtractedTable, NoteEffect, NoteSpec, TableSpec } from "./types";
 const table2 = table2Json as unknown as ExtractedTable;
 const table5 = table5Json as unknown as ExtractedTable;
 const table6 = table6Json as unknown as ExtractedTable;
+const table3 = table3Json as unknown as ExtractedTable;
 const table4 = table4Json as unknown as ExtractedTable;
 const table7 = table7Json as unknown as ExtractedTable;
 const table13 = table13Json as unknown as ExtractedTable;
@@ -190,14 +193,16 @@ function noteSection(table: ExtractedTable, note: NoteSpec): string[] {
 
 function matrix(table: ExtractedTable, spec: TableSpec): string[] {
   const head = ["Sistema", "IN", ...spec.columns.map((c) => c.label)];
-  const rows = table.rows.map((row) => {
-    const cells = spec.columns.map((c) => {
-      const cell = row.cells[c.index];
-      return cell.raw.replace(/\s+/g, " ");
+  const rows = table.rows
+    .filter((row) => spec.part === undefined || row.part === spec.part)
+    .map((row) => {
+      const cells = spec.columns.map((c) => {
+        const cell = row.cells[c.index];
+        return cell.raw.replace(/\s+/g, " ");
+      });
+      const label = `${systemLabel(systemIdFromLabel(row.system))}${row.vital_on_label ? " (V)" : ""}`;
+      return [label, row.norm, ...cells];
     });
-    const label = `${systemLabel(systemIdFromLabel(row.system))}${row.vital_on_label ? " (V)" : ""}`;
-    return [label, row.norm, ...cells];
-  });
   const line = (cells: string[]) => `| ${cells.join(" | ")} |`;
   return [line(head), line(head.map(() => "---")), ...rows.map(line)];
 }
@@ -385,6 +390,38 @@ export function renderGroupBReviewSheet(): string {
     specs: [
       { spec: TABLE_2_B_SPEC, table: table2 },
       { spec: TABLE_4_SPEC, table: table4 },
+    ],
+  });
+}
+
+/** The questions of the Grupo C sheet that hold for any group, plus the ones of A-2 and A-3. */
+export const GENERAL_QUESTIONS_A = [
+  ...GENERAL_QUESTIONS.slice(0, 5),
+  "**Divisão A-2 e A-3.** A divisão vem da conversa (o assistente propõe a partir da descrição e o usuário confirma). Quem valida a divisão final?",
+  '**A-1 não está coberto.** A grade do A-1 (casas e condomínios horizontais) depende do tipo de construção (geminada/conjugada, isolada, unifamiliar mista) e de fatos que o código ainda não pergunta (abrigo ou central de GLP, quantidade de lotes). O A-1 responde "análise específica". É aceitável como primeira entrega?',
+  "**Escopo do Grupo A.** Só entra: A-2 ou A-3, um bloco e uma ocupação. O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Um edifício residencial costuma ter garagem, salão de festas e academia, que a norma trata como ocupação subsidiária e o código manda para análise específica. É aceitável?",
+  "**Brigada.** Nas duas tabelas, a nota 1 diz que A-2 está isento de brigadistas. O código lê que a brigada é exigida só para A-3.",
+  "**Tabela 3 divide as alturas em 6, 15 e 30 m.** As outras tabelas dividem em 6, 12, 23 e 30 m. O código usa as colunas como estão impressas.",
+  '**Células com duas notas na Tabela 3.** O PDF traz "x⁹⁻¹⁰" (compartimentação vertical) e "x¹⁵⁻¹⁶" (controle de materiais de acabamento). O código leu como duas notas cada, porque assim as notas são citadas uma vez. Confirmar que não é um intervalo.',
+  "**Controle de materiais de acabamento (notas 15 e 16).** O código combina as duas: acima de 12 m, e só nas áreas comuns para A-2. Nas colunas que citam só a nota 16, vale sem a altura mínima. Confirmar.",
+  ...GENERAL_QUESTIONS.slice(7, 9),
+  ...GENERAL_QUESTIONS.slice(10, 12),
+  "**Risco III de A-2 e A-3.** O Quadro 2 traz A-1 e A-2 juntos (até 21 m e 5.000 m²) e A-3 (até 21 m e 2.500 m²). O código aplica a linha só ao A-2, porque o A-1 não está coberto. Confirmar.",
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 1],
+];
+
+/** The Portuguese review sheet for the A-2 and A-3 rules; generated, never edited by hand. */
+export function renderGroupAReviewSheet(): string {
+  return renderReviewSheet({
+    title: "Regras do Grupo A (A-2 e A-3): folha de revisão",
+    source:
+      "IN 1 parte 2, Anexo B, Tabelas 2 (coluna A-2, A-3, D, E e G) e 3 (grade de A-2 e A-3); IN 3, art. 11 e Anexo A; IN 1 parte 1, art. 5º e Anexo A (risco)",
+    coverage:
+      'o Grupo A, divisões A-2 (multifamiliar vertical) e A-3 (coletiva), com as regras de nível de risco, travas e carga de incêndio que elas compartilham com os demais grupos cobertos. O A-1 e as divisões sem regras carregadas respondem "análise específica".',
+    general: GENERAL_QUESTIONS_A,
+    specs: [
+      { spec: TABLE_2_A_SPEC, table: table2 },
+      { spec: TABLE_3_A23_SPEC, table: table3 },
     ],
   });
 }

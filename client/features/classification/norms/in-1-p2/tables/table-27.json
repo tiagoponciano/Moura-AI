@@ -5,6 +5,7 @@
   "grids": [
     {
       "page": 45,
+      "part": 0,
       "header_rows": [
         ["Grupo M - Especiais", "", ""],
         ["M-5", "", ""],
@@ -12,9 +13,11 @@
       ]
     }
   ],
+  "headings": [],
   "rows": [
     {
       "page": 45,
+      "part": 0,
       "system": "Brigada de incêndio",
       "norm": "IN 28",
       "vital_on_label": false,
@@ -31,6 +34,7 @@
     },
     {
       "page": 45,
+      "part": 0,
       "system": "Extintores",
       "norm": "IN 6",
       "vital_on_label": false,
@@ -47,6 +51,7 @@
     },
     {
       "page": 45,
+      "part": 0,
       "system": "Hidráulico preventivo",
       "norm": "IN 7",
       "vital_on_label": false,
@@ -63,6 +68,7 @@
     },
     {
       "page": 45,
+      "part": 0,
       "system": "Iluminação de Emergência",
       "norm": "IN 11",
       "vital_on_label": false,
@@ -79,6 +85,7 @@
     },
     {
       "page": 45,
+      "part": 0,
       "system": "Saídas de emergência",
       "norm": "IN 9",
       "vital_on_label": false,

@@ -30,8 +30,8 @@ describe("systemIdFromLabel", () => {
   });
 
   it("refuses a label nobody reviewed instead of dropping the system", () => {
-    expect(() => systemIdFromLabel("Espuma")).toThrow(
-      'Unknown system label: "Espuma"',
+    expect(() => systemIdFromLabel("Mystery system")).toThrow(
+      'Unknown system label: "Mystery system"',
     );
   });
 });

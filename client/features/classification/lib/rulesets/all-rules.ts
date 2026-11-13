@@ -1,3 +1,4 @@
+import { GROUP_B_RULES } from "./group-b";
 import { GROUP_C_RULES } from "./group-c";
 import { GROUP_D_RULES } from "./group-d";
 import { GROUP_E_RULES } from "./group-e";
@@ -8,6 +9,7 @@ import { GROUP_G_RULES } from "./group-g";
  * shares (fire load class, regime, guards, risk V, I, II and IV).
  */
 export const ALL_RULES = [
+  ...GROUP_B_RULES,
   ...GROUP_C_RULES,
   ...GROUP_D_RULES,
   ...GROUP_E_RULES,

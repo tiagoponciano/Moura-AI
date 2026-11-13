@@ -76,6 +76,8 @@ const CATALOG_ORDER = Object.keys(SYSTEMS);
 
 /** The table by height of each covered division in IN 1 parte 2, Anexo B. */
 const LARGE_TABLE: Record<string, number> = {
+  "B-1": 4,
+  "B-2": 4,
   "C-1": 5,
   "C-2": 5,
   "C-3": 5,
@@ -102,7 +104,13 @@ function tableHint(facts: Facts): string | undefined {
   const table = LARGE_TABLE[String(facts.division)];
   const label = table ? `Tabela ${table}` : "Tabela por altura";
   const column = HEIGHT_CLASSES.find((h) => h.id === facts.height_class);
-  return column ? `${label}, coluna ${column.label}` : label;
+  // Tabela 4 has one column for 12 to 30 m where the other tables split at 23 m.
+  const name =
+    table === 4 &&
+    (facts.height_class === "h12_23" || facts.height_class === "h23_30")
+      ? "12 < H ≤ 30"
+      : column?.label;
+  return name ? `${label}, coluna ${name}` : label;
 }
 
 /** Runs the rules over the answers and shapes the result for the screen. */

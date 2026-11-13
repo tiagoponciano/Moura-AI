@@ -111,7 +111,7 @@ export const DIVISION_I_1_2 = fact("division", "in", ["I-1", "I-2"]);
 export const DIVISION_J_1_2 = fact("division", "in", ["J-1", "J-2"]);
 export const DIVISION_J_3_4 = fact("division", "in", ["J-3", "J-4"]);
 /** Every division that has rules loaded. */
-export const COVERED_DIVISIONS = fact("division", "in", [
+const COVERED_DIVISION_IDS = [
   "A-2",
   "A-3",
   "B-1",
@@ -157,7 +157,44 @@ export const COVERED_DIVISIONS = fact("division", "in", [
   "J-2",
   "J-3",
   "J-4",
-]);
+];
+export const COVERED_DIVISIONS = fact("division", "in", COVERED_DIVISION_IDS);
+
+/**
+ * The scope guards a division can declare. Each one only makes sense when the
+ * division is classified by the fact it checks.
+ *   - boundary: the regime boundary (exactly 750 m² or 12 m); needs area and height.
+ *   - multiple-blocks: the area depends on the isolation between blocks.
+ *   - mixed-use: the systems follow arts. 11 and 12.
+ */
+export type ScopeGuardKey = "boundary" | "multiple-blocks" | "mixed-use";
+
+/** Divisions classified by area and height: all three guards apply. */
+const AREA_HEIGHT_GUARDS: readonly ScopeGuardKey[] = [
+  "boundary",
+  "multiple-blocks",
+  "mixed-use",
+];
+
+/**
+ * The guards each covered division declares. A new division lists only the
+ * guards that fit its tables (K and M do not use area or height, so they do not
+ * declare "boundary").
+ */
+export const DIVISION_SCOPE_GUARDS: Record<string, readonly ScopeGuardKey[]> =
+  Object.fromEntries(
+    COVERED_DIVISION_IDS.map((id) => [id, AREA_HEIGHT_GUARDS]),
+  );
+
+/** The condition "division is one that declares this guard". */
+export const declaresGuard = (key: ScopeGuardKey): Condition =>
+  fact(
+    "division",
+    "in",
+    Object.entries(DIVISION_SCOPE_GUARDS)
+      .filter(([, keys]) => keys.includes(key))
+      .map(([id]) => id),
+  );
 
 const singleStorey = fact("storeys", "eq", 1);
 const manyStoreys = fact("storeys", "gt", 1);

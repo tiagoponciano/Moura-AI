@@ -10,6 +10,7 @@ import {
   renderGroupEReviewSheet,
   renderGroupGReviewSheet,
   renderGroupHReviewSheet,
+  renderGroupIJReviewSheet,
 } from "./review-sheet";
 import { fact, C2, C3 } from "./group-c-conditions";
 
@@ -208,6 +209,27 @@ describe("renderGroupHReviewSheet", () => {
     expect(sheet).toContain("H1, H4 e H6");
     expect(sheet).toContain("H2, H3 e H5");
     expect(sheet.match(/### Tabela 2, nota 2\n/g)).toHaveLength(1);
+  });
+
+  it("is the committed sheet", () => {
+    if (process.env.UPDATE_REVIEW_SHEET === "1") writeFileSync(FILE, sheet);
+    expect(readFileSync(FILE, "utf-8")).toBe(sheet);
+  });
+});
+
+describe("renderGroupIJReviewSheet", () => {
+  const sheet = renderGroupIJReviewSheet();
+  const FILE = join(__dirname, "../../docs/group-ij-review-sheet.md");
+
+  it("covers the notes of Tabelas 18 to 21", () => {
+    for (const [table, count] of [
+      [18, 7],
+      [19, 7],
+      [20, 9],
+      [21, 8],
+    ] as const)
+      for (let n = 1; n <= count; n++)
+        expect(sheet).toContain(`### Tabela ${table}, nota ${n}\n`);
   });
 
   it("is the committed sheet", () => {

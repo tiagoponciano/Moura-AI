@@ -9,6 +9,7 @@ import {
   renderGroupDReviewSheet,
   renderGroupEReviewSheet,
   renderGroupGReviewSheet,
+  renderGroupHReviewSheet,
 } from "./review-sheet";
 import { fact, C2, C3 } from "./group-c-conditions";
 
@@ -185,6 +186,28 @@ describe("renderGroupAReviewSheet", () => {
     expect(sheet).toContain("6 < H ≤ 15");
     expect(sheet).not.toContain("Isolamento entre edificações");
     expect(sheet).not.toContain("Hidrantes Urbanos");
+  });
+
+  it("is the committed sheet", () => {
+    if (process.env.UPDATE_REVIEW_SHEET === "1") writeFileSync(FILE, sheet);
+    expect(readFileSync(FILE, "utf-8")).toBe(sheet);
+  });
+});
+
+describe("renderGroupHReviewSheet", () => {
+  const sheet = renderGroupHReviewSheet();
+  const FILE = join(__dirname, "../../docs/group-h-review-sheet.md");
+
+  it("covers the notes of Tabelas 15, 16 and 17, and the two columns of Tabela 2", () => {
+    for (let n = 1; n <= 11; n++)
+      expect(sheet).toContain(`### Tabela 15, nota ${n}\n`);
+    for (let n = 1; n <= 8; n++) {
+      expect(sheet).toContain(`### Tabela 16, nota ${n}\n`);
+      expect(sheet).toContain(`### Tabela 17, nota ${n}\n`);
+    }
+    expect(sheet).toContain("H1, H4 e H6");
+    expect(sheet).toContain("H2, H3 e H5");
+    expect(sheet.match(/### Tabela 2, nota 2\n/g)).toHaveLength(1);
   });
 
   it("is the committed sheet", () => {

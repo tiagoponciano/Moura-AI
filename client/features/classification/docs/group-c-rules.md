@@ -1,6 +1,6 @@
 # Grupo C rules
 
-How the rule set for Grupo C (comercial: C-1, C-2, C-3) is built from the extracted CBMSC tables and what it decides. `GROUP_C_RULES` also holds the rules every covered group shares (fire load class, regime, guards, risk V, I, II and IV); Grupo D is in `group-d-rules.md`, Grupo E in `group-e-rules.md` and Grupo G in `group-g-rules.md`. For developers adding other groups and for whoever reviews the readings with Moura. It describes the code as it is now.
+How the rule set for Grupo C (comercial: C-1, C-2, C-3) is built from the extracted CBMSC tables and what it decides. `GROUP_C_RULES` also holds the rules every covered group shares (fire load class, regime, guards, risk V, I, II and IV); Grupo D is in `group-d-rules.md`, Grupo E in `group-e-rules.md`, Grupo G in `group-g-rules.md` and Grupo B in `group-b-rules.md`. For developers adding other groups and for whoever reviews the readings with Moura. It describes the code as it is now.
 
 ## What this is
 

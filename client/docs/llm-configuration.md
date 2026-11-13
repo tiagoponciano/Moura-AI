@@ -15,16 +15,17 @@ Invariants:
 
 ## Surface
 
-| Export                              | File                    | Contract                                                                                                                      |
-| ----------------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `resolveChatModel()`                | `lib/llm/index.ts`      | Server-only, async. `{ model: LanguageModel }` or `{ error: Response }` (500, see below)                                      |
-| `toChatResponse`, `ChatPersistence` | `lib/llm/index.ts`      | Stream wrapper used by the chat handlers (see `chat-history.md`); stream errors are masked (see `chat-request-limits.md`)     |
-| `pickModelConfig(stored)`           | `lib/llm/config.ts`     | Pure. `{ provider, model, apiKey }` when `stored.api_key` is non-empty, else `undefined`                                      |
-| `LLM_CATALOG`                       | `lib/llm/catalog.ts`    | Providers and models the admin console offers; safe to import in the browser                                                  |
-| `LLM_PROVIDERS`                     | `lib/llm/catalog.ts`    | `["anthropic", "openai", "google"]`, same values as the `llm_provider` enum                                                   |
-| `isCatalogModel(p, m)`              | `lib/llm/catalog.ts`    | `true` only when `m` is listed under provider `p`                                                                             |
-| `createSupabaseAdminClient()`       | `lib/supabase/admin.ts` | Server-only (`import "server-only"`). Service role client, or `undefined` without Supabase env or `SUPABASE_SERVICE_ROLE_KEY` |
-| `chatErrorMessage(error)`           | `lib/chat-error.ts`     | Text the chat shows for a failed request: the `error` field of a JSON body, else `error.message` unchanged                    |
+| Export                              | File                    | Contract                                                                                                                                                                                                                |
+| ----------------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `resolveChatModel()`                | `lib/llm/index.ts`      | Server-only, async. `{ model: LanguageModel }` or `{ error: Response }` (500, see below)                                                                                                                                |
+| `toChatResponse`, `ChatPersistence` | `lib/llm/index.ts`      | Stream wrapper used by the chat handlers (see `chat-history.md`); stream errors are masked (see `chat-request-limits.md`)                                                                                               |
+| `recentMessages(messages)`          | `lib/llm/index.ts`      | The last 6 messages, starting at a user message. The classification and documents chats send only these to the model, because their instructions already carry the recorded answers; the saved conversation is complete |
+| `pickModelConfig(stored)`           | `lib/llm/config.ts`     | Pure. `{ provider, model, apiKey }` when `stored.api_key` is non-empty, else `undefined`                                                                                                                                |
+| `LLM_CATALOG`                       | `lib/llm/catalog.ts`    | Providers and models the admin console offers; safe to import in the browser                                                                                                                                            |
+| `LLM_PROVIDERS`                     | `lib/llm/catalog.ts`    | `["anthropic", "openai", "google"]`, same values as the `llm_provider` enum                                                                                                                                             |
+| `isCatalogModel(p, m)`              | `lib/llm/catalog.ts`    | `true` only when `m` is listed under provider `p`                                                                                                                                                                       |
+| `createSupabaseAdminClient()`       | `lib/supabase/admin.ts` | Server-only (`import "server-only"`). Service role client, or `undefined` without Supabase env or `SUPABASE_SERVICE_ROLE_KEY`                                                                                           |
+| `chatErrorMessage(error)`           | `lib/chat-error.ts`     | Text the chat shows for a failed request: the `error` field of a JSON body, else `error.message` unchanged                                                                                                              |
 
 `get_llm_config()` returns zero or one row: `provider`, `model` and `api_key` (the decrypted Vault secret `llm_api_key_<provider>`, `null` when that provider has no secret). No row when `app_settings.llm_provider` or `llm_model` is null.
 

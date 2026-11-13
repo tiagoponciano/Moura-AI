@@ -8,7 +8,7 @@ How the rule set for the residential divisions A-2 (multifamiliar vertical) and 
 
 Tabela 3 has two grids: A-1 by type of construction, and A-2/A-3 by height. The extractor numbers them as `part` 0 and 1 (see `norm-extraction.md`); the specification names `part: 1`, so the A-1 rows are never compiled. The columns split at 6, 15 and 30 m, unlike the other tables, and `classify` names them from the height (`tableThreeColumn`) instead of from the derived `height_class`.
 
-Invariants (as for the other groups): every rule is `provisional`; a cell with an uncoded note throws at compile time; outside the scope (several blocks, mixed use, exactly 750 m² or 12 m, a division without rules, including A-1) the result is a specific analysis.
+Invariants (as for the other groups): every rule is `provisional`; a cell with an uncoded note throws at compile time; outside the scope (several blocks, mixed or secondary use, exactly 750 m² or 12 m, a division without rules, including A-1) the result is a specific analysis.
 
 `docs/group-a-review-sheet.md` is generated from the code and kept equal to it by a test.
 
@@ -33,7 +33,7 @@ Invariants (as for the other groups): every rule is `provisional`; a cell with a
 ## What this does NOT do
 
 - **It does not cover A-1.** The A-1 grid depends on the type of construction and on facts the code does not ask (shared LPG shelter, number of lots). Notes 11 to 14 and 18 belong to it. A-1 gets `GUARD-not-covered`.
-- **It treats a garage, party room or gym as mixed use,** which goes to a specific analysis; the sheet asks if that is acceptable.
+- **A garage, party room or gym is asked about, not assumed.** If the user says they are only subsidiary, the rules of the A-2 or A-3 apply (art. 10); otherwise it is mixed or secondary use and goes to a specific analysis.
 - **It does not evaluate the garage and car park rules of note 17;** they stay in the printed observation.
 - **It does not ask whether an A-2 has detection installed,** which note 10 uses to move the compartmentation requirement to 60 m; the sentence is shown as information.
 - **It does nothing for existing buildings (IN 5).**

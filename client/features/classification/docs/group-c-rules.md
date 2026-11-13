@@ -82,11 +82,13 @@ Height in Quadro 2 is the same height as for the systems (single-storey is 0). T
 | ------------------- | ------------------------------------------------------- | --------------------- |
 | `GUARD-not-covered` | `division` is not one of `C-1` to `C-3`, `D-1` to `D-4` | IN 1 parte 2, Anexo B |
 
-| `GUARD-boundary` | the regime boundary, for a covered division | Anexo B, Tabelas 2 e 3–29 |
+| `GUARD-boundary` | the regime boundary, for a division that declares `boundary` | Anexo B, Tabelas 2 e 3–29 |
 
-| `GUARD-multiple-blocks` | `single_block` is `false` | IN 1 parte 2, art. 7 |
-| `GUARD-mixed-use` | `single_use` is `false` and `only_subsidiary` is `false` | IN 1 parte 2, arts. 11–12 |
+| `GUARD-multiple-blocks` | `single_block` is `false`, for a division that declares `multiple-blocks` | IN 1 parte 2, art. 7 |
+| `GUARD-mixed-use` | `single_use` is `false` and `only_subsidiary` is `false`, for a division that declares `mixed-use` | IN 1 parte 2, arts. 11–12 |
 | `GUARD-storage-over-3-5m` | Grupo C and `storage_over_3_5m` is `true` | IN 3, art. 8 |
+
+**Guards are declared per division.** `DIVISION_SCOPE_GUARDS` (in `group-c-conditions.ts`) lists the scope guards each covered division declares (`boundary`, `multiple-blocks`, `mixed-use`), and `declaresGuard(key)` turns a key into the condition "division declares it". Every division loaded today declares all three, because they are all classified by area and height. A division whose tables do not use area or height (Grupos K and M) declares only the guards that fit it, so `boundary` never fires for it.
 
 Every table rule also requires `single_block` to be `true`, one use (`single_use` `true`, or `only_subsidiary` `true`) and, for Grupo C, `storage_over_3_5m` to be `false`, so while one of them is unanswered the systems are `needs_info`, and when one is the wrong way round no system is required.
 

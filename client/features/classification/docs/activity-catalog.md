@@ -55,7 +55,7 @@ type Activity = {
 - **No similarity.** An activity the annex does not list is not matched to the nearest one; the norm assigns that to a person.
 - **No other annex.** Annex B (load by storage height), C (deterministic method), D (calorific potential) and E (worksheet) are not loaded. The five loads that point to them (F-9, F-10, M-5, M-6, M-7) have no number here.
 - **No ranking beyond the words and the cues.** It does not know which activity is more common.
-- **It does not classify by Tabela 1.** The occupations are loaded to name a division ("C-2 · Comércio com média, alta ou altíssima carga de incêndio"); only Grupo C has rules.
+- **It does not classify by Tabela 1.** The occupations are loaded to name a division ("C-2 · Comércio com média, alta ou altíssima carga de incêndio"); only Grupo C and Grupo D have rules.
 - **The model can still misread.** A confirmed activity can be the wrong one if the user confirms without reading; the panel shows what was recorded.
 
 ## Gotchas

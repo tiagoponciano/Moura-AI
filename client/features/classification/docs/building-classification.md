@@ -132,7 +132,7 @@ Panel, top to bottom:
 
 ## What this does NOT do
 
-- **Only Grupo C.** Another division gets a specific analysis. Nothing for existing buildings (IN 5).
+- **Only Grupo C and Grupo D.** Another division gets a specific analysis. Nothing for existing buildings (IN 5).
 - **No sizing.** It says which systems are required, not how many extinguishers or how large a reservoir; that is in the IN of each system.
 - **No approved rules.** The result stays provisional until a person confirms the readings in `group-c-review-sheet.md`.
 - **No export and no link to Documentos or Plantas.** Answers and results are not saved; only the conversation is.

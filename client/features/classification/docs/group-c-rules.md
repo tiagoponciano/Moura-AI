@@ -1,6 +1,6 @@
 # Grupo C rules
 
-How the rule set for Grupo C (comercial: C-1, C-2, C-3) is built from the extracted CBMSC tables and what it decides. For developers adding other groups and for whoever reviews the readings with Moura. It describes the code as it is now.
+How the rule set for Grupo C (comercial: C-1, C-2, C-3) is built from the extracted CBMSC tables and what it decides. `GROUP_C_RULES` also holds the rules every covered group shares (fire load class, regime, guards, risk V, I, II and IV); Grupo D is in `group-d-rules.md`. For developers adding other groups and for whoever reviews the readings with Moura. It describes the code as it is now.
 
 ## What this is
 
@@ -68,19 +68,21 @@ Rule ids: `IN1P2-T<table>-<system>-<column>-req[N]` and `-sub[N]` for compiled r
 | I     | `risk_exempt` is `true`                                                                                                                                          | Art. 5º, § 2º, I         |
 | II    | area ≤ 750 m², storeys ≤ 3, and (no special risks, or LPG ≤ 190 kg, liquids ≤ 250 L inside and ≤ 20 m³ outside)                                                  | Anexo A, Quadro 1        |
 | III   | one row of Quadro 2 for C-1 (≤ 21 m, ≤ 5.000 m²), C-2 medium (≤ 12 m, ≤ 5.000 m²), C-2 high (≤ 12 m, ≤ 3.000 m²), C-3 (≤ 6 m, ≤ 5.000 m²; 6 to 12 m, ≤ 3.000 m²) | Anexo A, Quadro 2        |
-| IV    | none of the above, for Grupo C                                                                                                                                   | Art. 5º, § 2º, IV        |
+| IV    | none of the above, for a covered division                                                                                                                        | Art. 5º, § 2º, IV        |
 
 Height in Quadro 2 is the same height as for the systems (single-storey is 0). The fire load class is needed for every building, even a small one, because risk V depends on it; it is asked only when no activity supplied it. A division outside Grupo C gets no level. `RISK_PROCESS` holds, per level, what the norm says about the process (art. 5º, § 2º), shown with the result. Risk II and III rows are encoded by hand from the quadros; the rules carry the printed text.
 
 **Guards** (`systems` stage, specific analysis):
 
-| Id                        | When                                    | Source                    |
-| ------------------------- | --------------------------------------- | ------------------------- |
-| `GUARD-not-group-c`       | `division` is not `C-1`, `C-2` or `C-3` | IN 1 parte 2, Anexo B     |
-| `GUARD-boundary`          | the regime boundary, for Grupo C        | Anexo B, Tabelas 2 e 3–29 |
-| `GUARD-multiple-blocks`   | `single_block` is `false`               | IN 1 parte 2, art. 7      |
-| `GUARD-mixed-use`         | `single_use` is `false`                 | IN 1 parte 2, arts. 10–12 |
-| `GUARD-storage-over-3-5m` | `storage_over_3_5m` is `true`           | IN 3, art. 8              |
+| Id                  | When                                                    | Source                |
+| ------------------- | ------------------------------------------------------- | --------------------- |
+| `GUARD-not-covered` | `division` is not one of `C-1` to `C-3`, `D-1` to `D-4` | IN 1 parte 2, Anexo B |
+
+| `GUARD-boundary` | the regime boundary, for a covered division | Anexo B, Tabelas 2 e 3–29 |
+
+| `GUARD-multiple-blocks` | `single_block` is `false` | IN 1 parte 2, art. 7 |
+| `GUARD-mixed-use` | `single_use` is `false` | IN 1 parte 2, arts. 10–12 |
+| `GUARD-storage-over-3-5m` | Grupo C and `storage_over_3_5m` is `true` | IN 3, art. 8 |
 
 Every table rule also requires `single_block`, `single_use` and `storage_over_3_5m` to be `true`/`true`/`false`, so while one of them is unanswered the systems are `needs_info`, and when one is the wrong way round no system is required.
 
@@ -98,7 +100,7 @@ Outcomes for a Grupo C building (one block, one use, storage up to 3,5 m), all p
 | the same, fire load unanswered                        | sprinklers `needs_info`, missing `fire_load_class`                                                        |
 | C-1 of any area                                       | sprinklers not required                                                                                   |
 | exactly 750 m² or exactly 12 m (more than one storey) | `GUARD-boundary`; no system listed                                                                        |
-| division `D-1`                                        | `GUARD-not-group-c`; no system listed                                                                     |
+| division `E-1`                                        | `GUARD-not-covered`; no system listed                                                                     |
 
 ## What this does NOT do
 
@@ -106,7 +108,7 @@ Outcomes for a Grupo C building (one block, one use, storage up to 3,5 m), all p
 - **It does nothing for existing buildings.** That is IN 5.
 - **Risk I is a yes/no.** The exemptions of art. 5º have details (a tent of up to 50 m², a home of up to 200 m² with one employee…); the user's answer stands for them.
 - **A C-2 with a low or negligible fire load has no Quadro 2 row,** so it falls to risk IV; the review sheet asks Moura about it.
-- **It covers only Grupo C.** Other divisions get `GUARD-not-group-c`.
+- **It covers Grupo C and, through its own document, Grupo D.** Any other division gets `GUARD-not-covered`.
 - **It does not handle several blocks, mixed occupancy or high storage.** Each returns a specific analysis.
 - **It does not exclude basements, mezzanines or technical floors from the storey count or the height** (art. 8, parágrafo único); it uses the numbers it is given.
 - **It does not apply a substitution.** `substitutions` is information; the system stays required.

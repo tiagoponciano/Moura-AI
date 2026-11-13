@@ -14,6 +14,11 @@ import table10Json from "../../norms/in-1-p2/tables/table-10.json";
 import table22Json from "../../norms/in-1-p2/tables/table-22.json";
 import table23Json from "../../norms/in-1-p2/tables/table-23.json";
 import table24Json from "../../norms/in-1-p2/tables/table-24.json";
+import table25Json from "../../norms/in-1-p2/tables/table-25.json";
+import table26Json from "../../norms/in-1-p2/tables/table-26.json";
+import table27Json from "../../norms/in-1-p2/tables/table-27.json";
+import table28Json from "../../norms/in-1-p2/tables/table-28.json";
+import table29Json from "../../norms/in-1-p2/tables/table-29.json";
 import table11Json from "../../norms/in-1-p2/tables/table-11.json";
 import table12Json from "../../norms/in-1-p2/tables/table-12.json";
 import table17Json from "../../norms/in-1-p2/tables/table-17.json";
@@ -37,6 +42,14 @@ import {
 import { TABLE_13_SPEC, TABLE_14_SPEC, TABLE_2_G_SPEC } from "./group-g";
 import { TABLE_22_SPEC } from "./group-k";
 import { TABLE_23_SPEC, TABLE_24_SPEC } from "./group-m";
+import {
+  TABLE_25_SPEC,
+  TABLE_26_SPEC,
+  TABLE_27_SPEC,
+  TABLE_28_SPEC,
+  TABLE_29_SPEC,
+  TABLE_2_M3_SPEC,
+} from "./group-m-divisions";
 import {
   TABLE_10_SPEC,
   TABLE_11_SPEC,
@@ -74,6 +87,12 @@ const table12 = table12Json as unknown as ExtractedTable;
 const table22 = table22Json as unknown as ExtractedTable;
 const table23 = table23Json as unknown as ExtractedTable;
 const table24 = table24Json as unknown as ExtractedTable;
+const table25 = table25Json as unknown as ExtractedTable;
+const table26 = table26Json as unknown as ExtractedTable;
+const table27 = table27Json as unknown as ExtractedTable;
+const table28 = table28Json as unknown as ExtractedTable;
+const table29 = table29Json as unknown as ExtractedTable;
+
 const table18 = table18Json as unknown as ExtractedTable;
 const table19 = table19Json as unknown as ExtractedTable;
 const table20 = table20Json as unknown as ExtractedTable;
@@ -658,6 +677,39 @@ export function renderGroupMReviewSheet(): string {
     specs: [
       { spec: TABLE_23_SPEC, table: table23 },
       { spec: TABLE_24_SPEC, table: table24 },
+    ],
+  });
+}
+
+/** The questions of the Grupo C sheet that hold for any group, plus the ones of M-3 to M-11. */
+export const GENERAL_QUESTIONS_M_DIVISIONS = [
+  ...GENERAL_QUESTIONS.slice(0, 5),
+  '**Divisões M-3 a M-7 e M-11.** A divisão vem da conversa e o usuário confirma. Só M-3 depende de área e altura (Tabela 2 e Tabela 25); M-4 a M-7 e M-11 não, e o código não aplica a elas a trava de exatamente 750 m² ou 12 m. M-8, M-9 e M-10 não têm tabela e respondem "análise específica".',
+  '**Faixas que a norma não cobre.** A Tabela 26 só traz M-4 acima de 1.500 m² e a Tabela 28 só traz M-6 com plantio acima de 500 ha. Abaixo disso o código responde "análise específica". Confirmar.',
+  "**Dados novos.** O código pergunta a área das construções de apoio do silo (M-5), a área de plantio (M-6), se a estufa usa gás combustível (M-11), se há sistema fixo de gases (M-3) e a capacidade total de isotanques (M-7). Quem responde cada um?",
+  '**Escopo.** Entra: um bloco e uma só ocupação (ou outras só subsidiárias). Fora disso o resultado é "análise específica". É aceitável?',
+  "**Risco.** O Quadro 2 do Anexo A da IN 1 parte 1 não traz linha para M-3 a M-11. O código usa as regras gerais de risco I, II e V e deixa o resto no risco IV. Confirmar.",
+  ...GENERAL_QUESTIONS.slice(10, 12),
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 2],
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 1],
+];
+
+/** The Portuguese review sheet for M-3 to M-11 (Tabelas 25 to 29); generated, never edited by hand. */
+export function renderGroupMDivisionsReviewSheet(): string {
+  return renderReviewSheet({
+    title: "Regras de M-3 a M-11: folha de revisão",
+    source:
+      "IN 1 parte 2, Anexo B, Tabelas 2 (coluna I, J e M3) e 25 a 29; IN 3, art. 11 e Anexo A; IN 1 parte 1, art. 5º (risco)",
+    coverage:
+      'as divisões M-3, M-4, M-5, M-6, M-7 e M-11, com as regras de nível de risco, travas e carga de incêndio que elas compartilham com os demais grupos cobertos. M-8, M-9, M-10 e a Tabela 30 (subsolos) ainda não têm regras e respondem "análise específica".',
+    general: GENERAL_QUESTIONS_M_DIVISIONS,
+    specs: [
+      { spec: TABLE_2_M3_SPEC, table: table2 },
+      { spec: TABLE_25_SPEC, table: table25 },
+      { spec: TABLE_26_SPEC, table: table26 },
+      { spec: TABLE_27_SPEC, table: table27 },
+      { spec: TABLE_28_SPEC, table: table28 },
+      { spec: TABLE_29_SPEC, table: table29 },
     ],
   });
 }

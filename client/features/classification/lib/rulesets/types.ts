@@ -5,6 +5,8 @@ export type ExtractedTable = {
   table: number;
   title: string;
   rows: {
+    /** Which grid of the table the row belongs to; absent when the table has one. */
+    part?: number;
     system: string;
     norm: string;
     vital_on_label: boolean;
@@ -49,6 +51,8 @@ export type ColumnSpec = {
 
 export type TableSpec = {
   table: number;
+  /** Compile only the rows of this part of the table (Tabela 3 has two). */
+  part?: number;
   /** When this table applies at all: regime, divisions, single block, single use. */
   base: Condition;
   columns: ColumnSpec[];

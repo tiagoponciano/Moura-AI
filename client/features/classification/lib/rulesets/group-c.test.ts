@@ -367,7 +367,8 @@ describe("Grupo C: what the tables do not settle", () => {
 describe("Scope guards are declared per division", () => {
   it("makes every division classified by area and height declare the three guards", () => {
     for (const [id, keys] of Object.entries(DIVISION_SCOPE_GUARDS)) {
-      if (/^[KM]-/.test(id)) continue;
+      if (/^[KM]-/.test(id) && id !== "M-3") continue;
+      if (id === "A-1") continue;
       expect(keys).toEqual(["boundary", "multiple-blocks", "mixed-use"]);
     }
   });

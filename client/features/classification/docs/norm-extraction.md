@@ -34,6 +34,16 @@ Output, for the committed run:
 | `norms/in-1-p2/tables/table-NN.json` | One table (shape below)                                                                                                                                      |
 | `norms/in-1-p2/tables.test.ts`       | Vitest checks over the committed JSON; CI needs no Python                                                                                                    |
 
+## Checking for new versions
+
+`tools/norms/check_updates.py` downloads the PDF behind each manifest's `source_url` (Drive file links only), hashes it and compares it with the manifest's `pdf_sha256`. It only reports: it never rewrites a manifest and never re-extracts. Run it by hand, or from a scheduled job, and re-run the extractors after a `CHANGED` line.
+
+```
+python tools/norms/check_updates.py [--norms <dir>]
+```
+
+Exit code: `0` every PDF is current, `1` at least one changed, `2` at least one could not be checked (not a Drive file link, or the download failed). Its unit tests run with `python -m unittest discover -s tools/norms -p "test_check_updates.py"`.
+
 ## Data shapes
 
 ```jsonc

@@ -41,9 +41,11 @@ Output, for the committed run:
   "table": 5,
   "title": "GRUPO C COM ÁREA ≥ 750 m² OU ALTURA ≥ 12 m",
   "pages": [24], // 1-based PDF pages
+  "headings": [], // lines above a grid of the table, such as "DIVISÃO A-1 (…)" in Tabela 3
   "grids": [
     {
       "page": 24,
+      "part": 0, // grids of one table that start with a heading are numbered; a grid without one continues the last
       "header_rows": [
         [
           "",
@@ -91,10 +93,10 @@ Output, for the committed run:
 
 ## Rules and behavior
 
-1. **Titles and grids.** The tool starts at the page containing "Anexo B". A line `TABELA <n> - <title>` opens table `n`. Each grid PyMuPDF finds on a page belongs to the last title above it; a grid with no title above it continues the previous page's table.
+1. **Titles and grids.** The tool starts at the page containing "Anexo B". A line `TABELA <n> - <title>` opens table `n`. Each grid PyMuPDF finds on a page belongs to the last title above it; a grid with no title above it continues the previous page's table. A grid that starts with a heading row begins a new `part` of the table (Tabela 3 has two: A-1 by type of construction and A-2/A-3 by height); a grid without one, such as a row that falls on the next page, continues the last part. Every row records its `part`.
 2. **Header vs data rows.** The first data row is the first row whose first cell is non-empty and whose non-empty cells after the first two all start with `x` or `-`; from there on, any row with a label is data. Rows before it are header rows, kept as printed.
 3. **Cell grammar.** A cell is a mark, footnote references and an optional "(V)". Unicode superscripts are read as digits and the superscript minus as `-`. `ok` is `false` when anything else is left over. A cell with more than one reference (`x⁴⁻⁵`, `x 3_7`) is `multi_ref`: the separator could mean a list or a range, so a person confirms it.
-4. **Notes.** Lines below a grid, not inside any grid, are note lines. A note number sits at the vertical centre of a multi-line note, so each text line is assigned to the nearest number. The split is then validated: numbers must run 1..N, each number must lie within its own lines, and each note must start with a capital and end with a period or parenthesis. A failure becomes a `needs_human_look` entry and the notes are still written as split.
+4. **Notes.** Lines not inside any grid are note lines, except a line above a grid of the same table, which is a heading and goes to `headings`. Notes are split one page at a time. A note number sits at the vertical centre of a multi-line note, so "nearest number" fails when neighbours differ in length; instead the lines are grouped into contiguous runs, one per number, so that every number lies inside its own lines, choosing the grouping that keeps each number nearest the middle of its note. The split is then validated: numbers must run 1..N across the pages, each number must lie within its own lines, and each note must start with a capital and end with a period or parenthesis. A failure becomes a `needs_human_look` entry and the notes are still written as split.
 5. **Text normalization.** Whitespace is collapsed and ligatures are expanded: ﬁ, ﬂ, ﬀ, ﬃ, ﬄ and the PDF's own glyph for "ft" (`ϔ`, as in "shafts"). Units such as `m²` are kept.
 
 `needs_human_look` entries and what to do:
@@ -103,12 +105,12 @@ Output, for the committed run:
 | ------------------------------------------------------- | ------------------------------------------------------ |
 | no data rows in a grid (not an x/- table)               | The table is prose or another shape (Tabela 30)        |
 | a cell does not follow the x/- footnote grammar         | Unparsed text in a cell                                |
-| data rows have different cell counts across grids       | Grids of one table have different shapes (Tabela 3)    |
+| data rows of one part have different cell counts        | Rows of one part of a table do not line up             |
 | notes: …                                                | The note split failed one validation                   |
 | footnote references … differ from note numbers …        | A note is never referenced, or a reference has no note |
 | a cell has several footnote references (list or range?) | See rule 3                                             |
 
-Tables flagged in the committed run: 3, 7, 8, 10, 12, 14, 15, 20, 22, 24, 26, 27 and 30. The Vitest file pins this list, so a change in it shows up in review.
+Tables flagged in the committed run: 3 (note 13 is cited in a grid heading, not in a data cell, and note 18 has no final period), 7, 8, 10, 12, 14, 15, 20, 22, 24, 26, 27 and 30. The Vitest file pins this list, so a change in it shows up in review.
 
 ## What this does NOT do
 
@@ -124,7 +126,8 @@ Tables flagged in the committed run: 3, 7, 8, 10, 12, 14, 15, 20, 22, 24, 26, 27
 - Every table comes out as `m2` instead of `m²` → text was normalized with NFKC, which also flattens superscripts → normalize only ligatures and spaces (`clean`).
 - Only some tables are found → table titles are centred on the page, so a "starts at the left margin" filter drops them → match the title by text only.
 - `x⁷⁻⁸` fails the grammar → the superscript minus (U+207B) was not mapped → it is translated to `-` with the superscript digits.
-- A multi-line note is split in the wrong place → taking "the text after the number" fails because the number is centred → assign each line to the nearest number, then validate.
+- A multi-line note is split in the wrong place → taking "the text after the number" fails because the number is centred → group the lines into contiguous runs so that each number falls inside its own, then validate ("nearest number" failed when neighbours differed in length, as in Tabela 3).
+- The notes of a table that spans two pages are mixed, or a heading is read as a note → the y positions of different pages were compared, or the heading sat above a grid → split per page and treat a line above a grid of the same table as a heading.
 - Regenerating changes a hash with no change in the PDF → the manifest hashes canonical JSON; if a field is added to a table, every hash changes → re-run the tool without `--verify` and commit the new files.
 
 ## Setup

@@ -163,7 +163,18 @@ function tableTwentyTwoColumn(facts: Facts): string | undefined {
   return undefined;
 }
 
+const M2_COLUMNS: Record<string, string> = {
+  tanks_processes: "tanques, cilindros e processos",
+  loading_platform: "plataforma de carregamento",
+  packaged_products: "produtos acondicionados",
+};
+
 function tableHint(facts: Facts): string | undefined {
+  if (facts.division === "M-1") return "Tabela 23 (túnel)";
+  if (facts.division === "M-2") {
+    const column = M2_COLUMNS[String(facts.m2_installation)];
+    return column ? `Tabela 24, coluna ${column}` : "Tabela 24";
+  }
   if (facts.division === "K-1" || facts.division === "K-2") {
     const column = tableTwentyTwoColumn(facts);
     return column ? `Tabela 22, coluna ${column}` : "Tabela 22";

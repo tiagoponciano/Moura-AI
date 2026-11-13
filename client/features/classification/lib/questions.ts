@@ -246,6 +246,18 @@ export const QUESTIONS: Question[] = [
     askAfter: { fact: "special_risks", value: true },
   },
   {
+    fact: "storage_area_m2",
+    kind: "number",
+    unit: "m²",
+    allowZero: true,
+    label: "Área de depósito (m²)",
+    ask: "Qual é a área destinada a depósito, em m²?",
+    description:
+      "Floor area used as storage, in square meters, which is not the total area; 0 when there is none. Asked only for the storage divisions whose rules depend on it.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
     fact: "classrooms_exit_outside",
     kind: "boolean",
     label: "Salas de aula com saída para o exterior",

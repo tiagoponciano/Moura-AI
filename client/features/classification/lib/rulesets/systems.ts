@@ -23,6 +23,8 @@ export const SYSTEMS = {
   cooling: "Resfriamento",
   communication_system: "Sistema de comunicação",
   cctv: "Circuito de TV (monitoramento)",
+  building_isolation: "Isolamento entre edificações",
+  urban_hydrants: "Hidrantes urbanos",
 } as const;
 
 export type SystemId = keyof typeof SYSTEMS;
@@ -57,6 +59,9 @@ const ALIASES: Record<string, SystemId> = {
   "compartimentação horizontal (áreas)": "horizontal_compartmentation",
   "iluminação de emergência 5": "emergency_lighting",
   "sistema de comunicação": "communication_system",
+  "acesso de viaturas na edificação (qualquer área)": "vehicle_access",
+  "isolamento entre edificações (qualquer área)": "building_isolation",
+  "hidrantes urbanos": "urban_hydrants",
   "sistema de circuito de tv (monitoramento)": "cctv",
   resfriamento: "cooling",
 };

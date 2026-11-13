@@ -43,6 +43,7 @@ const venue = (overrides: Facts = {}): Facts => ({
   single_use: true,
   special_risks: false,
   risk_exempt: false,
+  has_basement: false,
   ...overrides,
 });
 const run = (f: Facts) => evaluateRules(ALL_RULES, f, DATE);

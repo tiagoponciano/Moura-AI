@@ -13,6 +13,7 @@ import {
   FIRE_LOAD_CLASSES,
   HEIGHT_CLASSES,
 } from "./rulesets/group-c-conditions";
+import { BASEMENT_CASE_FACT, basementMeasuresText } from "./rulesets/basement";
 import { RISK_PROCESS } from "./rulesets/group-c-risk";
 import { SYSTEMS, systemLabel } from "./rulesets/systems";
 
@@ -207,6 +208,20 @@ function tableHint(facts: Facts): string | undefined {
   return name ? `${label}, coluna ${name}` : label;
 }
 
+/** The additional measures of Tabela 30 for the basement, once its row is known. */
+function basementObservations(facts: Facts): Observation[] {
+  const key = facts[BASEMENT_CASE_FACT];
+  const text = typeof key === "string" ? basementMeasuresText(key) : undefined;
+  return text
+    ? [
+        {
+          text: `Subsolo, medidas adicionais: ${text}`,
+          source: "IN 1 parte 2, Anexo B, Tabela 30",
+        },
+      ]
+    : [];
+}
+
 /** Runs the rules over the answers and shapes the result for the screen. */
 export function classify(
   answers: Facts,
@@ -353,10 +368,13 @@ export function classify(
     table: tableHint(evaluation.facts),
     risk: analyses.length === 0 ? risk : undefined,
     observations:
-      analyses.length === 0 &&
-      facts.single_use === false &&
-      facts.only_subsidiary === true
-        ? SUBSIDIARY_OBSERVATIONS
+      analyses.length === 0
+        ? [
+            ...(facts.single_use === false && facts.only_subsidiary === true
+              ? SUBSIDIARY_OBSERVATIONS
+              : []),
+            ...basementObservations(evaluation.facts),
+          ]
         : [],
     groups: {
       required: listed.filter((s) => s.status === "required"),

@@ -109,6 +109,7 @@ describe("recordAnswers", () => {
       storage_over_3_5m: false,
       special_risks: false,
       risk_exempt: false,
+      has_basement: false,
       fire_load_class: "medium",
     };
     const out = recordAnswers({ storeys: 1 }, state, DATE);
@@ -126,6 +127,7 @@ describe("recordAnswers", () => {
       storage_over_3_5m: false,
       special_risks: false,
       risk_exempt: false,
+      has_basement: false,
       fire_load_class: "medium",
     };
     const out = recordAnswers({ area_m2: 750 }, state, DATE);

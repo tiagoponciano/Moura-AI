@@ -28,6 +28,7 @@ const school = (overrides: Facts = {}): Facts => ({
   single_use: true,
   special_risks: false,
   risk_exempt: false,
+  has_basement: false,
   classrooms_exit_outside: false,
   ...overrides,
 });

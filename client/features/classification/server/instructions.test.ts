@@ -80,6 +80,7 @@ describe("buildInstructions", () => {
         storage_over_3_5m: false,
         special_risks: false,
         risk_exempt: false,
+        has_basement: false,
         fire_load_class: "medium",
       },
       DATE,

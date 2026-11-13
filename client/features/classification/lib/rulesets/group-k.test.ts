@@ -22,6 +22,7 @@ const plant = (overrides: Facts = {}): Facts => ({
   single_use: true,
   special_risks: false,
   risk_exempt: false,
+  has_basement: false,
   public_road_within_50m: false,
   solid_fuel_storage_m2: 0,
   combustible_liquid_storage: false,

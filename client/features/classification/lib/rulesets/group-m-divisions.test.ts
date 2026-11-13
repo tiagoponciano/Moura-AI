@@ -35,6 +35,7 @@ const base: Facts = {
   single_use: true,
   special_risks: false,
   risk_exempt: false,
+  has_basement: false,
   gas_suppression_system: false,
 };
 const f = (division: string, o: Facts = {}): Facts => ({

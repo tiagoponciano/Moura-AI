@@ -5,6 +5,7 @@
   "grids": [
     {
       "page": 42,
+      "part": 0,
       "header_rows": [
         ["Grupo M – Especiais", "", "", "", "", ""],
         ["M-1 Túnel", "", "", "", "", ""],
@@ -13,9 +14,11 @@
       ]
     }
   ],
+  "headings": [],
   "rows": [
     {
       "page": 42,
+      "part": 0,
       "system": "Brigada de incêndio",
       "norm": "IN 28",
       "vital_on_label": false,
@@ -56,6 +59,7 @@
     },
     {
       "page": 42,
+      "part": 0,
       "system": "Controle de fumaça",
       "norm": "IN 10",
       "vital_on_label": false,
@@ -96,6 +100,7 @@
     },
     {
       "page": 42,
+      "part": 0,
       "system": "Detecção automática de incêndio",
       "norm": "IN 12",
       "vital_on_label": false,
@@ -136,6 +141,7 @@
     },
     {
       "page": 42,
+      "part": 0,
       "system": "Extintores",
       "norm": "IN 6",
       "vital_on_label": false,
@@ -176,6 +182,7 @@
     },
     {
       "page": 42,
+      "part": 0,
       "system": "Hidráulico preventivo",
       "norm": "IN 7",
       "vital_on_label": false,
@@ -216,6 +223,7 @@
     },
     {
       "page": 42,
+      "part": 0,
       "system": "Instalação elétrica de baixa tensão",
       "norm": "IN 19",
       "vital_on_label": false,
@@ -256,6 +264,7 @@
     },
     {
       "page": 42,
+      "part": 0,
       "system": "Plano de Emergência",
       "norm": "IN 31",
       "vital_on_label": false,
@@ -296,6 +305,7 @@
     },
     {
       "page": 42,
+      "part": 0,
       "system": "Proteção Estrutural",
       "norm": "IN 14",
       "vital_on_label": false,
@@ -336,6 +346,7 @@
     },
     {
       "page": 42,
+      "part": 0,
       "system": "Saídas de Emergência",
       "norm": "IN 9",
       "vital_on_label": true,
@@ -376,6 +387,7 @@
     },
     {
       "page": 42,
+      "part": 0,
       "system": "Sinalização de Emergência",
       "norm": "IN 13",
       "vital_on_label": false,
@@ -416,6 +428,7 @@
     },
     {
       "page": 42,
+      "part": 0,
       "system": "Sistema de Comunicação",
       "norm": "-",
       "vital_on_label": false,
@@ -456,6 +469,7 @@
     },
     {
       "page": 42,
+      "part": 0,
       "system": "Sistema de Circuito de TV (monitoramento)",
       "norm": "-",
       "vital_on_label": false,

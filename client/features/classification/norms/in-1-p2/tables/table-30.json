@@ -5,6 +5,7 @@
   "grids": [
     {
       "page": 47,
+      "part": 0,
       "header_rows": [
         [
           "Área ocupada (m²) subsolo(s)",
@@ -99,6 +100,7 @@
       ]
     }
   ],
+  "headings": [],
   "rows": [],
   "notes": [
     {

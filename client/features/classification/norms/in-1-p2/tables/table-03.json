@@ -5,6 +5,7 @@
   "grids": [
     {
       "page": 21,
+      "part": 0,
       "header_rows": [
         ["Grupo A - Residencial", "", "", "", ""],
         ["A-1", "", "", "", ""],
@@ -26,6 +27,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "header_rows": [
         ["Grupo A - Residencial", "", "", "", "", "", ""],
         ["A-2, A-3", "", "", "", "", "", ""],
@@ -43,12 +45,18 @@
     },
     {
       "page": 22,
+      "part": 1,
       "header_rows": []
     }
+  ],
+  "headings": [
+    "DIVISÃO A-1 (INDEPENDENTE DE ÁREA OU ALTURA)",
+    "DIVISÕES A-2 E A-3 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12 m"
   ],
   "rows": [
     {
       "page": 21,
+      "part": 0,
       "system": "Acesso de viaturas na edificação (qualquer área)",
       "norm": "IN 35",
       "vital_on_label": false,
@@ -81,6 +89,7 @@
     },
     {
       "page": 21,
+      "part": 0,
       "system": "Isolamento entre edificações (qualquer área)",
       "norm": "IN 14",
       "vital_on_label": false,
@@ -113,6 +122,7 @@
     },
     {
       "page": 21,
+      "part": 0,
       "system": "Gás combustível",
       "norm": "IN 8",
       "vital_on_label": false,
@@ -145,6 +155,7 @@
     },
     {
       "page": 21,
+      "part": 0,
       "system": "Proteção estrutural (TRRF)",
       "norm": "IN 14",
       "vital_on_label": false,
@@ -177,6 +188,7 @@
     },
     {
       "page": 21,
+      "part": 0,
       "system": "Hidrantes Urbanos",
       "norm": "IN 25",
       "vital_on_label": false,
@@ -209,6 +221,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Acesso de viaturas na edificação",
       "norm": "IN 35",
       "vital_on_label": false,
@@ -257,6 +270,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Alarme de incêndio",
       "norm": "IN 12",
       "vital_on_label": false,
@@ -305,6 +319,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Brigada de incêndio",
       "norm": "IN 28",
       "vital_on_label": false,
@@ -353,6 +368,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Chuveiros automáticos",
       "norm": "IN 15",
       "vital_on_label": false,
@@ -401,6 +417,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Compartimentação horizontal ou de área",
       "norm": "IN 14",
       "vital_on_label": false,
@@ -449,6 +466,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Compartimentação vertical",
       "norm": "IN 14",
       "vital_on_label": false,
@@ -497,6 +515,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Controle de fumaça",
       "norm": "IN 10",
       "vital_on_label": false,
@@ -545,6 +564,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Controle de materiais de acabamento",
       "norm": "IN 18",
       "vital_on_label": false,
@@ -593,6 +613,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Detecção automática de incêndio",
       "norm": "IN 12",
       "vital_on_label": false,
@@ -641,6 +662,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Elevador de emergência",
       "norm": "IN 9",
       "vital_on_label": false,
@@ -689,6 +711,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Extintores",
       "norm": "IN 6",
       "vital_on_label": true,
@@ -737,6 +760,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Gás combustível",
       "norm": "IN 8",
       "vital_on_label": false,
@@ -785,6 +809,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Hidráulico preventivo",
       "norm": "IN 7",
       "vital_on_label": false,
@@ -833,6 +858,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Iluminação de emergência",
       "norm": "IN 11",
       "vital_on_label": true,
@@ -881,6 +907,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Instalação elétrica de baixa tensão",
       "norm": "IN 19",
       "vital_on_label": false,
@@ -929,6 +956,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Plano de emergência",
       "norm": "IN 31",
       "vital_on_label": false,
@@ -977,6 +1005,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Proteção estrutural (TRRF)",
       "norm": "IN 14",
       "vital_on_label": false,
@@ -1025,6 +1054,7 @@
     },
     {
       "page": 21,
+      "part": 1,
       "system": "Saídas de emergência",
       "norm": "IN 9",
       "vital_on_label": false,
@@ -1073,6 +1103,7 @@
     },
     {
       "page": 22,
+      "part": 1,
       "system": "Sinalização para abandono de local",
       "norm": "IN 13",
       "vital_on_label": true,
@@ -1123,7 +1154,7 @@
   "notes": [
     {
       "number": 1,
-      "text": "DIVISÃO A-1 (INDEPENDENTE DE ÁREA OU ALTURA) A-2 está isento de brigadistas (recomenda-se a realização de capacitação EaD do CBMSC)."
+      "text": "A-2 está isento de brigadistas (recomenda-se a realização de capacitação EaD do CBMSC)."
     },
     {
       "number": 2,
@@ -1135,15 +1166,15 @@
     },
     {
       "number": 4,
-      "text": "Exigido somente nos átrios, quando houver. A compartimentação em átrios pode ser substituído por controle de fumaça somente nos átrios. Exigido detecção automática de incêndio a partir de 40 m de altura. Para A-2: se 40 m ≤ h < 100 m: exigido na circulação de uso comum dos pavimentos e um"
+      "text": "Exigido somente nos átrios, quando houver. A compartimentação em átrios pode ser substituído por controle de fumaça somente nos átrios."
     },
     {
       "number": 5,
-      "text": "ponto no interior dos apartamentos (próximo da entrada da unidade); se h ≥ 100 m: exigido na circulação de uso comum dos pavimentos e no interior dos apartamentos (nas cozinhas e nos cômodos onde as pessoas podem estar adormecidas). Para A-3 exigido em depósitos com carga de incêndio > 1.200 MJ/m²; nos"
+      "text": "Exigido detecção automática de incêndio a partir de 40 m de altura. Para A-2: se 40 m ≤ h < 100 m: exigido na circulação de uso comum dos pavimentos e um ponto no interior dos apartamentos (próximo da entrada da unidade); se h ≥ 100 m: exigido na circulação de uso comum dos pavimentos e no interior dos apartamentos (nas cozinhas e nos cômodos onde as pessoas podem estar adormecidas). Para A-3 exigido em depósitos com carga de incêndio > 1.200 MJ/m²; nos quartos, nas cozinhas com fritadeiras ou com equipamentos à combustão de lenha ou carvão."
     },
     {
       "number": 6,
-      "text": "quartos, nas cozinhas com fritadeiras ou com equipamentos à combustão de lenha ou carvão. Exigido para imóveis que possuam altura igual ou superior a 60 m."
+      "text": "Exigido para imóveis que possuam altura igual ou superior a 60 m."
     },
     {
       "number": 7,
@@ -1175,7 +1206,7 @@
     },
     {
       "number": 14,
-      "text": "DIVISÕES A-2 E A-3 COM ÁREA ≥ 750 m² OU ALTURA ≥ 12 m Igual ao da ocupação predominante."
+      "text": "Igual ao da ocupação predominante."
     },
     {
       "number": 15,
@@ -1197,11 +1228,6 @@
   "general_notes_raw": [],
   "checks": {
     "needs_human_look": [
-      "data rows have different cell counts across grids",
-      "notes: note 4 does not end with a period",
-      "notes: note 5 does not start with a capital",
-      "notes: note 5 does not end with a period",
-      "notes: note 6 does not start with a capital",
       "notes: note 18 does not end with a period",
       "footnote references [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18] differ from note numbers [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]",
       "a cell has several footnote references (list or range?)"

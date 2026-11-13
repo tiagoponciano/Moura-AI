@@ -489,6 +489,63 @@ export const QUESTIONS: Question[] = [
       inScope: false,
     },
   },
+  {
+    fact: "has_basement",
+    kind: "boolean",
+    label: "Subsolo",
+    ask: "O imóvel tem subsolo ocupado?",
+    description:
+      "True when the property has an occupied basement (a floor below ground level used by people or for storage); false when it has none.",
+    allowUnknown: true,
+    askable: true,
+    askAfter: { fact: "risk_exempt", value: false },
+  },
+  {
+    fact: "basement_level",
+    kind: "enum",
+    label: "Nível do subsolo",
+    ask: "O subsolo é o primeiro ou o segundo, ou é um subsolo mais profundo?",
+    description:
+      "first_second when the basement is the first or second below ground; other for the deeper ones. Asked only when the property has a basement.",
+    options: [
+      { value: "first_second", label: "Primeiro ou segundo subsolo" },
+      { value: "other", label: "Demais subsolos" },
+    ],
+    allowUnknown: true,
+    askable: true,
+    askAfter: { fact: "has_basement", value: true },
+  },
+  {
+    fact: "basement_area_m2",
+    kind: "number",
+    unit: "m²",
+    label: "Área ocupada do subsolo (m²)",
+    ask: "Qual é a área ocupada do subsolo, em m²?",
+    description:
+      "Occupied floor area of the basement, in square meters. Asked only when the property has a basement.",
+    allowUnknown: true,
+    askable: true,
+    askAfter: { fact: "has_basement", value: true },
+  },
+  {
+    fact: "basement_use",
+    kind: "enum",
+    label: "Ocupação do subsolo",
+    ask: "O subsolo é usado como depósito, como local de reunião de público (F-1, F-3, F-5, F-6, F-10 ou F-11) ou para outra ocupação?",
+    description:
+      "storage for a warehouse; assembly for the divisions F-1, F-3, F-5, F-6, F-10 and F-11; other for anything else. Garages, car washes, changing rooms up to 100 m², toilets and unoccupied technical areas need no additional measures but are still answered as other. Asked only when the property has a basement.",
+    options: [
+      { value: "storage", label: "Depósito" },
+      {
+        value: "assembly",
+        label: "Reunião de público (F-1, F-3, F-5, F-6, F-10, F-11)",
+      },
+      { value: "other", label: "Outra ocupação" },
+    ],
+    allowUnknown: true,
+    askable: true,
+    askAfter: { fact: "has_basement", value: true },
+  },
 ];
 
 export const QUESTION_BY_FACT = new Map(QUESTIONS.map((q) => [q.fact, q]));

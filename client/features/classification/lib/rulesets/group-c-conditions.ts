@@ -211,3 +211,12 @@ export const FIRE_LOAD_CLASSES: Classified[] = [
     when: fact("fire_load_mj_m2", "gt", 2280),
   },
 ];
+
+/**
+ * One occupation, or others that are only subsidiary (IN 1 parte 2, art. 10):
+ * the systems of the predominant occupation then apply. Mixed and secondary
+ * occupations are not covered.
+ */
+export const USE_IN_SCOPE: Condition = {
+  any: [fact("single_use", "eq", true), fact("only_subsidiary", "eq", true)],
+};

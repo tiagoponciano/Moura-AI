@@ -11,6 +11,7 @@ import {
   REGIME_SMALL,
   fact,
   heightAtMost,
+  USE_IN_SCOPE,
 } from "./group-c-conditions";
 import { riskRule } from "./group-c-risk";
 import { TABLE_2_E_NOTES, TABLE_7_NOTES } from "./group-e-notes";
@@ -21,7 +22,7 @@ const table7 = table7Json as unknown as ExtractedTable;
 
 /** Grupo E needs one block and one use; the storage rule belongs to Grupo C. */
 const WITHIN_SCOPE: Condition = {
-  all: [fact("single_block", "eq", true), fact("single_use", "eq", true)],
+  all: [fact("single_block", "eq", true), USE_IN_SCOPE],
 };
 
 /** Tabela 2, column "A-2, A-3, D, E e G", for area ≤ 750 m² and height ≤ 12 m. */

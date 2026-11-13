@@ -8,6 +8,11 @@ import table7Json from "../../norms/in-1-p2/tables/table-07.json";
 import table13Json from "../../norms/in-1-p2/tables/table-13.json";
 import table15Json from "../../norms/in-1-p2/tables/table-15.json";
 import table16Json from "../../norms/in-1-p2/tables/table-16.json";
+import table8Json from "../../norms/in-1-p2/tables/table-08.json";
+import table9Json from "../../norms/in-1-p2/tables/table-09.json";
+import table10Json from "../../norms/in-1-p2/tables/table-10.json";
+import table11Json from "../../norms/in-1-p2/tables/table-11.json";
+import table12Json from "../../norms/in-1-p2/tables/table-12.json";
 import table17Json from "../../norms/in-1-p2/tables/table-17.json";
 import table18Json from "../../norms/in-1-p2/tables/table-18.json";
 import table19Json from "../../norms/in-1-p2/tables/table-19.json";
@@ -28,6 +33,16 @@ import {
 } from "./group-h";
 import { TABLE_13_SPEC, TABLE_14_SPEC, TABLE_2_G_SPEC } from "./group-g";
 import {
+  TABLE_10_SPEC,
+  TABLE_11_SPEC,
+  TABLE_12_SPEC,
+  TABLE_2_F11_SPEC,
+  TABLE_2_F9_SPEC,
+  TABLE_2_F_MAIN_SPEC,
+  TABLE_8_SPEC,
+  TABLE_9_SPEC,
+} from "./group-f";
+import {
   TABLE_18_SPEC,
   TABLE_19_SPEC,
   TABLE_20_SPEC,
@@ -46,6 +61,11 @@ const table4 = table4Json as unknown as ExtractedTable;
 const table15 = table15Json as unknown as ExtractedTable;
 const table16 = table16Json as unknown as ExtractedTable;
 const table17 = table17Json as unknown as ExtractedTable;
+const table8 = table8Json as unknown as ExtractedTable;
+const table9 = table9Json as unknown as ExtractedTable;
+const table10 = table10Json as unknown as ExtractedTable;
+const table11 = table11Json as unknown as ExtractedTable;
+const table12 = table12Json as unknown as ExtractedTable;
 const table18 = table18Json as unknown as ExtractedTable;
 const table19 = table19Json as unknown as ExtractedTable;
 const table20 = table20Json as unknown as ExtractedTable;
@@ -529,6 +549,52 @@ export function renderGroupIJReviewSheet(): string {
       { spec: TABLE_19_SPEC, table: table19 },
       { spec: TABLE_20_SPEC, table: table20 },
       { spec: TABLE_21_SPEC, table: table21 },
+    ],
+  });
+}
+
+/** The three columns of Tabela 2 for Grupo F, printed side by side on the sheet. */
+const TABLE_2_F_SHEET_SPEC: TableSpec = {
+  ...TABLE_2_F_MAIN_SPEC,
+  columns: [
+    ...TABLE_2_F_MAIN_SPEC.columns,
+    ...TABLE_2_F9_SPEC.columns,
+    ...TABLE_2_F11_SPEC.columns,
+  ],
+};
+
+/** The questions of the Grupo C sheet that hold for any group, plus the ones of Grupo F. */
+export const GENERAL_QUESTIONS_F = [
+  ...GENERAL_QUESTIONS.slice(0, 5),
+  "**Divisão F-1 a F-11.** A divisão vem da conversa e o usuário confirma. Quem valida a divisão final? A Tabela 8 vale para F-1 e F-2, a 9 para F-3 e F-9, a 10 para F-5, F-6, F-8 e F-10, a 11 para F-4 e a 12 para F-11; a Tabela 2 tem três colunas (F-1 a F-6, F-8 e F-10; F-9; F-11).",
+  '**Escopo do Grupo F.** Entra: um bloco e uma só ocupação (ou outras só subsidiárias). O armazenamento acima de 3,5 m é regra do Grupo C e não é perguntado. Fora disso o resultado é "análise específica". É aceitável?',
+  '**Lotação.** Muitas notas dependem da lotação (50, 100, 200, 250, 500, 1.000, 2.000 e 3.000 pessoas). O código pergunta uma lotação só, a do imóvel. As notas falam às vezes em "locais com público", ou seja, em cada local de reunião. Qual vale?',
+  '**Funcionamento até as 18h e imóvel sem janelas.** Duas perguntas novas, para a nota 12 da Tabela 8 e a nota 8 da Tabela 10, e para a nota 4 da Tabela 2. Quem responde e o que é "sem janelas"?',
+  '**Células com várias notas.** A Tabela 8 traz "x⁴⁻⁵", a Tabela 10 "x⁷⁻¹²" e a Tabela 12 "x⁵⁻⁶". O código leu como duas notas cada, não como intervalo. Confirmar.',
+  "**Salão de festas subsidiário.** As notas 11 e 12 da Tabela 10 dispensam o salão de festas subsidiário de A-2 ou de qualquer ocupação com até 100 pessoas. O código não avalia isso: fica como observação.",
+  ...GENERAL_QUESTIONS.slice(7, 9),
+  ...GENERAL_QUESTIONS.slice(10, 12),
+  "**Risco III do Grupo F.** O Quadro 3 diz: F, todas as divisões, não enquadradas no risco II, com população até 200 pessoas em cada área de reunião de público. O código usa a lotação do imóvel (até 200 pessoas) e deixa o resto para o risco IV. Confirmar.",
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 2],
+  GENERAL_QUESTIONS[GENERAL_QUESTIONS.length - 1],
+];
+
+/** The Portuguese review sheet for the Grupo F rules; generated, never edited by hand. */
+export function renderGroupFReviewSheet(): string {
+  return renderReviewSheet({
+    title: "Regras do Grupo F: folha de revisão",
+    source:
+      "IN 1 parte 2, Anexo B, Tabelas 2 (colunas F), 8, 9, 10, 11 e 12; IN 3, art. 11 e Anexo A; IN 1 parte 1, art. 5º e Anexo A (risco)",
+    coverage:
+      'o Grupo F (reunião de público: F-1 a F-6 e F-8 a F-11), com as regras de nível de risco, travas e carga de incêndio que ele compartilha com os demais grupos cobertos. As divisões sem regras carregadas respondem "análise específica".',
+    general: GENERAL_QUESTIONS_F,
+    specs: [
+      { spec: TABLE_2_F_SHEET_SPEC, table: table2 },
+      { spec: TABLE_8_SPEC, table: table8 },
+      { spec: TABLE_9_SPEC, table: table9 },
+      { spec: TABLE_10_SPEC, table: table10 },
+      { spec: TABLE_11_SPEC, table: table11 },
+      { spec: TABLE_12_SPEC, table: table12 },
     ],
   });
 }

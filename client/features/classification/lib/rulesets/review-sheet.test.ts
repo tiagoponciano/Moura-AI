@@ -9,6 +9,7 @@ import {
   renderGroupDReviewSheet,
   renderGroupEReviewSheet,
   renderGroupGReviewSheet,
+  renderGroupFReviewSheet,
   renderGroupHReviewSheet,
   renderGroupIJReviewSheet,
 } from "./review-sheet";
@@ -227,6 +228,28 @@ describe("renderGroupIJReviewSheet", () => {
       [19, 7],
       [20, 9],
       [21, 8],
+    ] as const)
+      for (let n = 1; n <= count; n++)
+        expect(sheet).toContain(`### Tabela ${table}, nota ${n}\n`);
+  });
+
+  it("is the committed sheet", () => {
+    if (process.env.UPDATE_REVIEW_SHEET === "1") writeFileSync(FILE, sheet);
+    expect(readFileSync(FILE, "utf-8")).toBe(sheet);
+  });
+});
+
+describe("renderGroupFReviewSheet", () => {
+  const sheet = renderGroupFReviewSheet();
+  const FILE = join(__dirname, "../../docs/group-f-review-sheet.md");
+
+  it("covers the notes of Tabelas 8 to 12", () => {
+    for (const [table, count] of [
+      [8, 14],
+      [9, 7],
+      [10, 12],
+      [11, 8],
+      [12, 10],
     ] as const)
       for (let n = 1; n <= count; n++)
         expect(sheet).toContain(`### Tabela ${table}, nota ${n}\n`);

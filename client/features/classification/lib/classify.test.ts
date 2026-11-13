@@ -381,13 +381,13 @@ describe("classify: the activity", () => {
       {
         ...base,
         ...scope,
-        activity: ACTIVITIES.find((a) => a.group === "F")!.id,
+        activity: ACTIVITIES.find((a) => a.group === "M")!.id,
       },
       DATE,
     );
     expect(result.derived[0]).toMatchObject({
       label: "Divisão",
-      value: expect.stringContaining("F-"),
+      value: expect.stringContaining("M-"),
     });
     expect(result.status).toBe("analysis");
   });
@@ -447,7 +447,7 @@ describe("classify: the risk level", () => {
 
   it("is not covered outside Grupo C", () => {
     const result = classify(
-      { ...shop(), activity: undefined, division: "F-1" },
+      { ...shop(), activity: undefined, division: "K-1" },
       DATE,
     );
     expect(result.risk).toBeUndefined();

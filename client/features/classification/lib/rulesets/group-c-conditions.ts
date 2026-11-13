@@ -74,6 +74,39 @@ export const DIVISION_I_J = fact("division", "in", [
   "J-3",
   "J-4",
 ]);
+export const F1 = fact("division", "eq", "F-1");
+export const F2 = fact("division", "eq", "F-2");
+export const F6 = fact("division", "eq", "F-6");
+export const DIVISION_F = fact("division", "in", [
+  "F-1",
+  "F-2",
+  "F-3",
+  "F-4",
+  "F-5",
+  "F-6",
+  "F-8",
+  "F-9",
+  "F-10",
+  "F-11",
+]);
+export const DIVISION_F_1_2 = fact("division", "in", ["F-1", "F-2"]);
+export const DIVISION_F_3_9 = fact("division", "in", ["F-3", "F-9"]);
+export const DIVISION_F_5_6_8_10 = fact("division", "in", [
+  "F-5",
+  "F-6",
+  "F-8",
+  "F-10",
+]);
+export const DIVISION_F_MAIN = fact("division", "in", [
+  "F-1",
+  "F-2",
+  "F-3",
+  "F-4",
+  "F-5",
+  "F-6",
+  "F-8",
+  "F-10",
+]);
 export const DIVISION_I_1_2 = fact("division", "in", ["I-1", "I-2"]);
 export const DIVISION_J_1_2 = fact("division", "in", ["J-1", "J-2"]);
 export const DIVISION_J_3_4 = fact("division", "in", ["J-3", "J-4"]);
@@ -96,6 +129,16 @@ export const COVERED_DIVISIONS = fact("division", "in", [
   "E-4",
   "E-5",
   "E-6",
+  "F-1",
+  "F-2",
+  "F-3",
+  "F-4",
+  "F-5",
+  "F-6",
+  "F-8",
+  "F-9",
+  "F-10",
+  "F-11",
   "G-1",
   "G-2",
   "G-3",

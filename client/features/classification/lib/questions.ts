@@ -258,6 +258,38 @@ export const QUESTIONS: Question[] = [
     askable: true,
   },
   {
+    fact: "capacity_people",
+    kind: "number",
+    unit: "pessoas",
+    integer: true,
+    label: "Lotação (pessoas)",
+    ask: "Qual é a lotação do imóvel, em número de pessoas (o público que o espaço comporta)?",
+    description:
+      "Maximum number of people the property holds (its capacity). Asked only for the divisions whose rules depend on it.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
+    fact: "ends_by_18h",
+    kind: "boolean",
+    label: "Funcionamento até as 18h",
+    ask: "O imóvel funciona só até as 18h?",
+    description:
+      "True when the property operates only until 18:00; false when it operates later.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
+    fact: "windowless",
+    kind: "boolean",
+    label: "Sem janelas",
+    ask: "A edificação é considerada sem janelas (sem aberturas para ventilação natural)?",
+    description:
+      "True when the building has no windows for natural ventilation; false when it has.",
+    allowUnknown: true,
+    askable: true,
+  },
+  {
     fact: "classrooms_exit_outside",
     kind: "boolean",
     label: "Salas de aula com saída para o exterior",

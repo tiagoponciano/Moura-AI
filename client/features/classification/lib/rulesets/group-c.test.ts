@@ -8,12 +8,14 @@ import {
   findDeriveOverlaps,
   lintRules,
 } from "../engine/lint-rules";
-import type { Facts } from "../engine/types";
+import type { Condition, Facts } from "../engine/types";
 import { GROUP_C_RULES, TABLE_2_SPEC, TABLE_5_SPEC } from "./group-c";
 import {
+  DIVISION_SCOPE_GUARDS,
   REGIME_BOUNDARY,
   REGIME_LARGE,
   REGIME_SMALL,
+  declaresGuard,
 } from "./group-c-conditions";
 import type { ExtractedTable } from "./types";
 
@@ -359,5 +361,28 @@ describe("Grupo C: what the tables do not settle", () => {
     const result = run(building({ division: undefined }));
     expect(result.unanswered).toContain("division");
     expect(required(building({ division: undefined }))).toEqual([]);
+  });
+});
+
+describe("Scope guards are declared per division", () => {
+  it("makes every covered division declare the three area-and-height guards", () => {
+    for (const keys of Object.values(DIVISION_SCOPE_GUARDS)) {
+      expect(keys).toEqual(["boundary", "multiple-blocks", "mixed-use"]);
+    }
+  });
+
+  it("applies a guard only to the divisions that declare it", () => {
+    const original = DIVISION_SCOPE_GUARDS["C-2"];
+    DIVISION_SCOPE_GUARDS["C-2"] = ["mixed-use"];
+    try {
+      const boundary = declaresGuard("boundary");
+      const outcome = (c: Condition, division: string) =>
+        evaluateCondition(c, { division }).outcome;
+      expect(outcome(boundary, "C-2")).toBe("false");
+      expect(outcome(boundary, "C-1")).toBe("true");
+      expect(outcome(declaresGuard("mixed-use"), "C-2")).toBe("true");
+    } finally {
+      DIVISION_SCOPE_GUARDS["C-2"] = original;
+    }
   });
 });

@@ -111,6 +111,9 @@ function limits(condition: Condition): string[] {
 function effectLines(effect: NoteEffect): string[] {
   if (effect.kind === "info")
     return [`Informação, sem efeito na exigência: ${effect.text}`];
+  if (effect.kind === "exempt_when") {
+    return [`Dispensado quando ${describeCondition(effect.when)}.`];
+  }
   if (effect.kind === "require_when") {
     const scope = effect.scope ? `, limitado a: ${effect.scope}` : "";
     return [`Exigido quando ${describeCondition(effect.when)}${scope}.`];

@@ -24,6 +24,8 @@ export type NoteEffect =
   | { kind: "require_when"; when: Condition; scope?: string }
   /** The norm lets `by` (all together) replace the system, under `when` if given. */
   | { kind: "substitutable"; by: string[]; when?: Condition; note: string }
+  /** The requirement does not apply when this holds; it combines with the other effects of the cell. */
+  | { kind: "exempt_when"; when: Condition }
   /** Sizing or cross-reference: no effect on whether the system is required. */
   | { kind: "info"; text: string };
 

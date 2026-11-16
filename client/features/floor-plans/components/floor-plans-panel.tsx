@@ -1,6 +1,7 @@
 "use client";
 
 import { X } from "lucide-react";
+import type { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import type { SelectedFloorPlan } from "../hooks/use-floor-plan";
 import type { useFloorPlanConversion } from "../hooks/use-floor-plan-conversion";
@@ -15,6 +16,8 @@ type FloorPlansPanelProps = {
   problem?: string;
   onSelect: (file: File) => void;
   onClear: () => void;
+  /** The conversions kept for the project, under the result. */
+  projectSection?: ReactNode;
 };
 
 /** Side panel: the plan upload and preview, the conversion and the notice. */
@@ -24,6 +27,7 @@ export function FloorPlansPanel({
   problem,
   onSelect,
   onClear,
+  projectSection,
 }: FloorPlansPanelProps) {
   return (
     <aside className="flex min-h-0 flex-1 flex-col bg-card lg:border-l">
@@ -40,6 +44,7 @@ export function FloorPlansPanel({
           hasPlan={plan !== undefined}
           conversion={conversion}
         />
+        {projectSection}
       </div>
       <div className="flex flex-col gap-2 border-t px-5 py-4">
         <ConversionNotice />

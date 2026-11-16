@@ -15,6 +15,11 @@ export type OccupationPart = {
   storeys: number;
   separation: Separation;
   fire_load_class?: string;
+  /**
+   * Art. 11, IV: `podium` for the lower floors that join the towers, `tower` for a
+   * tower isolated from the others. Absent for an ordinary occupation.
+   */
+  role?: "podium" | "tower";
 };
 
 /**
@@ -74,6 +79,8 @@ function autonomous(
 }
 
 const NOTES = {
+  podium:
+    "Torres sobre embasamento (art. 11, IV): para cada torre, a área é a da torre mais a dos pavimentos de interligação, e são devidos os sistemas da sua ocupação e os da(s) ocupação(ões) do embasamento.",
   vertical:
     "Compartimentação vertical (art. 11, parágrafo único): quando exigida, e as suas possíveis substituições, aplica-se a todas as ocupações dos pavimentos inferiores. O código não replica a exigência nesses pavimentos.",
   garage:
@@ -180,7 +187,28 @@ export function classifyMixed(
     for (const a of evaluation.specificAnalyses) analyses.push(a.reason);
   };
 
-  if (kind === "mixed") {
+  const podium = parts.filter((p) => p.role === "podium");
+  const towers = parts.filter((p) => p.role === "tower");
+  if (towers.length > 0 && podium.length === 0) {
+    throw new RangeError("a tower needs a podium");
+  }
+
+  if (towers.length > 0) {
+    // Art. 11, IV: each tower carries its own occupation and the podium's, over its area plus the podium's.
+    const podiumArea = podium.reduce((sum, p) => sum + p.area_m2, 0);
+    for (const tower of towers) {
+      for (const occupation of [tower, ...podium]) {
+        const facts = factsOf(
+          occupation,
+          tower.area_m2 + podiumArea,
+          tower.top_height_m,
+        );
+        const evaluation = run(facts);
+        record(occupation, facts, evaluation);
+        add(evaluation, occupation.division);
+      }
+    }
+  } else if (kind === "mixed") {
     for (const part of parts.filter((p) => p.separation === "isolated")) {
       // Art. 11, I: an isolated part stands alone.
       const facts = factsOf(part, part.area_m2, part.top_height_m);
@@ -207,10 +235,18 @@ export function classifyMixed(
     }
   } else {
     const [main, ...secondary] = parts;
+    // Art. 12, § 1º: when an occupation is compartmented, the reductions of art. 11 apply.
+    const reduced = secondary.some((p) => p.separation === "compartmented");
+    const byItself = (id: string) =>
+      reduced && autonomous(id, main, singleStorey);
     const facts = factsOf(main, openArea || main.area_m2, buildingHeight);
     const evaluation = run(facts);
     record(main, facts, evaluation);
-    add(evaluation, main.division);
+    add(evaluation, main.division, (id) => !byItself(id));
+    if (reduced) {
+      const own = factsOf(main, main.area_m2, main.top_height_m);
+      add(run(own), main.division, byItself);
+    }
     for (const part of secondary) {
       // Art. 12: the secondary occupation adds its own systems, only in its own area.
       const own = factsOf(part, part.area_m2, part.top_height_m);
@@ -228,6 +264,7 @@ export function classifyMixed(
   const needsVertical =
     merged.get("vertical_compartmentation")?.status === "required";
   const notes = [
+    ...(towers.length > 0 ? [NOTES.podium] : []),
     ...(needsVertical && open.length > 1 ? [NOTES.vertical] : []),
     NOTES.garage,
   ];

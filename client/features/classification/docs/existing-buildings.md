@@ -39,6 +39,10 @@ The order it applies:
 5. Up to 50% with more rigor: compartmented, IN 1 for the enlarged area and the original area keeps its systems or uses IN 5; not compartmented, IN 1 for everything. In both, adaptable systems proven unfeasible may follow IN 5 (art. 18).
 6. Over 50%: compartmented, IN 1 for the enlarged area; not compartmented, IN 1 for everything with no adaptations (art. 19).
 
+## The chat and the panel
+
+When the user says an existing building will be enlarged, the assistant collects the seven answers and calls the `record_enlargement` tool (`server/record-enlargement.ts`) with all of them; each call replaces the previous record, so a replayed chat settles. The client keeps it in `useClassification`, sends it in the request body as `enlargement`, and `buildInstructions` writes it into the prompt. The panel shows "Ampliação da edificação" (`components/enlargement-notice.tsx`) with the share, the articles and what happens to each area; the division comes from the answers or the chosen activity, and without it the panel asks for the activity. The record is kept only in the hook, like the answers.
+
 Every result repeats that the requirements are sized by the sum of the areas (art. 14) and that the original systems get no waiver (art. 12, § 2º). The boundaries are 20% and 50%, both inclusive in the lower band. The reading is provisional until Moura confirms it.
 
 ## What this does NOT do
@@ -46,6 +50,5 @@ Every result repeats that the requirements are sized by the sum of the areas (ar
 - **It does not read the `SA¹` footnote** (A-2, A-3, B: only when automatic detection is required): the alarm is labelled indispensable regardless.
 - **It reads `BI` as the fire brigade**, because the printed legend omits it.
 - **It does not apply the adaptations of Annex C or the compensatory measures of Annex D.**
-- **The enlargement criteria are not on the screen yet**: `classifyEnlargement` exists, but no chat tool or panel calls it.
 - **It does not ask whether the building is existing or recent** and does not check the proof (art. 26).
 - **It does not approve a reading.** The mapping of abbreviations and the conditional cells are open until a person confirms them with Moura.

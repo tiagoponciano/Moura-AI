@@ -1,6 +1,5 @@
 "use client";
 
-import { Check } from "lucide-react";
 import { useState } from "react";
 import {
   Command,
@@ -42,6 +41,7 @@ export function ProjectSearchDialog({
       onOpenChange={handleOpenChange}
       title="Buscar projeto"
       description="Busca pelo nome"
+      className="sm:max-w-2xl"
     >
       <Command shouldFilter={false}>
         <CommandInput
@@ -49,21 +49,20 @@ export function ProjectSearchDialog({
           onValueChange={setQuery}
           placeholder="Buscar projeto"
         />
-        <CommandList>
+        <CommandList className="max-h-96">
           <CommandEmpty>Nenhum projeto encontrado.</CommandEmpty>
           {filterProjects(projects, query).map((project) => (
             <CommandItem
               key={project.id}
               value={project.id}
+              data-checked={project.id === selectedId}
+              className="py-3 data-selected:bg-primary/15 data-selected:text-primary"
               onSelect={() => {
                 onSelect(project.id);
                 onOpenChange(false);
               }}
             >
               {project.name}
-              {project.id === selectedId && (
-                <Check className="ml-auto" aria-label="Projeto atual" />
-              )}
             </CommandItem>
           ))}
         </CommandList>

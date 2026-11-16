@@ -14,8 +14,15 @@ import {
   type ProjectChange,
   mergeProjectData,
 } from "@/lib/projects/project";
+import {
+  readSelectedProject,
+  writeSelectedProject,
+} from "@/lib/projects/selection";
 
-/** The team's projects and the one being worked on; a new project becomes the current one. */
+/**
+ * The team's projects and the one being worked on; a new project becomes the current
+ * one. The choice is remembered, so the other tabs open on the same project.
+ */
 export function useProjects(enabled: boolean) {
   const [projects, setProjects] = useState<Project[]>([]);
   const [selectedId, setSelectedId] = useState<string>();
@@ -25,10 +32,21 @@ export function useProjects(enabled: boolean) {
   useEffect(() => {
     if (!enabled) return;
     fetchProjects().then(
-      (body) => setProjects(body.projects),
+      (body) => {
+        setProjects(body.projects);
+        // Opens on the project chosen last, in this tab or another.
+        const remembered = readSelectedProject(body.projects.map((p) => p.id));
+        setSelectedId((current) => current ?? remembered);
+      },
       (cause) => setError(errorMessage(cause)),
     );
   }, [enabled]);
+
+  /** Picks the current project and remembers it for the other tabs. */
+  function choose(id: string | undefined) {
+    setSelectedId(id);
+    writeSelectedProject(id);
+  }
 
   /** Resolves to whether it was created, so the field can clear. */
   async function create(name: string) {
@@ -41,7 +59,7 @@ export function useProjects(enabled: boolean) {
           a.name.localeCompare(b.name, "pt-BR"),
         ),
       );
-      setSelectedId(project.id);
+      choose(project.id);
       return true;
     } catch (cause) {
       setError(errorMessage(cause));
@@ -74,7 +92,7 @@ export function useProjects(enabled: boolean) {
     try {
       await archiveProject(id);
       setProjects((current) => current.filter((item) => item.id !== id));
-      setSelectedId((current) => (current === id ? undefined : current));
+      if (selectedId === id) choose(undefined);
       return true;
     } catch (cause) {
       setError(errorMessage(cause));
@@ -99,7 +117,7 @@ export function useProjects(enabled: boolean) {
   return {
     projects,
     selected: projects.find((project) => project.id === selectedId),
-    select: setSelectedId,
+    select: choose,
     create,
     rename,
     archive,

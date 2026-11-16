@@ -10,7 +10,7 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import type { Project } from "@/lib/projects/project";
-import { filterProjects } from "../lib/filter-projects";
+import { filterProjects } from "@/lib/projects/filter-projects";
 
 type ProjectSearchDialogProps = {
   open: boolean;

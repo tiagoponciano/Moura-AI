@@ -94,6 +94,10 @@ const SUBSIDIARY_OBSERVATIONS: Observation[] = [
     text: "Pavimentos e áreas destinados a garagem devem ser compartimentados em relação aos acessos, às escadas e à descarga da edificação, mesmo que a compartimentação não seja exigida para a ocupação predominante. Garagem térrea com aberturas de ventilação permanente acima de 50% da área das laterais, em pelo menos 2 faces opostas, pode ser dispensada (§ 2º). Em subsolo sem a ventilação mínima, a dispensa exige detecção automática, chuveiros automáticos e barreira eficaz contra a propagação de gases e fumaça (§ 3º).",
     source: "IN 1 parte 2, art. 10, §§ 1º a 3º",
   },
+  {
+    text: "Exceção: para ocupação subsidiária do grupo F com lotação acima de 100 pessoas, vale além dos sistemas da predominante o que a sua própria ocupação (grupo F) exige.",
+    source: "IN 1 parte 2, art. 10, § 4º",
+  },
 ];
 
 /** The additional measures of Tabela 30 for the basement, once its row is known. */

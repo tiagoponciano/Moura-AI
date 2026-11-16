@@ -1,0 +1,141 @@
+{
+  "doc": "IN-5",
+  "table": "Anexo D",
+  "title": "Medidas compensatórias para edificações novas",
+  "pages": [20, 21, 22],
+  "rows": [
+    {
+      "page": 20,
+      "system": "Acesso de viaturas",
+      "sigla": "AVtr",
+      "fault": "Inexistência do SMSCI",
+      "parameter": "não aplicável",
+      "measures": "1) Imóveis Risco II: - execução de uma das seguintes medidas: a) instalação de hidrante urbano de coluna para o bloco; ou b) instalação de SHP, prevendo o hidrante de recalque em local o mais próximo possível do acesso de viaturas (muro da divisa do imóvel, por exemplo), desde que a distância entre o equipamento e o acesso ao bloco seja inferior a 50 m. 2) Imóveis Risco III: - instalação de SPK nos locais com carga de incêndio > 100 MJ/m²."
+    },
+    {
+      "page": 20,
+      "system": "Gás combustível",
+      "sigla": "GCC",
+      "fault": "Inexistência de abrigo ou central de GLP",
+      "parameter": "não aplicável",
+      "measures": "1) Previsão exclusiva de equipamentos que geram calor sem combustão; e 2) Laudo constatando compatibilidade da instalação elétrica para uso dos equipamentos elétricos de aquecimento."
+    },
+    {
+      "page": 20,
+      "system": "Hidráulico preventivo",
+      "sigla": "SHP",
+      "fault": "Inexistência do SMSCI",
+      "parameter": "Não aplicável",
+      "measures": "1) Instalação de SHP, com possibilidade de execução de trechos de tubulações em partes externas à edificação; e 2) Execução de uma das seguintes medidas: - Instalação de SDAI tipo 3 ou 4 e de DAI em todos os locais com com carga de incêndio > 100 MJ/m²; ou - previsão de controle de fumaça nos pavimentos1."
+    },
+    {
+      "page": 20,
+      "system": "Hidráulico preventivo",
+      "sigla": "SHP",
+      "fault": "Volume reservatório inferior ao exigido",
+      "parameter": "Qualquer volume",
+      "measures": "1) Implantação de cisternas com uso de bombas"
+    },
+    {
+      "page": 20,
+      "system": "Saídas de emergência",
+      "sigla": "SE",
+      "fault": "Largura (L) inferior em acessos, escadas e rampas",
+      "parameter": "L ≤2%",
+      "measures": "1) Limite de erro admitido sem necessidade de compensação"
+    },
+    {
+      "page": 20,
+      "system": "Saídas de emergência",
+      "sigla": "SE",
+      "fault": "Largura (L) inferior em acessos, escadas e rampas",
+      "parameter": "2% < L ≤10%",
+      "measures": "1) Imóveis Risco II: - Instalação de SDAI 2) Imóveis Risco III: a) DAI nos locais com carga de incêndio > 100 MJ/m²; ou Além da adoção de uma das medidas, deve-se aumentar em 50% o número de brigadistas orgânicos. Se a IN 28 isentar a Brigada, esta deve ser prevista, exceto para A-2."
+    },
+    {
+      "page": 21,
+      "system": "Saídas de emergência",
+      "sigla": "SE",
+      "fault": "Largura (L) inferior em acessos, escadas e rampas",
+      "parameter": "10% < L ≤20%",
+      "measures": "1) instalação de SPK; ou 2) Controle de fumaça nos pavimentos; ou 3) DAI em todos locais com carga de incêndio > 100 MJ/m² e controle de fumaça nos acessos2(corredores). No caso da adoção das medidas 2 ou 3 deve aumentar o número de brigadistas orgânicos em 50%. Se a IN 28 isentar a Brigada, esta deve ser prevista, exceto para A-2."
+    },
+    {
+      "page": 21,
+      "system": "Saídas de emergência",
+      "sigla": "SE",
+      "fault": "Largura (L) inferior em acessos, escadas e rampas",
+      "parameter": "20% < L ≤35%",
+      "measures": "1) Pressurização da escada3e SPK; ou 2) Pressurização da escada3, controle de fumaça nos pavimentos; ou 3) SPK, DAI e controle de fumaça nos pavimentos1. Além da adoção de uma das medidas acima, deve aumentar em 100% o número de brigadistas orgânicos. Se a IN 28 isentar a Brigada, esta deve ser prevista, inclusive para A-2."
+    },
+    {
+      "page": 21,
+      "system": "Saídas de emergência",
+      "sigla": "SE",
+      "fault": "Largura (L) inferior em acessos, escadas e rampas",
+      "parameter": "L > 35%",
+      "measures": "Não admitido - deve ser prevista uma nova escada para a edificação."
+    },
+    {
+      "page": 21,
+      "system": "Saídas de emergência",
+      "sigla": "SE",
+      "fault": "Degraus irregulares (dimensões de espelho e base)",
+      "parameter": "h ou b ≤5%",
+      "measures": "2) Limite de erro admitido sem necessidade de compensação"
+    },
+    {
+      "page": 21,
+      "system": "Saídas de emergência",
+      "sigla": "SE",
+      "fault": "Degraus irregulares (dimensões de espelho e base)",
+      "parameter": "5% < h ou b ≤10%",
+      "measures": "1) Previsão de nível mínimo de iluminamento do SIE de 10 lux em todos os lances onde houver irregularidade(s); e 2) Sinalização de todas as bases dos degraus do lance onde houver um ou mais degraus irregulares por meio de faixa contínua de largura mínima de 100 mm, constituída de listras inclinadas a 45° e com largura mínima de 50 % da largura da faixa, sendo que: a) em ambientes internos iluminados naturalmente deve ser utilizada a faixa amarela e preta; e b) em ambientes com iluminação artificial deve ser utilizada a faixa vermelha e branca fotoluminescente. 3) Instalação de placas de advertência “cuidado, degraus irregulares” nos patamares da escada, frontais e visíveis no sentido de descida da escada."
+    },
+    {
+      "page": 22,
+      "system": "Saídas de emergência",
+      "sigla": "SE",
+      "fault": "Degraus irregulares (dimensões de espelho e base)",
+      "parameter": "10% < h ou b ≤15%",
+      "measures": "1) Se as irregularidades acometer somente um lance de degraus aplica-se às medidas 1, 2 e 3 previstas no item anterior. 2) Se a irregularidade acometer mais de um lance de degraus, além das medidas 1, 2 e 3 previstas no item anterior é exigido também: a) Instalação de DAI nos locais com CI > 100 MJ/m²."
+    },
+    {
+      "page": 22,
+      "system": "Saídas de emergência",
+      "sigla": "SE",
+      "fault": "Degraus irregulares (dimensões de espelho e base)",
+      "parameter": "h ou b > 15%",
+      "measures": "Não admitido"
+    },
+    {
+      "page": 22,
+      "system": "Saídas de emergência",
+      "sigla": "SE",
+      "fault": "Degraus irregulares (degrau isolado ou em “leque”)",
+      "parameter": "Área externa",
+      "measures": "1) Substituição por rampa ou adequação da escada; e"
+    },
+    {
+      "page": 22,
+      "system": "Saídas de emergência",
+      "sigla": "SE",
+      "fault": "Degraus irregulares (degrau isolado ou em “leque”)",
+      "parameter": "Área interna",
+      "measures": "1) Previsão de nível mínimo de iluminação do SIE de 30 lux em todos os lances onde houver irregularidade(s). 2) Sinalização de todas as bases dos degraus do lance onde houver um ou mais degraus irregulares por meio de faixa fotoluminescente contínua de largura mínima de 100 mm, constituída de listras vermelhas e brancas inclinadas a 45° e com largura mínima de 50 % da largura da faixa. 3) Quando houver irregularidade em mais de um lance de escada, deverá ser executada ainda uma das seguintes medidas: a) Instalação de DAI nos locais com CI > 100 MJ/m²; ou b) Controle de fumaça nos pavimentos¹."
+    }
+  ],
+  "notes": [
+    {
+      "page": 22,
+      "text": "Notas: 1 - Controle de fumaça necessário em todas as áreas ou ambientes com carga de fogo > 100 MJ/m² 2 - Aplicável se o estreitamento for na escada. 3 - Controle de fumaça necessário somente nos acessos de cada pavimento."
+    },
+    {
+      "page": 22,
+      "text": "Nota Orientação A - IN 9 - Saída de emergência. acesso: caminho a ser percorrido pelos usuários do pavimento, constituindo a rota de saída horizontal, para alcançar a escada, rampa, área de refúgio ou descarga B - Sempre que houver a exigência da detecção automática de incêndio (DAI) exige-se o sistema de alarme nos locais em que não houver."
+    }
+  ],
+  "checks": {
+    "needs_human_look": []
+  }
+}

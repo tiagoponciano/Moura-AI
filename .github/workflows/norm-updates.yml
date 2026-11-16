@@ -1,0 +1,72 @@
+name: Norm updates
+
+# Weekly, checks whether a CBMSC instruction published on Drive changed since it was
+# extracted. When one did, re-runs its extractors and opens a pull request with the
+# regenerated JSON. Rules, notes and tests are coded by hand: the pull request is
+# for a person to review, never merged by this job. Scheduled workflows only run
+# from the default branch.
+
+on:
+  schedule:
+    - cron: "23 8 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r tools/norms/requirements.txt
+
+      - name: Re-extract the norms that changed
+        id: refresh
+        working-directory: tools/norms
+        run: |
+          set +e
+          python refresh_norms.py | tee "$RUNNER_TEMP/refresh.txt"
+          echo "code=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+
+      - name: Open a pull request with the new extraction
+        if: steps.refresh.outputs.code == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          branch="chore/norm-update-$(date +%Y%m%d)"
+          docs="$(grep '^CHANGED ' "$RUNNER_TEMP/refresh.txt" | cut -d' ' -f2- | paste -sd, -)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add client/features/classification/norms
+          git commit -m "chore(norms): re-extract $docs after a new publication"
+          git push origin "$branch"
+          body="The published PDF of $docs changed, so its extraction was re-run. Review the diff of the JSON files, then check the rules built from them (notes, tables, the review sheets) and the tests. Tests that pin the contents (row counts, spot checks) may fail if the norm changed; update them with the rules."
+          gh pr create --base main --head "$branch" \
+            --title "chore(norms): re-extract $docs after a new publication" \
+            --body "$body" \
+            || gh issue create \
+              --title "Norm changed: $docs" \
+              --body "$body Branch \`$branch\` is pushed; open the pull request by hand."
+
+      - name: Report what could not be checked
+        if: steps.refresh.outputs.code == '2'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Norm check could not run"
+          body="$(cat "$RUNNER_TEMP/refresh.txt")"
+          existing="$(gh issue list --state open --search "$title in:title" --json number --jq '.[0].number')"
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "$body"
+          else
+            gh issue create --title "$title" --body "$body"
+          fi
+          exit 1

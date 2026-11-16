@@ -7,7 +7,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { useProjects } from "@/hooks/use-projects";
 import { NewProjectDialog } from "./new-project-dialog";
 import { ProjectActions } from "./project-actions";
-import { ProjectSearchDialog } from "./project-search-dialog";
+import { ProjectSearchDialog } from "@/components/shared/project-search-dialog";
 
 /** What the dialog shows under the project bar. */
 export type ProjectView = "forms" | "details" | "proposal";

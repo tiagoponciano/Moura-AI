@@ -67,7 +67,11 @@ Source tracking is app-wide, shared with Classificação, in `client/lib/field-s
 | `server/instructions.ts`                                                          | `buildInstructions(templateId, schema)`: the system prompt                                                    |
 | `hooks/use-cbmsc-forms.ts`                                                        | Catalog, search and selection of the CBMSC forms dialog                                                       |
 | `hooks/use-form-assistant.ts`                                                     | Compares a form's template to the live Google Doc                                                             |
-| `hooks/use-document-filling.ts`                                                   | All client state and actions: template list, schema, values, field sources, problems, generation              |
+| `hooks/use-document-filling.ts`                                                   | Composes the workspace state: template list, schema, values, field sources and the chat's tool result         |
+| `hooks/use-pdf-preview.ts`                                                        | The PDF preview: generates it, drops a stale one, ignores late answers                                        |
+| `hooks/use-saved-fillings.ts`                                                     | What was saved for each form of the project, and saving the open form                                         |
+| `hooks/use-form-export.ts`                                                        | Validates before a document is made, keeps what is wrong, makes the PDF or the .docx                          |
+| `lib/load-form-data.ts`                                                           | Loads a form's fields and guide and fills it from the project and what was saved                              |
 | `components/document-workspace.tsx`                                               | Client entry point; switches between picker, loading state and chat + form panel; holds the narrow-screen tab |
 | `components/forms-home.tsx`                                                       | The page with no form open: the forms dialog, open on arrival, and the card that reopens it                   |
 | `components/project-bar.tsx`                                                      | Project search button, new-project button, view buttons and the project menu                                  |

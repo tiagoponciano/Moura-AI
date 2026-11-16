@@ -200,6 +200,24 @@ export type Database = {
         >;
         Relationships: [];
       };
+      project_classifications: {
+        Row: {
+          project_id: string;
+          state: Json;
+          updated_by: string | null;
+          updated_at: string;
+        };
+        Insert: {
+          project_id: string;
+          state?: Json;
+          updated_by?: string | null;
+          updated_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["project_classifications"]["Insert"]
+        >;
+        Relationships: [];
+      };
       cbmsc_site_check: {
         Row: {
           id: boolean;

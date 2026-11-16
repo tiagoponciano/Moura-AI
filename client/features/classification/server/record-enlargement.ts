@@ -13,7 +13,7 @@ export const recordEnlargementInput = z.object({
     "Original built area in square meters: the largest area up to 11/11/2013 for older buildings, or the area of the first approved fire plan",
   ),
   addedAreaM2: enlargementAnswersSchema.shape.addedAreaM2.describe(
-    "Area added since that reference date, summed, in square meters",
+    "Area added since that reference date, summed, in square meters; 0 when only the occupancy or the layout changes without more area",
   ),
   originalRegularized:
     enlargementAnswersSchema.shape.originalRegularized.describe(
@@ -49,7 +49,9 @@ export function recordEnlargement(input: unknown, state: Facts) {
         ? "Recorded. Do not explain the result; the panel shows it."
         : `Recorded, but the division is not known yet (${divisionOf(state) ?? "none"}). Ask for the activity first.`,
     summary: enlargement
-      ? `Ampliação registrada: ${enlargement.addedAreaM2} m² sobre ${enlargement.originalAreaM2} m²`
+      ? enlargement.addedAreaM2 === 0
+        ? "Mudança sem ampliação registrada"
+        : `Ampliação registrada: ${enlargement.addedAreaM2} m² sobre ${enlargement.originalAreaM2} m²`
       : "Ampliação não registrada",
   };
 }

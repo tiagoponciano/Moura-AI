@@ -63,4 +63,14 @@ describe("ClassificationPanel with occupations", () => {
     expect(html).toContain("Quais são as ocupações");
     expect(html).not.toContain("Ocupações da edificação");
   });
+
+  it("names the podium and the towers, and does not call the podium the predominant one", () => {
+    const html = render([
+      { ...part("C-2", 800), role: "podium" },
+      { ...part("A-2", 300), role: "tower" },
+    ]);
+    expect(html).toContain("(embasamento)");
+    expect(html).toContain("(torre)");
+    expect(html).not.toContain("(predominante)");
+  });
 });

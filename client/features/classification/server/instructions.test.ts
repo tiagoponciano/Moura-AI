@@ -165,4 +165,29 @@ describe("buildInstructions", () => {
     expect(text).toContain("occupations of a mixed building");
     expect(text).toContain("do not add the next question above");
   });
+
+  it("tells the model how to record towers over a podium", () => {
+    expect(buildInstructions({}, DATE)).toContain("role podium");
+    const text = buildInstructions({}, DATE, [
+      {
+        division: "C-2",
+        area_m2: 800,
+        top_height_m: 8,
+        storeys: 2,
+        separation: "open",
+        role: "podium",
+      },
+      {
+        division: "A-2",
+        area_m2: 300,
+        top_height_m: 30,
+        storeys: 10,
+        separation: "open",
+        role: "tower",
+      },
+    ]);
+    expect(text).toContain(
+      "- A-2: 300 m2, last floor at 30 m, 10 storeys, open, tower",
+    );
+  });
 });

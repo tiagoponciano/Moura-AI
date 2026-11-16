@@ -41,6 +41,13 @@ describe("pickParts", () => {
     expect(pickParts("nothing")).toEqual([]);
   });
 
+  it("keeps a tower with its podium and drops a tower without one (art. 11, IV)", () => {
+    const podium = { ...part("C-2", 800), role: "podium" as const };
+    const tower = { ...part("A-2", 300), role: "tower" as const };
+    expect(pickParts([podium, tower])).toEqual([podium, tower]);
+    expect(pickParts([tower, tower])).toEqual([]);
+  });
+
   it("drops a list longer than the limit", () => {
     const many = Array.from({ length: MAX_PARTS + 1 }, () => part("C-2", 100));
     expect(pickParts(many)).toEqual([]);

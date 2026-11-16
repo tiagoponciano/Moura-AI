@@ -25,7 +25,13 @@ export function OccupationParts({ parts }: { parts: OccupationPart[] }) {
         {parts.map((part, index) => (
           <li key={`${part.division}-${index}`} className="text-xs">
             <span className="font-medium">{divisionLabel(part.division)}</span>
-            {index === 0 && (
+            {part.role && (
+              <span className="text-muted-foreground">
+                {" "}
+                ({part.role === "podium" ? "embasamento" : "torre"})
+              </span>
+            )}
+            {index === 0 && !part.role && (
               <span className="text-muted-foreground"> (predominante)</span>
             )}
             <span className="block text-muted-foreground tabular-nums">

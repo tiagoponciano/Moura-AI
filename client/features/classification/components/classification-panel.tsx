@@ -4,11 +4,13 @@ import { RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { FieldSources } from "@/lib/field-sources";
 import type { Classification } from "../lib/classify";
+import type { EnlargementAnswers } from "../lib/enlargement-input";
 import type { Facts } from "../lib/engine/types";
 import type { OccupationPart } from "../lib/mixed-occupancy";
 import { AnalysisNotice } from "./analysis-notice";
 import { BuildingForm } from "./building-form";
 import { DerivedData } from "./derived-data";
+import { EnlargementNotice } from "./enlargement-notice";
 import { NextQuestions } from "./next-questions";
 import { NormObservations } from "./norm-observations";
 import { OccupationParts } from "./occupation-parts";
@@ -20,6 +22,8 @@ type ClassificationPanelProps = {
   answers: Facts;
   /** The occupations of a mixed building; empty when there are none. */
   parts?: OccupationPart[];
+  /** The enlargement of an existing building, when the assistant recorded one. */
+  enlargement?: EnlargementAnswers;
   sources: FieldSources;
   classification: Classification;
   onChange: (fact: string, value: unknown) => void;
@@ -30,6 +34,7 @@ type ClassificationPanelProps = {
 export function ClassificationPanel({
   answers,
   parts = [],
+  enlargement,
   sources,
   classification,
   onChange,
@@ -45,6 +50,7 @@ export function ClassificationPanel({
           onChange={onChange}
         />
         <OccupationParts parts={parts} />
+        <EnlargementNotice answers={answers} enlargement={enlargement} />
         <DerivedData
           derived={classification.derived}
           conflicts={classification.conflicts}

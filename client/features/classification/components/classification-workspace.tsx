@@ -15,6 +15,7 @@ export function ClassificationWorkspace() {
   const {
     answers,
     parts,
+    enlargement,
     sources,
     classification,
     handleToolResult,
@@ -37,7 +38,7 @@ export function ClassificationWorkspace() {
       >
         <Chat
           endpoint="/api/classification/chat"
-          body={{ facts: answers, parts }}
+          body={{ facts: answers, parts, enlargement }}
           onToolResult={handleToolResult}
           history={{ module: "classification" }}
           placeholder="Ex.: loja de roupas com 1.800 m², 2 pavimentos e 9 m de altura"
@@ -54,6 +55,7 @@ export function ClassificationWorkspace() {
         <ClassificationPanel
           answers={answers}
           parts={parts}
+          enlargement={enlargement}
           sources={sources}
           classification={classification}
           onChange={updateAnswer}

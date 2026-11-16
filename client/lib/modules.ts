@@ -36,7 +36,7 @@ export const MODULES: AppModule[] = [
     summary:
       "Classifica a edificação e indica quais sistemas preventivos ela precisa ter.",
     icon: Layers,
-    status: "preview",
+    status: "available",
   },
   {
     href: "/floor-plans",
@@ -44,7 +44,7 @@ export const MODULES: AppModule[] = [
     summary:
       "Converte plantas antigas em PDF para DWG editável, agilizando o desenho.",
     icon: MapIcon,
-    status: "preview",
+    status: "available",
   },
 ];
 

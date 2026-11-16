@@ -70,7 +70,11 @@ Source tracking is app-wide, shared with Classificação, in `client/lib/field-s
 | `hooks/use-document-filling.ts`                                                   | All client state and actions: template list, schema, values, field sources, problems, generation              |
 | `components/document-workspace.tsx`                                               | Client entry point; switches between picker, loading state and chat + form panel; holds the narrow-screen tab |
 | `components/forms-home.tsx`                                                       | The page with no form open: the forms dialog, open on arrival, and the card that reopens it                   |
-| `components/project-bar.tsx`                                                      | Picks the current project, creates one and opens its data                                                     |
+| `components/project-bar.tsx`                                                      | Project search button, new-project button, view buttons and the project menu                                  |
+| `components/project-search-dialog.tsx`                                            | Dialog that finds a project by name; arrows move, Enter opens                                                 |
+| `components/project-actions.tsx`                                                  | The project menu: rename and archive, each behind a dialog                                                    |
+| `lib/filter-projects.ts`                                                          | Name filter for the search, ignoring case and accents, every word must match                                  |
+| `components/new-project-dialog.tsx`                                               | Dialog that asks for a project name and shows the creation error                                              |
 | `components/project-details.tsx`                                                  | "Dados do projeto": one collapsible section per group of shared fields                                        |
 | `components/form-chat-title.tsx`                                                  | Chat title: form name, project and back button                                                                |
 | `components/cbmsc-forms-browser.tsx`                                              | Dialog content: list and preview, one at a time below `lg`                                                    |

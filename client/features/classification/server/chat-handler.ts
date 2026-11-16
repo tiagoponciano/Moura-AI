@@ -10,10 +10,16 @@ import {
   toChatResponse,
 } from "@/lib/llm";
 import { pickFacts } from "../lib/answers";
-import { RECORD_ANSWERS_TOOL, SEARCH_ACTIVITY_TOOL } from "../lib/questions";
+import { pickParts } from "../lib/mixed-parts";
+import {
+  RECORD_ANSWERS_TOOL,
+  RECORD_PARTS_TOOL,
+  SEARCH_ACTIVITY_TOOL,
+} from "../lib/questions";
 import { analysisDate } from "../lib/today";
 import { buildInstructions } from "./instructions";
 import { recordAnswers, recordAnswersInput } from "./record-answers";
+import { recordParts, recordPartsInput } from "./record-parts";
 import { searchActivity, searchActivityInput } from "./search-activity";
 
 /**
@@ -24,6 +30,7 @@ const chatBody = z.object({
   id: z.unknown(),
   messages: z.unknown(),
   facts: z.unknown().optional(),
+  parts: z.unknown().optional(),
 });
 
 /**
@@ -47,11 +54,12 @@ export async function handleClassificationChat(
   if (error) return error;
 
   const state = pickFacts(body.data.facts);
+  const parts = pickParts(body.data.parts);
   const date = analysisDate();
 
   const result = streamText({
     model,
-    instructions: buildInstructions(state, date),
+    instructions: buildInstructions(state, date, parts),
     // The instructions carry the recorded state, so only the latest turns go to the model.
     messages: await convertToModelMessages(recentMessages(messages)),
     tools: {
@@ -59,7 +67,13 @@ export async function handleClassificationChat(
         description:
           "Records the building answers given in the conversation. Send only new or corrected answers, and list in `unknown` what the user does not know.",
         inputSchema: recordAnswersInput,
-        execute: async (input) => recordAnswers(input, state, date),
+        execute: async (input) => recordAnswers(input, state, date, parts),
+      }),
+      [RECORD_PARTS_TOOL]: tool({
+        description:
+          "Records every occupation of a building that mixes several uses (division, area, height, storeys, separation). Send the whole list each time; it replaces the previous one.",
+        inputSchema: recordPartsInput,
+        execute: async (input) => recordParts(input, state, date),
       }),
       [SEARCH_ACTIVITY_TOOL]: tool({
         description:

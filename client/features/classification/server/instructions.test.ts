@@ -100,4 +100,34 @@ describe("buildInstructions", () => {
   it("ignores a stored fact it does not know", () => {
     expect(buildInstructions({ colour: "red" }, DATE)).not.toContain("colour");
   });
+
+  it("teaches the occupations tool, and says each call replaces the list", () => {
+    const text = buildInstructions({}, DATE);
+    expect(text).toContain("`record_parts`");
+    expect(text).toContain("replaces the previous list");
+  });
+
+  it("carries the recorded occupations and asks for them when the property mixes uses", () => {
+    const state = { single_use: false, only_subsidiary: false };
+    expect(buildInstructions(state, DATE)).toContain("Quais são as ocupações");
+    const text = buildInstructions(state, DATE, [
+      {
+        division: "C-2",
+        area_m2: 1500,
+        top_height_m: 8,
+        storeys: 3,
+        separation: "open",
+      },
+      {
+        division: "A-2",
+        area_m2: 500,
+        top_height_m: 8,
+        storeys: 3,
+        separation: "open",
+      },
+    ]);
+    expect(text).toContain("- C-2: 1500 m2");
+    expect(text).toContain("- A-2: 500 m2");
+    expect(text).not.toContain("Quais são as ocupações");
+  });
 });

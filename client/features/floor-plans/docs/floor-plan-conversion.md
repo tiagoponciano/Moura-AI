@@ -63,3 +63,16 @@ Both routes need a signed-in, approved user (`client/docs/authentication.md`) an
 ## Setup
 
 `DWG_SERVICE_URL` (base URL, no trailing slash) and `DWG_SERVICE_TOKEN` in the app's server environment; locally, `docker compose up -d dwg` gives `http://127.0.0.1:3003` with token `local-only`. "Ler" also needs a configured model (`client/docs/llm-configuration.md`).
+
+## Linked to a project
+
+The tab shows the project picker (shared with Documents and Classification) and, under the result, "Plantas do projeto". After each conversion the app keeps a record of it for the chosen project: the file name, the mode the service used (`vector` or `raster`), the scale and the format. Only the record is kept, never the plan or the converted file.
+
+| Piece                                 | File                                     | Contract                                                                                                        |
+| ------------------------------------- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `GET /api/floor-plans/projects/[id]`  | `server/project-plans-handler.ts`        | `{ plans }`, the latest 20 of the project, newest first                                                         |
+| `POST /api/floor-plans/projects/[id]` | `server/project-plans-handler.ts`        | `{ fileName, mode, scale?, format }` → `201 { plan }`; any other key is a 400                                   |
+| `public.project_floor_plans`          | `20261116000100_project_floor_plans.sql` | One row per conversion; read and insert for approved users, no update or delete                                 |
+| `useProjectFloorPlans`                | `hooks/use-project-floor-plans.ts`       | The list of the chosen project; another project reads as loading, a late answer for the previous one is ignored |
+
+Without a project, or without Supabase, nothing is recorded. The migration has to be applied in Supabase; until then both routes answer 500, the panel says it cannot use the project's plans, and the conversion itself keeps working. The record is made after the download starts, so a failed record never blocks the file.

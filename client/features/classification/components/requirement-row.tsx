@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import type { SystemView } from "../lib/classify";
+import { AdaptationsList } from "./adaptations-list";
 
 /** What IN 5 allows for a system of an existing or recent building, by class (arts. 21, 23 and 25). */
 const TREATMENT_TEXT = {
@@ -59,6 +60,9 @@ export function RequirementRow({
               <span className="font-medium">IN 5:</span>{" "}
               {TREATMENT_TEXT[system.treatment]}
             </p>
+          )}
+          {system.adaptations && (
+            <AdaptationsList adaptations={system.adaptations} />
           )}
           {system.scopes.length > 0 && (
             <p>

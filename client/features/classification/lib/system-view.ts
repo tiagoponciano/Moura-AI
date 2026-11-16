@@ -1,5 +1,6 @@
 import type { Reason, SystemView } from "./classify";
 import type { Rule, SystemOutcome } from "./engine/types";
+import { adaptationsFor } from "./in5-adaptations";
 import { systemLabel } from "./rulesets/systems";
 
 export type ViewContext = {
@@ -30,6 +31,9 @@ export function systemView(
     status: system.status,
     vital: system.vital,
     treatment: system.overlayClass,
+    adaptations: system.overlayClass
+      ? adaptationsFor(system.id, system.overlayClass)
+      : undefined,
     partial: system.partial,
     scopes: system.scopes,
     substitutions: system.substitutions.map((s) => ({

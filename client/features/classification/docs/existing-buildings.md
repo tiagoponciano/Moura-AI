@@ -26,6 +26,10 @@ Invariants:
 - **Conditional cells.** K-2 `SHP²` (only thermal plants) and M-2 `PE³` (liquids above 20 m³ or gases above 10 m³) label the system only while the condition holds; otherwise it falls to `TE`.
 - **Panel.** A required system shows its class; vital also keeps the vital tag.
 
+## Adaptations (Annex C)
+
+`adaptationsFor(systemId, class)` (`lib/in5-adaptations.ts`) reads `norms/in-5/annex-c.json` and returns the sections of the system's table that its class allows. Arts. 21 and 23: a vital or indispensable system gets the adaptations and their compensations, never the substitutions or exemptions. Art. 25: an adaptable one gets all four sections. A section the annex marks as "não aplicável" is left out. The annex has tables for the hydraulic system (IN 7), exits (IN 9), alarm and detection (IN 12), low-voltage installations (IN 19), combustible gas (IN 8) and compartmentation (IN 14, horizontal and vertical apart); any other system shows nothing. `SystemView.adaptations` carries it, and a required row of an existing building shows it under "Adaptações admitidas (IN 5, Anexo C)".
+
 ## Enlargements (arts. 11 to 19)
 
 `classifyEnlargement` (`lib/enlargement.ts`) says how an enlargement of an existing building is regularized. It is a pure function over the answers the articles read: the original area and what was added since the reference date (art. 11; additions sum up, as in Nota 1), whether the original is regularized, whether the areas are compartmented, whether the enlargement made a new isolated block, whether 5 years have passed since the habite-se, and whether the enlargement raises the rigor of IN 1. The caller says whether the rigor rises; the function does not compute it.
@@ -49,6 +53,7 @@ Every result repeats that the requirements are sized by the sum of the areas (ar
 
 - **It does not read the `SA¹` footnote** (A-2, A-3, B: only when automatic detection is required): the alarm is labelled indispensable regardless.
 - **It reads `BI` as the fire brigade**, because the printed legend omits it.
-- **It does not apply the adaptations of Annex C or the compensatory measures of Annex D.**
+- **It does not apply the compensatory measures of Annex D.**
+- **It does not choose an adaptation.** Annex C is shown as printed; the responsible engineer decides which one fits, with the justification the articles ask for.
 - **It does not ask whether the building is existing or recent** and does not check the proof (art. 26).
 - **It does not approve a reading.** The mapping of abbreviations and the conditional cells are open until a person confirms them with Moura.

@@ -17,5 +17,11 @@
     "systems": 6,
     "sha256": "ede387fbd53319aa1d1e9f1bab0634e99151d4d39d9d8d63f8c7e2a482f5e97f",
     "needs_human_look": 0
+  },
+  "annex_d": {
+    "pages": [20, 21, 22],
+    "rows": 15,
+    "sha256": "f2e8ced90b5f6567d863618c5e8cea0f3f67451bd61f80e0ea28281614b77885",
+    "needs_human_look": 0
   }
 }

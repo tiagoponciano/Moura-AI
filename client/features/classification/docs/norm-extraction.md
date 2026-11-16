@@ -44,6 +44,10 @@ python tools/norms/check_updates.py [--norms <dir>]
 
 Exit code: `0` every PDF is current, `1` at least one changed, `2` at least one could not be checked (not a Drive file link, or the download failed). Its unit tests run with `python -m unittest discover -s tools/norms -p "test_check_updates.py"`.
 
+## IN 5, Annex D
+
+`tools/norms/extract_in5_annex_d.py <pdf> --out client/features/classification/norms/in-5` reads Annex D (compensatory measures for new buildings) and writes `annex-d.json`, adding an `annex_d` entry with its hash to `manifest.json`. Each row is one error parameter: the system and its abbreviation (AVtr, GCC, SHP, SE), the fault, the parameter (such as `2% < L ≤10%`) and the measures as printed; a blank system or fault cell repeats the one above, and the table's continuation across three pages is joined. Footnote numbers stay glued to the words they follow, as in the PDF. The notes under the table are kept apart. `--verify` compares the hash with the manifest and `norms/in-5/annex-d.test.ts` checks the committed JSON in CI. Nothing in the app reads it yet. The tool is not covered by an automated test of its own.
+
 ## IN 5, Annex C
 
 `tools/norms/extract_in5_annex_c.py <pdf> --out client/features/classification/norms/in-5` reads Annex C (adaptations) and writes `annex-c.json`, adding an `annex_c` entry with its hash to `manifest.json`. There is one entry per system table (IN 7, 9, 12, 19, 8 and 14), each with four sections as printed: adaptations (`adequações`), compensations, exemptions and substitutions. A section holds its introduction and its items with their letter and, where the table has them, a group (`I - Quando já instalado`, `Compartimentação Horizontal`). A section that says "não aplicável" has `applicable: false`. The IN 9 table continues across two pages, so repeated rows are kept once. `--verify` compares the hash with the manifest and `norms/in-5/annex-c.test.ts` checks the committed JSON in CI. The tool holds no rule logic: which section applies to which class is for arts. 21, 23 and 25 (see `existing-buildings.md`). The tool is not covered by an automated test of its own.

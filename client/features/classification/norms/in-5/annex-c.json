@@ -1,0 +1,390 @@
+{
+  "doc": "IN-5",
+  "table": "Anexo C",
+  "title": "Adaptações",
+  "pages": [15, 16, 17, 18, 19],
+  "systems": [
+    {
+      "title": "Sistema Hidráulico Preventivo",
+      "norm": "IN 7",
+      "page": 15,
+      "sections": {
+        "adaptations": {
+          "intro": "admitem-se as seguintes adequações (com as respectivas compensações) para o SHP já instalado ou a instalar:",
+          "items": [
+            {
+              "text": "a. mangueiras com comprimento superior, em até 50%, em relação ao previsto na tabela 2 da IN 7;"
+            },
+            {
+              "text": "b. instalação de hidrantes de paredes nos patamares das escadas, desde que não seja possível a instalação nos locais prescritos pelas normas;"
+            },
+            {
+              "text": "c. instalação de hidrantes externos em pavimento térreo;"
+            },
+            {
+              "text": "d. dispensa de hidrante de recalque, desde que outro hidrante convencional possa ser acessado e utilizado para o recalque no pavimento de descarga;"
+            },
+            {
+              "text": "e. RTI (Reserva Técnica de Incêndio) constituída de qualquer material diverso do exigido pelas normas vigentes, desde que protegido contra os efeitos de um incêndio, por qualquer material com TRRF de 120 min;"
+            },
+            {
+              "text": "f. vazão mínima inferior à prevista em norma, em no máximo um pavimento quando edificação verticalizada, desde que este pavimento não contemple mais de 30% da área total, ou por meio de justificativa de inviabilidade técnica de atendimento ao que prevê a alínea \"g\" abaixo;"
+            },
+            {
+              "text": "g. interposição ou instalação de bomba à combustão ou elétrica em sistema by pass alimentada por energia (mínimo de uma bomba em sistema by pass), por meio de circuito elétrico próprio e independente, com dispositivo de proteção contra curto-circuitos próprio, devidamente identificado como sendo das bombas do Sistema Hidráulico Preventivo, com a inscrição “NÃO DESLIGUE, BOMBA DE INCÊNDIO”, conforme fixado em IN específica;"
+            },
+            {
+              "text": "h. redução do volume de RTI previsto em norma (não sendo possível a construção de reservatório para RTI), verificando-se ainda as possibilidades de instalação de mais reservatórios, tantos quanto possíveis ou necessários, interligando-os de modo a assegurar a RTI possível;"
+            },
+            {
+              "text": "i. rede de hidrantes interligada ao reservatório de consumo, quando o volume do reservatório de consumo for de pelo menos 2 m³ e esgotadas as demais possibilidades previstas na alínea anterior;"
+            }
+          ],
+          "applicable": true
+        },
+        "compensations": {
+          "intro": "",
+          "items": [
+            {
+              "text": "a. aplicada qualquer adequação prevista acima, deverá ser previsto o aumento do número de capacidades extintoras no pavimento ou setor afetado, sendo este número, no mínimo, o dobro do original;"
+            },
+            {
+              "text": "b. aplicadas as reduções previstas nas alíneas “h” e “i” da seção de adequações desta tabela deverá ser previsto, cumulativamente às demais compensações, o Sistema de Detecção e Alarme de Incêndio (SDAI) nas áreas de circulação;"
+            }
+          ],
+          "applicable": true
+        },
+        "exemptions": {
+          "intro": "",
+          "items": [
+            {
+              "text": "- Todas as ocupações com baixa carga de incêndio, com até 6 pavimentos e com caminhamento máximo de 60 m, devendo atender a alínea “a.” de compensações desta tabela. Responsável Técnico apresentará cálculo da carga de incêndio (IN 3) e anexará DRT referente ao respectivo dimensionamento."
+            }
+          ],
+          "applicable": true
+        },
+        "substitutions": {
+          "intro": "admite-se a substituição do Sistema Hidráulico Preventivo por Hidrante Urbano, conforme requisitos da IN 25",
+          "items": [
+            {
+              "text": "a. Para edificações que atendam, cumulativamente, os seguintes requisitos: I – classificadas como carga de incêndio média; II – possuam área menor ou igual a 2.500m²; III – possuam até 04 pavimentos; IV – possuam, ou que estejam em processo de regularização para executar o SDAI, instalado na área comum;"
+            },
+            {
+              "text": "b. Havendo impossibilidade justificada de instalação do hidrante urbano, poderá ser admitida como substituição a compartimentação ou isolamento das áreas ou riscos, conforme IN 14, interpondo-se portas e paredes corta fogo ou platibandas como forma de confinar e controlar a propagação do incêndio;"
+            },
+            {
+              "text": "c. A substituição prevista neste artigo pode ser adaptada ou complementada com outros sistemas que o Responsável Técnico julgar conveniente, conforme a complexidade do caso, após análise de risco."
+            }
+          ],
+          "applicable": true
+        }
+      }
+    },
+    {
+      "title": "Saídas de Emergência",
+      "norm": "IN 9",
+      "page": 16,
+      "sections": {
+        "adaptations": {
+          "intro": "admitem-se as seguintes adequações:",
+          "items": [
+            {
+              "text": "a. tipo de escada: admite-se aprovar com tipo diverso do exigido na IN 9;",
+              "group": "I - Quando já instalado"
+            },
+            {
+              "text": "b. para adaptações de escadas comuns que foram executadas no lugar de escadas de maior segurança, deverá, cumulativamente: (1) enclausurar com portas resistente ao fogo (P-30) nas portas das unidades autônomas que têm acesso ao hall ou corredor de circulação, que por sua vez, acessa a escada; (2) prever detectores de incêndio (componente do SDAI) nas circulações da edificação; (3) prever faixas de sinalização refletivas no rodapé das paredes do hall e junto às laterais dos degraus; (4) prever exaustão no topo da escada, com área mínima de 1,00 m², podendo ser: cruzada, por exaustores eólicos ou mecânicos; e (5) caso haja ventilação (janela) na escada, em todos os pavimentos, não necessita exaustão no topo da escada. Neste caso, a área efetiva mínima de ventilação deve ser de 0,50 m².",
+              "group": "I - Quando já instalado"
+            },
+            {
+              "text": "c. patamares e degraus: admite-se aprovar com o dimensionamento existente, devendo ser instaladas fitas fotoluminescentes nas bordas dos degraus e patamares e iluminação com detecção de presença; (1) admitem-se degraus isolados/irregulares, desde que estejam devidamente sinalizados e com placas de advertência; (2) tratando-se de escadas com degraus em leque, a capacidade da unidade de passagem deverá ser reduzida em 30% do valor previsto na IN 9.",
+              "group": "I - Quando já instalado"
+            },
+            {
+              "text": "d. caminhamento: serão aceitas as condições previstas na IN9 para que seja permitido aumento da distância máxima a ser percorrida.",
+              "group": "I - Quando já instalado"
+            },
+            {
+              "text": "e. piso: admite-se aprovar como já está instalado, com: (1) instalação de fitas antiderrapantes; ou aplicação de tinta antiderrapante ou tratamentos que assegurem maior coeficiente de atrito; (2) admitem-se pisos com revestimento diverso do especificado na IN 18, desde que comprovada sua incombustibilidade.",
+              "group": "I - Quando já instalado"
+            },
+            {
+              "text": "f. corrimãos: admite-se aprovar como já está instalado: (1) em apenas um dos lados, quando a escada possuir largura inferior a 1 m; (2) como se encontram, desde que sejam funcionais (propiciem apoio, deslizamento confortável e seguro, possuam continuidade sem “efeito gancho”).",
+              "group": "I - Quando já instalado"
+            },
+            {
+              "text": "g. guarda corpo: admite-se aprovar como instalado sem elevação de altura quando: (1) tratar-se de local e escadas/rampas de acesso restrito; (2) em patamares e mezaninos de locais de acesso restrito; (3) em edificações tombadas, quando justificado tecnicamente pelo responsável técnico a impossibilidade de adequação tendo em vista as características históricas da edificação (volumetria interna e externa). (4) admitem-se vidros de segurança utilizados como guarda-corpos diversos do previsto na IN 18 quando sua segurança e funcionalidade forem devidamente justificadas pelo responsável técnico mediante laudo, desde que pautado em norma editada por órgão público e/ou entidade nacional; (5) admite-se espaçamento entre longarinas de, no máximo, 15cm.",
+              "group": "I - Quando já instalado"
+            },
+            {
+              "text": "h. largura mínima: admite-se aprovar saídas com largura mínima inferior ao previsto em normas desde que cumulativamente: (1) existam impedimentos de ordem estrutural, devidamente fundamentados e acompanhado do respectivo DRT; (2) a relação entre população e unidades de passagens seja compatível com os preceitos previstos na IN 9 (cálculo reverso); (3) a lotação máxima de cada ambiente seja expressa em placa conforme especificado na IN9.",
+              "group": "I - Quando já instalado"
+            },
+            {
+              "text": "i. As portas devem ser do tipo “de abrir”, tendo o sentido de abertura igual ao do fluxo de saída: I – nas escadas de emergência e antecâmaras; e II – nas rotas de saída dos locais de reunião de público enquadradas nas classificações F5, F6 e F11, quando a lotação for acima de 100 pessoas.",
+              "group": "I - Quando já instalado"
+            },
+            {
+              "text": "j. admitem-se rampas com inclinação diversa da prevista na IN 9, desde que contemplada por NBR pertinente.",
+              "group": "I - Quando já instalado"
+            },
+            {
+              "text": "a. Deverá adequar-se à IN 9 vigente",
+              "group": "II - Quando a instalar"
+            }
+          ],
+          "applicable": true
+        },
+        "compensations": {
+          "intro": "",
+          "items": [
+            {
+              "text": "As compensações encontram-se previstas nas alíneas anteriores, podendo ser acrescidas outras compensações, a critério do RT."
+            }
+          ],
+          "applicable": true
+        },
+        "exemptions": {
+          "intro": "",
+          "items": [
+            {
+              "text": "Não aplicável"
+            }
+          ],
+          "applicable": false
+        },
+        "substitutions": {
+          "intro": "",
+          "items": [
+            {
+              "text": "Não aplicável"
+            }
+          ],
+          "applicable": false
+        }
+      }
+    },
+    {
+      "title": "Sistema de Detecção e Alarme de Incêndio",
+      "norm": "IN 12",
+      "page": 17,
+      "sections": {
+        "adaptations": {
+          "intro": "",
+          "items": [
+            {
+              "text": "Ampliações até 50%: nos casos que o DAI for um sistema adequável (ver Anexo C), pode ser mantido o tipo de SDAI da área preexistente e estendido para a área ampliada, desde que atendidos os limites de seus requisitos conforme IN 12 Ampliações acima de 50%: atualizar o tipo de SDAI para toda a edificação. Nos casos em que a área ampliada for compartimentada em relação à área preexistente, é admitido o SDAI independente para a área ampliada, desde que estejam interligados a um ECI principal que monitore todo o imóvel.",
+              "group": "Tipo de SDAI"
+            }
+          ],
+          "applicable": true
+        },
+        "compensations": {
+          "intro": "",
+          "items": [
+            {
+              "text": "não aplicável"
+            }
+          ],
+          "applicable": false
+        },
+        "exemptions": {
+          "intro": "",
+          "items": [
+            {
+              "text": "não aplicável"
+            }
+          ],
+          "applicable": false
+        },
+        "substitutions": {
+          "intro": "",
+          "items": [
+            {
+              "text": "não aplicável"
+            }
+          ],
+          "applicable": false
+        }
+      }
+    },
+    {
+      "title": "Instalações elétricas de baixa tensão",
+      "norm": "IN 19",
+      "page": 17,
+      "sections": {
+        "adaptations": {
+          "intro": "",
+          "items": [
+            {
+              "text": "Para edificações recentes, cuja construção do imóvel finalizou antes de 17/02/2020, permite-se circuitos únicos para os sistemas de iluminação de emergência e sinalização de abandono de local, sem necessidade de qualquer compensação."
+            }
+          ],
+          "applicable": true
+        },
+        "compensations": {
+          "intro": "",
+          "items": [
+            {
+              "text": "Não aplicável"
+            }
+          ],
+          "applicable": false
+        },
+        "exemptions": {
+          "intro": "",
+          "items": [
+            {
+              "text": "Ficam dispensadas as exigências previstas em relação às instalações elétricas de baixa tensão para as edificações construídas, acabadas ou edificadas antes de 17/02/2020, exceto a manutenção corretiva e preventiva prevista na IN 19."
+            }
+          ],
+          "applicable": true
+        },
+        "substitutions": {
+          "intro": "",
+          "items": [
+            {
+              "text": "Não aplicável"
+            }
+          ],
+          "applicable": false
+        }
+      }
+    },
+    {
+      "title": "Instalações de Gás Combustível",
+      "norm": "IN 8",
+      "page": 18,
+      "sections": {
+        "adaptations": {
+          "intro": "admitem-se as seguintes adequações:",
+          "items": [
+            {
+              "text": "a. com recipientes instalados no interior da edificação (pavimento térreo): atender as especificações para o abrigo ou central de gás da IN 8;",
+              "group": "I - Quando já instalado"
+            },
+            {
+              "text": "b. redução de afastamento: quando não houver espaço disponível para atender o afastamento previstos na IN 8, exceção feita aos locais que possibilitem acúmulo de gases;",
+              "group": "I - Quando já instalado"
+            },
+            {
+              "text": "c. com recipientes instalados em pavimentos superiores (a exemplo de varandas e terraços): quando a solução se mostrar mais indicada que aquela descrita na alínea “a”, desde que haja fácil acesso e condições mínimas de ventilação no ambiente, as quais devem constar expressamente na documentação protocolada pelo RT junto ao CBMSC;",
+              "group": "I - Quando já instalado"
+            },
+            {
+              "text": "d. com instalação de abrigo de medidores em locais diferentes do previsto na IN 8 ou até mesmo sem a sua instalação: desde que seja instalada válvula de fecho rápido, em área comum, próximo a cada uma das unidades autônomas. Tal solução poderá ser substituída pela instalação de válvula de corte geral de gás externamente na fachada do bloco (no máximo a 5 m de distância de sua porta de acesso principal) ou internamente no hall de entrada. Em ambas as soluções, deverá haver também reguladores de 2º estágio para cada unidade autônoma;",
+              "group": "I - Quando já instalado"
+            },
+            {
+              "text": "e. com recipientes P-13 instalados no interior das cozinhas, desde que: (1) justificada a situação por meio de argumentação técnica, demonstrando a inviabilidade de execução do sistema centralizado ou em área externa; (2) diga respeito à parte residencial privativa da edificação; (3) seja prevista ventilação permanente conforme IN 8;",
+              "group": "I - Quando já instalado"
+            },
+            {
+              "text": "f. com a admissão de mais de uma central ou abrigo de gás para uma mesma edificação: desde que de fácil acesso e bem sinalizadas, em que cada central ou abrigo indique a localização das demais;",
+              "group": "I - Quando já instalado"
+            },
+            {
+              "text": "g. a substituição de uma central de GLP por vários abrigos, desde que comprovada a inviabilidade técnica de instalação da central integralmente de acordo com o que prevê a IN 8;",
+              "group": "I - Quando já instalado"
+            },
+            {
+              "text": "a. todas as previstas no inciso anterior, exceto a adoção proposta nas alíneas f e g.",
+              "group": "II - Quando a instalar"
+            },
+            {
+              "text": "b. execução das locações de GLP em nichos, desde que atendidos cumulativamente os seguintes requisitos (Figura 1): (1) impossibilidade de atender os afastamentos da IN 8; (2) executados na fachada da edificação, seja térrea ou com mais pavimentos, no mesmo nível e voltados para a via pública ou em corredor com largura mínima de 1 m e ventilação natural permanente; (3) disponham de área mínima adequada para comportar até, no máximo, 2 recipientes P-190 ou 4 recipientes P-45, porém nunca inferior a 1 m²; (4) possuam paredes e teto construídos em material resistente ao fogo por 4 horas, garantindo isolamento térmico em relação ao interior da edificação e estanqueidade; (5) a parede resistente ao fogo tenha altura mínima de 1,80 m ou esteja na mesma altura do recipiente; (6) possuam porta metálica que evite o contato com os recipientes e permita a ventilação mínima necessária; (7) proporcionem ventilação permanente para a área externa, com áreas mínimas de 0,32 m² na parte inferior e 0,32 m² na parte superior; (8) possuam as placas de sinalização indicadas na IN 8; e (9) seja instalado conjunto de controle e manobra próximo ao acesso principal da edificação, em local visível e de fácil acesso.",
+              "group": "II - Quando a instalar"
+            }
+          ],
+          "applicable": true
+        },
+        "compensations": {
+          "intro": "",
+          "items": [
+            {
+              "text": "Não aplicável"
+            }
+          ],
+          "applicable": false
+        },
+        "exemptions": {
+          "intro": "",
+          "items": [
+            {
+              "text": "Não aplicável"
+            }
+          ],
+          "applicable": false
+        },
+        "substitutions": {
+          "intro": "",
+          "items": [
+            {
+              "text": "Não aplicável"
+            }
+          ],
+          "applicable": false
+        }
+      }
+    },
+    {
+      "title": "Compartimentação",
+      "norm": "IN 14",
+      "page": 19,
+      "sections": {
+        "adaptations": {
+          "intro": "",
+          "items": [
+            {
+              "text": "Paredes: instalação de placas cimentícias, placa sanduíche de EPS/cimento, sanduíche de EPS/placa metálica, pinturas intumescentes ou qualquer outra medida proposta pelo RT que atenda ao TRRF previsto na Tabela 1 do Anexo A da IN 14, mediante emissão de DRT. Não é necessária a comprovação do TRRF.",
+              "group": "Compartimentação Horizontal"
+            },
+            {
+              "text": "Vidros e Janelas: instalação de abas verticais com 0,50 m de saliência ou adoção de 50% do afastamento entre aberturas previsto na Tabela 3 do Anexo C da IN 14.",
+              "group": "Compartimentação Horizontal"
+            },
+            {
+              "text": "Portas/aberturas: Instalação de vedadores corta-fogo e rebaixo de no mínimo 0,50 m em relação a abertura e ao teto, laje ou forro.",
+              "group": "Compartimentação Horizontal"
+            },
+            {
+              "text": "Não aplicável.",
+              "group": "Compartimentação Vertical"
+            }
+          ],
+          "applicable": true
+        },
+        "compensations": {
+          "intro": "",
+          "items": [
+            {
+              "text": "Na impossibilidade de realização da compartimentação da edificação, poderão ser instalados sistemas de detecção automática de incêndio e chuveiros automáticos, ou detecção automática de incêndio e controle de fumaça."
+            }
+          ],
+          "applicable": true
+        },
+        "exemptions": {
+          "intro": "",
+          "items": [
+            {
+              "text": "Quando previstas pela IN 01 - parte 2, ficam dispensadas as exigências previstas para a compartimentação para as edificações construídas, acabadas ou edificadas antes de 17/02/2020, com carga de incêndio baixa ou inferior, para ocupações A (todas), B (todas), C-1, E (todas), F-1, F-2, F-3, F-4, F-5, F-7, F-9, F-10, G (todas), H (todas), I-1, I-2 (caso comprovada a carga de incêndio inferior a 500 MJ/m²), J-1 e J-2."
+            }
+          ],
+          "applicable": true
+        },
+        "substitutions": {
+          "intro": "",
+          "items": [
+            {
+              "text": "Na impossibilidade de realização da compartimentação da edificação, poderão ser instalados sistemas de detecção automática de incêndio e chuveiros automáticos, ou detecção automática de incêndio e controle de fumaça."
+            }
+          ],
+          "applicable": true
+        }
+      }
+    }
+  ],
+  "checks": {
+    "needs_human_look": []
+  }
+}

@@ -11,5 +11,11 @@
     "rows": 45,
     "sha256": "524b43f43620b7dec998553dc079e33873759a3abb6c6baac5fdf5cab1ce5dfc",
     "needs_human_look": 19
+  },
+  "annex_c": {
+    "pages": [15, 16, 17, 18, 19],
+    "systems": 6,
+    "sha256": "ede387fbd53319aa1d1e9f1bab0634e99151d4d39d9d8d63f8c7e2a482f5e97f",
+    "needs_human_look": 0
   }
 }

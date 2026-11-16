@@ -38,6 +38,8 @@ Annex D lists compensatory measures for a new building built with errors in four
 
 `classifyEnlargement` (`lib/enlargement.ts`) says how an enlargement of an existing building is regularized. It is a pure function over the answers the articles read: the original area and what was added since the reference date (art. 11; additions sum up, as in Nota 1), whether the original is regularized, whether the areas are compartmented, whether the enlargement made a new isolated block, whether 5 years have passed since the habite-se, and whether the enlargement raises the rigor of IN 1. The caller says whether the rigor rises; the function does not compute it.
 
+With `addedAreaM2` equal to 0 the record is a change of occupancy or layout without enlargement (arts. 9 and 10), see below.
+
 The order it applies:
 
 1. No 5 years of grace: the whole building follows IN 1 (art. 12, § 1º).
@@ -47,9 +49,17 @@ The order it applies:
 5. Up to 50% with more rigor: compartmented, IN 1 for the enlarged area and the original area keeps its systems or uses IN 5; not compartmented, IN 1 for everything. In both, adaptable systems proven unfeasible may follow IN 5 (art. 18).
 6. Over 50%: compartmented, IN 1 for the enlarged area; not compartmented, IN 1 for everything with no adaptations (art. 19).
 
+### A change without enlargement (arts. 9 and 10)
+
+When nothing is added: a regularized building whose rigor does not rise may keep the systems approved before (art. 9); one that is not regularized follows the orientations of IN 5 (art. 9, parágrafo único); when the rigor rises, the building follows IN 1, except adaptable systems proven unfeasible, which may follow IN 5 (art. 10). The 5 years of art. 12, § 1º still apply first. Art. 4º, parágrafo único says what does not count as more rigor (low-voltage installations, vehicle access, measures from a new instruction); every result repeats it.
+
+### General points of IN 5
+
+`IN5_GENERAL_NOTES` (`lib/enlargement.ts`) are shown with every result: a listed (tombada) building needs the prior authorization of the heritage body (art. 6º); the classification as recent or existing stands on the engineer's statement, with optional supporting documents (art. 26); and the adaptations, substitutions and exemptions of Annex C need a justification, not a technical request, while other adaptations come from a risk analysis (arts. 27 and 28). The definitions of art. 4º (existing: built before Lei 16.157/2013; recent: never approved or approved for another use; new: later) are in the description of the `building_condition` fact.
+
 ## The chat and the panel
 
-When the user says an existing building will be enlarged, the assistant collects the seven answers and calls the `record_enlargement` tool (`server/record-enlargement.ts`) with all of them; each call replaces the previous record, so a replayed chat settles. The client keeps it in `useClassification`, sends it in the request body as `enlargement`, and `buildInstructions` writes it into the prompt. The panel shows "Ampliação da edificação" (`components/enlargement-notice.tsx`) with the share, the articles and what happens to each area; the division comes from the answers or the chosen activity, and without it the panel asks for the activity. The record is kept only in the hook, like the answers.
+When the user says an existing building will be enlarged, (or that its occupancy or layout will change without more area) the assistant collects the seven answers and calls the `record_enlargement` tool (`server/record-enlargement.ts`) with all of them; each call replaces the previous record, so a replayed chat settles. The client keeps it in `useClassification`, sends it in the request body as `enlargement`, and `buildInstructions` writes it into the prompt. The panel shows "Ampliação da edificação" (`components/enlargement-notice.tsx`) with the share, the articles and what happens to each area; the division comes from the answers or the chosen activity, and without it the panel asks for the activity. The record is kept only in the hook, like the answers.
 
 Every result repeats that the requirements are sized by the sum of the areas (art. 14) and that the original systems get no waiver (art. 12, § 2º). The boundaries are 20% and 50%, both inclusive in the lower band. The reading is provisional until Moura confirms it.
 

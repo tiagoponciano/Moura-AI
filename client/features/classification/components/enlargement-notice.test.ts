@@ -39,4 +39,17 @@ describe("EnlargementNotice", () => {
     expect(html).toContain("Informe a atividade");
     expect(html).not.toContain("Área original");
   });
+
+  it("says it is a change without enlargement, and repeats the general points of IN 5", () => {
+    const html = render(
+      { division: "A-2" },
+      { ...enlargement, addedAreaM2: 0, raisesRigor: false },
+    );
+    expect(html).toContain("Mudança sem ampliação");
+    expect(html).toContain("art. 9");
+    expect(html).not.toContain("m² sobre");
+    expect(html).toContain("tombada");
+    expect(html).toContain("art. 26");
+    expect(html).toContain("arts. 27 e 28");
+  });
 });

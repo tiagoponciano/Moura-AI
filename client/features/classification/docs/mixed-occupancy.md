@@ -32,6 +32,8 @@ The result has `systems` (id, status, `vital`, the divisions that require it, th
 - **Art. 11, II (open).** The areas of the non-isolated parts are added, and every part is evaluated with the sum and the height of the building (the highest last floor). The systems are the union: a system required by any part is required.
 - **Art. 11, III (compartmented).** The areas are still added, but each part uses the height of its own last floor. The reductions of III, a and b let some systems be sized by the part itself: on a single storey, sprinklers, smoke control and horizontal compartmentation; on more storeys, horizontal compartmentation, smoke control, the emergency elevator below 21 m and the sprinklers of residential areas (A divisions). For those systems the summed run does not decide; the part's own run does.
 - **Art. 12 (secondary).** The predominant occupation is evaluated for the whole building (total area, highest floor). Each secondary occupation is evaluated with its own area and height, and what it requires is limited to its area: the scope reads "somente na área da ocupação secundária <divisão>".
+- **Art. 12, § 1º (secondary, compartmented).** When any secondary occupation is compartmented, the reductions of art. 11, III apply: the systems that art. 11 lets a compartmented part size by itself (horizontal compartmentation, smoke control, sprinklers on a single storey, and so on) are decided for the predominant occupation by its own area and height, not the building's.
+- **Art. 11, IV (towers over a podium).** A part with `role: "podium"` is the lower floors that join the towers, and each `role: "tower"` is isolated from the others. For each tower the area is the tower's plus the podium's, the height is the tower's, and it owes the systems of its own occupation and of the podium's. A tower needs a podium: `pickParts` drops the list otherwise, and `classifyMixed` throws. The result carries a note saying how the areas were counted.
 - **Notes.** The result always repeats the garage rule (arts. 10, § 1º, and 12, § 2º), and, when vertical compartmentation is required in a building with more than one open part, the rule of art. 11, parágrafo único.
 
 ## The screen's view
@@ -45,9 +47,7 @@ The result has `systems` (id, status, `vital`, the divisions that require it, th
 ## What this does NOT do
 
 - **It does not replicate vertical compartmentation** in the lower floors (art. 11, parágrafo único); it only reminds.
-- **It does not handle towers joined by a podium** (art. 11, IV).
-- **It does not apply the art. 12, § 1º reductions** when secondary occupations are compartmented.
-- **It does not apply art. 10, § 4º** (an F subsidiary occupation above 100 people).
+- **It does not size an F subsidiary occupation above 100 people by its own group** (art. 10, § 4º): the panel only states the exception, since the classification of a subsidiary occupation has no list of occupations to run.
 - **It does not apply the criteria of art. 4º** to decide mixed or secondary; `mixedKind` uses the 10% share only.
 - **The panel does not edit the occupations**: they are recorded by the chat.
 - **It does not approve a reading.** The readings of the reductions (which systems are autonomous) and of the height used when parts are open are open until a person confirms them with Moura.

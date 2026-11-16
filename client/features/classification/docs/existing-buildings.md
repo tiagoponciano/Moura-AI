@@ -26,10 +26,26 @@ Invariants:
 - **Conditional cells.** K-2 `SHP²` (only thermal plants) and M-2 `PE³` (liquids above 20 m³ or gases above 10 m³) label the system only while the condition holds; otherwise it falls to `TE`.
 - **Panel.** A required system shows its class; vital also keeps the vital tag.
 
+## Enlargements (arts. 11 to 19)
+
+`classifyEnlargement` (`lib/enlargement.ts`) says how an enlargement of an existing building is regularized. It is a pure function over the answers the articles read: the original area and what was added since the reference date (art. 11; additions sum up, as in Nota 1), whether the original is regularized, whether the areas are compartmented, whether the enlargement made a new isolated block, whether 5 years have passed since the habite-se, and whether the enlargement raises the rigor of IN 1. The caller says whether the rigor rises; the function does not compute it.
+
+The order it applies:
+
+1. No 5 years of grace: the whole building follows IN 1 (art. 12, § 1º).
+2. A new isolated block follows IN 1 in full (art. 13).
+3. Up to 20% without more rigor: a regularized building keeps its systems and extends them; an irregular one is regularized by IN 5 (art. 15). A regularized building that crosses the IN 1 threshold with up to 20% does not count as more rigor (art. 16), except for I-3, J-4 and the F divisions of § 1º.
+4. 20% to 50% without more rigor: IN 5 is admitted (art. 17).
+5. Up to 50% with more rigor: compartmented, IN 1 for the enlarged area and the original area keeps its systems or uses IN 5; not compartmented, IN 1 for everything. In both, adaptable systems proven unfeasible may follow IN 5 (art. 18).
+6. Over 50%: compartmented, IN 1 for the enlarged area; not compartmented, IN 1 for everything with no adaptations (art. 19).
+
+Every result repeats that the requirements are sized by the sum of the areas (art. 14) and that the original systems get no waiver (art. 12, § 2º). The boundaries are 20% and 50%, both inclusive in the lower band. The reading is provisional until Moura confirms it.
+
 ## What this does NOT do
 
 - **It does not read the `SA¹` footnote** (A-2, A-3, B: only when automatic detection is required): the alarm is labelled indispensable regardless.
 - **It reads `BI` as the fire brigade**, because the printed legend omits it.
-- **It does not apply the criteria for enlargements** (arts. 13 to 19), the adaptations of Annex C, or the compensatory measures of Annex D.
+- **It does not apply the adaptations of Annex C or the compensatory measures of Annex D.**
+- **The enlargement criteria are not on the screen yet**: `classifyEnlargement` exists, but no chat tool or panel calls it.
 - **It does not ask whether the building is existing or recent** and does not check the proof (art. 26).
 - **It does not approve a reading.** The mapping of abbreviations and the conditional cells are open until a person confirms them with Moura.

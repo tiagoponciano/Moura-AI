@@ -234,3 +234,85 @@ describe("classifyMixed: notes and errors", () => {
     expect(() => mixed([])).toThrow("parts must not be empty");
   });
 });
+
+describe("classifyMixed: art. 12, § 1º, the reductions of art. 11 for a compartmented occupation", () => {
+  const building = (separation: OccupationPart["separation"]) => [
+    part({ division: "C-2", area_m2: 600, storeys: 1, top_height_m: 4 }),
+    part({
+      division: "A-2",
+      area_m2: 600,
+      storeys: 1,
+      top_height_m: 4,
+      separation,
+    }),
+  ];
+
+  it("sizes sprinklers and smoke control of the predominant occupation by itself when the other is compartmented", () => {
+    const result = run(building("compartmented"), "secondary");
+    expect(system(result, "sprinklers")?.status).toBe("not_required");
+    expect(system(result, "smoke_control")?.status).toBe("not_required");
+  });
+
+  it("still adds the areas when the other occupation is open", () => {
+    const result = run(building("open"), "secondary");
+    expect(system(result, "sprinklers")?.status).toBe("required");
+    expect(system(result, "smoke_control")?.status).toBe("required");
+  });
+
+  it("keeps a system the reductions do not cover decided by the whole building", () => {
+    const result = run(building("compartmented"), "secondary");
+    expect(system(result, "fire_alarm")?.status).toBe("required");
+  });
+});
+
+describe("classifyMixed: art. 11, IV, towers over a podium", () => {
+  const podium = part({
+    division: "C-2",
+    area_m2: 800,
+    storeys: 2,
+    top_height_m: 8,
+    role: "podium",
+  });
+  const tower = (area_m2: number) =>
+    part({
+      division: "A-2",
+      area_m2,
+      storeys: 10,
+      top_height_m: 30,
+      role: "tower",
+    });
+
+  it("counts the area of the tower plus the interlinking floors, not the other tower", () => {
+    const result = run([podium, tower(500), tower(300)]);
+    const areas = result.parts.map((p) => p.facts.area_m2);
+    expect(areas).toEqual([1300, 1300, 1100, 1100]);
+  });
+
+  it("requires a system a tower's own area alone would not", () => {
+    expect(system(run([podium, tower(300)]), "fire_alarm")?.status).toBe(
+      "required",
+    );
+    expect(
+      system(run([part({ ...podium, area_m2: 200 }), tower(300)]), "fire_alarm")
+        ?.status,
+    ).toBe("not_required");
+  });
+
+  it("owes each tower the systems of the podium's occupation too", () => {
+    const result = run([podium, tower(300)]);
+    expect(system(result, "hydraulic_preventive")?.from).toContain("C-2");
+  });
+
+  it("uses the height of each tower", () => {
+    const result = run([podium, tower(300)]);
+    expect(result.parts.every((p) => p.facts.height_m === 30)).toBe(true);
+  });
+
+  it("says how the areas were counted", () => {
+    expect(run([podium, tower(300)]).notes.join(" ")).toContain("art. 11, IV");
+  });
+
+  it("needs a podium under a tower", () => {
+    expect(() => run([tower(300), tower(300)])).toThrow(RangeError);
+  });
+});

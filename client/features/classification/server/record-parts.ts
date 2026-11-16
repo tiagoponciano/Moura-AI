@@ -27,6 +27,9 @@ export const recordPartsInput = z.object({
         separation: occupationPartSchema.shape.separation.describe(
           "isolated, compartmented, or open (neither isolated nor compartmented) in relation to the other occupations",
         ),
+        role: occupationPartSchema.shape.role.describe(
+          "Only for towers over a shared base: podium for the lower floors that join the towers, tower for each tower isolated from the others. Leave it out otherwise. A tower needs a podium",
+        ),
       }),
     )
     .min(2)

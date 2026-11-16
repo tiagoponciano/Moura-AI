@@ -497,6 +497,7 @@ describe("classify: other occupations that are only subsidiary", () => {
     expect(result.observations.map((o) => o.source)).toEqual([
       "IN 1 parte 2, art. 10",
       "IN 1 parte 2, art. 10, §§ 1º a 3º",
+      "IN 1 parte 2, art. 10, § 4º",
     ]);
     expect(result.observations[1].text).toContain("garagem");
   });
@@ -553,7 +554,7 @@ describe("classify: other occupations that are only subsidiary", () => {
     for (const facts of cases) {
       const result = classify({ ...base, ...facts }, DATE);
       expect(result.status, String(facts.division)).toBe("complete");
-      expect(result.observations, String(facts.division)).toHaveLength(2);
+      expect(result.observations, String(facts.division)).toHaveLength(3);
       expect(
         result.groups.required.length,
         String(facts.division),

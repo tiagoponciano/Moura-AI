@@ -21,11 +21,23 @@ export const occupationPartSchema = z.object({
   fire_load_class: z
     .enum(FIRE_LOAD_CLASSES.map((c) => c.id) as [string, ...string[]])
     .optional(),
+  role: z.enum(["podium", "tower"]).optional(),
 });
+
+/** A tower needs a podium to stand on (art. 11, IV); `classifyMixed` rejects it otherwise. */
+const occupationPartsSchema = z
+  .array(occupationPartSchema)
+  .max(MAX_PARTS)
+  .refine(
+    (parts) =>
+      !parts.some((p) => p.role === "tower") ||
+      parts.some((p) => p.role === "podium"),
+    { message: "a tower needs a podium" },
+  );
 
 /** The occupations of a request or a tool result; anything that does not fit is dropped whole. */
 export function pickParts(raw: unknown): OccupationPart[] {
-  const parsed = z.array(occupationPartSchema).max(MAX_PARTS).safeParse(raw);
+  const parsed = occupationPartsSchema.safeParse(raw);
   return parsed.success ? parsed.data : [];
 }
 

@@ -1,9 +1,7 @@
 "use client";
 
 import { useTable, type SortingState } from "@tanstack/react-table";
-import { Search } from "lucide-react";
 import { useMemo, useState } from "react";
-import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -12,12 +10,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
-import { TEAM_FILTERS, type TeamFilter } from "../lib/labels";
+import type { TeamFilter } from "../lib/labels";
 import { matchesTeamQuery, TEAM_TABLE_FEATURES } from "../lib/team-table";
 import type { AdminUser, UserChange } from "../lib/types";
 import { countByStatus } from "../lib/users";
 import { buildTeamColumns } from "./team-columns";
+import { TeamToolbar } from "./team-toolbar";
 
 type TeamTableProps = {
   /** Approved and rejected users; pending ones are listed above the table. */
@@ -72,39 +70,13 @@ export function TeamTable({
         <h2 id="team-title" className="flex-1 text-base font-semibold">
           Equipe
         </h2>
-        <div className="relative">
-          <Search className="pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 text-muted-foreground" />
-          <Input
-            type="search"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Buscar por nome ou e-mail"
-            aria-label="Buscar por nome ou e-mail"
-            className="w-60 pl-8"
-          />
-        </div>
-        <ToggleGroup
-          type="single"
-          value={filter}
-          onValueChange={(value) => value && setFilter(value as TeamFilter)}
-          spacing={0.5}
-          aria-label="Filtrar por status"
-          className="rounded-lg bg-muted p-[3px]"
-        >
-          {TEAM_FILTERS.map((option) => (
-            <ToggleGroupItem
-              key={option.value}
-              value={option.value}
-              size="sm"
-              className="px-3 text-muted-foreground hover:bg-transparent data-[state=on]:bg-card data-[state=on]:text-foreground data-[state=on]:shadow-sm"
-            >
-              {option.label}
-              <span className="text-xs font-normal text-muted-foreground">
-                {filterCount[option.value]}
-              </span>
-            </ToggleGroupItem>
-          ))}
-        </ToggleGroup>
+        <TeamToolbar
+          query={query}
+          onQuery={setQuery}
+          filter={filter}
+          onFilter={setFilter}
+          counts={filterCount}
+        />
       </div>
 
       <div className="rounded-xl border bg-card">

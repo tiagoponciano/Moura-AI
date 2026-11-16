@@ -167,7 +167,7 @@ RPC errors and how the handlers map them:
 ### Usuários
 
 - **Aguardando aprovação**: one card per pending user, with "Pediu acesso em <createdAt>" and the buttons Rejeitar and Aprovar. The block is hidden when nobody is pending.
-- **Equipe**: approved and rejected users in a TanStack Table (`team-table.tsx`, configured in `lib/team-table.ts`). All filtering and sorting happens in the browser, on the list already loaded:
+- **Equipe**: approved and rejected users in a TanStack Table (`team-table.tsx`, its search and filter in `team-toolbar.tsx`, configured in `lib/team-table.ts`). All filtering and sorting happens in the browser, on the list already loaded:
   - Search box: global filter on name or e-mail, case- and accent-insensitive (`matchesUserQuery`). A blank query matches everyone.
   - Status filter: Todos, Ativos (`approved`), Sem acesso (`rejected`), each with its count. It is single-choice, and clicking the active option keeps it selected.
   - Sorting: clicking Usuário cycles ascending → descending → off; Desde cycles descending → ascending → off. Names compare with `localeCompare` in pt-BR. With no sort active, rows keep the API order (approved before rejected, newest first).

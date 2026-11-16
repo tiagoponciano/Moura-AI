@@ -22,6 +22,9 @@ describe("pickEnlargement", () => {
 
   it("drops one with a missing or invalid field", () => {
     expect(pickEnlargement({ ...answers, addedAreaM2: -1 })).toBeUndefined();
+    expect(pickEnlargement({ ...answers, addedAreaM2: 0 })?.addedAreaM2).toBe(
+      0,
+    );
     expect(
       pickEnlargement({ ...answers, compartmented: "yes" }),
     ).toBeUndefined();

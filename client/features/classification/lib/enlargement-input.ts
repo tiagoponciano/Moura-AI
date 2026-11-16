@@ -6,7 +6,7 @@ import type { Facts } from "./engine/types";
 /** What the user says about an enlargement; the division comes from the answers. */
 export const enlargementAnswersSchema = z.object({
   originalAreaM2: z.number().positive(),
-  addedAreaM2: z.number().positive(),
+  addedAreaM2: z.number().min(0),
   originalRegularized: z.boolean(),
   compartmented: z.boolean(),
   newIsolatedBlock: z.boolean(),

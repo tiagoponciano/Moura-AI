@@ -140,3 +140,41 @@ describe("classifyEnlargement: over 50% (art. 19)", () => {
     expect(r.articles).toEqual(["art. 19, I"]);
   });
 });
+
+describe("classifyEnlargement: a change without enlargement (arts. 9 and 10)", () => {
+  const change = { addedAreaM2: 0 };
+
+  it("lets a regularized building keep its systems when the rigor does not rise (art. 9)", () => {
+    const r = run(change);
+    expect(r.regime).toBe("keep_and_extend");
+    expect(r.articles).toEqual(["art. 9"]);
+  });
+
+  it("sends a building that is not regularized to the orientations of IN 5 (art. 9, parágrafo único)", () => {
+    const r = run({ ...change, originalRegularized: false });
+    expect(r.regime).toBe("in5_all");
+    expect(r.articles).toEqual(["art. 9, parágrafo único"]);
+  });
+
+  it("regularizes by IN 1 when the rigor rises, except adaptables proven unfeasible (art. 10)", () => {
+    const r = run({ ...change, raisesRigor: true });
+    expect(r.regime).toBe("in1_all_unless_unfeasible");
+    expect(r.articles).toEqual(["art. 10"]);
+  });
+
+  it("does not give the art. 16 exception to a change that raises the rigor", () => {
+    expect(
+      run({ ...change, raisesRigor: true, division: "A-2" }).articles,
+    ).toEqual(["art. 10"]);
+  });
+
+  it("still needs the 5 years of grace (art. 12, § 1º)", () => {
+    expect(run({ ...change, graceYearsMet: false }).articles).toEqual([
+      "art. 12, § 1º",
+    ]);
+  });
+
+  it("says what does not count as more rigor (art. 4º, parágrafo único)", () => {
+    expect(run(change).notes.join(" ")).toContain("IN 35");
+  });
+});

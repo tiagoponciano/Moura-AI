@@ -14,7 +14,7 @@ export type EnlargementInput = {
   division: string;
   /** Original built area, in m², as art. 11 defines it. */
   originalAreaM2: number;
-  /** What was added since the reference date of art. 11, summed (Nota 1, example 2). */
+  /** What was added since the reference date of art. 11, summed (Nota 1, example 2). Zero when only the occupancy or the layout changes (arts. 9 and 10). */
   addedAreaM2: number;
   /** The original area is regularized with the CBMSC. */
   originalRegularized: boolean;
@@ -53,6 +53,17 @@ export type EnlargementResult = {
   notes: string[];
 };
 
+/** What does not count as more rigor, and what the norm adds about proof and other measures. */
+const CHANGE_NOTE =
+  "Não conta como aumento do rigor a necessidade de instalações elétricas de baixa tensão (IN 19), acesso de viaturas (IN 35) ou medidas novas exigidas por nova instrução normativa (art. 4º, parágrafo único).";
+
+/** Points of IN 5 that apply to any building it covers, whatever the enlargement. */
+export const IN5_GENERAL_NOTES = [
+  "Edificação tombada: o processo de regularização precisa de autorização prévia do órgão do tombamento, e a vistoria de habite-se depende do documento comprobatório (art. 6º).",
+  "O enquadramento como recente ou existente vale pela informação do responsável técnico; ele pode anexar documentos que comprovem o tempo de construção e ocupação, como escritura averbada, carnê de impostos ou nota fiscal (art. 26).",
+  "As adequações, substituições e isenções do Anexo C não pedem requerimento técnico, só justificativa. Outras adaptações podem ser propostas pelo RT por análise de risco, com justificativa ou requerimento técnico (arts. 27 e 28).",
+];
+
 /**
  * How an enlargement of an existing building is regularized (IN 5, arts. 12 to 19).
  * The caller says whether the enlargement raises the rigor of IN 1; the function
@@ -90,6 +101,33 @@ export function classifyEnlargement(
       ["art. 12, § 1º"],
       ["A carência de 5 anos após o habite-se não foi cumprida."],
     );
+  }
+  if (input.addedAreaM2 === 0) {
+    // Arts. 9 and 10: a change of occupancy or layout without enlargement.
+    if (input.raisesRigor) {
+      return result(
+        "in1_all_unless_unfeasible",
+        "A edificação é regularizada conforme a IN 1.",
+        "Sem área ampliada. Adequáveis com inviabilidade comprovada podem seguir a IN 5.",
+        ["art. 10"],
+        [CHANGE_NOTE],
+      );
+    }
+    return input.originalRegularized
+      ? result(
+          "keep_and_extend",
+          "Os sistemas anteriormente aprovados podem ser mantidos.",
+          "Sem área ampliada.",
+          ["art. 9"],
+          [CHANGE_NOTE],
+        )
+      : result(
+          "in5_all",
+          "A edificação não regularizada segue as orientações da IN 5.",
+          "Sem área ampliada.",
+          ["art. 9, parágrafo único"],
+          [CHANGE_NOTE],
+        );
   }
   if (input.newIsolatedBlock) {
     return result(

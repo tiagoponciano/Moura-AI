@@ -6,6 +6,9 @@ export const RECORD_ANSWERS_TOOL = "record_answers";
 /** Name of the LLM tool that records the occupations of a mixed building. */
 export const RECORD_PARTS_TOOL = "record_parts";
 
+/** Name of the LLM tool that records the enlargement of an existing building. */
+export const RECORD_ENLARGEMENT_TOOL = "record_enlargement";
+
 /** Name of the LLM tool that looks an activity up in IN 3, Annex A. */
 export const SEARCH_ACTIVITY_TOOL = "search_activity";
 

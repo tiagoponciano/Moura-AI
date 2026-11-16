@@ -1,6 +1,6 @@
 "use client";
 
-import { Archive, Pencil } from "lucide-react";
+import { Archive, MoreHorizontal, Pencil } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,6 +11,12 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import { type Project } from "@/lib/projects/project";
 
@@ -22,7 +28,7 @@ type ProjectActionsProps = {
 
 type Dialogs = "rename" | "archive" | undefined;
 
-/** Rename and archive buttons for the current project, each behind a dialog. */
+/** A menu with rename and archive for the current project, each behind a dialog. */
 export function ProjectActions({
   project,
   onRename,
@@ -45,27 +51,36 @@ export function ProjectActions({
 
   return (
     <>
-      <Button
-        type="button"
-        variant="outline"
-        size="icon"
-        aria-label="Renomear projeto"
-        onClick={() => {
-          setName(project.name);
-          setOpen("rename");
-        }}
-      >
-        <Pencil />
-      </Button>
-      <Button
-        type="button"
-        variant="outline"
-        size="icon"
-        aria-label="Arquivar projeto"
-        onClick={() => setOpen("archive")}
-      >
-        <Archive />
-      </Button>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button
+            type="button"
+            variant="outline"
+            size="icon"
+            aria-label="Mais ações do projeto"
+          >
+            <MoreHorizontal />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start">
+          <DropdownMenuItem
+            onSelect={() => {
+              setName(project.name);
+              setOpen("rename");
+            }}
+          >
+            <Pencil />
+            Renomear
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            variant="destructive"
+            onSelect={() => setOpen("archive")}
+          >
+            <Archive />
+            Arquivar
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
 
       <Dialog
         open={open === "rename"}

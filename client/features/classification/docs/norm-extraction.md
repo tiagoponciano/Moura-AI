@@ -42,7 +42,11 @@ Output, for the committed run:
 python tools/norms/check_updates.py [--norms <dir>]
 ```
 
-Exit code: `0` every PDF is current, `1` at least one changed, `2` at least one could not be checked (not a Drive file link, or the download failed). Its unit tests run with `python -m unittest discover -s tools/norms -p "test_check_updates.py"`.
+Exit code: `0` every PDF is current, `1` at least one changed, `2` at least one could not be checked (not a Drive file link, or the download failed). Its unit tests run with `python -m unittest discover -s tools/norms -p "test_*.py"`.
+
+### Automatic refresh
+
+`tools/norms/refresh_norms.py` does the check and, for each PDF that changed, runs that document's extractors over it (`IN-1-P2`: tables and occupations; `IN-3`: Annex A; `IN-5`: Annex B, then C and D, since the first one rewrites the manifest). The workflow `.github/workflows/norm-updates.yml` runs it every Monday and on demand: when something changed it pushes a branch `chore/norm-update-<date>` with the regenerated JSON and opens a pull request (or an issue, if the repository does not let Actions open pull requests); when a check could not run it opens or updates the issue "Norm check could not run". It never merges. It rewrites only the extracted JSON and the manifests: the rules, their notes, the review sheets and the tests that pin contents are coded by hand, so a person reviews the diff and updates them. Re-running it over the PDFs already extracted gives identical files.
 
 ## IN 5, Annex D
 

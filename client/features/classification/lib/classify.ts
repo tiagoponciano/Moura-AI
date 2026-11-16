@@ -8,6 +8,7 @@ import {
   type NextAsk,
   type Question,
 } from "./questions";
+import type { Adaptations } from "./in5-adaptations";
 import { ALL_RULES } from "./rulesets/all-rules";
 import { BASEMENT_CASE_FACT, basementMeasuresText } from "./rulesets/basement";
 import { FIRE_LOAD_CLASSES } from "./rulesets/group-c-conditions";
@@ -38,6 +39,8 @@ export type SystemView = {
   vital: boolean;
   /** IN 5 class of the system for an existing or recent building; absent otherwise. */
   treatment?: "vital" | "indispensable" | "adaptable";
+  /** What Annex C of IN 5 allows for this system, when it has a class and the annex a table. */
+  adaptations?: Adaptations;
   /** Required only in part of the building; `scopes` says which parts. */
   partial: boolean;
   scopes: string[];

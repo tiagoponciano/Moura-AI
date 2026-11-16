@@ -4,7 +4,7 @@ How the Plantas module (`/floor-plans`) turns a floor plan into a DXF or DWG. De
 
 ## What this is
 
-The user picks a plan (PDF, JPEG or PNG) in the side panel and sees it. They type the drawing's scale or press "Ler", and download the result as DXF or DWG. The app sends the file to the DWG service, which converts it with code. A model takes part only in "Ler", and then it sees two small crops of the plan (the title block and the scale strip), never the whole plan. The module's status in `lib/modules.ts` is still `preview`.
+The user picks a plan (PDF, JPEG or PNG) in the side panel and sees it. They type the drawing's scale or press "Ler", and download the result as DXF or DWG. The app sends the file to the DWG service, which converts it with code. A model takes part only in "Ler", and then it sees two small crops of the plan (the title block and the scale strip), never the whole plan.
 
 Invariants:
 

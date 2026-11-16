@@ -3,16 +3,25 @@
 import { useCallback, useMemo, useState } from "react";
 import { recordSources, type FieldSources } from "@/lib/field-sources";
 import { applyAnswers, applyEdit, pickAnswers } from "../lib/answers";
+import {
+  pickEnlargement,
+  type EnlargementAnswers,
+} from "../lib/enlargement-input";
 import type { Facts } from "../lib/engine/types";
 import type { OccupationPart } from "../lib/mixed-occupancy";
 import { classifyWithParts, pickParts } from "../lib/mixed-parts";
-import { RECORD_ANSWERS_TOOL, RECORD_PARTS_TOOL } from "../lib/questions";
+import {
+  RECORD_ANSWERS_TOOL,
+  RECORD_ENLARGEMENT_TOOL,
+  RECORD_PARTS_TOOL,
+} from "../lib/questions";
 import { analysisDate } from "../lib/today";
 
 /** The answers (from the chat or typed in the panel) and the classification they give. */
 export function useClassification() {
   const [answers, setAnswers] = useState<Facts>({});
   const [parts, setParts] = useState<OccupationPart[]>([]);
+  const [enlargement, setEnlargement] = useState<EnlargementAnswers>();
   const [sources, setSources] = useState<FieldSources>({});
   const [date] = useState(() => analysisDate());
 
@@ -22,6 +31,15 @@ export function useClassification() {
   );
 
   const handleToolResult = useCallback((toolName: string, output: unknown) => {
+    if (toolName === RECORD_ENLARGEMENT_TOOL) {
+      // The tool sends every field, so a replayed chat ends with the same record.
+      setEnlargement(
+        pickEnlargement(
+          (output as { enlargement?: unknown } | null)?.enlargement,
+        ),
+      );
+      return;
+    }
     if (toolName === RECORD_PARTS_TOOL) {
       // The tool sends the whole list, so a replayed chat ends with the same one.
       setParts(pickParts((output as { parts?: unknown } | null)?.parts));
@@ -44,12 +62,14 @@ export function useClassification() {
   function reset() {
     setAnswers({});
     setParts([]);
+    setEnlargement(undefined);
     setSources({});
   }
 
   return {
     answers,
     parts,
+    enlargement,
     sources,
     classification,
     handleToolResult,

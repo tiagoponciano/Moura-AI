@@ -146,4 +146,16 @@ describe("buildInstructions", () => {
     });
     expect(recorded).toContain('"addedAreaM2":105');
   });
+
+  it("teaches the faults tool with every row to choose from, and carries the recorded ones", () => {
+    const text = buildInstructions({}, DATE);
+    expect(text).toContain("`record_faults`");
+    expect(text).toContain("- D1:");
+    expect(text).toContain("- D15:");
+    expect(text).toContain("none yet");
+    const recorded = buildInstructions({}, DATE, [], undefined, ["D5", "D6"]);
+    expect(recorded).toContain(
+      "recorded (Annex D of IN 5, for new buildings):\nD5, D6",
+    );
+  });
 });

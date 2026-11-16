@@ -65,10 +65,6 @@ export function ProposalForm({ project }: ProposalFormProps) {
 
   return (
     <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto pr-1">
-      <p className="text-xs text-muted-foreground">
-        O cliente, o empreendimento e o município vêm dos dados do projeto.
-        Escolha o plano e informe o valor.
-      </p>
       <div className="grid gap-3 sm:grid-cols-3">
         <div className="flex flex-col gap-1">
           <Label className="text-xs">Plano</Label>

@@ -5,7 +5,6 @@ import { useState } from "react";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -67,13 +66,12 @@ export function FormsHome({
             </span>
           </button>
         </DialogTrigger>
-        <DialogContent className="flex h-[85vh] flex-col sm:max-w-5xl">
+        <DialogContent
+          aria-describedby={undefined}
+          className="flex h-[85vh] flex-col sm:max-w-5xl"
+        >
           <DialogHeader>
             <DialogTitle>Anexos do CBMSC</DialogTitle>
-            <DialogDescription>
-              Formulários das Instruções Normativas em vigor, na versão
-              publicada pelo CBMSC.
-            </DialogDescription>
           </DialogHeader>
           <ProjectBar
             projects={projects}

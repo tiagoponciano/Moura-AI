@@ -158,4 +158,11 @@ describe("buildInstructions", () => {
       "recorded (Annex D of IN 5, for new buildings):\nD5, D6",
     );
   });
+
+  it("keeps the next question for after the subject the user is on", () => {
+    const text = buildInstructions({}, DATE);
+    expect(text).toContain("Stay on the subject of the last message");
+    expect(text).toContain("occupations of a mixed building");
+    expect(text).toContain("do not add the next question above");
+  });
 });

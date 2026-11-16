@@ -10,15 +10,21 @@ import {
   toChatResponse,
 } from "@/lib/llm";
 import { pickFacts } from "../lib/answers";
+import { pickEnlargement } from "../lib/enlargement-input";
 import { pickParts } from "../lib/mixed-parts";
 import {
   RECORD_ANSWERS_TOOL,
+  RECORD_ENLARGEMENT_TOOL,
   RECORD_PARTS_TOOL,
   SEARCH_ACTIVITY_TOOL,
 } from "../lib/questions";
 import { analysisDate } from "../lib/today";
 import { buildInstructions } from "./instructions";
 import { recordAnswers, recordAnswersInput } from "./record-answers";
+import {
+  recordEnlargement,
+  recordEnlargementInput,
+} from "./record-enlargement";
 import { recordParts, recordPartsInput } from "./record-parts";
 import { searchActivity, searchActivityInput } from "./search-activity";
 
@@ -31,6 +37,7 @@ const chatBody = z.object({
   messages: z.unknown(),
   facts: z.unknown().optional(),
   parts: z.unknown().optional(),
+  enlargement: z.unknown().optional(),
 });
 
 /**
@@ -55,11 +62,12 @@ export async function handleClassificationChat(
 
   const state = pickFacts(body.data.facts);
   const parts = pickParts(body.data.parts);
+  const enlargement = pickEnlargement(body.data.enlargement);
   const date = analysisDate();
 
   const result = streamText({
     model,
-    instructions: buildInstructions(state, date, parts),
+    instructions: buildInstructions(state, date, parts, enlargement),
     // The instructions carry the recorded state, so only the latest turns go to the model.
     messages: await convertToModelMessages(recentMessages(messages)),
     tools: {
@@ -74,6 +82,12 @@ export async function handleClassificationChat(
           "Records every occupation of a building that mixes several uses (division, area, height, storeys, separation). Send the whole list each time; it replaces the previous one.",
         inputSchema: recordPartsInput,
         execute: async (input) => recordParts(input, state, date),
+      }),
+      [RECORD_ENLARGEMENT_TOOL]: tool({
+        description:
+          "Records the enlargement of an existing building (areas, regularization, compartmentation, new block, 5 years, rigor). Send every field each time; it replaces the previous record.",
+        inputSchema: recordEnlargementInput,
+        execute: async (input) => recordEnlargement(input, state),
       }),
       [SEARCH_ACTIVITY_TOOL]: tool({
         description:

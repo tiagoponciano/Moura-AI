@@ -1,9 +1,11 @@
 import type { Facts } from "../lib/engine/types";
+import type { EnlargementAnswers } from "../lib/enlargement-input";
 import type { OccupationPart } from "../lib/mixed-occupancy";
 import { classifyWithParts } from "../lib/mixed-parts";
 import {
   QUESTIONS,
   RECORD_ANSWERS_TOOL,
+  RECORD_ENLARGEMENT_TOOL,
   RECORD_PARTS_TOOL,
   SEARCH_ACTIVITY_TOOL,
   questionFor,
@@ -36,6 +38,7 @@ export function buildInstructions(
   state: Facts,
   analysisDate: string,
   parts: OccupationPart[] = [],
+  enlargement?: EnlargementAnswers,
 ): string {
   const facts = QUESTIONS.map((q) => `- ${q.fact}: ${q.description}`).join(
     "\n",
@@ -59,6 +62,9 @@ ${describeAnswers(state)}
 Occupations already recorded (only when the property mixes several uses):
 ${describeParts(parts)}
 
+Enlargement already recorded (only for an existing building being enlarged):
+${enlargement ? JSON.stringify(enlargement) : "none yet"}
+
 Next question to ask: ${next ? `"${next.ask}"` : "none, every answer needed so far is in"}
 
 Rules:
@@ -68,5 +74,6 @@ Rules:
 4. Ask one question at a time, using the wording above or the \`next\` field of the tool result. Do not ask for anything already recorded. When that question lists several points and the user simply confirms ("sim"), record all of them as true of the building: ${confirmations}. If the user denies one, record it and ask about the others.
 5. Do NOT say which systems are required, cite norms or tables, or explain why: the side panel shows the result with its sources. If the tool result has status "analysis", say this case needs a specific analysis and point to the panel.
 6. When the user says the property mixes several uses and they are not all subsidiary, record that with \`single_use\` false, then collect every occupation (division, area, height of its last floor, storeys, and whether it is isolated, compartmented or open) and call \`${RECORD_PARTS_TOOL}\` with the whole list, predominant first. Each call replaces the previous list, so never send only the new one. Never invent areas or heights.
-7. Always reply in Brazilian Portuguese, briefly. After recording, say what was recorded.`;
+7. When the user says an existing building will be enlarged, collect the original area, the area added, whether the original is regularized with the fire brigade, whether the areas are compartmented, whether the enlargement made a new isolated block, whether 5 years have passed since the occupancy permit, and whether the enlargement raises the rigor of the requirements. Then call \`${RECORD_ENLARGEMENT_TOOL}\` with all of them. Ask what is missing, one question at a time, and never assume an answer.
+8. Always reply in Brazilian Portuguese, briefly. After recording, say what was recorded.`;
 }

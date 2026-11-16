@@ -130,4 +130,20 @@ describe("buildInstructions", () => {
     expect(text).toContain("- A-2: 500 m2");
     expect(text).not.toContain("Quais são as ocupações");
   });
+
+  it("teaches the enlargement tool and carries the recorded enlargement", () => {
+    const text = buildInstructions({}, DATE);
+    expect(text).toContain("`record_enlargement`");
+    expect(text).toContain("Enlargement already recorded");
+    const recorded = buildInstructions({}, DATE, [], {
+      originalAreaM2: 700,
+      addedAreaM2: 105,
+      originalRegularized: true,
+      compartmented: true,
+      newIsolatedBlock: false,
+      graceYearsMet: true,
+      raisesRigor: false,
+    });
+    expect(recorded).toContain('"addedAreaM2":105');
+  });
 });

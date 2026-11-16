@@ -4,7 +4,7 @@ How a building with more than one occupation is classified (IN 1 parte 2, arts. 
 
 ## What this is
 
-`classifyMixed` (`lib/mixed-occupancy.ts`) runs the single-occupation rules once per part of the building and joins the results as the articles say. It adds no table and no rule: each part is classified by its own tables, and only the facts they read (area, height, storeys, fire load) change from part to part. It is a pure function; the screen and the chat do not call it yet (the model records one occupation at a time), so a building with several occupations still ends in `GUARD-mixed-use` there.
+`classifyMixed` (`lib/mixed-occupancy.ts`) runs the single-occupation rules once per part of the building and joins the results as the articles say. It adds no table and no rule: each part is classified by its own tables, and only the facts they read (area, height, storeys, fire load) change from part to part. It is a pure function, called through `classifyWithParts` (`lib/mixed-parts.ts`): when the user says the property mixes uses and they are not all subsidiary (`single_use` false, `only_subsidiary` false), the chat records the occupations with the `record_parts` tool and the panel shows them under "Ocupações da edificação". Until there are two occupations the panel asks for them instead of ending in `GUARD-mixed-use`.
 
 Invariants:
 
@@ -36,7 +36,11 @@ The result has `systems` (id, status, `vital`, the divisions that require it, th
 
 ## The screen's view
 
-`classifyMixedBuilding` (`lib/mixed-classification.ts`) shapes the `classifyMixed` result like a single-occupation `Classification`, so the same panel can show it. Each system keeps the single-occupation outcome that decided it (its rules, substitutions and what is missing, through `systemView` in `lib/system-view.ts`) with the status, `vital` and scopes of the join. The questions are the ones the rules of any part still need; area, height, storeys and division come from the parts and are never asked. A part that ends in a specific analysis replaces the list, as in the single case, and the result is always provisional. Nothing calls it yet.
+`classifyMixedBuilding` (`lib/mixed-classification.ts`) shapes the `classifyMixed` result like a single-occupation `Classification`, so the same panel can show it. Each system keeps the single-occupation outcome that decided it (its rules, substitutions and what is missing, through `systemView` in `lib/system-view.ts`) with the status, `vital` and scopes of the join. The questions are the ones the rules of any part still need; area, height, storeys and division come from the parts and are never asked. A part that ends in a specific analysis replaces the list, as in the single case, and the result is always provisional.
+
+## The chat and the occupations
+
+`record_parts` takes the whole list (2 to 6 occupations, the predominant first) and each call replaces the previous one, so a replayed chat ends with the same list. The client sends the list in the request body as `parts`, and `buildInstructions` writes it into the prompt (the model sees only the last messages). Mixed or secondary is decided by `mixedKind` in code: mixed when the secondary areas are more than 10% of the building, secondary otherwise. This is a provisional reading: IN 1 parte 1, art. 4º, which defines the criteria, is not extracted in this repository and Moura has not confirmed it. The list is kept only in the `useClassification` hook, like the answers.
 
 ## What this does NOT do
 
@@ -44,5 +48,6 @@ The result has `systems` (id, status, `vital`, the divisions that require it, th
 - **It does not handle towers joined by a podium** (art. 11, IV).
 - **It does not apply the art. 12, § 1º reductions** when secondary occupations are compartmented.
 - **It does not apply art. 10, § 4º** (an F subsidiary occupation above 100 people).
-- **It does not decide whether the building is mixed or secondary** and does not ask for the parts: the chat has no way to record a list yet.
+- **It does not apply the criteria of art. 4º** to decide mixed or secondary; `mixedKind` uses the 10% share only.
+- **The panel does not edit the occupations**: they are recorded by the chat.
 - **It does not approve a reading.** The readings of the reductions (which systems are autonomous) and of the height used when parts are open are open until a person confirms them with Moura.

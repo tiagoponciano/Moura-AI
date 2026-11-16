@@ -6,13 +6,6 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { errorMessage } from "@/lib/api/request-json";
 import {
   DEFAULT_VALIDITY_DAYS,
@@ -20,6 +13,7 @@ import {
   type ProposalRequest,
 } from "../lib/proposal";
 import { type Project } from "@/lib/projects/project";
+import { PlanField } from "./plan-field";
 
 type ProposalFormProps = { project: Project };
 
@@ -66,21 +60,7 @@ export function ProposalForm({ project }: ProposalFormProps) {
   return (
     <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto pr-1">
       <div className="grid gap-3 sm:grid-cols-3">
-        <div className="flex flex-col gap-1">
-          <Label className="text-xs">Plano</Label>
-          <Select value={planId} onValueChange={setPlanId}>
-            <SelectTrigger aria-label="Plano">
-              <SelectValue />
-            </SelectTrigger>
-            <SelectContent>
-              {PROPOSAL_PLANS.map((plan) => (
-                <SelectItem key={plan.id} value={plan.id}>
-                  {plan.title}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+        <PlanField value={planId} onChange={setPlanId} />
         <div className="flex flex-col gap-1">
           <Label htmlFor="proposal-price" className="text-xs">
             Valor (R$)

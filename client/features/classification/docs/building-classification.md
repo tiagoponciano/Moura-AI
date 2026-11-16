@@ -28,6 +28,7 @@ Requires a signed-in, approved user (`client/docs/authentication.md`); without S
 | Export                                                | File           | Contract                                                                                                |
 | ----------------------------------------------------- | -------------- | ------------------------------------------------------------------------------------------------------- |
 | `RECORD_ANSWERS_TOOL`                                 | `questions.ts` | `"record_answers"`, shared by the route and the hook                                                    |
+| `RECORD_PARTS_TOOL`                                   | `questions.ts` | `"record_parts"`: the occupations of a mixed building, see `mixed-occupancy.md`                         |
 | `QUESTIONS`, `ASKABLE_QUESTIONS`, `questionFor(fact)` | `questions.ts` | The registry in the order the assistant asks; `ASKABLE_QUESTIONS` leaves out `fire_load_mj_m2`          |
 | `pickAnswers(output)`                                 | `answers.ts`   | `{ values, unknown }` from a tool output, keeping only what the registry accepts                        |
 | `applyAnswers(facts, picked)`                         | `answers.ts`   | Merges picked answers over the facts; a "não sei" becomes `null`                                        |

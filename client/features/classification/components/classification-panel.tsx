@@ -5,17 +5,21 @@ import { Button } from "@/components/ui/button";
 import type { FieldSources } from "@/lib/field-sources";
 import type { Classification } from "../lib/classify";
 import type { Facts } from "../lib/engine/types";
+import type { OccupationPart } from "../lib/mixed-occupancy";
 import { AnalysisNotice } from "./analysis-notice";
 import { BuildingForm } from "./building-form";
 import { DerivedData } from "./derived-data";
 import { NextQuestions } from "./next-questions";
 import { NormObservations } from "./norm-observations";
+import { OccupationParts } from "./occupation-parts";
 import { ProvisionalNotice } from "./provisional-notice";
 import { RequirementsList } from "./requirements-list";
 import { RiskLevel } from "./risk-level";
 
 type ClassificationPanelProps = {
   answers: Facts;
+  /** The occupations of a mixed building; empty when there are none. */
+  parts?: OccupationPart[];
   sources: FieldSources;
   classification: Classification;
   onChange: (fact: string, value: unknown) => void;
@@ -25,6 +29,7 @@ type ClassificationPanelProps = {
 /** Side panel: the questions, what is next, the systems they imply and the provisional notice. */
 export function ClassificationPanel({
   answers,
+  parts = [],
   sources,
   classification,
   onChange,
@@ -39,6 +44,7 @@ export function ClassificationPanel({
           progress={classification.progress}
           onChange={onChange}
         />
+        <OccupationParts parts={parts} />
         <DerivedData
           derived={classification.derived}
           conflicts={classification.conflicts}

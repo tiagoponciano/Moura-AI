@@ -1,7 +1,8 @@
 import { z } from "zod";
 import { applyAnswers, pickAnswers } from "../lib/answers";
-import { classify } from "../lib/classify";
 import type { Facts } from "../lib/engine/types";
+import { classifyWithParts } from "../lib/mixed-parts";
+import type { OccupationPart } from "../lib/mixed-occupancy";
 import { QUESTIONS, type Question } from "../lib/questions";
 
 const UNKNOWN_FACTS = QUESTIONS.filter((q) => q.allowUnknown).map(
@@ -44,9 +45,14 @@ export function recordAnswers(
   input: unknown,
   state: Facts,
   analysisDate: string,
+  parts: OccupationPart[] = [],
 ) {
   const picked = pickAnswers(input);
-  const result = classify(applyAnswers(state, picked), analysisDate);
+  const result = classifyWithParts(
+    applyAnswers(state, picked),
+    parts,
+    analysisDate,
+  );
   return {
     answers: picked.values,
     unknown: picked.unknown,

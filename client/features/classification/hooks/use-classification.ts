@@ -3,23 +3,30 @@
 import { useCallback, useMemo, useState } from "react";
 import { recordSources, type FieldSources } from "@/lib/field-sources";
 import { applyAnswers, applyEdit, pickAnswers } from "../lib/answers";
-import { classify } from "../lib/classify";
 import type { Facts } from "../lib/engine/types";
-import { RECORD_ANSWERS_TOOL } from "../lib/questions";
+import type { OccupationPart } from "../lib/mixed-occupancy";
+import { classifyWithParts, pickParts } from "../lib/mixed-parts";
+import { RECORD_ANSWERS_TOOL, RECORD_PARTS_TOOL } from "../lib/questions";
 import { analysisDate } from "../lib/today";
 
 /** The answers (from the chat or typed in the panel) and the classification they give. */
 export function useClassification() {
   const [answers, setAnswers] = useState<Facts>({});
+  const [parts, setParts] = useState<OccupationPart[]>([]);
   const [sources, setSources] = useState<FieldSources>({});
   const [date] = useState(() => analysisDate());
 
   const classification = useMemo(
-    () => classify(answers, date),
-    [answers, date],
+    () => classifyWithParts(answers, parts, date),
+    [answers, parts, date],
   );
 
   const handleToolResult = useCallback((toolName: string, output: unknown) => {
+    if (toolName === RECORD_PARTS_TOOL) {
+      // The tool sends the whole list, so a replayed chat ends with the same one.
+      setParts(pickParts((output as { parts?: unknown } | null)?.parts));
+      return;
+    }
     if (toolName !== RECORD_ANSWERS_TOOL) return;
     const picked = pickAnswers(output);
     const touched = [...Object.keys(picked.values), ...picked.unknown];
@@ -36,11 +43,13 @@ export function useClassification() {
 
   function reset() {
     setAnswers({});
+    setParts([]);
     setSources({});
   }
 
   return {
     answers,
+    parts,
     sources,
     classification,
     handleToolResult,

@@ -34,6 +34,10 @@ The result has `systems` (id, status, `vital`, the divisions that require it, th
 - **Art. 12 (secondary).** The predominant occupation is evaluated for the whole building (total area, highest floor). Each secondary occupation is evaluated with its own area and height, and what it requires is limited to its area: the scope reads "somente na área da ocupação secundária <divisão>".
 - **Notes.** The result always repeats the garage rule (arts. 10, § 1º, and 12, § 2º), and, when vertical compartmentation is required in a building with more than one open part, the rule of art. 11, parágrafo único.
 
+## The screen's view
+
+`classifyMixedBuilding` (`lib/mixed-classification.ts`) shapes the `classifyMixed` result like a single-occupation `Classification`, so the same panel can show it. Each system keeps the single-occupation outcome that decided it (its rules, substitutions and what is missing, through `systemView` in `lib/system-view.ts`) with the status, `vital` and scopes of the join. The questions are the ones the rules of any part still need; area, height, storeys and division come from the parts and are never asked. A part that ends in a specific analysis replaces the list, as in the single case, and the result is always provisional. Nothing calls it yet.
+
 ## What this does NOT do
 
 - **It does not replicate vertical compartmentation** in the lower floors (art. 11, parágrafo único); it only reminds.

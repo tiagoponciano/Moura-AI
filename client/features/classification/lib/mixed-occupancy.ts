@@ -1,5 +1,5 @@
 import { evaluateRules } from "./engine/evaluate-rules";
-import type { Evaluation, Facts, Rule } from "./engine/types";
+import type { Evaluation, Facts, Rule, SystemOutcome } from "./engine/types";
 import { ALL_RULES } from "./rulesets/all-rules";
 
 /** How a part of the building relates to the others (IN 1 parte 2, art. 11). */
@@ -40,6 +40,8 @@ export type MixedSystem = {
   from: string[];
   /** Parts of the building it is limited to; empty for the whole building. */
   scopes: string[];
+  /** The single-occupation outcome that decided the status: its rules, substitutions and what is missing. */
+  outcome: SystemOutcome;
 };
 
 export type MixedResult = {
@@ -131,6 +133,7 @@ export function classifyMixed(
     from: Set<string>;
     scopes: Set<string>;
     whole: boolean;
+    outcome: SystemOutcome;
   };
   const merged = new Map<string, Entry>();
   const add = (
@@ -147,8 +150,14 @@ export function classifyMixed(
         from: new Set<string>(),
         scopes: new Set<string>(),
         whole: false,
+        outcome: system,
       };
       entry.status = worse(entry.status, system.status);
+      if (
+        system.status === entry.status &&
+        entry.outcome.status !== entry.status
+      )
+        entry.outcome = system;
       entry.vital ||= system.vital;
       if (system.status === "required") {
         entry.from.add(division);
@@ -229,6 +238,7 @@ export function classifyMixed(
       vital: e.vital,
       from: [...e.from],
       scopes: e.whole ? [] : [...e.scopes],
+      outcome: e.outcome,
     })),
     analyses: [...new Set(analyses)],
     notes,

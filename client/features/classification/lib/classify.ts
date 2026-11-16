@@ -11,9 +11,10 @@ import {
 import { ALL_RULES } from "./rulesets/all-rules";
 import { BASEMENT_CASE_FACT, basementMeasuresText } from "./rulesets/basement";
 import { FIRE_LOAD_CLASSES } from "./rulesets/group-c-conditions";
+import { reasonOf, systemView } from "./system-view";
 import { RISK_PROCESS } from "./rulesets/group-c-risk";
 import { tableHint } from "./table-hint";
-import { SYSTEMS, systemLabel } from "./rulesets/systems";
+import { SYSTEMS } from "./rulesets/systems";
 
 /** The printed source of a decision, for "why is this required?". */
 export type Reason = { locator: string; quote?: string };
@@ -167,10 +168,7 @@ export function classify(
     });
   }
   const byId = new Map(rules.map((rule) => [rule.id, rule]));
-  const reasonOf = (id: string): Reason => {
-    const source = byId.get(id)?.source;
-    return { locator: source?.locator ?? id, quote: source?.quote };
-  };
+  const reasonOfRule = (id: string) => reasonOf(byId, id);
 
   const nextQuestions = ASKABLE_QUESTIONS.filter(
     (q) =>
@@ -190,7 +188,7 @@ export function classify(
 
   const analyses = evaluation.specificAnalyses.map((a) => ({
     reason: a.reason,
-    ...reasonOf(a.ruleId),
+    ...reasonOfRule(a.ruleId),
   }));
 
   const riskOutcome = evaluation.risk;
@@ -200,38 +198,15 @@ export function classify(
           status: "decided",
           level: riskOutcome.level,
           process: RISK_PROCESS[riskOutcome.level] ?? "",
-          reason: reasonOf(riskOutcome.ruleId),
+          reason: reasonOfRule(riskOutcome.ruleId),
         }
       : riskOutcome.status === "pending"
         ? { status: "pending" }
         : { status: "not_covered" };
 
-  const views: SystemView[] = evaluation.systems.map((system) => {
-    const rulesOf = system.ruleIds.map((id) => byId.get(id));
-    const seen = new Set<string>();
-    const reasons = system.ruleIds
-      .map(reasonOf)
-      .filter((r) => !seen.has(r.locator) && seen.add(r.locator));
-    return {
-      id: system.id,
-      label: systemLabel(system.id),
-      status: system.status,
-      vital: system.vital,
-      treatment: system.overlayClass,
-      partial: system.partial,
-      scopes: system.scopes,
-      substitutions: system.substitutions.map((s) => ({
-        by: s.by.map(systemLabel),
-        alreadyRequired: s.alreadyRequired.map(systemLabel),
-        note: s.note,
-      })),
-      reasons: system.status === "needs_info" ? [] : reasons,
-      notes: [
-        ...new Set(rulesOf.flatMap((rule) => (rule?.note ? [rule.note] : []))),
-      ],
-      missing: system.missing.filter(isAskable).map(labelOf),
-    };
-  });
+  const views: SystemView[] = evaluation.systems.map((system) =>
+    systemView(system, { byId, isAskable, labelOf }),
+  );
   views.sort(
     (a, b) => CATALOG_ORDER.indexOf(a.id) - CATALOG_ORDER.indexOf(b.id),
   );

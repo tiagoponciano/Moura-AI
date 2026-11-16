@@ -56,6 +56,8 @@ Enforced by `no-restricted-imports` in `client/eslint.config.mjs`; `pnpm run lin
 - JSX renders; it does not decide. Validation, filtering and formatting live in `lib/` and are called from hooks.
 - `components/ui/` is shadcn-generated. Add primitives with `pnpm exec shadcn add <name>`; avoid editing them by hand.
 
+- Size limits: a component file stays under 150 lines, a hook or a file of pure logic under 200. When one grows past that, split it by responsibility (a dialog, a list, a sub-hook) instead of adding to it. Files that are data or generated output (rule tables, review sheets, schemas, `database.types.ts`) are exempt.
+
 ## 4. State and logic
 
 - Pure functions in `features/<name>/lib/` hold the rules and are what gets tested.

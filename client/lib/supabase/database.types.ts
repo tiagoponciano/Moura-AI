@@ -218,6 +218,32 @@ export type Database = {
         >;
         Relationships: [];
       };
+      project_floor_plans: {
+        Row: {
+          id: string;
+          project_id: string;
+          file_name: string;
+          mode: "vector" | "raster";
+          scale: number | null;
+          format: "dxf" | "dwg";
+          created_by: string | null;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          project_id: string;
+          file_name: string;
+          mode: "vector" | "raster";
+          scale?: number | null;
+          format: "dxf" | "dwg";
+          created_by?: string | null;
+          created_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["project_floor_plans"]["Insert"]
+        >;
+        Relationships: [];
+      };
       cbmsc_site_check: {
         Row: {
           id: boolean;

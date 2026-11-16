@@ -26,6 +26,10 @@ Invariants:
 - **Conditional cells.** K-2 `SHP²` (only thermal plants) and M-2 `PE³` (liquids above 20 m³ or gases above 10 m³) label the system only while the condition holds; otherwise it falls to `TE`.
 - **Panel.** A required system shows its class; vital also keeps the vital tag.
 
+## Construction faults (Annex D)
+
+Annex D lists compensatory measures for a new building built with errors in four systems: vehicle access, gas shelter, hydraulic system and exits. `lib/annex-d.ts` reads `norms/in-5/annex-d.json` and gives each of its 15 rows a stable id (D1 to D15, in the printed order). When the user describes such errors, the assistant matches them to the rows listed in its instructions and calls `record_faults` with the ids of all of them; each call replaces the previous list, so a replayed chat settles. It asks for the size of the error when the row depends on it, and never picks a row without it. The client keeps the ids in `useClassification`, sends them as `faults`, and the panel shows "Erros de execução (IN 5, Anexo D)" with the system, the fault, the parameter and the measures exactly as printed, the notes of the table, and the two errors the norm does not admit marked in red. The app does not read a measure into a requirement; the engineer applies it.
+
 ## Adaptations (Annex C)
 
 `adaptationsFor(systemId, class)` (`lib/in5-adaptations.ts`) reads `norms/in-5/annex-c.json` and returns the sections of the system's table that its class allows. Arts. 21 and 23: a vital or indispensable system gets the adaptations and their compensations, never the substitutions or exemptions. Art. 25: an adaptable one gets all four sections. A section the annex marks as "não aplicável" is left out. The annex has tables for the hydraulic system (IN 7), exits (IN 9), alarm and detection (IN 12), low-voltage installations (IN 19), combustible gas (IN 8) and compartmentation (IN 14, horizontal and vertical apart); any other system shows nothing. `SystemView.adaptations` carries it, and a required row of an existing building shows it under "Adaptações admitidas (IN 5, Anexo C)".
@@ -53,7 +57,6 @@ Every result repeats that the requirements are sized by the sum of the areas (ar
 
 - **It does not read the `SA¹` footnote** (A-2, A-3, B: only when automatic detection is required): the alarm is labelled indispensable regardless.
 - **It reads `BI` as the fire brigade**, because the printed legend omits it.
-- **It does not apply the compensatory measures of Annex D.**
 - **It does not choose an adaptation.** Annex C is shown as printed; the responsible engineer decides which one fits, with the justification the articles ask for.
 - **It does not ask whether the building is existing or recent** and does not check the proof (art. 26).
 - **It does not approve a reading.** The mapping of abbreviations and the conditional cells are open until a person confirms them with Moura.

@@ -1,9 +1,8 @@
 "use client";
 
-import { ClipboardList, FileText, Loader2, Plus } from "lucide-react";
-import { useState, type FormEvent } from "react";
+import { ClipboardList, FileText, Plus } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -12,6 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import type { useProjects } from "@/hooks/use-projects";
+import { NewProjectDialog } from "./new-project-dialog";
 import { ProjectActions } from "./project-actions";
 
 /** What the dialog shows under the project bar. */
@@ -31,15 +31,7 @@ export function ProjectBar({
   onView,
   onCreated,
 }: ProjectBarProps) {
-  const [name, setName] = useState("");
-
-  async function handleSubmit(event: FormEvent) {
-    event.preventDefault();
-    if (await projects.create(name)) {
-      setName("");
-      onCreated();
-    }
-  }
+  const [createOpen, setCreateOpen] = useState(false);
 
   return (
     <div className="flex flex-col gap-1">
@@ -94,35 +86,27 @@ export function ProjectBar({
           <FileText />
           {view === "proposal" ? "Ver formulários" : "Proposta"}
         </Button>
-        <form
-          onSubmit={handleSubmit}
-          className="flex min-w-60 flex-1 items-center gap-2"
-        >
-          <Input
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            placeholder="Novo projeto"
-            aria-label="Nome do novo projeto"
-          />
-          <Button
-            type="submit"
-            variant="outline"
-            disabled={!name.trim() || projects.creating}
-          >
-            {projects.creating ? (
-              <Loader2 className="animate-spin" />
-            ) : (
-              <Plus />
-            )}
-            Criar projeto
-          </Button>
-        </form>
+        <Button type="button" onClick={() => setCreateOpen(true)}>
+          <Plus />
+          Novo projeto
+        </Button>
       </div>
-      {projects.error && (
+      {!createOpen && projects.error && (
         <p role="alert" className="text-xs text-destructive">
           {projects.error}
         </p>
       )}
+      <NewProjectDialog
+        open={createOpen}
+        creating={projects.creating}
+        error={projects.error}
+        onCreate={async (name) => {
+          const created = await projects.create(name);
+          if (created) onCreated();
+          return created;
+        }}
+        onOpenChange={setCreateOpen}
+      />
     </div>
   );
 }

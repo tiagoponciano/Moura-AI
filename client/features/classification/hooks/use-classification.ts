@@ -1,89 +1,90 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { recordSources, type FieldSources } from "@/lib/field-sources";
-import { applyAnswers, applyEdit, pickAnswers } from "../lib/answers";
-import { pickFaults } from "../lib/annex-d";
+import { applyPanelEdit, applyToolResult } from "../lib/apply-tool-result";
 import {
-  pickEnlargement,
-  type EnlargementAnswers,
-} from "../lib/enlargement-input";
-import type { Facts } from "../lib/engine/types";
-import type { OccupationPart } from "../lib/mixed-occupancy";
-import { classifyWithParts, pickParts } from "../lib/mixed-parts";
-import {
-  RECORD_ANSWERS_TOOL,
-  RECORD_ENLARGEMENT_TOOL,
-  RECORD_FAULTS_TOOL,
-  RECORD_PARTS_TOOL,
-} from "../lib/questions";
+  EMPTY_STATE,
+  type ClassificationState,
+} from "../lib/classification-state";
+import { classifyWithParts } from "../lib/mixed-parts";
 import { analysisDate } from "../lib/today";
 
-/** The answers (from the chat or typed in the panel) and the classification they give. */
-export function useClassification() {
-  const [answers, setAnswers] = useState<Facts>({});
-  const [parts, setParts] = useState<OccupationPart[]>([]);
-  const [enlargement, setEnlargement] = useState<EnlargementAnswers>();
-  const [faults, setFaults] = useState<string[]>([]);
+/**
+ * The inputs of a classification (from the chat or typed in the panel) and the
+ * result they give. `onPersist` hears every change made here, with the whole new
+ * state; `restore` replaces the state without calling it, for what was loaded.
+ */
+export function useClassification(
+  onPersist?: (state: ClassificationState) => void,
+) {
+  const [state, setState] = useState<ClassificationState>(EMPTY_STATE);
   const [sources, setSources] = useState<FieldSources>({});
   const [date] = useState(() => analysisDate());
+  /** The latest state, so two results in a row each build on the one before. */
+  const latest = useRef<ClassificationState>(EMPTY_STATE);
+  const persist = useRef(onPersist);
+  useEffect(() => {
+    persist.current = onPersist;
+  }, [onPersist]);
 
   const classification = useMemo(
-    () => classifyWithParts(answers, parts, date),
-    [answers, parts, date],
+    () => classifyWithParts(state.facts, state.parts, date),
+    [state.facts, state.parts, date],
   );
 
-  const handleToolResult = useCallback((toolName: string, output: unknown) => {
-    if (toolName === RECORD_FAULTS_TOOL) {
-      // The tool sends the whole list, so a replayed chat ends with the same one.
-      setFaults(pickFaults((output as { faults?: unknown } | null)?.faults));
-      return;
-    }
-    if (toolName === RECORD_ENLARGEMENT_TOOL) {
-      // The tool sends every field, so a replayed chat ends with the same record.
-      setEnlargement(
-        pickEnlargement(
-          (output as { enlargement?: unknown } | null)?.enlargement,
-        ),
-      );
-      return;
-    }
-    if (toolName === RECORD_PARTS_TOOL) {
-      // The tool sends the whole list, so a replayed chat ends with the same one.
-      setParts(pickParts((output as { parts?: unknown } | null)?.parts));
-      return;
-    }
-    if (toolName !== RECORD_ANSWERS_TOOL) return;
-    const picked = pickAnswers(output);
-    const touched = [...Object.keys(picked.values), ...picked.unknown];
-    if (touched.length === 0) return;
-    setAnswers((current) => applyAnswers(current, picked));
-    setSources((current) => recordSources(current, touched, "assistant"));
+  const commit = useCallback((next: ClassificationState, save: boolean) => {
+    latest.current = next;
+    setState(next);
+    if (save) persist.current?.(next);
   }, []);
 
-  /** A value typed in the panel; `null` is "não sei" and `undefined` clears the answer. */
-  function updateAnswer(fact: string, value: unknown) {
-    setAnswers((current) => applyEdit(current, fact, value));
-    setSources((current) => recordSources(current, [fact], "user"));
-  }
+  const handleToolResult = useCallback(
+    (toolName: string, output: unknown) => {
+      const change = applyToolResult(latest.current, toolName, output);
+      if (!change) return;
+      commit(change.next, true);
+      if (change.touched.length > 0) {
+        setSources((current) =>
+          recordSources(current, change.touched, "assistant"),
+        );
+      }
+    },
+    [commit],
+  );
 
-  function reset() {
-    setAnswers({});
-    setParts([]);
-    setEnlargement(undefined);
-    setFaults([]);
+  const updateAnswer = useCallback(
+    (fact: string, value: unknown) => {
+      commit(applyPanelEdit(latest.current, fact, value), true);
+      setSources((current) => recordSources(current, [fact], "user"));
+    },
+    [commit],
+  );
+
+  const reset = useCallback(() => {
+    commit(EMPTY_STATE, true);
     setSources({});
-  }
+  }, [commit]);
+
+  /** Replaces everything with what was loaded for a project; nothing is saved back. */
+  const restore = useCallback(
+    (loaded: ClassificationState) => {
+      commit(loaded, false);
+      setSources(recordSources({}, Object.keys(loaded.facts), "project"));
+    },
+    [commit],
+  );
 
   return {
-    answers,
-    parts,
-    enlargement,
-    faults,
+    answers: state.facts,
+    parts: state.parts,
+    enlargement: state.enlargement,
+    faults: state.faults,
     sources,
     classification,
     handleToolResult,
     updateAnswer,
     reset,
+    restore,
   };
 }

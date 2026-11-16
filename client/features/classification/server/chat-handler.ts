@@ -42,6 +42,7 @@ const chatBody = z.object({
   parts: z.unknown().optional(),
   enlargement: z.unknown().optional(),
   faults: z.unknown().optional(),
+  projectId: z.string().uuid().optional(),
 });
 
 /**
@@ -113,7 +114,7 @@ export async function handleClassificationChat(
   const persistence = await chatPersistence({
     chatId: body.data.id,
     module: "classification",
-    context: {},
+    context: body.data.projectId ? { projectId: body.data.projectId } : {},
     messages,
   });
   return toChatResponse(result.stream, persistence);

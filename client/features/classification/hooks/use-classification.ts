@@ -3,6 +3,7 @@
 import { useCallback, useMemo, useState } from "react";
 import { recordSources, type FieldSources } from "@/lib/field-sources";
 import { applyAnswers, applyEdit, pickAnswers } from "../lib/answers";
+import { pickFaults } from "../lib/annex-d";
 import {
   pickEnlargement,
   type EnlargementAnswers,
@@ -13,6 +14,7 @@ import { classifyWithParts, pickParts } from "../lib/mixed-parts";
 import {
   RECORD_ANSWERS_TOOL,
   RECORD_ENLARGEMENT_TOOL,
+  RECORD_FAULTS_TOOL,
   RECORD_PARTS_TOOL,
 } from "../lib/questions";
 import { analysisDate } from "../lib/today";
@@ -22,6 +24,7 @@ export function useClassification() {
   const [answers, setAnswers] = useState<Facts>({});
   const [parts, setParts] = useState<OccupationPart[]>([]);
   const [enlargement, setEnlargement] = useState<EnlargementAnswers>();
+  const [faults, setFaults] = useState<string[]>([]);
   const [sources, setSources] = useState<FieldSources>({});
   const [date] = useState(() => analysisDate());
 
@@ -31,6 +34,11 @@ export function useClassification() {
   );
 
   const handleToolResult = useCallback((toolName: string, output: unknown) => {
+    if (toolName === RECORD_FAULTS_TOOL) {
+      // The tool sends the whole list, so a replayed chat ends with the same one.
+      setFaults(pickFaults((output as { faults?: unknown } | null)?.faults));
+      return;
+    }
     if (toolName === RECORD_ENLARGEMENT_TOOL) {
       // The tool sends every field, so a replayed chat ends with the same record.
       setEnlargement(
@@ -63,6 +71,7 @@ export function useClassification() {
     setAnswers({});
     setParts([]);
     setEnlargement(undefined);
+    setFaults([]);
     setSources({});
   }
 
@@ -70,6 +79,7 @@ export function useClassification() {
     answers,
     parts,
     enlargement,
+    faults,
     sources,
     classification,
     handleToolResult,

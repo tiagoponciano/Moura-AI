@@ -9,6 +9,7 @@ import type { Facts } from "../lib/engine/types";
 import type { OccupationPart } from "../lib/mixed-occupancy";
 import { AnalysisNotice } from "./analysis-notice";
 import { BuildingForm } from "./building-form";
+import { CompensatoryMeasures } from "./compensatory-measures";
 import { DerivedData } from "./derived-data";
 import { EnlargementNotice } from "./enlargement-notice";
 import { NextQuestions } from "./next-questions";
@@ -24,6 +25,8 @@ type ClassificationPanelProps = {
   parts?: OccupationPart[];
   /** The enlargement of an existing building, when the assistant recorded one. */
   enlargement?: EnlargementAnswers;
+  /** Ids of the Annex D rows recorded for a new building built with errors. */
+  faults?: string[];
   sources: FieldSources;
   classification: Classification;
   onChange: (fact: string, value: unknown) => void;
@@ -35,6 +38,7 @@ export function ClassificationPanel({
   answers,
   parts = [],
   enlargement,
+  faults = [],
   sources,
   classification,
   onChange,
@@ -51,6 +55,7 @@ export function ClassificationPanel({
         />
         <OccupationParts parts={parts} />
         <EnlargementNotice answers={answers} enlargement={enlargement} />
+        <CompensatoryMeasures faults={faults} />
         <DerivedData
           derived={classification.derived}
           conflicts={classification.conflicts}

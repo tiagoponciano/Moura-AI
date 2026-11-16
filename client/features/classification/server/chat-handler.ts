@@ -9,18 +9,21 @@ import {
   resolveChatModel,
   toChatResponse,
 } from "@/lib/llm";
+import { pickFaults } from "../lib/annex-d";
 import { pickFacts } from "../lib/answers";
 import { pickEnlargement } from "../lib/enlargement-input";
 import { pickParts } from "../lib/mixed-parts";
 import {
   RECORD_ANSWERS_TOOL,
   RECORD_ENLARGEMENT_TOOL,
+  RECORD_FAULTS_TOOL,
   RECORD_PARTS_TOOL,
   SEARCH_ACTIVITY_TOOL,
 } from "../lib/questions";
 import { analysisDate } from "../lib/today";
 import { buildInstructions } from "./instructions";
 import { recordAnswers, recordAnswersInput } from "./record-answers";
+import { recordFaults, recordFaultsInput } from "./record-faults";
 import {
   recordEnlargement,
   recordEnlargementInput,
@@ -38,6 +41,7 @@ const chatBody = z.object({
   facts: z.unknown().optional(),
   parts: z.unknown().optional(),
   enlargement: z.unknown().optional(),
+  faults: z.unknown().optional(),
 });
 
 /**
@@ -63,11 +67,12 @@ export async function handleClassificationChat(
   const state = pickFacts(body.data.facts);
   const parts = pickParts(body.data.parts);
   const enlargement = pickEnlargement(body.data.enlargement);
+  const faults = pickFaults(body.data.faults);
   const date = analysisDate();
 
   const result = streamText({
     model,
-    instructions: buildInstructions(state, date, parts, enlargement),
+    instructions: buildInstructions(state, date, parts, enlargement, faults),
     // The instructions carry the recorded state, so only the latest turns go to the model.
     messages: await convertToModelMessages(recentMessages(messages)),
     tools: {
@@ -88,6 +93,12 @@ export async function handleClassificationChat(
           "Records the enlargement of an existing building (areas, regularization, compartmentation, new block, 5 years, rigor). Send every field each time; it replaces the previous record.",
         inputSchema: recordEnlargementInput,
         execute: async (input) => recordEnlargement(input, state),
+      }),
+      [RECORD_FAULTS_TOOL]: tool({
+        description:
+          "Records the construction errors of a new building as the ids of the matching rows of Annex D. Send every id each time; it replaces the previous list.",
+        inputSchema: recordFaultsInput,
+        execute: async (input) => recordFaults(input),
       }),
       [SEARCH_ACTIVITY_TOOL]: tool({
         description:

@@ -1,4 +1,5 @@
 import type { Facts } from "../lib/engine/types";
+import { faultChoices } from "../lib/annex-d";
 import type { EnlargementAnswers } from "../lib/enlargement-input";
 import type { OccupationPart } from "../lib/mixed-occupancy";
 import { classifyWithParts } from "../lib/mixed-parts";
@@ -6,6 +7,7 @@ import {
   QUESTIONS,
   RECORD_ANSWERS_TOOL,
   RECORD_ENLARGEMENT_TOOL,
+  RECORD_FAULTS_TOOL,
   RECORD_PARTS_TOOL,
   SEARCH_ACTIVITY_TOOL,
   questionFor,
@@ -39,6 +41,7 @@ export function buildInstructions(
   analysisDate: string,
   parts: OccupationPart[] = [],
   enlargement?: EnlargementAnswers,
+  faults: string[] = [],
 ): string {
   const facts = QUESTIONS.map((q) => `- ${q.fact}: ${q.description}`).join(
     "\n",
@@ -65,6 +68,9 @@ ${describeParts(parts)}
 Enlargement already recorded (only for an existing building being enlarged):
 ${enlargement ? JSON.stringify(enlargement) : "none yet"}
 
+Construction faults already recorded (Annex D of IN 5, for new buildings):
+${faults.length ? faults.join(", ") : "none yet"}
+
 Next question to ask: ${next ? `"${next.ask}"` : "none, every answer needed so far is in"}
 
 Rules:
@@ -75,5 +81,7 @@ Rules:
 5. Do NOT say which systems are required, cite norms or tables, or explain why: the side panel shows the result with its sources. If the tool result has status "analysis", say this case needs a specific analysis and point to the panel.
 6. When the user says the property mixes several uses and they are not all subsidiary, record that with \`single_use\` false, then collect every occupation (division, area, height of its last floor, storeys, and whether it is isolated, compartmented or open) and call \`${RECORD_PARTS_TOOL}\` with the whole list, predominant first. Each call replaces the previous list, so never send only the new one. Never invent areas or heights.
 7. When the user says an existing building will be enlarged, collect the original area, the area added, whether the original is regularized with the fire brigade, whether the areas are compartmented, whether the enlargement made a new isolated block, whether 5 years have passed since the occupancy permit, and whether the enlargement raises the rigor of the requirements. Then call \`${RECORD_ENLARGEMENT_TOOL}\` with all of them. Ask what is missing, one question at a time, and never assume an answer.
-8. Always reply in Brazilian Portuguese, briefly. After recording, say what was recorded.`;
+8. When the user says a new building was built with errors (a narrower exit, irregular steps, no vehicle access, no gas shelter, an undersized water reserve), match what they describe to the rows below and call \`${RECORD_FAULTS_TOOL}\` with the ids of every matching row. Ask for the size of the error when the row depends on it (for example how much narrower, in percent). Never pick a row without that figure, and never invent one. The rows:
+${faultChoices()}
+9. Always reply in Brazilian Portuguese, briefly. After recording, say what was recorded.`;
 }

@@ -44,6 +44,10 @@ python tools/norms/check_updates.py [--norms <dir>]
 
 Exit code: `0` every PDF is current, `1` at least one changed, `2` at least one could not be checked (not a Drive file link, or the download failed). Its unit tests run with `python -m unittest discover -s tools/norms -p "test_check_updates.py"`.
 
+## IN 5, Annex C
+
+`tools/norms/extract_in5_annex_c.py <pdf> --out client/features/classification/norms/in-5` reads Annex C (adaptations) and writes `annex-c.json`, adding an `annex_c` entry with its hash to `manifest.json`. There is one entry per system table (IN 7, 9, 12, 19, 8 and 14), each with four sections as printed: adaptations (`adequações`), compensations, exemptions and substitutions. A section holds its introduction and its items with their letter and, where the table has them, a group (`I - Quando já instalado`, `Compartimentação Horizontal`). A section that says "não aplicável" has `applicable: false`. The IN 9 table continues across two pages, so repeated rows are kept once. `--verify` compares the hash with the manifest and `norms/in-5/annex-c.test.ts` checks the committed JSON in CI. The tool holds no rule logic: which section applies to which class is for arts. 21, 23 and 25 (see `existing-buildings.md`). The tool is not covered by an automated test of its own.
+
 ## IN 5, Annex B
 
 `tools/norms/extract_in5.py <pdf> --out client/features/classification/norms/in-5` reads Annex B of IN 5 (existing and recent buildings) and writes `annex-b.json` and `manifest.json`. Each row is a group of divisions with the abbreviations of its vital, indispensable and adaptable systems (with footnote numbers), plus the printed legend and notes. Rows are found from the table rules and the columns from the header positions. `--verify` compares the hash with the manifest. The abbreviation `BI` (brigade) is used in the table but missing from the printed legend, so every row using it is listed in `checks.needs_human_look`. `norms/in-5/annex-b.test.ts` checks the committed JSON in CI.

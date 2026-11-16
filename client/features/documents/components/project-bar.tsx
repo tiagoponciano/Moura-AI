@@ -1,8 +1,9 @@
 "use client";
 
-import { ClipboardList, FileText, Plus, Search } from "lucide-react";
+import { ClipboardList, FileStack, FileText, Plus, Search } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { useProjects } from "@/hooks/use-projects";
 import { NewProjectDialog } from "./new-project-dialog";
 import { ProjectActions } from "./project-actions";
@@ -29,7 +30,7 @@ export function ProjectBar({
   const [searchOpen, setSearchOpen] = useState(false);
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-3">
       <div className="flex flex-wrap items-center gap-2">
         <Button
           type="button"
@@ -55,31 +56,28 @@ export function ProjectBar({
             onArchive={() => projects.archive(projects.selected!.id)}
           />
         )}
-        <Button
-          type="button"
-          variant={view === "details" ? "secondary" : "outline"}
-          disabled={!projects.selected}
-          aria-pressed={view === "details"}
-          onClick={() => onView(view === "details" ? "forms" : "details")}
-        >
-          <ClipboardList />
-          {view === "details" ? "Ver formulários" : "Dados do projeto"}
-        </Button>
-        <Button
-          type="button"
-          variant={view === "proposal" ? "secondary" : "outline"}
-          disabled={!projects.selected}
-          aria-pressed={view === "proposal"}
-          onClick={() => onView(view === "proposal" ? "forms" : "proposal")}
-        >
-          <FileText />
-          {view === "proposal" ? "Ver formulários" : "Proposta"}
-        </Button>
+        <div className="flex-1" />
         <Button type="button" onClick={() => setCreateOpen(true)}>
           <Plus />
           Novo projeto
         </Button>
       </div>
+      <Tabs value={view} onValueChange={(next) => onView(next as ProjectView)}>
+        <TabsList>
+          <TabsTrigger value="forms">
+            <FileStack />
+            Formulários
+          </TabsTrigger>
+          <TabsTrigger value="details" disabled={!projects.selected}>
+            <ClipboardList />
+            Dados do projeto
+          </TabsTrigger>
+          <TabsTrigger value="proposal" disabled={!projects.selected}>
+            <FileText />
+            Proposta
+          </TabsTrigger>
+        </TabsList>
+      </Tabs>
       {!createOpen && projects.error && (
         <p role="alert" className="text-xs text-destructive">
           {projects.error}

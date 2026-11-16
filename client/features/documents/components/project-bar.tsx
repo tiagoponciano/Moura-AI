@@ -1,18 +1,12 @@
 "use client";
 
-import { ClipboardList, FileText, Plus } from "lucide-react";
+import { ClipboardList, FileText, Plus, Search } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import type { useProjects } from "@/hooks/use-projects";
 import { NewProjectDialog } from "./new-project-dialog";
 import { ProjectActions } from "./project-actions";
+import { ProjectSearchDialog } from "./project-search-dialog";
 
 /** What the dialog shows under the project bar. */
 export type ProjectView = "forms" | "details" | "proposal";
@@ -32,32 +26,27 @@ export function ProjectBar({
   onCreated,
 }: ProjectBarProps) {
   const [createOpen, setCreateOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   return (
     <div className="flex flex-col gap-1">
       <div className="flex flex-wrap items-center gap-2">
-        <Select
-          value={projects.selected?.id ?? ""}
-          onValueChange={projects.select}
+        <Button
+          type="button"
+          variant="outline"
+          className="w-60 justify-start"
           disabled={projects.projects.length === 0}
+          aria-label="Buscar projeto"
+          onClick={() => setSearchOpen(true)}
         >
-          <SelectTrigger aria-label="Projeto" className="w-60">
-            <SelectValue
-              placeholder={
-                projects.projects.length
-                  ? "Escolha um projeto"
-                  : "Nenhum projeto"
-              }
-            />
-          </SelectTrigger>
-          <SelectContent>
-            {projects.projects.map((project) => (
-              <SelectItem key={project.id} value={project.id}>
-                {project.name}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+          <Search />
+          <span className="truncate">
+            {projects.selected?.name ??
+              (projects.projects.length
+                ? "Escolha um projeto"
+                : "Nenhum projeto")}
+          </span>
+        </Button>
         {projects.selected && (
           <ProjectActions
             key={projects.selected.id}
@@ -96,6 +85,13 @@ export function ProjectBar({
           {projects.error}
         </p>
       )}
+      <ProjectSearchDialog
+        open={searchOpen}
+        projects={projects.projects}
+        selectedId={projects.selected?.id}
+        onSelect={projects.select}
+        onOpenChange={setSearchOpen}
+      />
       <NewProjectDialog
         open={createOpen}
         creating={projects.creating}

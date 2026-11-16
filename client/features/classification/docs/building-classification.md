@@ -53,6 +53,8 @@ Server (`server/`): `recordAnswersInput` (zod, generated from the registry), `re
 | `components/classification-workspace.tsx`                 | Layout: chat edge to edge, 360px panel on the right, tabs below `lg`                                 |
 | `components/classification-panel.tsx`                     | Panel: form, next question, analysis notice, systems, provisional notice and "Limpar respostas"      |
 | `components/building-form.tsx`                            | Header, progress bar and one row per question                                                        |
+| `components/answer-row.tsx`                               | A labelled row with its filled mark and the source of the answer                                     |
+| `components/answer-control.tsx`                           | The input of a question: the chosen activity, a number or a menu with não sei                        |
 | `components/next-questions.tsx`                           | The next question and what waits for a professional                                                  |
 | `components/analysis-notice.tsx`                          | The reason a case needs a specific analysis                                                          |
 | `components/requirements-list.tsx`, `requirement-row.tsx` | Summary bar, status groups and one system per row                                                    |

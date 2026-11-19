@@ -23,6 +23,7 @@ import {
   type TemplateSchema,
 } from "../lib/templates";
 import { type Project, type ProjectData } from "@/lib/projects/project";
+import { PDF_ENABLED } from "../lib/pdf-enabled";
 import { useFormExport } from "./use-form-export";
 import { loadFormData } from "../lib/load-form-data";
 import { usePdfPreview } from "./use-pdf-preview";
@@ -169,7 +170,9 @@ export function useDocumentFilling(
       persistFilling(merged);
       // The assistant filled the form: once it is complete, the PDF follows by itself.
       const validation = validateForDocument(schema, merged);
-      if (validation.ok) void generatePdf(template.id, validation.values);
+      if (PDF_ENABLED && validation.ok) {
+        void generatePdf(template.id, validation.values);
+      }
     },
     [
       schema,

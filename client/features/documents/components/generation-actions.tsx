@@ -1,5 +1,6 @@
 import { ExternalLink, FileDown, FileText, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PDF_ENABLED } from "../lib/pdf-enabled";
 
 type GenerationActionsProps = {
   /** The current PDF; `undefined` before it exists or after a field changes. */
@@ -20,7 +21,7 @@ export function GenerationActions({
 }: GenerationActionsProps) {
   return (
     <>
-      {pdf ? (
+      {!PDF_ENABLED ? null : pdf ? (
         <div className="flex gap-2">
           <Button asChild size="lg" className="flex-1">
             <a href={pdf.url} download={pdf.fileName}>
@@ -40,8 +41,8 @@ export function GenerationActions({
         </Button>
       )}
       <Button
-        variant="ghost"
-        size="sm"
+        variant={PDF_ENABLED ? "ghost" : "default"}
+        size={PDF_ENABLED ? "sm" : "lg"}
         disabled={generating}
         onClick={onDownloadDocx}
       >
@@ -49,7 +50,9 @@ export function GenerationActions({
       </Button>
       <p className="text-center text-xs text-muted-foreground">
         {notice ??
-          "O PDF sai sozinho quando os obrigatórios estão completos, com o layout oficial."}
+          (PDF_ENABLED
+            ? "O PDF sai sozinho quando os obrigatórios estão completos, com o layout oficial."
+            : "O documento sai com o layout oficial quando os obrigatórios estão completos.")}
       </p>
     </>
   );

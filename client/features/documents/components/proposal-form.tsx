@@ -13,11 +13,12 @@ import {
   type ProposalRequest,
 } from "../lib/proposal";
 import { type Project } from "@/lib/projects/project";
+import { PDF_ENABLED } from "../lib/pdf-enabled";
 import { PlanField } from "./plan-field";
 
 type ProposalFormProps = { project: Project };
 
-/** The commercial proposal of a project: pick the plan and the price, download the deck or its PDF. */
+/** The commercial proposal of a project: pick the plan and the price, download the deck, and its PDF when PDF output is on. */
 export function ProposalForm({ project }: ProposalFormProps) {
   const [planId, setPlanId] = useState(PROPOSAL_PLANS[0].id);
   const [price, setPrice] = useState("");
@@ -86,22 +87,24 @@ export function ProposalForm({ project }: ProposalFormProps) {
         </div>
       </div>
       <div className="flex flex-wrap gap-2">
-        {(["pptx", "pdf"] as const).map((format) => (
-          <Button
-            key={format}
-            type="button"
-            variant={format === "pptx" ? "default" : "outline"}
-            disabled={!ready || busy !== undefined}
-            onClick={() => download(format)}
-          >
-            {busy === format ? (
-              <Loader2 className="animate-spin" />
-            ) : (
-              <FileDown />
-            )}
-            {format === "pptx" ? "Baixar .pptx" : "Baixar PDF"}
-          </Button>
-        ))}
+        {(PDF_ENABLED ? (["pptx", "pdf"] as const) : (["pptx"] as const)).map(
+          (format) => (
+            <Button
+              key={format}
+              type="button"
+              variant={format === "pptx" ? "default" : "outline"}
+              disabled={!ready || busy !== undefined}
+              onClick={() => download(format)}
+            >
+              {busy === format ? (
+                <Loader2 className="animate-spin" />
+              ) : (
+                <FileDown />
+              )}
+              {format === "pptx" ? "Baixar .pptx" : "Baixar PDF"}
+            </Button>
+          ),
+        )}
       </div>
       {error && (
         <p role="alert" className="text-xs text-destructive">

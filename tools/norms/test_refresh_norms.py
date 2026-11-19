@@ -18,8 +18,26 @@ class RefreshNormsTest(unittest.TestCase):
     def test_runs_the_annex_tools_of_in_5_after_the_one_that_rewrites_the_manifest(self):
         self.assertEqual(
             self.tools("IN-5"),
-            ["extract_in5.py", "extract_in5_annex_c.py", "extract_in5_annex_d.py"],
+            [
+                "extract_in5.py",
+                "extract_in5_annex_c.py",
+                "extract_in5_annex_d.py",
+                "extract_articles.py",
+            ],
         )
+
+    def test_keeps_the_article_text_last_so_no_tool_rewrites_its_manifest_entry(self):
+        for doc in ("IN-1-P1", "IN-1-P2", "IN-3", "IN-5"):
+            self.assertEqual(self.tools(doc)[-1], "extract_articles.py", doc)
+
+    def test_keeps_the_other_instructions_as_article_text_only(self):
+        self.assertEqual(self.tools("IN-7"), ["extract_articles.py"])
+        self.assertEqual(self.tools("IN-35"), ["extract_articles.py"])
+
+    def test_passes_the_link_and_the_date_to_the_article_tool(self):
+        (command,) = rn.plan(source("IN-7"), Path("x.pdf"), Path("out"), "2026-11-19")
+        self.assertIn("--url", command)
+        self.assertEqual(command[command.index("--out") + 1], str(Path("out") / "in-7"))
 
     def test_has_the_extractors_of_every_document_with_a_manifest(self):
         for found in cu.find_sources(cu.DEFAULT_NORMS):

@@ -27,20 +27,31 @@ from check_updates import DEFAULT_NORMS, Source, drive_download_url, find_source
 
 TOOLS = Path(__file__).resolve().parent
 
+# The numbers of the instructions kept as text only (IN 1, 3 and 5 have their own tools).
+TEXT_ONLY = (2, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 33, 34, 35)
+
 # The extractors of each document, in the order they must run: `extract_in5.py` writes
 # the whole manifest, so the annex tools that add to it come after.
 EXTRACTORS: dict[str, tuple[tuple[str, str], ...]] = {
-    "IN-1-P2": (("extract_tables.py", "in-1-p2"), ("extract_occupations.py", "in-1-p2")),
     "IN-1-P1": (
         ("extract_in1_p1_annex_a.py", "in-1-p1"),
         ("extract_in1_p1_annex_b.py", "in-1-p1"),
+        ("extract_articles.py", "in-1-p1"),
     ),
-    "IN-3": (("extract_annex_a.py", "in-3"),),
+    "IN-1-P2": (
+        ("extract_tables.py", "in-1-p2"),
+        ("extract_occupations.py", "in-1-p2"),
+        ("extract_articles.py", "in-1-p2"),
+    ),
+    "IN-3": (("extract_annex_a.py", "in-3"), ("extract_articles.py", "in-3")),
     "IN-5": (
         ("extract_in5.py", "in-5"),
         ("extract_in5_annex_c.py", "in-5"),
         ("extract_in5_annex_d.py", "in-5"),
+        ("extract_articles.py", "in-5"),
     ),
+    # Instructions whose text is kept article by article and nothing else.
+    **{f"IN-{n}": (("extract_articles.py", f"in-{n}"),) for n in TEXT_ONLY},
 }
 # Tools that take the source link and the retrieval date to write into the manifest.
 WITH_SOURCE = {
@@ -49,6 +60,7 @@ WITH_SOURCE = {
     "extract_annex_a.py",
     "extract_in1_p1_annex_a.py",
     "extract_in1_p1_annex_b.py",
+    "extract_articles.py",
     "extract_in5.py",
 }
 

@@ -1,0 +1,39 @@
+name: DWG image
+
+# The DWG service image compiles LibreDWG, which takes minutes, so it is built only when
+# the service changes. It checks that the image really has dxf2dwg and writes a DWG.
+
+on:
+  pull_request:
+    paths:
+      - "services/dwg/**"
+      - ".github/workflows/dwg-image.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: dwg-image-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  image:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - name: Build the image
+        uses: docker/build-push-action@v6
+        with:
+          context: services/dwg
+          load: true
+          tags: dwg-service:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+      - name: The converter is installed
+        run: |
+          docker run --rm dwg-service:ci dxf2dwg --version
+          docker run --rm dwg-service:ci dwgread --version
+      - name: The DWG tests run with LibreDWG present
+        run: |
+          docker run --rm --user root -v "$PWD/services/dwg:/srv" -w /srv dwg-service:ci \
+            sh -c "pip install --quiet -r requirements-dev.txt && python -m pytest -q tests/test_dwg_converter.py"

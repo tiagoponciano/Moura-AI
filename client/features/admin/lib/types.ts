@@ -54,3 +54,17 @@ export type ResolveFormLinkResponse = { drafts: CbmscFormDraft[] };
 
 /** `GET` and `POST /api/admin/forms/site-check`; `null` before the first check. */
 export type SiteCheckResponse = { check: SiteCheck | null };
+
+/** One norm the classification is built on; see `GET /api/admin/norms`. */
+export type AdminNormSource = {
+  doc: string;
+  sourceUrl: string;
+  /** Date of the extraction, `YYYY-MM-DD`. */
+  retrieved: string;
+  pages: number;
+  /** Items a person still has to check against the printed norm. */
+  needsHumanLook: number;
+};
+
+/** `GET /api/admin/norms`. */
+export type AdminNormsResponse = { norms: AdminNormSource[] };

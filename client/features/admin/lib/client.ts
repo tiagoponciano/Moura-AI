@@ -2,6 +2,7 @@ import { requestJson } from "@/lib/api/request-json";
 import type { LlmProvider } from "@/lib/llm/catalog";
 import type {
   AdminFormsResponse,
+  AdminNormsResponse,
   AdminSettingsResponse,
   AdminUsersResponse,
   ResolveFormLinkResponse,
@@ -65,3 +66,6 @@ export const runSiteCheck = () =>
   requestJson<SiteCheckResponse>("/api/admin/forms/site-check", {
     method: "POST",
   });
+
+export const fetchNorms = () =>
+  requestJson<AdminNormsResponse>("/api/admin/norms");

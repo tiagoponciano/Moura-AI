@@ -27,6 +27,10 @@ export const recordPartsInput = z.object({
         separation: occupationPartSchema.shape.separation.describe(
           "isolated, compartmented, or open (neither isolated nor compartmented) in relation to the other occupations",
         ),
+        largest_floor_share_pct:
+          occupationPartSchema.shape.largest_floor_share_pct.describe(
+            "Optional. The largest share, in percent, of any one floor of the building that this occupation takes, for a secondary occupation. Ask for it when a secondary occupation is small overall but could fill most of a floor. Leave it out when unknown",
+          ),
         role: occupationPartSchema.shape.role.describe(
           "Only for towers over a shared base: podium for the lower floors that join the towers, tower for each tower isolated from the others. Leave it out otherwise. A tower needs a podium",
         ),

@@ -244,6 +244,34 @@ export type Database = {
         >;
         Relationships: [];
       };
+      project_files: {
+        Row: {
+          id: string;
+          project_id: string;
+          kind: "form" | "proposal" | "plan" | "conversion" | "other";
+          file_name: string;
+          mime_type: string;
+          size_bytes: number;
+          storage_path: string;
+          created_by: string | null;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          project_id: string;
+          kind: "form" | "proposal" | "plan" | "conversion" | "other";
+          file_name: string;
+          mime_type: string;
+          size_bytes: number;
+          storage_path: string;
+          created_by?: string | null;
+          created_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["project_files"]["Insert"]
+        >;
+        Relationships: [];
+      };
       cbmsc_site_check: {
         Row: {
           id: boolean;

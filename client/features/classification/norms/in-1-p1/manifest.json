@@ -12,5 +12,11 @@
     "notes": 5,
     "sha256": "8e5103029ecaed2bd6b3572ba7f3c0ee67c065ec89b6a0ce4d95f771ce5bf3f8",
     "needs_human_look": 1
+  },
+  "annex_b": {
+    "pages": [46, 47],
+    "fields": 112,
+    "sha256": "2f3c56beeef244fab65e74136fefd248987aff650bb660adafcbf153cd481f90",
+    "needs_human_look": 0
   }
 }

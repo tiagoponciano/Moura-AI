@@ -1,0 +1,795 @@
+{
+  "doc": "IN-1-P1",
+  "table": "Anexo B",
+  "title": "Requerimentos para Análise, Habite-se, Funcionamento, RPCI e Eventos temporários",
+  "pages": [46, 47],
+  "fields": [
+    {
+      "section": "Enquadramento do imóvel",
+      "group": "",
+      "field": "RISCO DO IMÓVEL: ( ) I ( ) II ( ) III ( ) IV ( ) V",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "Enquadramento do imóvel",
+      "group": "",
+      "field": "Porte do evento (por evento): ( ) Pequeno ( ) Médio ( ) Grande",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Identificação do imóvel (terreno)",
+      "field": "RE do antigo sistema",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Identificação do imóvel (terreno)",
+      "field": "RE (se houver) Protocolo (se houver)",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Identificação do imóvel (terreno)",
+      "field": "Nome do imóvel*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Identificação do imóvel (terreno)",
+      "field": "Nome fantasia do imóvel",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Identificação do imóvel (terreno)",
+      "field": "Logradouro*, Nr*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Identificação do imóvel (terreno)",
+      "field": "Complemento",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Identificação do imóvel (terreno)",
+      "field": "Referência",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Identificação do imóvel (terreno)",
+      "field": "Bairro* Cidade* Estado*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Identificação do imóvel (terreno)",
+      "field": "CEP*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Identificação do imóvel (terreno)",
+      "field": "Área do terreno (m²)* Área total construída no terreno (m²)*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Identificação do imóvel (terreno)",
+      "field": "Matrícula do terreno (registro de imóveis)",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Identificação do imóvel (terreno)",
+      "field": "Matrícula do terreno (prefeitura)*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Identificação do imóvel (terreno)",
+      "field": "Latitude/Longitude (mapa)*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Bloco",
+      "field": "Incluir bloco / cadastrar nome do bloco*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Descrição do bloco (Se blocos/áreas isolados, os campos devem ser preenchidos para cada bloco)",
+      "field": "Situação do imóvel em relação ao tempo conforme Lei 16.157/13**: ( ) Novo ( ) Recente ( ) Existente",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Descrição do bloco (Se blocos/áreas isolados, os campos devem ser preenchidos para cada bloco)",
+      "field": "Carga de Incêndio conforme IN 3 CBMSC**: ( ) Baixa ( ) Média ( ) Alta",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Descrição do bloco (Se blocos/áreas isolados, os campos devem ser preenchidos para cada bloco)",
+      "field": "Ocupação** (ver IN 1 Parte 2)",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Descrição do bloco (Se blocos/áreas isolados, os campos devem ser preenchidos para cada bloco)",
+      "field": "Destinação** (ver IN 1 Parte 2)",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Descrição do bloco (Se blocos/áreas isolados, os campos devem ser preenchidos para cada bloco)",
+      "field": "Tipo construtivo**: ( ) alvenaria convencional ( ) alvenaria estrutural ( ) madeira ( ) steel frame ( ) wood frame ( )container ( )concreto pré moldado ( ) outro",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "DADOS DO IMÓVEL",
+      "group": "Descrição do bloco (Se blocos/áreas isolados, os campos devem ser preenchidos para cada bloco)",
+      "field": "Possui isolamento de outros blocos? (s/n) - Se não isolado, informar de qual bloco depende**",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA ANÁLISE",
+      "group": "",
+      "field": "Área total do bloco (m²)*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA ANÁLISE",
+      "group": "",
+      "field": "Altura do bloco (m)*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA ANÁLISE",
+      "group": "",
+      "field": "Nr pavimentos do bloco*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA ANÁLISE",
+      "group": "",
+      "field": "Área do pavimento tipo do bloco (m²)*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA ANÁLISE",
+      "group": "",
+      "field": "Tipo de escada",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "ABA ANÁLISE",
+      "group": "",
+      "field": "Lotação de pessoas*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA ANÁLISE",
+      "group": "Descrição do projeto (PPCI / RPCI)",
+      "field": "Finalidade*: ( ) Análise PPCI total ( ) Alteração de PPCI ( )Retorno de PPCI",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA ANÁLISE",
+      "group": "Descrição do projeto (PPCI / RPCI)",
+      "field": "Para Alteração, o Resp Técnico descrever detalhadamente as alterações pretendidas em relação ao PPCI já aprovado. As ART ou RRT e PPCI serão anexados na aba anexo",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "ABA ANÁLISE",
+      "group": "Descrição do projeto (PPCI / RPCI)",
+      "field": "Área a ser analisada*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA ANÁLISE",
+      "group": "Descrição do projeto (PPCI / RPCI)",
+      "field": "Sistemas e Medidas de Segurança Contra Incêndio e Pânico do Bloco",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "ABA ANÁLISE",
+      "group": "Descrição do projeto (PPCI / RPCI)",
+      "field": "Riscos especiais",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "ABA HABITE-SE",
+      "group": "Características da vistoria",
+      "field": "Finalidade*: (Habite-se / Retorno)",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA HABITE-SE",
+      "group": "Características da vistoria",
+      "field": "Atividade definida?* (s/n) (se sim, emitir Atestado de Habite-se e Funcionamento juntos / se não, emitir somente Atestado de Habite-se = se habite-se aprovado)",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA FUNCIONAMENTO",
+      "group": "Personalidade jurídica (empresa, condomínio, etc)",
+      "field": "Nome fantasia*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA FUNCIONAMENTO",
+      "group": "Personalidade jurídica (empresa, condomínio, etc)",
+      "field": "Razão social*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA FUNCIONAMENTO",
+      "group": "Personalidade jurídica (empresa, condomínio, etc)",
+      "field": "CNPJ*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA FUNCIONAMENTO",
+      "group": "Personalidade jurídica (empresa, condomínio, etc)",
+      "field": "É Microempreendedor Individual (MEI)?* (s/n)",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA FUNCIONAMENTO",
+      "group": "Personalidade jurídica (empresa, condomínio, etc)",
+      "field": "Endereço da empresa é diferente da edificação?* (s/n) (se sim, inserir endereço)",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA FUNCIONAMENTO",
+      "group": "Personalidade jurídica (empresa, condomínio, etc)",
+      "field": "Ocupação*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA FUNCIONAMENTO",
+      "group": "Características da vistoria",
+      "field": "Finalidade* (Funcionamento total / Funcionamento parcial / Retorno / Renovação)",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA FUNCIONAMENTO",
+      "group": "Características da vistoria",
+      "field": "Se parcial = Nome do local a ser vistoriado (ex: sala 203, depósito 5, prédio inteiro)",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "ABA FUNCIONAMENTO",
+      "group": "Características da vistoria",
+      "field": "Se parcial = Área a ser vistoriada",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "ABA EVENTOS TEMPORÁRIOS",
+      "group": "Empresa organizadora do Evento",
+      "field": "Nome fantasia",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "ABA EVENTOS TEMPORÁRIOS",
+      "group": "Empresa organizadora do Evento",
+      "field": "Razão social",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "ABA EVENTOS TEMPORÁRIOS",
+      "group": "Empresa organizadora do Evento",
+      "field": "CNPJ",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "ABA EVENTOS TEMPORÁRIOS",
+      "group": "Empresa organizadora do Evento",
+      "field": "Telefone",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "ABA EVENTOS TEMPORÁRIOS",
+      "group": "Empresa organizadora do Evento",
+      "field": "Cidade",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "ABA EVENTOS TEMPORÁRIOS",
+      "group": "Características do evento",
+      "field": "Nome do evento*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA EVENTOS TEMPORÁRIOS",
+      "group": "Características do evento",
+      "field": "Área a ser vistoriada para o evento*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA EVENTOS TEMPORÁRIOS",
+      "group": "Características do evento",
+      "field": "Horário de início*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA EVENTOS TEMPORÁRIOS",
+      "group": "Características do evento",
+      "field": "Horário de término*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA EVENTOS TEMPORÁRIOS",
+      "group": "Características do evento",
+      "field": "Público estimado*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA EVENTOS TEMPORÁRIOS",
+      "group": "Características do evento",
+      "field": "Lotação máxima de pessoas*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA EVENTOS TEMPORÁRIOS",
+      "group": "Características do evento",
+      "field": "Número de brigadistas mínimos necessários",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "ABA EVENTOS TEMPORÁRIOS",
+      "group": "Características do evento",
+      "field": "Descrição das atividades a serem desenvolvidas*",
+      "required": true,
+      "page": 46
+    },
+    {
+      "section": "ABA EVENTOS TEMPORÁRIOS",
+      "group": "Características do evento",
+      "field": "Porte do evento",
+      "required": false,
+      "page": 46
+    },
+    {
+      "section": "ANEXOS",
+      "group": "",
+      "field": "Campo para anexar documentos essenciais e gerais",
+      "required": false,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável Contábil",
+      "field": "( ) igual ao solicitante ( ) igual ao responsável pelo imóvel ( ) igual ao responsável técnico ( ) igual ao responsável contábil ( ) igual ao responsável pelo evento ( ) igual ao responsável pela empresa",
+      "required": false,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável Contábil",
+      "field": "CPF*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável Contábil",
+      "field": "Nome*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável Contábil",
+      "field": "Telefone*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável Contábil",
+      "field": "E-mail*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável Contábil",
+      "field": "Registro no CRC*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Solicitante",
+      "field": "( ) igual ao solicitante ( ) igual ao responsável pelo imóvel ( ) igual ao responsável técnico ( ) igual ao responsável contábil ( ) igual ao responsável pelo evento ( ) igual ao responsável pela empresa",
+      "required": false,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Solicitante",
+      "field": "CPF*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Solicitante",
+      "field": "Nome*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Solicitante",
+      "field": "Telefone*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Solicitante",
+      "field": "E-mail*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável Técnico",
+      "field": "( ) igual ao solicitante ( ) igual ao responsável pelo imóvel ( ) igual ao responsável técnico ( ) igual ao responsável contábil ( ) igual ao responsável pelo evento ( ) igual ao responsável pela empresa",
+      "required": false,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável Técnico",
+      "field": "CPF*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável Técnico",
+      "field": "Nome*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável Técnico",
+      "field": "Telefone*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável Técnico",
+      "field": "E-mail*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável Técnico",
+      "field": "Registro no CREA / CAU / CRT* (pelo menos 1 obrigatório)",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo Evento",
+      "field": "( ) igual ao solicitante ( ) igual ao responsável pelo imóvel ( ) igual ao responsável técnico ( ) igual ao responsável contábil ( ) igual ao responsável pelo evento ( ) igual ao responsável pela empresa",
+      "required": false,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo Evento",
+      "field": "Nome*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo Evento",
+      "field": "CPF*/CNPJ*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo Evento",
+      "field": "RG",
+      "required": false,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo Evento",
+      "field": "Telefone*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo Evento",
+      "field": "E-mail*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo Evento",
+      "field": "Logradouro*, Nr*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo Evento",
+      "field": "Complemento",
+      "required": false,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo Evento",
+      "field": "Bairro*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo Evento",
+      "field": "Cidade*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo Evento",
+      "field": "Estado*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo Evento",
+      "field": "CEP*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo imóvel - Bloco",
+      "field": "( ) igual ao solicitante ( ) igual ao responsável pelo imóvel ( ) igual ao responsável técnico ( ) igual ao responsável contábil ( ) igual ao responsável pelo evento ( ) igual ao responsável pela empresa",
+      "required": false,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo imóvel - Bloco",
+      "field": "Nome*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo imóvel - Bloco",
+      "field": "CPF*/CNPJ*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo imóvel - Bloco",
+      "field": "RG",
+      "required": false,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo imóvel - Bloco",
+      "field": "Telefone*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo imóvel - Bloco",
+      "field": "E-mail*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo imóvel - Bloco",
+      "field": "Logradouro*, Nr*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo imóvel - Bloco",
+      "field": "Complemento",
+      "required": false,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo imóvel - Bloco",
+      "field": "Bairro*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo imóvel - Bloco",
+      "field": "Cidade*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo imóvel - Bloco",
+      "field": "Estado*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pelo imóvel - Bloco",
+      "field": "CEP*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pela empresa - Área esp.",
+      "field": "( ) igual ao solicitante ( ) igual ao responsável pelo imóvel ( ) igual ao responsável técnico ( ) igual ao responsável contábil ( ) igual ao responsável pelo evento ( ) igual ao responsável pela empresa",
+      "required": false,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pela empresa - Área esp.",
+      "field": "Nome*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pela empresa - Área esp.",
+      "field": "CPF*/CNPJ*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pela empresa - Área esp.",
+      "field": "RG",
+      "required": false,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pela empresa - Área esp.",
+      "field": "Telefone*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pela empresa - Área esp.",
+      "field": "E-mail*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pela empresa - Área esp.",
+      "field": "Logradouro*, Nr*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pela empresa - Área esp.",
+      "field": "Complemento",
+      "required": false,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pela empresa - Área esp.",
+      "field": "Bairro*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pela empresa - Área esp.",
+      "field": "Cidade*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pela empresa - Área esp.",
+      "field": "Estado*",
+      "required": true,
+      "page": 47
+    },
+    {
+      "section": "IDENTIFICAÇÃO NOMINAL",
+      "group": "Responsável pela empresa - Área esp.",
+      "field": "CEP*",
+      "required": true,
+      "page": 47
+    }
+  ],
+  "checks": {
+    "needs_human_look": []
+  }
+}

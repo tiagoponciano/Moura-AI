@@ -11,7 +11,7 @@ Invariants:
 - **Looking at a project chooses it.** `ProjectDetail` writes the id with `writeSelectedProject`, so the "Abrir" button of each card opens the module on that project.
 - **Each module draws its own card.** The cards come from the modules (`ProjectClassificationSummary`, `ProjectDocumentsSummary`, `ProjectFloorPlansSummary`), each exported from the module's `index.ts`. `app/(app)/projects/[id]/page.tsx` puts them inside `ProjectDetail` as children, because a feature never imports another feature.
 - **Without Supabase there is nothing to list.** The page says projects need Supabase, like the other modules that depend on it.
-- **Only what a project knows is shown.** The data section lists the fields it has a value for; an empty group shows no rows.
+- **The data is edited on the page.** The "Dados do projeto" section has one collapsible group per set of fields (the property, its owner, the engineer, the block and building, the accountant, the applicant), with every field as an input; each one saves when it loses focus, through `useProjects().saveData`, and an empty value removes the key. The same fields feed the forms of the project. A failed save shows the error under the section.
 
 ## Surface
 
@@ -22,12 +22,13 @@ Invariants:
 
 The sidebar shows "Projetos" under "Início", outside the module list (`PROJECTS_PATH` in `lib/modules.ts`), so the home page cards do not change.
 
-| File                                | Holds                                                                           |
-| ----------------------------------- | ------------------------------------------------------------------------------- |
-| `lib/project-summary.ts`            | `summarizeProject` (city, occupation, area from the project data), `formatArea` |
-| `components/projects-workspace.tsx` | The list page: search, empty and loading states, the new-project dialog         |
-| `components/projects-table.tsx`     | One row per project                                                             |
-| `components/project-detail.tsx`     | The project page: header, the cards it is given, the project data               |
+| File                                | Holds                                                                               |
+| ----------------------------------- | ----------------------------------------------------------------------------------- |
+| `lib/project-summary.ts`            | `summarizeProject` (city, occupation, area from the project data), `formatArea`     |
+| `components/projects-workspace.tsx` | The list page: search, empty and loading states, the new-project dialog             |
+| `components/projects-table.tsx`     | One row per project                                                                 |
+| `components/project-detail.tsx`     | The project page: header, the cards it is given, the project data                   |
+| `components/project-data-form.tsx`  | The editable groups of the project data; `fieldChange` decides what a field changes |
 
 The field groups and labels come from `lib/projects/fields.ts`, shared with the documents module. `useProjects` exposes `loaded`, true once the first list or error has come, so the page tells "still loading" from "no projects". The cards are rendered only once the project is found.
 

@@ -6,9 +6,9 @@ import { useEffect, type ReactNode } from "react";
 import { PageHeader } from "@/components/shared/page-header";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useProjects } from "@/hooks/use-projects";
-import { PROJECT_FIELD_GROUPS } from "@/lib/projects/fields";
 import { writeSelectedProject } from "@/lib/projects/selection";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { ProjectDataForm } from "./project-data-form";
 
 type ProjectDetailProps = {
   id: string;
@@ -39,27 +39,16 @@ export function ProjectDetail({ id, children }: ProjectDetailProps) {
           <PageHeader title={project.name} />
           <div className="grid gap-4 lg:grid-cols-2">{children}</div>
           <h2 className="text-sm font-medium">Dados do projeto</h2>
-          <div className="grid gap-4 md:grid-cols-3">
-            {PROJECT_FIELD_GROUPS.map((group) => (
-              <section key={group.id} className="rounded-lg border p-4">
-                <h2 className="mb-3 text-sm font-medium">{group.title}</h2>
-                <dl className="flex flex-col gap-1.5 text-sm">
-                  {group.fields
-                    .filter((field) => project.data[field.key])
-                    .map((field) => (
-                      <div key={field.key} className="flex flex-col">
-                        <dt className="text-xs text-muted-foreground">
-                          {field.label}
-                        </dt>
-                        <dd className="break-words">
-                          {project.data[field.key]}
-                        </dd>
-                      </div>
-                    ))}
-                </dl>
-              </section>
-            ))}
-          </div>
+          <ProjectDataForm
+            key={project.id}
+            project={project}
+            onChange={(change) => projects.saveData(project.id, change)}
+          />
+          {projects.error && (
+            <p role="alert" className="text-sm text-destructive">
+              {projects.error}
+            </p>
+          )}
         </>
       ) : projects.loaded ? (
         <p className="text-sm text-muted-foreground">Projeto não encontrado.</p>

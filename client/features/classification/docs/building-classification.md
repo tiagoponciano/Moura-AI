@@ -138,6 +138,8 @@ Panel, top to bottom:
 
 **Risk III against the Annex A extraction.** The risk III rules of every group (A, B, C, D, E, G, H, I, J and M-3, M-4, M-11; F follows quadro 3) are coded by hand, and `lib/rulesets/risk-iii-annex-a.test.ts` checks them against `norms/in-1-p1/annex-a.json`: for each division, height band and area limit of quadro 2, the risk is II or III at the limit and IV one square meter above it. A change to the extracted annex that the rules do not follow fails that test. Group F is not covered by it, and the criterion of its quadro 3 ends in an "E" in the PDF, so it waits for Moura.
 
+**Norm of each system.** A required system, once expanded, ends with "Norma do sistema: IN N", a link to the instruction that sizes it on Drive (`lib/system-norms.ts`: extinguishers IN 6, hydraulic IN 7, gas IN 8, exits IN 9, smoke control IN 10, lighting IN 11, alarm and detection IN 12, signage IN 13, structural protection, compartmentation and isolation IN 14, sprinklers IN 15, finishing materials IN 18, low voltage IN 19, urban hydrants IN 25, brigade IN 28, emergency plan IN 31, vehicle access IN 35). A system with no instruction of its own shows no link. `norm-search.md` describes how the assistants read the text of those instructions.
+
 ## What this does NOT do
 
 - **Only Grupos A (A-2 and A-3), B, C, D, E, F, G, H, I and J.** Another division gets a specific analysis. Nothing for existing buildings (IN 5).

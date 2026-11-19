@@ -42,12 +42,12 @@ The result has `systems` (id, status, `vital`, the divisions that require it, th
 
 ## The chat and the occupations
 
-`record_parts` takes the whole list (2 to 6 occupations, the predominant first) and each call replaces the previous one, so a replayed chat ends with the same list. The client sends the list in the request body as `parts`, and `buildInstructions` writes it into the prompt (the model sees only the last messages). Mixed or secondary is decided by `mixedKind` in code: mixed when the secondary areas are more than 10% of the building, secondary otherwise. This is a provisional reading: IN 1 parte 1, art. 4º, which defines the criteria, is not extracted in this repository and Moura has not confirmed it. The list is kept only in the `useClassification` hook, like the answers.
+`record_parts` takes the whole list (2 to 6 occupations, the predominant first) and each call replaces the previous one, so a replayed chat ends with the same list. The client sends the list in the request body as `parts`, and `buildInstructions` writes it into the prompt (the model sees only the last messages). Mixed or secondary is decided by `mixedKind` in code, following IN 1 parte 1, art. 4º, IV: mixed when the secondary areas are more than 10% of the building, or when a secondary occupation takes 90% or more of one floor (the optional `largest_floor_share_pct` of that part); secondary otherwise. The third criterion of the definition, a subsidiary store above 1,000 m², is the `only_subsidiary` question, which sends the property to the mixed path when answered false. The reading is provisional until Moura confirms it. The list is kept only in the `useClassification` hook, like the answers.
 
 ## What this does NOT do
 
 - **It does not replicate vertical compartmentation** in the lower floors (art. 11, parágrafo único); it only reminds.
 - **It does not size an F subsidiary occupation above 100 people by its own group** (art. 10, § 4º): the panel only states the exception, since the classification of a subsidiary occupation has no list of occupations to run.
-- **It does not apply the criteria of art. 4º** to decide mixed or secondary; `mixedKind` uses the 10% share only.
+- **The floor share is only as good as what is told.** `largest_floor_share_pct` is optional and nobody computes it from plans: without it `mixedKind` falls back to the 10% share.
 - **The panel does not edit the occupations**: they are recorded by the chat.
 - **It does not approve a reading.** The readings of the reductions (which systems are autonomous) and of the height used when parts are open are open until a person confirms them with Moura.

@@ -120,22 +120,26 @@ def main():
     (args.out / "annex-a.json").write_text(
         json.dumps(table, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
-    manifest = {
-        "doc": args.doc,
-        "source_url": args.url,
-        "retrieved": args.retrieved,
-        "pdf_sha256": hashlib.sha256(args.pdf.read_bytes()).hexdigest(),
-        "pdf_pages": len(doc),
-        "tool_version": TOOL_VERSION,
-        "pymupdf": pymupdf.__version__,
-        "annex_a": {
-            "pages": pages,
-            "rows": len(quadro1) + len(quadro2) + len(quadro3),
-            "notes": len(notes),
-            "sha256": digest,
-            "needs_human_look": len(table["checks"]["needs_human_look"]),
-        },
-    }
+    # The Annex B tool writes the same manifest: each keeps the other's entry.
+    manifest = json.loads(manifest_path.read_text("utf-8")) if manifest_path.exists() else {}
+    manifest.update(
+        {
+            "doc": args.doc,
+            "source_url": args.url or manifest.get("source_url", ""),
+            "retrieved": args.retrieved,
+            "pdf_sha256": hashlib.sha256(args.pdf.read_bytes()).hexdigest(),
+            "pdf_pages": len(doc),
+            "tool_version": TOOL_VERSION,
+            "pymupdf": pymupdf.__version__,
+            "annex_a": {
+                "pages": pages,
+                "rows": len(quadro1) + len(quadro2) + len(quadro3),
+                "notes": len(notes),
+                "sha256": digest,
+                "needs_human_look": len(table["checks"]["needs_human_look"]),
+            },
+        }
+    )
     manifest_path.write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )

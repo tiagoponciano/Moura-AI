@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { errorMessage } from "@/lib/api/request-json";
 import { generateDocument } from "../lib/generate-document";
 import type { FieldValues } from "../lib/templates";
@@ -8,11 +8,18 @@ import type { FieldValues } from "../lib/templates";
 /** The PDF preview of a form: generates it, drops a stale one and ignores late answers. */
 export function usePdfPreview(
   setNotice: (message: string | undefined) => void,
+  /** The name the file is downloaded and kept under; the server's by default. */
+  nameFile: (fileName: string) => string = (fileName) => fileName,
 ) {
   const [pdf, setPdf] = useState<{ url: string; fileName: string }>();
   const [generating, setGenerating] = useState(false);
   /** Only the newest request may show its result. */
   const latest = useRef(0);
+  /** The latest naming rule, so `generate` keeps its identity when the project changes. */
+  const naming = useRef(nameFile);
+  useEffect(() => {
+    naming.current = nameFile;
+  }, [nameFile]);
 
   const clear = useCallback(() => {
     setPdf((current) => {
@@ -39,7 +46,7 @@ export function usePdfPreview(
         if (request !== latest.current) return;
         setPdf({
           url: URL.createObjectURL(file.blob),
-          fileName: file.fileName,
+          fileName: naming.current(file.fileName),
         });
       } catch (cause) {
         if (request === latest.current) setNotice(errorMessage(cause));

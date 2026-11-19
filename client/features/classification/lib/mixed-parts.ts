@@ -9,8 +9,11 @@ import { FIRE_LOAD_CLASSES } from "./rulesets/group-c-conditions";
 /** Most occupations one building can list; a tool call longer than this is dropped. */
 export const MAX_PARTS = 6;
 
-/** Share of the building above which the secondary areas make it mixed (art. 11). */
+/** Share of the building above which the secondary areas make it mixed (IN 1 parte 1, art. 4, IV). */
 const MIXED_SHARE = 0.1;
+
+/** Share of one floor, in percent, from which a secondary occupation makes the building mixed (art. 4, IV). */
+const MIXED_FLOOR_SHARE_PCT = 90;
 
 export const occupationPartSchema = z.object({
   division: z.string().regex(/^[A-M]-\d{1,2}$/),
@@ -22,6 +25,7 @@ export const occupationPartSchema = z.object({
     .enum(FIRE_LOAD_CLASSES.map((c) => c.id) as [string, ...string[]])
     .optional(),
   role: z.enum(["podium", "tower"]).optional(),
+  largest_floor_share_pct: z.number().min(0).max(100).optional(),
 });
 
 /** A tower needs a podium to stand on (art. 11, IV); `classifyMixed` rejects it otherwise. */
@@ -42,15 +46,20 @@ export function pickParts(raw: unknown): OccupationPart[] {
 }
 
 /**
- * Mixed (art. 11) when the secondary occupations are more than 10% of the
- * building, secondary (art. 12) otherwise. The predominant one is the first.
- * A provisional reading: IN 1 parte 1, art. 4º, which defines the criteria, is
- * not in the repository, and Moura has not confirmed it.
+ * Mixed (art. 11) by IN 1 parte 1, art. 4, IV: the secondary occupations are more
+ * than 10% of the building, or one of them takes 90% or more of a floor. Secondary
+ * (art. 12) otherwise. The predominant one is the first. The third criterion of the
+ * definition, a subsidiary store above 1,000 m2, is asked as `only_subsidiary`.
+ * Still provisional until Moura confirms the reading.
  */
 export function mixedKind(parts: OccupationPart[]): MixedKind {
   const total = parts.reduce((sum, p) => sum + p.area_m2, 0);
+  const others = parts.slice(1);
   const secondary = total - (parts[0]?.area_m2 ?? 0);
-  return secondary > total * MIXED_SHARE ? "mixed" : "secondary";
+  const fillsAFloor = others.some(
+    (p) => (p.largest_floor_share_pct ?? 0) >= MIXED_FLOOR_SHARE_PCT,
+  );
+  return secondary > total * MIXED_SHARE || fillsAFloor ? "mixed" : "secondary";
 }
 
 /** The user said the property mixes occupations and they are not all subsidiary. */

@@ -7,11 +7,7 @@
   "tool_version": 1,
   "pymupdf": "1.28.2",
   "annex_a": {
-    "pages": [
-      43,
-      44,
-      45
-    ],
+    "pages": [43, 44, 45],
     "rows": 44,
     "notes": 5,
     "sha256": "8e5103029ecaed2bd6b3572ba7f3c0ee67c065ec89b6a0ce4d95f771ce5bf3f8",

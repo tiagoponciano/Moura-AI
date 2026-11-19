@@ -2,11 +2,7 @@
   "doc": "IN-1-P1",
   "table": "Anexo A",
   "title": "Risco dos imóveis",
-  "pages": [
-    43,
-    44,
-    45
-  ],
+  "pages": [43, 44, 45],
   "quadro_1_risco_ii": [
     {
       "parameter": "Área",

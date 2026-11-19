@@ -38,7 +38,9 @@ describe("buildProjectFilePath", () => {
   });
 
   it("falls back to a name when nothing usable is left", () => {
-    expect(buildProjectFilePath(PROJECT, "???", "x")).toBe(`${PROJECT}/x-arquivo`);
+    expect(buildProjectFilePath(PROJECT, "???", "x")).toBe(
+      `${PROJECT}/x-arquivo`,
+    );
   });
 });
 

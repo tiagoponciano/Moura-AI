@@ -33,17 +33,33 @@ describe("summarizeManifest", () => {
 });
 
 describe("listNormSources", () => {
-  it("lists the four norms, each with a Drive link", () => {
-    const sources = listNormSources();
-    expect(sources.map((s) => s.doc)).toEqual([
+  const sources = listNormSources();
+
+  it("lists the 33 instructions of the Drive folder that have articles, in the order of their number", () => {
+    expect(sources).toHaveLength(33);
+    expect(sources.slice(0, 4).map((s) => s.doc)).toEqual([
       "IN-1-P1",
       "IN-1-P2",
+      "IN-2",
       "IN-3",
-      "IN-5",
     ]);
+    expect(sources.at(-1)?.doc).toBe("IN-35");
+  });
+
+  it("gives every one a Drive link and a page count", () => {
     for (const source of sources) {
-      expect(source.sourceUrl).toContain("drive.google.com/file/d/");
-      expect(source.pages).toBeGreaterThan(0);
+      expect(source.sourceUrl, source.doc).toContain(
+        "drive.google.com/file/d/",
+      );
+      expect(source.pages, source.doc).toBeGreaterThan(0);
+    }
+  });
+
+  it("has no instruction twice and none that does not exist", () => {
+    const docs = sources.map((s) => s.doc);
+    expect(new Set(docs).size).toBe(docs.length);
+    for (const missing of ["IN-16", "IN-17", "IN-32"]) {
+      expect(docs).not.toContain(missing);
     }
   });
 });

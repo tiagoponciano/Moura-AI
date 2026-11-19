@@ -24,6 +24,10 @@ Invariants:
 
 Without Supabase configured the proxy is off, so `/admin` renders for anyone, but every API call returns 503 and the sections show "Admin console is not configured".
 
+### Normas
+
+The "Normas" section lists the norms the classification is built on (IN 1 parte 1, IN 1 parte 2, IN 3 and IN 5): a link to the PDF on Drive, the date of the extraction, the page count and how many items still wait for a person to check them against the printed norm. It is read-only. The data come from the manifests committed next to the extracted JSON (`features/classification/norms/*/manifest.json`), through `GET /api/admin/norms`, which answers `{ norms: [...] }` behind the same proxy gate as the other admin routes. Changing a link, or extracting again, is done in the repository: the weekly norm-update workflow reads the manifests, not the database (see the classification feature's `norm-extraction.md`).
+
 ### API
 
 All routes run behind the proxy and need a session cookie. Errors are `{"error": string}`.

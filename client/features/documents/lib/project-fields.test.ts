@@ -100,3 +100,22 @@ describe("fieldChange", () => {
     expect(fieldChange("a", "", { a: "1" })).toEqual({ a: null });
   });
 });
+
+describe("PROJECT_FIELD_GROUPS, Annex B of IN 1 parte 1", () => {
+  it("has the block, accountant and applicant groups of the request form", () => {
+    const ids = PROJECT_FIELD_GROUPS.map((group) => group.id);
+    expect(ids).toEqual(
+      expect.arrayContaining(["building", "accountant", "applicant"]),
+    );
+  });
+
+  it("keeps the CRC registry of the accountant and the block height and capacity", () => {
+    expect(PROJECT_FIELD_KEYS).toEqual(
+      expect.arrayContaining([
+        "accountant_registry",
+        "block_height",
+        "block_capacity",
+      ]),
+    );
+  });
+});

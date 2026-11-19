@@ -7,6 +7,7 @@ import table28Json from "../../norms/in-1-p2/tables/table-28.json";
 import table29Json from "../../norms/in-1-p2/tables/table-29.json";
 import { compileTable } from "./compile-table";
 import { guard } from "./group-c";
+import { riskRule } from "./group-c-risk";
 import {
   HEIGHT_CLASSES,
   M3,
@@ -19,6 +20,8 @@ import {
   REGIME_SMALL,
   USE_IN_SCOPE,
   fact,
+  heightAbove,
+  heightAtMost,
 } from "./group-c-conditions";
 import { TABLE_2_IJ_NOTES } from "./group-ij-notes";
 import {
@@ -146,8 +149,60 @@ const GUARDS: Rule[] = [
   ),
 ];
 
+/** Risk III for M-3, M-4 and M-11: IN 1 parte 1, Anexo A, Quadro 2. */
+const RISK_III_M: Rule[] = [
+  riskRule(
+    "IN1P1-RISK-III-M-3-ground",
+    "Risco III, M-3 térreo",
+    54,
+    { all: [M3, fact("storeys", "eq", 1), fact("area_m2", "lte", 5000)] },
+    "III",
+    "Anexo A, Quadro 2, M-3",
+    "QUADRO 2 - Risco III (relação área e altura): M-3, térreo, área ≤ 5.000 m²",
+  ),
+  riskRule(
+    "IN1P1-RISK-III-M-3-low",
+    "Risco III, M-3 até 6 m",
+    55,
+    { all: [M3, heightAtMost(6), fact("area_m2", "lte", 3000)] },
+    "III",
+    "Anexo A, Quadro 2, M-3",
+    "QUADRO 2 - Risco III (relação área e altura): M-3, altura ≤ 6 m, área ≤ 3.000 m²",
+  ),
+  riskRule(
+    "IN1P1-RISK-III-M-3-mid",
+    "Risco III, M-3 de 6 a 12 m",
+    56,
+    {
+      all: [M3, heightAbove(6), heightAtMost(12), fact("area_m2", "lte", 2000)],
+    },
+    "III",
+    "Anexo A, Quadro 2, M-3",
+    "QUADRO 2 - Risco III (relação área e altura): M-3, 6 < h ≤ 12 m, área ≤ 2.000 m²",
+  ),
+  riskRule(
+    "IN1P1-RISK-III-M-4",
+    "Risco III, M-4",
+    57,
+    { all: [M4, heightAtMost(21), fact("area_m2", "lte", 5000)] },
+    "III",
+    "Anexo A, Quadro 2, M-4",
+    "QUADRO 2 - Risco III (relação área e altura): M-4, altura ≤ 21 m, área ≤ 5.000 m²",
+  ),
+  riskRule(
+    "IN1P1-RISK-III-M-11",
+    "Risco III, M-11",
+    58,
+    { all: [M11, heightAtMost(6), fact("area_m2", "lte", 5000)] },
+    "III",
+    "Anexo A, Quadro 2, M-11",
+    "QUADRO 2 - Risco III (relação área e altura): M-11, altura ≤ 6 m, área ≤ 5.000 m²",
+  ),
+];
+
 export const GROUP_M_DIVISIONS_RULES: Rule[] = [
   ...GUARDS,
+  ...RISK_III_M,
   ...compileTable(t(table2Json), TABLE_2_M3_SPEC),
   ...compileTable(t(table25Json), TABLE_25_SPEC),
   ...compileTable(t(table26Json), TABLE_26_SPEC),

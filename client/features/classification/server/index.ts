@@ -4,3 +4,4 @@ export {
   handlePutProjectState,
 } from "./project-state-handler";
 export { handleGetNormSources } from "./norm-sources-handler";
+export { buildingCheckTools } from "./check-building";

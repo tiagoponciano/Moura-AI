@@ -225,3 +225,7 @@ Selecting a template resets values, problems, the generate-attempt flag and the 
 ## Setup
 
 - Supabase configured with `SUPABASE_SERVICE_ROLE_KEY`, and a provider, model and key saved on `/admin`; see `.env.example` at the repo root and `client/docs/llm-configuration.md`.
+
+## Checking building data against the norms
+
+The documents route adds a second tool to the assistant: `check_building`, provided by the classification module (`features/classification/server/check-building.ts`) and passed in by `app/api/documents/chat/route.ts` through `createDocumentsChatHandler(extraTools)`. The assistant calls it when the user states the occupation division, area, height, storeys, people, special risks or the risk level of the building. The tool runs the classification rules over what was stated and returns the risk level with its process and source, what is still missing, and the conflicts: a declared risk that differs from the one the norm gives, or an activity that points to another division. It records nothing in the form and decides nothing the rules do not: with answers missing it returns `pending` and the list of what to ask, and for a division without rules it returns `not_covered`. Rule 8 of the instructions tells the assistant to report a conflict, cite the source and ask before recording the conflicting value. The forms still name their fields per template, so the tool takes the building data in its own terms and the assistant, not the code, links them to the form's fields.

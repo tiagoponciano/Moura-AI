@@ -9,6 +9,32 @@ const schema: TemplateSchema = {
   ],
 };
 
+describe("buildInstructions, norm check", () => {
+  const progress = { index: 0, total: 0 };
+
+  it("tells the assistant to check building data when the tool is available", () => {
+    const prompt = buildInstructions("x", schema, {}, progress, [
+      "check_building",
+    ]);
+    expect(prompt).toContain("`check_building`");
+    expect(prompt).toContain(
+      "Never state a risk level the tool did not return",
+    );
+  });
+
+  it("does not mention the tool when it is not available", () => {
+    expect(buildInstructions("x", schema)).not.toContain("check_building");
+  });
+
+  it("keeps the instruction free of Portuguese accents, since the model reads it as English", () => {
+    const prompt = buildInstructions("x", schema, {}, progress, [
+      "check_building",
+    ]);
+    const rule = prompt.slice(prompt.indexOf("8. When the user states"));
+    expect(rule).not.toMatch(/[áàâãéêíóôõúç]/i);
+  });
+});
+
 describe("buildInstructions", () => {
   it("lists what is already filled, so the assistant does not ask again", () => {
     const prompt = buildInstructions("x", schema, { street: "Rua X" });

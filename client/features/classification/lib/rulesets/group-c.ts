@@ -138,14 +138,24 @@ export const guard = (
   source,
 });
 
+/** Listed as occupations in IN 1 parte 2 but present in none of its tables. */
+const NO_TABLE_DIVISIONS = fact("division", "in", ["M-8", "M-9", "M-10"]);
+
 /** Cases the Grupo C tables do not settle: the engine says so instead of listing systems. */
 const guards: Rule[] = [
   guard(
     "GUARD-not-covered",
     "Divisão sem regras carregadas",
-    { not: COVERED_DIVISIONS },
+    { all: [{ not: COVERED_DIVISIONS }, { not: NO_TABLE_DIVISIONS }] },
     "Esta divisão ainda não está coberta: só os Grupos A (residencial, A-2 e A-3), B (hospedagem), C (comércio), D (serviços profissionais), E (educacional), F (reunião de público), G (serviços automotivos), H (saúde e institucional), I e J (indústria e depósito) K (energia) e M (especiais: M-1 a M-7 e M-11) têm regras carregadas.",
     { doc: "IN-1-P2", locator: "Anexo B" },
+  ),
+  guard(
+    "GUARD-no-table",
+    "Divisão sem tabela na norma",
+    NO_TABLE_DIVISIONS,
+    "A IN 1 parte 2 lista esta divisão (M-8, M-9 ou M-10) entre as ocupações, mas nenhuma de suas tabelas do Anexo B traz exigências para ela. Consulte o CBMSC: análise específica.",
+    { doc: "IN-1-P2", locator: "Anexo A e Anexo B" },
   ),
   guard(
     "GUARD-boundary",

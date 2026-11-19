@@ -40,10 +40,13 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  // Read from disk by the generate and chat routes; public/ is not traced by default.
+  // Read from disk by these routes; public/ is not traced by default.
   outputFileTracingIncludes: {
     "/api/documents/generate": ["./public/templates/**/*"],
     "/api/documents/chat": ["./public/templates/**/*"],
+    "/api/documents/projects/[id]/proposal": [
+      "./public/templates/proposal/**/*",
+    ],
   },
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];

@@ -6,7 +6,7 @@ set -euo pipefail
 LIBREDWG_VERSION="${LIBREDWG_VERSION:-0.13.3}"
 
 apt-get update
-apt-get install -y --no-install-recommends build-essential curl xz-utils ca-certificates file
+apt-get install -y --no-install-recommends build-essential curl xz-utils ca-certificates file python3
 
 mkdir /build && cd /build
 curl -fsSL "https://github.com/LibreDWG/libredwg/releases/download/${LIBREDWG_VERSION}/libredwg-${LIBREDWG_VERSION}.tar.xz" \

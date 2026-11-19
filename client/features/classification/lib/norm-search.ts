@@ -105,5 +105,13 @@ export function searchArticles(
     }
   }
   hits.sort((a, b) => b.matched - a.matched || b.total - a.total);
-  return hits.slice(0, limit).map(({ total: _total, ...hit }) => hit);
+  return hits
+    .slice(0, limit)
+    .map(({ doc, article, page, excerpt, matched }) => ({
+      doc,
+      article,
+      page,
+      excerpt,
+      matched,
+    }));
 }

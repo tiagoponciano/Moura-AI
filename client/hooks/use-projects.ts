@@ -28,6 +28,8 @@ export function useProjects(enabled: boolean) {
   const [selectedId, setSelectedId] = useState<string>();
   const [error, setError] = useState<string>();
   const [creating, setCreating] = useState(false);
+  /** Whether the first answer, a list or an error, has come. */
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     if (!enabled) return;
@@ -37,8 +39,12 @@ export function useProjects(enabled: boolean) {
         // Opens on the project chosen last, in this tab or another.
         const remembered = readSelectedProject(body.projects.map((p) => p.id));
         setSelectedId((current) => current ?? remembered);
+        setLoaded(true);
       },
-      (cause) => setError(errorMessage(cause)),
+      (cause) => {
+        setError(errorMessage(cause));
+        setLoaded(true);
+      },
     );
   }, [enabled]);
 
@@ -124,6 +130,7 @@ export function useProjects(enabled: boolean) {
 
     saveData,
     creating,
+    loaded,
     error,
   };
 }

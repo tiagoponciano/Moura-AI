@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { useProjects } from "@/hooks/use-projects";
-import { NewProjectDialog } from "./new-project-dialog";
+import { NewProjectDialog } from "@/components/shared/new-project-dialog";
 import { ProjectActions } from "./project-actions";
 import { ProjectSearchDialog } from "@/components/shared/project-search-dialog";
 

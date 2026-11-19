@@ -1,6 +1,6 @@
 "use client";
 
-import { Cpu, FileText, Globe, Users } from "lucide-react";
+import { BookOpen, Cpu, FileText, Globe, Users } from "lucide-react";
 import { useMemo, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs";
@@ -8,19 +8,22 @@ import { findCatalogProvider } from "@/lib/llm/catalog";
 import { useAdminForms } from "../hooks/use-admin-forms";
 import { useAdminSettings } from "../hooks/use-admin-settings";
 import { useAdminUsers } from "../hooks/use-admin-users";
+import { useNorms } from "../hooks/use-norms";
 import { useSiteCheck } from "../hooks/use-site-check";
 import { formsSummary } from "../lib/forms";
+import { normsSummary } from "../lib/norms";
 import { getSetupProblem, summarizeSections } from "../lib/sections";
 import { diffSiteCheck, siteCheckWarning } from "../lib/site-check";
 import { countByStatus } from "../lib/users";
 import { AccessPanel } from "./access-panel";
 import { FormsSection } from "./forms-section";
 import { ModelPanel } from "./model-panel";
+import { NormsSection } from "./norms-section";
 import { SectionTab } from "./section-tab";
 import { SetupBanner } from "./setup-banner";
 import { UsersSection } from "./users-section";
 
-type Section = "users" | "model" | "access" | "forms";
+type Section = "users" | "model" | "access" | "forms" | "norms";
 
 /** Setup banner, four section cards with their current state, and one section at a time. */
 export function AdminConsole() {
@@ -28,6 +31,7 @@ export function AdminConsole() {
   const settings = useAdminSettings();
   const forms = useAdminForms();
   const site = useSiteCheck();
+  const norms = useNorms();
   const [section, setSection] = useState<Section>("users");
 
   const differences = useMemo(
@@ -99,6 +103,12 @@ export function AdminConsole() {
             summary={siteWarning ?? formsSummary(forms.forms)}
             highlight={siteWarning !== undefined}
           />
+          <SectionTab
+            value="norms"
+            icon={BookOpen}
+            label="Normas"
+            summary={normsSummary(norms.norms)}
+          />
         </TabsList>
 
         <TabsContent value="users" className="flex flex-col gap-3">
@@ -136,6 +146,10 @@ export function AdminConsole() {
 
         <TabsContent value="forms">
           <FormsSection catalog={forms} site={site} differences={differences} />
+        </TabsContent>
+
+        <TabsContent value="norms">
+          <NormsSection norms={norms.norms} error={norms.error} />
         </TabsContent>
       </Tabs>
     </div>

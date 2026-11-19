@@ -31,6 +31,7 @@ TOOLS = Path(__file__).resolve().parent
 # the whole manifest, so the annex tools that add to it come after.
 EXTRACTORS: dict[str, tuple[tuple[str, str], ...]] = {
     "IN-1-P2": (("extract_tables.py", "in-1-p2"), ("extract_occupations.py", "in-1-p2")),
+    "IN-1-P1": (("extract_in1_p1_annex_a.py", "in-1-p1"),),
     "IN-3": (("extract_annex_a.py", "in-3"),),
     "IN-5": (
         ("extract_in5.py", "in-5"),
@@ -39,7 +40,13 @@ EXTRACTORS: dict[str, tuple[tuple[str, str], ...]] = {
     ),
 }
 # Tools that take the source link and the retrieval date to write into the manifest.
-WITH_SOURCE = {"extract_tables.py", "extract_occupations.py", "extract_annex_a.py", "extract_in5.py"}
+WITH_SOURCE = {
+    "extract_tables.py",
+    "extract_occupations.py",
+    "extract_annex_a.py",
+    "extract_in1_p1_annex_a.py",
+    "extract_in5.py",
+}
 
 
 def plan(source: Source, pdf: Path, norms: Path, today: str) -> list[list[str]]:

@@ -57,6 +57,7 @@ export function FloorPlansWorkspace() {
         setKeepFailed(kept.includes(false));
       })();
     },
+    projects.selected?.name,
   );
   const [tab, setTab] = useState<WorkspaceTab>("chat");
 

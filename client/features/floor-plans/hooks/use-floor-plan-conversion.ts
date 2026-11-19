@@ -3,6 +3,7 @@
 import { saveAs } from "file-saver";
 import { useState } from "react";
 import { errorMessage } from "@/lib/api/request-json";
+import { nameWithProject } from "@/lib/projects/file-name";
 import {
   convertPlan,
   detectScale,
@@ -26,6 +27,8 @@ export function useFloorPlanConversion(
     fileName: string,
     converted: { blob: Blob; fileName: string },
   ) => void,
+  /** The chosen project's name; the downloads are named after the plan and it. */
+  projectName?: string,
 ) {
   const [scaleText, setScaleText] = useState("");
   const [busy, setBusy] = useState<"scale" | ConversionFormat>();
@@ -59,7 +62,14 @@ export function useFloorPlanConversion(
     setNotice(undefined);
     try {
       const result = await convertPlan(plan.file, format, scale);
-      saveAs(result.blob, result.fileName);
+      // `Térreo.pdf` converted for "Loja Centro" is downloaded as `Térreo - Loja Centro.dxf`.
+      const fileName = projectName
+        ? nameWithProject(
+            `${plan.name.replace(/\.[^.]+$/, "")}.${format}`,
+            projectName,
+          )
+        : result.fileName;
+      saveAs(result.blob, fileName);
       const done: ConversionOutcome = {
         mode: result.mode,
         warnings: result.warnings,
@@ -69,7 +79,7 @@ export function useFloorPlanConversion(
       setOutcome(done);
       onConverted?.(done, plan.name, {
         blob: result.blob,
-        fileName: result.fileName,
+        fileName,
       });
     } catch (cause) {
       setError(errorMessage(cause));

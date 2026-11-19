@@ -10,7 +10,11 @@ vi.mock("@/lib/supabase/client", () => ({
 }));
 
 import { PROJECT_FILE_MAX_BYTES } from "./files";
-import { ProjectFileError, uploadProjectFile } from "./files-client";
+import {
+  ProjectFileError,
+  keepProjectFile,
+  uploadProjectFile,
+} from "./files-client";
 
 const PROJECT = "6f1c0a52-3b7a-4d61-9a2e-0f4f2d6c9a11";
 const upload = vi.fn();
@@ -77,5 +81,23 @@ describe("uploadProjectFile", () => {
     await expect(
       uploadProjectFile(PROJECT, file, options),
     ).rejects.toBeInstanceOf(ProjectFileError);
+  });
+});
+
+describe("keepProjectFile", () => {
+  it("resolves to true when the file was kept", async () => {
+    upload.mockResolvedValue({ error: null });
+    requestJson.mockResolvedValue({ file: { id: "f1" } });
+    expect(await keepProjectFile(PROJECT, file, options)).toBe(true);
+  });
+
+  it("resolves to false instead of throwing, so a download is never held back", async () => {
+    upload.mockResolvedValue({ error: { message: "denied" } });
+    await expect(keepProjectFile(PROJECT, file, options)).resolves.toBe(false);
+  });
+
+  it("resolves to false for a file over the limit", async () => {
+    const big = { size: PROJECT_FILE_MAX_BYTES + 1, type: "" } as Blob;
+    expect(await keepProjectFile(PROJECT, big, options)).toBe(false);
   });
 });

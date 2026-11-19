@@ -76,6 +76,24 @@ export async function uploadProjectFile(
   }
 }
 
+/**
+ * Browser-only. Keeps a file the app just generated in the project. It never
+ * throws, so a failure cannot get in the way of the download; it resolves to
+ * whether the file was kept.
+ */
+export async function keepProjectFile(
+  projectId: string,
+  file: Blob,
+  options: { kind: ProjectFileKind; fileName: string },
+): Promise<boolean> {
+  try {
+    await uploadProjectFile(projectId, file, options);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export const deleteProjectFile = (projectId: string, fileId: string) =>
   requestJson<void>(`/api/projects/${projectId}/files/${fileId}`, {
     method: "DELETE",

@@ -1,24 +1,14 @@
-import type { ProjectChange, ProjectData } from "@/lib/projects/project";
+import type { ProjectData } from "@/lib/projects/project";
 import type { FieldValues, TemplateSchema } from "./templates";
 
 export {
   PROJECT_FIELD_GROUPS,
   PROJECT_FIELD_KEYS,
+  fieldChange,
   groupProgress,
   isProjectFieldKey,
   type ProjectFieldGroup,
 } from "@/lib/projects/fields";
-
-/** What a field edited in the panel changes; `undefined` when nothing did. */
-export function fieldChange(
-  key: string,
-  value: string,
-  data: ProjectData,
-): ProjectChange | undefined {
-  const clean = value.trim();
-  if (clean === (data[key] ?? "")) return undefined;
-  return { [key]: clean || null };
-}
 
 /** The form values a project already knows. */
 export function valuesFromProject(

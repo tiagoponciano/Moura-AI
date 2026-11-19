@@ -12,10 +12,10 @@ mkdir /build && cd /build
 curl -fsSL "https://github.com/LibreDWG/libredwg/releases/download/${LIBREDWG_VERSION}/libredwg-${LIBREDWG_VERSION}.tar.xz" \
   | tar -xJ --strip-components=1
 
-# -all-static makes libtool link the programs with no shared library at all.
+# `-all-static` is a libtool flag: gcc refuses it, so it goes to `make`, not to `configure`.
 ./configure --prefix=/opt/libredwg --disable-shared --enable-static \
-  --disable-bindings --disable-docs --disable-werror LDFLAGS="-all-static"
-make -j"$(nproc)"
+  --disable-bindings --disable-werror
+make -j"$(nproc)" LDFLAGS="-all-static"
 make install
 
 for program in dxf2dwg dwgread; do

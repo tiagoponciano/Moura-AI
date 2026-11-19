@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import type { ClassificationState } from "../lib/classification-state";
 import { useProjects } from "@/hooks/use-projects";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { projectDataFromFacts } from "../lib/project-prefill";
 import { useClassification } from "../hooks/use-classification";
 import { useProjectClassification } from "../hooks/use-project-classification";
 import { ClassificationPanel } from "./classification-panel";
@@ -30,7 +31,13 @@ export function ClassificationWorkspace() {
     updateAnswer,
     reset,
     restore,
-  } = useClassification((state) => persistRef.current?.(state));
+  } = useClassification((state) => {
+    persistRef.current?.(state);
+    const project = projects.selected;
+    if (!project) return;
+    const change = projectDataFromFacts(state.facts, project.data);
+    if (Object.keys(change).length > 0) projects.saveData(project.id, change);
+  });
   const { status, persist } = useProjectClassification(
     projects.selected?.id,
     restore,

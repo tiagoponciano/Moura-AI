@@ -4,7 +4,7 @@ How the rule set for the special divisions M-1 (tunnels) and M-2 is built and ho
 
 ## What this is
 
-`GROUP_M_RULES` (`lib/rulesets/group-m.ts`) compiles **Tabela 23** (M-1) and **Tabela 24** (M-2) of IN 1 parte 2, Anexo B. Neither is split by area or height, so neither is the regime of the other groups. M-3 to M-7 and M-11 are in `group-m-divisions-rules.md`; M-8 to M-10 and Tabela 30 have no rules yet and get `GUARD-not-covered`.
+`GROUP_M_RULES` (`lib/rulesets/group-m.ts`) compiles **Tabela 23** (M-1) and **Tabela 24** (M-2) of IN 1 parte 2, Anexo B. Neither is split by area or height, so neither is the regime of the other groups. M-3 to M-7 and M-11 are in `group-m-divisions-rules.md`; M-8 to M-10 are in none of the tables and get `GUARD-no-table`.
 
 - **Tabela 23** has four columns by the length of the tunnel: up to 200 m, above 200 up to 500 m, above 500 up to 1.000 m, above 1.000 m. The printed ranges overlap at their limits ("200 ≤ 500 m"), so the code reads each middle range as above the lower limit and up to the upper one; the sheet asks Moura to confirm.
 - **Tabela 24** has five columns: tanks, cylinders and processes (liquids up to or above 20 m³, gases up to or above 10 m³), loading and unloading platform, and packaged products (liquids up to or above 20 m³, gases up to or above 12.480 kg).

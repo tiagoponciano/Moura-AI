@@ -126,8 +126,7 @@ Panel, top to bottom:
 3. **Próxima pergunta**: `next.ask`, the wording the assistant uses, and "Depois: …" with the labels of the `nextQuestions` it does not cover. A second paragraph, "Pendente de profissional habilitado", lists `declaredUnknown`. Hidden while `status` is `analysis` or nothing is pending.
 4. **Caso para análise específica**: each analysis' reason and its source, only while `status` is `analysis`.
 5. **Nível de risco**: "Risco <level>", what the norm says about the process at that level and the source of the decision; "Depende das respostas que faltam." while pending; hidden when it is not covered or a specific analysis replaces the result.
-
-**Risk III against the Annex A extraction.** The risk III rules of every group (A, B, C, D, E, G, H, I, J and M-3, M-4, M-11; F follows quadro 3) are coded by hand, and `lib/rulesets/risk-iii-annex-a.test.ts` checks them against `norms/in-1-p1/annex-a.json`: for each division, height band and area limit of quadro 2, the risk is II or III at the limit and IV one square meter above it. A change to the extracted annex that the rules do not follow fails that test. Group F is not covered by it, and the criterion of its quadro 3 ends in an "E" in the PDF, so it waits for Moura. 6. **Observações da norma**: the `observations` with their source, only while the other occupations are only subsidiary; hidden when empty. 7. **Sistemas preventivos**: while nothing is answered, a sentence explaining what the panel will show. Otherwise `<required> exigidos · <pending> pendentes`, the line "Aplicando: <table>" once known, a bar segment per system (required `primary`, pending `input`, not required `muted`) and up to three groups:
+6. **Observações da norma**: the `observations` with their source, only while the other occupations are only subsidiary; hidden when empty. 7. **Sistemas preventivos**: while nothing is answered, a sentence explaining what the panel will show. Otherwise `<required> exigidos · <pending> pendentes`, the line "Aplicando: <table>" once known, a bar segment per system (required `primary`, pending `input`, not required `muted`) and up to three groups:
 
 | Group                 | Row                                                                                                                                                                                                                |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -136,6 +135,8 @@ Panel, top to bottom:
 | Não exigidos          | `input` dot, name in muted text                                                                                                                                                                                    |
 
 8. **Footer**: the provisional notice (`accent`) and the outline "Limpar respostas" button.
+
+**Risk III against the Annex A extraction.** The risk III rules of every group (A, B, C, D, E, G, H, I, J and M-3, M-4, M-11; F follows quadro 3) are coded by hand, and `lib/rulesets/risk-iii-annex-a.test.ts` checks them against `norms/in-1-p1/annex-a.json`: for each division, height band and area limit of quadro 2, the risk is II or III at the limit and IV one square meter above it. A change to the extracted annex that the rules do not follow fails that test. Group F is not covered by it, and the criterion of its quadro 3 ends in an "E" in the PDF, so it waits for Moura.
 
 ## What this does NOT do
 

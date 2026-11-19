@@ -14,7 +14,7 @@ How the rule sets for the special divisions M-3, M-4, M-5, M-6, M-7 and M-11 are
 | M-6            | Tabela 28                                             | planted area above 500 ha                                      |
 | M-11 (estufas) | Tabela 29                                             | area below 750 m²; 750 m² or more                              |
 
-M-8, M-9, M-10 and Tabela 30 (subsolos) have no rules and get `GUARD-not-covered`. M-3 keeps the three scope guards, including the regime boundary; the others declare only `multiple-blocks` and `mixed-use` (`DIVISION_SCOPE_GUARDS`).
+M-8, M-9 and M-10 are listed as occupations in IN 1 parte 2 but are in none of its tables, so they get `GUARD-no-table`, a specific analysis that says so and sends the user to the CBMSC. M-3 keeps the three scope guards, including the regime boundary; the others declare only `multiple-blocks` and `mixed-use` (`DIVISION_SCOPE_GUARDS`).
 
 Invariants (as for the other groups): every rule is `provisional`; a cell with an uncoded note throws at compile time; outside the scope the result is a specific analysis.
 
@@ -39,7 +39,7 @@ Invariants (as for the other groups): every rule is `provisional`; a cell with a
 
 ## What this does NOT do
 
-- **It does not cover M-8, M-9, M-10 or Tabela 30.**
+- **It does not cover M-8, M-9 or M-10**, which no table of IN 1 parte 2 settles.
 - **It does not consult the INs the notes point to** (IN 22, IN 34 and the specific norms).
 - **It does nothing for existing buildings (IN 5).**
 - **It does not approve a reading.** The questions in the review sheet are open until a person answers them.

@@ -38,17 +38,22 @@ All routes except `/health` need `Authorization: Bearer $DWG_SERVICE_TOKEN`; `40
 - No layers by meaning (walls, doors, furniture), no blocks and no arcs for door swings: everything drawn is `LINHAS`.
 - No scale reading: coordinates are paper millimeters unless the caller sends `scale`, the drawing's scale denominator (100 for 1:100), which multiplies every coordinate and text height. Reading the scale from the plan is the caller's job.
 - Regions of `/crops` are fixed fractions of the page; a plan with its title block elsewhere needs other regions.
-- DWG is only as good as LibreDWG's `dxf2dwg`, which is experimental; the DXF is the reliable output.
+- DWG is only as good as LibreDWG's `dxf2dwg`, which is experimental: the file is AutoCAD 2000 (`AC1015`) and LibreDWG reads it back with the same lines as the DXF, but it has not been opened in AutoCAD itself. The DXF is the reliable output.
 - The thresholds were chosen on synthetic plans; no real Moura plan has been used yet.
 
 ## Gotchas
 
 - Every wall shows twice in the result → a drawn wall has two parallel edges and both are traced → expected; merging them into one center line is not done.
 - A photo gives few lines → the stroke is thin or faint and the binarization drops it → check `X-Warnings`; a scan at 200 dpi or more works best.
-- `dwg: false` in `/health` → the image was built without `libredwg-tools`, or the program has another name → use DXF, which AutoCAD and others open.
+- `dwg: false` in `/health` → the image has no `dxf2dwg` (an old image, or the LibreDWG stage of the Dockerfile was changed) → rebuild with `docker compose build dwg`; meanwhile use DXF, which AutoCAD and others open.
+- The image build takes several minutes → it compiles LibreDWG from its release (Debian 13 has no package with `dxf2dwg`); later builds reuse the cache unless the Dockerfile changes.
 
 ## Setup
 
 - Local: `docker compose up -d dwg` serves it on `127.0.0.1:3003` with token `local-only`.
 - Tests: from `services/dwg`, `pip install -r requirements-dev.txt` and `python -m pytest`; CI runs them in the `dwg-service` job.
 - Production: deploy the image with `DWG_SERVICE_TOKEN` set.
+
+## How the DWG is made and checked
+
+The Dockerfile has two stages. The first compiles LibreDWG (`LIBREDWG_VERSION`) from its release, linked statically, and the second copies only `dxf2dwg` and `dwgread` into the service image. The service writes the DXF with `ezdxf` and converts it with `dxf2dwg`. `tests/test_dwg_converter.py` checks the converter with LibreDWG itself (the file starts with `AC1015`, `dwgread` reads it back and finds every line); it is skipped where LibreDWG is not installed, so the Python job of the CI skips it. The workflow `.github/workflows/dwg-image.yml` builds the image when `services/dwg` changes and runs that test inside it.

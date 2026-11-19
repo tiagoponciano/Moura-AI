@@ -1,4 +1,4 @@
-import type { ProjectData } from "./project";
+import type { ProjectChange, ProjectData } from "./project";
 
 /**
  * What a project remembers across forms, as its panel shows it (labels are UI
@@ -133,4 +133,15 @@ export function groupProgress(group: ProjectFieldGroup, data: ProjectData) {
     filled: group.fields.filter((field) => data[field.key]).length,
     total: group.fields.length,
   };
+}
+
+/** What a field edited in the panel changes; `undefined` when nothing did. */
+export function fieldChange(
+  key: string,
+  value: string,
+  data: ProjectData,
+): ProjectChange | undefined {
+  const clean = value.trim();
+  if (clean === (data[key] ?? "")) return undefined;
+  return { [key]: clean || null };
 }

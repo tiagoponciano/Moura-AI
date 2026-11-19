@@ -1,0 +1,35 @@
+name: dxf2dwg static build
+
+# Builds LibreDWG's dxf2dwg and dwgread as fully static x86_64 programs, the kind a
+# Vercel function can run (Amazon Linux, no shared libraries to bring). The result is
+# uploaded as an artifact and its size is printed, so a Vercel function can be sized.
+# It runs on demand and when this file or the build script changes.
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/dxf2dwg-static.yml"
+      - "services/dwg/static/**"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build in Debian 12 (an older glibc than the runtime needs)
+        run: |
+          mkdir -p out
+          docker run --rm -v "$PWD/services/dwg/static:/work:ro" -v "$PWD/out:/out" \
+            debian:bookworm-slim bash /work/build.sh
+      - name: What was built
+        run: |
+          ls -la out
+          file out/*
+          docker run --rm -v "$PWD/out:/out" amazonlinux:2023 sh -c "/out/dxf2dwg --version; /out/dwgread --version"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dxf2dwg-linux-x86_64
+          path: out/
+          retention-days: 30

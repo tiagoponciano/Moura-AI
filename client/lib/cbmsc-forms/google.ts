@@ -11,10 +11,12 @@ import { extractGoogleDocIds } from "./pdf-links";
 import { titleFromContentDisposition } from "./title";
 
 const TIMEOUT_MS = 15_000;
+/** A Drive PDF is several megabytes and Drive can take over ten seconds to serve one. */
+const PDF_TIMEOUT_MS = 45_000;
 const MAX_PDF_BYTES = 10 * 1024 * 1024;
 
-const get = (url: string) =>
-  fetch(url, { cache: "no-store", signal: AbortSignal.timeout(TIMEOUT_MS) });
+const get = (url: string, timeoutMs = TIMEOUT_MS) =>
+  fetch(url, { cache: "no-store", signal: AbortSignal.timeout(timeoutMs) });
 
 /**
  * Server-only. The Google Doc's title, read from the file name of its docx
@@ -47,7 +49,7 @@ export async function fetchGoogleDocTextHash(id: string): Promise<string> {
 }
 
 async function fetchDrivePdf(id: string): Promise<Uint8Array> {
-  const response = await get(driveDownloadUrl(id));
+  const response = await get(driveDownloadUrl(id), PDF_TIMEOUT_MS);
   if (!response.ok) {
     throw new Error(`Drive file ${id} answered ${response.status}`);
   }

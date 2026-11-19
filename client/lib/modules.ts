@@ -48,6 +48,9 @@ export const MODULES: AppModule[] = [
   },
 ];
 
+/** The projects area: it sits beside the modules in the sidebar, not among them. */
+export const PROJECTS_PATH = "/projects";
+
 export function findModule(pathname: string): AppModule | undefined {
   return MODULES.find((module) => pathname.startsWith(module.href));
 }

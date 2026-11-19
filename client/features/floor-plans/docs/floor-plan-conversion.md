@@ -8,7 +8,7 @@ The user picks a plan (PDF, JPEG or PNG) in the side panel and sees it. They typ
 
 Invariants:
 
-- **Nothing is saved.** The file stays in the browser and in the request that converts it; the app stores neither the plan nor the result.
+- **Files are kept only in a chosen project.** Without a project, the file stays in the browser and in the request that converts it, and the app stores nothing. With one, the browser also keeps the converted file and the plan in the project's files (see `features/projects/docs/project-files.md`), after the download.
 - **The model never decides the output.** It reports a scale that is written on the plan or `null`; code checks it is a whole number from 1 to 5000, and the user can edit it before converting.
 - The chat beside the panel is still the fixed "in preparation" reply (`NOT_AVAILABLE_REPLY`): it calls no model and is not saved. The conversion does not go through it.
 
@@ -46,7 +46,7 @@ Both routes need a signed-in, approved user (`client/docs/authentication.md`) an
 ## What this does NOT do
 
 - No OCR, layers by meaning, blocks or arcs (see the DWG service's limits). Everything is one `LINHAS` layer, plus `TEXTO` for the texts of vector PDFs.
-- The plan and the result are not saved, and no chat history exists for this module (`chat_module` has no `floor-plans` value).
+- Without a chosen project the plan and the result are not saved, and no chat history exists for this module (`chat_module` has no `floor-plans` value).
 - The chat does not drive the conversion; it still answers with the fixed reply.
 - The scale read by the model is not stored; edit the field to correct it.
 - DWG depends on `dxf2dwg` being installed in the service; otherwise only DXF works.
@@ -75,4 +75,4 @@ The tab shows the project picker (shared with Documents and Classification) and,
 | `public.project_floor_plans`          | `20261116000100_project_floor_plans.sql` | One row per conversion; read and insert for approved users, no update or delete                                 |
 | `useProjectFloorPlans`                | `hooks/use-project-floor-plans.ts`       | The list of the chosen project; another project reads as loading, a late answer for the previous one is ignored |
 
-Without a project, or without Supabase, nothing is recorded. The migration has to be applied in Supabase; until then both routes answer 500, the panel says it cannot use the project's plans, and the conversion itself keeps working. The record is made after the download starts, so a failed record never blocks the file.
+With a project, each conversion also keeps its DXF or DWG (`conversion`) and, once per plan in the session, the plan that was uploaded (`plan`) in the project's files; when that fails the line above the panel says so and the download is not held back. Without a project, or without Supabase, nothing is recorded. The migration has to be applied in Supabase; until then both routes answer 500, the panel says it cannot use the project's plans, and the conversion itself keeps working. The record is made after the download starts, so a failed record never blocks the file.

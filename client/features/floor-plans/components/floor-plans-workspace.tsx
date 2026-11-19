@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Chat } from "@/components/chat/chat";
 import {
   WorkspaceTabs,
@@ -8,6 +8,7 @@ import {
 } from "@/components/shared/workspace-tabs";
 import { ProjectPicker } from "@/components/shared/project-picker";
 import { useProjects } from "@/hooks/use-projects";
+import { keepProjectFile } from "@/lib/projects/files-client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { cn } from "@/lib/utils";
 import { useFloorPlan } from "../hooks/use-floor-plan";
@@ -22,15 +23,40 @@ export function FloorPlansWorkspace() {
   const projectId = projects.selected?.id;
   const projectPlans = useProjectFloorPlans(projectId);
   const floorPlan = useFloorPlan();
+  /** Plans already kept in this session, so converting to DXF and then DWG keeps the plan once. */
+  const keptPlans = useRef(new Set<string>());
+  const [keepFailed, setKeepFailed] = useState(false);
   const conversion = useFloorPlanConversion(
     floorPlan.plan,
-    (outcome, fileName) =>
+    (outcome, fileName, converted) => {
       void projectPlans.record({
         fileName,
         mode: outcome.mode,
         scale: outcome.scale,
         format: outcome.format,
-      }),
+      });
+      if (!projectId) return;
+      void (async () => {
+        const kept = [
+          await keepProjectFile(projectId, converted.blob, {
+            kind: "conversion",
+            fileName: converted.fileName,
+          }),
+        ];
+        const original = floorPlan.plan?.file;
+        const key = `${projectId}/${fileName}`;
+        if (original && !keptPlans.current.has(key)) {
+          keptPlans.current.add(key);
+          kept.push(
+            await keepProjectFile(projectId, original, {
+              kind: "plan",
+              fileName,
+            }),
+          );
+        }
+        setKeepFailed(kept.includes(false));
+      })();
+    },
   );
   const [tab, setTab] = useState<WorkspaceTab>("chat");
 
@@ -44,9 +70,11 @@ export function FloorPlansWorkspace() {
             onSelect={projects.select}
           />
           <p className="text-xs text-muted-foreground">
-            {projectId
-              ? "As conversões ficam registradas no projeto."
-              : "Sem projeto: nada é registrado."}
+            {keepFailed
+              ? "Baixado, mas não foi possível guardar os arquivos no projeto."
+              : projectId
+                ? "As conversões e os arquivos ficam guardados no projeto."
+                : "Sem projeto: nada é guardado."}
           </p>
         </div>
       )}

@@ -13,6 +13,7 @@ import {
   type ProposalRequest,
 } from "../lib/proposal";
 import { type Project } from "@/lib/projects/project";
+import { keepProjectFile } from "@/lib/projects/files-client";
 import { PDF_ENABLED } from "../lib/pdf-enabled";
 import { PlanField } from "./plan-field";
 
@@ -25,6 +26,7 @@ export function ProposalForm({ project }: ProposalFormProps) {
   const [validity, setValidity] = useState(String(DEFAULT_VALIDITY_DAYS));
   const [busy, setBusy] = useState<ProposalRequest["format"]>();
   const [error, setError] = useState<string>();
+  const [note, setNote] = useState<string>();
 
   const reais = Number(price.replace(/\./g, "").replace(",", "."));
   const ready = Number.isFinite(reais) && reais > 0;
@@ -32,6 +34,7 @@ export function ProposalForm({ project }: ProposalFormProps) {
   async function download(format: ProposalRequest["format"]) {
     setBusy(format);
     setError(undefined);
+    setNote(undefined);
     try {
       const response = await fetch(
         `/api/documents/projects/${project.id}/proposal`,
@@ -50,7 +53,14 @@ export function ProposalForm({ project }: ProposalFormProps) {
         const body = await response.json().catch(() => undefined);
         throw new Error(body?.error ?? "Não foi possível gerar a proposta.");
       }
-      saveAs(await response.blob(), `proposta.${format}`);
+      const blob = await response.blob();
+      const fileName = `proposta.${format}`;
+      saveAs(blob, fileName);
+      const kept = await keepProjectFile(project.id, blob, {
+        kind: "proposal",
+        fileName,
+      });
+      if (!kept) setNote("Baixada, mas não foi guardada no projeto.");
     } catch (cause) {
       setError(errorMessage(cause));
     } finally {
@@ -106,6 +116,7 @@ export function ProposalForm({ project }: ProposalFormProps) {
           ),
         )}
       </div>
+      {note && <p className="text-xs text-muted-foreground">{note}</p>}
       {error && (
         <p role="alert" className="text-xs text-destructive">
           {error}

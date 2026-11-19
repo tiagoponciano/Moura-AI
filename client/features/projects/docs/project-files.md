@@ -34,9 +34,19 @@ Invariants:
 
 The project page (`/projects/[id]`) has an "Arquivos" section (`ProjectFiles`, with `useProjectFiles`). It lists the project's files with their origin, size and date; "Enviar arquivo" uploads one or more files as `other` (a failure is shown and the others still go); each row has download and delete. Download makes a signed URL for the object, valid for a minute, with the signed-in user's own session (`projectFileUrl`), and delete asks the route, which removes the object and then the row. `lib/projects/files-client.ts` uploads to the project's folder and records the row, and removes the object again if recording fails, so nothing is stored without a row.
 
+## What is kept on its own
+
+When a project is chosen, three places keep what they generate, after the download has been made, with `keepProjectFile` (it never throws; it resolves to whether the file was kept):
+
+- **Documentos**: the `.docx` of a form, as `form`. A failure shows "O documento foi baixado, mas não foi guardado no projeto." in the panel notice.
+- **Proposta**: the `.pptx` (and the PDF, when PDF output is on), as `proposal`. A failure shows a short note under the buttons.
+- **Plantas**: the DXF or DWG, as `conversion`, and the plan that was uploaded, as `plan`, once per plan and project in a session (converting to DXF and then to DWG keeps the plan once). A failure replaces the line above the panel.
+
+Without a chosen project nothing is kept, and the download is the same as before.
+
 ## What this does NOT do
 
-- **Nothing generates into it yet.** The files on the list are the ones a person uploaded; saving what the forms, the proposal and the conversions produce is the next step.
+- **Only the browser keeps files.** What the app generates is kept by the screen that generated it, once the download has been made; nothing generated on the server alone is kept.
 - **No download route.** The browser makes a signed URL for the object with its own session, which the bucket's read policy allows.
 - **No quota or retention.** Nothing limits how many files a project has beyond the list showing 100.
 - **Not tried against a real Supabase.** The handlers are tested with a mock client; the migration has not been applied.

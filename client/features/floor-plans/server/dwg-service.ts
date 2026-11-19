@@ -1,4 +1,8 @@
 import "server-only";
+import {
+  googleAuthHeader,
+  isGoogleIdentityConfigured,
+} from "@/lib/google-identity";
 
 const TIMEOUT_MS = 60_000;
 
@@ -6,9 +10,18 @@ const TIMEOUT_MS = 60_000;
 export const isDwgServiceConfigured = () =>
   Boolean(process.env.DWG_SERVICE_URL && process.env.DWG_SERVICE_TOKEN);
 
-const headers = () => ({
-  Authorization: `Bearer ${process.env.DWG_SERVICE_TOKEN}`,
-});
+/**
+ * The service's token always goes in `X-Service-Token`. With a Google service account the
+ * `Authorization` header carries Google's identity token for the private Cloud Run service
+ * (it reads that header as its own); without one it carries the token, as a local Docker expects.
+ */
+async function headers(): Promise<Record<string, string>> {
+  const token = String(process.env.DWG_SERVICE_TOKEN);
+  const authorization = isGoogleIdentityConfigured()
+    ? await googleAuthHeader(String(process.env.DWG_SERVICE_URL))
+    : { Authorization: `Bearer ${token}` };
+  return { ...authorization, "X-Service-Token": token };
+}
 
 function upload(file: Blob, name: string) {
   const form = new FormData();
@@ -27,7 +40,7 @@ export async function convertWithDwgService(
     `${process.env.DWG_SERVICE_URL}/convert?format=${format}&scale=${scale}`,
     {
       method: "POST",
-      headers: headers(),
+      headers: await headers(),
       body: upload(file, name),
       signal: AbortSignal.timeout(TIMEOUT_MS),
     },
@@ -45,7 +58,7 @@ export async function cropsFromDwgService(
 ): Promise<{ name: string; png_base64: string }[]> {
   const response = await fetch(`${process.env.DWG_SERVICE_URL}/crops`, {
     method: "POST",
-    headers: headers(),
+    headers: await headers(),
     body: upload(file, name),
     signal: AbortSignal.timeout(TIMEOUT_MS),
   });

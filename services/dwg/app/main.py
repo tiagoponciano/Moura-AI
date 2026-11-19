@@ -25,11 +25,18 @@ RASTER_DPI = 200
 app = FastAPI(title="Moura DWG service", docs_url=None, redoc_url=None)
 
 
-def check_token(authorization: str | None) -> None:
+def check_token(authorization: str | None, service_token: str | None = None) -> None:
+    """The token comes in `X-Service-Token`, or as `Authorization: Bearer`.
+
+    Behind Cloud Run the `Authorization` header carries Google's own identity token, so
+    the caller sends ours in `X-Service-Token` instead.
+    """
     token = os.environ.get("DWG_SERVICE_TOKEN")
     if not token:
         raise HTTPException(503, "DWG_SERVICE_TOKEN is not configured")
-    if not authorization or not hmac.compare_digest(authorization, f"Bearer {token}"):
+    bearer_ok = bool(authorization) and hmac.compare_digest(authorization, f"Bearer {token}")
+    header_ok = bool(service_token) and hmac.compare_digest(service_token, token)
+    if not (bearer_ok or header_ok):
         raise HTTPException(401, "Invalid token")
 
 
@@ -74,9 +81,10 @@ async def convert(
     format: Literal["dxf", "dwg"] = Query("dxf"),
     scale: int = Query(1, ge=1, le=5000),
     authorization: str | None = Header(default=None),
+    x_service_token: str | None = Header(default=None),
 ) -> Response:
     """The plan as DXF or DWG. `scale` is the drawing's scale denominator (100 for 1:100), applied to every coordinate. `X-Mode` is `vector` or `raster`; `X-Warnings` lists quality problems."""
-    check_token(authorization)
+    check_token(authorization, x_service_token)
     data = await read_upload(file)
 
     plan = None
@@ -117,10 +125,12 @@ async def convert(
 
 @app.post("/crops")
 async def crops(
-    file: UploadFile = File(...), authorization: str | None = Header(default=None)
+    file: UploadFile = File(...),
+    authorization: str | None = Header(default=None),
+    x_service_token: str | None = Header(default=None),
 ) -> dict[str, list[dict[str, str]]]:
     """Small PNG crops of the title block and the scale strip, for a model to read."""
-    check_token(authorization)
+    check_token(authorization, x_service_token)
     data = await read_upload(file)
     image = rasterize_pdf(data) if is_pdf(data) else decode_image(data)
     return {"crops": crop_regions(image)}

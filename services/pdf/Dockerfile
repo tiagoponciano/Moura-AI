@@ -7,10 +7,9 @@ FROM gotenberg/gotenberg:8.40.0
 
 ENV PORT=3000
 
-CMD ["gotenberg", \
-  "--api-enable-basic-auth", \
-  "--api-port-from-env=PORT", \
-  "--api-timeout=45s", \
-  "--api-disable-download-from", \
-  "--chromium-allow-list=^file:///tmp/.*", \
-  "--webhook-disable"]
+# Basic auth is on unless PDF_BASIC_AUTH=false. Behind Cloud Run the service is private and
+# Google checks the caller, and Cloud Run reads `Authorization` as its own token, so the
+# Basic header cannot be used there.
+ENV PDF_BASIC_AUTH=true
+
+CMD ["sh", "-c", "if [ \"$PDF_BASIC_AUTH\" = \"true\" ]; then AUTH=--api-enable-basic-auth; fi; exec gotenberg $AUTH --api-port-from-env=PORT --api-timeout=45s --api-disable-download-from '--chromium-allow-list=^file:///tmp/.*' --webhook-disable"]

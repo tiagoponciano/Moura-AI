@@ -74,6 +74,18 @@ def test_crops_returns_the_two_regions():
     assert [c["name"] for c in response.json()["crops"]] == ["title_block", "scale_strip"]
 
 
+def test_the_token_can_come_in_x_service_token_for_a_caller_behind_cloud_run():
+    # Cloud Run keeps `Authorization` for Google's identity token.
+    headers = {"Authorization": "Bearer some-google-id-token", "X-Service-Token": "secret"}
+    response = client.post("/crops", files=upload(vector_pdf()), headers=headers)
+    assert response.status_code == 200
+
+
+def test_a_wrong_x_service_token_is_refused():
+    response = client.post("/crops", files=upload(vector_pdf()), headers={"X-Service-Token": "no"})
+    assert response.status_code == 401
+
+
 def test_a_wrong_or_missing_token_is_refused():
     assert client.post("/convert", files=upload(vector_pdf())).status_code == 401
     wrong = {"Authorization": "Bearer no"}

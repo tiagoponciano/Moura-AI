@@ -1,4 +1,8 @@
 import "server-only";
+import {
+  googleAuthHeader,
+  isGoogleIdentityConfigured,
+} from "@/lib/google-identity";
 
 const TIMEOUT_MS = 50_000;
 
@@ -14,13 +18,25 @@ export const convertDocxToPdf = (docx: Uint8Array) =>
 export const convertPptxToPdf = (pptx: Uint8Array) =>
   convertOfficeFileToPdf(pptx, "document.pptx");
 
+/**
+ * How the app proves itself to the PDF service: Google's identity token for a private
+ * Cloud Run service, or Basic credentials for a service that has its own password.
+ * Cloud Run reads `Authorization` as its own token, so both cannot be sent.
+ */
+async function authHeaders(): Promise<Record<string, string>> {
+  if (isGoogleIdentityConfigured()) {
+    return googleAuthHeader(String(process.env.PDF_SERVICE_URL));
+  }
+  const credentials = Buffer.from(
+    `${process.env.PDF_SERVICE_USER}:${process.env.PDF_SERVICE_PASSWORD}`,
+  ).toString("base64");
+  return { Authorization: `Basic ${credentials}` };
+}
+
 async function convertOfficeFileToPdf(
   file: Uint8Array,
   fileName: string,
 ): Promise<Uint8Array> {
-  const credentials = Buffer.from(
-    `${process.env.PDF_SERVICE_USER}:${process.env.PDF_SERVICE_PASSWORD}`,
-  ).toString("base64");
   const form = new FormData();
   form.append("files", new Blob([file.slice()]), fileName);
 
@@ -28,7 +44,7 @@ async function convertOfficeFileToPdf(
     `${process.env.PDF_SERVICE_URL}/forms/libreoffice/convert`,
     {
       method: "POST",
-      headers: { Authorization: `Basic ${credentials}` },
+      headers: await authHeaders(),
       body: form,
       signal: AbortSignal.timeout(TIMEOUT_MS),
     },
@@ -41,9 +57,6 @@ async function convertOfficeFileToPdf(
 
 /** Server-only. Prints an HTML page to PDF in the PDF microservice; throws on any failure. */
 export async function convertHtmlToPdf(html: string): Promise<Uint8Array> {
-  const credentials = Buffer.from(
-    `${process.env.PDF_SERVICE_USER}:${process.env.PDF_SERVICE_PASSWORD}`,
-  ).toString("base64");
   const form = new FormData();
   form.append("files", new Blob([html], { type: "text/html" }), "index.html");
   form.append("paperWidth", "8.27");
@@ -53,7 +66,7 @@ export async function convertHtmlToPdf(html: string): Promise<Uint8Array> {
     `${process.env.PDF_SERVICE_URL}/forms/chromium/convert/html`,
     {
       method: "POST",
-      headers: { Authorization: `Basic ${credentials}` },
+      headers: await authHeaders(),
       body: form,
       signal: AbortSignal.timeout(TIMEOUT_MS),
     },

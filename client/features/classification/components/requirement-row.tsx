@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import type { SystemView } from "../lib/classify";
+import { systemNorm } from "../lib/system-norms";
 import { AdaptationsList } from "./adaptations-list";
 
 /** What IN 5 allows for a system of an existing or recent building, by class (arts. 21, 23 and 25). */
@@ -22,6 +23,7 @@ export function RequirementRow({
   omitMissing?: string[];
 }) {
   if (system.status === "required") {
+    const norm = systemNorm(system.id);
     const summary = system.partial
       ? "Exigido em parte do imóvel"
       : system.reasons[0]?.locator;
@@ -90,6 +92,19 @@ export function RequirementRow({
               {note}
             </p>
           ))}
+          {norm && (
+            <p className="text-xs text-muted-foreground">
+              Norma do sistema:{" "}
+              <a
+                href={norm.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-foreground underline underline-offset-2"
+              >
+                {norm.label}
+              </a>
+            </p>
+          )}
         </div>
       </details>
     );

@@ -21,7 +21,11 @@ export type ConversionOutcome = {
 /** Reading the scale and converting the chosen plan; the result of the last conversion stays on screen. */
 export function useFloorPlanConversion(
   plan: SelectedFloorPlan | undefined,
-  onConverted?: (outcome: ConversionOutcome, fileName: string) => void,
+  onConverted?: (
+    outcome: ConversionOutcome,
+    fileName: string,
+    converted: { blob: Blob; fileName: string },
+  ) => void,
 ) {
   const [scaleText, setScaleText] = useState("");
   const [busy, setBusy] = useState<"scale" | ConversionFormat>();
@@ -63,7 +67,10 @@ export function useFloorPlanConversion(
         format,
       };
       setOutcome(done);
-      onConverted?.(done, plan.name);
+      onConverted?.(done, plan.name, {
+        blob: result.blob,
+        fileName: result.fileName,
+      });
     } catch (cause) {
       setError(errorMessage(cause));
     } finally {

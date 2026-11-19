@@ -30,6 +30,7 @@ import {
 } from "./record-enlargement";
 import { recordParts, recordPartsInput } from "./record-parts";
 import { searchActivity, searchActivityInput } from "./search-activity";
+import { normSearchTools } from "./search-norm";
 
 /**
  * Body of `POST /api/classification/chat`; `messages` is checked by
@@ -77,6 +78,7 @@ export async function handleClassificationChat(
     // The instructions carry the recorded state, so only the latest turns go to the model.
     messages: await convertToModelMessages(recentMessages(messages)),
     tools: {
+      ...normSearchTools,
       [RECORD_ANSWERS_TOOL]: tool({
         description:
           "Records the building answers given in the conversation. Send only new or corrected answers, and list in `unknown` what the user does not know.",

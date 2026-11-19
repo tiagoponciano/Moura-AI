@@ -190,4 +190,11 @@ describe("buildInstructions", () => {
       "- A-2: 300 m2, last floor at 30 m, 10 storeys, open, tower",
     );
   });
+
+  it("tells the model to read the norm with search_norm and never quote it from memory", () => {
+    const text = buildInstructions({}, DATE);
+    expect(text).toContain("`search_norm`");
+    expect(text).toContain("Never quote a norm from memory");
+    expect(text).toContain("10. Always reply in Brazilian Portuguese");
+  });
 });

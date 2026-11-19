@@ -9,6 +9,19 @@ import {
   type TemplateSchema,
 } from "../lib/templates";
 
+/** What the assistant is told about the tools another module added, numbered after the base rules. */
+function extraRules(extraTools: string[]): string {
+  const rules = [
+    extraTools.includes("check_building")
+      ? "When the user states data about the building (occupation division, area, height, storeys, people, special risks or the risk level), call `check_building` with it. The tool applies the norms; you decide nothing about them. If it returns conflicts, tell the user plainly what the norm gives, cite its source and ask which is right before recording the conflicting value. If it returns missing items, you may ask for them when they help the form. Never state a risk level the tool did not return."
+      : undefined,
+    extraTools.includes("search_norm")
+      ? "When the user asks what a norm requires, or you need a norm to answer, call `search_norm` and answer from what it returns, citing the instruction, the article and the page. If it finds nothing, say so. Never quote a norm from memory."
+      : undefined,
+  ].filter((rule): rule is string => rule !== undefined);
+  return rules.map((rule, index) => `\n${8 + index}. ${rule}`).join("");
+}
+
 const fieldNames = (schema: TemplateSchema, step: ConversationStep) =>
   schema.fields
     .filter((field) => step.fields.includes(field.name))
@@ -58,10 +71,5 @@ Rules:
 4. Number fields are plain numbers without units. Dates use the DD/MM/AAAA format.
 5. You do not generate the document: the system generates the PDF by itself once the required fields are complete, and the user can review the fields in the side panel. Never claim you wrote or changed the document.
 6. If the user says the current step does not apply or they do not have the information, call the tool with \`${SKIP_STEP_FIELD}\`: true.
-7. Always reply in Brazilian Portuguese, briefly and objectively. After filling, say what was recorded and which required fields are still missing.${
-    extraTools.includes("check_building")
-      ? `
-8. When the user states data about the building (occupation division, area, height, storeys, people, special risks or the risk level), call \`check_building\` with it. The tool applies the norms; you decide nothing about them. If it returns conflicts, tell the user plainly what the norm gives, cite its source and ask which is right before recording the conflicting value. If it returns missing items, you may ask for them when they help the form. Never state a risk level the tool did not return.`
-      : ""
-  }`;
+7. Always reply in Brazilian Portuguese, briefly and objectively. After filling, say what was recorded and which required fields are still missing.${extraRules(extraTools)}`;
 }

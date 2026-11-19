@@ -1,23 +1,24 @@
 # Projects module
 
-How the Projetos area works now: the list of the team's projects and the page of one project. For developers changing either, or moving the tools inside the project.
+How the Projetos area works now: the list of the team's projects and the page of one project. For developers changing either, or adding what a module shows on the project page.
 
 ## What this is
 
-`/projects` lists the projects, searchable by name, with a button to create one. `/projects/[id]` shows one project: its name, the data it keeps grouped as in the project panel of the documents module, and a row of links to the tools that work on a project. A project is the same record the documents module uses (`/api/documents/projects`); this module adds no table and no route handler.
+`/projects` lists the projects, searchable by name, with a button to create one. `/projects/[id]` shows one project: its name, one card per module with what that module holds for the project (Classificação, Documentos, Plantas), and then the project's data grouped as in the project panel of the documents module. A project is the same record the documents module uses (`/api/documents/projects`); this module adds no table, and its only route handlers are the project files ones (`project-files.md`).
 
 Invariants:
 
-- **Looking at a project chooses it.** `ProjectDetail` writes the id with `writeSelectedProject`, so Documentos, Classificação and Plantas open on that project.
+- **Looking at a project chooses it.** `ProjectDetail` writes the id with `writeSelectedProject`, so the "Abrir" button of each card opens the module on that project.
+- **Each module draws its own card.** The cards come from the modules (`ProjectClassificationSummary`, `ProjectDocumentsSummary`, `ProjectFloorPlansSummary`), each exported from the module's `index.ts`. `app/(app)/projects/[id]/page.tsx` puts them inside `ProjectDetail` as children, because a feature never imports another feature.
 - **Without Supabase there is nothing to list.** The page says projects need Supabase, like the other modules that depend on it.
-- **Only what a project knows is shown.** The page lists the fields it has a value for; an empty group shows no rows.
+- **Only what a project knows is shown.** The data section lists the fields it has a value for; an empty group shows no rows.
 
 ## Surface
 
-| Path             | What it renders                                        |
-| ---------------- | ------------------------------------------------------ |
-| `/projects`      | `ProjectsWorkspace`: search, table, "Novo projeto"     |
-| `/projects/[id]` | `ProjectDetail`: the project's data and links to tools |
+| Path             | What it renders                                                        |
+| ---------------- | ---------------------------------------------------------------------- |
+| `/projects`      | `ProjectsWorkspace`: search, table, "Novo projeto"                     |
+| `/projects/[id]` | `ProjectDetail` with the three module cards as children, then its data |
 
 The sidebar shows "Projetos" under "Início", outside the module list (`PROJECTS_PATH` in `lib/modules.ts`), so the home page cards do not change.
 
@@ -26,13 +27,28 @@ The sidebar shows "Projetos" under "Início", outside the module list (`PROJECTS
 | `lib/project-summary.ts`            | `summarizeProject` (city, occupation, area from the project data), `formatArea` |
 | `components/projects-workspace.tsx` | The list page: search, empty and loading states, the new-project dialog         |
 | `components/projects-table.tsx`     | One row per project                                                             |
-| `components/project-detail.tsx`     | The project page                                                                |
-| `components/project-sections.tsx`   | The links to Documentos, Classificação and Plantas                              |
+| `components/project-detail.tsx`     | The project page: header, the cards it is given, the project data               |
 
-The field groups and labels come from `lib/projects/fields.ts`, shared with the documents module. `useProjects` exposes `loaded`, true once the first list or error has come, so the page tells "still loading" from "no projects".
+The field groups and labels come from `lib/projects/fields.ts`, shared with the documents module. `useProjects` exposes `loaded`, true once the first list or error has come, so the page tells "still loading" from "no projects". The cards are rendered only once the project is found.
+
+## The module cards
+
+Every card is a `ModuleSummaryCard` (`components/shared/module-summary-card.tsx`): a title, the module's icon and an "Abrir" link to the module's page. Each loads its own data for the project, shows a skeleton while it loads and the error of its own request when one fails, so one module failing does not hide the others. Files are downloaded with `ProjectFileButton` (`components/shared/project-file-button.tsx`) through `useProjectFiles` (`hooks/use-project-files.ts`), which makes a signed link valid for a minute.
+
+| Card          | What it shows                                                                                       | Described in                                    |
+| ------------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| Classificação | Risk with process and source, answers given out of the total, what is missing, the required systems | `classification/docs/project-classification.md` |
+| Documentos    | Each form started, its last edit, the latest `.docx` generated for it; the latest proposal          | `documents/docs/form-fillings.md`               |
+| Plantas       | Each conversion (name, format, mode, scale, date) with the plan sent and the file produced          | `floor-plans/docs/floor-plan-conversion.md`     |
 
 ## What this does NOT do
 
-- **The tools are not inside the project yet.** Documentos, Classificação and Plantas are links to their own pages, which open on the chosen project. Bringing them inside the project page is a later step. The "Arquivos" section of the page is described in `project-files.md`.
+- **The tools are not inside the project.** "Abrir" goes to the module's own page, which opens on the chosen project; there are no `/projects/[id]/<module>` routes. It cannot open one specific form either: the documents page opens on its home.
+- **No upload or delete on the page.** The project keeps only what the modules generate (`project-files.md`).
 - **No dates or risk in the list.** A project has no update date, and the risk is not stored with it; the table shows the city, occupation and area it knows.
 - **No rename or archive here.** Those stay in the documents module.
+
+## Gotchas
+
+- A new module card does not show → it was exported from the module but not added to `app/(app)/projects/[id]/page.tsx` → add it there as a child of `ProjectDetail`.
+- The documents and plans cards each ask for the project's files → two `GET /api/projects/[id]/files` per page load is expected, one per card.

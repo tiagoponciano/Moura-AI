@@ -38,3 +38,7 @@ The Classification tab shows the project picker (the same `ProjectPicker` and sh
 
 - **It is not applied by itself.** The migration `20261116000000_project_classifications.sql` has to be applied to Supabase; until then both routes answer 500.
 - **It keeps no history.** Each save replaces the previous state.
+
+## Filling the project data
+
+When an answer changes while a project is chosen, `projectDataFromFacts` (`lib/project-prefill.ts`) turns what is known into the project data keys of the request form of IN 1 parte 1, Annex B, and the workspace saves them with `saveData`: `area_m2` to `block_area`, `storeys` to `block_floors`, `height_m` to `block_height`, `capacity_people` to `block_capacity`, `division` to `property_occupancy` and the fire load class to `building_fire_load`. Annex B has three classes (Baixa, Média, Alta) where IN 3 has five, so negligible and low share "Baixa" and high and very high share "Alta". A key the project already has is never replaced, so what a person typed in the project panel wins. Loading a saved classification does not write anything. The keys are written as plain strings here because a feature does not import the documents feature's field list; a change of those keys must be made in both places.

@@ -3,3 +3,4 @@ export {
   handleGetProjectState,
   handlePutProjectState,
 } from "./project-state-handler";
+export { handleGetNormSources } from "./norm-sources-handler";

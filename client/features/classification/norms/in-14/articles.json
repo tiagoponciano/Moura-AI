@@ -1,0 +1,341 @@
+{
+  "doc": "IN-14",
+  "preamble": "IN 14 TEMPO DE RESISTÊNCIA AO FOGO, COMPARTIMENTAÇÃO E ISOLAMENTO DE RISCO SUMÁRIO DISPOSIÇÕES INICIAIS 2 Objetivo 2 Referências 2 Terminologias 2 APLICAÇÃO 4 TEMPO DE RESISTÊNCIA AO FOGO 4 Isenção 4 Requisitos 5 TRRF em ocupações mistas 5 COMPARTIMENTAÇÃO HORIZONTAL 6 Área máxima dos compartimentos e composição 6 Características 6 Compartimentação entre unidades autônomas 7 COMPARTIMENTAÇÃO VERTICAL 8 Área máxima de compartimentação e composição 8 Compartimentação vertical na envoltória da edificação 8 Compartimentação vertical no interior da edificação 9 Aberturas nos entrepisos 10 Escadas 10 Elevadores 11 Átrios 11 Substituição da compartimentação vertical 11 DISPOSITIVOS AUTOMATIZADOS DE ENROLAR CORTA-FOGO 12 ISOLAMENTO DE RISCO 13 Isolamento de risco por afastamento entre os blocos 13 Isolamento de risco por parede corta-fogo 14 Passagens cobertas 15 Isolamento de risco em edifícios residenciais 15 DISPOSIÇÕES FINAIS 16 ANEXO A - Tempos requeridos de resistência ao fogo 17 Tabela 1 - TRRF para as ocupações em função da altura do imóvel 17 ANEXO B - Área máxima de compartimentação 18 Tabela 2 - Área máxima de compartimentação em função da ocupação e altura 18 ANEXO C - Afastamento entre aberturas de diferentes áreas de compartimentação horizontal 19 Tabela 3 - Afastamento entre aberturas de diferentes áreas de compartimentação horizontal exceto para fachadas paralelas 19 ANEXO D - Afastamento entre aberturas em fachadas paralelas 20 Tabela 4 - Afastamento entre aberturas de diferentes blocos com fachadas paralelas 20 ANEXO E - Condições de segurança para átrios descobertos 21 Tabela 5 - Dimensões mínimas para átrios descobertos em função da altura 21 ANEXO F - Isolamento de risco para edificações com até 750 m² de área ou 12 m de altura 22 Tabela 6 - Distância de separação para edificações com até 750 m² de área ou 12 m de altura para isolamento de risco em função do afastamento 22 ANEXO G - Resistência ao fogo para alvenaria 23 Tabela 7 - Resistência ao fogo para alvenaria 23 ANEXO H - Resistência ao fogo de paredes em chapas de gesso 24 Tabela 8 - Resistência ao fogo de paredes em gesso drywall 24 ANEXO I - Aberturas em paredes de compartimentação 25 Tabela 9 - Características das aberturas em paredes de compartimentação 25 ANEXO J - Compartimentação vertical na envoltória da edificação 26 Vigente a partir de 24/04/2024 27 páginas INSTRUÇÃO NORMATIVA 14 TEMPO DE RESISTÊNCIA AO FOGO, COMPARTIMENTAÇÃO E ISOLAMENTO DE RISCO DISPOSIÇÕES INICIAIS Objetivo",
+  "articles": [
+    {
+      "number": 1,
+      "page": 2,
+      "text": "Art. 1º Esta Instrução Normativa (IN) tem por objetivo estabelecer e padronizar critérios de concepção e dimensionamento para tempo requerido de resistência ao fogo (TRRF), compartimentação e isolamento de risco de propagação de incêndio, para os imóveis fiscalizados pelo Corpo de Bombeiros Militar de Santa Catarina (CBMSC).. § 1º É essencial que os materiais de construção e a estrutura das edificações sejam projetados e construídos para resistir ao fogo por um período específico, conhecido como TRRF; esse tempo determina o intervalo que uma estrutura deve permanecer íntegra e estável perante as condições de um incêndio, resistindo ao colapso em caso de incêndio, permitindo o abandono seguro do imóvel e facilitando as operações de combate ao fogo. § 2º A compartimentação subdivide áreas de uma edificação com barreiras resistentes ao fogo sendo um importante sistema de proteção passiva; em caso de incêndio dificulta a propagação do fogo, ampliando o tempo para a fuga e contribuindo para reduzir os danos materiais e a perda de patrimônio. § 3º Diferentemente da compartimentação, em que o objetivo primordial é dificultar a propagação do incêndio para outras áreas dentro de uma mesma edificação, o isolamento de risco é uma medida de segurança projetada para evitar que o incêndio se propague para outros blocos ou áreas que estejam próximos, seja dentro da mesma edificação, ou em blocos distintos; sua função essencial é conter e limitar o fogo dentro dos limites onde se originou, protegendo vidas humanas, patrimônio e o meio ambiente. § 4º Estas três formas de proteção passiva, desempenham funções essenciais na proteção da vida e do patrimônio, sendo que os profissionais responsáveis pelo planejamento, projeto e construção de edificações têm o dever de garantir a implementação rigorosa destas medidas de proteção em conformidade com as NSCI; o não cumprimentos dos preceitos previstos bem como a negligência na fase de projeto ou execução podem ter sérias consequências, incluindo riscos à vida devido ao colapso prematuro da estrutura. Referências"
+    },
+    {
+      "number": 2,
+      "page": 2,
+      "text": "Art. 2º As referências utilizadas são as seguintes: I - - IN 1 - parte 1, de 2024 - CBMSC; II - IN 1 - parte 2, de 2024 - CBMSC; III - Instrução Técnica nº 07, de 2019 - CBPMESP; IV - Instrução Técnica nº 08, de 2019 - CBPMESP; V - Instrução Técnica nº 09, de 2019 - CBPMESP; VI - Instrução Técnica nº 10, de 2019 - CBPMESP; VII - NBR 10636; VIII - NBR 6479; IX - NBR 5628; X - NBR 9077; XI - NBR 14432; XII - NBR 11711; XIII - NBR 15281; XIV - NBR 16626; XV - NBR 11742; XVI - NBR 14925. Terminologias"
+    },
+    {
+      "number": 3,
+      "page": 2,
+      "text": "Art. 3º As terminologias gerais que tratam da segurança contra incêndio são definidas pelo CBMSC e disponibilizadas para acesso público em seu portal oficial."
+    },
+    {
+      "number": 4,
+      "page": 3,
+      "text": "Art. 4º Para aplicação desta IN consideram-se as seguintes terminologias específicas: I - átrio: espaço amplo criado por um andar aberto ou conjuntos de andares abertos, conectando dois ou mais pavimentos cobertos, com fechamento na cobertura, excetuando-se os locais destinados à escada, escada rolante e “shafts” de hidráulica, eletricidade, ar condicionado e cabos de comunicação; II - áreas frias ou molhadas: cômodos com pisos e paredes geralmente revestidos com material cerâmico que possuam instalação hidráulica, tais como: banheiros, áreas de serviço, lavanderia, vestiários, sauna e assemelhados; III - dispositivo automatizado de enrolar corta-fogo: dispositivo projetado para fechar automaticamente uma abertura dentro de uma edificação de tal forma que impeça a passagem de fumaça e gases quentes gerados pelo fogo, proporcionando isolamento térmico por um período determinado de tempo; IV - elemento corta-fogo: elemento que resiste à ação do fogo por um determinado período de tempo, mantendo a sua integridade (resistência), o isolamento térmico e a estanqueidade à passagem de fumaça e chamas; V - elemento para-chama: elemento que resiste à ação do fogo por determinado período de tempo, mantendo a sua integridade (resistência) e a estanqueidade à passagem de chamas e fumaça, porém, não possui isolamento térmico (não impede a passagem do calor); VI - entrepiso: conjunto de elementos de construção, com ou sem espaços vazios, compreendido entre a parte superior do forro de um pavimento e a parte inferior do piso do pavimento imediatamente superior; VII - parede corta-fogo: parede que resiste à ação do fogo por um determinado período de tempo utilizada para realizar o isolamento e risco, impedindo a propagação do fogo entre ambientes contíguos, vedando-os do piso ao teto (não admite-se aberturas), mantendo o isolamento térmico, a estanqueidade à passagem de fumaça e chamas e a sua estabilidade estrutural (quando a parede tem função estrutural) ou integridade (quando a parede não tem função estrutural), conforme determinado nos métodos de ensaio da NBR 10636 (para elementos sem função estrutural) ou NBR 5628 (para elementos com função estrutural); VIII - parede de compartimentação: é uma parede corta-fogo que pode possuir aberturas, desde que protegidas por porta corta-fogo ou outros elementos corta-fogo, a qual é utilizada para realização da compartimentação entre as áreas de uma edificação; IX - resistência ao fogo: capacidade de um elemento de construção resistir à ação do fogo por um determinado período de tempo, mantendo sua integridade, isolamento térmico e estanqueidade, ou características de vedação aos gases e chamas; X - tempo requerido de resistência ao fogo (TRRF): tempo mínimo de resistência ao fogo de um elemento construtivo quando sujeito ao incêndio-padrão. XI - elemento envidraçado redutor de radiação: são vidros que possuem um revestimento refletivo de radiação de calor, ou então compostos por vidros comuns, temperados ou não, normalmente com camada(s) intermediária(s) de gel intumescente, os elementos envidraçados redutores de radiação apresentam capacidade em suportar a exposição ao fogo por um determinado período de tempo em apenas um de seus lado, quando submetidos a um calor irradiado no lado protegido de, no máximo, 15 kW/m2 a uma distância de 1 m do centro geométrico do elemento, possuem classificação EWX, onde: a) E: é a estabilidade; b) W: é a capacidade de manter a atenuação da radiação abaixo de 15 kW/m²; e c) X: é o tempo em minutos que ambas as características se mantêm (exemplo: EW30 elemento que possui estabilidade e atenuação da radiação pelo tempo de 30 min). APLICAÇÃO"
+    },
+    {
+      "number": 5,
+      "page": 4,
+      "text": "Art. 5º Esta IN aplica-se aos imóveis para os quais exige-se tempo de resistência ao fogo, compartimentação e/ou isolamento de risco, conforme previsto nas normas de segurança contra incêndio e pânico (NSCI). § 1º O TRRF aplica-se: I - aos elementos estruturais dos imóveis, conforme definido na IN 1 - Parte 2; II - aos elementos de vedação, no caso de paredes e pisos de compartimentação; e III - aos elementos corta-fogo. § 2º O isolamento de risco é uma medida opcional (exceto nos casos previstos na IN 1 parte 2), sendo aplicável nos casos em que pretende-se considerar áreas ou blocos de forma autônoma e independente para fins de exigência e dimensionamento dos SMSCI. § 3º A compartimentação aplica-se aos imóveis: I - obrigatoriamente, conforme exigido pelas IN 1 - Parte 2 e IN 9; II - opcionalmente: a) nos casos em que pretende-se facultar a instalação de algum SMSCI em uma área do bloco, ou entre ocupações, conforme permitido pela IN - 1; e b) nos casos em que pretende-se aplicar as prerrogativas em relação ao grau de ampliação de área e regularização de imóveis, conforme definido na IN 5. § 4º Quando a compartimentação for uma opção adotada por RT ou RI para se valer de alguma prerrogativa prevista na IN 1 ou IN 5, a substituição da compartimentação prevista nesta IN não é aplicável, devendo permanecer como requisito necessário para concessão do benefício pretendido. § 5º Não se admite a substituição da compartimentação dos elementos que compõem as saídas de emergência, tais como caixas de escada, áreas de refúgio, entre outros. § 6º Quando exigida a compartimentação de átrios, não se admite as substituições previstas nesta IN, sendo válidas somente as previstas na IN 1 - Parte 2, ou outras a serem propostas pelo RT após avaliação de risco. TEMPO DE RESISTÊNCIA AO FOGO Isenção"
+    },
+    {
+      "number": 6,
+      "page": 4,
+      "text": "Art. 6º As edificações abaixo estão isentas do TRRF mínimo estipulado nesta IN, sendo que as áreas indicadas se referem à área total construída da edificação: I - edificações com área de até 750 m² e altura inferior a 12 m, exceto as divisões F-6 e F-11; II - edificações com área de até 1.500 m² e altura menor ou igual a 6 m com carga de incêndio menor que 500 MJ/m², exceto para as divisões C-2, C-3 , E-6, F-1, F-5, F-6, F-11, H-2, H-3 e H-5; III - edificações da divisão J-1 com altura inferior a 12 m, independente da área; IV - edificações pertencentes às divisões F-3, F-4 (exclusivo para as áreas de transbordo e circulação de pessoas) e F-7, com altura inferior a 12 m, exceto nas áreas destinadas a outras ocupações, que caracterizem ou não ocupação mista (nessas regiões devem ser respeitados os TRRF constantes da tabela 1, conforme a ocupação específica); V - edificações destinadas a academias de ginástica e similares (divisão E-3), com até 12 m de altura, nas áreas destinadas a piscinas, vestiários, salas de ginástica, musculação e similares, desde que possuam nestas áreas materiais de acabamento e revestimento incombustíveis ou, de classe II-A conforme NBR 16626; VI - edificações térreas, quando atenderem um ou mais dos seguintes requisitos: a) forem providas de chuveiros automáticos com bicos do tipo resposta rápida, dimensionados conforme normas específicas; b) possuírem carga de incêndio específica menor ou igual a 500 MJ/m²; ou c) forem do grupo I (industrial) ou J (depósito), com carga de incêndio específica menor ou igual a 1.200 MJ/m². § 1º As isenções previstas no caput deste artigo não se aplicam a: I - subsolos com mais de um piso de profundidade ou com área de pavimento superior a 500 m²; II - estrutura e paredes de vedação das escadas e elevadores de segurança, assim como os pisos metálicos; III - estruturas de isolamento de riscos e de compartimentação, quando exigidos; IV - edificações do grupo L (explosivos) e às divisões M-1 (túneis), M-2 (parques de tanques) e M-3 (centrais de comunicação e energia). § 2º As isenções previstas no caput deste artigo não se aplicam quando os elementos estruturais considerados forem essenciais à estabilidade de um elemento de compartimentação ou de isolamento de risco, os elementos estruturais devem ser dimensionados de forma a não entrarem em colapso caso ocorra a ruína da cobertura do edifício."
+    },
+    {
+      "number": 7,
+      "page": 5,
+      "text": "Art. 7º As coberturas das edificações não relacionadas no artigo 6º são isentas de TRRF quando: I - não tiverem função de piso; II - não forem usadas como rota de fuga; e III - o seu colapso estrutural não comprometa a estabilidade das paredes externas e da estrutura principal da edificação. Requisitos"
+    },
+    {
+      "number": 8,
+      "page": 5,
+      "text": "Art. 8º O tempo requerido de resistência ao fogo é aplicado aos elementos estruturais e de compartimentação, conforme os critérios estabelecidos nesta IN e no anexo A."
+    },
+    {
+      "number": 9,
+      "page": 5,
+      "text": "Art. 9º As edificações térreas podem ter os TRRFs constantes da tabela 1 do anexo A reduzidos em 30 minutos, caso atendam a um dos seguintes requisitos: I - forem providas de chuveiros automáticos, observado o caso de isenção previsto na alínea “a” do inciso VI do artigo 6º desta IN; ou II - forem consideradas lateralmente abertas."
+    },
+    {
+      "number": 10,
+      "page": 5,
+      "text": "Art. 10. São consideradas lateralmente abertas as edificações, ou pavimentos, que cumpram uma das seguintes exigências: I - possuir aberturas de ventilação permanente em duas ou mais fachadas, uniformemente distribuídas, cuja soma dos comprimentos represente pelo menos 40% do perímetro da edificação e cuja soma das áreas atinjam pelo menos 20% da superfície total das fachadas exteriores; ou II - possuir aberturas de ventilação permanente em duas ou mais fachadas com área igual ou superior a ⅓da superfície total das fachadas, sendo que pelo menos 50% da área total de aberturas devem estar em duas fachadas opostas. Parágrafo único. Em qualquer caso, as áreas das aberturas nas laterais externas somadas devem possuir ventilação direta para o meio externo e devem corresponder a pelo menos 5% da área do piso no pavimento e as obstruções internas, eventualmente existentes, devem ter pelo menos 20% de suas áreas abertas. TRRF em ocupações mistas"
+    },
+    {
+      "number": 11,
+      "page": 5,
+      "text": "Art. 11. Nas edificações com ocupação mista pode-se proteger os elementos construtivos conforme cada ocupação. Parágrafo único. Em edificações verticalizadas, para se evitar o colapso progressivo da estrutura, o TRRF dos pavimentos inferiores não poderá ser menor que o exigido para os pavimentos situados acima. COMPARTIMENTAÇÃO HORIZONTAL Área máxima dos compartimentos e composição"
+    },
+    {
+      "number": 12,
+      "page": 6,
+      "text": "Art. 12. A área máxima permitida sem compartimentação entre ambientes na horizontal é definida em função do tipo de ocupação e altura do imóvel, restringindo as áreas do compartimento de acordo com a tabela 2 do anexo B. § 1º Pavimentos e mezaninos interligados devem ter suas áreas somadas. § 2º A compartimentação horizontal é dispensada nas áreas destinadas exclusivamente a estacionamento de veículos. Características"
+    },
+    {
+      "number": 13,
+      "page": 6,
+      "text": "Art. 13. Na compartimentação horizontal, deve-se utilizar os seguintes elementos construtivos ou de vedação: I - paredes de compartimentação; II - portas corta-fogo; III - vedadores corta-fogo; IV - registros corta-fogo; V - selos corta-fogo; VI - dispositivos automatizados de enrolar corta-fogo; e/ou VII - afastamento horizontal entre aberturas. § 1º Podem ser empregados quaisquer materiais para a composição dos elementos construtivos, tais como alvenaria, gesso acartonado, vidro e outros, desde que a medida de proteção seja testada e aprovada em seu conjunto, atendendo às características de resistência ao fogo. § 2º O RT deverá constar no memorial descritivo do PPCI a forma adotada para a compartimentação das áreas."
+    },
+    {
+      "number": 14,
+      "page": 6,
+      "text": "Art. 14. As aberturas pertencentes às áreas de compartimentação horizontal, quando adjacentes, devem possuir afastamento horizontal entre si conforme a tabela 3 (anexo C) e, quando com fachadas paralelas, conforme a tabela 4 (anexo D)."
+    },
+    {
+      "number": 15,
+      "page": 6,
+      "text": "Art. 15. As áreas de compartimentação horizontal devem ser separadas por paredes de compartimentação que atendam aos TRRFs exigidos."
+    },
+    {
+      "number": 16,
+      "page": 6,
+      "text": "Art. 16. Nos ambientes compartimentados entre si horizontalmente por parede de compartimentação, esta deve ser construída entre o piso e o teto, vinculada à estrutura do edifício e com reforços adequados. Parágrafo único. No caso de edificações que possuam coberturas combustíveis (telhado), a parede de compartimentação deve estender-se, no mínimo, 1 m acima da linha de cobertura (telhado)."
+    },
+    {
+      "number": 17,
+      "page": 6,
+      "text": "Art. 17. A resistência ao fogo das paredes de compartimentação sem função estrutural deve ser comprovada por meio do teste previsto na NBR 10636. § 1º Admite-se, para fins de comprovação do previsto no caput deste artigo, laudos ou ensaios realizados pelo fabricante que informe, além dos dados do corpo de prova, a categoria e o grau de resistência ao fogo do elemento testado. § 2º Para compartimentação com paredes de alvenaria, caso não seja apresentado laudo ou ensaio específico, o Corpo de Bombeiros Militar adotará os parâmetros do anexo G. § 3º Para compartimentação com parede de gesso acartonado (drywall), deve ser observado o constante no anexo H."
+    },
+    {
+      "number": 18,
+      "page": 7,
+      "text": "Art. 18. As aberturas existentes nas paredes de compartimentação devem ser protegidas por elementos corta-fogo (observar a tabela 9 no anexo I). § 1º Admite-se a instalação de visores fixos em paredes de compartimentação, desde que protegidos por elementos envidraçados classificados como redutor de radiação ou corta-fogo e que atendam o seguinte: I - possuir área limitada de, no máximo, 1,5 m²; II - nos casos em que houver mais de uma abertura na mesma parede ou em posições perpendiculares, a distância entre elas deve ser de, no mínimo, 2,00 m, e a soma total das aberturas protegidas não poderá ultrapassar 20 % da área da parede na qual está(ão) instalado(s) o(s) visor(es); e III - o elemento envidraçado completo, redutor de radiação ou corta-fogo, para fim de proteção dessas aberturas, deve atender o TRRF mínimo igual ao da parede na qual está instalada, além dos requisitos mínimos previstos nas normas brasileiras (ou internacionais equivalentes) e serem certificados por laboratórios reconhecidos. § 2º Compete aos responsáveis pelo projeto e execução o atendimento às NBRs aplicáveis a cada tipo de elemento corta-fogo ou redutor de radiação."
+    },
+    {
+      "number": 19,
+      "page": 7,
+      "text": "Art. 19. Os elementos de proteção das aberturas existentes nas paredes de compartimentação podem apresentar TRRF com até 30 minutos a menos do que a resistência das paredes de compartimentação, porém seu TRRF total não pode ser inferior a 30 minutos. Compartimentação entre unidades autônomas"
+    },
+    {
+      "number": 20,
+      "page": 7,
+      "text": "Art. 20. A compartimentação entre unidades autônomas aplica-se somente aos grupos A, B e H, quando exigida a compartimentação de unidades autônomas pela IN 1 - Parte 2."
+    },
+    {
+      "number": 21,
+      "page": 7,
+      "text": "Art. 21. Para que as unidades autônomas sejam consideradas compartimentadas entre si, devem: I - ser separadas entre si e das áreas de uso comum por paredes com TRRF mínimo de 60 min; II - ser dotadas de portas com TRRF de 30 min quando em comunicação com os acessos; III - ter as aberturas situadas em lados opostos de paredes que dividem as unidades autônomas com afastamentos de 1,00 m entre si; esta distância pode ser substituída por moldura ou aba vertical, perpendicular ao plano das aberturas, com 0,50 m de saliência sobre ele e ultrapassando 0,30 m a verga da abertura mais alta; (figura 1) IV - ter um afastamento mínimo de 1,50 m entre as aberturas de paredes (paralelas, perpendiculares ou oblíquas entre si) que pertençam a unidades autônomas distintas. § 1º São dispensadas as exigências dos incisos I e II nas edificações que possuem chuveiros automáticos. § 2º As aberturas protegidas com elemento corta-fogo, atendendo ao TRRF mínimo exigido, são dispensadas dos afastamentos previstos nos incisos III e IV. Figura 1 - Exemplo de compartimentação entre unidades autônomas com uso de aba vertical (Artigo 21, inc. III) e de compartimentação vertical entre pavimentos conforme Artigo 24, inc. III. COMPARTIMENTAÇÃO VERTICAL Área máxima de compartimentação e composição"
+    },
+    {
+      "number": 22,
+      "page": 8,
+      "text": "Art. 22. A área máxima permitida sem compartimentação entre ambientes na vertical é definida em função do tipo de ocupação e altura do imóvel, restringindo as áreas do compartimento de acordo com a tabela 2 do anexo B. Parágrafo único. A inexistência, ou a quebra de compartimentação, implica no somatório das áreas dos pavimentos para fins de cálculo da área máxima dos compartimentos."
+    },
+    {
+      "number": 23,
+      "page": 8,
+      "text": "Art. 23. Na compartimentação vertical são considerados como elementos construtivos ou medidas de proteção: I - os entrepisos corta-fogo; II - o enclausuramento de escadas por meio de parede e portas corta-fogo de compartimentação; III - o enclausuramento de poços de elevador e de monta-carga por meio de parede de compartimentação; IV - os selos corta-fogo; V - os registros corta-fogo (dampers); VI - os vedadores corta-fogo; VII - os elementos construtivos corta-fogo de separação vertical entre pavimentos consecutivos; VIII - a selagem perimetral corta-fogo; IX - os dispositivos automatizados de enrolar corta-fogo. § 1º Podem ser empregados quaisquer materiais para a composição dos elementos construtivos, tais como alvenaria, gesso acartonado, vidro e outros, desde que a medida de proteção seja testada e aprovada em seu conjunto, atendendo às características de resistência ao fogo. § 2º O RT deverá constar no memorial descritivo do PPCI a forma adotada para a compartimentação das áreas. Compartimentação vertical na envoltória da edificação"
+    },
+    {
+      "number": 24,
+      "page": 8,
+      "text": "Art. 24. Aberturas externas entre pavimentos devem ser protegidas entre si por elemento corta-fogo de separação que atendam ao TRRF, o qual pode ser implementado através de: I - vigas ou parapeito que separem as aberturas verticais em, no mínimo, 1,20 m (figura 6 do anexo J); ou II - prolongamento de entrepisos (abas) que se projetam além da fachada em, no mínimo, 0,9 m (figura 7 do anexo J); ou III - nas edificações com baixa carga de incêndio (até 300 MJ/m²), por meio da soma das dimensões da aba horizontal e a distância da verga até o piso da laje superior, totalizando o mínimo de 1,20 m. (figura 8 do anexo J) § 1º Nas edificações exclusivamente residenciais as sacadas e terraços utilizados na composição da compartimentação vertical podem ser fechadas com vidros de segurança, conforme Instruções Normativas e NBRs 14718 e 7199, desde que: I - os ambientes (sacadas e terraços) sejam constituídos por materiais de acabamento e de revestimento incombustíveis (piso, parede e teto); e II - os anteparos resistentes ao fogo estejam expostos ao ambiente externo do edifício. § 2º Admite-se, no prolongamento de entrepisos (abas horizontais), a disposição de áreas técnicas para a instalação de equipamentos de climatização ou similares."
+    },
+    {
+      "number": 25,
+      "page": 9,
+      "text": "Art. 25. As edificações com fachadas totalmente envidraçadas, glazzing, “pele de vidro” ou fachadas-cortina, devem atender aos seguintes critérios:. I - Os elementos envidraçados devem ser do tipo corta-fogo, conforme NBR 14925; II - Em caso de uso de vidro sem características corta-fogo, devem ser atendidos os seguintes requisitos (figura 10 do anexo J): a) deve haver separação entre os pavimentos da edificação por elementos corta-fogo, imediatamente atrás da fachada, ou seja, instalação de parapeitos, vigas ou prolongamento dos entrepisos conforme artigo 24, sendo o afastamento mínimo entre verga e peitoril de pisos consecutivos de 1,00 m, admitindo-se a distância ortogonal prevista no artigo 24, inciso III (carga incêndio até 300 MJ/m²); b) todas as frestas ou aberturas entre a “fachada-cortina” e os elementos corta-fogo de separação devem ser vedadas com selos corta-fogo; c) os selos devem ser fixados aos elementos de separação de modo que sejam estruturalmente independentes dos caixilhos da fachada e que não sejam danificados em caso de movimentação dos elementos estruturais da edificação; e d) as unidades envidraçadas devem atender aos critérios de segurança da NBR 7199; III - No caso de fachada-cortina constituída por outros materiais, estes devem atender à classificação para controle de materiais de acabamento e revestimento (CMAR) previsto na IN 18, atendendo também os seguintes requisitos: a) atender as letras “a”, “b”, e “c” do inciso II deste artigo; b) caso a alocação e disposição dos painéis na fachada permitam ampla ventilação e dissipação de calor, sem causar “efeito chaminé”, cujo dimensionamento é de responsabilidade do RT, ficam dispensadas as exigências contidas nas letras “b”, e “c” do inciso II deste artigo. IV - Quando não houver possibilidade de atendimento da letra “a”, admite-se para ocupações com carga de incêndio de até 300 MJ/m², o uso de elemento envidraçado redutor de radiação (figura 9 do anexo J) em complementação à altura para atendimento ao mínimo exigido de 1,00 m."
+    },
+    {
+      "number": 26,
+      "page": 9,
+      "text": "Art. 26. As fachadas pré-moldadas devem ter seus elementos de fixação devidamente protegidos contra a ação do incêndio e as frestas com as vigas e/ou lajes devidamente seladas, de forma a garantir a resistência ao fogo do conjunto e a compartimentação vertical."
+    },
+    {
+      "number": 27,
+      "page": 9,
+      "text": "Art. 27. São permitidas aberturas nas fachadas para ventilação ou exaustão de acordo com a IN 8 e IN 9, ou outra medida de SCI aprovada, não interferindo estas na compartimentação vertical. Compartimentação vertical no interior da edificação"
+    },
+    {
+      "number": 28,
+      "page": 9,
+      "text": "Art. 28. Os entrepisos corta-fogo devem possuir TRRF estipulado para a edificação (observar tabela 1) e nunca inferior a 60 min, sendo composto por lajes de: I - concreto armado; II - concreto protendido; ou III - outros materiais, desde que a resistência ao fogo dos entrepisos seja comprovada por meio de ensaio, segundo a NBR 5628 ou norma brasileira pertinente. Aberturas nos entrepisos"
+    },
+    {
+      "number": 29,
+      "page": 10,
+      "text": "Art. 29. As aberturas existentes nos entrepisos de compartimentação devem ser protegidas por elementos corta-fogo ou para-chama, conforme o caso. § 1º Não se considera como quebra de compartimentação a interligação de, no máximo, 3 pavimentos consecutivos nos pisos acima do pavimento de descarga por intermédio de átrios, escadas, rampas de circulação ou escadas rolantes, desde que o somatório de áreas desses pavimentos não ultrapasse os limites de área de compartimentação da tabela 2. § 2º A interligação de pavimentos destinados a garagem ou estacionamento de veículos não são considerados como quebra de compartimentação independente do número de pavimentos utilizados."
+    },
+    {
+      "number": 30,
+      "page": 10,
+      "text": "Art. 30. Quaisquer aberturas existentes nos entrepisos destinadas à passagem de instalação elétrica, hidrossanitárias, telefônicas e outras, que permitam a comunicação direta entre os pavimentos de um edifício, devem ser seladas de forma a promover a vedação total corta-fogo, atendendo às seguintes condições: I - devem ser ensaiadas para a caracterização da resistência ao fogo seguindo-se os procedimentos da NBR 6479; II - os tubos plásticos com diâmetro interno superior a 40 mm devem receber proteção especial representada por selagem capaz de fechar o buraco deixado pelo tubo ao ser consumido pelo fogo abaixo do entrepiso. III - a destruição da instalação do lado afetado pelo fogo não deve promover a destruição da selagem. § 1º A selagem pode ser substituída por paredes de compartimentação posicionadas entre piso e teto, sendo admitidas aberturas protegidas com elementos para-chamas; a distância entre a verga e peitoril de aberturas situadas em pavimentos consecutivos deve ser de, no mínimo, 1,20 m. § 2º O previsto neste artigo não se aplica: I - às derivações horizontais de passagem das instalações ou dutos; e II - às aberturas destinadas à passagem de tubulações hidrossanitárias de áreas frias ou molhadas, aos dutos de ventilação (incluindo os previstos na IN 9), às chaminés de churrasqueiras, lareiras ou de outros processos à combustão. § 3º As tubulações de lixo e similares, quando existirem, devem ter portas estanques à fumaça e aberturas no alto da edificação com seção no mínimo igual à sua para permitir eventual exaustão de fumaça. § 4º Os dutos e shafts de instalações dos subsolos devem ser compartimentados integralmente em relação ao piso térreo, piso de descarga e demais pisos elevados."
+    },
+    {
+      "number": 31,
+      "page": 10,
+      "text": "Art. 31. As aberturas nos entrepisos de passagem exclusiva de materiais devem ser protegidas por vedadores corta-fogo. Escadas"
+    },
+    {
+      "number": 32,
+      "page": 10,
+      "text": "Art. 32. As escadas devem ser enclausuradas com paredes corta-fogo e seu acesso através de porta corta-fogo1. Nota 1 A porta corta-fogo é dispensada pela IN 9 quando se tratar de escada do tipo comum."
+    },
+    {
+      "number": 33,
+      "page": 11,
+      "text": "Art. 33. As paredes de enclausuramento das escadas e dos elevadores de emergência (constituídas pelo sistema estrutural das compartimentações e vedações das caixas, dutos e antecâmaras) devem atender ao TRRF igual ao estabelecido na IN 9."
+    },
+    {
+      "number": 34,
+      "page": 11,
+      "text": "Art. 34. As portas das escadas devem atender o disposto na IN 9 quanto à resistência ao fogo."
+    },
+    {
+      "number": 35,
+      "page": 11,
+      "text": "Art. 35. Quando a escada de segurança for utilizada como via de circulação vertical em situação de uso normal dos edifícios, suas portas corta-fogo podem permanecer abertas desde que sejam utilizados dispositivos elétricos que permitam seu fechamento automático em caso de incêndio, comandados por sistema de detecção e alarme de incêndio. § 1º A falha dos dispositivos de acionamento das portas corta-fogo deve dar-se na posição de segurança, ou seja, qualquer falha que possa ocorrer deve determinar automaticamente o fechamento da porta. § 2º Deve haver dispositivo de redundância para fechamento das portas junto à central de alarme cujo acionamento deve ser realizado mediante decisão humana. Elevadores"
+    },
+    {
+      "number": 36,
+      "page": 11,
+      "text": "Art. 36. As portas de andares dos elevadores devem ser classificadas como para-chamas, com resistência ao fogo de, no mínimo, 30 min."
+    },
+    {
+      "number": 37,
+      "page": 11,
+      "text": "Art. 37. As portas para-chamas dos andares dos elevadores podem ser substituídas pelo enclausuramento dos halls de acesso aos elevadores, por meio de paredes e portas corta-fogo. Átrios"
+    },
+    {
+      "number": 38,
+      "page": 11,
+      "text": "Art. 38. A quebra de compartimentação vertical decorrente da existência de átrios cobertos deve ser compensada por medidas de proteção alternativas (como sistema de chuveiros automáticos, detecção automática e controle de fumaça), conforme definido nas tabelas do Anexo B da IN 1 - Parte 2. Parágrafo único. Edificações com altura superior a 60 m, caso possuam átrio, devem ter as aberturas das faces laterais do átrio protegidas por elemento para-chamas, tais como vidros ou dispositivos automáticos de enrolar."
+    },
+    {
+      "number": 39,
+      "page": 11,
+      "text": "Art. 39. Os vidros para-chamas devem atender aos requisitos da NBR 14925 e da NBR 6479, ou normas internacionais equivalentes, e devem ser certificados por laboratório independente."
+    },
+    {
+      "number": 40,
+      "page": 11,
+      "text": "Art. 40. Átrios descobertos (que não possuem nenhum fechamento em sua parte superior) com diâmetro igual ou superior aos valores previstos na tabela 5 do anexo E: I - estão isentos da proteção com vidros ou cortinas automatizadas para-chamas; e II - devem possuir elemento corta-fogo de separação entre os pavimentos afetados pela quebra da compartimentação, analogamente ao previsto para a envoltória da edificação (fachada). Parágrafo único. As dimensões mínimas constantes na tabela 5 podem ser desconsideradas se houver proteção das aberturas em relação ao átrio descoberto por elementos para-chamas. Substituição da compartimentação vertical"
+    },
+    {
+      "number": 41,
+      "page": 11,
+      "text": "Art. 41. Além dos casos de substituição previstos na IN 1 - Parte 2, admite-se também a dispensa da compartimentação vertical para as seguintes ocupações: I - em imóveis com ocupação dos Grupos A e B que cumprirem cumulativamente os seguintes requisitos: a) com altura até 60 m: i. ter detecção automática de incêndio conforme IN 12; e ii. sofrer redução de 60% na distância máxima percorrida para se atingir um local seguro, conforme IN 9; b) com altura maior que 60 m até 120 m: i. ter detecção automática de incêndio conforme IN 12; ii. ter chuveiros automáticos conforme IN 15; iii. manter a compartimentação entre unidades autônomas no mesmo nível; e iv. manter a compartimentação da envoltória da edificação ou reduzir em 35% a distância máxima a ser percorrida para se atingir um local seguro, conforme IN 9. II - ocupações dos grupos C-1, D, H-1, H-4 e H-6 que cumprirem cumulativamente os seguintes requisitos: a) com altura até 50 m: i. ter detecção automática de incêndio conforme IN 12; e ii. sofrer redução de 30% na distância máxima percorrida para se atingir um local seguro, conforme IN 9; b) com altura maior que 50 m até 75 m: i. ter detecção automática de incêndio conforme IN 12; ii. ter chuveiros automáticos conforme IN 15; iii. manter a compartimentação entre unidades autônomas no mesmo nível; e iv. manter a compartimentação da envoltória da edificação ou reduzir em 20% a distância máxima a ser percorrida para se atingir um local seguro, conforme IN 9. III - ocupações dos grupos C-2, C-3 e H-2, H-5 e H-6 que cumprirem cumulativamente os seguintes requisitos: a) com altura até 45 m: i. ter detecção automática de incêndio conforme IN 12; ii. ter chuveiros automáticos conforme IN 15 ou manter a compartimentação da envoltória da edificação; e iii. sofrer redução de 25% na distância máxima percorrida para se atingir um local seguro, conforme IN 9. b) com altura maior que 45 m até 70 m: i. ter detecção automática de incêndio conforme IN 12; ii. ter chuveiros automáticos conforme IN 15; e iii. sofrer redução de 30% na distância máxima percorrida para se atingir um local seguro, conforme IN 9. § 1º As dispensas previstas neste artigo aplicam-se de forma alternativa e independente daquelas previstas na IN 1 - Parte 2, ou seja, ou o RT opta pela dispensa com base nos requisitos previstos na IN 1 - Parte 2, ou com base nesta IN. § 2º Para fins de compartimentação da envoltória da edificação, admite-se o uso de sprinklers de janela nas edificações com fachadas envidraçadas, independente da altura, atendendo ao previsto na IN 15. § 3º No caso previsto na letra “a” do inciso I do caput deste artigo, cumpridos seus requisitos, dispensa-se também a compartimentação da envoltória. DISPOSITIVOS AUTOMATIZADOS DE ENROLAR CORTA-FOGO"
+    },
+    {
+      "number": 42,
+      "page": 12,
+      "text": "Art. 42. Os dispositivos automatizados de enrolar corta-fogo, tais como portas, cortinas e vedadores de aço ou de tecido, podem ser utilizados na compartimentação horizontal e vertical. § 1º Na compartimentação vertical, o uso dos dispositivos automatizados de enrolar corta-fogo é permitido apenas nas edificações protegidas por chuveiros automáticos, podendo ser implementados: I - no máximo em uma abertura na interligação de até dois pavimentos consecutivos situados acima do piso de descarga; II - entre o pavimento com uso exclusivo de estacionamento e os demais pavimentos; e III - na proteção de abertura situada no mesmo pavimento de uma edificação considerada existente/recente, entre a área existente e a parte ampliada. § 2º A interligação não deve ser a rota de fuga principal da edificação. § 3º As áreas que ficarão isoladas pelos dispositivos de enrolar corta-fogo deverão possuir saídas independentes; § 4º A utilização dos dispositivos automatizados de enrolar não exclui a necessidade de compartimentação da envoltória da edificação (fachada) e a selagem dos shafts e dutos de instalações. § 5º Os integrantes da Brigada de Incêndio devem receber treinamento específico para a operacionalização dos referidos dispositivos, sobretudo no que se refere à restrição quanto à saída dos ocupantes."
+    },
+    {
+      "number": 43,
+      "page": 13,
+      "text": "Art. 43. Os dispositivos automatizados do tipo cortina devem possuir as seguintes características: I - possuir TRRF equivalente ao da parede, conforme NBR 6479; II - serem acionados automaticamente por sistema de detecção de incêndio, possuindo redundância por acionamento alternativo manual junto ao dispositivo automatizado de enrolar e à central de alarme de incêndio; III - ter afastamento de, no mínimo, 2 m de quaisquer materiais combustíveis; e IV - possuir velocidade de fechamento constante e controlada de modo a não oferecer risco de acidentes. § 1º Por questões de segurança, a falha do dispositivo ou a falta de energia devem determinar automaticamente o fechamento do dispositivo. § 2º Os dispositivos automatizados de enrolar não devem ser instalados nas rotas de fuga e saídas de emergência, e não podem interferir ou inviabilizar o funcionamento dos sistemas de proteção existentes na edificação. ISOLAMENTO DE RISCO"
+    },
+    {
+      "number": 44,
+      "page": 13,
+      "text": "Art. 44. O isolamento de risco pode ser realizado por meio de: I - afastamento entre blocos; ou II - parede corta-fogo."
+    },
+    {
+      "number": 45,
+      "page": 13,
+      "text": "Art. 45. As edificações não isoladas entre si dentro da mesma propriedade ou que, ainda que em propriedades distintas, possuam interligação, devem ter suas áreas construídas somadas para fins de exigência dos sistemas e medidas de segurança contra incêndio e pânico. Parágrafo único. Entre edificações de propriedades distintas, sem interligação, o isolamento de risco é recomendado, sendo competência dos municípios adotarem tal medida de segurança. Isolamento de risco por afastamento entre os blocos"
+    },
+    {
+      "number": 46,
+      "page": 13,
+      "text": "Art. 46. A tabela 6 do anexo F, prevê os afastamentos mínimos para edificações com até 750 m² de área e altura de até 12 m para que sejam consideradas isoladas entre si. Parágrafo único. Aplica-se o previsto no caput deste artigo se qualquer um dos blocos (expositor ou em exposição) possuírem os critérios de área e altura estipulados."
+    },
+    {
+      "number": 47,
+      "page": 14,
+      "text": "Art. 47. Para edificações com área maior que 750 m² ou altura superior a 12 m deve-se adotar a IT-07 do CBPMESP para determinação do isolamento de risco por afastamento entre blocos. § 1º O dimensionamento do isolamento de risco é de competência do responsável técnico pelo Projeto de Prevenção e Segurança Contra Incêndio e Pânico (PPCI). § 2º Deve ser apresentado no projeto a distância obtida pelos cálculos e nota de atendimento à IT-07."
+    },
+    {
+      "number": 48,
+      "page": 14,
+      "text": "Art. 48. Dispensa-se o distanciamento horizontal de separação entre fachadas opostas quando uma delas não possuir qualquer tipo de aberturas (parede cega) e obtiver o TRRF mínimo de 120 min. Isolamento de risco por parede corta-fogo"
+    },
+    {
+      "number": 49,
+      "page": 14,
+      "text": "Art. 49. As paredes corta-fogo poderão ser utilizadas para isolamento de risco entre edificações (conjugadas/geminadas), ou entre áreas dentro de uma edificação , devendo possuir as seguintes características: I - a parede corta-fogo deve ser capaz de permanecer estável quando a estrutura do telhado entrar em colapso; II - deve ter resistência suficiente para suportar, sem grandes danos, impactos de cargas ou equipamentos normais em trabalho dentro da edificação; III - o tempo mínimo de resistência ao fogo deve ser igual ao TRRF da estrutura principal, porém nunca inferior a 120 min; IV - a parede corta-fogo não deve possuir nenhum tipo de abertura, mesmo que protegida; V - as aberturas em coberturas ou outras paredes devem atender aos mesmos afastamentos para áreas de compartimentação horizontal distintas (ver tabela 3); VI - a parede corta-fogo deve ultrapassar em 1 metro a altura na qual os telhados ou coberturas se encontram. VII - a distância em relação às aberturas situadas em demais áreas frias deve ser de, no mínimo, 90 cm. § 1º Os afastamentos entre aberturas mencionadas no inciso V deste artigo podem ser desconsideradas nas seguintes situações: I - abertura situada em banheiro; II - existência de aba vertical, perpendicular ao plano das aberturas, com no mínimo 90 cm ligada a estrutura da parede corta-fogo. § 2º O disposto no inciso VI deste artigo não se aplica nos casos em que: I - houver diferença de altura entre as paredes corta-fogo de, no mínimo, 1 m entre as coberturas ou telhados;: II - houver cobertura composta por laje com TRRF de 120 min. § 3º Para isolamento de risco das unidades residenciais geminadas ou conjugadas (A-1) com até 2 unidades residenciais, poderão ser adotados os seguintes critérios: I - as paredes poderão possuir TRRF mínimo de 60 min; II - o afastamento entre aberturas de unidades residenciais distintas poderá ser de, no mínimo, 1,00 m; podendo esta distância ser substituída por moldura ou aba vertical, perpendicular ao plano das aberturas, com 0,50 m de saliência sobre ele e ultrapassando 0,30 m a verga da abertura mais alta. Figura 2 - Exemplo de isolamento em casas geminadas com laje sem afastamento de 1,00 m entre aberturas das unidades. Figura 3 - Exemplo de isolamento em casas geminadas sem laje e sem afastamento de 1,00 m entre aberturas das unidades. Passagens cobertas"
+    },
+    {
+      "number": 50,
+      "page": 15,
+      "text": "Art. 50. No caso de edificações que obedeçam aos critérios de afastamento, mas que são interligadas por passagens cobertas, os seguintes requisitos devem ser observados para se manter o isolamento de risco: I - as passagens cobertas destinadas ao trânsito de pessoas de um bloco para outro (perpendiculares) devem possuir largura máxima de 3 m e serem utilizadas exclusivamente para o trânsito de pessoas, materiais, equipamentos de pequeno porte e trânsito de veículos; II - são admitidas nas áreas adjacentes às passagens cobertas construções destinadas a sanitários, escadas com materiais incombustíveis, elevadores, guarita de recepção, reservatórios de água e similares; III - todos os materiais utilizados na construção das passagens cobertas devem ser incombustíveis; IV - as passagens cobertas devem possuir as laterais totalmente abertas, sendo admissível apenas as guardas e proteções laterais, também incombustíveis. § 1º As passagens cobertas ou coberturas destinadas ao estacionamento de veículos, equipamentos de grande porte ou linhas de produção industriais descaracterizam o afastamento entre as edificações e, consequentemente, o isolamento. § 2º Não são admitidas passagens cobertas destinadas ao trânsito de pessoas entre os blocos (de forma paralela), permitindo-se, entretanto, que um ou ambos os bloco possua cobertura em suas faces desde que a área total coberta não ultrapasse 70% da área total de solo existente entre os blocos. Isolamento de risco em edifícios residenciais"
+    },
+    {
+      "number": 51,
+      "page": 15,
+      "text": "Art. 51. Os edifícios residenciais com mais de uma torre, com altura de até 12 m e com área útil de construção até 750 m² em cada torre (incluindo-se a área da escada, proporcionalmente) serão considerados isolados quando houver afastamento entre as torres de no mínimo 4 m, desconsiderando sacadas permanentemente abertas, podendo haver ligação por meio de uma escada simples, com ventilação permanente (janelas) nas extremidades, abrindo para o espaço livre exterior, desde que as janelas: I - estejam situadas junto ao teto, ou no máximo a 40 cm deste, em todos os pavimentos, de forma a permitir o escoamento da fumaça, nos dois lados opostos da escada; II - tenham área de ventilação efetiva mínima de 0,50 m², em cada pavimento, dotadas de venezianas ou outro material (inclusive venezianas tipo “maxiar”) que assegure a ventilação permanente. Parágrafo único. Caso não seja possível a instalação de janelas em lados opostos da escada, será aceita em apenas um dos lados com área de ventilação efetiva mínima de 1,00 m²."
+    },
+    {
+      "number": 52,
+      "page": 16,
+      "text": "Art. 52. Nos casos de edifícios contíguos, serão considerados isolados quando houver estruturas e paredes distintas sem aberturas de comunicação e com afastamentos entre aberturas de lados opostos afastadas, no mínimo, 2 m entre si por trecho de parede com TRRF mínimo de 120 min. § 1 º A distância entre as aberturas de lados opostos mencionada no caput deste artigo pode ser substituída por uma aba vertical, perpendicular ao plano das aberturas, com 0,9 m de saliência. § 2º A distância em relação à abertura situada em banheiro pode ser desconsiderada e, em relação à abertura de áreas frias, pode ser reduzida para 0,9 m."
+    },
+    {
+      "number": 53,
+      "page": 16,
+      "text": "Art. 53. Quando a parede for comum entre os blocos contíguos, deverá ter resistência ao fogo por 2 h, sem a necessidade de ultrapassar 1 m acima do telhado, desde que os blocos tenham lajes ou telhados independentes no último pavimento. DISPOSIÇÕES FINAIS"
+    },
+    {
+      "number": 54,
+      "page": 16,
+      "text": "Art. 54. Esta IN, aplicável em todo o território catarinense, entra em vigor em 24 de abril de 2024, revogando a IN 17 de 17 de fevereiro de 2020. ."
+    },
+    {
+      "number": 55,
+      "page": 16,
+      "text": "Art. 55. Está IN é exigida para construções novas, aplicando-se a edificações recentes e existentes somente quando a IN 5 assim dispuser. Coronel BM FABIANO DE SOUZA Comandante-Geral do Corpo de Bombeiros Militar de SC ORGANIZAÇÃO: TC BM Willyan Fazzioni - Direção Maj BM Oscar W Barboza Jr - Supervisão e Edição Maj BM Felipe Gelain - Revisão Cap BM Rafael Giosa Sanino - Revisão Cap BM Suellen Lapa Duarte - Edição"
+    }
+  ],
+  "annexes": [
+    {
+      "page": 17,
+      "title": "ANEXO A - Tempos requeridos de resistência ao fogo Tabela 1 - TRRF para as ocupa",
+      "text": "ANEXO A - Tempos requeridos de resistência ao fogo Tabela 1 - TRRF para as ocupações em função da altura do imóvel Grupo Divisão TRRF (em minutos) em função da altura da edificação Altura da edificação (h) em metros H ⩽6 6 < h ⩽12 12 < h ⩽23 23 < h ⩽30 30 < h ⩽80 80 < h ⩽120 120 < h ⩽150 A A-1 a A-3 30 30 60 90 120 120 150 B B-1 e B-2 30 60 60 90 120 150 180 C C-1 a C-3 60 60 60 90 120 150 150 D D-1 a D-4 30 60 60 90 120 120 150 E E-1 a E-6 30 30 60 90 120 120 150 F F-1, F-2, F-5, F-6, F-8, F-10 e F-11 60 60 60 90 120 150 180 F-3, F-4 e F-7 - - 30 60 60 90 120 F-9 30 60 60 90 120 150 150 G G-1 e G2 sem aberturas laterais e G-3 a G-5 30 60 60 90 120 120 150 G-1 e G2 abertos lateralmente 30 30 30 30 60 120 120 H H-1 a H-6 30 60 60 90 120 150 180 I I-1 30 30 30 60 120 150 150 I-2 30 30 60 90 120 150 180 I-3 60 60 90 120 120 150 180 J J-1 - - 30 30 60 90 120 J-2 60 60 60 60 90 120 150 J-3 60 60 60 120 120 150 150 J-4 60 60 90 120 120 150 180 K K-1 90 90 120 120 120 150 Não se aplica* K-2 90 90 120 120 120 150 Não se aplica* L L-1 a L-3 120 120 120 150 180 180 180 M M-1 150 150 Não se aplica* M-2 120 120 150 Não se aplica* M-5 60 60 90 120 Não se aplica* M-3 90 90 90 120 120 120 150 M-8 - 30 Não se aplica* M-9 60 120 Não se aplica* NORMAS DE SEGURANÇA CONTRA INCÊNDIO | IN 14 | RESISTÊNCIA, COMPARTIMENTAÇÃO, ISOLAMENTO | 2024 17 NOTAS * Não se deve aplicar a tabela. Os casos devem ser avaliados pelos SSCI e pela DSCI. a O TRRF dos subsolos não pode ser inferior ao dos pavimentos situados acima do solo, sendo no mínimo 60 min para subsolos com até 10 m de profundidade e 90 min para subsolos com mais de 10 m de profundidade. b Para indústria ou depósito de inflamáveis considerar como I-3 e J-4 respectivamente."
+    },
+    {
+      "page": 18,
+      "title": "ANEXO B - Área máxima de compartimentação Tabela 2 - Área máxima de compartiment",
+      "text": "ANEXO B - Área máxima de compartimentação Tabela 2 - Área máxima de compartimentação em função da ocupação e altura Grupo Divisão Área máxima de compartimentação (em m²) em função da altura da edificação Altura da edificação (h) em metros 1 pavimento H ⩽6 6 < h ⩽12 12 < h ⩽23 23 < h ⩽30 > 30 A¹ A-1 a A-3 - - - - - - B B-1 e B-2 - 5.000 4.000 3.000 2.000 1.500 C C-1 e C-2 10.000 5.000 3.000 2.000 1.500 1.500 C-3 7.500 5.000 3.000 2.000 1.000 1.500 D D-1 a D-4 7.500 5.000 3.000 2.000 1.000 2.000 E E-1 a E-6 - - - - 1.500 2.000 F F-1, F-2,F-3, F-4, F-7 e F-9 - - - - - - F-5 e F-6 5.000 4.000 3.000 2.000 1.000 1.500 F-8 - - - 2.000 1.000 1.500 F-10 e F-11 5.000 2.500 1.500 1.000 1.000 1.000 G G-1, G-2 G-3 e G-5 - - - - - - G-4 10.000 5.000 3.000 2.000 1.000 1.000 H¹ H-1, H-2 H-4 e H-5 - - - - - - H-3 - 7.500 5.000 2.500 1.500 1.000 H-6 7.500 5.000 2.500 1.500 1.000 2.000 I I-1 - - 7.500 4.000 2.000 2.000 I-2 - 10.000 5.000 3.000 2.000 2.000 I-3 10.000 7.500 4.000 3.000 1.500 1.500 J J-1 - - - - - - J-2 15.000 7.500 4.000 1.500 3.000 2.000 J-3 7.500 4.000 2.000 3.000 2.000 1.000 J-4 5.000 3.000 2.000 2.500 1.500 1.000 K K-1 7.500 4.000 2.000 1.000 500 500 K-2 - - - - - - M M-2² 1.000 750 500 300 300 200 M-3 5.000 3.000 2.000 1.000 500 500 NOTA ESPECÍFICA 1 Para A-2, A-3 e H-2 exige somente a compartimentação entre as unidades autônomas conforme definido na IN 1 2 A área máxima de compartimentação para edificações do grupo M-2 pode ser isenta quando a edificação for protegida por sistema de chuveiro automático de água ou de espuma NOTAS GERAIS a As divisões marcadas na tabela com ( - ) estão dispensados da área máxima de compartimentação, devendo somente atender a compartimentação vertical ou entre unidades autônomas a partir da altura definida pela IN 1 - parte 2. b Observar os casos permitidos de substituição da compartimentação conforme IN 1 - parte 2. c Observar o artigo 8º da IN 1 - Parte 2 em relação aos locais destinado a garagens. d No caso de edificações com mais de uma ocupação, havendo compartimentação vertical, a altura a ser considerada é a que se refere à altura específica da ocupação. e Observar IN 9 em relação a exigência de área de refúgio."
+    },
+    {
+      "page": 19,
+      "title": "ANEXO C - Afastamento entre aberturas de diferentes áreas de compartimentação ho",
+      "text": "ANEXO C - Afastamento entre aberturas de diferentes áreas de compartimentação horizontal Tabela 3 - Afastamento entre aberturas de diferentes áreas de compartimentação horizontal exceto para fachadas paralelas Localização das aberturas Afastamento mínimo Alternativa Cobertura¹ 2 m Prolongamento da parede de compartimentação 1 m acima da linha de cobertura Mesma fachada² 2 m Prolongamento da parede de compartimentação 0,9 m para o exterior da edificação Fachadas Ortogonais³ 4 m Afastamento reduzido à metade⁴ ou suprimido⁵ NOTAS ESPECÍFICAS 1 Telhas combustíveis são consideradas como aberturas. 2 A distância em relação a uma abertura situada em área fria pode ser reduzida para 0,90 m. 3 A distância em relação a uma abertura situada em banheiro, vestiários, saunas e piscinas pode ser de 2 m. 4 Específico para aberturas protegidas por elementos para-chama. 5 Específico para aberturas protegidas por elementos corta-fogo. Figura 4 - Exemplo de fachadas ortogonais."
+    },
+    {
+      "page": 20,
+      "title": "ANEXO D - Afastamento entre aberturas em fachadas paralelas Tabela 4 - Afastamen",
+      "text": "ANEXO D - Afastamento entre aberturas em fachadas paralelas Tabela 4 - Afastamento entre aberturas de diferentes blocos com fachadas paralelas Porcentagem total de abertura na fachada (%) Distância de compartimentação “d” (m) ¹⁻² < 20 4 21 a 30 5 31 a 40 6 41 a 50 7 51 a 60 8 61 a 70 9 > 70 10 NOTAS ESPECÍFICAS 1 A distância pode ser reduzida à metade para aberturas protegidas por elementos para-chama. 2 A distância pode ser suprimida para aberturas protegidas por elementos corta-fogo. NOTAS GERAIS a A porcentagem de abertura é obtida dividindo-se a soma das áreas de aberturas pela área total de fachada, das duas edificações. b As distâncias acima devem ser aplicadas entre as aberturas mais próximas na projeção horizontal, independente do pavimento. c A distância entre aberturas situadas em banheiros, vestiários, saunas e piscinas pode ser de 2 m. Figura 5 - Exemplo de fachadas paralelas"
+    },
+    {
+      "page": 21,
+      "title": "ANEXO E - Condições de segurança para átrios descobertos Tabela 5 - Dimensões mí",
+      "text": "ANEXO E - Condições de segurança para átrios descobertos Tabela 5 - Dimensões mínimas para átrios descobertos em função da altura Altura da edificação (h) em metros (m) h < 30 30 < h ⩽60 60 < h ⩽90 h > 90 Porcentagem de aberturas das faces laterais do átrio (%) Diâmetro “d” (m) Diâmetro “d” (m) Diâmetro “d” (m) Diâmetro “d” (m) < 20 6 7 8 9 21 a 30 7 8 9 11 31 a 40 8 9 10 13 41 a 50 9 10 12 15 51 a 60 10 11 14 18 61 a 70 11 13 16 21 > 70 12 15 20 25 NOTAS GERAIS a A porcentagem de abertura é obtida dividindo-se a soma das áreas de aberturas das faces laterais do átrio pela área total das faces laterais do átrio. b A dimensão “d” em metros é aquela que possibilita a inserção de um cilindro reto, cujo diâmetro se insere sobre toda a altura do átrio, dentro do espaço livre correspondente entre as aberturas de suas faces laterais. c A dimensão entre aberturas situadas em banheiros, vestiários, saunas e piscinas pode ser de 4 m."
+    },
+    {
+      "page": 22,
+      "title": "ANEXO F - Isolamento de risco para edificações com até 750 m² de área ou 12 m de",
+      "text": "ANEXO F - Isolamento de risco para edificações com até 750 m² de área ou 12 m de altura Tabela 6 - Distância de separação para edificações com até 750 m² de área ou 12 m de altura para isolamento de risco em função do afastamento Porcentagem de aberturas (%) Distância “d” em metros (m) 1 pvto (térreo) 2 pvtos 3 ou + pvtos < 10 4 6 8 11 a 20 5 7 9 21 a 30 6 8 10 31 a 40 7 9 11 41 a 50 8 10 12 51 a 70 9 11 13 > 70 10 12 14 NOTAS GERAIS a Distâncias devem ser aplicadas entre as aberturas mais próximas na projeção horizontal, independente do pavimento. b Considerar a fachada com maior porcentagem de abertura entre as edificações em estudo (expositora ou exposição) c A distância entre aberturas situadas em banheiros, vestiários, saunas e piscinas pode ser reduzida a 4 m. d Paredes na fachada que possuam TRRF < 30 minutos, devem ser consideradas com percentual de abertura de 100%. e A tabela pode ser aplicada quando qualquer uma das edificações (em exposição ou expositora) possuírem até 750 m² e até 12 m de altura."
+    },
+    {
+      "page": 23,
+      "title": "ANEXO G - Resistência ao fogo para alvenaria Tabela 7 - Resistência ao fogo para",
+      "text": "ANEXO G - Resistência ao fogo para alvenaria Tabela 7 - Resistência ao fogo para alvenaria Paredes ensaiadas (*) Características das paredes Resultado dos ensaios Espessura de argamassa de revestimento (cada face) (cm) Espessura total da parede (cm) Duração do ensaio (min) Tempo de atendimento aos critérios de avaliação (horas) Resistênci a ao fogo (horas) Integridade Estanqueidade Isolação térmica ¹⁻²Parede de tijolos de barro cozido dimensões nominais dos tijolos: 5 cm x 10 cm x 20 cm; Massa: 1,5 Kg ½ tijolo s/ revestimento - 10 120 ⩾2 ⩾2 1 ½ 1 ½ 1 tijolo s/ revestimento - 20 395 (**) ⩾6 ⩾6 ⩾6 ⩾6 ½ tijolo c/ revestimento 2,5 15 300 ⩾4 ⩾4 4 4 1 tijolo com revestimento 2,5 25 300 (**) ⩾6 ⩾6 ⩾5 > 6 ³⁻²Parede de blocos vazados de concreto (2 furos) blocos com dimensões: 14 cm x 19 cm x 39 cm (massa 13 kg) e 19 cm x 19 cm x 39 cm (massa 17 kg) Bloco de 14 cm s/ revestimento - 14 100 ⩾1 ½ ⩾1 ½ 1 ½ 1 ½ Bloco de 19 cm s/ revestimento - 19 120 ⩾2 ⩾2 1 ½ 1 ½ Bloco de 14 cm c/ revestimento 1,5 17 150 ⩾2 ⩾2 2 2 Bloco de 19 cm c/ revestimento 1,5 22 185 ⩾3 ⩾3 3 3 ⁴⁻²Paredes de tijolos cerâmicos de 8 furos dimensões dos tijolos: 10 cm x 20 cm x 20 cm (massa 2,9 Kg) ½ tijolo com revestimento 1,5 13 150 ⩾2 ⩾2 2 2 1 tijolo com revestimento 1,5 23 300 (**) ⩾4 ⩾4 ⩾4 ⩾4 Paredes de concreto armado monolítico sem revestimento Traço do concreto em volume, 1 cimento: 2,5 areia média: 3,5 agregado graúdo (granizo pedra nº 3): armadura simples posicionada à meia espessura das paredes, possuindo malha de lados 15 cm, de aço CA - 50A diâmetro ¼ polegada 11,5 150 2 2 1 1 ½ 16 210 3 3 3 3 NOTAS ESPECÍFICAS 1 Traço em volume da argamassa de assentamento: 1 Cal: 5 Areia - Espessura da média da argamassa de 1 cm. 2 Traço em volume da argamassa de assentamento: Chapisco = 1 Cimento: 3 Areia / Esboço = 1 Cimento: 2 Cal: 9 de Areia. 3 Traço em volume da argamassa de assentamento: 1 Cimento: 1 Cal: 8 Areia - Espessura da média da argamassa de 1 cm. 4 Traço em volume da argamassa de assentamento: 1 Cal: 4 Areia - Espessura da média da argamassa de 1 cm. * Paredes sem função estrutural ensaiadas totalmente vinculadas dentro da estrutura de concreto armado, com dimensões 2,8 m x 2,8 m totalmente expostas ao fogo (em uma face). ** Ensaio encerrado sem ocorrência de falência em nenhum dos 3 critérios de avaliação."
+    },
+    {
+      "page": 24,
+      "title": "ANEXO H - Resistência ao fogo de paredes em chapas de gesso Tabela 8 - Resistênc",
+      "text": "ANEXO H - Resistência ao fogo de paredes em chapas de gesso Tabela 8 - Resistência ao fogo de paredes em gesso drywall Descrição conforme NBR 15758 Espessura total em mm Largura da estrutura em mm Distância entre montantes em mm Chapas de gesso Altura máxima da parede em m Resistência ao fogo - CF Montantes Tipos de chapas Qtde. Espessura Simples Duplo ST ou RU RF 73/48/600/1CH 12,5 - 1CH 12,5 73 48 600 2 12,5 2,50 2,90 CF30 CF30 73/48/400/1CH 12,5 - 1CH 12,5 73 48 400 2 12,5 2,70 3,25 CF30 CF30 98/48/600/2CH 12,5 - 2CH 12,5 98 48 600 4 12,5 2,90 3,50 CF60 CF90 98/48/400/2CH 12,5 - 2CH 12,5 98 48 400 4 12,5 3,20 3,80 CF60 CF90 108/48/400/2CH 15 - 2CH 15 108 48 600 4 15 3,00 3,60 CF90 CF120 95/70/600/1CH 12,5 - 1CH 12,5 108 48 400 4 15 3,30 3,90 CF90 CF120 95/70/400/1CH 12,5 - 1CH 12,5 95 70 600 2 12,5 3,00 3,60 CF30 CF30 120/70/600/2CH 12,5 - 2CH 12,5 95 70 400 2 12,5 3,30 4,05 CF30 CF30 120/70/400/2CH 12,5 - 2CH 12,5 120 70 600 4 12,5 3,70 4,40 CF60 CF90 130/70/600/2CH 15 - 2CH 15 130 70 600 4 15 3,80 4,50 CF90 CF120 130/70/400/2CH 15 - 2CH 15 130 70 400 4 15 4,20 4,90 CF90 CF120 115/90/600/1CH 12,5 - 1CH 12,5 115 90 600 2 12,5 3,50 4,15 CF30 CF30 115/90/400/1CH 12,5 - 1CH 12,5 115 90 400 2 12,5 3,85 4,60 CF30 CF30 140/90/600/2CH 12,5 - 2CH 12,5 140 90 600 4 12,5 4,20 5,00 CF60 CF90 140/90/400/2CH 12,5 - 2CH 12,5 140 90 400 4 12,5 4,60 5,50 CF60 CF90 150/90/600/2CH 15 - 2CH 15 150 90 600 4 15 4,30 5,10 CF90 CF120 150/90/400/2CH 15 - 2CH 15 150 90 400 4 15 4,70 5,60 CF90 CF120 160/48/600/DEL/2C H 12,5 - 2CH 12,5 160 48 600 4 12,5 4,90 5,80 CF60 CF90 160/48/400/DEL/2C H 12,5 - 2CH 12,5 160 48 400 4 12,5 5,50 6,50 CF60 CF90 NOTAS GERAIS a Será admitido o uso de parede de “drywall” com alturas superiores a 6,5 m em compartimentação de áreas, desde que seja apresentado atestado da empresa fabricante do drywall especificando a altura limite que pode ser executada a parede; a tipologia (características construtivas) e o tempo de resistência ao fogo correspondente. LEGENDA: ST = Standard RU = Resistente a umidade RF - Resistente ao fogo"
+    },
+    {
+      "page": 25,
+      "title": "ANEXO I - Aberturas em paredes de compartimentação Tabela 9 - Características da",
+      "text": "ANEXO I - Aberturas em paredes de compartimentação Tabela 9 - Características das aberturas em paredes de compartimentação Elemento corta-fogo Finalidade Normas aplicáveis Características gerais Vedadores corta-fogo¹-² Compartimentar aberturas de passagens exclusivas de materiais NBR 11711 NBR 17240 Fechamento automático por sistema de detecção automática³ Selo corta-fogo Passagem de instalações (elétricas, hidrossanitárias, telefônicas, etc.) NBR 6479 Tubos plásticos de diâmetro interno superior a 40 mm devem fechar o buraco deixado pelo tubo ao ser consumido pelo fogo Registro corta-fogo⁴ Dutos de ventilação, ar-condicionado ou exaustão NBR 6479 NBR 17240 Fechamento automático por sistema de detecção automática de fumaça³ ou ou fusíveis térmicos Portas corta-fogo⁵ Passagem entre ambiente NBR 11742 NBR 11711 NBR 17240 NBR 6479 NBR 16829 Permanentemente fechada ou fechamento automático por sistema de alarme e detecção (caso pertença a via de circulação em situação normal)⁶ NOTAS ESPECÍFICAS 1 Na impossibilidade de serem utilizados vedadores corta-fogo, pela existência de obstáculos na abertura (esteiras transportadoras, por exemplo) pode-se utilizar alternativamente a proteção por cortina d’água, desde que a área da abertura não ultrapasse 1,5 m². 2 Serão aceitos vedadores de aço automatizados de enrolar corta-fogo, desde que possuam as dimensões máximas de acordo com a NBR 11711. 3 Exceto para ocupações industriais e depósitos. 4 Alternativamente ao registro corta-fogo, os dutos devem possuir proteção em toda sua extensão que garanta a resistência ao fogo equivalente à das paredes de compartimentação. 5 Para compartimentação de áreas de edificações comerciais, industriais e de depósitos, alternativamente, serão aceitas portas de aço automatizados de enrolar corta-fogo, desde que possuam as dimensões máximas de acordo com a NBR 11711."
+    },
+    {
+      "page": 26,
+      "title": "ANEXO J - Compartimentação vertical na envoltória da edificação NORMAS DE SEGURA",
+      "text": "ANEXO J - Compartimentação vertical na envoltória da edificação NORMAS DE SEGURANÇA CONTRA INCÊNDIO | IN 14 | RESISTÊNCIA, COMPARTIMENTAÇÃO, ISOLAMENTO | 2024 26 Figura 6 - Modelo compartimentação vertical fachada verga- peitoril. Figura 7 - Compartimentação de fachadas com abas horizontais Figura 8 - Modelo compartimentação vertical com abas e Figura 9 - Modelo compartimentação usando vidro redutor de"
+    },
+    {
+      "page": 27,
+      "title": "Continuação ANEXO J - Compartimentação vertical na envoltória da edificação Figu",
+      "text": "Continuação ANEXO J - Compartimentação vertical na envoltória da edificação Figura 10 - Modelo de compartimentação fachada envidraçada."
+    }
+  ],
+  "checks": {
+    "needs_human_look": []
+  }
+}

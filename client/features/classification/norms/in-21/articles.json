@@ -1,0 +1,196 @@
+{
+  "doc": "IN-21",
+  "preamble": "IN 21 SÍMBOLOS GRÁFICOS PARA PROJETO DE PREVENÇÃO E SEGURANÇA CONTRA INCÊNDIO E PÂNICO SUMÁRIO DISPOSIÇÕES INICIAIS 2 Objetivo 2 Referências 2 Terminologias 2 APLICAÇÃO 2 Geral 2 SÍMBOLOS GRÁFICOS PARA PPCI 2 Símbolos previstos nesta IN 2 Símbolos não previstos nesta IN 3 DISPOSIÇÕES FINAIS 3 ANEXO A - Símbolos gráficos para projeto de segurança contra incêndio 4 1. SISTEMA PREVENTIVO POR EXTINTORES 4 1.1 Extintores portáteis 4 1.2 Extintores sobrerrodas 5 2. SISTEMA DE HIDRANTES 6 3. SISTEMA DE CHUVEIROS AUTOMÁTICOS (SPRINKLERS) 8 4.INSTALAÇÕES DE GÁS COMBUSTÍVEL 9 5. GÁS CARBÔNICO (CO2) 10 6. SISTEMA ALTERNATIVO HALON 10 7. NEBULIZADORES 10 8. SISTEMA DE ESPUMA E RESFRIAMENTO 11 9. SISTEMA DE ALARME 12 10. SISTEMA DE DETECÇÃO 13 10.1 Detectores Lineares 13 10.2 Detectores Lineares Entreforro 13 10.3 Detectores Lineares Entrepiso 14 10.4 Detectores Lineares em Armários 14 10.5 Detectores Pontuais 15 10.6 Detectores Pontuais Entreforro 15 10.7 Detectores Pontuais Entrepiso 16 10.8 Detectores Pontuais em Armários 16 10.9 Detectores Lineares com Proteção 17 10.10 Detectores Pontuais Protegidos 17 10.11 Complementos 18 11. SISTEMA DE ILUMINAÇÃO DE EMERGÊNCIA 19 12. VASOS E TANQUES 19 12.1 Vasos Central de GLP 19 12.2 Tanques 20 13. ÁREAS DE RISCO 20 14. PRODUTOS PERIGOSOS 20 15. ROTAS DE SAÍDA 21 16. INSTALAÇÕES ELÉTRICAS 23 17. ABERTURAS PROTEGIDAS 23 18. VEDAÇÃO 24 19. ELEVADORES 24 20. SHAFTS 24 21. DAMPERS 25 22. SISTEMA DE VENTILAÇÃO E SISTEMA DE CONTROLE DE FUMAÇA E PÓ 25 23. OUTROS 27 Vigente a partir de 24/04/2024 27 páginas INSTRUÇÃO NORMATIVA 21 SÍMBOLOS GRÁFICOS PARA PPCI DISPOSIÇÕES INICIAIS Objetivo",
+  "articles": [
+    {
+      "number": 1,
+      "page": 2,
+      "text": "Art. 1º Esta Instrução Normativa (IN) tem como objetivo estabelecer e padronizar os símbolos gráficos para projetos de prevenção e segurança contra incêndio e pânico (PPCI) apresentados ao Corpo de Bombeiros Militar de Santa Catarina (CBMSC). Referências"
+    },
+    {
+      "number": 2,
+      "page": 2,
+      "text": "Art. 2º As referências utilizadas são as seguintes: I - IN 1 - parte 1, de 2024 - CBMSC; II - IN 1 - parte 2, de 2024 - CBMSC; III - Instrução Técnica 04 - CBPMESP IV - NBR 14100. Terminologias"
+    },
+    {
+      "number": 3,
+      "page": 2,
+      "text": "Art. 3º As terminologias gerais que tratam da segurança contra incêndio são definidas pelo CBMSC e disponibilizadas para acesso público em seu portal oficial. APLICAÇÃO Geral"
+    },
+    {
+      "number": 4,
+      "page": 2,
+      "text": "Art. 4º Esta IN aplica-se a todos os PPCIs apresentados ao CBMSC, conforme previsto nas normas de segurança contra incêndio e pânico (NSCI)."
+    },
+    {
+      "number": 5,
+      "page": 2,
+      "text": "Art. 5º Conforme previsto nos incisos XII e XIII do artigo 81 da IN 1 - parte 1, os SMSCI devem estar em cores diferentes de cinza e preto. § 1º Para os seguintes SMSCI, o padrão de cores é definido da seguinte forma: a) extintores e SHP (símbolos e tubulações): vermelho, variando de rgb(255:10:10) à rgb (240:0:0); b) gás canalizado (símbolos e tubulações): amarelo, variando de rgb(255:220:10) à rgb (245;215;0); e c) alarme e Detecção de Incêndio (símbolos e conduítes): azul, variando de rgb (0:0:220) à rgb (0:0:210). § 2º Os demais elementos e sistemas podem ser representados em outras cores, a critério do RT, preferencialmente em cores distintas para cada sistema. SÍMBOLOS GRÁFICOS PARA PPCI Símbolos previstos nesta IN"
+    },
+    {
+      "number": 6,
+      "page": 2,
+      "text": "Art. 6º Os símbolos gráficos são compostos por uma forma geométrica básica, que define uma categoria de segurança contra incêndio, e por um símbolo suplementar, que, inserido no interior da forma geométrica básica, define o significado específico do conjunto. Parágrafo único. Os símbolos gráficos são apresentados no Anexo A desta IN."
+    },
+    {
+      "number": 7,
+      "page": 2,
+      "text": "Art. 7º As dimensões dos símbolos devem estar em uma mesma escala, proporcional à escala de desenho do projeto, e devem permitir a perfeita visualização dos sistemas e equipamentos de segurança contra incêndio."
+    },
+    {
+      "number": 8,
+      "page": 2,
+      "text": "Art. 8º Os símbolos podem ser complementados por figuras detalhadas, números ou abreviaturas."
+    },
+    {
+      "number": 9,
+      "page": 2,
+      "text": "Art. 9º Os significados de todos os símbolos utilizados devem ser explicados em uma legenda, de maneira clara e de fácil identificação pelo leitor. Símbolos não previstos nesta IN"
+    },
+    {
+      "number": 10,
+      "page": 3,
+      "text": "Art. 10. Símbolos complementares que não constem no anexo desta IN podem ser incluídos ao PPCI, desde que devidamente definidos em legenda."
+    },
+    {
+      "number": 11,
+      "page": 3,
+      "text": "Art. 11. Admite-se o uso da simbologia prevista na NBR ISO 7240-1 para os sistemas de alarme e detecção automática de incêndio em substituição aos símbolos gráficos previstos nos itens 9 e 10 do Anexo A."
+    },
+    {
+      "number": 12,
+      "page": 3,
+      "text": "Art. 12. A sinalização de abandono de local deve seguir o disposto na NBR 16820. DISPOSIÇÕES FINAIS"
+    },
+    {
+      "number": 13,
+      "page": 3,
+      "text": "Art. 13. Esta IN, aplicável em todo o território catarinense, entra em vigor em 24 de abril de 2024. Coronel BM FABIANO BASTOS DAS NEVES Comandante-Geral do Corpo de Bombeiros Militar de SC ORGANIZAÇÃO: TC BM Willyan Fazzioni - Direção Maj BM Oscar W Barboza Jr - Supervisão e Edição Cap BM Rafael Giosa Sanino - Revisão Cap BM Suellen Lapa Duarte - Edição e Redação"
+    }
+  ],
+  "annexes": [
+    {
+      "page": 4,
+      "title": "ANEXO A - Símbolos gráficos para projeto de segurança contra incêndio 1. SISTEMA",
+      "text": "ANEXO A - Símbolos gráficos para projeto de segurança contra incêndio 1. SISTEMA PREVENTIVO POR EXTINTORES 1.1 Extintores portáteis carga d’água carga de espuma mecânica carga de dióxido de carbono (CO 2 ) carga de pó BC carga de pó ABC carga de pó D carga de classe K carga halon"
+    },
+    {
+      "page": 5,
+      "title": "1.2 Extintores sobrerrodas carga d’água carga de espuma mecânica carga de dióxid",
+      "text": "1.2 Extintores sobrerrodas carga d’água carga de espuma mecânica carga de dióxido de carbono (CO 2 ) carga de pó BC carga de pó ABC carga de pó D carga de classe K carga halon"
+    },
+    {
+      "page": 6,
+      "title": "2. SISTEMA DE HIDRANTES hidrante simples hidrante duplo hidrante urbano de colun",
+      "text": "2. SISTEMA DE HIDRANTES hidrante simples hidrante duplo hidrante urbano de coluna hidrante urbano subterrâneo mangotinho registro de recalque com válvula de retenção registro de recalque sem válvula de retenção acionador de bomba de incêndio (botoeira tipo liga e desliga) bomba de incêndio"
+    },
+    {
+      "page": 7,
+      "title": "reserva técnica de incêndio pintura piso",
+      "text": "reserva técnica de incêndio pintura piso"
+    },
+    {
+      "page": 8,
+      "title": "3. SISTEMA DE CHUVEIROS AUTOMÁTICOS (SPRINKLERS) ponto (bico de sprinkler) área ",
+      "text": "3. SISTEMA DE CHUVEIROS AUTOMÁTICOS (SPRINKLERS) ponto (bico de sprinkler) área protegida pelo sistema de chuveiros automáticos registro de recalque para o sistema de chuveiros automáticos bomba de incêndio para sistema de chuveiros automáticos reserva técnica de incêndio para sistema de chuveiros automáticos painel de comando central do sistema de chuveiros automáticos válvula de governo e alarme (VGA) e / ou de comando seccional (CS)"
+    },
+    {
+      "page": 9,
+      "title": "4.INSTALAÇÕES DE GÁS COMBUSTÍVEL aparelho de queima ventilação permanente ventil",
+      "text": "4.INSTALAÇÕES DE GÁS COMBUSTÍVEL aparelho de queima ventilação permanente ventilação permanente janela ventilação permanente porta abrigo de medidor de gás registro de corte geral registro de corte ponto de consumo central de GLP abrigo de GLP"
+    },
+    {
+      "page": 10,
+      "title": "5. GÁS CARBÔNICO (CO 2 ) área protegida pelo sistema fixo de CO 2 bateria de cil",
+      "text": "5. GÁS CARBÔNICO (CO 2 ) área protegida pelo sistema fixo de CO 2 bateria de cilindros do sistema fixo de CO 2 acionador manual do sistema fixo de CO 2 6. SISTEMA ALTERNATIVO HALON área protegida halon central de baterias halon acionador manual halon 7. NEBULIZADORES área protegida pelo sistema de nebulizadores registro manual do sistema de nebulizadores"
+    },
+    {
+      "page": 11,
+      "title": "8. SISTEMA DE ESPUMA E RESFRIAMENTO tanque atmosférico de LGE sistema fixo de es",
+      "text": "8. SISTEMA DE ESPUMA E RESFRIAMENTO tanque atmosférico de LGE sistema fixo de espuma estação fixa de emulsionamento estação móvel de emulsionamento canhão monitor (portátil) sistema fixo de espuma canhão monitor (portátil) sistema fixo de resfriamento área protegida pelo sistema fixo de espuma câmara de espuma do sistema fixo de espuma líquido gerador de espuma (LGE) - portátil sistema portátil de espuma (esguicho proporcionador lançador)"
+    },
+    {
+      "page": 12,
+      "title": "9. SISTEMA DE ALARME avisador sonoro tipo sirene avisador sonoro tipo auto-falan",
+      "text": "9. SISTEMA DE ALARME avisador sonoro tipo sirene avisador sonoro tipo auto-falante avisador sonoro tipo gongo avisador visual avisador sonoro e visual (com sirene) avisador sonoro e visual (com alto-falante) avisador sonoro e visual (com gongo)"
+    },
+    {
+      "page": 13,
+      "title": "10. SISTEMA DE DETECÇÃO 10.1 Detectores Lineares detector de calor linear detect",
+      "text": "10. SISTEMA DE DETECÇÃO 10.1 Detectores Lineares detector de calor linear detector de fumaça linear detector de chamas linear detector de gás linear 10.2 Detectores Lineares Entreforro detector de calor linear entreforro detector de fumaça linear entreforro detector de chamas linear entreforro detector de gás linear entreforro"
+    },
+    {
+      "page": 14,
+      "title": "10.3 Detectores Lineares Entrepiso detector de calor linear entrepiso detector d",
+      "text": "10.3 Detectores Lineares Entrepiso detector de calor linear entrepiso detector de fumaça linear entrepiso detector de chamas linear entrepiso detector de gás linear entrepiso 10.4 Detectores Lineares em Armários detector de calor linear em armário detector de fumaça linear em armário detector de chamas linear em armário detector de gás linear em armário"
+    },
+    {
+      "page": 15,
+      "title": "10.5 Detectores Pontuais detector de calor pontual detector de fumaça pontual de",
+      "text": "10.5 Detectores Pontuais detector de calor pontual detector de fumaça pontual detector de chamas pontual detector de gás pontual 10.6 Detectores Pontuais Entreforro detector de calor pontual entreforro detector de fumaça pontual entreforro detector de chamas pontual entreforro detector de gás pontual entreforro"
+    },
+    {
+      "page": 16,
+      "title": "10.7 Detectores Pontuais Entrepiso detector de calor pontual entrepiso detector ",
+      "text": "10.7 Detectores Pontuais Entrepiso detector de calor pontual entrepiso detector de fumaça pontual entrepiso detector de chamas pontual entrepiso detector de gás pontual entrepiso 10.8 Detectores Pontuais em Armários detector de calor pontual em armário detector de fumaça pontual em armário detector de chamas pontual em armário detector de gás pontual em armário"
+    },
+    {
+      "page": 17,
+      "title": "10.9 Detectores Lineares com Proteção detector de calor linear com proteção cont",
+      "text": "10.9 Detectores Lineares com Proteção detector de calor linear com proteção contra intempéries detector de fumaça linear com proteção contra intempéries detector de chamas linear com proteção contra intempéries detector de gás linear com proteção contra intempéries 10.10 Detectores Pontuais Protegidos detector de calor pontual com proteção contra intempéries detector de fumaça pontual com proteção contra intempéries detector de chamas pontual com proteção contra intempéries detector de gás pontual com proteção contra intempéries"
+    },
+    {
+      "page": 18,
+      "title": "10.11 Complementos sensor de temperatura detector e extintor de faísca acionador",
+      "text": "10.11 Complementos sensor de temperatura detector e extintor de faísca acionador manual do sistema de detecção e alarme central do sistema de detecção e alarme baterias do sistema de detecção e alarme painel repetidor do sistema de detecção e alarme telefone de emergência / interfone"
+    },
+    {
+      "page": 19,
+      "title": "11. SISTEMA DE ILUMINAÇÃO DE EMERGÊNCIA ponto de iluminação de emergência ponto ",
+      "text": "11. SISTEMA DE ILUMINAÇÃO DE EMERGÊNCIA ponto de iluminação de emergência ponto de iluminação de emergência à prova de explosão de pó baterias de acumuladores para o sistema de iluminação de emergência ponto de iluminação de emergência tipo balizamento grupo moto gerador central do sistema de iluminação de emergência 12. VASOS E TANQUES 12.1 Vasos Central de GLP central predial de glp ou gás natural vaso sob pressão"
+    },
+    {
+      "page": 20,
+      "title": "12.2 Tanques tanque horizontal abaixo do solo (enterrado) tanque horizontal acim",
+      "text": "12.2 Tanques tanque horizontal abaixo do solo (enterrado) tanque horizontal acima do solo (superfície/elevado) tanque vertical abaixo do solo (enterrado) tanque vertical acima do solo (superfície/elevado) tanque horizontal semienterrado tanque vertical semienterrado 13. ÁREAS DE RISCO área de risco áreas frias"
+    },
+    {
+      "page": 21,
+      "title": "14. PRODUTOS PERIGOSOS produto perigoso radioativo tóxico corrosivo explosivo co",
+      "text": "14. PRODUTOS PERIGOSOS produto perigoso radioativo tóxico corrosivo explosivo combustível comburente 15. ROTAS DE SAÍDA direção do fluxo da rota de fuga"
+    },
+    {
+      "page": 22,
+      "title": "saída final da rota de fuga escada comum escada protegida escada enclausurada co",
+      "text": "saída final da rota de fuga escada comum escada protegida escada enclausurada com exaustão escada enclausurada com ventilação escada à prova de fumaça placa indicativa de escada de acesso restrito PcD - área de resgate barra antipânico"
+    },
+    {
+      "page": 23,
+      "title": "16. INSTALAÇÕES ELÉTRICAS chave elétrica secundária chave elétrica principal qua",
+      "text": "16. INSTALAÇÕES ELÉTRICAS chave elétrica secundária chave elétrica principal quadro de distribuição de luz (QDL) 17. ABERTURAS PROTEGIDAS porta corta-fogo P-60 porta corta-fogo P-90 porta corta-fogo P-120 abertura protegida P-60 abertura protegida P-30"
+    },
+    {
+      "page": 24,
+      "title": "18. VEDAÇÃO paredes corta-fogo parede de compartimentação parede comum divisória",
+      "text": "18. VEDAÇÃO paredes corta-fogo parede de compartimentação parede comum divisória leve 19. ELEVADORES elevador monta-carga elevador simples elevador de emergência 20. SHAFTS shafts protegidos"
+    },
+    {
+      "page": 25,
+      "title": "21. DAMPERS dampers corta-fogo dampers corta-fumaça dampers corta-fogo e corta-f",
+      "text": "21. DAMPERS dampers corta-fogo dampers corta-fumaça dampers corta-fogo e corta-fumaça 22. SISTEMA DE VENTILAÇÃO E SISTEMA DE CONTROLE DE FUMAÇA E PÓ grupo moto ventilador ou grupo moto exaustor ou exaustor para controle de fumaça acionador manual pressurização / exaustão ventilador à prova de explosão dâmper de sobrepressão filtro de pó"
+    },
+    {
+      "page": 26,
+      "title": "veneziana de entrada de ar com filtro lavável veneziana de entrada de ar para si",
+      "text": "veneziana de entrada de ar com filtro lavável veneziana de entrada de ar para sistema de controle de fumaça (junto ao piso) veneziana de exaustão para sistema de controle de fumaça (junto ao teto) dimensões da veneziana e altura do piso (M) grelha com dispositivo de ajuste e balanceamento grelha para sistema de controle de fumaça registro de fluxo central de acionamento das venezianas"
+    },
+    {
+      "page": 27,
+      "title": "23. OUTROS barra antipânico porta de correr com sistema de abertura automático c",
+      "text": "23. OUTROS barra antipânico porta de correr com sistema de abertura automático catraca reversível / outro dispositivo de controle acesso de viatura na edificação ou área de risco acesso de guarnição na edificação ou área de risco equipamentos à prova de explosão dispositivo de alívio de explosão hidrante público local confinado"
+    }
+  ],
+  "checks": {
+    "needs_human_look": []
+  }
+}

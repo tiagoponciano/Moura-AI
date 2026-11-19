@@ -1,0 +1,161 @@
+{
+  "doc": "IN-31",
+  "preamble": "IN 31 PLANO DE EMERGÊNCIA SUMÁRIO DISPOSIÇÕES INICIAIS 2 Objetivo 2 Referências 2 Terminologias 2 APLICAÇÃO 2 Geral 2 Gestão de risco 3 COMPONENTES DO PLANO DE EMERGÊNCIA 3 Geral 3 Procedimentos básicos de segurança contra incêndio e pânico 3 Exercícios simulados 4 Plantas 4 Geral 4 Plantas de emergência 5 Plantas de risco 5 Programa de manutenção dos sistemas preventivos 6 Divulgação e treinamento do plano de emergência 6 PROJETO E EXECUÇÃO 6 DISPOSIÇÕES FINAIS 7 ANEXO A - Modelo de Planta de Emergência 8 ANEXO B - Modelo de Planta de Risco em pavimento de descarga 9 Vigente a partir de 24/04/2024 9 páginas INSTRUÇÃO NORMATIVA 31 PLANO DE EMERGÊNCIA DISPOSIÇÕES INICIAIS Objetivo",
+  "articles": [
+    {
+      "number": 1,
+      "page": 2,
+      "text": "Art. 1º Esta Instrução Normativa (IN) tem por objetivo estabelecer e padronizar critérios de concepção e dimensionamento do Plano de Emergência (PE) para os imóveis fiscalizados pelo Corpo de Bombeiros Militar de Santa Catarina (CBMSC). § 1º O PE desempenha um papel crucial na proteção da vida e patrimônio, proporcionando segurança e eficiência em situações críticas de emergência, além de promover o uso racional dos recursos disponíveis para gerir os riscos, garantindo a segurança da população fixa e flutuante do imóvel. § 2º O PE deve estabelecer procedimentos claros, protocolos e diretrizes a serem seguidos em casos de incêndios, desastres, evacuações ou outras situações de perigo, avaliando e propondo ações para diminuir os riscos nos imóveis e proteger a vida das pessoas. Referências"
+    },
+    {
+      "number": 2,
+      "page": 2,
+      "text": "Art. 2º As referências utilizadas são as seguintes: I - Lei Federal nº 13.425, de 2017; II - Lei Estadual nº 16.157, de 2013; III - Lei Estadual nº 17.711, de 2019; IV - Decreto Estadual nº 1.908, de 2022; V - IN 1, de 2024 - CBMSC; VII - Instrução Técnica nº 16 - CBPMESP; VIII - NBR 15.219; IX - NBR 16.820. Terminologias"
+    },
+    {
+      "number": 3,
+      "page": 2,
+      "text": "Art. 3º As terminologias gerais que tratam da segurança contra incêndio são definidas pelo CBMSC e disponibilizadas para acesso público em seu portal oficial."
+    },
+    {
+      "number": 4,
+      "page": 2,
+      "text": "Art. 4º Para aplicação desta IN consideram-se as seguintes terminologias específicas: I - exercícios simulados: treinamentos que envolvam toda a população fixa do imóvel para executar o plano de emergência e realizar as evacuações; II - plano de emergência (PE): documento que descreve as ações a serem adotadas pelas pessoas no imóvel em caso de incêndio ou pânico; III - planta de emergência: é aquela localizada no interior da edificação (por exemplo quartos de hotéis, banheiros coletivos em ambientes de reunião de público, salas comerciais e outros), indicando claramente o(s) caminho(s) a ser(em) percorrido(s) para saída do imóvel em caso de incêndio ou pânico; IV - planta de risco: facilita o reconhecimento dos riscos no local por parte das equipes de emergência e dos ocupantes; V - ponto de encontro : local externo seguro, onde as pessoas devem aguardar o socorro ou permanecer após evacuar o imóvel em emergências; VI - população fixa : pessoas que permanecem regularmente na edificação, durante cada turno de trabalho, como funcionários, vigias, professores, moradores, etc.; VII - população flutuante : pessoas que não permanecem regularmente na edificação, mas são consideradas para calcular a população máxima prevista no imóvel. APLICAÇÃO Geral"
+    },
+    {
+      "number": 5,
+      "page": 2,
+      "text": "Art. 5º Esta IN aplica-se aos imóveis para os quais o PE é exigido, conforme previsto nas normas de segurança contra incêndio e pânico (NSCI). Gestão de risco"
+    },
+    {
+      "number": 6,
+      "page": 3,
+      "text": "Art. 6º As organizações devem estabelecer uma política de gerenciamento de riscos de incêndio e outras emergências, a qual deve: I - definir objetivos claros e o comprometimento da organização com o gerenciamento de riscos; II - abordar questões como a razão para gerenciar riscos, responsabilidades, recursos necessários e métricas de desempenho; e III - garantir a integração do gerenciamento de riscos aos processos organizacionais, alocando recursos adequados e considerando aspectos como habilidades, processos, procedimentos e treinamento adequado."
+    },
+    {
+      "number": 7,
+      "page": 3,
+      "text": "Art. 7º O processo de gerenciamento de risco de incêndio e emergência é um sistema abrangente que deve incluir etapas e procedimentos para identificar, avaliar, controlar e monitorar os riscos associados a incêndios e situações de emergência."
+    },
+    {
+      "number": 8,
+      "page": 3,
+      "text": "Art. 8º A responsabilidade pelo gerenciamento de riscos de incêndio, acidentes e emergências recai sobre o proprietário do imóvel, bem como sobre os responsáveis pelo uso e o responsável técnico; todos têm a obrigação de zelar pela segurança e implementar medidas eficazes de gerenciamento de riscos. § 1º Em riscos complexos, é recomendável que seja formada uma equipe multidisciplinar, composta por especialistas que compreendam os riscos específicos existentes, garantindo que o gerenciamento de riscos seja integrado aos demais processos da organização e eficaz na proteção das pessoas e do patrimônio; permitindo identificar, analisar e controlar riscos de maneira mais completa e eficiente. § 2º É responsabilidade do Responsável pelo Imóvel estabelecer uma rotina de divulgação e treinamento do PE, bem como alocar recursos apropriados para esse fim, estabelecendo, assim, uma política de gerenciamento de riscos de incêndio e emergências. § 3º A responsabilidade mencionada no parágrafo anterior pode ser delegada ou estendida a outra(s) pessoa(s) ligadas ao imóvel que, por sua condição, tenham o dever de zelar pela segurança na esfera de suas atribuições. COMPONENTES DO PLANO DE EMERGÊNCIA Geral"
+    },
+    {
+      "number": 9,
+      "page": 3,
+      "text": "Art. 9º O PE é composto, no mínimo, pelos seguintes elementos: I - procedimentos básicos de segurança contra incêndio e pânico; II - exercícios simulados; III - plantas de: a) emergência; e b) risco; IV - programa de manutenção dos sistemas preventivos; V - divulgação e treinamento do PE. Procedimentos básicos de segurança contra incêndio e pânico"
+    },
+    {
+      "number": 10,
+      "page": 3,
+      "text": "Art. 10. Os procedimentos básicos de segurança contra incêndio e pânico previstos no PE incluem: I - alerta: explicar como acionar os alertas disponíveis no imóvel e as ações a serem tomadas; II - análise da situação: descrever os procedimentos a serem adotados pelos ocupantes do imóvel de acordo com os recursos materiais e humanos disponíveis; III - apoio externo: indicar como acionar o corpo de bombeiros e/ou outros órgãos públicos ou privados locais; IV - comunicação interna e externa: estabelecer um sistema de comunicação entre os brigadistas e as equipes de emergências a fim de facilitar as operações durante um sinistro; V - atendimento pré-hospitalar: estabelecer a conduta adequada aos principais tipos de atendimento emergencial em ambiente extra-hospitalar até a chegada do socorro especializado; VI - eliminar ou reduzir riscos: estabelecer previamente os riscos presentes ou prováveis, especificando: a) o tipo de risco; b) os equipamentos e ações necessárias à proteção da vida, ao controle da emergência ou das ameaças, e à redução do risco ou dos danos; e c) os responsáveis por realizar a redução dos riscos em caso de sinistro. VII - plano de abandono de área: definir como realizar o abandono seguro do imóvel seguindo até a área de refúgio, ponto de encontro ou área externa; VIII - isolamento da área afetada; IX - confinamento do incêndio: procedimentos para controlar o fogo; X - combate a incêndio: instruções para combater o fogo até a extinção; XI - preservação do local para investigação de incêndio: procedimentos para isolamento da área sinistrada até a realização da investigação de incêndio. § 1º Os procedimentos e sequência de ações seguem a NBR 15219 ou outras normas pertinentes, a critério do responsável técnico. § 2º O plano de emergência deve considerar a evacuação de pessoas com deficiência ou mobilidade reduzida, e aquelas que precisam de auxílio especial (idosos, crianças, gestantes, etc). Exercícios simulados"
+    },
+    {
+      "number": 11,
+      "page": 4,
+      "text": "Art. 11. Os exercícios simulados podem ser completos ou parciais (divididos por setor, área, edificação, processos etc.), abrangendo toda a planta ou imóvel em até 12 meses."
+    },
+    {
+      "number": 12,
+      "page": 4,
+      "text": "Art. 12. Após cada simulado, deve-se realizar reunião e registrá-la em ata, ou documento equivalente, para avaliação e correção das falhas ocorridas, descrevendo, no mínimo, as seguintes informações: I - data e horário do exercício; II - tempo de evacuação; III - tempo de retorno; IV - desempenho dos profissionais envolvidos; V - comportamento/reação da população; VI - tempo de resposta do Corpo de Bombeiros, quando participante; VII - falhas de equipamentos; VIII - problemas operacionais; IX - outros problemas identificados na reunião de avaliação."
+    },
+    {
+      "number": 13,
+      "page": 4,
+      "text": "Art. 13. O registro dos simulados, conforme descrito no artigo 12 , deve ser arquivado por no mínimo 5 anos e apresentado ao CBMSC quando solicitado."
+    },
+    {
+      "number": 14,
+      "page": 4,
+      "text": "Art. 14. O RT, junto com o responsável pelo imóvel, define as diretrizes do PE, incluindo a frequência e foco dos exercícios simulados (ex: evacuação, combate, etc.) Plantas Geral"
+    },
+    {
+      "number": 15,
+      "page": 4,
+      "text": "Art. 15. A orientação das plantas deve seguir a orientação física do ambiente, ou seja, o que está à esquerda no mapa estará à esquerda no ambiente físico, conforme NBR 16.820."
+    },
+    {
+      "number": 16,
+      "page": 4,
+      "text": "Art. 16. As plantas complementam a sinalização de orientação e salvamento e devem conter apenas informações essenciais sobre segurança contra incêndio da edificação e abandono do local."
+    },
+    {
+      "number": 17,
+      "page": 5,
+      "text": "Art. 17. Todas as plantas devem ser: I - instaladas na projeção de uma luminária de emergência ou ser em material fotoluminescente; II - fixadas a uma altura máxima de 1,60 m, a partir da base da folha, em paredes interiores visíveis, estrategicamente posicionadas em zonas de passagem ou onde a população permanece com maior frequência no imóvel. Plantas de emergência"
+    },
+    {
+      "number": 18,
+      "page": 5,
+      "text": "Art. 18. As plantas de emergência devem: I - mostrar claramente, do ponto onde estão instaladas, o caminho para as rotas de fuga, pontos de encontro, áreas externas ou ao menos uma área de refúgio; II - indicar instalações ou rotas de fuga para pessoas com deficiência; III - localizar os principais componentes relacionados aos SMSCI; IV - ter legenda para cada uma das figuras e cores utilizadas; V - incluir a data de execução (mês/ano), nome e registro do responsável técnico; VI - ter as seguintes orientações em caso de incêndio: a) Evacue a edificação imediatamente; b) Não volte para buscar pertences; c) Não use elevadores, apenas escadas; d) Ligar para o Corpo de Bombeiros (193). § 1º O texto da orientação \"Não use elevadores, apenas escadas\" pode ser modificado para incluir informações sobre elevadores de emergência, se disponíveis. § 2º Qualquer mudança na edificação deve ser acompanhada de atualização das plantas de emergência, que devem sempre refletir o estado atual do imóvel."
+    },
+    {
+      "number": 19,
+      "page": 5,
+      "text": "Art. 19. As plantas de emergência devem ser instaladas nos seguintes locais: I - face interna da porta dos banheiros de acesso ao público em imóveis que possuam ocupações C-3, F-6 e/ou F-11; II - face interna da porta de acesso a quartos, apartamentos e salas de espera em imóveis que possuam ocupações B-1, B-2, H-3 e/ou H-6; III - corredores de áreas comuns com mais de 750 m² em imóveis que possuam ocupações B-1, B-2, C-3, F-3, F-4, F-9 e/ou F-10; IV - halls de entrada, bilheterias e recepções em imóveis que possuam ocupações F-6 e/ou F-11. § 1º O responsável técnico pode definir outros locais para instalar as Plantas de Emergência, além dos mencionados neste artigo. § 2º Em outras ocupações em que a IN 1 - parte 2 exija um plano de emergência, a localização das plantas de emergência é determinada pelo responsável técnico. § 3º A distância máxima entre duas plantas de emergência nos corredores dos andares e nos estacionamentos, se houver, deve ser de 60 metros. Plantas de risco"
+    },
+    {
+      "number": 20,
+      "page": 5,
+      "text": "Art. 20. As plantas de risco devem indicar: I - os principais riscos do imóvel (como explosões, incêndios, produtos químicos, inflamáveis, áreas com pessoas doentes, desacordadas ou com mobilidade reduzida, entre outros); II - os principais riscos nas áreas próximas ao imóvel; III - a localização de todos os componentes relacionados aos SMSCI, como extintores, hidrantes, hidrantes de recalque, paredes e portas corta-fogo, hidrantes urbanos próximos da edificação, vias de acesso às viaturas do Corpo de Bombeiros, RTI e outras fontes de água existentes na edificação que possam ser utilizadas em um eventual combate a incêndio e a quantidade disponível, etc; IV - possíveis áreas onde as pessoas podem ficar confinadas devido à estrutura do local; V - legendas para cada uma das figuras e cores utilizadas; VI - a data em que foi feita (mês/ano), nome e registro do responsável técnico."
+    },
+    {
+      "number": 21,
+      "page": 6,
+      "text": "Art. 21. As plantas de risco devem ser instaladas nos seguintes locais: I - nas escadas de emergência, na parte interna das portas corta-fogo, em todos os pavimentos com mais de 750 m²; II - no hall dos andares de descarga, independente do tamanho, em imóveis das ocupações indicadas no artigo 19 . § 1º Quando necessário, a planta de risco dos andares com mais de 750 m² de área, conforme mencionado no inciso II deste artigo, deve ter apenas as informações específicas sobre riscos e SMSCI desse andar. § 2º No pavimento de descarga, além das exigências do § 1º, a planta de risco deve mostrar também a localização dos pontos de encontro, que devem ser: a) espaçosos; b) longe de qualquer risco; c) seguros, mesmo em situações de emergência; d) diferentes dos locais para triagem de feridos (se houver) e dos locais onde bombeiros e equipes de resgate deixam seus equipamentos. § 3º Em imóveis com várias entradas, a planta de risco deve ser por setor, conforme a NBR 16820. § 4º O responsável técnico pode definir outros locais para instalação das plantas de risco, além dos mencionados neste artigo. § 5º Em outras ocupações, cuja IN 1 - parte 2 exija um plano de emergência, a localização das plantas de risco é determinada pelo responsável técnico. Programa de manutenção dos sistemas preventivos"
+    },
+    {
+      "number": 22,
+      "page": 6,
+      "text": "Art. 22. O responsável pelo imóvel deve verificar o funcionamento dos SMSCI, registrando a manutenção realizada e quaisquer problemas identificados, conforme IN 4. Parágrafo único. Se houver uma brigada de incêndio, essa responsabilidade pode ser atribuída à brigada estabelecida de acordo com as disposições de uma IN específica e conforme o artigo 16 da Lei Estadual nº 15.124/2010."
+    },
+    {
+      "number": 23,
+      "page": 6,
+      "text": "Art. 23. Seguindo os critérios mínimos estabelecidos na IN 4, o RT pode estabelecer no PE as periodicidades de inspeções e manutenções para cada SMSCI. Divulgação e treinamento do plano de emergência"
+    },
+    {
+      "number": 24,
+      "page": 6,
+      "text": "Art. 24. O plano de emergência deve ser amplamente divulgado aos ocupantes da edificação, assegurando que todos tenham conhecimento dos procedimentos a serem executados em caso de emergência."
+    },
+    {
+      "number": 25,
+      "page": 6,
+      "text": "Art. 25. O plano de emergência deve fazer parte dos treinamentos de formação, dos treinamentos periódicos e das reuniões ordinárias dos membros da brigada de incêndio, dos brigadistas profissionais, do grupo de apoio, entre outros. PROJETO E EXECUÇÃO"
+    },
+    {
+      "number": 26,
+      "page": 6,
+      "text": "Art. 26. O plano de emergência, por envolver aspectos relacionados ao uso e riscos presentes no imóvel, será exigido somente a partir de sua ocupação, sendo opcional a apresentação na fase de projeto. Parágrafo único. Nos casos em que o PE não foi apresentado no projeto, o RT deve incluir no PPCI apenas a informação da previsão de instalação deste sistema no imóvel."
+    },
+    {
+      "number": 27,
+      "page": 7,
+      "text": "Art. 27. Compete ao RT a definição dos locais para instalação das plantas de emergência e de risco, além dos já previstos nesta IN, avaliando os melhores locais, os riscos e os pontos estratégicos para orientação do maior número de pessoas. DISPOSIÇÕES FINAIS"
+    },
+    {
+      "number": 28,
+      "page": 7,
+      "text": "Art. 28. Esta IN, aplicável em todo o território catarinense, entra em vigor em 24 de abril de 2024, revogando a IN 31, de 28 de março de 2014. Coronel BM FABIANO BASTOS DAS NEVES Comandante-Geral do Corpo de Bombeiros Militar de SC ORGANIZAÇÃO: TC BM Willyan Fazzioni - Direção Maj BM Oscar W Barboza Jr - Supervisão e Edição Cap BM Rafael Giosa Sanino - Revisão Cap BM Suellen Lapa Duarte - Edição"
+    }
+  ],
+  "annexes": [
+    {
+      "page": 8,
+      "title": "ANEXO A - Modelo de Planta de Emergência",
+      "text": "ANEXO A - Modelo de Planta de Emergência"
+    },
+    {
+      "page": 9,
+      "title": "ANEXO B - Modelo de Planta de Risco em pavimento de descarga",
+      "text": "ANEXO B - Modelo de Planta de Risco em pavimento de descarga"
+    }
+  ],
+  "checks": {
+    "needs_human_look": []
+  }
+}

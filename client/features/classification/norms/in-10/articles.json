@@ -1,0 +1,276 @@
+{
+  "doc": "IN-10",
+  "preamble": "IN 10 SISTEMA DE CONTROLE DE FUMAÇA - SCF SUMÁRIO DISPOSIÇÕES INICIAIS 2 Objetivo 2 Referências 2 Terminologias 2 APLICAÇÃO 3 Geral 3 Isenção do SCF 3 REQUISITOS GERAIS 3 PROCEDIMENTOS 4 Condições Gerais 4 Comando dos sistemas 6 Dos circuitos de instalação elétrica 6 DOCUMENTAÇÃO 7 Vistoria para habite-se 7 Vistoria de funcionamento 7 DISPOSIÇÕES FINAIS 8 Anexo A - Exigibilidade de controle de fumaça (por ocupação) 9 Anexo B - Atividades de comissionamento do sistema 12 Anexo C - Atividades de Inspeção do sistema 15 Vigente a partir de 24/04/2024 17 páginas INSTRUÇÃO NORMATIVA 10 SISTEMA DE CONTROLE DE FUMAÇA DISPOSIÇÕES INICIAIS Objetivo",
+  "articles": [
+    {
+      "number": 1,
+      "page": 2,
+      "text": "Art. 1º Esta Instrução Normativa (IN) tem por objetivo estabelecer e padronizar critérios de concepção e dimensionamento do Sistema de Controle de Fumaça (SCF) para os imóveis fiscalizados pelo Corpo de Bombeiros Militar de Santa Catarina (CBMSC). Parágrafo único. O SCF busca impedir ou dificultar a propagação de incêndios em imóveis por meio da redução dos gases aquecidos e da fumaça, bem como manter os ambientes seguros no interior das edificações, melhorando a visibilidade e reduzindo os risco de intoxicação e asfixia. Referências"
+    },
+    {
+      "number": 2,
+      "page": 2,
+      "text": "Art. 2º Referências utilizadas: I - IN 1 - parte 1, de 2024 - CBMSC; II - IN 1 - parte 2, de 2024 - CBMSC; III - Instrução Técnica nº 15, de 2019 - CBPMESP; IV - NBR 16983; V - ISO 21927-3, de 2021; VI - BS-EN-12101, de 2017; VII - NFPA 92, de 2015; Terminologias"
+    },
+    {
+      "number": 3,
+      "page": 2,
+      "text": "Art. 3º As terminologias gerais que tratam da segurança contra incêndio são definidas pelo CBMSC e disponibilizadas para acesso público em seu portal oficial."
+    },
+    {
+      "number": 4,
+      "page": 2,
+      "text": "Art. 4º Para aplicação desta IN consideram-se as seguintes terminologias específicas: I - extração de fumaça: sistema projetado para extração de fumaça oriunda de incêndios, com reposição de ar externo. A extração de fumaça pode ser feita através de ventilação natural ou exaustão mecânica; II - renovação de ar ou ventilação: introdução de ar em um ambiente com objetivo de diluir gases ou impurezas nocivas à saúde. O ar externo é introduzido no ambiente de forma natural ou através de meios mecânicos. Não tem a finalidade de extrair fumaça oriunda de incêndios III - área sinistrada ou zona de fumaça: ambiente em que ocorre a detecção de fumaça. Pode ser subdividido em duas ou mais áreas compartimentadas entre si, ou que possuam controle de fumaça independente e exclusivo para cada área, devendo ainda ter, cada uma delas, acesso a uma saída de emergência (corredor, hall, escada, etc.). Não atendidas tais condições considera-se toda a área do pavimento como área sinistrada, exceto o corpo da escada e a antecâmara. IV - área adjacente à área sinistrada: área ou local contíguo que possua compartimentação em relação ao local sinistrado ou que possua controle de fumaça exclusivo para sua área. V - átrio: espaço amplo com fechamento em sua cobertura, criado por um andar aberto, ou pelo conjunto de andares abertos, conectando dois ou mais pavimentos cobertos, excetuando-se os locais destinados à escada, escada rolante, shafts de hidráulica, eletricidade, ar-condicionado, cabos de comunicação e poços de ventilação e iluminação (Figura 1). Figura 1 - Átrio. APLICAÇÃO Geral"
+    },
+    {
+      "number": 5,
+      "page": 3,
+      "text": "Art. 5º Esta IN aplica-se aos imóveis em que o sistema de controle de fumaça é exigido, conforme previsto na IN 1 - Parte 2 e demais INs. Isenção do SCF"
+    },
+    {
+      "number": 6,
+      "page": 3,
+      "text": "Art. 6º Fica isenta a instalação do SCF para as edificações verticais que atenderem, de forma cumulativa, as seguintes condições: I - caminhamento nos acessos que definem a rota de fuga entre a porta de saída das unidades autônomas e uma escada protegida igual ou inferior a 10 m; II - distância percorrida dentro das unidades autônomas de, no máximo, 10 m; e III - unidades autônomas com área inferior a 300 m² e com paredes ou divisórias que separam as unidades autônomas atendendo ao tempo requerido de resistência ao fogo mínimo de 60 min. § 1º Para fins de isenção do sistema de controle de fumaça nas edificações do grupo A-2, não se aplica o inciso II do caput deste artigo e, nos casos em que suas unidades autônomas tenham janelas com abertura para o exterior, não se aplica a limitação de área prevista no inciso III do caput deste artigo. § 2º Não são objeto de avaliação desta IN os túneis ferroviários, metrôs, estações de embarque subterrâneas, e assemelhados. § 3º Edificações que possuam sistema de chuveiros automáticos do tipo ESFR (Early Suppression Fast Response). REQUISITOS GERAIS"
+    },
+    {
+      "number": 7,
+      "page": 3,
+      "text": "Art. 7º O projeto do sistema de controle de fumaça deve ser elaborado preferencialmente conforme as especificações técnicas da NBR 16983, de acordo com as características da edificação, sendo de competência do responsável técnico pelo Projeto de Prevenção e Segurança Contra Incêndio e Pânico (PPCI). § 1º Serão aceitos projetos confeccionados com base na norma NFPA 92 da National Fire Protection Association, BS-EN-12101 (norma britânica), IT 246 (norma francesa), nos casos em que o assunto não for contemplado nas NBRs. § 2º O PPCI deve conter DRT específico para o sistema de controle de fumaça (ou desenfumagem)."
+    },
+    {
+      "number": 8,
+      "page": 3,
+      "text": "Art. 8º Aplica-se esta IN aos imóveis para os quais exige-se, conforme previsto nas normas de segurança contra incêndio e pânico (NSCI), controle de fumaça dos “átrios”, “halls”, subsolos, espaços amplos e rotas horizontais, objetivando: I - a manutenção de um ambiente seguro nas edificações durante o tempo necessário para abandono do local sinistrado, evitando os perigos da intoxicação e falta de visibilidade pela fumaça; II - o controle e a redução da propagação de gases quentes e fumaça entre a área incendiada e áreas adjacentes, diminuindo a temperatura interna e limitando a propagação do incêndio; III - oferecer condições, dentro e fora da área incendiada, que auxiliem nas operações de busca e resgate de pessoas, localização e controle do incêndio."
+    },
+    {
+      "number": 9,
+      "page": 3,
+      "text": "Art. 9º Conforme a aplicação a que se destina o sistema de controle de fumaça, os materiais empregados devem atender tempo de autonomia e vazões de extração."
+    },
+    {
+      "number": 10,
+      "page": 3,
+      "text": "Art. 10. As escadas e rotas de fuga verticais devem atender à IN 9, observando-se que diferentes sistemas de controle de fumaça (em rotas de fuga horizontais e verticais) devem ser compatíveis entre si. PROCEDIMENTOS Condições Gerais"
+    },
+    {
+      "number": 11,
+      "page": 4,
+      "text": "Art. 11. As edificações devem ser dotadas de meios de controle de fumaça que promovam a extração (mecânica ou natural) dos gases e da fumaça do local de origem do incêndio, controlando a entrada de ar (ventilação) e prevenindo a migração de fumaça e gases quentes para as áreas adjacentes não sinistradas."
+    },
+    {
+      "number": 12,
+      "page": 4,
+      "text": "Art. 12. Para obter um controle de fumaça eficiente, as seguintes condições devem ser estabelecidas: I - divisão dos volumes de fumaça a extrair por meio da compartimentação de área ou pela previsão de área de acantonamento com área máxima de 1.600 m² (Figura 2); Figura 2 - Acantonamento. II - extração adequada da fumaça, não permitindo a criação de zonas mortas onde a fumaça possa vir a ficar acumulada após o sistema entrar em funcionamento (Figura 3); III - permitir um diferencial de pressão, por meio do controle das aberturas de extração de fumaça da zona sinistrada e fechamento do sistema de extração de fumaça das demais áreas adjacentes à zona sinistrada, conduzindo assim a fumaça para as saídas externas ao edifício. Figura 3 - Zonas mortas."
+    },
+    {
+      "number": 13,
+      "page": 4,
+      "text": "Art. 13. O controle de fumaça é obtido pela introdução de ar limpo (IAL) e pela extração de fumaça (EF), pelos seguintes tipos de sistemas: I - EF e IAL de forma natural; II - EF mecânica e IAL natural; III - EF e IAL de forma mecânica;"
+    },
+    {
+      "number": 14,
+      "page": 4,
+      "text": "Art. 14. A escolha do sistema a ser adotado fica a critério do projetista, desde que atenda às condições descritas nesta Instrução Normativa."
+    },
+    {
+      "number": 15,
+      "page": 4,
+      "text": "Art. 15. Não podem ser instalados, em um mesmo ambiente, sistemas de extração de fumaça natural e mecânica."
+    },
+    {
+      "number": 16,
+      "page": 4,
+      "text": "Art. 16. A lógica de funcionamento do sistema deve ser projetada de forma que a área sinistrada seja colocada sob pressão negativa em relação às áreas adjacentes."
+    },
+    {
+      "number": 17,
+      "page": 4,
+      "text": "Art. 17. A extração de fumaça deve ser acionada apenas na área ou acantonamento sinistrado."
+    },
+    {
+      "number": 18,
+      "page": 4,
+      "text": "Art. 18. A introdução de ar deve ser acionada na área sinistrada e, quando não houver compartimentação, nas áreas de acantonamento adjacentes."
+    },
+    {
+      "number": 19,
+      "page": 4,
+      "text": "Art. 19. O projeto e a execução do sistema de controle de fumaça deverão prever que o sistema entre em operação no início da formação da fumaça pelo incêndio, ou quando projetada a camada de fumaça em determinada altura, de forma a se evitar condições perigosas, como a explosão ambiental “backdraft” ou a propagação do incêndio decorrente do aumento de temperatura do local incendiado."
+    },
+    {
+      "number": 20,
+      "page": 5,
+      "text": "Art. 20. Para evitar as condições perigosas mencionadas no artigo 19 desta IN deve ser previsto o acionamento em conjunto da abertura de extração de fumaça da área sinistrada e da introdução de ar, admitindo-se uma diferença de até 15 segundos entre os acionamentos para que não ocorra a explosão ambiental."
+    },
+    {
+      "number": 21,
+      "page": 5,
+      "text": "Art. 21. O controle de fumaça deve ser previsto de acordo com o tipo de ocupação (anexo A), de forma isolada ou conjunta, nos seguintes locais: I - espaços amplos (grandes volumes); II - átrios, “malls” e corredores; III - rotas de fuga horizontais; e IV - subsolos, exceto estacionamentos. Parágrafo único. Para subsolos destinados exclusivamente a estacionamentos não será exigido extração de fumaça, sendo exigido apenas renovação de ar."
+    },
+    {
+      "number": 22,
+      "page": 5,
+      "text": "Art. 22. As ocupações que devem possuir controle de fumaça constam no anexo B da IN 1 - Parte 2 e as indicações específicas, por ocupação, das partes da edificação que devem possuir controle de fumaça constam no anexo A desta IN."
+    },
+    {
+      "number": 23,
+      "page": 5,
+      "text": "Art. 23. Nos pavimentos de embasamento onde é exigido o controle de fumaça, este deverá ser efetuado por intermédio de aberturas de ventilação permanente localizadas nas áreas superiores de cada pavimento do embasamento (janelas rentes ao teto ou até 40 cm abaixo deste), a uma proporção de área de ventilação de modo que a somatória das áreas de abertura seja maior ou igual a 7% da área do piso do pavimento, sendo as aberturas preferencialmente em lados opostos, ou através de ventilação mecânica."
+    },
+    {
+      "number": 24,
+      "page": 5,
+      "text": "Art. 24. Os estacionamentos e garagens, inclusive aqueles localizados em subsolos, devem dispor de ventilação e exaustão a serem executadas da seguinte forma: I - conforme o Código de Obras do Município, quando houver previsão; ou II - não havendo previsão no Código de Obras do Município, devem ser projetadas de forma a garantir, por meio de ventilação natural ou mecânica, a higidez de seus ocupantes temporários (motoristas e seus acompanhantes) ou permanentes (porteiros, vigias, manobristas) em nível suportável em relação aos resíduos liberados pelas descargas de gases dos automóveis. § 1º Em caso de ventilação natural, devem ser atendidos os mesmos requisitos previstos no artigo 23, sendo obrigatório possuir aberturas em pelo menos dois lados opostos. § 2º Em caso de ventilação mecânica, o sistema deverá estar ligado a sensores de detecção de monóxido de carbono que deverão ativar as máquinas de fluxo quando os seus níveis forem igual ou superior a 40 ppm. § 3º Caso o limiar previsto no parágrafo anterior não seja atingido, entre os horários das 07:00 às 20:00 horas as máquinas de fluxo deverão ser acionadas a cada 3 horas e permanecerem ligadas por um período de, no mínimo, 15 min. § 4º As garagens residenciais que não possuírem ventilação natural adequada deverão conter ventilação mecânica que assegure uma renovação, em ar externo, de 300 m³/h por veículo, considerando no cálculo o número de veículos igual ao total de vagas previsto na garagem. § 5º As garagens comerciais que não possuírem ventilação natural adequada deverão possuir instalação de ventilação mecânica que assegure uma taxa de diluição, em ar externo, de 8.000 m³/h por veículo em operação. Para efeito de cálculo do número de veículos em operação será adotado o valor de 5% do total de vagas previsto, por pavimento, arredondando as frações para o inteiro superior. § 6º A quantidade de trocas de ar por hora ou o volume de renovação de ar devem constar no memorial descritivo e em nota no PPCI. Comando dos sistemas"
+    },
+    {
+      "number": 25,
+      "page": 6,
+      "text": "Art. 25. As instalações de controle de fumaça devem ser dotadas de dispositivo de destravamento por comandos automáticos, duplicados por comandos manuais, assegurando as seguintes funções: I - abertura dos registros ou dos extratores naturais do local ou da circulação sinistrada; II - interrupção da operação das instalações de ventilação ou de tratamento de ar, quando existir, exceto nos casos em que essas instalações participem do controle de fumaça; e III - partida dos ventiladores utilizados no sistema de controle de fumaça."
+    },
+    {
+      "number": 26,
+      "page": 6,
+      "text": "Art. 26. Nos sistemas de comando manual, os dispositivos de abertura devem ser de funcionamento mecânico, elétrico, pneumático ou hidráulico e acionável por comandos dispostos nas proximidades dos acessos aos locais e duplicados na central de segurança, portaria ou local de vigilância 24h."
+    },
+    {
+      "number": 27,
+      "page": 6,
+      "text": "Art. 27. Os sistemas de comando automático devem compreender detectores de fumaça e calor, instalados nos locais ou nas circulações, atuando em dispositivos de acionamento eletromagnéticos."
+    },
+    {
+      "number": 28,
+      "page": 6,
+      "text": "Art. 28. O comando automático deve assegurar a entrada em funcionamento do sistema de controle de fumaça no local sinistrado, bloqueando o acionamento automático dos sistemas de extração de fumaça das demais áreas adjacentes, permanecendo, entretanto, a possibilidade do acionamento por comando manual nestas áreas. Parágrafo único. O caput deste artigo não se aplica aos casos em que o acionamento do controle de fumaça dos acantonamentos adjacentes se torne imprescindível ao funcionamento do sistema."
+    },
+    {
+      "number": 29,
+      "page": 6,
+      "text": "Art. 29. A restituição dos extratores naturais à sua posição inicial deve ser viabilizada por meio de dispositivos de acionamento manual que sejam facilmente acessíveis a partir do pavimento onde estejam instalados."
+    },
+    {
+      "number": 30,
+      "page": 6,
+      "text": "Art. 30. Os sistemas de comando das instalações de extração mecânica devem assegurar que os ventiladores de extração de fumaça entrem em funcionamento, preferencialmente, após o início da abertura dos registros de introdução de ar e de extração de fumaça do espaço sinistrado."
+    },
+    {
+      "number": 31,
+      "page": 6,
+      "text": "Art. 31. O sistema deve estar em pleno funcionamento em aproximadamente 145 s após a confirmação do incêndio."
+    },
+    {
+      "number": 32,
+      "page": 6,
+      "text": "Art. 32. O comando de partida dos ventiladores não pode ser efetuado por intermédio de contatos de fim de curso nas venezianas e registros. Dos circuitos de instalação elétrica"
+    },
+    {
+      "number": 33,
+      "page": 6,
+      "text": "Art. 33. A instalação elétrica do Sistema de Controle de Fumaça deve atender os requisitos gerais exigidos na IN 19."
+    },
+    {
+      "number": 34,
+      "page": 7,
+      "text": "Art. 34. Os circuitos de alimentação das instalações de segurança devem ser independentes de quaisquer outros e protegidos de forma que qualquer ruptura, sobretensão ou defeito de isolamento em um circuito não danifique ou interfira em outros circuitos."
+    },
+    {
+      "number": 35,
+      "page": 7,
+      "text": "Art. 35. Os circuitos de alimentação dos ventiladores de controle de fumaça devem ser protegidos contra curto-circuito e dimensionados para as maiores sobrecargas que os motores possam suportar."
+    },
+    {
+      "number": 36,
+      "page": 7,
+      "text": "Art. 36. Quando for previsto sistema de controle de fumaça, as canalizações elétricas, embutidas ou aparentes dos circuitos de alimentação devem ser constituídas e protegidas por elementos que assegurem, em caso de incêndio, a sua integridade durante o tempo mínimo de 90 min."
+    },
+    {
+      "number": 37,
+      "page": 7,
+      "text": "Art. 37. As máquinas de fluxo do sistema de fumaça devem possuir, além da fonte de energia primária, uma fonte de energia reserva garantida por: I - conjunto de baterias (nobreak), quando aplicável; ou II - grupo moto geradores (GMG)."
+    },
+    {
+      "number": 38,
+      "page": 7,
+      "text": "Art. 38. Caso as máquinas de fluxo do sistema de controle de fumaça sejam alimentadas por grupo moto gerador, este deve ter sua partida automática com comutação máxima de 15 s em caso de falha de alimentação de energia principal."
+    },
+    {
+      "number": 39,
+      "page": 7,
+      "text": "Art. 39. Caso as máquinas de fluxo do sistema de controle de fumaça sejam alimentadas por baterias de acumuladores, estas devem: I - apenas alimentar as instalações que possuam potência compatível com a capacidade das baterias; II - ser constituídas por baterias estanques, dotadas de dispositivos de carga e regulagem automáticas que devem: a) na presença de energia da fonte principal, assegurar a carga máxima dos acumuladores; b) após a descarga por falta de alimentação da fonte principal, promover a sua recarga automática no prazo máximo de 30 h."
+    },
+    {
+      "number": 40,
+      "page": 7,
+      "text": "Art. 40. O tempo de autonomia em operação de emergência deve ser de 120 min. Em modo de espera, a autonomia mínima deve ser de 72 h. DOCUMENTAÇÃO Vistoria para habite-se"
+    },
+    {
+      "number": 41,
+      "page": 7,
+      "text": "Art. 41. Na solicitação de vistoria para habite-se em edificações dotadas de sistema de controle de fumaça mecânico, é necessário realizar as atividades de comissionamento do sistema e elaborar o respectivo relatório, conforme o anexo B desta IN. Parágrafo único. O relatório de comissionamento do sistema de controle de fumaça deve ser elaborado por profissional habilitado e deve ser protocolado no sistema e-SCI, acompanhado do respectivo Documento de Responsabilidade Técnica (DRT). Vistoria de funcionamento"
+    },
+    {
+      "number": 42,
+      "page": 7,
+      "text": "Art. 42. Anualmente, na solicitação da renovação de atestado para funcionamento de edificações dotadas de sistema de controle de fumaça, o responsável técnico pela manutenção do sistema deve realizar as atividades de inspeção de acordo com o relatório constante no anexo C desta IN. Parágrafo único. O relatório de inspeção do sistema de controle de fumaça deve ser elaborado por profissional habilitado e deve ser protocolado no sistema e-SCI, acompanhado do respectivo DRT. DISPOSIÇÕES FINAIS"
+    },
+    {
+      "number": 43,
+      "page": 8,
+      "text": "Art. 43. Esta IN, com vigência em todo o território catarinense, entra em vigor em 24 de abril de 2024."
+    },
+    {
+      "number": 44,
+      "page": 8,
+      "text": "Art. 44. Esta IN é exigida para construções novas, aplicando-se a edificações recentes e existentes somente quando a IN 5 assim dispuser. Coronel BM FABIANO DE SOUZA Comandante-Geral do Corpo de Bombeiros Militar de SC ORGANIZAÇÃO: TC BM Willyan Fazzioni - Direção Maj BM Oscar W Barboza Jr - Supervisão e Edição Maj BM Felipe Gelain - Coordenação e redação Cap BM Rafael Giosa Sanino - Revisão Cap BM Suellen Lapa Duarte - Edição 1º Ten BM Diego Heusi Rampinelli - Revisão"
+    }
+  ],
+  "annexes": [
+    {
+      "page": 9,
+      "title": "Anexo A - Exigibilidade de controle de fumaça (por ocupação) Grupo Divisão Exigê",
+      "text": "Anexo A - Exigibilidade de controle de fumaça (por ocupação) Grupo Divisão Exigência de controle de fumaça nos seguintes locais da edificação A A-2 A-3 - Átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga B Todos h < 90 m: - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga em edificação com altura superior a 30 m (apenas nestes locais) h > 90 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - em sala ou compartimentos maiores que 300 m² C Todos C-3 com h > 12 m: - átrios com altura superior a 12 m e corredores comunicados com o átrio, utilizados como rota de fuga, sendo, neste caso, dispensado a previsão de pontos de chuveiros automáticos nesses locais, desde que a carga de incêndio seja inferior a 300 MJ/m² C-1, C-2 e C-3 com h > 90 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² D Todos - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoas) E Todos - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoas) F F-1 h > 90 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa; - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoas) F-2 h > 12 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa F-3 F-9 - dispensados de SCF F-4 h > 6 m e lotação > 2.000: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicantes utilizados como rota de fuga - subsolos, exceto se não houver a permanência prolongada de pessoas, neste caso, o sistema é opcional F-5 F-6 F-10 h > 6 m e lotação > 2.000: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga; F-8 h > 60 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga F-11 lotação > 500: - corredores de circulação até a escada de segurança, área de refúgio ou área externa em edificação com altura superior a 6 m - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga em edificação com altura superior a 6 m"
+    },
+    {
+      "page": 10,
+      "title": "Grupo Divisão Exigência de controle de fumaça nos seguintes locais da edificação",
+      "text": "Grupo Divisão Exigência de controle de fumaça nos seguintes locais da edificação G G-1 G-2 h > 90 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa G-3 G-4 G-5 - dispensados de SCF H H-1 - dispensado de SCF H-2 h > 30 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoas) H-3 h > 30 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoas) H-4 h > 90 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoas) H-5 H-5 (instituições penais): - conforme IN 26 H-5 (outras destinações) com h > 30 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoas) H-6 h > 90 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoas) I I-1 I-2 - dispensados de SCF I-3 área > 20.000 m²: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoa) J J-1 J-2 J-3 - dispensados de SCF J-4 área > 20.000 m²: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoa) K K-1 K-2 - dispensados de SCF L Todos - dispensados de SCF"
+    },
+    {
+      "page": 11,
+      "title": "Grupo Divisão Exigência de controle de fumaça nos seguintes locais da edificação",
+      "text": "Grupo Divisão Exigência de controle de fumaça nos seguintes locais da edificação M M-1 M-2 M-3 M-4 M-5 M-6 M-7 M-8 M-9 M-10 M-11 - dispensado de SCF Subsolos Quando previsto pela IN 1, em todo o subsolo, com exceção no caso de não haver a permanência prolongada de pessoas, neste caso, o sistema é opcional Nota 1: Observar as isenções previstas no artigo 6º."
+    },
+    {
+      "page": 12,
+      "title": "Anexo B - Atividades de comissionamento do sistema RELATÓRIO DE APRESENTAÇÃO DO ",
+      "text": "Anexo B - Atividades de comissionamento do sistema RELATÓRIO DE APRESENTAÇÃO DO SISTEMA DE CONTROLE DE FUMAÇA Endereço: Nº Complemento: Bairro: Município- UF: RE: Proprietário: e-mail: Responsável uso/brigadista: e-mail: Responsável Técnico pelo comissionamento/inspeção: Número do registro do profissional: e-mail: Ocupação e tipo ( Tabela 1 do Anexo B da IN 1 parte 2): PROCEDIMENTO A conclusão dos trabalhos, inspeção e ensaios deve ser feita pela equipe ou profissional independente e testemunhada pelo representante do proprietário. Todos os problemas devem ser resolvidos e o sistema colocado em serviço antes que o instalador se retire da obra. Este formulário deve ser preenchido e assinado pelas partes representadas. Projeto Instalação em conformidade com o projeto? Sim ( ) Não ( ) Equipamentos usados correspondem aos especificados no projeto? Sim ( ) Não ( ) Se não, explicar divergências: Instrução e Informações básicas sobre o sistema Foram deixadas no local, cópias dos seguintes documentos? 1. Memorial descritivo e especificações técnicas dos principais equipamentos e materiais Sim ( ) Não ( ) 2. Cálculo das aberturas de extração natural e/ou vazão da extração mecânica da fumaça Sim ( ) Não ( ) 3. Folha de dados dos equipamentos e/ou extratores Sim ( ) Não ( ) 4. Tabela de marca, modelo, potência elétrica e vazão dos equipamentos Sim ( ) Não ( ) 5. Execução de diagrama de ar Sim ( ) Não ( ) 6. Desenho do sistema (plantas e principais cortes da rede de dutos) Sim ( ) Não ( ) 7. Desenhos das casas de máquinas de ventilação (planta e principais cortes) Sim ( ) Não ( ) 8. Informações e diagrama elétrico dos sistemas Sim ( ) Não ( ) Se não, explicar: INFORMAÇÕES CLIMÁTICAS DO DIA DO COMISSIONAMENTO Velocidade do vento Temperatura Externa Direção do Vento Pressão atmosférica"
+    },
+    {
+      "page": 13,
+      "title": "RELATÓRIO DE APRESENTAÇÃO DO SISTEMA DE CONTROLE DE FUMAÇA MEMORIAL DE ENSAIOS E",
+      "text": "RELATÓRIO DE APRESENTAÇÃO DO SISTEMA DE CONTROLE DE FUMAÇA MEMORIAL DE ENSAIOS E MATERIAIS - fl. 02/03 Ensaios Extrator mecânico (ventilador e motor) em funcionamento com fonte de energia primária (rede) e com fonte de energia reserva (grupo gerador)? Sim ( ) Não ( ) Manobra automática de energia primária para a reserva (grupo motogerador)? Sim ( ) Não ( ) Funcionamento correto da reversão do ventilador principal para o reserva? Sim ( ) Não ( ) A qualidade da energia elétrica fornecida está adequada (tensão e corrente elétrica, frequência e aterramento)? Sim ( ) Não ( ) O tempo de ativação do sistema de controle de fumaça corresponde ao tempo de projeto? Tempo para ativação: segundos. Sim ( ) Não ( ) Há equilíbrio de fases do sistema elétrico? Sim ( ) Não ( ) Fiação e ligações elétricas corretamente executados? Sim ( ) Não ( ) Quadros elétricos com componentes devidamente identificados e presentes? Sim ( ) Não ( ) Funcionamento correto do extrator natural com respectivos atuadores? Sim ( ) Não ( ) Registros corta-fogo e/ou fumaça presentes e operantes? Sim ( ) Não ( ) Registros de entrada de ar presente e operante? Sim ( ) Não ( ) Registros de sobrepressão presente e operante? Sim ( ) Não ( ) Venezianas e grelhas de ar presentes, desobstruídas e corretamente instaladas? Sim ( ) Não ( ) Rede de dutos devidamente fixados, sem vazamentos e desobstruídos? Sim ( ) Não ( ) Vazão de ar medida confere com a vazão de projeto? Sim ( ) Não ( ) Taxa volumétrica das grelhas de extração de fumaça e instrução de ar confere com a de projeto? Sim ( ) Não ( ) Direção do fluxo de ar de acordo com a necessidade e projeto? Sim ( ) Não ( ) Quando constantes em projeto, o enclausuramento e abertura das portas estão de acordo com as especificações? Sim ( ) Não ( ) Os diferenciais de pressão estão dentro da faixa de operação? Sim ( ) Não ( ) O sistema de controle de temperatura está corretamente instalado e operacional? Sim ( ) Não ( ) Variadores de frequência com sensores de pressão? Sim ( ) Não ( ) Sistema de supervisão e controles presente e funcional? Sim ( ) Não ( ) Sistema de detecção presente e devidamente instalado? Sim ( ) Não ( ) Sistema de alarme de incêndio devidamente instalado e operacional com interligação com os detectores de fumaça e sistema de controle de fumaça? Sim ( ) Não ( ) Interligação do sistema de controle de fumaça com os detectores de fumaça devidamente instalado e operacional? Sim ( ) Não ( ) Instalação, apoios, fixação e sustentação de todos os componentes devidamente executados? Sim ( ) Não ( ) Se não, explicar"
+    },
+    {
+      "page": 14,
+      "title": "RELATÓRIO DE APRESENTAÇÃO DO SISTEMA DE CONTROLE DE FUMAÇA MEMORIAL DE ENSAIOS E",
+      "text": "RELATÓRIO DE APRESENTAÇÃO DO SISTEMA DE CONTROLE DE FUMAÇA MEMORIAL DE ENSAIOS E MATERIAIS - fl. 03/03 Conclusão Após a realização e verificação dos resultados dos ensaios, atesto que o sistema se encontra em condição de operação: Sim ( ) Não ( ) Data em que a instalação foi entregue em funcionamento: Assinaturas Nome do instalador Responsável técnico (Assinatura Digital) Nº. do Registro Profissional Testemunhas Representante do proprietário (assinatura) Cargo Data Representante do instalador (assinatura) Cargo Data Informações adicionais e anotações"
+    },
+    {
+      "page": 15,
+      "title": "Anexo C - Atividades de Inspeção do sistema RELATÓRIO DE INSPEÇÃO DO SISTEMA DE ",
+      "text": "Anexo C - Atividades de Inspeção do sistema RELATÓRIO DE INSPEÇÃO DO SISTEMA DE CONTROLE DE FUMAÇA MEMORIAL DE ENSAIOS E MATERIAIS - fl. 01/03 Logradouro público: N.º. Complemento: Bairro: Município: UF: SC RE: Responsável pelo imóvel: e-mail: Fone: ( ) Responsável técnico: e-mail: Fone: ( ) Nº. do Registro Profissional PROCEDIMENTO A conclusão dos trabalhos, inspeção e ensaios deve ser feita pelo inspetor e testemunhada pelo representante do proprietário. Todos os problemas devem ser identificados e resolvidos. Este formulário deve ser preenchido e assinado pelas partes representadas. Instruções O responsável pelo uso do sistema de controle de fumaça foi instruído quanto à localização dos registros, motoventilador, sistemas de detecção de fumaça e demais componentes de controle, bem como todos os cuidados e manutenção dos equipamentos? Sim ( ) Não ( ) Nome do responsável Se não, explicar INFORMAÇÕES CLIMÁTICAS DO DIA DA INSPEÇÃO Velocidade do vento Temperatura Externa: Direção do Vento Pressão atmosférica: INTEGRIDADE DOS COMPONENTES DO SISTEMA OBSERVAÇÃO Os ensaios e testes devem incluir os seguintes e subsistemas abaixo relacionados, uma vez que podem afetar ou ser afetados pela operação do sistema de gerenciamento de fumaça. Componentes Todos os componentes do sistema de detecção de fumaça encontram-se operacionais? Sim ( ) Não ( ) O sistema de alarme encontra-se operacional? Sim ( ) Não ( ) O sistema de gerenciamento de energia encontra-se operacional e em bom estado? Sim ( ) Não ( ) O sistema de controle de temperatura encontra-se operacional e em bom estado? Sim ( ) Não ( ) Fonte de energia reserva (gerador) revisado, operacional e em bom estado? Sim ( ) Não ( ) Operação automática de portas e fechamentos operacional? Sim ( ) Não ( ) Se não, explicar"
+    },
+    {
+      "page": 16,
+      "title": "RELATÓRIO DE INSPEÇÃO DO SISTEMA DE CONTROLE DE FUMAÇA MEMORIAL DE ENSAIOS E MAT",
+      "text": "RELATÓRIO DE INSPEÇÃO DO SISTEMA DE CONTROLE DE FUMAÇA MEMORIAL DE ENSAIOS E MATERIAIS - fl. 02/03 Ensaios Extrator mecânico (ventilador e motor) em funcionamento com fonte de energia primária (rede) e com fonte de energia reserva (grupo gerador)? Sim ( ) Não ( ) Manobra automática de energia primária para a reserva (grupo motogerador)? Sim ( ) Não ( ) Funcionamento correto da reversão do ventilador principal para o reserva? Sim ( ) Não ( ) A qualidade da energia elétrica fornecida está adequada (tensão e corrente elétrica, frequência e aterramento)? Sim ( ) Não ( ) O tempo de ativação do sistema de controle de fumaça corresponde ao tempo de projeto? Tempo para ativação: segundos. Sim ( ) Não ( ) Há equilíbrio de fases do sistema elétrico? Sim ( ) Não ( ) Fiação e ligações elétricas corretamente executados? Sim ( ) Não ( ) Quadros elétricos com componentes devidamente identificados e presentes? Sim ( ) Não ( ) Funcionamento correto do extrator natural com respectivos atuadores? Sim ( ) Não ( ) Registros corta-fogo e/ou fumaça presentes e operantes? Sim ( ) Não ( ) Registros de entrada de ar presente e operante? Sim ( ) Não ( ) Registros de sobrepressão presente e operante? Sim ( ) Não ( ) Venezianas e grelhas de ar presentes, desobstruídas e corretamente instaladas? Sim ( ) Não ( ) Rede de dutos devidamente fixados, sem vazamentos e desobstruídos? Sim ( ) Não ( ) Vazão de ar medida confere com a vazão de projeto? Sim ( ) Não ( ) Taxa volumétrica das grelhas de extração de fumaça e instrução de ar confere com a de projeto? Sim ( ) Não ( ) Direção do fluxo de ar de acordo com a necessidade e projeto? Sim ( ) Não ( ) Quando constantes em projeto, o enclausuramento e abertura das portas estão de acordo com as especificações? Sim ( ) Não ( ) Os diferenciais de pressão estão dentro da faixa de operação? Sim ( ) Não ( ) O sistema de controle de temperatura está corretamente instalado e operacional? Sim ( ) Não ( ) Variadores de frequência com sensores de pressão? Sim ( ) Não ( ) Sistema de supervisão e controles presente e funcional? Sim ( ) Não ( ) Sistema de detecção presente e devidamente instalado? Sim ( ) Não ( ) Sistema de alarme de incêndio devidamente instalado e operacional com interligação com os detectores de fumaça e sistema de controle de fumaça? Sim ( ) Não ( ) Interligação do sistema de controle de fumaça com os detectores de fumaça devidamente instalado e operacional? Sim ( ) Não ( ) Instalação, apoios, fixação e sustentação de todos os componentes devidamente executados? Sim ( ) Não ( ) Se não, explicar"
+    },
+    {
+      "page": 17,
+      "title": "RELATÓRIO DE INSPEÇÃO DO SISTEMA DE CONTROLE DE FUMAÇA MEMORIAL DE ENSAIOS E MAT",
+      "text": "RELATÓRIO DE INSPEÇÃO DO SISTEMA DE CONTROLE DE FUMAÇA MEMORIAL DE ENSAIOS E MATERIAIS - fl. 03/03 Conclusão Após a realização e verificação dos resultados dos ensaios, atesto que o sistema se encontra em condição de operação: Sim ( ) Não ( ) Data em que a instalação foi entregue em funcionamento: Assinaturas Nome do instalador Responsável técnico (Assinatura Digital) Nº. do Registro Profissional Testemunhas Representante do proprietário (assinatura) Cargo Data Representante do instalador (assinatura) Cargo Data Informações adicionais e anotações"
+    }
+  ],
+  "checks": {
+    "needs_human_look": []
+  }
+}

@@ -18,5 +18,11 @@
     "fields": 112,
     "sha256": "2f3c56beeef244fab65e74136fefd248987aff650bb660adafcbf153cd481f90",
     "needs_human_look": 0
+  },
+  "articles": {
+    "count": 170,
+    "annex_pages": 14,
+    "sha256": "adba93b6c786be117b35a19b76223ceac493ee16d22a7004d8e85001837dac25",
+    "needs_human_look": 0
   }
 }

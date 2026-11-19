@@ -1,0 +1,228 @@
+{
+  "doc": "IN-23",
+  "preamble": "IN 23 LOCAIS COM SISTEMA DE ALIMENTAÇÃO PARA VEÍCULOS ELÉTRICOS SUMÁRIO DISPOSIÇÕES INICIAIS 2 Objetivo 2 Referências 2 Terminologias 2 APLICAÇÃO 4 Geral 4 REQUISITOS GERAIS 6 PROJETO BASEADO EM DESEMPENHO (PBD) 8 Objetivos de proteção contra incêndio (OPCI) 9 Prevenção da ocorrência de incêndio 9 Limitação da propagação do fogo 9 Saída e segurança das pessoas 10 Acesso e segurança para operações de resgate e combate a incêndio 11 Estabilidade estrutural 11 Parâmetros adicionais para projeto baseado em desempenho (PBD) 12 TRAMITAÇÃO PARA REGULARIZAÇÃO DOS LOCAIS COM SAVE 12 DISPOSIÇÕES FINAIS 13 Anexo A - Relatório para regularização de SAVE por meio do projeto baseado em desempenho (PBD) 15 Anexo B - Relatório para regularização de SAVE por dispensa do projeto baseado em desempenho (PBD) 16 Vigente a partir de 25/06/2026 16 páginas INSTRUÇÃO NORMATIVA 23 LOCAIS COM SISTEMA DE ALIMENTAÇÃO PARA VEÍCULOS ELÉTRICOS DISPOSIÇÕES INICIAIS Objetivo",
+  "articles": [
+    {
+      "number": 1,
+      "page": 2,
+      "text": "Art. 1º Esta Instrução Normativa (IN) tem por objetivo estabelecer e padronizar critérios de desempenho e segurança contra incêndio aplicáveis aos locais que possuam pontos de carregamento de veículos elétricos, no âmbito das edificações fiscalizadas pelo Corpo de Bombeiros Militar de Santa Catarina (CBMSC). §1ºOobjetivodestaINéprevenirapropagação do incêndio e garantir condições seguras para evacuaçãodepessoaseatuaçãodasequipesde emergência, por meio da limitação de temperatura, densidade de fumaça, concentração de gases tóxicos e controle do fluxotérmicoemvaloresqueevitemocolapso estruturalegarantamaintervençãoseguraem caso de incêndio. §2ºAlémdeestabelecercritériosmínimosque garantamasegurança,anormatambémtemo objetivo de orientar projetistas, engenheiros, arquitetos e responsáveis técnicos quanto à necessidade de avaliar o desempenho global dos sistemas e medidas de segurança — ventilação, detecção, supressão e compartimentação — de forma integrada, considerando cenários específicos de incêndio em veículos elétricos. Referências"
+    },
+    {
+      "number": 2,
+      "page": 2,
+      "text": "Art. 2ºAs referências utilizadas são as seguintes: I-ConstituiçãodoEstadodeSantaCatarina,de 1989; II - Lei Estadual nº 16.157, de 2013; III - Lei Federal nº 13.874, de 2019; IV - IN 1, de 2024 - CBMSC; V - NBR 5410; VI - NBR 5419; VII - NBR 17019; VIII - NBR IEC 61851-1; IX - NBR IEC 62196-1; X - ISO/TR 23932-1:2018; XI - ISO/TR 16576; XII - Instrução Normativa (CELESC) I-321.0032; XIII - Instrução Normativa (CELESC) I-321.0043; XIV - SFPE Handbook of Fire Protection Engineering, 5ª Ed; XV-NewZealandBuildingCode:FireSafetyand Signs, 2012, v. 2023, Governo da Nova Zelândia; XVI - C PROTECTION FROM FIRE VERIFICATION METHOD C/VM2: Framework for fire safety design, 2025, Governo da Nova Zelândia; XVII-SmokeManagementofUndergroundCar Park using CFD Simulations, 2024; XVIII - Study ofindoorparkinglotplanningfor electric vehicles through fire dynamics simulation, 2025; XIX - Performance-BasedAnalysisinEvaluation ofSafetyinCarParksunderElectricVehicleFire Conditions, 2022; XX - Fire tests with lithium-ion battery electric vehicles in road tunnels, 2022. Terminologias"
+    },
+    {
+      "number": 3,
+      "page": 2,
+      "text": "Art. 3º As terminologias gerais que tratam da segurança contra incêndio são definidas pelo CBMSC e disponibilizadas para acesso público em seu portal oficial. Parágrafo único. Para aplicação desta IN consideram-se as seguintes terminologias específicas: I - critério de desempenho: valor ou limite mensuráveladotadoparaavaliarasegurançado projeto baseado em desempenho (PBD) e do ambiente construído, por meio de simulação, cálculo ou ensaio; II - curva de crescimento t²: modelo empírico utilizadopararepresentarafasedecrescimento doincêndio,noqualataxadeliberaçãodecalor (Q) é proporcional ao quadrado do tempo(t²) desdeaignição,conformeaexpressãoQ(t)=αt². O parâmetro α define a velocidade de crescimento do fogo e permite a classificação em incêndios de crescimento lento, médio, rápidooumuitorápido.Essacurvaéempregada para representar o incêndio e analisar seu desempenho, especialmente durante a fase pré-flashover; III - edificação preexistente: considera-se preexistenteaedificaçãoconcluídaatéadatado início da vigência desta IN, bem como aquela que, até esta mesma data, possuir PPCI aprovado pelo CBMSC, independentementedo estágio de execução da obra; IV - estação de recarga: parte do sistema de alimentaçãoparaveículoselétricosconectadaà rede de alimentação; V - local externo e descoberto: local de uso comum situado ao ar livre (sem coberturas) e fora das projeções horizontais superioresda(s) edificação(ões), geralmente sujeito a fatores climáticos como sol, chuva e vento. VI - local externo com cobertura leve: local externo à edificação, provido apenas de cobertura simples para proteção contra intempéries, composta por elementos leves (telhasdefibrocimento,telhasmetálicas,entre outros) e sem fechamento lateral significativo, que não favoreçam o acúmulo de gases aquecidos nemrepresentemriscorelevantede colapso estrutural em situação de incêndio. VII - modo de recarga: método que permite conectar um veículo elétrico à rede de alimentação para fornecer energia elétrica ao veículo; VIII - modo de recarga 1: caracteriza-se pela conexão direta do veículo elétrico a uma tomada normalizada, sem função-piloto de comando,limitadoacorrentesreduzidas,sendo consideradodeaplicaçãolimitadaecommenor nível de segurança; IX - modo de recarga 2: caracteriza-se pela conexão do veículo elétrico a uma tomada normalizada, associada a cabo dotado de dispositivosdeproteçãoelétricaefunção-piloto decomando,admitindocorrentessuperioresao Modo 1, sendo indicado para recargas emergenciais; X - modo de recarga 3: caracteriza-se pela conexão do veículo elétrico a uma estação de recarga em corrente alternada, dotada de função-piloto de comando e sistemas de proteção, constituindo-se no método seguro e eficientepararecargasdiáriasemresidênciasou locais públicos; XI - modo de recarga 4: caracteriza-se pela conexão do veículo elétrico a uma rede de alimentação em corrente alternada, ou em corrente contínua, utilizando um sistema de alimentação para veículos elétricos (SAVE) em corrente contínua, com uma função-piloto de comandoqueseestendedoSAVEparaoveículo elétrico em corrente contínua, permitindo recargasdealtapotênciaemcurtointervalode tempo,destinadoaestaçõespúblicasderecarga rápida; XII - objetivo de proteção contra incêndio (OPCI):declaraçãodosresultadosoucondições desejadas diante de um incêndio, representandooquedeveserprotegidoeoque se pretende evitar, como perda de vidas, propagação do fogo ou danos ambientais (Adaptação do termo FSO — Fire Safety Objective); XIII - ponto de recarga: local da edificação destinado ao carregamento de veículos elétricos; XIV -projetobaseadoemdesempenho(PBD): abordagem que foca nos resultados e no desempenhoesperadosemrelaçãoàsegurança contra incêndio, realizada através de um conjunto de análises, métodos e simulações, utilizado para demonstrar que a edificação atende aos objetivos de proteção contra incêndio.OPBDutilizaprincípiosdaEngenharia de Segurança Contra Incêndio para definir cenáriosrepresentativos,modelaraevoluçãodo incêndio, avaliar a tenabilidade, dimensionar sistemas e comprovar que os riscos são mantidos em níveis aceitáveis (adaptação dos termos:Performance-BasedDesign–PBDeFire Safety Engineering – FSE); XV-recarga:todasasfunçõesnecessáriaspara condicionaratensãoe/ouacorrentefornecida pelarededealimentaçãoemcorrentealternada ou em corrente contínua para assegurar a alimentação de energia elétrica à bateria do veículo elétrico; XVI - requisitos funcionais: objetivos intermediários - expressos como condições, comportamentos ou resultados - necessários para que aedificaçãoeossistemasemedidas desegurançacontraincêndio(SMSCI)atinjamos OPCI; XVII - sistema de alimentação para veículos elétricos (SAVE): equipamento ou conjunto de equipamentos que fornecem as funções dedicadasparaalimentaçãoemenergiaelétrica a partir de uma instalação elétrica fixa, ou de umarededealimentação,aumveículoelétrico com a finalidade de recarga; XVIII - tempo disponível para a evacuação segura (TDES): período de tempo calculado durante o qual as condições do ambiente permanecem seguras para a evacuação, antes que o fogo ou a fumaça tornem o espaço perigoso ou intransitável. Corresponde ao intervalo entre a ignição do incêndio e o momento em que as condições ambientais atinjam níveis que impeçam ou incapacitem a evacuaçãoseguradosocupantes(adaptaçãodo termo: ASET -Available Safe Egress Time); XIX-temponecessárioparaaevacuaçãosegura (TNES): período calculado que representa quanto tempo os ocupantes efetivamente precisamparadetectaroincêndio,reconhecero perigo, iniciar o movimento de evacuação e alcançarumlocalseguro(adaptaçãodotermo: RSET -Required Safe Egress Time); XX - tenável/tenabilidade*: o conjunto de condições ambientais que permitem que pessoas permaneçam vivas e conscientes em umambientedeincêndiodurantedeterminado tempo (adaptado do inglêstenability); XXI - veículo elétrico (VE): veículo movido a motor elétrico ou híbrido, no qual a corrente elétrica é proveniente de um sistema recarregável de armazenamento de energia - bateria. APLICAÇÃO Geral"
+    },
+    {
+      "number": 4,
+      "page": 4,
+      "text": "Art. 4º As exigências previstas nesta IN aplicam-se aos locais de imóveis novos, recentes, existentes e preexistentes que possuam instalação do SAVE, sejam eles fechados, cobertos ou ao ar livre. Parágrafoúnico.EstaINnãoseaplicaaoslocais ondehajapontosderecargadestinadosúnicae exclusivamenteaosveículosdemicromobilidade (bicicletas, patinetes, etc), recomendando-se, nessecaso, queocarregamentosejarealizado de acordo com as instruções do fabricante, observando a tensão, corrente e condições ambientais recomendadas."
+    },
+    {
+      "number": 5,
+      "page": 4,
+      "text": "Art. 5º As exigências previstas nesta IN serão divididas em: I - requisitos gerais: obrigatórios a todos os locais com instalação de SAVE; e II - projeto baseado em desempenho (PBD): exigido apenas aos locais com instalação de SAVE que não se enquadrem nos critérios de dispensa previstos no artigo 6º desta IN."
+    },
+    {
+      "number": 6,
+      "page": 5,
+      "text": "Art.6ºFicamdispensadosdarealizaçãodoPBD oslocaisquepossuaminstalaçãodeSAVEeque se enquadrem em uma das seguintes situações: I - locais externos e descobertos ou com cobertura leve; II-locaisdequalqueredificaçãoquepossuam, cumulativamente, os seguintes SMSCI: a) detecção automática de incêndio, conforme IN 12; b) extração mecânica de fumaça em conformidadecomaIN10ouventilação natural conforme § 1º deste artigo; e c) chuveiros automáticos, em conformidadecomaIN15ou§2ºdeste artigo. III-locaissituadosemedificaçõespreexistentes comocupaçõesA-1,A-2,C-1,C-2,DeH-4que atendam, cumulativamente, aos seguintes requisitos: a) compartimentação do local em relação às demais rotas de fuga da edificação; e b) detecção automática de incêndio, conforme IN 12. IV - locais com área total de até 1.500 m² situados em edificações com ocupações A-1, A-2, C-1, C-2, D e H-4 que atendam a, pelo menos, uma das seguintes condições: a) possuam ventilação natural nos termos do § 1º e detecção automática de incêndio, conforme IN 12; ou b) quandoconstituídoporpavimentoscom áreadeaté500m²,possuamventilação natural nos termos do § 1º, ou, na ausência desta, adote cumulativamente a compartimentação em relação às saídas de emergência e a instalaçãode sistema de detecção automática de incêndio, conforme a IN 12. §1ºAventilaçãonaturaldevesergarantidapor aberturaspermanentesparaoexterior,empelo menos dois lados, atendendo aos seguintes requisitos: I - a área das aberturas somadas deve corresponder a pelo menos 20% da áreatotal das fachadas externas; e II - as aberturas devem ter comprimento em planta que,somados,atinjampelomenos40% do perímetro do pavimento; § 2º Nas edificações preexistentes,aexigência doschuveirosautomáticosprevistanaletra“c” do inciso II do caput deste artigo poderá ser admitidacomamalhadatubulaçãointerligada ao sistema de hidrantes, desde que aredede chuveiros automáticos seja dotada de: I – chave de fluxo, devidamente interligada à central de alarme de incêndio; II–pontodedrenoeteste,localizadoemlocal acessível e sinalizado; e III–manômetro,instaladodeformavisível,para monitoramento da pressão da rede. §3ºAslimitaçõesdeáreaprevistasnesteartigo referem-se exclusivamente àáreadaocupação específica onde o SAVE está instalado, não se estendendo nem se acumulando com áreas adjacentespertencentesaoutrasocupaçõesda edificação. § 4º Os critérios previstos neste artigo, aplicáveis para fins de dispensa doPBD,serão exigidosapenasnaáreadaocupaçãoespecífica onde o SAVE está instalado. § 5º Para fins de aplicação do inciso IV deste artigo, se houver compartimentação entre os ambientes com SAVE, os limites de área aplicam-se individualmenteacadalocal,desde que o tempo de resistência ao fogo da compartimentação seja igual ou superior à exigida para a ocupação, mas não inferior a 1h. REQUISITOS GERAIS"
+    },
+    {
+      "number": 7,
+      "page": 6,
+      "text": "Art. 7º As instalações elétricas devematender integralmenteodispostonasnormasNBR5410 e NBR 17019."
+    },
+    {
+      "number": 8,
+      "page": 6,
+      "text": "Art. 8º O sistema de recarga deve atender integralmente à NBR IEC 61851, possuir certificado de conformidade das estações de recarga, e sua instalação deve observar os requisitosparacadamododerecarga,conforme o tipo do SAVE: I - modo 1, não admitido. II-modo2:emáreaexternas,acritériodoRT, devendo haver proteção para intempéries; e III - modos 3 e 4, sem restrições de uso."
+    },
+    {
+      "number": 9,
+      "page": 6,
+      "text": "Art. 9º Deve ser previsto um único ponto de desligamento manual de todas as estações de recargaemcadapavimento,anãomaisde5,00 m da escada ou acesso (entrada ou saída) da garagem ou de outros locais que possuam SAVE. § 1º Opcionalmente, nas edificações preexistentes, pode ser previsto dispositivo de desligamento manual em cada estação de recarga ou, no máximo, a 5,00 m destes equipamentos, em substituição a previsão do caputdeste artigo. §2ºOspontosdedesligamentomanualdevem serinstaladosaalturaentre0,90me1,35mdo piso acabado, na forma embutida ou de sobrepor."
+    },
+    {
+      "number": 10,
+      "page": 6,
+      "text": "Art.10.OpontodedesligamentodosSAVEdeve possuir placa de sinalização complementar atendendo aos seguintes requisitos: I - ter mensagem escrita com os seguintes dizeres: a) “VEÍCULOSELÉTRICOS”e“EMERGÊNCIA” emdestaque,fonteligeiramentemaiore situado nas primeiras linhas, independente da ordem; b) “DESLIGUE O CARREGAMENTO” ou “DESLIGUE OS CARREGADORES” nas demais linhas; II - a sinalização deve possuir efeito fotoluminescente, com todas as letras maiúsculasecomalturamínimade10mm(dez milímetros), na cor branca sobre fundo vermelho (figura 1); III - admite-se o uso de pictogramas que representamocarregamentoelétricoconforme exemplodafigura2,ououtrospadronizadospor normas internacionais ou brasileiras; e IV-estarfixadaemalturade1,80m,medidodo piso acabado à base da sinalização. Figura 1 - modelo de placa sem pictograma Figura 2 - modelo de placa com pictograma Parágrafoúnico.Noscasosdeadoçãodeponto de desligamento junto aos equipamentos conformeprevistono§1ºdoartigo9º,deve-se observar: I-havendoafastamentoentreavagaeoponto de desligamento do SAVE a sinalização deve possibilitar a identificação da relação entre o equipamento e o dispositivo de desligamento; ou II - havendo botão de emergência no próprio equipamento a sinalização é dispensada."
+    },
+    {
+      "number": 11,
+      "page": 7,
+      "text": "Art. 11. As vagas que possuíreminstalaçãode SAVE deverão estar devidamente sinalizadas, competindoaoResponsávelTécnico(RT)definir aformadeexecução,observadoodispostonas regulamentações específicas aplicáveis ao tema."
+    },
+    {
+      "number": 12,
+      "page": 7,
+      "text": "Art. 12. Deve ser previsto dispositivo para seccionamento da alimentação dosSAVEjunto ao quadro que contém o dispositivo que interrompeaalimentaçãodeenergiaelétricada edificação, atendendo aos parâmetros da IN 19. §1ºAdmite-sequalquerdispositivoquepermita o desligamento manual do fluxo de energia elétrica,podendoserumcomumaosSAVEeà edificação, ou independentes, devendo estar devidamente identificados. § 2º A forma adotada para seccionamento da alimentaçãodoSAVEdeveserprevistademodo a evitar que, durante uma ocorrência de incêndio, a equipe de bombeiros nãodesligue acidentalmenteumachavegeralqueinterrompa indevidamente a energia de um ou mais sistemasdeSCI,devendoobservaraIN19eos manuais e procedimentos para conexão de circuito de sistema de Segurança Contra Incêndio (SCI) da concessionária de energia elétrica."
+    },
+    {
+      "number": 13,
+      "page": 7,
+      "text": "Art. 13. A responsabilidade pela instalação e garantia de eficiência dos locais onde haja recarga de veículos elétricos (VE) caberá integralmenteaoRTe/ouempresainstaladora, juntamente com o proprietário do imóvel ou responsável pelo uso."
+    },
+    {
+      "number": 14,
+      "page": 7,
+      "text": "Art. 14. As instalações do SAVE devem passar pela mesma manutenção periódicaprevistana IN 19 para as instalações elétricas de baixa tensão."
+    },
+    {
+      "number": 15,
+      "page": 7,
+      "text": "Art. 15. Nas edificações que possuam apenas uma rota de saída de emergência, deve ser mantido um afastamentoemrelaçãoaoponto de SAVE de, no mínimo, 5 m de portas, elevadores ou outro elemento utilizado para saída do local. § 1º A distância necessária deve adotar como referência o perímetro delimitado pela vaga. §2ºNasedificaçõespreexistentes,emquenão seja possível atender à distância prevista no caputdesteartigo,oRTpoderáavaliaroriscoe prever ponto de carregamento em distância inferior,desdequesejainstaladobarreirafísica capaz de impedir que as chamas e o calor irradiado por eventual incêndio inviabilize a utilização da saída de emergência. §3ºNasedificaçõespreexistentes,parafinsde atendimentoaocaputdesteartigo,admite-sea utilizaçãoderampasdeveículoscomorotasde fuga alternativas, desde que: I - o caminho a ser percorrido conduza os ocupantes a um local seguro; II - quando previsto portinhola para acesso à áreaexterna,aportinholadeveterbarrainferior de, no máximo, 5 cm de altura; e III - quando a rota de fuga principal comprometidapelaproximidadecomoSAVEfor acessível à PcD, a rampa utilizada como alternativa deve atender aos requisitos de inclinação da NBR 9050."
+    },
+    {
+      "number": 16,
+      "page": 7,
+      "text": "Art. 16. Os afastamentos da área delimitada para o ponto de recarga em relação a riscos específicos(comoáreascomlíquidosigníferose gás liquefeito de petróleo) devem seguir os parâmetrosdefinidosnasInstruçõesNormativas pertinentes em relação a fontes de ignição."
+    },
+    {
+      "number": 17,
+      "page": 7,
+      "text": "Art.17.Observadasasisençõesdoartigo6º,os demaislocaiscobertosdevemdispordosistema de detecção automática de incêndio. §1ºNoslocaiscobertos,masabertosemsuas laterais,adetecçãopodeserdispensada,desde quenoPBDsejaverificadoqueascaracterísticas do ambiente (áreadeventilação,porte,altura, entre outras) permitam a fácil dissipação dos gasesedocalorenãoafetemasegurançanas ações de evacuação da edificação. § 2º O disposto no § 1º deste artigo não se aplica aos locais cobertos de edificações com grandeconcentraçãodepessoas(ocupaçõesdo grupoFcompopulaçãoacimade200pessoas, shopping centers, entre outros)."
+    },
+    {
+      "number": 18,
+      "page": 8,
+      "text": "Art. 18. Os elementos estruturais próximosao SAVE devem possuir resistênciasuficientepara suportaraaçãolocalizadadecaloredaschamas decorrentes da combustão e das reações químicas da bateria do VE, de forma a evitar qualquer risco de colapso estrutural prematuro. PROJETO BASEADO EM DESEMPENHO (PBD)"
+    },
+    {
+      "number": 19,
+      "page": 8,
+      "text": "Art. 19. Os locais com instalaçãodeSAVEque não se enquadram nos critérios de dispensa previstosnoartigo6ºdeverãorealizarumPBD deacordocomosrequisitosmínimosprevistos neste capítulo."
+    },
+    {
+      "number": 20,
+      "page": 8,
+      "text": "Art. 20. O PBD deve conter, no mínimo, as seguintes informações: I-identificaçãodaedificaçãoedosresponsáveis técnico e do imóvel; II - escopo detalhado do estudo e análise dos riscos potenciais da instalação do SAVE na edificação; III-definiçãodosOPCI,dosrequisitosfuncionais edoscritériosdedesempenhoadotadosparao estudo; IV - descrição dos cenários de incêndio de projetoeparâmetrosdeentradautilizadoscom as respectivas fontes; V - metodologia de análise utilizada e justificativa de escolha; VI - modelos e softwares empregados, limitações, incertezas e validações; VII - resultados obtidos e comprovação do atendimento aos critérios de desempenho; VIII -medidasdemitigaçãooucompensatórias propostas; IX - conclusões e recomendações de manutenção do desempenho aolongodavida útil da edificação. § 1º O PBD não será analisado ou aprovado previamente pelo CBMSC, cabendo ao RT a completa elaboração, fundamentação e verificação dos resultados obtidos. § 2º Para fins de regularização do SAVE, o CBMSCanalisaráexclusivamenteosresultadose informações declarados no relatório para regularização de SAVE (Anexo A)."
+    },
+    {
+      "number": 21,
+      "page": 8,
+      "text": "Art. 21. O dimensionamento eacomprovação das condições de segurança contra incêndio deverão ser realizados por meio do PBD, conforme metodologias de Engenharia de Segurança Contra Incêndio."
+    },
+    {
+      "number": 22,
+      "page": 8,
+      "text": "Art.22.OPBDearegularizaçãodelocaiscom SAVE desenvolvidos através de métodos de Engenharia de Segurança Contra Incêndio(FSE —FireSafetyEngineering)devematender,não apenas aos requisitos previstos nesta IN, mas também a outros riscos que possam vir a ser identificados no escopo do PBD conforme a metodologiautilizada,sendocompetênciadoRT identificar,avaliaremitigarosriscosaumnível aceitável. § 1º A metodologia utilizada deve seguir, preferencialmente, as diretrizes da norma ISO 23932-1 — Fire Safety Engineering — General Principles. §2ºOutrasmetodologiaspodemserutilizadas, desde que devidamente motivadas pelo RT.¹ Nota 1 -Exemplos de metodologias alternativas: - NFPA 101 -Performance-Based Option - New Zeland Building Code - C Protection from fire - SFPEHandbook of Fire Protection Engineering"
+    },
+    {
+      "number": 23,
+      "page": 9,
+      "text": "Art.23.Aabordagemanalíticautilizadadeveser adeterminísticaouhíbrida,nãosendoadmitida uma abordagem exclusivamente qualitativa.² Nota 2 -Observações A complexidade na validação dos parâmetros varia conformeascaracterísticasdoambienteedoincêndio considerado. Em PBD básicos, a análise pode ser realizada por meio de cálculos manuais, tabelas, equações ou programas computacionaissimplificados, muitos dos quais disponíveis gratuitamentenositedo NIST (National Institute of StandardsandTechnology), sendo suficientes para representar a evolução de incêndios de baixa complexidade. Situações de complexidade intermediária podem exigir o uso de modelos de zonas, como o CFAST (Consolidated Fire and Smoke Transport), enquanto cenários mais complexos demandamsimulaçõesCFD(Computational Fluid Dynamics), com malhaeparâmetrosadequados. Essas simulações podem ainda ser complementadas com cálculos de tempo de atuação dos sistemas de detecçãoeanálisesdeevacuaçãoemlocaiscomgrande concentração de pessoas. Quanto mais detalhados e validadosforemosparâmetrosdePBD,menoresserão as incertezas e os riscos remanescentes. Objetivos de proteção contra incêndio (OPCI)"
+    },
+    {
+      "number": 24,
+      "page": 9,
+      "text": "Art.24.OPBDdeveserdesenvolvidodeformaa proteger a vida humana, limitar a propagação do incêndio e da fumaça (dentro e fora do edifício), e reduzir a probabilidade de danos irreversíveisapropriedadeseaomeioambiente duranteociclodevidaparaoqualaedificaçãoé projetada. Parágrafo único. Compete ao RT assegurar os objetivos e critérios de desempenho exigidos, estabelecendo ações que garantam a compatibilidade entre os riscos previstos e as medidasdeproteçãoadotadas,deformaqueo desempenho da edificação e de seus sistemas permaneçamadequadosaolongodetodaavida útil da construção. Prevenção da ocorrência de incêndio"
+    },
+    {
+      "number": 25,
+      "page": 9,
+      "text": "Art.25.OPBDdeveserdirecionadoparareduzir aprobabilidadedeigniçãoeminimizarasfontes de energia e condições que possam levar ao início de um incêndio, através de seleção de materiais, segregação de fontes de risco, proteção elétrica e medidas de operaçãoede manutenção nas áreas de garagens, estacionamentos e outros locais que possuam SAVE. § 1º Além dos critérios gerais relacionadosao SAVE, o responsável deve optar por equipamentoseproteçõescertificadosedispor de controles operacionais que reduzam falhas previsíveis associadas ao carregamento. § 2º Deve ser documentado noPBDotipode SAVE e mecanismos de proteção inerentes ou adicionais existentes. Limitação da propagação do fogo"
+    },
+    {
+      "number": 26,
+      "page": 9,
+      "text": "Art. 26. O responsável pelo PBD deve consideraroriscodepropagaçãodoincêndiono ambienteondeoSAVEestáinstalado,adotando medidas que evitem que, durante o período necessárioparaevacuação,resgateeiníciodas ações de combate, um incêndio originado em um único veículo evolua para um incêndio generalizado (flashover), de modo a não comprometer as rotas de fuga, a integridade estrutural ou a capacidade de resposta das equipes de emergência."
+    },
+    {
+      "number": 27,
+      "page": 9,
+      "text": "Art. 27. Deve ser avaliado por análise de desempenhoacombinaçãodemedidaspassivas e ativas (compartimentação, separação, ventilação, supressão, distância entre veículos, dentre outras) que visem limitarapropagação térmica e radiante entre fontes e receptores, mantendooscritériosdedesempenhoeorisco dentro do limite aceitável. Saída e segurança das pessoas"
+    },
+    {
+      "number": 28,
+      "page": 10,
+      "text": "Art. 28. Deve ser assegurado que as rotas de fugaeoslocaisderefúgiopermaneçamtenáveis durante o tempo necessário para a evacuação seguradoambientee/ouedificação³(TNES)de todos os ocupantes, considerando o comportamento humano e as condições de mobilidade."
+    },
+    {
+      "number": 29,
+      "page": 10,
+      "text": "Art.29.Deveserdemonstradoque,nasrotasde fugaezonasdeocupaçãoprevistas,oscritérios dedesempenhoprevistosnoartigo33nãosão excedidos antes do TNES."
+    },
+    {
+      "number": 30,
+      "page": 10,
+      "text": "Art.30.OTNESdeveserconsideradosempreno pior cenário possível, ou seja, considerando a distância máxima percorrida nas seguintes situações: I- doambienteondeoSAVEestiverinstalado até um local seguro ou de relativa segurança, conforme IN 9; e II - evacuação total da edificação para local seguro.³ Nota 3 -Orientações Além de validar otempodefugadoambienteondeo SAVE está instalado (garagem,estacionamentoetc.),o profissional deveavaliarseasdemaisrotasdefugada edificação são independentes ou se mantêm comunicação com essas áreas — por meio de portas, shafts,fossosdeelevador,entreoutros—,verificando, ainda,aexistênciadecompartimentaçãoeorespectivo tempo de resistência ao fogo dessas interligações. Sendo compartimentadas, deve-se avaliar se o tempo requerido de resistência ao fogo e gases da compartimentaçãoémaiorqueoTNESparaevacuação total doimóvelecomisso,verificarsehánecessidade de melhorias para atingir o desempenho necessário. Não sendo compartimentadas por elementos corta-fogo,analisaroimpactodefumaça,gasestóxicos e calor nas rotas de fuga e definir estratégias para manter os parâmetros de segurança. Parágrafoúnico.OtempocalculadoparaoTNES deve considerar a detecção do incêndio de acordo com o tipo previsto ou existente, a percepção ou reconhecimento dorisco,tempo de decisão e preparação pelos usuários e o deslocamento até um local seguro.⁴ Nota 4 -Orientações O tempo irá variar de acordo com otipodedetector, sendo considerado o tempo desde a ignição até o acionamento do detector e aviso de alarme emitido pela ECR. Apósreceberoestímulodoalarme,ousuárionecessita detempoparaperceberereconhecerqueaquiloéuma situação de incêndio que exige evacuação. Posteriormente, é necessário tempo para decisão e preparação para sair: decidir sair, terminar atividade imediata (fechar uma porta, desligar motor do carro, pegarcriança/objetosessenciais,abrirportão),recolher bolsas, travar/destravar veículo, sair do veículo, entre outros (em algunsestudosestetempoestáenglobado no tempo de pré movimentação ou decisão/preparação). O tempo irá depender ainda da velocidade de movimento daspessoasedadistânciaapercorrer.Em casos mais complexos, como os de grande público, pode ser necessário avaliar a densidade de pessoase obstáculos. Pode ser necessário avaliar também atrasos como efeitos de filas/estreitamentos, portas abertas/fechadas, cancelas elétricas, elevadores não disponíveis e rampas congestionadas. Para garagens, a avaliação do tempo pode incluir: tempo para abrir portão automático, tempo para manobra do veículo, tempo para desbloquear áreas com catracas, atendimento a pessoascommobilidade reduzida, dentre outros."
+    },
+    {
+      "number": 31,
+      "page": 10,
+      "text": "Art. 31. O TNES e o TDES devem estar em consonância com o previsto na Equação 1, a qualutilizaumfatordesegurança(Fs)aplicável aoTNESvisandoreduzirincertezasdeestudoe pequenosatrasosnãoobserváveis,conformeos índices previstos abaixo: I - Fs de 20% (1,2) para ambientes acima do nível do solo e ventilados; II - Fs de 25%(1,25)paraambientesacimado nível do solo, sem ventilação adequada; e III - Fs de 30% (1,3) para ambientes em subsolo. Parágrafoúnico.OTNES,multiplicadopeloFator deSegurança,devesermenordoqueotempo em que qualquer um dos critérios de desempenhorelacionadosàtenabilidadesejam atingidos no cálculo do TDES. Equação 1 Fs . TNES < TDES Onde: Fs: fator de segurança TNES: tempo necessário para evacuação segura TDES: tempo disponível para evacuação segura"
+    },
+    {
+      "number": 32,
+      "page": 11,
+      "text": "Art. 32. Para o cálculo do TNES, o PBD deve considerar a seguinte velocidade média de deslocamento dos ocupantes: I - 1,20 m/s em ambientes sem fumaça; II - 0,85 m/s em escadas; e III - 0,50 m/s em locais sob ação de fumaça. Parágrafoúnico.Apósafumaçaatingirarotade fugaemconcentraçãodefinidacomosuficiente para causar irritação sensorial e redução da visibilidade, considerando sempre o pior caso (distância máxima percorrida), a velocidade deveseralteradaparaoparâmetrode0,5m/s para o restante do percurso até um local protegido da ação da fumaça."
+    },
+    {
+      "number": 33,
+      "page": 11,
+      "text": "Art. 33. Os critérios de desempenho de temperatura,radiaçãoevisibilidadenasrotasde fugaparaosocupantesdaedificaçãodevemser, respectivamente: I - até 60 °C de temperatura do ar na zona respiráveleaté200°Cdetemperaturamédiada camada quente (nível de teto); II - até 2,5 kW/m² de fluxo de calor total (radiação e convecção); e III - visibilidade mínima superior a 8 m. § 1º Para fins de dimensionamento doPBD,a zona de ar respirável deve ser considerada a uma altura de 1,80 m em relação ao piso acabado. §2º OPBDdevegarantiraindaatenabilidade emrelaçãoaosefeitosfisiológicosdafumaçae dos gases provenientes do incêndio e das reações químicas de baterias elétricas. Acessoesegurançaparaoperaçõesderesgatee combate a incêndio"
+    },
+    {
+      "number": 34,
+      "page": 11,
+      "text": "Art.34.OPBDdeveavaliareassegurarmeiosde acesso e condições operacionais adequadas para que as equipes de emergência possam realizaraçõesderesgateecombateaoincêndio de forma segura, eficaz e compatível com as características da edificação e dos riscos nela presentes. Parágrafo único. Cabe ao RT a avaliação das condições adequadas de intervençãopormeio de estudo fundamentado em princípios de engenharia de segurança contra incêndio, literatura técnica ou simulações pertinentes. Estabilidade estrutural"
+    },
+    {
+      "number": 35,
+      "page": 11,
+      "text": "Art.35.Aestruturadevemanterestabilidadee capacidade de suporte suficientes durante o períodonecessárioparaaevacuação,operação inicial de combate e execução de medidas de mitigação, sem apresentar colapso prematuro que comprometa a segurança das pessoas ou das operações de resgate e combate a incêndio."
+    },
+    {
+      "number": 36,
+      "page": 11,
+      "text": "Art.36.Oselementosestruturaisdelocaiscom SAVE devem possuir resistência ao fogo de acordocomoprevistonaIN14,devendo,ainda, serobservadopeloRTofluxodecalorpontuale os jatos de chama sobre os elementos estruturais próximos. §1ºAlémdotemporequeridoderesistênciaao fogo (TRRF) global da estrutura, o responsável pelo PBD deve observar se elementos estruturaisexpostosdiretaouindiretamenteaos focos de incêndio possuem resistência adequada à ação térmica localizada resultante da incidência direta de chamas, radiação e convecção intensa provenientes de veículos e baterias em combustão. §2ºNocasodeedificaçõespreexistentes,cabe ao RT avaliar a estrutura existente e sua resistência ao fogo (TRRF), bem como o fornecimento energético pontual devido à combustão de veículos sobre os elementos estruturais. Havendo incompatibilidade estrutural, cabe ao RTavaliaredefinirentreo uso de proteção térmica adicional, ou a não admissibilidade de instalação do SAVE. Parâmetros adicionais para projeto baseado em desempenho (PBD)"
+    },
+    {
+      "number": 37,
+      "page": 12,
+      "text": "Art. 37. As taxas de liberação de calor para veículos automotoresaseremconsideradasno PBD são: I - 8 MW para veículos elétricos a bateria; II - 6 MW para veículos híbridos; e III - 5 MW para veículos à combustão. § 1º Os valores de taxa de liberação de calor representamumapotênciatérmicainstantânea edeverãoserutilizadoscomovalormáximoda curva de incêndio adotadanoPBD,devendoo responsável técnico definir a função de crescimento, tempo até o pico e fase de decaimento, todas de forma tecnicamente justificada. § 2º Os PBD que utilizarem simulações de desempenho de incêndio devem ser representados,preferencialmente, porcurvade crescimentorealounaturalobtidasdeestudos científicos ou ensaios representativos.⁵ § 3º Admite-se, alternativamente, a representaçãoporcurvadotipot²expressaem função da taxa de liberação de calor. Nota 5- Orientação O uso de curvaspadrãodeincêndioscomoaISO834, HC (Hydrocarbon Curve), ou curva RWS,porexemplo, nãosãoadequadaspararepresentarocomportamento do fogo, pois destinam-se a representar ensaios de resistência. §4ºVeículospesados(ônibus,caminhões,etc.) aeronaves, embarcações e similaresdevemter suataxadeliberaçãodecalordefinidapormeio deensaiosprópriosoudepublicaçõescientíficas reconhecidas. § 5º Devido à constante evolução dos componentes de células e baterias admite-se, exclusivamente nas ocupações residenciais (grupo A), a adoção de valores específicos de taxadeliberaçãodecalorinferioresaodefinidos nocaput⁶,conformeotipodabateriaadmitida no local, desde que: I-ovalordataxadeliberaçãodecaloradotado sejaexplicitamentejustificadonoPBD,combase emdadosexperimentais,publicaçõescientíficas, ou relatórios técnicos de laboratórios acreditados; II-oRTeoresponsávelpeloimóvelgarantam, sob responsabilidade técnica formal, que os parâmetrosadotadoscorrespondemàcondição real de uso prevista, mantendo registro das tecnologias de bateria admitidas e divulgando amplamente aos condôminos; e III - o responsável pelo imóvel ou seu representante legal garantam o atendimento aos parâmetros do PBD e às tecnologias admitidas por parte de todos os usuários da imóvel. Nota 6 -Observações Baterias de tecnologia com reação térmica mitigada (fail-safe cells), tais como baterias de estado sólido (solid-state),LFP(lítio-ferro-fosfato)ouequivalentesde baixa reatividade térmica. TRAMITAÇÃO PARA REGULARIZAÇÃO DOS LOCAIS COM SAVE"
+    },
+    {
+      "number": 38,
+      "page": 12,
+      "text": "Art. 38. A regularização e tramitação da documentação dos locais com SAVE junto ao CBMSC ocorre somente após a completa execução e atendimento dos requisitos e medidas de segurança estabelecidos nesta IN.⁷ §1ºQuandohouvernecessidadedeatenderaos requisitosgeraisedoPBDprevistosnestaIN,a regularização deverá ser realizada mediante a apresentaçãoeaprovaçãodorelatórioprevisto no Anexo A, acompanhado do respectivo documento de responsabilidade técnica (DRT). §2ºNoscasosemquehouverdispensadoPBD, aregularizaçãodeveráserrealizadamediantea apresentaçãoeaprovaçãodorelatórioprevisto no Anexo B, acompanhado do respectivo DRT. §3ºQuandooPBDconcluirpelanecessidadede alteração do PPCI — seja por adequação, complementação ou substituição de SMSCI existentes—oresponsáveltécnico(RT)deverá, primeiramente, aprovar o PPCI modificativo para,somenteapós,executarasalteraçõesnos SMSCI e por fim realizar a instalação do SAVE. §4ºAfiscalizaçãoparafinsderegularizaçãodos locaiscomSAVErealizadapeloCBMSCérestrita às informações constantes nos Anexos A e B, sendo o PBD, quando exigido, recepcionado para fins de arquivo. § 5º Juntamente com os Anexos A e B, o RT deveráapresentarcroquicontendoinformações que possibilitem a identificação dos SAVE que estão sendo regularizados. § 6º Toda a tramitação documental deve ser realizadanosistemae-SCI,aqualserádestinada à unidade local do SSCI com circunscrição no município do imóvel. Nota 7 - Orientação EmobrasnovasnãodispensadasdaelaboraçãodoPBD, recomenda-sequeoreferidoprojetosejadesenvolvido ainda na fase de concepção e projeto da edificação, mesmo que a instalação dos SAVE e consequente regularização venha a ocorrer emmomentoposterior, poisaavaliaçãoepreparaçãoantecipadadasexigências de segurança contra incêndio permitem a adequada definição de soluções construtivas, sistemas de segurança e condições operacionais adequadas, evitandoquesuaausênciainicialdificulteouinviabilize a futura instalação dos SAVE."
+    },
+    {
+      "number": 39,
+      "page": 13,
+      "text": "Art. 39. A cada novo ponto deSAVEinstalado deverá ser realizada uma nova regularização, medianteapresentaçãodoanexoA,oudoanexo B, dependendo das características do local ou das condições previstas no PBD anterior. Parágrafo único. Nos casos com exigência de PBD, se este for realizado considerando um númeromaiordepontosdeSAVEdoqueosque realmente serão instalados na primeira regularização,poderáserapresentadoapenaso anexo B a cada novo ponto instalado, até o limite definido no PBD. DISPOSIÇÕES FINAIS"
+    },
+    {
+      "number": 40,
+      "page": 13,
+      "text": "Art. 40. A partir da vigência desta Instrução Normativa, as edificações preexistentes que possuam locais onde o SAVE já foi instalado, terão o prazo dedoisanosparapromoversua regularização."
+    },
+    {
+      "number": 41,
+      "page": 13,
+      "text": "Art.41.EstaInstruçãoNormativa,aplicávelem todo o território catarinense, entraráemvigor três meses após a data de sua publicação. Coronel BM FABIANO DE SOUZA Comandante-Geral do Corpo de Bombeiros Militar de SC ORGANIZAÇÃO: Cel BM Willyan Fazzioni - Direção Maj BM Oscar W Barboza Jr - Supervisão e Edição Maj BM Rafael Giosa Sanino - Revisão"
+    }
+  ],
+  "annexes": [
+    {
+      "page": 15,
+      "title": "Anexo A - Relatório para regularização de SAVE por meio do projeto baseado em de",
+      "text": "Anexo A - Relatório para regularização de SAVE por meio do projeto baseado em desempenho (PBD) Nome da edificação: RE: Logradouro: N°: Complemento: Bairro: Município: UF: SC Responsável pelo imóvel: e-mail: Fone: ( ) Responsável Técnico: e-mail: Fone: ( ) Número do Registro do profissional: Número de vagas com SAVE avaliadas e admitidas pelo PBD: Valor calculado para o TNES: Valor calculado para o TDES: Fator de segurança (Fs) adotado: Número de vagas com SAVE instalados: Houve necessidade de implementação demedidasadicionaisoucompensatóriasdeSCIpara atingir o desempenho esperado? Se sim, informe abaixo quais medidas foram implementadas: Sim ( ) Não ( ) Houvedispensadosistemadedetecçãoautomáticadeincêndio,conformeprevistono§1ºdo artigo 17 da IN 23? Sim ( ) Não ( ) Os requisitos gerais prescritivos referentes à instalação elétrica, afastamentos, tipo de carregador, estabilidade estrutural, dentre outros, foram devidamente previstos e implementados? Sim ( ) Não ( ) Foi anexado o croqui? (obrigatório) Sim ( ) Não ( ) Foi anexado o PBD? (obrigatório) Sim ( ) Não ( ) Foi necessário realizar alteração de PPCI, nos moldes da IN 1 - P1, em decorrência da necessidade de adequação, complementação ou substituição dos SMSCI existentes? Se sim, informar o número do protocolo de análise de PPCI com a respectiva aprovação: _____________________________________________________________________________ Sim ( ) Não ( )"
+    },
+    {
+      "page": 16,
+      "title": "Anexo B - Relatório para regularização de SAVE por dispensa do projeto baseado e",
+      "text": "Anexo B - Relatório para regularização de SAVE por dispensa do projeto baseado em desempenho (PBD) Nome da edificação: RE: Logradouro: N°: Complemento: Bairro: Município: UF: SC Responsável pelo imóvel: e-mail: Fone: ( ) Responsável Técnico: e-mail: Fone: ( ) Número do Registro do profissional: Informe o número de vagas com SAVE que estão sendo regularizadas: Os requisitos gerais prescritivos referentes à instalação elétrica, afastamentos, tipo de carregador, estabilidade estrutural, dentre outros, foram devidamente previstos e implementados? Sim ( ) Não ( ) Foi anexado o croqui? (obrigatório) Sim ( ) Não ( ) Informe em qual item se enquadra a dispensa do PBD, conforme Art. 6º desta IN: ( ) locais externos e descobertos ou com cobertura leve ( )locaisquepossuam,cumulativamente,osseguintesSistemaseMedidasdeSegurançaContraIncêndio(SMSCI): a) detecção automática de incêndio; b) extração mecânica de fumaça; e c) chuveiros automáticos ( )locaisquepossuam,cumulativamente,osseguintesSistemaseMedidasdeSegurançaContraIncêndio(SMSCI): a) detecção automática de incêndio; b) ventilação natural; e c) chuveiros automáticos ( ) locais situados em edificações preexistentes das ocupações A-1, A-2, C-1, C-2, D e H-4, que atendam, cumulativamente,aosseguintesrequisitos:a)compartimentaçãodolocalemrelaçãoàsaídadeemergência;eb) detecção automática de incêndio ( ) locais pertencentes às ocupações A-1, A-2, C-1, C-2, D e H-4queatendam,cumulativamente,aosseguintes requisitos: a) área total de até 1.500 m²; b) ventilação natural; e c) detecção automática de incêndio ( ) locais pertencentes às ocupações A-1, A-2, C-1, C-2, D e H-4queatendam,cumulativamente,aosseguintes requisitos: a) área total de até 1.500 m² e de até 500 m² por pavimento; e b) ventilação natural ( ) locais pertencentes às ocupações A-1, A-2, C-1, C-2, D e H-4queatendam,cumulativamente,aosseguintes requisitos:a)áreatotaldeaté1.500m²edeaté500m²porpavimento;b)compartimentaçãodolocalemrelaçãoà saída de emergência; e c) detecção automática de incêndio ( ) vagas remanescentes de PBD previamente elaborado. Informe o protocolo do Anexo A (PBD): _____________"
+    }
+  ],
+  "checks": {
+    "needs_human_look": [
+      "228 words longer than 30 characters: the PDF may print without spaces, so words are glued together"
+    ]
+  }
+}

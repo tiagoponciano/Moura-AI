@@ -1,0 +1,293 @@
+{
+  "doc": "IN-12",
+  "preamble": "IN 12 SISTEMA DE DETECÇÃO E ALARME DE INCÊNDIO - SDAI SUMÁRIO DISPOSIÇÕES INICIAIS 2 Objetivo 2 Referências 2 Terminologias 2 APLICAÇÃO 3 Geral 3 Isenção do SDAI 3 COMPONENTES DO SDAI 4 Geral 4 Equipamento de Controle e Indicação (ECI) 4 Generalidades 4 Condição de alarme de incêndio 4 Painel de comandos 6 Fontes de alimentação 6 Condição de aviso de falha 6 Condição de teste 7 Detectores de incêndio 7 Acionadores manuais 8 Avisadores sonoros e/ou visuais 8 CONFIGURAÇÕES DO SDAI 9 Geral 9 SDAI tipo 1 9 SDAI tipo 2 9 SDAI tipo 3 10 SDAI tipo 4 10 DOCUMENTAÇÃO 10 Vistoria para habite-se 10 Vistoria de funcionamento 10 DISPOSIÇÕES FINAIS 11 ANEXO A - Exigibilidade de detecção automática de incêndio e exigibilidade do tipo de SDAI 12 ANEXO B - Informativo - Detecções Especiais 15 D.1 Detector Linear de Fumaça Beam 15 D.2 Detector de Fumaça por Amostragem 15 D.3 Detector Linear de Temperatura por Tubo Sensor 16 D.4 Detector Linear de Temperatura por Cabo Sensor 16 D.5 Detector Linear de Temperatura com Sensores no Cabo 16 ANEXO C - Organização do painel de comandos 17 Vigente a partir de 24/04/2024 17 páginas INSTRUÇÃO NORMATIVA 12 SISTEMA DE DETECÇÃO E ALARME DE INCÊNDIO - SDAI DISPOSIÇÕES INICIAIS Objetivo",
+  "articles": [
+    {
+      "number": 1,
+      "page": 2,
+      "text": "Art. 1º Esta Instrução Normativa (IN) tem por objetivo estabelecer e padronizar critérios de concepçãoedimensionamentodosSistemasde Alarme de Incêndio (SAI) e de Detecção Automática de Incêndio (DAI), no estado de Santa Catarina. § 1º Os sistemas de detecção e alarme de incêndio (SDAI) têm como finalidade detectar, sinalizar e alertar aocorrênciadeincêndioem seus estágios iniciais a fim de permitir a evacuação segura dos ocupantes do imóvel, o acionamentorápidodoCorpodeBombeirosea implementação de medidas de combate a incêndio mais eficazes. § 2º O uso de detectores automáticos de incêndio reduz significativamente o tempo resposta para alertar osusuáriosdaedificação sobre um incêndio, proporcionando tempo crucialparaoabandonoordenadoeeficientedo local, além de permitir as mais diversas ações automatizadas de segurança. §3ºDevidoàsuaimportância,oSDAInecessita ser dimensionado, ajustado e manutenido de modo a cumprirdemaneiraeficazsuafunção, poisalémdadetecçãoealarme,oSDAItambém éresponsávelpelagestãodeoutrossistemase medidas de segurança contra incêndio do imóvel. Referências"
+    },
+    {
+      "number": 2,
+      "page": 2,
+      "text": "Art. 2ºAs referências utilizadas são as seguintes: I - IN 1, de 2024 - CBMSC; II - IN 5, de 2024 - CBMSC; III - NBR ISO 7240-2. Terminologias"
+    },
+    {
+      "number": 3,
+      "page": 2,
+      "text": "Art. 3º As terminologias gerais que tratam da segurança contra incêndio são definidas pelo CBMSC e disponibilizadas para acesso público em seu portal oficial."
+    },
+    {
+      "number": 4,
+      "page": 2,
+      "text": "Art. 4º Para fins de aplicação desta IN, consideram-se as seguintes terminologias específicas: I - atenuação local: degradação do sinal de radiofrequência(RF),sejapelaperdadomeiode transmissão,ouporumamudançanoambiente doSDAI,apóssuainstalação.Aatenuaçãolocal pode ser alterada, por exemplo, por meio da instalação ou realocação de materiais de reflexão ou absorção; II-condiçãodealarmedeincêndio:sinaisque, após qualquer processamento necessário, são interpretados como alarme de incêndio; III-condiçãodeavisodefalha:sinaisque,após qualquer processamento necessário, são interpretados como falha; IV-equipamentodecontroleeindicação-ECI (antiga central de alarme): equipamento que pode energizar detectores, receber sinais de detecção, ativarosinaldealarmedeincêndio, indicar a localização do incêndio, transmitir sinaisdeincêndioparaabrigadadeincêndioou uma instalação de extinção automática, supervisionar e sinalizar falhas e memorizar informações ; V - integridade do sinal de alarme: garantia dadaporumprotocolodecomunicaçãodeque nenhum sinal de alarme seja perdido; VI - interferência de RF: transmissão de radiofrequênciaapartirdeumafontequenão sejaumcomponentedosistemadedetecçãoe alarme de incêndio, a qual pode causar corrupção ou supressão dos sinais desejados. VII - locais de acesso restrito: mezanino, sobreloja ou local semelhante com acesso restrito de pessoas,comaté100m²deáreae com lotação de até 10 pessoas,paraqualquer ocupação (exceto para utilização como leito hospitalar, ambientes onde a pessoa seja submetida a procedimentos que causem restrição de mobilidade, sala de aula ou local comreuniãodepúblicocomconcentração);ou casa de máquinas, barrilete, área técnica e outros locais semelhantes; VIII - local com vigilância permanente: local ondeoECIésupervisionadopermanentemente (duranteohoráriodefuncionamentodoimóvel) porpessoa,porexemplo:guaritadecondomínio com porteiro, empresa de monitoramento de segurança de imóvel, sala de monitoramento com brigadista de incêndio, sala de monitoramento de shopping, entre outros; IX - isolador de linha contra curto-circuito: dispositivo de proteção contra curto-circuito inseridonolaçoclasseA(nomáximoacada20 dispositivos), isolando ocurto-circuitoocorrido nolaçodeformaapermanecerentre isoladores eimpedindoqueacomunicaçãoentreoECIeos dispositivos seja totalmente comprometida; X - modo de emergência (do painel): função que possibilita, em caso de emergência, ao operadorsobreporasautomaçõesprevistasno SAI com comandos específicos, por exemplo, ativar a extração da fumaça mesmo que um detector não tenha sido acionado; XI - perda de comunicação: perda da capacidade do sistema de transmitir uma mensagem de qualquer componente com um meiodetransmissãoporRFparaoECIdentrode períodos especificados na ABNT NBR ISO 7240-2; XII-sistemadedetecçãoealarmedeincêndio (SDAI): nomenclaturautilizadacomoreferência aoconjuntodossistemasdealarmedeincêndio e aos dispositivos de detecção automática de incêndios; XIII - topologia Classe A: o circuito começa e terminanacentral(loop)easupervisãodalinha de detecção é feita através de pulsos de comunicação; XIV - topologia Classe B:ocircuitocomeçana centraleterminaemumelementofim-de-linha ativo (gerador de pulsos) ou passivo (resistor) para supervisionar a linha de detecção. APLICAÇÃO Geral"
+    },
+    {
+      "number": 5,
+      "page": 3,
+      "text": "Art. 5º Esta IN aplica-se aos imóveis para os quais o SDAI é exigido, conforme previsto nas normas de segurançacontraincêndioepânico (NSCI). Parágrafo único. Compete ao responsável técnico(RT),aplicaraNBRISO7240aoprojetar e executar o SDAI, bem como selecionar seus componentes, naquilo que não estiver especificado nesta IN. Isenção do SDAI"
+    },
+    {
+      "number": 6,
+      "page": 3,
+      "text": "Art. 6ºFica isenta a instalação do SDAI para: I-imóveiscomcargadeincêndio≤100MJ/m² (carga de incêndio desprezível); II-imóveiscomcargadeincêndio≤200MJ/m² e com ambienteúnicoetérreoquepossuano máximo 50% das laterais fechadas; III - instalações provisórias, a critério do responsável técnico. § 1º Nos imóveis com SDAI, isenta-se a instalaçãodeDAInosambientes(áreas)comas mesmas características das enunciadas no caput. §2ºOsambientessemdefiniçãodeleiaute,que dificultemouimpeçamadisposiçãocorretados elementosdosistemadealarmedeincêndioe dos detectores automáticos, devem ser equipados com ramais de interligação. Cada ramal deve ser projetado para especificar os tipos de equipamentos permitidos, o número máximo de dispositivos que podem ser conectados e outras informações necessárias paragarantiracompatibilidadedosistemaeda ECI. § 3º Após a definição do layout ou ocupação desses espaços, um projeto adicional para o sistemadealarmeedetecçãodeincêndiodeve ser apresentado separadamente, fornecendo detalhes específicos, e um novo comissionamento deve ser realizado para garantirofuncionamentoadequadodosistema como um todo. § 4º Os ambientes aprovados anteriormente sem definição de leiaute só podem ser ocupadosapósainstalaçãoadequadadoSMSCI, devendo estar conectado à rede existente na edificação conforme o leiaute aprovado no projeto específico de cada espaço, sendo necessário também realizar um novo comissionamento do sistema de alarme e detecção para verificar sua funcionalidade e garantir a ausência de falhas ou comprometimentos no sistema."
+    },
+    {
+      "number": 7,
+      "page": 4,
+      "text": "Art.7ºApenasparaefeitodeisençãodoSDAI, não são computadas como áreas construídas: I - passagens cobertas destinadas apenas à circulação de pessoas e/ou mercadorias eque possuam no máximo 50% das laterais fechadas; II - cobertura das bombas para abastecimento de Gás Natural Veicular (GNV), líquidos inflamáveis ou combustíveis, com laterais abertas; III-áreascobertasempavimentoúnicoetérreo, destinadas a: a) estacionamento de veículos quepossua no máximo 50% das laterais fechadas; b)quadradeesportes,independentemente do tipo de piso; e c) área de banho de piscina (ver IN 33); IV - arquibancada (com ou sem assento) destinada à acomodação de público; V - terraços e demais áreas descobertas; e/ou VI - áreas de banheiro. Parágrafo único. Se, mesmo com a subtração dasáreascitadas,asomadeáreatotalapontar necessidadedeSDAI,entãoosistemadeveser instalado inclusive nas áreas descritas neste artigo, observado oAnexo A. COMPONENTES DO SDAI Geral"
+    },
+    {
+      "number": 8,
+      "page": 4,
+      "text": "Art. 8º O SDAI é composto, no mínimo, pelos seguintes componentes: I -equipamento de controle e indicação(ECI); II - detectores de incêndio; III - acionadores manuais; e IV - avisadores sonoros e/ou visuais. Equipamento de Controle e Indicação (ECI) Generalidades"
+    },
+    {
+      "number": 9,
+      "page": 4,
+      "text": "Art.9ºConformeoprojetodoSDAI,oECIpode serresponsávelporacionaremonitoraroutros sistemas preventivos, tais como: gerador de emergência, pressurização de escada, extração de fumaça, elevadores, iluminação de emergência, eletroímãs (portas corta-fogo da entrada da antecâmara), sistema hidráulico preventivo, sistema de chuveiros automáticos, sistema de recalque, níveis das caixas d’água, portões de garagem, controle de quadros de energiaelétrica,controledevazamentodegáse controle de acesso."
+    },
+    {
+      "number": 10,
+      "page": 4,
+      "text": "Art. 10.OECIdeve ser instalado em local: I - com vigilância permanente, sempre que possível; e II-defácilacesso,comosalasdecontrole,salas de segurança, portaria ou entrada de edifícios. Parágrafo único. Na ausência de vigilância permanente,recomenda-sequeacentraltenha monitoramento local ou remoto."
+    },
+    {
+      "number": 11,
+      "page": 4,
+      "text": "Art.11. EmfrenteaoECIdevehaverumespaço para sua operação, bem como manutenção preventiva e corretiva."
+    },
+    {
+      "number": 12,
+      "page": 5,
+      "text": "Art.12. OECIdeveserúnicoparaaedificação ou para um conjunto com blocosnãoisolados entre si (ver IN 1). Parágrafo único. Nos imóveis com blocos isolados, acritériodoresponsáveltécnicopelo PPCI, admite-se: I - um ECI para todo o imóvel; II-umECIindependenteparacadablocoisolado com área superior a 750 m²; ou III - um ECI independente para cada bloco isoladocomáreasuperiora750m²,interligados a um ECI principal que monitore todo o imóvel. Condição de alarme de incêndio"
+    },
+    {
+      "number": 13,
+      "page": 5,
+      "text": "Art. 13. O ECI deve entrar em condição de alarme de incêndio em até 10 segundos ao receber qualquer sinal, que processado, é interpretado como um alarme de incêndio. Parágrafo único. O ECI deve ativar todas as saídas mandatórias dentro de 3 segundos da indicação de uma condição de alarme de incêndio."
+    },
+    {
+      "number": 14,
+      "page": 5,
+      "text": "Art. 14. Para indicar a condição de alarme de incêndio, o ECI deve exibir: I - indicação visual de alarme geral de incêndio; II - indicação visual da zona do acionamento, manual ou automático, de incêndio (zona em alarme); e III - indicação sonora. Parágrafo único. A indicação sonora deve: I - admitirsersilenciadasomentepormeiode um controle manual, jamais automaticamente; e II-soarnovamenteacadanovazonaqueentrar em alarme, caso tenha sido silenciada."
+    },
+    {
+      "number": 15,
+      "page": 5,
+      "text": "Art.15.OECIdeveteraomenosumasaída¹que sinalizeacondiçãodealarmedeincêndio,aqual pode ser para: I - transmissão de sinais de alarme para dispositivos de sinalização de alarme de incêndio; II - transmissão de sinais de alarme para a função de transmissão de alarme deincêndio; ou III - transmissão de sinais de alarme para a função de controle de proteção contra incêndio. Nota 1-Observação Essa saída usualmente é um relé (contato seco) que pode ser utilizado para acionamento de um equipamento periférico."
+    },
+    {
+      "number": 16,
+      "page": 5,
+      "text": "Art. 16.OECIdevetransmitirsinaisdealarme de incêndio para avisadores sonoros e/ou visuais, sendo que, por meio do próprio ECI: I - deve ser possível silenciar os avisadores; II-apóssilenciá-los,deveserpossívelreativá-los manualmente; e III - após silenciados, devem ser reativados automaticamente se houver alarme noutra zona. Parágrafoúnico.Osilenciamentodosavisadores deve ser exclusivamente de forma manual, e nunca automática."
+    },
+    {
+      "number": 17,
+      "page": 5,
+      "text": "Art. 17. Admite-se que o ECIpossuaoperação para retardar a ativação de saídas para os dispositivosdealarmedeincêndionosimóveis com brigada de incêndio. §1ºAoreceberoprimeirosinaldeincêndio,o ECI deve entrar no estado de pré-alarme de incêndio imediatamente, emitindo uma indicação sonora e uma visual, podendo o alarme geral e demais saídas serem inibidas. § 2º A provisão de retardo deve obedecer às seguintes instruções: I - primeiro retardo: o ECI ao receber um primeirosinaldeincêndio,proveráumperíodo inicial de retardo de até 2 min; II-segundoretardo:iniciadosomentemediante comando manualnacentralduranteoperíodo de primeiro retardo; e III-osdoisperíodossomadoscorrespondemao período total de retardo que deve ser no máximo de 10 min. § 3º Podem ser configurados mais de dois períodosderetardo,acritériodoRT,desdeque nãosejaultrapassadooperíodototalderetardo admitido no parágrafo anterior. § 4º A recepção de um segundo sinal de incêndio deve anular os retardos e ativar imediatamente o alarme geral e as demais saídas. § 5º Deve ser possível anular os retardos por operação manual no ECI. §6ºParaimóveisemqueabrigadadeincêndio atueapenasemdeterminadoperíodo,afunção de retardo deve: I - estar ativa exclusivamente nos períodos de atuação da brigada; e II - ser automaticamente desativada nos períodos em que os brigadistas estão ausentes."
+    },
+    {
+      "number": 18,
+      "page": 6,
+      "text": "Art.18.OECIdeveserrestabelecidoapartirda condiçãodealarmedeincêndiopormeiodeum controle manual dedicado (botão dereset). Painel de comandos"
+    },
+    {
+      "number": 19,
+      "page": 6,
+      "text": "Art. 19. Nos casos em que o ECI realiza a transmissão desinaisdealarmeparacontrolar sistemas automáticos de proteção contra incêndio,devepossuirumpaineldecomandos conforme Anexo C. §1ºOpaineldeveindicar,individualmente,seo sistema controlado está em operação ou em falha. §2ºAindicaçãonãopodeseromitidadurantea condição de alarme de incêndio. §3ºDeveserpossívelcomutaroECIdomodo automático para o modo de emergência, por meiodechavedecomando,demaneiraque o operador possa acionar manualmente cada sistema controlado, sobrepondo quaisquer automação do SDAI. Fontes de alimentação"
+    },
+    {
+      "number": 20,
+      "page": 6,
+      "text": "Art. 20. Devemexistir,nomínimo,duasfontes de energia para fonte de alimentação de um SDAI: fonte de energia principal e reserva. §1ºAfontedeenergiaprincipaldeveoperara partir da rede elétrica pública ou sistema equivalente. § 2º A fonte de energia reserva pode ser constituída por baterias,nobreakou gerador."
+    },
+    {
+      "number": 21,
+      "page": 6,
+      "text": "Art. 21. No caso de falha da fonte deenergia principal, a fonte de alimentação deve ser automaticamente comutada para a fonte de energia reserva. Parágrafo único.Restauradaafontedeenergia principal, a alimentação deve ser automaticamente comutada da fonte reserva para a principal."
+    },
+    {
+      "number": 22,
+      "page": 6,
+      "text": "Art. 22. A fonte de energia reserva deve ter autonomia mínima de 24 horas em regimede supervisão, e, ao término do período, ter capacidadeparaoperartodososavisadoresde alarme geral por 5 minutos."
+    },
+    {
+      "number": 23,
+      "page": 6,
+      "text": "Art.23.Nossistemassemfio,admite-sequeos detectoresdeincêndio,osacionadores manuais e os avisadores sonorosevisuaistenhamuma única fonte de energia por meio de bateria incorporada, desde que essa: I - possua carga de longa duração de, no mínimo, 2 anos; II - dispense ponto para recarga elétrica da bateria; e III - permita o monitoramento pelo ECI, individualmente, informando a necessidade de trocar a bateria sempre que o nível de carga atingir 20%. Condição de aviso de falha"
+    },
+    {
+      "number": 24,
+      "page": 7,
+      "text": "Art.24.OECIdeveentrarnacondiçãodeaviso defalhaematé100segundosdaocorrênciada falha ou da recepção de um sinal de falha."
+    },
+    {
+      "number": 25,
+      "page": 7,
+      "text": "Art.25.Paraindicaracondiçãodefalha,oECI deve exibir: I - indicação sonoraevisual,estapormeiode um indicador emissor de luz dedicado (o indicador de falha geral); ou II-indicaçãosonoraevisual,sendoavisualpara aviso de cada falha reconhecida, por meio de um indicador emissor de luz dedicado, ou um visor alfanumérico ou ambos; e Parágrafo único. A indicação sonora de falhas deve: I - ser capaz de ser silenciada manualmente, podendo ser utilizada a mesma operação manualqueaquelaparasilenciarnacondiçãode alarme de incêndio; II - ser silenciada automaticamente caso oECI seja restabelecido automaticamente da condição de aviso de falha; III - soar novamente para cada nova falha reconhecida."
+    },
+    {
+      "number": 26,
+      "page": 7,
+      "text": "Art. 26. As indicações de falhas devem ser capazes de serem reinicializadas: I-automaticamente,semprequeasfalhasnão forem mais reconhecidas; ou II - manualmente, podendo ser a mesma operação utilizada para se restabelecer da condição de alarme de incêndio (botão de reset). Parágrafo único. Após o reset, a indicação das condições funcionaiscorretas,correspondentes a quaisquersinaisrecebidos,devepermanecer ou ser restabelecida dentro de 100 segundos."
+    },
+    {
+      "number": 27,
+      "page": 7,
+      "text": "Art.27.Asseguintesfalhasdevemserindicadas noECIpormeiodeindicadoresemissoresdeluz dedicados, ou um visor alfanumérico, ou ambos: I - uma indicação para cada zona na qual a transmissãodesinaisdeumpontoaoECIesteja afetadaporumcurto-circuito,pelainterrupção em um circuito, ou pela remoção de um ponto; II - uma indicação, no mínimo, comum a qualquer falha da fonte de alimentação, em consequência de perda da fonte de energia reserva, ou reduções de tensão prejudiciais à fonte de energia principal,bateriaousaídado carregador; III - uma indicação, no mínimo, comum a qualquer falha individual de aterramento, que afeta uma função mandatória; IV - uma indicação como umafalhadefunção supervisionada da ruptura dequalquerfusível, ouaoperaçãodequalquerdispositivoprotetor capaz de afetar uma função mandatória na condição de alarme de incêndio; V - uma indicação individual de qualquer curto-circuito ou interrupção que afeta a transmissãodeumsinal,ouarecepçãodesinais de controle para cada sistema automático de proteção contra incêndio; VI-umaindicaçãodequalquercurto-circuitoou interrupção,nomínimo,comumatodasasvias de transmissão, que afeta a transmissão de sinaisparaosdispositivosdealarmedeincêndio ouparaequipamentodetransmissãodealarme de incêndio; VII - uma indicação de falha do sistema (nos casos em que o ECI for controlado por software). Parágrafo único. As indicações previstas nos incisos V, VI e VII não podem ser omitidas durante a condição de alarme de incêndio. Condição de teste"
+    },
+    {
+      "number": 28,
+      "page": 7,
+      "text": "Art. 28. O ECI deve prover, no mínimo, condições para realizar o teste geral dos avisadores sonoros e visuais. Parágrafo único. A condição de teste deve ser indicadavisivelmente,pormeiodeumindicador emissor de luz dedicado (indicador de teste geral). Detectores de incêndio"
+    },
+    {
+      "number": 29,
+      "page": 8,
+      "text": "Art.29.Osdetectoresautomáticosdeincêndio devem ser instalados nos locais determinados pela tabela doAnexo Adesta IN. § 1º Quando admitido ousodedetectoresde incêndio autônomos, estes devem possuir sireneincorporadaebateriacomcargadelonga duração de, no mínimo, 2 anos. §2º Noscasosemqueadetecçãoautomática de incêndio for utilizada como forma de substituição, redução ou dispensa2, o sistema (DAI) deve ser previsto em toda a edificação, porém apenas nos ambientes descritos no AnexoA,observadasasisençõesprevistasnesta IN, conformeartigo 6º. Nota 2-Orientação Os termos “substituição, redução e dispensa” contemplam qualquer autorização de instalação de detectores automáticos de incêndio emsubstituiçãoa outro sistema ou medida de SCI, redução em parâmetros previstos em outras normas (porexemplo distância máxima percorrida) ou mesmo dispensa de algum outro sistema ou medida de SCI."
+    },
+    {
+      "number": 30,
+      "page": 8,
+      "text": "Art. 30. A seleção do tipo de detector de incêndioéatribuiçãodoresponsáveltécnico,o qual seleciona o detector em função das características do imóvel e da atividade desenvolvida. § 1º A critério do CBMSC pode ser exigido o estudo de desempenho da detecção. § 2º O projeto e execução da detecção de incêndio deve seguir a NBR ISO 7240."
+    },
+    {
+      "number": 31,
+      "page": 8,
+      "text": "Art. 31. Nos casos em que os detectores pontuais não apresentem desempenho adequado, devemseradotadosossistemasde detecção descritos noAnexo B. Parágrafoúnico.Sãoexemplosdesituaçõesque podem ensejar problemas de desempenho: I - locais sujeitos a intempéries; II - dificuldade de acesso e manutenção; III - temperaturas negativas; IV - volumes propícios à estratificação da fumaça; e V - presença significativa de fumos, gases, poeiras, névoas ou vapores. Acionadores manuais"
+    },
+    {
+      "number": 32,
+      "page": 8,
+      "text": "Art. 32.O acionador manual de incêndio deve: I-serinstaladoaumaalturaentre0,9e1,35m acima dopisoacabado,naformaembutidaou de sobrepor; II - ser da cor “vermelho segurança”; e III - conter instruções de uso."
+    },
+    {
+      "number": 33,
+      "page": 8,
+      "text": "Art. 33. Cada pavimento da edificação deve possuir, no mínimo, um acionador manual."
+    },
+    {
+      "number": 34,
+      "page": 8,
+      "text": "Art. 34. Adisposiçãodosacionadoresmanuais na edificação é determinada pelo caminhamento máximo de 30 metros. Parágrafo único. O acionador manual deveser instalado nas áreas comuns de acesso e circulação, próximo às rotas de fuga ou aos equipamentos de combate a incêndio."
+    },
+    {
+      "number": 35,
+      "page": 8,
+      "text": "Art. 35. Fica isenta a instalação do acionador manual nos seguintes locais: I - locais deacesso restrito; e II - pavimentos superiores de apartamento duplex ou triplex. Avisadores sonoros e/ou visuais"
+    },
+    {
+      "number": 36,
+      "page": 8,
+      "text": "Art. 36. Osavisadoressonoroseosavisadores visuais são obrigatórios e devem ser perceptíveis em toda a área protegida pelo SDAI,devendoserinstaladosnasáreascomuns deacessoe/oucirculação,próximoàsrotasde fuga ou a equipamentos de combate a incêndio."
+    },
+    {
+      "number": 37,
+      "page": 9,
+      "text": "Art.37.Osomemitidoporavisadoressonoros deve ser perceptível emtodaaáreaprotegida pelo SDAI, devendo a potência sonora ser: I - entre 90 e 115 dBA, medido a 1metrode distância da fonte sonora; e II-nomínimo15dBAacimadonívelmédiodo ruídodefundodoambienteou5dBAacimado nível máximo do ruído defundodoambiente, medidos a 3 metros de distância da fonte. § 1º Admite-se a comprovação do nível de potência sonora por meio de Laudo, acompanhado do Documento de Responsabilidade Técnica. § 2º O som deve ser perceptível dentro dos apartamentos em todos os seus cômodos."
+    },
+    {
+      "number": 38,
+      "page": 9,
+      "text": "Art. 38. Os avisadores sonoros e avisadores visuais devem ser instalados a uma altura mínima de 1,8 m,enquadrando-senonívelde instalação superior dosambientes,conformea NBR 16820. Parágrafo único. Em ocupações do grupo A, admite-seainstalaçãodosavisadoressonorose visuaisjuntoaosdemaissistemaspreventivos,a uma altura entre 0,9 e 1,35 m acima do piso acabado, na forma embutida ou de sobrepor. CONFIGURAÇÕES DO SDAI Geral"
+    },
+    {
+      "number": 39,
+      "page": 9,
+      "text": "Art. 39. A escolha do tipo de SDAI é competência do responsável técnico,quedeve respeitarosrequisitosmínimosestabelecidosno AnexoAdestaINeindicarnoprojetootipoeas características mínimas necessárias dos equipamentos que compõem o sistema. Parágrafo único. Compete ao responsável técnico explicitar o tipo de SDAI instalado no imóvel, no documento de responsabilidade técnica ou no memorial descritivo."
+    },
+    {
+      "number": 40,
+      "page": 9,
+      "text": "Art.40.ParafinsdestaIN,oSDAIéclassificado conforme segue: I - tipo 1 (convencional comtopologia classe B); II - tipo 2(endereçávelcomtopologiaclasseA ou B); III-tipo3(analógicacomtopologiaclasseAou B); e IV-tipo4(algorítmicacomtopologiaclasseAou B). §1ºAdmite-seareduçãodotipo3paraotipo2 se houver cinco ou menos detectores. §2ºAdmite-seareduçãodotipo4paraotipo3, no grupo H-3, se a área for inferior a 1.500 m². § 3º Admite-se a utilização do SDAI com comunicação por radiofrequência nos tipos listados neste artigo desde que atendidos os requisitos da parte 25 da NBR ISO 7240."
+    },
+    {
+      "number": 41,
+      "page": 9,
+      "text": "Art. 41. Para o SDAI com comunicação por radiofrequência, o fabricante deve fornecer documentação necessária e/ou meios de avaliação que permitam uma comprovação da completafuncionalidadedosistema,garantindo asseguintescaracterísticasprevistasnaNBRISO 7240 parte 25: I - imunidade àatenuação local; II -integridade do sinal de alarme; III - imunidade àinterferência; e IV - reconhecimentodeperdadecomunicação em menos de 300 s."
+    },
+    {
+      "number": 42,
+      "page": 9,
+      "text": "Art.42.OSDAIpodeserinterligadoàcentralde emergência do CBMSC mais próxima, como alternativa para reduzir otempoentreoinício do evento e a chegada das guarnições para resgate e combate ao incêndio. § 1º A interligação entre o ECI do imóvel e a central de emergência deve ser feita por requerimento do responsável técnico ao SSCI local, que encaminhará a solicitação para aprovação da Diretoria de Segurança contra Incêndio. § 2º O SDAI instalado deve ser do tipo 3 ou superior, sem possibilidade de redução para o tipo 2. SDAI tipo 1"
+    },
+    {
+      "number": 43,
+      "page": 10,
+      "text": "Art. 43. Exige-se neste tipo de sistema, no mínimo,ECIClasseBanalógicocomindicadores a LED/Display, com no máximo 2 laços e 20 dispositivos por laço e o sistema não precisa manter memórias de eventos. SDAI tipo 2"
+    },
+    {
+      "number": 44,
+      "page": 10,
+      "text": "Art. 44. Neste tipo de sistema admitem-se no máximo 4 laços, sendo: I-ECIClasseA-comnomáximo80dispositivos por laço; e II- ECIClasseB-comnomáximo20dispositivos por laço. § 1º O sistema deve manter as memórias, no mínimo, dos 1.000 últimos eventos. §2ºOsdetectoresdevemserconfiguradospara tomarem decisões de forma autônoma sem ajustesdoníveldedetecçãopelacentral,istoé, não permitirem o ajuste do nível de detecção dos dispositivos via central. §3ºAcada20dispositivosemClasseA,deve-se inserir oisolador de linha contra curto-circuito. SDAI tipo 3"
+    },
+    {
+      "number": 45,
+      "page": 10,
+      "text": "Art. 45. Neste tipo de sistema admitem-se no máximo 8 laços, sendo: I - ECI Classe A - com no máximo 160 dispositivos por laço; e II- ECIClasseB-comnomáximo20dispositivos por laço. § 1º O sistema deve manter as memórias, no mínimo, dos 5.000 últimos eventos. §2ºOsdetectoresdevemserconfiguradospara tomar decisões com os ajustes dos níveis de detecção na central de alarme, isto é, comparandocomvalorespreviamentedefinidos na instalação (ajuste do nível de detecção automática na central). §3ºAcada20dispositivosemClasseA,deve-se inserir o isolador de linha contra curto-circuito; SDAI tipo 4"
+    },
+    {
+      "number": 46,
+      "page": 10,
+      "text": "Art. 46. Neste tipo de sistema o número admitidodelaçosedispositivosvariadeacordo com o fabricante do ECI. §1ºEstesistemadevemanteras memórias,no mínimo, dos 10.000 últimos eventos. § 2º Osdetectoresdevempossuirumoumais critériosdeavaliaçãodemediçõesdoambiente em função do tempo e comparar com lógicas pré-programadas constantemente, isto é, os detectores devem ser capazes de realizar tomadas de decisões informando seu estado conforme seus parâmetros algorítmicos. §3ºCadadispositivoemClasseAdevecontero isolador de linha contra curto-circuito. DOCUMENTAÇÃO Vistoria para habite-se"
+    },
+    {
+      "number": 47,
+      "page": 10,
+      "text": "Art. 47. Na vistoria para habite-se é exigido apresentação de relatóriodecomissionamento doSDAIatendendoaosparâmetrosdoitem8da NBR 17240. Vistoria de funcionamento"
+    },
+    {
+      "number": 48,
+      "page": 11,
+      "text": "Art.48.Parasolicitaçãoderenovaçãodealvará de funcionamento de edificações dotadas de SDAI,oresponsáveltécnicopelamanutençãodo sistemadeverealizarasatividadesdeinspeção do sistema e emitir relatório correspondente. § 1º Independente da periodicidade de manutenção, que deve ocorrer conforme recomendações do fabricante ou normas nacionais,aoCBMSCorelatóriodemanutenção deve ser apresentado: I -anualmente nos sistemas: a) com detectores automáticos de incêndio; ou b) com automação de outros SMSCI em função do alarme. II - a cada 3 anos, nos demais casos. §2ºOrespectivorelatóriodeinspeçãodeveser elaborado por profissional habilitado, comprovandoafuncionalidadetotaldosistema edeveserprotocoladonoe-SCI,acompanhado do respectivo documento de responsabilidade técnica. DISPOSIÇÕES FINAIS"
+    },
+    {
+      "number": 49,
+      "page": 11,
+      "text": "Art. 49. A instalação elétrica do SDAI deve atender os requisitos gerais exigidos na IN 19."
+    },
+    {
+      "number": 50,
+      "page": 11,
+      "text": "Art. 50. Esta IN, aplicável emtodooterritório catarinense, entra em vigor em 24deabrilde 2024,revogandoaIN12de28desetembrode 2022. Coronel BM FABIANO DE SOUZA Comandante-Geral do Corpo de Bombeiros Militar de SC ORGANIZAÇÃO: TC BM Willyan Fazzioni - Direção Maj BM Oscar W Barboza Jr - Supervisão e Edição Cap BM Rafael Giosa Sanino - Revisão Cap BM Suellen Lapa Duarte - Edição Cap BM Wagner Alberto de Moraes - Redação 1º Ten BM Diego Heusi Rampinelli - Redação"
+    }
+  ],
+  "annexes": [
+    {
+      "page": 12,
+      "title": "ANEXO A - Exigibilidade de detecção automática de incêndio e exigibilidade do ti",
+      "text": "ANEXO A - Exigibilidade de detecção automática de incêndio e exigibilidade do tipo de SDAI Grupo Divisão Exigência de detectores automáticos nos seguintes locais da edificação Tipo de SDAI A A-2 40 m ≤ h < 100 m: - circulação de uso comum dos pavimentos e um ponto no interior dos apartamentos (próximo da entrada da unidade) h ≥ 100 m: - circulação de uso comum dos pavimentos e no interior dos apartamentos (nas cozinhas e nos cômodos onde as pessoas podem estar adormecidas) h < 40 m: todos 40 m ≤ h < 60 m: 2 ou superior h ≥ 60 m: 3 ou superior A-3 - cozinhas com fritadeiras ou com equipamentos à combustão de lenha ou carvão - quartos - depósitos com carga de incêndio superior a 1.200 MJ/m² 2 ou superior B Todos A ≤ 750,00m² e h ≤ 12,00m: - nos quartos (admitem-se detectores autônomos) Demais condições: - todos os ambientes (exceto em banheiros e locais com carga de incêndio desprezível) A ≤ 750,00m² e h ≤ 12,00m: não há Demais condições: 2 ou superior C Todos1 h ≤ 30 m: - depósitos com mais de 500 m² de área e carga de incêndiosuperior a 300 MJ/m² h > 30 m: - depósitos com carga de incêndio superior a 300 MJ/m² - locais com carga de incêndio superior a 1.200 MJ/m² A > 5.000 m²: - todos os ambientes (exceto em banheiros e locais com carga de incêndio desprezível) h ≤ 30 m: 2 ou superior h > 30 m: 3 ou superior A > 5.000 m²: 3 ou superior D Todos h > 23 m: - depósitos com carga de incêndio superior a 300 MJ/m² - locais com carga de incêndio superior a 1.200 MJ/m² h ≤ 23 m: 1 ou superior h > 23 m: 3 ou superior E E-1 E-2 E-3 E-4 A ≥ 5.000 m² ou h > 30 m: - depósitos com carga de incêndio superior a 300 MJ/m² - locais com carga de incêndio superior a 1.200 MJ/m² h ≤ 30 m: 1 ou superior (se exigido) h > 30 m: 2 ou superior E-5 E-6 A ≥ 750 m² ou h > 30 m: - depósitos com carga de incêndio superior a 300 MJ/m² - locais com carga de incêndio superior a 1.200 MJ/m² F F-1 - todos os ambientes (exceto em banheiros e locais com carga de incêndio desprezível) 2 ou superior F-2 F-3 F-4 F-9 - locais com carga de incêndio superior a 300 MJ/m² - locais onde exista forro falso com revestimento combustível - depósitos, escritórios, cozinhas, pisos técnicos, casa de máquinas - ambientes com equipamentos elétricos para sonorização e iluminação 2 ou superior F-5 F-6 F-8 F-10 - locais com carga de incêndio superior a 300 MJ/m² - locais onde exista forro falso com revestimento combustível - depósitos, escritórios, cozinhas, pisos técnicos, casa de máquinas - ambientes com equipamentos elétricos para sonorização e iluminação 3 ou superior Nota 1: Observar as isenções previstas noartigo 6º."
+    },
+    {
+      "page": 13,
+      "title": "Grupo Divisão Exigência de detectores automáticos nos seguintes locais da edific",
+      "text": "Grupo Divisão Exigência de detectores automáticos nos seguintes locais da edificação Tipo de SDAI F F-11 h ≤ 12 m: - locais com carga de incêndio superior a 300 MJ/m² - locais onde exista forro falso com revestimento combustível - depósitos, escritórios, cozinhas, pisos técnicos, casa de máquinas - ambientes com equipamentos elétricos para sonorização e iluminação h > 12 m: - locais com carga de incêndio superior a 100 MJ/m² - locais onde exista forro falso com revestimento combustível - depósitos, escritórios, cozinhas, pisos técnicos, casa de máquinas - ambientes com equipamentos elétricos para sonorização e iluminação h≤ 12 m: 3 ou superior h > 12 m: 4 ou superior G G-1 G-2 G-5 A ≥ 5.000 m² eh > 23 m: - áreas destinadas a estacionamento de veículos - exceto quando forem lateralmente abertas (conforme IN 14) - depósitos com carga de incêndio superior a 1.200 MJ/m² h > 23 m: 3 ou superior G-3 G-4 - depósitos - locais com carga de incêndio superior a 1.200 MJ/m² 3 ou superior H H-1 - dispensado de SDAI todos H-2 h ≤ 12 m: - locais com carga de incêndio superior a 1.200 MJ/m² - quartos h > 12 m: - locais com carga de incêndio superior a 1.200 MJ/m² - quartos, depósitos e lavanderias 3 ou superior H-3 h ≤ 12 m: - locais com carga de incêndio superior a 300 MJ/m² - quartos com leito - depósitos, cozinhas, lavanderias, casa de máquinas h > 12 m: - em todos os ambientes (exceto banheiros e ambiente com carga de incêndio desprezível) 4 ou superior H-4 - depósitos com carga de incêndio superior a 300 MJ/m² 3 ou superior H-5 - quartos; - locais com carga de incêndio superior a 1.200 MJ/m²; e - Hospitais psiquiátricos eassemelhados:alémdosanteriores,tambémpreverem depósitos, escritórios, cozinhas, lavanderias, pisos técnicos, casa de máquinas, etc. 3 ou superior H-6 h ≤ 12 m: - locais com carga de incêndio superior a 1.200 MJ/m² h > 12 m: - locais com carga de incêndio superior a 1.200 MJ/m² - quartos, depósitos e lavanderias 3 ou superior I I-11 - dispensado de SDAI todos I-2 A ≥ 5.000 m² e h > 12 m: - todas as áreas com carga de incêndio superior a 300 MJ/m² A > 5.000 m²: 3 ou superior I-3 A ≥ 5.000 m² e h≤12 mOUh > 12 m independente deárea - em todos os ambientes (exceto banheiros e ambiente com carga de incêndio desprezível) A ≤ 5.000 m² e h ≤ 12 m: 3 ou superior A > 5.000 m² ou h> 12m: 4 ou superior Nota 1: Observar as isenções previstas noartigo 6º."
+    },
+    {
+      "page": 14,
+      "title": "Grupo Divisão Exigência de detectores automáticos nos seguintes locais da edific",
+      "text": "Grupo Divisão Exigência de detectores automáticos nos seguintes locais da edificação Tipo de SDAI J J-11 - dispensado de SDAI todos J-21 A ≥ 5.000 m² e h≤12 mOUh > 12 m independente deárea - em todos os ambientes (excetobanheiroseambientecomcargadeincêndio desprezível) A ≤ 5.000 m² e h ≤ 12 m: todos A > 5.000 m² ou h> 12m: 2 ou superior J-3 - em todos os ambientes (excetobanheiroseambientecomcargadeincêndio desprezível) A ≤ 5.000 m²: 2 ou superior A > 5.000 m²: 3 ou superior J-4 - em todos os ambientes (excetobanheiroseambientecomcargadeincêndio desprezível) A ≤ 5.000 m²: 3 ou superior A > 5.000 m²: 4 ou superior K K-1 - dispensado de SDAI todos K-2 - ambientes com carga de incêndio maior que 1.200 MJ/m² - nos locais de armazenamento de combustíveis e casade máquinas, caldeiras 2 ou superior L Todos - emtodos os ambientes (exceto banheiros e ambientecom carga de incêndio desprezível) 2 ou superior M M-1 Extensão do túnel > 1.000 m: - em toda a extensão do túnel - monitoramento da concentração de monóxido de carbono (CO) 3 ou superior M-2 Somente em ambientes fechados: - emtodos os ambientes (exceto banheiros e ambientecom carga de incêndio desprezível) - monitoramento da concentração de gases e vapores inflamáveis em áreas desassistidas M-3 h > 6m: - centro de processamento de dados - locais que tenham geradores/banco de baterias/nobreaks - locais onde se mantém equipamentos de comunicação e transmissão de dados sem supervisão de pessoas - salas elétricas h≤ 6 m: todos h > 6 m: 3 ou superior M-4 M-7 M-11 M-12 - dispensados de SDAI todos M-5 M-6 M-8 M-9 M-10 - Tipo e forma de detecção aplicável a estas ocupações em INs específicas todos Outros locais (independe da ocupação) - centro de processamento de dados com área > 50 m² - sala de gerador(es) e similares onde haja apenas equipamentos elétricos energizados, com área de até 200 m² que não possua SPK - locais, com área de até 200 m², destinados a instalação de bombas de incêndio, gerador de emergência, e casas de máquinas quando não possui SPK 2 ou superior Subsolos - Se exigido a detecção (Conforme Tabela 29, Anexo C, IN 1 - Parte 2) 2 ou superior"
+    },
+    {
+      "page": 15,
+      "title": "ANEXO B - Informativo - Detecções Especiais D.1 Detector Linear de Fumaça Beam A",
+      "text": "ANEXO B - Informativo - Detecções Especiais D.1 Detector Linear de Fumaça Beam A. OuDetectorFeixeporPrismaouduplofeixe,éadetecçãodefumaçaemumalinhacontínuadeanálise. São posicionados com seus feixes de luz projetados em direção paralela ao teto (emissorerefletor/ emissor e detector). B. Adistâncialongitudinalentreoemissoreorefletorprismáticonuncadeveultrapassar100m.Adistância lateral entre os feixes de luz de dois detectores lineares de fumaça adjacentes deve ser de até 15 m. C. O detector deve indicar defeito quando ocorrer alguma obstrução no feixe. D. Detectores que usam prisma para reflexão são indicados em áreas livres que não possuem objetos reflexivos próximos ao feixe como: átrios de shoppings, salas de conferências, cinemas, etc. E. Osdetectoresquesãodeduplofeixequenãopossuemprisma,sãoindicadosparaáreasindustriaisonde objetosreflexivospróximos,comoluminárias,fiações,longarinas,nãoprejudicamadetecçãoesãoimunes a poeira, como por exemplo em galpões industriais. F. O projeto deve sempre observar as instruções documentadas do fabricante. D.2 Detector de Fumaça por Amostragem A. Osistemadedetecçãodefumaçaporamostragem(ouaspiração)retiracontinuamenteoardeumaárea monitoradapormeiodeumsistemadetubosconectadoscomorifíciosdeamostragemedeumventilador integrado. ­ B. São indicados em áreas com potencial para estratificação da fumaça, alta ventilação, temperaturas negativas, e nos casos de interferênciase/ouintempériesnoambientequeprejudicamossistemasde detecçãopontualouporfeixe,comoocorreporexemploem:galpõesindustriais,poçosdeelevadores, salas elétricas, câmaras frias, prateleiras, tecelagem, plantas de reciclagem, moinhos, usinas, plantas agrícolas, madeireiras. C. O posicionamento dos orifícios de amostragemdeveatender,nomáximo,aomesmoraiodeaçãodos detectores pontuais, 6,3 m. D. O detector deve indicar defeito com a ruptura ou bloqueio do fluxo de ar da tubulação de amostragem. E. Oprojetodevepossuirumasimulaçãodedesempenhoconformeasinstruçõesdofabricante.Alémdisso, sempre deve ser observado o emprego de filtros e, quandonecessário,sistemasdelimpezaparanão prejudicar o desempenho e a vida útil do equipamento. F. O projeto deve sempre observar as instruções documentadas do fabricante."
+    },
+    {
+      "page": 16,
+      "title": "D.3 Detector Linear de Temperatura por Tubo Sensor A. Osistemadedetecçãopossuitu",
+      "text": "D.3 Detector Linear de Temperatura por Tubo Sensor A. Osistemadedetecçãopossuitubossensoresquecontêmareverificamconstantementeatemperaturado ambiente. Estecontroledeveserajustadoeparametrizadoportemperaturamáximaeporvariaçãode acordo com a necessidade e seu monitoramento é contínuo. B. Por ser composto por tubulações (cobre,açoinox,teflon),éindicadoemambientescompotencialde magnetização,oxidação,acidez,líquidos,calor,intempéries,radiação,gasesedemaisagentesagressivos, quepodemviraprejudicaradetecçãopontualdetemperatura.­Sãoindicadosemáreascomo:garagens, esteiras,túneis,docas,tanquesdearmazenamentodecombustíveis,cabinesdepintura,transformadores, etc. C. Oposicionamentodostubossensoresdeveobedecer,nomáximo,aomesmoraiodeaçãodosdetectores pontuais de temperatura (4,2 m) ou conforme o fabricante caso inferior a esta medida. D. O detector deve indicar defeito com a ruptura ou bloqueio do tubo sensor. E. O projeto deve possuir uma simulação de desempenho conforme as instruções do fabricante. F. O projeto deve sempre observar as instruções documentadas do fabricante. D.4 Detector Linear de Temperatura por Cabo Sensor A. Sistema de detecção composto porumcaboquedetectaatemperaturafixadoambientemonitorado, sendo essa temperatura disposta dentro de uma escala indicada pelo fabricante. O cabo dosensoré compreendidopordoiscondutoresdeaçoisoladosindividualmentecomumpolímerosensívelaocalor.Os condutoresisoladossãotorcidosjuntoparaimporumapressãoentreeles,envolvidosentãocomumafita adesiva protetora e terminado com um revestimento exterior apropriado para o ambiente que será instalado. B. Não é um sistema indicado paraambientesemqueocabopossaserpressionadoeemlocaisdefácil acessoaosusuáriosdaedificação,evitandoaocorrênciadealarmesfalsos.Suaaplicaçãoérecomendada em áreas contendo eletrocalhas e esteiras. C. Odetectordeveindicardefeitocomaruptura.Jánoscasosdecurto-circuito,ocabonãodeveráindicar defeito, mas alarme. D. O projeto deve sempre observar as instruções documentadas do fabricante. D.5 Detector Linear de Temperatura com Sensores no Cabo A. Sistema composto por um cabo que possui vários sensores individuais, os quais detectam a temperatura fixa e variável, conforme sua programação. B. Adistânciaentreossensoreséindicadaconformeaescalaestipuladapelofabricante.Ocabodosensor contém vários sensores de temperatura incorporados endereçáveis, com uma blindagem reforçada. C. Recomendado o uso onde é necessária precisão de detecção com amplas extensões de análise, podendo ser utilizado ao ar-livre ou em ambientes subterrâneos, tendo como exemplo áreas de: indústriademineração,perfuração,processamentoderesíduos,processamentodemadeira,garagens, esteiras transportadoras, escadas rolantes, túneis rodoviários, túneis ferroviários, eletrocalhas. D. O detector deve indicar defeito com a ruptura ou curto-circuito. E. O projeto deve sempre observar as instruções documentadas do fabricante."
+    },
+    {
+      "page": 17,
+      "title": "ANEXO C - Organização do painel de comandos Opaineldecomandosdesistemasdeseguran",
+      "text": "ANEXO C - Organização do painel de comandos Opaineldecomandosdesistemasdesegurançacontraincêndiovisacentralizarasoperações manuaisdoCorpodeBombeiros(oudaBrigadadeIncêndiodaedificação)duranteumaemergênciana edificação, devendo ser disposto conforme esquema ilustrativo abaixo: Emcasodeemergência,deveserpossibilitadoaooperadorsobreporasautomaçõesprevistasno SDAIcomcomandosmanuaisespecíficos,porexemplo,ativarmanualmenteosistemadeextraçãode fumaça mesmo que um detector não tenha sido acionado. Paratanto,opaineldevepossuiracionadoresmanuais(dotipoON/AUTO/OFFousimilar)que serão liberados para uso por meio de uma chave de comando, de forma a colocaraedificaçãoem OperaçãodeEmergência.Nestacondição,assinalizaçõesdevemacender,indicandoqueopainelestá habilitado para uso.Acadaoperaçãodeacionamentomanualoudesativaçãorealizada,asinalização devemudardeestadoindicandooqueestásendoexecutado.Quandoocorreraoperaçãodesejada,a sinalizaçãodevesernacorvermelhacontínua;e,quandoocorrerumafalha,asinalizaçãodeveserem cor amarela contínua. Cada botão ou sinalização deve ser devidamente identificado, bem como monitorado em caso de falha. Devem ser indicados oscomandos manuais, no que couber, para: - Liberação dos Comandos do Painel (Colocar a Edificação em Modo de Emergência); - Ligar/Desligar Sirene para Abandono; - Desligamento de Energia Elétrica/subestação; - Ligar/Desligar Pressurização de Escadas; - Ligar/Desligar Iluminação de Emergência; - Ligar/Desligar Extração e Controle de Fumaça; - Fechar Portas (eletroímã); - Liberar dispositivos de controles de Acesso (Catracas); - Ligar/Desligar Bombas Hidráulicas; - Descer Elevadores."
+    }
+  ],
+  "checks": {
+    "needs_human_look": [
+      "157 words longer than 30 characters: the PDF may print without spaces, so words are glued together"
+    ]
+  }
+}

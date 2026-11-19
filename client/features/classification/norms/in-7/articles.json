@@ -1,0 +1,591 @@
+{
+  "doc": "IN-7",
+  "preamble": "IN 7 SISTEMA HIDRÁULICO PREVENTIVO - SHP SUMÁRIO DISPOSIÇÕES INICIAIS 2 Objetivo 2 Referências 2 Terminologias 2 APLICAÇÃO 3 Geral 3 Isenção do SHP 3 COMPONENTES DO SHP 4 Geral 4 Tubulações 5 Mangueiras de incêndio 6 Esguichos 6 Abrigos de mangueiras para hidrantes ou mangotinhos 7 Hidrantes 8 Mangotinhos 8 PROJETO E EXECUÇÃO 8 Localização dos hidrantes ou mangotinhos 8 Quantidade de hidrantes ou mangotinhos 9 Hidrante de recalque 9 Tipos de sistemas 10 Dimensionamento do sistema 10 Funcionamento do sistema 11 Reserva Técnica de Incêndio 11 Bombas de incêndio 12 DOCUMENTAÇÃO 15 Vistoria para habite-se 15 DISPOSIÇÕES FINAIS 15 Anexo A - Tabelas do SHP 16 Anexo B - Detalhes do SHP 18 Anexo C - Atividades de comissionamento do SHP 22 Vigente a partir de 24/04/2024 23 páginas INSTRUÇÃO NORMATIVA 7 SISTEMA HIDRÁULICO PREVENTIVO DISPOSIÇÕES INICIAIS Objetivo",
+  "articles": [
+    {
+      "number": 1,
+      "page": 2,
+      "text": "Art. 1º Esta Instrução Normativa (IN) tem por objetivo estabelecer e padronizar critérios de concepção e dimensionamento do Sistema Hidráulico Preventivo (SHP) nos processos analisados e fiscalizados pelo Corpo de Bombeiros Militar de Santa Catarina (CBMSC). Referências"
+    },
+    {
+      "number": 2,
+      "page": 2,
+      "text": "Art. 2º As referências utilizadas são as seguintes: I - IN 1 - parte 1, de 2024 - CBMSC; II - IN 1 - parte 2, de 2024 - CBMSC; III - Instrução Técnica nº 22, de 2019 - CBPMESP; IV - NBR 5580; V - NBR 5587; VI - NBR 5590; VII - NBR 5647-1; VIII - NBR 5647-2; IX - NBR 5647-3; X - NBR 5647-4; XI - NBR 16704; XII - NBR 16820; XIII - NBR 6925; XIV - NBR 6943; XV - NBR 10351; XVI - NBR 10897; XVII - NBR 11720; XVIII - NBR 11861; XIX - NBR 12779; XX - NBR 13206 XXI - NBR 13434; XXII - NBR 13714; XXIII - NBR 14349; XXIV - NBR 14870; XXV - NBR 15561 XXVI - NBR 15593; XXVII - NBR 15647; XVIII - NBR 15802; XXIX - NBR 15803; XXX - NBR 15813 XXXI - NBR 15884 XXXII - NBR 15950; XXXIII - NBR 15952; XXXIV - NBR 15979; XXXV - NBR 16021; XXXVI - NBR 16642; XXXVII - ASTM A 234. Terminologias"
+    },
+    {
+      "number": 3,
+      "page": 2,
+      "text": "Art. 3º As terminologias gerais que tratam da segurança contra incêndio são definidas pelo CBMSC e disponibilizadas para acesso público em seu portal oficial."
+    },
+    {
+      "number": 4,
+      "page": 2,
+      "text": "Art. 4º Para aplicação desta IN consideram-se as seguintes terminologias específicas: I - abrigo: compartimento, embutido ou aparente, dotado de porta, destinado a armazenar mangueiras, esguichos, carretéis e outros equipamentos de combate a incêndio, capaz de proteger contra intempéries e danos diversos; II - bomba principal: bomba hidráulica centrífuga destinada a recalcar água para os sistemas de combate a incêndio; III - bomba de reforço: bomba hidráulica centrífuga destinada a fornecer água aos hidrantes ou mangotinhos mais desfavoráveis hidraulicamente, quando estes não oferecerem a vazão mínima prevista; IV - bomba de pressurização (Jockey): bomba hidráulica centrífuga destinada a manter o sistema pressurizado em uma faixa preestabelecida; V - mangotinho: equipamento de combate a incêndio constituído de mangueira, esguicho regulável, válvula e carretel; VI - reserva técnica de incêndio (RTI): volume de água destinado exclusivamente ao combate a incêndio; VII - sistema de recalque: sistema que realiza o aumento da pressão hidráulica sendo utilizado para o transporte de um fluido de uma fonte inferior para um ponto superior, por meio de bombeamento. APLICAÇÃO Geral"
+    },
+    {
+      "number": 5,
+      "page": 3,
+      "text": "Art. 5º Esta IN aplica-se aos imóveis para os quais o SHP é exigido, conforme previsto nas normas de segurança contra incêndio e pânico (NSCI)."
+    },
+    {
+      "number": 6,
+      "page": 3,
+      "text": "Art. 6º A proteção por sistemas de hidrantes para as áreas de riscos específicos deve seguir o disposto em IN específica. Parágrafo único. Casos omissos em IN específica deverão utilizar esta IN na íntegra."
+    },
+    {
+      "number": 7,
+      "page": 3,
+      "text": "Art. 7º É facultada a instalação de mangotinhos em substituição aos hidrantes nas edificações com carga de incêndio até 1.200 MJ/m². § 1º Para as edificações com carga de incêndio superior a 1.200 MJ/m², independente do número de pavimentos, é obrigatória a instalação de hidrantes, não podendo substituí-los por mangotinhos. § 2º A substituição prevista no caput deste artigo poderá ser aplicada de forma total (todos os pontos), ou parcial (apenas em alguns pontos), a critério do responsável técnico. Isenção do SHP"
+    },
+    {
+      "number": 8,
+      "page": 3,
+      "text": "Art. 8º Fica isenta a instalação do SHP para: I - imóveis com carga de incêndio ≤100 MJ/m² (carga de incêndio desprezível - IN 3); II - imóveis com carga de incêndio ≤300 MJ/m² e com ambiente único e térreo, com no máximo 75% das laterais fechadas; III - conjunto de unidades residenciais unifamiliares geminadas, desde que a saída de cada unidade residencial seja diretamente para o exterior e exista compartimentação entre as unidades residenciais; e IV - blocos isolados (ver IN 14), se o bloco possuir até 3 pavimentos e área total máxima de 750 m². § 1° Os empreendimentos que possuírem ambientes sem definição de leiaute, que dificultem ou impeçam a correta disposição dos hidrantes, deverão ser compostos por ramais (pontos de ligação) nos quais o sistema de hidrantes deverá ser interligado. Cada \"ponto de ligação\" deverá conter a indicação da vazão e pressão disponíveis de modo a possibilitar que, após a definição do leiaute, o projeto do sistema hidráulico desses ambientes seja apresentado de forma individual e complementar. § 2° Os ambientes a que se refere o § 1° só poderão ser ocupados após a correta instalação do SHP, interligando a nova rede ao sistema existente na edificação, de acordo com o leiaute aprovado no projeto complementar de cada ambiente."
+    },
+    {
+      "number": 9,
+      "page": 3,
+      "text": "Art. 9º Para fins de isenção do SHP, não são computadas como “áreas construídas” as seguintes: I - passagens cobertas, com largura máxima de 3 metros, com laterais abertas, destinadas apenas à circulação de pessoas e/ou mercadorias; II - cobertura das bombas para abastecimento de gás natural veicular (GNV), líquidos inflamáveis ou combustíveis, com laterais abertas; III - áreas cobertas em pavimento único e térreo, destinadas a: a) estacionamento de veículos que possua no máximo 50% das laterais fechadas; b) quadra de esportes, independentemente do tipo de piso; e c) área de banho de piscina (ver IN 33); IV - arquibancada (com ou sem assento) destinada à acomodação de público; V - salão de festa, com área ≤100 m², na cobertura do edifício; VI - terraço e demais áreas descobertas; VII - áreas de banheiro; VIII - área/local de armazenamento ou processo industrial em que o emprego de água seja desaconselhável, conforme decisão fundamentada do Responsável Técnico (RT); e IX - ambientes molhados, onde o risco é desprezível, conforme decisão fundamentada do RT."
+    },
+    {
+      "number": 10,
+      "page": 4,
+      "text": "Art. 10. Fica isenta a instalação de pontos de hidrantes ou de mangotinhos em: I - mezaninos ou pavimentos destinados a escritório, sobreloja e/ou locais com acesso restrito, desde que possuam área ≤100 m²; II - pavimentos superiores de apartamento duplex ou triplex; III - nos locais relacionados no artigo 9º, exceto na alínea “a” do inciso III (estacionamento de veículos que possua no máximo 50% das laterais fechadas). § 1º Para aplicação das isenções previstas nos incisos I e II do caput, a mangueira do hidrante ou do mangotinho do pavimento mais próximo deve assegurar a proteção dos locais isentos da instalação dos pontos de hidrantes ou de mangotinhos, garantida a vazão mínima no esguicho exigida na Tabela 3 do anexo A. § 2º Não há necessidade de assegurar cobertura de hidrante ou mangotinho para fins de aplicação de isenção nos locais previstos no inciso III do caput deste artigo. COMPONENTES DO SHP Geral"
+    },
+    {
+      "number": 11,
+      "page": 4,
+      "text": "Art. 11. O SHP é composto, no mínimo, pelos seguintes componentes: I - tubulações; II - mangueiras de incêndio; III - esguichos; IV - abrigos de mangueira para hidrantes ou mangotinhos; V - hidrantes e/ou mangotinhos; VI - hidrante de recalque. Parágrafo único. Os componentes das instalações devem ser recomendados em normas técnicas, conforme o artigo 2º, ou em especificações reconhecidas e aceitas pelos órgãos oficiais."
+    },
+    {
+      "number": 12,
+      "page": 4,
+      "text": "Art. 12. Independentemente do tipo de material, a resistência mínima de todos os componentes do SHP, exceto as mangueiras, deve ser 150 mca (15 kgf/cm²). Parágrafo único. Admite-se resistência mínima inferior a 150 mca no trecho de tubulação externa à edificação, entre RTI e válvula de retenção ou entre RTI e sistema de bombas."
+    },
+    {
+      "number": 13,
+      "page": 4,
+      "text": "Art. 13. Todo e qualquer material relacionado ao SHP, previsto ou instalado, deve ser capaz de resistir às pressões impostas pelo SHP aos efeitos do calor, mantendo seu funcionamento normal ante o aquecimento. Parágrafo único. Para cumprir o que determina o caput deste artigo, admite-se que o projetista empregue meios de proteção complementares, devendo constá-los em todos os detalhes do projeto."
+    },
+    {
+      "number": 14,
+      "page": 4,
+      "text": "Art. 14. Os componentes que não satisfaçam todas as especificações das normas existentes, ou exigências dos órgãos competentes e entidades envolvidas, devem ser submetidos a ensaios e verificações a fim de obterem aceitação formal, expedida pelos órgãos competentes, da utilização nas condições específicas da instalação. Tubulações"
+    },
+    {
+      "number": 15,
+      "page": 5,
+      "text": "Art. 15. A tubulação do SHP deve ser metálica, com diâmetro mínimo de 65 mm (2½\"), ressalvadas as seguintes exceções: I - tubulação de cobre: admite-se diâmetro mínimo de 50 mm (2\"); II - material termoplástico: admite-se, somente se: a) a tubulação estiver enterrada a uma profundidade mínima de 60 cm, fora da projeção da planta da edificação, que proporcione proteção mecânica e ao fogo; e b) existir um nicho com as dimensões mínimas de 25 x 30 cm nos pontos de união dos tubos de materiais termoplásticos com os tubos metálicos, guarnecido por tampa metálica pintada na cor vermelha, para inspeção da conexão dos tubos de materiais diferentes."
+    },
+    {
+      "number": 16,
+      "page": 5,
+      "text": "Art. 16. Tubulações, conexões e válvulas do SHP, sempre que aparentes, devem ser na cor vermelha."
+    },
+    {
+      "number": 17,
+      "page": 5,
+      "text": "Art. 17. O meio de ligação entre tubos, conexões e acessórios diversos deve garantir estanqueidade e estabilidade mecânica da junta e não deve sofrer comprometimento de desempenho se exposto ao fogo."
+    },
+    {
+      "number": 18,
+      "page": 5,
+      "text": "Art. 18. A tubulação deve ser fixada nos elementos estruturais da edificação através de suportes metálicos, conforme a NBR 10897, rígidos e espaçados em no máximo 4 metros, de modo que cada ponto de fixação resista a cinco vezes a massa do tubo cheio de água mais 100 kg."
+    },
+    {
+      "number": 19,
+      "page": 5,
+      "text": "Art. 19. Os tubos de aço devem ser conforme a NBR 5580, NBR 5587 ou NBR 5590."
+    },
+    {
+      "number": 20,
+      "page": 5,
+      "text": "Art. 20. As conexões de ferro maleável devem ser conforme a NBR 6925 ou NBR 6943."
+    },
+    {
+      "number": 21,
+      "page": 5,
+      "text": "Art. 21. As conexões de aço devem ser conforme ASTM A 234."
+    },
+    {
+      "number": 22,
+      "page": 5,
+      "text": "Art. 22. Os tubos de cobre devem ser conforme a NBR 13206."
+    },
+    {
+      "number": 23,
+      "page": 5,
+      "text": "Art. 23. As conexões de cobre devem ser conforme a NBR 11720."
+    },
+    {
+      "number": 24,
+      "page": 5,
+      "text": "Art. 24. Os tubos de PVC devem ser conforme as NBR 5647-1, NBR 5647-2, NBR 5647-3 e NBR 5647-4."
+    },
+    {
+      "number": 25,
+      "page": 5,
+      "text": "Art. 25. As conexões de PVC devem ser conforme a NBR 10351."
+    },
+    {
+      "number": 26,
+      "page": 5,
+      "text": "Art. 26. As tubulações e conexões de Polietileno de Alta Densidade (PEAD) devem ser projetadas e executadas segundo as normas ABNT NBR 15802, ABNT NBR 15950 e ABNT NBR 15952."
+    },
+    {
+      "number": 27,
+      "page": 5,
+      "text": "Art. 27. Os requisitos para reparo nas tubulações de PEAD devem obedecer a norma ABNT NBR 15979."
+    },
+    {
+      "number": 28,
+      "page": 5,
+      "text": "Art. 28. Os tubos de PEAD devem ser conforme a norma ABNT NBR 15561."
+    },
+    {
+      "number": 29,
+      "page": 5,
+      "text": "Art. 29. As conexões de PEAD devem ser conforme as normas ABNT NBR 15593 e ABNT NBR 15803."
+    },
+    {
+      "number": 30,
+      "page": 5,
+      "text": "Art. 30. As tubulações de Policloreto de Vinila Clorado (CPVC) devem ser conforme NBR 15884."
+    },
+    {
+      "number": 31,
+      "page": 6,
+      "text": "Art. 31. Os tubos e conexões de Policloreto de Vinila Clorado (CPVC) devem ser conforme a NBR 15647."
+    },
+    {
+      "number": 32,
+      "page": 6,
+      "text": "Art. 32. As tubulações de Polipropileno Copolímero Random (PP-R) devem ser conforme NBR 15813. Mangueiras de incêndio"
+    },
+    {
+      "number": 33,
+      "page": 6,
+      "text": "Art. 33. A escolha do tipo de mangueira depende do seu local de uso e da condição de aplicação, conforme previsto na Tabela 1 do anexo A."
+    },
+    {
+      "number": 34,
+      "page": 6,
+      "text": "Art. 34. A manutenção das mangueiras de incêndio fica sob a responsabilidade do proprietário do imóvel."
+    },
+    {
+      "number": 35,
+      "page": 6,
+      "text": "Art. 35. A mangueira de incêndio para uso de hidrante deve atender às condições da NBR 11861."
+    },
+    {
+      "number": 36,
+      "page": 6,
+      "text": "Art. 36. As mangueiras para hidrante devem ser acondicionadas em zigue-zague ou aduchadas, dentro de abrigo, permitindo sua utilização com facilidade e rapidez. § 1º Sempre que a linha de mangueira for em lance único, a mangueira deve estar conectada ao hidrante e ao esguicho. § 2º Quando a linha de mangueira for composta por 2 ou mais lances de mangueiras, essas não devem estar conectadas entre si, nem ao hidrante, nem ao esguicho."
+    },
+    {
+      "number": 37,
+      "page": 6,
+      "text": "Art. 37. O diâmetro das mangueiras para os hidrantes deve ser de 40 mm (1½\") para todos os imóveis, exceto nos casos expressamente previstos em IN específicas."
+    },
+    {
+      "number": 38,
+      "page": 6,
+      "text": "Art. 38. O hidrante deve ter mangueira flexível, com junta de união tipo rosca x storz, sendo que as linhas de mangueiras devem ser compostas por lances, conforme a Tabela 2 do anexo A."
+    },
+    {
+      "number": 39,
+      "page": 6,
+      "text": "Art. 39. Dimensões e materiais para a confecção das uniões de engate rápido (rosca x storz) entre mangueiras de incêndio devem ser conforme a NBR 14349."
+    },
+    {
+      "number": 40,
+      "page": 6,
+      "text": "Art. 40. Mangueira semirrígida e acessórios destinados ao sistema de mangotinho devem atender às condições da NBR 16642."
+    },
+    {
+      "number": 41,
+      "page": 6,
+      "text": "Art. 41. O mangotinho deve ter mangueira semirrígida, com: I - lance único; II - diâmetro de 25 mm (1\"); e III - comprimento máximo de 30 m. Parágrafo único. Para edificações do grupo A2, somente nos pavimentos tipo que contenham hall/corredor com comprimento máximo de 10 m, autoriza-se utilização de linha de mangueira de até 60 m."
+    },
+    {
+      "number": 42,
+      "page": 6,
+      "text": "Art. 42. A mangueira para mangotinho deve ser acondicionada enrolada, em carretel fixo ou móvel, dentro de abrigo, permitindo sua utilização com facilidade e rapidez. Esguichos"
+    },
+    {
+      "number": 43,
+      "page": 6,
+      "text": "Art. 43. Esguicho é o dispositivo para lançamento de água através de mangueiras, o qual deve ser: I - regulável, possibilitando a emissão do jato compacto ou neblina (conforme NBR 14870); ou II - não-regulável (agulheta), possibilitando somente a emissão de jato compacto."
+    },
+    {
+      "number": 44,
+      "page": 6,
+      "text": "Art. 44. O acionador do esguicho regulável, de alavanca ou de colar, deve permitir a modulação da conformação do jato e o fechamento total do fluxo."
+    },
+    {
+      "number": 45,
+      "page": 6,
+      "text": "Art. 45. Cada esguicho instalado deve ser adequado aos valores de pressão disponível e de vazão de água, no ponto de hidrante considerado, para proporcionar o seu perfeito funcionamento."
+    },
+    {
+      "number": 46,
+      "page": 7,
+      "text": "Art. 46. O adaptador tipo engate rápido para acoplamento das mangueiras deve ser compatível com as mangueiras de incêndio, união tipo rosca x storz (conforme NBR 14349). Abrigos de mangueiras para hidrantes ou mangotinhos"
+    },
+    {
+      "number": 47,
+      "page": 7,
+      "text": "Art. 47. No interior do abrigo de mangueiras devem ser acondicionados: I - chave de mangueira (apenas para hidrantes); II - mangueira e esguicho; III - hidrante; e/ou IV - mangotinho. Parágrafo único. O hidrante pode ficar fora do abrigo de mangueiras, porém o abrigo de mangueiras não pode ser instalado a mais de 3 m de distância do hidrante."
+    },
+    {
+      "number": 48,
+      "page": 7,
+      "text": "Art. 48. O abrigo de mangueiras deve ter dimensões adequadas para o acondicionamento e manuseio das mangueiras, esguicho, chave de mangueira, hidrante e/ou mangotinho (anexo B)."
+    },
+    {
+      "number": 49,
+      "page": 7,
+      "text": "Art. 49. A porta do abrigo de mangueiras deve: I - ser fácil de abrir, sem tranca ou cadeado; II - possuir abertura para ventilação; III - permitir a retirada rápida das mangueiras, e IV - ser de material: a) metálico ou de madeira: na cor vermelha; ou b) em vidro temperado: liso, transparente, incolor e sem película. V - ser sinalizada com a inscrição “INCÊNDIO” e o pictograma da figura 1 (mangueira) ou figura 2 (mangotinho), conforme o caso, devendo atender aos demais requisitos previstos na NBR 16820. § 1º A sinalização deve seguir os critérios de dimensionamento da NBR 18620, adotando-se como referência, no mínimo, a distância de 6 m entre placa e observador, devendo as dimensões da placa possuírem no mínimo: I - 150 mm para placas quadrangulares; e II - 100 mm de altura (h) nas placas retangulares, cuja relação dimensional deve ser de base(b)=2h. § 2º Para abrigos instalados em área externa (local permanentemente ventilado, ao ar livre, fora da projeção da edificação) admite-se que o abrigo seja de polímeros plásticos desde que possua propriedade não propagante de chama. § 3º Para edificações do grupo A2, nos pavimentos que possuem hall/corredor com comprimento máximo de 10 m, fica autorizado porta de abrigo em material diverso e em qualquer cor, possuindo visor em vidro transparente com área mínima de 900 cm² contendo, em destaque, o pictograma da figura 1 (mangueira) ou figura 2 (mangotinho), sendo facultativa a inscrição “INCÊNDIO” nestes casos. Figura 1 - pictograma indicativo de mangueira Figura 2 - pictograma indicativo de mangotinho Hidrantes"
+    },
+    {
+      "number": 50,
+      "page": 8,
+      "text": "Art. 50. As válvulas para hidrantes devem atender aos requisitos da NBR 16021."
+    },
+    {
+      "number": 51,
+      "page": 8,
+      "text": "Art. 51. A válvula para abertura do hidrante deve ser do tipo globo angular, com diâmetro mínimo de 65 mm (2½\"). Parágrafo único. A válvula para hidrante pode ter diâmetro mínimo de 50 mm (2”) para tubulação de cobre, desde que a tubulação de cobre também tenha um diâmetro de 50 mm."
+    },
+    {
+      "number": 52,
+      "page": 8,
+      "text": "Art. 52. O hidrante deve ter o centro geométrico da tomada d’água variando entre as cotas de 100 cm a 150 cm, tendo como referência o piso (anexo B)."
+    },
+    {
+      "number": 53,
+      "page": 8,
+      "text": "Art. 53. Os hidrantes devem apresentar adaptador rosca x storz, com saída de 40 mm (1½\"), para imóvel com carga de incêndio com até 2.400 MJ/m². Mangotinhos"
+    },
+    {
+      "number": 54,
+      "page": 8,
+      "text": "Art. 54. Mangotinho é um sistema constituído por tomadas de incêndio, com saída de água contendo válvula de abertura rápida, permanentemente acoplada a uma mangueira semirrígida, com um esguicho regulável conectado na extremidade."
+    },
+    {
+      "number": 55,
+      "page": 8,
+      "text": "Art. 55. A válvula para mangotinho deve ser do tipo esfera, de abertura rápida, com passagem plena e com diâmetro mínimo de 25 mm (1”)."
+    },
+    {
+      "number": 56,
+      "page": 8,
+      "text": "Art. 56. O mangotinho deve ter o centro geométrico da tomada d’água variando entre as cotas de 100 cm a 150 cm, tendo como referência o piso (anexo B)."
+    },
+    {
+      "number": 57,
+      "page": 8,
+      "text": "Art. 57. Junto a cada mangotinho, deve ser instalada uma válvula globo angular, com adaptador rosca x storz para mangueira de 40 mm (1½\"), para uso do Corpo de Bombeiros. Parágrafo único. A válvula globo angular deve ter o centro geométrico da tomada d’água variando entre as cotas de 60 cm a 150 cm, tendo como referência o piso. PROJETO E EXECUÇÃO Localização dos hidrantes ou mangotinhos"
+    },
+    {
+      "number": 58,
+      "page": 8,
+      "text": "Art. 58. Os hidrantes ou mangotinhos devem estar localizados: I - na circulação ou na área comum da edificação; II - onde a probabilidade do fogo bloquear o acesso ao mangotinho/hidrante seja a menor possível; III - onde houver boa visibilidade e fácil acesso; e IV - ao menos um por pavimento/setor, localizado até 5 m das portas externas, escadas e/ou acessos da área a ser protegida."
+    },
+    {
+      "number": 59,
+      "page": 8,
+      "text": "Art. 59. É proibido o depósito de materiais que dificultem o uso do hidrante ou mangotinho."
+    },
+    {
+      "number": 60,
+      "page": 8,
+      "text": "Art. 60. O SHP deve ser projetado de maneira que promova proteção em toda a edificação sem comprometer o correto funcionamento e eficiência dos demais sistemas preventivos. Parágrafo único. Com exceção das situações de adequações em edificações existentes e recentes, não é admitida a instalação de hidrante ou mangotinho em rampas, escadas, antecâmaras e seus patamares."
+    },
+    {
+      "number": 61,
+      "page": 9,
+      "text": "Art. 61. Em depósitos, garagens e estacionamentos de qualquer imóvel, assim como nas ocupações dos grupos G, I, J, M-2, M-4, M-5, M-7, M-8 e M-9, os hidrantes ou mangotinhos devem ser sinalizados no piso com a pintura de um quadrado, com 100 cm de lado na cor vermelha e com as bordas pintadas na cor amarela com 10 cm. Parágrafo único. O disposto neste artigo aplica-se aos hidrantes ou mangotinhos instalados em áreas de garagens ou de depósitos, independentemente do tipo de ocupação do imóvel. Quantidade de hidrantes ou mangotinhos"
+    },
+    {
+      "number": 62,
+      "page": 9,
+      "text": "Art. 62. A quantidade de hidrantes ou de mangotinhos de uma edificação é determinada pela cobertura proporcionada pelas mangueiras, de tal forma que qualquer ponto da área a ser protegida seja alcançado pelo esguicho, considerando-se o comprimento da mangueira de acordo com seu trajeto real e o alcance mínimo do jato d'água igual a 4 m, devendo ter contato visual sem barreiras físicas em qualquer parte interna do ambiente. Parágrafo único. Nas edificações verticalizadas deve existir, no mínimo, um hidrante ou mangotinho por pavimento, salvo as exceções previstas no artigo 10. Hidrante de recalque"
+    },
+    {
+      "number": 63,
+      "page": 9,
+      "text": "Art. 63. Todos os sistemas hidráulicos devem ser dotados de dispositivo de recalque, consistindo em um prolongamento de mesmo diâmetro da tubulação principal, com diâmetro mínimo DN50 (2\") e máximo de DN100 (4\"), cujos engates sejam compatíveis aos utilizados pelo Corpo de Bombeiros (ver artigo 65)."
+    },
+    {
+      "number": 64,
+      "page": 9,
+      "text": "Art. 64. Sempre que a vazão do sistema for superior a 1.000 L/min, o dispositivo de recalque deve possuir um registro de recalque adicional, sendo que o prolongamento da tubulação deverá ter diâmetro no mínimo igual ou superior ao existente na tubulação de recalque do sistema."
+    },
+    {
+      "number": 65,
+      "page": 9,
+      "text": "Art. 65. O SHP deve ter hidrante de recalque, do tipo coluna, dotado de: I - válvula globo angular para abertura, com adaptador rosca x storz soldado à válvula (para evitar o furto do adaptador), com saída de 65 mm (2½\") para mangueira; II - engate para mangueira voltada para baixo em ângulo de 45°; III - centro geométrico da tomada d’água variando entre as cotas de 60 cm a 150 cm, tendo como referencial o piso; IV - tampão cego 2½\" storz com corrente (tampão opcional)."
+    },
+    {
+      "number": 66,
+      "page": 9,
+      "text": "Art. 66. São previstos 3 modelos para o hidrante de recalque do tipo coluna (anexo B): I - hidrante de recalque aparente, devendo apenas ser pintado na cor vermelha; II - hidrante de recalque embutido no muro ou parede, devendo ter sinalização na parede ou no muro, composta por um retângulo vermelho nas dimensões de 30 x 40 cm, com a inscrição “INCÊNDIO” na cor branca; ou III - hidrante de recalque dentro de abrigo com dimensões mínimas de 50x50 cm, e distância mínima entre saída do recalque e obstáculo (parede ou abrigo) de no mínimo 30 cm. § 1º Sempre que houver mais de um bloco com hidrantes de recalque distintos, esses devem ser identificados de acordo com o respectivo bloco. § 2º O hidrante de recalque do SHP deve conter sinalização e indicação claras, de forma a ser diferenciado do recalque do sistema de sprinklers, se houver."
+    },
+    {
+      "number": 67,
+      "page": 10,
+      "text": "Art. 67. Se existir abrigo para o hidrante de recalque, a porta do abrigo deve: I - ser fácil de abrir, sem tranca ou cadeado; II - possuir abertura para ventilação; III - permitir o manuseio fácil de mangueiras; e IV - ser de material: a) metálico ou de madeira: na cor vermelha, com a inscrição “INCÊNDIO” ou o pictograma da figura 3; ou b) em vidro temperado: liso, transparente, incolor e sem película Parágrafo único. Para abrigos instalados em área externa (local permanentemente ventilado, ao ar livre, fora da projeção da edificação) admite-se que o material seja de polímeros plásticos desde que possua propriedade não propagante de chamas."
+    },
+    {
+      "number": 68,
+      "page": 10,
+      "text": "Art. 68. É proibido o uso de válvula de retenção que impeça a retirada de água do SHP através do hidrante de recalque."
+    },
+    {
+      "number": 69,
+      "page": 10,
+      "text": "Art. 69. É permitida a interligação de duas ou mais colunas (ou reservatórios) em um único hidrante de recalque, desde que os reservatórios elevados se apresentem na mesma cota (nível)."
+    },
+    {
+      "number": 70,
+      "page": 10,
+      "text": "Art. 70. O hidrante de recalque deve ser instalado junto à entrada principal da edificação: I - na parede externa da fachada principal da edificação; II - no muro da divisa do imóvel com a rua; ou III - na área externa da circulação do imóvel."
+    },
+    {
+      "number": 71,
+      "page": 10,
+      "text": "Art. 71. A localização do hidrante de recalque sempre deve permitir o livre acesso e a aproximação do caminhão de combate a incêndio do Corpo de Bombeiros a partir do logradouro público, sem existir qualquer obstáculo que dificulte sua utilização e sua visibilidade. Tipos de sistemas"
+    },
+    {
+      "number": 72,
+      "page": 10,
+      "text": "Art. 72. A definição do tipo de SHP depende da classificação da carga de incêndio do imóvel, conforme especificado na Tabela 3 do anexo A. Parágrafo único. Na definição do tipo de SHP nos postos para abastecimentos de combustíveis, para fins de cálculo da carga de incêndio do imóvel, o combustível ou o líquido inflamável nos tanques enterrados não são considerados. Dimensionamento do sistema"
+    },
+    {
+      "number": 73,
+      "page": 10,
+      "text": "Art. 73. A vazão medida na saída do esguicho do hidrante ou do mangotinho hidraulicamente menos favorável não pode ser inferior ao previsto na Tabela 3 do anexo A."
+    },
+    {
+      "number": 74,
+      "page": 10,
+      "text": "Art. 74. O SHP deve ser dimensionado em função da carga de incêndio para fornecer a vazão requerida com o funcionamento simultâneo de hidrantes ou mangotinhos, conforme Tabela 3 do anexo A."
+    },
+    {
+      "number": 75,
+      "page": 10,
+      "text": "Art. 75. Ao dimensionar o SHP, a pressão máxima de trabalho nos esguichos do sistema deve ser de 100 mca (10 kgf/m²), devendo o sistema possuir dispositivos de redução de pressão instalados em um sistema de passagem secundária (by-pass¹), sempre que ultrapassar essa medida."
+    },
+    {
+      "number": 76,
+      "page": 10,
+      "text": "Art. 76. O cálculo do SHP é de competência do responsável técnico pelo Projeto de Prevenção e Segurança Contra Incêndio e Pânico (PPCI). Funcionamento do sistema"
+    },
+    {
+      "number": 77,
+      "page": 11,
+      "text": "Art. 77. Durante o comissionamento do SHP, o Responsável Técnico deve testar o sistema e registrar no relatório o resultado do teste de vazão do hidrante menos favorável, realizando a medição da vazão na saída do esguicho em um único ponto, dispensando a necessidade de abrir simultaneamente outros hidrantes ou mangotinhos. Parágrafo único. Admite-se que o teste de vazão seja realizado com esguicho do tipo agulheta (jato compacto) em substituição ao esguicho regulável, conforme segue: I - tipo I, diâmetro de 13 mm; II - tipo III, diâmetro de 16 mm."
+    },
+    {
+      "number": 78,
+      "page": 11,
+      "text": "Art. 78. Para as bombas de incêndio do SHP deve ser apresentado DRT de manutenção, pelo menos a cada 3 anos, para fins de expedição de alvará de funcionamento. Reserva Técnica de Incêndio"
+    },
+    {
+      "number": 79,
+      "page": 11,
+      "text": "Art. 79. O volume d’água da RTI é definido em função da carga de incêndio, considerando a média ponderada no caso de edificações com ocupação mista, e da área total construída do imóvel, conforme Tabela 4 do anexo A. Parágrafo único. Em blocos isolados o volume da RTI é definido de forma individual e independente para cada bloco."
+    },
+    {
+      "number": 80,
+      "page": 11,
+      "text": "Art. 80. No mesmo reservatório devem estar acondicionadas a água da RTI e a água para consumo da edificação para garantir o fluxo constante do líquido. § 1º A água de consumo pode ser computada como volume de água da RTI. § 2º A regra do caput não se aplica quando utilizada como RTI água originada de fontes naturais de água perene (lagoas, lagos, rios ou açudes). § 3º No caso de água de reuso e/ou armazenada em cisterna, admite-se que não haja comunicação com reservatório de consumo desde que: I - seja realizada a recirculação ou descarte com renovação do volume de forma periódica com objetivo de evitar processos corrosivos, de sedimentação, entre outros; II - seja realizado, a cada 5 anos, teste e inspeção do reservatório e das tubulações do sistema, com o devido DRT."
+    },
+    {
+      "number": 81,
+      "page": 11,
+      "text": "Art. 81. O reservatório pode ser dividido em 2 ou mais células para permitir a limpeza e a manutenção de uma célula, enquanto a outra célula supre de água a edificação e o SHP. Parágrafo único. Nos reservatórios divididos, as células de armazenamento devem ser interligadas por tubulação com diâmetro, no mínimo, igual ao da prumada principal do SHP."
+    },
+    {
+      "number": 82,
+      "page": 11,
+      "text": "Art. 82. O reservatório da RTI deve ser dotado de dispositivos para acesso à vistoria interna."
+    },
+    {
+      "number": 83,
+      "page": 11,
+      "text": "Art. 83. As tubulações, bem como o registro para limpeza do reservatório, devem ser metálicos, exceto quando instalados dentro de ambiente protegido contra o fogo."
+    },
+    {
+      "number": 84,
+      "page": 11,
+      "text": "Art. 84. A tubulação de saída do reservatório para abastecimento do SHP deve ser dotada de registro de gaveta ou registro de esfera (para manutenção do sistema) e de válvula de retenção (para bloquear o recalque), ambas no mesmo diâmetro da tubulação."
+    },
+    {
+      "number": 85,
+      "page": 11,
+      "text": "Art. 85. A válvula de retenção, tanto do registro de gaveta, quanto do registro de esfera, devem ser instalados em locais com pé direito mínimo de 1,50 m, de modo a facilitar o acesso, o exame visual e a manutenção."
+    },
+    {
+      "number": 86,
+      "page": 12,
+      "text": "Art. 86. O reservatório deve ser construído em material que garanta a resistência mecânica, às intempéries e com tempo requerido de resistência ao fogo (TRRF) mínimo de 2 horas. § 1º Sempre que estiverem em compartimento enterrado ou em barriletes, devem possuir acesso, no mínimo, por meio de escada do tipo marinheiro. § 2º A abertura para acesso citada no § 1º está dispensada do TRRF. § 3º Dispensa-se a proteção ao fogo do reservatório, quando esse possuir os seguintes afastamentos: a) 6 m da edificação, se as paredes frontais da edificação para o reservatório não possuírem aberturas (parede cega); b) 12 m da edificação, se as paredes frontais da edificação para o reservatório possuírem aberturas; ou c) 6 m da divisa da propriedade, sem necessidade de proteção quando próximo à via pública. § 4º O ambiente onde se instala o reservatório pode ter ventilação permanente, desde que esta cumpra os seguintes critérios: I - a área de ventilação seja de, no máximo, 10% da área total do ambiente; II - a abertura de ventilação seja para face externa do imóvel e nunca se comunique com a parte interna da própria edificação; III - a abertura deve possuir compartimentação em relação às demais aberturas da fachada da edificação, conforme IN 14."
+    },
+    {
+      "number": 87,
+      "page": 12,
+      "text": "Art. 87. Para reservatório do tipo elevado (superior ou castelo d'água), o abastecimento do SHP é feito pela ação da gravidade, devendo o reservatório estar à altura suficiente para fornecer vazão mínima requerida, conforme Tabela 3 do anexo A, sendo a altura da RTI considerada."
+    },
+    {
+      "number": 88,
+      "page": 12,
+      "text": "Art. 88. Caso a altura do reservatório elevado seja insuficiente para fornecer a vazão mínima requerida para o sistema nos pontos dos hidrantes ou mangotinhos mais desfavoráveis considerados no cálculo, deve-se utilizar bomba de reforço instaladas em sistema de passagem secundária (by-pass1), para garantir as pressões e vazões mínimas para aqueles pontos, conforme especificado na Seção “Bombas de incêndio”, desta IN. Nota 1 A instalação de bombas em sistema de by-pass visa garantir o fluxo de água na prumada mesmo com a bomba impossibilitada de funcionar."
+    },
+    {
+      "number": 89,
+      "page": 12,
+      "text": "Art. 89. Para reservatórios do tipo inferior (nível do solo, térreo, semi enterrado, subterrâneo ou cisterna), o abastecimento do SHP é feito através de 2 bombas principais (primária e reserva) e 1 bomba auxiliar (Jockey) para pressurizar e manter a rede pressurizada, conforme especificado na seção “Bombas de Incêndio”, desta IN. Parágrafo único. Podem ser utilizadas como reservatório inferior para o SHP as fontes naturais de água perene, tais como: lagoas, lagos, rios ou açudes. Bombas de incêndio"
+    },
+    {
+      "number": 90,
+      "page": 12,
+      "text": "Art. 90. A quantidade mínima de bombas de incêndio necessárias para atendimento ao SHP é definida de acordo com a função da bomba, sendo: I - reforço: 1 bomba hidráulica com fonte de energia reserva; II - recalque: 2 bombas hidráulicas (primária e reserva), sendo a bomba reserva com fonte de energia reserva. § 1º Dispensa-se a necessidade de bomba e fonte de energia reservas quando utilizada bomba hidráulica à combustão com certificação UL/FM. § 2º Em situações de recalque, se utilizada bomba elétrica com certificação UL/FM, é dispensada a exigência de bomba reserva, mas neste caso, deverá haver fonte de energia reserva para a bomba primária. § 3º A especificação técnica, o cálculo da vazão, pressão e potência das bombas de incêndio são de competência do responsável técnico pelo PPCI. § 4º Quando for necessário remover ou inativar a bomba de incêndio em razão de manutenção ou outro motivo, por período superior a 12 horas, compete ao responsável prover no imóvel equipamento reserva. § 5º A bomba primária deve ter sua ligação conforme definição da IN 19 com entrada de energia específica para as instalações de segurança e combate a incêndios. § 6º As bombas principal e reserva não podem funcionar simultaneamente, de forma que quando a bomba reserva estiver em funcionamento por falta de energia, a bomba elétrica principal não poderá partir ao retornar a energia."
+    },
+    {
+      "number": 91,
+      "page": 13,
+      "text": "Art. 91. Para as bombas de incêndio, deve ser assegurado o fornecimento de energia através de fonte reserva, independentemente da fonte de energia primária. § 1º A fonte reserva de energia pode ser assegurada através de: I - bomba de incêndio à combustão interna; II - gerador de energia; ou III - outras fontes de energia (ex.: baterias). § 2º A bateria do motor a combustão da bomba de incêndio, deve ser mantida carregada através de um sistema de flutuação automática, por meio de um carregador de bateria que garanta sua plena carga e carregamento."
+    },
+    {
+      "number": 92,
+      "page": 13,
+      "text": "Art. 92. A partida da bomba principal (primária e reserva) deve ser automática, com a simples abertura de qualquer hidrante ou mangotinho, bem como a partida da bomba de reforço deve ser automática, com a simples abertura de qualquer hidrante ou mangotinho que necessite de pressurização, conforme projeto, sendo o desligamento dessas bombas apenas manual através do painel de comando localizado no compartimento de bombas. Parágrafo único. A bomba auxiliar (jockey) deverá ligar e desligar automaticamente."
+    },
+    {
+      "number": 93,
+      "page": 13,
+      "text": "Art. 93. As bombas de incêndio (primária e reserva), com funcionamento à plena carga, devem ter autonomia mínima de: I - 2 horas, para carga de incêndio até 1.200 MJ/m²; II - 4 horas, para carga de incêndio de 1.200 a 2.400 MJ/m²; III - 6 horas, para carga de incêndio maior que 2.400 MJ/m²."
+    },
+    {
+      "number": 94,
+      "page": 13,
+      "text": "Art. 94. As bombas de incêndio devem ser instaladas em condição de sucção positiva (bomba afogada), a qual é obtida quando a linha do eixo da bomba se situa abaixo do nível superior d’água da RTI."
+    },
+    {
+      "number": 95,
+      "page": 13,
+      "text": "Art. 95. As tomadas de admissão (sucção) das bombas de incêndio devem ser exclusivas para o SHP, preferencialmente independentes para cada bomba. Devendo possuir registro de gaveta ou de esfera para possibilitar a manutenção de cada bomba de forma independente."
+    },
+    {
+      "number": 96,
+      "page": 14,
+      "text": "Art. 96. Na saída das bombas de incêndio é obrigatória a colocação de registro de gaveta ou de esfera (para manutenção) e válvula de retenção (para bloqueio de recalque). Parágrafo único. A instalação do registro de gaveta deve permitir a manutenção da válvula de retenção."
+    },
+    {
+      "number": 97,
+      "page": 14,
+      "text": "Art. 97. Com exceção das bombas monobloco, todas as demais bombas de incêndio devem ser diretamente acopladas por meio de luva elástica, sem interposição de correias ou correntes."
+    },
+    {
+      "number": 98,
+      "page": 14,
+      "text": "Art. 98. As bombas de incêndio que utilizam fontes naturais como reservatório inferior devem dispor, junto à válvula de pé com crivo, de um sistema de grelhas e filtros para evitar a entrada de detritos que possam causar danos às bombas de incêndio."
+    },
+    {
+      "number": 99,
+      "page": 14,
+      "text": "Art. 99. As bombas de incêndio devem ser instaladas em compartimento apropriado, devendo ter as seguintes características: I - permitir o fácil acesso, com espaço interno para manobra e manutenção das bombas, com pé direito mínimo de 1,50 m; II - oferecer proteção a danos mecânicos, intempéries, agentes químicos, fogo ou umidade; III - ter porta de acesso; IV - ter dispositivo para acionamento e desarme manual das bombas de incêndio; V - se localizadas em compartimento enterrado ou em barriletes, devem possuir acesso, no mínimo, por meio de escadas do tipo marinheiro."
+    },
+    {
+      "number": 100,
+      "page": 14,
+      "text": "Art. 100. As bombas de incêndio (primária e reserva) devem possuir uma placa de identificação com as seguintes especificações técnicas: I - nome do fabricante; II - modelo da bomba; III - vazão; IV - altura manométrica ou pressão; e V - potência."
+    },
+    {
+      "number": 101,
+      "page": 14,
+      "text": "Art. 101. Deve ser instalado um painel de sinalização das bombas de incêndio (primária e reserva), preferencialmente ao lado da central de alarme de incêndio ou onde haja vigilância permanente, dotado de uma botoeira para acionamento manual das bombas, possuindo sinalização visual e acústica, indicando: I - “BOMBA DE INCÊNDIO PRIMÁRIA EM FUNCIONAMENTO”; e II - “BOMBA DE INCÊNDIO RESERVA EM FUNCIONAMENTO”."
+    },
+    {
+      "number": 102,
+      "page": 14,
+      "text": "Art. 102. A bomba de incêndio acoplada a motor elétrico deve: I - dispor de circuito elétrico independente do consumo geral da edificação; II - ter os condutores do circuito elétrico protegidos por eletroduto antichama; III - ter o disjuntor do seu circuito elétrico sinalizado: a) de modo a diferenciá-lo de outros disjuntores; e b) com a inscrição: “BOMBA DE INCÊNDIO - NÃO DESLIGUE”. Parágrafo único. A bomba de incêndio não pode ser desligada pelo disjuntor interno geral da edificação."
+    },
+    {
+      "number": 103,
+      "page": 14,
+      "text": "Art. 103. A instalação elétrica do SHP deve atender os requisitos gerais da IN 19."
+    },
+    {
+      "number": 104,
+      "page": 14,
+      "text": "Art. 104. A bomba de incêndio acoplada ao motor de combustão deve: I - levar no máximo 12 segundos para realizar a comutação da fonte de energia e entrar em funcionamento; II - ter instalada sob o tanque de combustível do motor a combustão uma bacia de contenção com volume mínimo de 1,5 vez a capacidade do tanque; e III - ter as baterias do motor a combustão mantidas carregadas por um sistema de flutuação automática."
+    },
+    {
+      "number": 105,
+      "page": 15,
+      "text": "Art. 105. O escapamento dos gases do motor a combustão deve ser direcionado para o exterior da edificação de forma a impedir que os gases retornem ao interior do ambiente . DOCUMENTAÇÃO Vistoria para habite-se"
+    },
+    {
+      "number": 106,
+      "page": 15,
+      "text": "Art. 106. Na solicitação de vistoria para habite-se em edificações dotadas de SHP deve ser apresentado laudo de comissionamento do sistema, conforme anexo C, junto com o respectivo DRT. DISPOSIÇÕES FINAIS"
+    },
+    {
+      "number": 107,
+      "page": 15,
+      "text": "Art. 107. Esta IN, aplicável em todo o território catarinense, entra em vigor em 24 de abril de 2024, revogando a IN 7 de 26 de dezembro de 2022."
+    },
+    {
+      "number": 108,
+      "page": 15,
+      "text": "Art. 108. As figuras apresentadas nesta IN são meramente ilustrativas e possuem objetivo de facilitar a compreensão dos itens textuais relacionados. Coronel BM FABIANO DE SOUZA Comandante-Geral do Corpo de Bombeiros Militar de SC ORGANIZAÇÃO: TC BM Willyan Fazzioni - Direção Maj BM Oscar W Barboza Jr - Supervisão e Edição Cap BM Rafael Giosa Sanino - Revisão Cap BM Suellen Lapa Duarte - Edição"
+    }
+  ],
+  "annexes": [
+    {
+      "page": 16,
+      "title": "Anexo A - Tabelas do SHP Tabela 1 – Tipos de mangueiras Mangueira Aplicação Diâm",
+      "text": "Anexo A - Tabelas do SHP Tabela 1 – Tipos de mangueiras Mangueira Aplicação Diâmetro Pressão de trabalho Descrição Tipo 1 Destina-se a edifícios de ocupação residencial. 40 mm (1½\") 100 mca Mangueira flexível, de borracha, com um reforço têxtil. Tipo 2 Destina-se a edifícios comerciais ou industriais. 40 mm (1½\") 140 mca Mangueira flexível, de borracha, com um reforço têxtil. Tipo 3 Destina-se à área naval ou industrial. 40 mm (1½\") 150 mca Mangueira flexível, de borracha, com reforços têxteis duplos sobrepostos. Tipo 4 Destina-se à área industrial, onde é desejável uma maior resistência à abrasão. 40 mm (1½\") 140 mca Mangueira flexível, de borracha, com um reforço têxtil, acrescida de um revestimento externo de PVC + borracha. Tipo 5 Destina-se à área industrial, onde é desejável uma alta resistência à abrasão e a superfícies quentes. 40 mm (1½\") 140 mca Mangueira flexível, de borracha, com um reforço têxtil, acrescida de um revestimento externo de borracha. Tipo 6 Destina-se às edificações que utilizam mangotinhos. 25 mm (1”) 140 mca Mangueira semirrígida, de borracha, com um reforço têxtil. Adota-se: 1 MPa = 10 bar = 10 kgf/cm² = 100 mca = 145 psi Tabela 2 – Linhas de mangueiras para hidrante Comprimento máximo da linha de mangueiras Lances de mangueiras Aplicação Até 25 m Lance único de 15, 20 ou 25 m Em qualquer situação. 30 m 15 + 15 m 35 m 15 + 20 m Apenas se: a) a instalação do hidrante for externa à edificação; ou b) o hidrante do pavimento térreo atender a salas comerciais com saída para o logradouro; ou c) o hidrante do pavimento térreo atender área em pilotis; ou d) em edificações do grupo A2, somente nos pavimentos tipo com hall/corredor de área máxima 12 m². 40 m 20 + 20 m 45 m 15 + 15 + 15 m 50 m 15 + 15 + 20 m 55 m 15 + 20 + 20 m 60 m 20 + 20 + 20 m 60 m 15 + 15 + 15 + 15 m"
+    },
+    {
+      "page": 17,
+      "title": "Tabela 3 – Tipos de sistemas Tipo Característica Carga de Incêndio [MJ/m²] Diâme",
+      "text": "Tabela 3 – Tipos de sistemas Tipo Característica Carga de Incêndio [MJ/m²] Diâmetro da mangueira Nº de saídas Tipo de esguicho Vazão mínima no esguicho* Nr Hidrantes ou mangotinhos (Nr saídas simultâneas) I Hidrante ≤1.200 40 mm (1½\") Simples Regulável ou Agulheta (Ø requinte = ½\") 70 l/min 1 (1) 2-3-4 (2) 5-6 (3) >6 (4) II Mangotinho ≤1.200 25 mm (1\") ou 32 mm (1¼”) Simples Regulável 80 ou 100 l/min¹ 1 (1) 2-3-4 (2) 5-6 (3) >6 (4) III Hidrante > 1.200 40 mm (1½\") Dupla Regulável 300 l/min 1 (2) 2-3-4 (2) 5-6 (2) >6 (2) Adota-se: 1 MPa = 10 bar = 10 kgf/cm² = 100 mca = 145 psi 1 - De acordo com o diâmetro da mangueira utilizada: 25 mm = 80 l/min; 32 mm = 100 l/min. *As vazões da tabela correspondem aos esguichos do tipo reguláveis na posição de maior vazão, considerando o alcance mínimo do jato conforme artigo 62. Tabela 4 – Volume mínimo da RTI Carga de Incêndio Área ≤ 2.500m² 2.500m² < Área ≤5.000m² 5.000m² < Área ≤10.000m² 10.000m² < Área ≤25.000m² 25.000m² < Área ≤50.000m² Área > 50.000m² ≤1.200 MJ/m² 5 m³ 10 m³ 15 m³ 20 m³ 25 m³ 30 m³ 1.201 ≤2.400 MJ/m² 18 m³ 36 m³ 54 m³ 72 m³ 90 m³ 108 m³ > 2.400 MJ/m² 36 m³ 72 m³ 108 m³ 144 m³ 180 m³ 216 m³"
+    },
+    {
+      "page": 18,
+      "title": "Anexo B - Detalhes do SHP Figura 1 – Hidrante para Sistema Tipo I (porta do abri",
+      "text": "Anexo B - Detalhes do SHP Figura 1 – Hidrante para Sistema Tipo I (porta do abrigo em vidro temperado) Figura 2 – Hidrante para Sistema Tipo I (porta do abrigo na cor vermelha)"
+    },
+    {
+      "page": 19,
+      "title": "Figura 3 – Mangotinho para Sistema Tipo II",
+      "text": "Figura 3 – Mangotinho para Sistema Tipo II"
+    },
+    {
+      "page": 20,
+      "title": "Figura 4 – Hidrante para Sistema Tipo III (lance único de mangueira) Figura 5 – ",
+      "text": "Figura 4 – Hidrante para Sistema Tipo III (lance único de mangueira) Figura 5 – Hidrante para Sistema Tipo III (com 2 ou mais lances de mangueiras)"
+    },
+    {
+      "page": 21,
+      "title": "Figura 6 – Hidrante de Recalque (aparente) Figura 7 – Hidrante de Recalque (embu",
+      "text": "Figura 6 – Hidrante de Recalque (aparente) Figura 7 – Hidrante de Recalque (embutido) Figura 8 – Hidrante de Recalque (com abrigo)"
+    },
+    {
+      "page": 22,
+      "title": "Anexo C - Atividades de comissionamento do SHP Relatório de comissionamento e de",
+      "text": "Anexo C - Atividades de comissionamento do SHP Relatório de comissionamento e de inspeção periódica do sistema de hidrantes e mangotinhos Endereço: Nº Complemento: Bairro: Município- UF: RE: Proprietário: e-mail: Responsável uso/brigadista: e-mail: Responsável Técnico pelo comissionamento/inspeção: Número do registro do profissional: e-mail: Ocupação e tipo ( Tabela 1 do Anexo B da IN 1 parte 2): 1. HIDRANTES/MANGOTINHOS: Sim Não 1.1 O sistema de hidrantes/mangotinhos atende ao leiaute da edificação conforme projeto técnico aprovado? 1.2 Todos os ambientes estão protegidos por hidrantes/mangotinhos? 1.3 Os hidrantes/mangotinhos estão instalados na posição correta, conforme projeto técnico aprovado? 1.4 Os hidrantes/mangotinhos estão desobstruídos e sinalizados conforme a IN 7? 1.5 Os hidrantes/mangotinhos estão sem vazamentos? 1.6 As mangueiras de incêndio estão em bom estado de conservação e possuem as demarcações de certificação? 1.7 Os abrigos estão de acordo com os parâmetros da IN 7? 1.8 Os abrigos possuem os equipamentos necessários( esguichos e chaves de mangueiras)? 2. CONJUNTO BOMBA DE INCÊNDIO (Bomba+Motor+Painel de controle e partida). Sim Não 2.1 A bomba de incêndio está adequadamente instalada? 2.2 Existe bomba \"jóquey\" instalada? Caso positivo, a mesma está adequadamente instalada? 2.3 A bomba de incêndio está em compartimento protegido contra o fogo? 2.4 A bomba de incêndio está em compartimento sem acúmulo de materiais combustíveis? 2.5 A bomba de incêndio está sem vazamentos? (teste) 2.6 A bomba de incêndio está instalada com vazão e pressão de acordo com projeto técnico aprovado? 2.7 Os manômetros e pressostatos estão em boas condições e funcionando corretamente? 2.8 As válvulas de bloqueio (exceto no cabeçote de testes, se houver) estão travadas e na posição correta? 2.9 A fixação da bomba de incêndio está adequada? 2.10 Painel de sinalização corretamente instalado e em local com vigilância ou próximo à central de alarme? 3. TUBULAÇÃO Sim Não 3.1 Tubulação sem danos mecânicos? 3.2 Tubulação sem vazamentos? (teste) 3.3 Tubulação sem corrosão ou obstrução interna? 3.4 Tubulação adequadamente alinhada? 3.5 Tubulação aparente pintada na cor vermelha? 3.6 Suportes e braçadeiras adequados? 4. CONEXÃO DE RECALQUE Sim Não 4.1 Conexão de recalque está sinalizada? 4.2 Conexão de recalque está desobstruída? 4.3 Conexão de recalque está sem vazamentos? 5. TANQUES E RESERVATÓRIOS: Sim Não 5 .1 Reservatório de incêndio possui volume adequado de acordo como projeto técnico aprovado? 5.2 Reservatório de incêndio possui válvulas completamente abertas? 5.3 Reservatório de incêndio possui tubulação e válvulas adequadas? 5.4 O reservatório está em compartimento protegido contra o fogo? 6. TESTE DE FUNCIONAMENTO DO SHP Sim Não 6.1 A partida das motobombas ocorre de maneira automática, obedecendo aos demais parâmetros exigidos? 6.2 Teste de vazão Valor l/min Qual o valor da vazão medida no hidrante menos favorável hidraulicamente, em L/min? Justificativas técnicas para não atendimento dos itens assinalados - a ser preenchido pelo Responsável Técnico."
+    },
+    {
+      "page": 23,
+      "title": "Atesto, nesta data, que a instalação foi inspecionada e está em conformidade com",
+      "text": "Atesto, nesta data, que a instalação foi inspecionada e está em conformidade com as prescrições da IN 7, estando o proprietário e/ou o responsável pelo uso ciente(s) das responsabilidades referentes à manutenção e vistorias periódicas, conforme a NBR 13714. Data da comissionamento/inspeção: ______/______/______ ________________________________________________________________ Assinatura (Certificação digital) - Proprietário e/ou responsável pelo uso"
+    }
+  ],
+  "checks": {
+    "needs_human_look": []
+  }
+}

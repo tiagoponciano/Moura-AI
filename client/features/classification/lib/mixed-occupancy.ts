@@ -20,6 +20,12 @@ export type OccupationPart = {
    * tower isolated from the others. Absent for an ordinary occupation.
    */
   role?: "podium" | "tower";
+  /**
+   * IN 1 parte 1, art. 4, IV: the largest share of one floor of the building that
+   * this occupation takes, from 0 to 100. A secondary occupation at 90 or more
+   * makes the building mixed whatever its share of the total area.
+   */
+  largest_floor_share_pct?: number;
 };
 
 /**

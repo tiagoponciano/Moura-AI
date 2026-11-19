@@ -63,6 +63,30 @@ describe("mixedKind", () => {
     expect(mixedKind([part("A-2", 900), part("C-2", 100)])).toBe("secondary");
     expect(mixedKind([part("A-2", 950), part("C-2", 50)])).toBe("secondary");
   });
+
+  it("is mixed when a secondary occupation takes 90% or more of one floor, however small it is overall", () => {
+    const small = { ...part("C-2", 50), largest_floor_share_pct: 90 };
+    expect(mixedKind([part("A-2", 950), small])).toBe("mixed");
+  });
+
+  it("stays secondary when the secondary occupation takes less than 90% of every floor", () => {
+    const small = { ...part("C-2", 50), largest_floor_share_pct: 89.9 };
+    expect(mixedKind([part("A-2", 950), small])).toBe("secondary");
+  });
+
+  it("does not count the predominant occupation's own floor share", () => {
+    const first = { ...part("A-2", 950), largest_floor_share_pct: 100 };
+    expect(mixedKind([first, part("C-2", 50)])).toBe("secondary");
+  });
+});
+
+describe("pickParts, floor share", () => {
+  it("keeps a share between 0 and 100 and drops the list for one outside it", () => {
+    const ok = { ...part("C-2", 50), largest_floor_share_pct: 100 };
+    expect(pickParts([part("A-2", 950), ok])).toHaveLength(2);
+    const bad = { ...part("C-2", 50), largest_floor_share_pct: 120 };
+    expect(pickParts([part("A-2", 950), bad])).toEqual([]);
+  });
 });
 
 describe("classifyWithParts", () => {

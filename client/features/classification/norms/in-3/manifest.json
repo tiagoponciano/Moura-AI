@@ -1,7 +1,7 @@
 {
   "doc": "IN-3",
   "source_url": "https://drive.google.com/file/d/1VHU5PfbkwquON6xAn1oyu85yI2sFZhok/view",
-  "retrieved": "2026-11-12",
+  "retrieved": "2026-11-19",
   "pdf_sha256": "ecae6a4cded7973d60b57f8d7c93bdc22d618cf9ed8d5f549c526b794f19b958",
   "pdf_pages": 16,
   "tool_version": 1,
@@ -11,5 +11,11 @@
     "rows": 262,
     "sha256": "64a630c684c111532a8252c22206661eba18487841eb9083e7556e7a4e61eff7",
     "needs_human_look": 2
+  },
+  "articles": {
+    "count": 14,
+    "annex_pages": 13,
+    "sha256": "14e4c78dce6d226399245c5ddb6a3e62764c619f99beb613a8728289f1c87a52",
+    "needs_human_look": 0
   }
 }

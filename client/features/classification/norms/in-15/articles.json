@@ -1,0 +1,226 @@
+{
+  "doc": "IN-15",
+  "preamble": "IN 15 SISTEMA DE CHUVEIROS AUTOMÁTICOS (Sprinklers) - SPK SUMÁRIO DISPOSIÇÕES INICIAIS 2 Objetivo 2 Referências 2 Terminologias 2 APLICAÇÃO 2 Isenção do SPK 2 REQUISITOS GERAIS 3 Projeto do SPK 3 Reserva técnica de incêndio (RTI) 4 Sinalização 4 Bombas de incêndio 4 Sprinkler para compartimentação 5 Hidrante de recalque 5 Sistema elétrico 7 DOCUMENTAÇÃO 7 Vistoria para habite-se 7 Vistoria de funcionamento 7 DISPOSIÇÕES FINAIS 7 Anexo A - Limites de temperatura, classificação e código de cores dos chuveiros automáticos 9 Anexo B - Atividades de comissionamento do sistema 9 Anexo C - Inspeção do Sistema de Chuveiros Automáticos 15 Vigente a partir de 24/04/2024 17 páginas INSTRUÇÃO NORMATIVA 15 SISTEMA DE CHUVEIROS AUTOMÁTICOS SPRINKLERS (SPK) DISPOSIÇÕES INICIAIS Objetivo",
+  "articles": [
+    {
+      "number": 1,
+      "page": 2,
+      "text": "Art. 1º Esta Instrução Normativa (IN) tem por objetivo estabelecer e padronizar critérios de concepção e dimensionamento do Sistema de Chuveiros Automáticos - Sprinklers (SPK) para os imóveis fiscalizados pelo Corpo de Bombeiros Militar de Santa Catarina (CBMSC). § 1º Os chuveiros automáticos (ou sprinklers) são um sistema fixo de combate a incêndio, de operação automática, que ativado pelo calor de um foco de incêndio, libera água em quantidade adequada ao risco dimensionado; quando bem dimensionado e manutenido, seu funcionamento independe da ação de pessoas e oferece proteção contínua, 24 horas por dia. § 2º Com atuação pontual e automática sobre focos de incêndio em seu estágio inicial, propicia detecção e ação de combate em um tempo muito menor que os sistemas convencionais; a atuação na redução do calor auxilia no controle de propagação das chamas, reduzindo os danos e aumentando significativamente o tempo para o abandono da edificação. § 3º Em casos especiais, o sprinkler pode operar como uma espécie de compartimentação, reduzindo ou evitando a propagação do incêndio. Referências"
+    },
+    {
+      "number": 2,
+      "page": 2,
+      "text": "Art. 2º As referências utilizadas são as seguintes: I - IN 1, de 2024 - CBMSC; II - IN 5, de 2024 - CBMSC; III - IN 19, de 2024 - CBMSC; IV - Manual de Procedimentos I-321.0032, de 2016 - CELESC; V - NBR 13714; VI - NBR 5410; VII - NBR 6493; VIII - NBR 10897; IX - NBR 15648; X - NBR 16400; XI - NFPA 13 - Standard for the Installation of Sprinkler Systems ; XII - P8807 - Pocket Guide para Sprinklers (6ª edição) da FM Global, de 2012; e XIII - FM Global Data Sheets para sistema de SPK. Terminologias"
+    },
+    {
+      "number": 3,
+      "page": 2,
+      "text": "Art. 3º As terminologias gerais que tratam da segurança contra incêndio são definidas pelo CBMSC e disponibilizadas para acesso público em seu portal oficial."
+    },
+    {
+      "number": 4,
+      "page": 2,
+      "text": "Art. 4º Para aplicação desta IN consideram-se as seguintes terminologias específicas: I - certificação FM: certificação concedida pela FM Approvals; II - certificação UL : certificação independente realizada pela Underwriters Laboratories; III - entreforro : espaço que separa o forro de um telhado ou teto. APLICAÇÃO"
+    },
+    {
+      "number": 5,
+      "page": 2,
+      "text": "Art. 5º Esta IN aplica-se aos imóveis para os quais o SPK é exigido, conforme previsto nas normas de segurança contra incêndio e pânico (NSCI). Isenção do SPK"
+    },
+    {
+      "number": 6,
+      "page": 2,
+      "text": "Art. 6º A critério do responsável técnico pelo Projeto de Prevenção e Segurança Contra Incêndio e Pânico (PPCI), pode ser isenta a instalação de pontos de chuveiros automáticos, nos seguintes locais: I - banheiros; II - rampas para acesso exclusivo de veículos; III - escadas de emergência dos tipos: protegida, enclausurada, à prova de fumaça, pressurizada ou aberta externa; IV - locais com área de até 200 m² destinados à instalação de bombas de incêndio, gerador de emergência, e casas de máquinas; V - subestação elétrica, sala de gerador(es) e similares, onde haja apenas equipamentos elétricos energizados e com área de até 200 m²; VI - centros de processamento de dados, com área de até 50 m²; e VII - ambientes onde o emprego de água seja desaconselhável, sendo que, nesses casos, sempre deverá ser analisada a viabilidade de previsão de outro tipo de sistema de supressão de incêndio alternativo, conforme declaração fundamentada do Responsável Técnico (RT) em memorial descritivo do PPCI. § 1° Os empreendimentos que possuam ambientes sem definição de leiaute, que dificultem ou impeçam a correta disposição dos bicos de chuveiro automático, deverão ser compostos por ramais (pontos de ligação) nos quais o sistema de chuveiros automáticos deverá ser interligado. Cada “ponto de ligação” deverá conter a indicação da vazão e pressão disponíveis de modo a possibilitar que, após a definição do leiaute, o projeto do sistema desses ambientes seja apresentado de forma individual e complementar. § 2° Os ambientes a que se refere o § 1° deste artigo só poderão ser ocupados após a correta instalação do sistema de chuveiros automáticos, interligando a nova rede ao sistema existente na edificação, de acordo com o leiaute aprovado no projeto complementar de cada ambiente. REQUISITOS GERAIS Projeto do SPK"
+    },
+    {
+      "number": 7,
+      "page": 3,
+      "text": "Art. 7º O projeto do SPK deve ser elaborado pelo método hidráulico, conforme as especificações técnicas das NBR 10.897 e demais NBRs correlatas, sendo de competência do responsável técnico pelo PPCI. § 1º Alternativamente, quando as características da edificação exigirem medidas associadas ao sistema de SPK não contempladas pelas NBRs, admite-se a elaboração de projetos fundamentados nas seguintes normas: I - NFPA 13 da National Fire Protection Association; II - FM Global; III - método de tabela; ou IV - outras normas, de acordo com as prescrições contidas na IN 1. § 2º O PPCI deve conter DRT específico para o sistema de chuveiros automáticos."
+    },
+    {
+      "number": 8,
+      "page": 3,
+      "text": "Art. 8º Para classificação de risco das ocupações no dimensionamento, projeto e execução do SPK, deve-se adotar o previsto nas Tabelas A.1 e A.2 do anexo A da NBR 10.897 ¹ . Nota 1 Para efeito de dimensionamento, projeto e execução do sistema de SPK, não se deve misturar conceitos normativos (IN e NBR), pois os conceitos podem não ser os mesmos, visto que as classificações das ocupações quanto à necessidade de chuveiros automáticos não estão ligadas apenas à carga de incêndio mas também à velocidade de propagação de um incêndio e à dificuldade para que a água alcance o fogo. A exemplo, o dimensionamento do SPK (ABNT NBR 10897) nos locais e ocupações “garagens” devem ser classificados como risco ordinário do Grupo 1."
+    },
+    {
+      "number": 9,
+      "page": 3,
+      "text": "Art. 9º Sempre que exigido o sistema de SPK, esse deve atender toda a área de edificação, inclusive: I - escada de emergência tipo comum; II - rampa para acesso de pessoas; III - entreforros, quando houver forro combustível ou carga de incêndio no espaço entreforro . Parágrafo único. Nos casos previstos no inciso III deste artigo, os chuveiros automáticos devem ser instalados acima do forro combustível ou do material combustível entreforro."
+    },
+    {
+      "number": 10,
+      "page": 4,
+      "text": "Art. 10. Para os chuveiros automáticos com elemento termossensível do tipo liga fusível ou com ampola de vidro, deve-se atender às especificações da Tabela 1 do anexo A desta IN. Reserva técnica de incêndio (RTI)"
+    },
+    {
+      "number": 11,
+      "page": 4,
+      "text": "Art. 11. O volume de água da RTI é definido em função do tempo de funcionamento à plena carga exigido para o sistema de SPK, conforme o previsto nas NBRs 10897 e 16981. § 1º Admite-se uma única RTI para o sistema hidráulico preventivo (SHP) e para o sistema de SPK, desde que o reservatório contenha a soma dos volumes d'água necessários para ambos os sistemas. § 2º Caso seja escolhida uma RTI única para o SPK e SHP, fica vedada a previsão do § 1º do artigo 80 da IN 7, sendo necessário garantir a separação nas tomadas de água ou reservatórios distintos para assegurar a reserva de água para os SMSCI."
+    },
+    {
+      "number": 12,
+      "page": 4,
+      "text": "Art. 12. Nos casos com ocupação mista, a RTI deve ser calculada em função da vazão do maior risco e do tempo de funcionamento do risco predominante."
+    },
+    {
+      "number": 13,
+      "page": 4,
+      "text": "Art. 13. Nos casos em que os sistemas de hidrantes e mangotinhos sejam instalados em conjunto com o sistema de chuveiros automáticos, as vazões e pressões mínimas exigidas para o SHP e SPK devem ser garantidas. Sinalização"
+    },
+    {
+      "number": 14,
+      "page": 4,
+      "text": "Art. 14. As tubulações, conexões e válvulas do SPK, quando aparentes, devem ser na cor vermelha. Bombas de incêndio"
+    },
+    {
+      "number": 15,
+      "page": 4,
+      "text": "Art. 15. A especificação técnica, o cálculo da vazão, pressão e potência das bombas de incêndio são de competência do responsável técnico pelo projeto do SPK. § 1º A quantidade mínima de bombas de incêndio necessárias para atendimento ao sistema de chuveiros automáticos será de 2 (duas) bombas hidráulicas (primária e secundária), ambas com fonte de energia reserva. § 2º Dispensa-se a necessidade de bomba e fonte de energia reservas quando utilizada bomba hidráulica à combustão com certificação UL / FM ."
+    },
+    {
+      "number": 16,
+      "page": 4,
+      "text": "Art. 16. Para bombas de incêndio deve ser assegurado o fornecimento de energia (elétrica ou mecânica) através de fonte reserva, independentemente da fonte de energia primária. § 1º A fonte reserva de energia para funcionamento do sistema pode ser assegurada através de: I - bomba de incêndio a combustão interna; ou II - gerador de energia alimentando a bomba. § 2º A bateria do motor a combustão da bomba de incêndio deve ser mantida carregada através de um sistema de flutuação automática, por meio de um carregador de bateria que garanta a sua plena carga e carregamento. Sprinkler para compartimentação"
+    },
+    {
+      "number": 17,
+      "page": 5,
+      "text": "Art. 17. Para ocupações de risco leve é admitida a compartimentação através do SPK de janela (cortina d'água). § 1º O volume d’água da RTI exigido para o sistema de SPK de janela é definido em função do tempo de resistência ao fogo previsto para o imóvel, conforme a IN 14. § 2º Para edificações onde haja a previsão do SPK em conjunto com o sistema de sprinkler de janela, o volume da RTI e o tempo de operação do sistema de chuveiros automáticos deve ser somado ao do sistema de sprinkler de janela."
+    },
+    {
+      "number": 18,
+      "page": 5,
+      "text": "Art. 18. O projeto do SPK de janela deve ser elaborado de acordo com o previsto na NFPA 13 da National Fire Protection Association se o assunto não for contemplado em NBRs, levando em consideração as características da edificação, sendo de competência do responsável técnico pelo PPCI o dimensionamento, distanciamento, posicionamento, correta escolha do tipo de bico para aplicação específica e exclusivamente para rede do tipo molhada."
+    },
+    {
+      "number": 19,
+      "page": 5,
+      "text": "Art. 19. Em caso de utilização do SPK de janela com a finalidade de compartimentação, devem ser atendidos os seguintes requisitos: I - em caso de separação contra incêndios em interiores, os sprinklers de janela devem ser instalados em ambos os lados da janela; II - em caso de separação para proteção de edificações adjacentes à sua própria edificação, os sprinklers de janela serão instalados no lado interno da edificação; ou III - em caso de separação para proteção de sua própria edificação contra um incêndio em edificação adjacente, os sprinklers de janela aberta serão instalados no lado exterior da edificação."
+    },
+    {
+      "number": 20,
+      "page": 5,
+      "text": "Art. 20. As janelas devem: I - ser do tipo não operáveis (vidro fixo); II - possuir vidros totalmente lisos, com espessura mínima de 6 mm; III - não apresentar travessas ou barras divisórias horizontais que possam obstruir a distribuição uniforme da água na superfície do vidro; IV - possuir caixilhos não combustíveis, com vedação de gaxeta de borracha de etileno-propileno-dieno (EPDM); e V - ter as juntas verticais de painéis de vidro unidas por juntas de topo com selante de silicone entre os painéis individuais ou barras divisórias não combustíveis."
+    },
+    {
+      "number": 21,
+      "page": 5,
+      "text": "Art. 21. Os vidros das janelas devem ser do tipo: I - termicamente reforçados; II - vitrocerâmicos; ou III - laminados e temperados."
+    },
+    {
+      "number": 22,
+      "page": 5,
+      "text": "Art. 22. Todos os materiais combustíveis devem ser mantidos a uma distância mínima de 5 cm da face frontal do vidro das janelas. ² Nota 2 - Orientação O distanciamento do material combustível pode ser feito por simples afastamento ou por meio de algum obstáculo como uma parede de altura até 92 cm, um rodapé metálico que garanta o afastamento físico ou outro método apresentado pelo responsável técnico. Hidrante de recalque"
+    },
+    {
+      "number": 23,
+      "page": 5,
+      "text": "Art. 23. O hidrante de recalque para SPK deve ser exclusivo e conter sinalização e indicação claras, de forma a ser diferenciado do recalque do SHP."
+    },
+    {
+      "number": 24,
+      "page": 5,
+      "text": "Art. 24. Deve ser previsto hidrante de recalque duplo para o SPK, com as seguintes especificações: I - sinalização com a inscrição “SPRINKLER”; II - engates para mangueira voltados para baixo em ângulo de 45° para a frente; III - adaptador 2½\" storz com tampão e corrente; e IV - válvula de retenção. Parágrafo único. As tomadas de recalque devem estar localizadas a uma altura mínima de 0,60 m e máxima de 1,00 m em relação ao piso."
+    },
+    {
+      "number": 25,
+      "page": 6,
+      "text": "Art. 25. São previstos 3 modelos para o hidrante de recalque: I - hidrante de recalque aparente (tipo coluna), devendo apenas ser pintado na cor vermelha (Figura 1) sem necessidade da inscrição “SPRINKLER” ; Figura 1 - Exemplo de hidrante de recalque aparente (tipo coluna). II - hidrante de recalque embutido em muro ou parede (Figura 2); ou Figura 2 - Exemplo de hidrante de recalque embutido em muro ou parede. III - hidrante de recalque dentro de abrigo, com dimensões adequadas para o seu uso (Figura 3). Figura 3 - Exemplo de hidrante de recalque dentro de abrigo. Parágrafo único. O hidrante de recalque deverá ser preferencialmente do tipo coluna."
+    },
+    {
+      "number": 26,
+      "page": 6,
+      "text": "Art. 26. Hidrante de recalque localizado em muro ou parede deve possuir sinalização composta por um retângulo vermelho nas dimensões de 30 x 40 cm, com a inscrição “SPRINKLER” na cor branca, conforme Figura 4; Figura 4 - Sinalização do registro de recalque do sistema de chuveiros automáticos em parede ou no muro."
+    },
+    {
+      "number": 27,
+      "page": 7,
+      "text": "Art. 27. Quando existir abrigo para o hidrante de recalque, a porta do abrigo deve: I - possuir a inscrição “SPRINKLER” II - possuir abertura para ventilação; III - ser fácil de abrir, sem tranca ou cadeado; IV - permitir fácil acoplamento, desacoplamento e o manuseio de mangueiras, e V - ser de material: a) metálico ou de madeira na cor vermelha; ou b) em vidro temperado totalmente: liso, transparente, incolor e sem película. Parágrafo único. Para abrigos instalados em área externa (local permanentemente ventilado, ao ar livre, fora da projeção da edificação) admite-se que o abrigo seja de polímeros plásticos desde que possua propriedade não propagante de chamas."
+    },
+    {
+      "number": 28,
+      "page": 7,
+      "text": "Art. 28. O hidrante de recalque deve ser instalado junto à entrada principal da edificação: I - na parede externa da fachada principal da edificação; II - no muro da divisa do imóvel com a rua; ou III - na área externa da circulação do imóvel. Parágrafo único. O hidrante de recalque deve ser instalado em local que permita o livre acesso e a aproximação do caminhão de combate a incêndio do Corpo de Bombeiros, a partir do logradouro público, sem existir qualquer obstáculo que dificulte o seu uso e a sua localização. Sistema elétrico"
+    },
+    {
+      "number": 29,
+      "page": 7,
+      "text": "Art. 29. A instalação elétrica do Sistema de Chuveiros Automáticos deve atender os requisitos gerais exigidos na IN 19. DOCUMENTAÇÃO Vistoria para habite-se"
+    },
+    {
+      "number": 30,
+      "page": 7,
+      "text": "Art. 30. Na solicitação de vistoria para habite-se em edificações dotadas de sistema de SPK, o responsável técnico pela execução/manutenção do sistema deve realizar as atividades de comissionamento do sistema de acordo com o relatório de comissionamento, conforme anexo B . Vistoria de funcionamento"
+    },
+    {
+      "number": 31,
+      "page": 7,
+      "text": "Art. 31. Anualmente, na solicitação da renovação de alvará de funcionamento de edificações dotadas de sistema de chuveiros automáticos, o responsável técnico pela manutenção do sistema deve realizar as atividades de inspeção do sistema de acordo com o relatório de inspeção do sistema de chuveiros automáticos previsto no anexo C desta IN."
+    },
+    {
+      "number": 32,
+      "page": 7,
+      "text": "Art. 32. Os relatórios devem ser elaborados por profissional habilitado e deve ser protocolado no sistema e-SCI, acompanhado do respectivo documento de responsabilidade técnica. DISPOSIÇÕES FINAIS"
+    },
+    {
+      "number": 33,
+      "page": 8,
+      "text": "Art. 33. Esta IN, aplicável com vigência em todo o território catarinense, entra em vigor em 24 de abril de 2024, revogando a IN 15 de 26 de dezembro de 2022."
+    },
+    {
+      "number": 34,
+      "page": 8,
+      "text": "Art. 34. As figuras apresentadas nesta IN são meramente ilustrativas e possuem objetivo de facilitar a compreensão dos itens textuais relacionados. Coronel BM FABIANO DE SOUZA Comandante-Geral do Corpo de Bombeiros Militar de SC ORGANIZAÇÃO: TC BM Willyan Fazzioni - Direção Maj BM Oscar W Barboza Jr - Supervisão e Edição Maj BM Felipe Gelain - Coordenação e Redação Cap BM Rafael Giosa Sanino - Revisão Cap BM Suellen Lapa Duarte - Edição"
+    }
+  ],
+  "annexes": [
+    {
+      "page": 9,
+      "title": "Anexo A - Limites de temperatura, classificação e código de cores dos chuveiros ",
+      "text": "Anexo A - Limites de temperatura, classificação e código de cores dos chuveiros automáticos Tabela 1 – Chuveiro s com elemento termossensível do tipo liga fusível e ampola de vidro Faixa de temperatura nominal de atuação (°C) Temperatura máxima ambiente na altura do chuveiro automático (°C) Classificação da temperatura Cor dos braços em chuveiros do tipo liga fusível Cor do líquido em chuveiros do tipo ampola de vidro 55 a 77 38 Ordinária Incolor ou preta Vermelha ou laranja 79 a 107 66 Intermediária Branca Amarela ou verde 121 a 149 107 Alta Azul Azul 163 a 191 149 Extra-alta Vermelha Roxa 204 a 246 191 Extra extra-alta Verde Preta 260 a 302 246 Ultra-alta Laranja Preta 320 a 343 329 Ultra-alta Laranja Preta"
+    },
+    {
+      "page": 10,
+      "title": "Anexo B - Atividades de comissionamento do sistema RELATÓRIO DE COMISSIONAMENTO ",
+      "text": "Anexo B - Atividades de comissionamento do sistema RELATÓRIO DE COMISSIONAMENTO E INSPEÇÃO DO SISTEMA DE CHUVEIROS AUTOMÁTICOS MEMORIAL DE ENSAIOS E MATERIAIS - fl. 01/05 Logradouro público: N.º. Complemento: Bairro: Município: UF: SC RE: Responsável pelo imóvel: e-mail: Fone: ( ) Responsável Técnico: Número do Registro do profissional: Fone: ( ) e-mail: PROCEDIMENTO A conclusão dos trabalhos, inspeção e ensaios deve ser feita pelo instalador e testemunhada pelo representante do proprietário. Todos os problemas devem ser resolvidos e o sistema colocado em serviço antes que o instalador se retire da obra. Este formulário deve ser preenchido e assinado pelas partes representadas . Projeto Instalação em conformidade com o projeto? Sim ( ) Não ( ) Equipamentos usados correspondem aos especificados no projeto? Sim ( ) Não ( ) Se não, explicar divergências: Instruções O responsável pelo uso dos equipamentos de combate a incêndios foi instruído quanto à localização de válvulas de controle e sobre cuidados e manutenção dos novos equipamentos? Sim ( ) Não ( ) Nome do responsável Se não, explicar Foram deixadas no local, cópias dos seguintes documentos? 1. Folhas de dados dos componentes do sistema Sim ( ) Não ( ) 2. Instruções de operação, cuidados e manutenção Sim ( ) Não ( ) Localização de sobressalentes Localização e quantidade de bicos sobressalentes: Chuveiros automáticos Marca Modelo Ano de fabricação Tamanho do orifício Quantidade Temperatura de operação Tubos e conexões Tipo de tubo Tipo de conexão Alarme de fluxo Gongo ( ) Chave de fluxo ( ) Outros ( ) Pressostato ( ) Tempo máximo para funcionamento através de dreno de ensaio Marca Modelo min s"
+    },
+    {
+      "page": 11,
+      "title": "RELATÓRIO DE COMISSIONAMENTO E INSPEÇÃO DO SISTEMA DE CHUVEIROS AUTOMÁTICOS MEMO",
+      "text": "RELATÓRIO DE COMISSIONAMENTO E INSPEÇÃO DO SISTEMA DE CHUVEIROS AUTOMÁTICOS MEMORIAL DE ENSAIOS E MATERIAIS - fl. 02/05 Válvulas de ação prévia e de dilúvio Pneumático ( ) Elétrico ( ) Hidráulico ( ) Em sistemas de ação prévia, a pressão da tubulação é supervisionada? Sim ( ) Não ( ) Sistema de detecção ou linha piloto é supervisionado? Sim ( ) Não ( ) Além do acionamento automático, a válvula é operada por meio de comando: remoto ( ) manual ( ) ambos ( ) Há facilidade de acesso para o teste dos sistemas de detecção ou linhas piloto? Sim ( ) Não ( ) Se não houver, explicar: Marca e modelo da válvula: Cada circuito possui alarme de perda de supervisão? Sim ( ) Não ( ) Cada circuito opera acionamento de válvula? Sim ( ) Não ( ) Tempo máximo de abertura da válvula min seg Ensaio de válvula redutora de pressão Localização e pavimento Marca e modelo Pressão de regulagem Pressão estática Pressão residual Vazão L/min Entrada Saída Entrada Saída Descrição do ensaio Hidrostático: O ensaio hidrostático deve ser feito a não menos que 13,8 bar por 2 h, ou 3,4 bar acima da pressão estática (pressão máxima) maior que 10,4 bar por 2 h. Todos os vazamentos da tubulação aérea devem ser eliminados. Pneumático: Estabelecer pressão do ar de 2,7 bar e medir a perda de pressão, que não pode exceder 0,1 bar em 24 h. Ensaiar tanques de pressão com nível normal de água e de pressão de ar, e medir perda de pressão, que não pode ser maior que 0,1 bar em 24 h. Ensaios Toda tubulação foi hidrostaticamente ensaiada a bar por horas Sim ( ) Não ( ) Os equipamentos funcionam adequadamente? Sim ( ) Não ( ) Se não, explicar Na qualidade de instalador da rede de chuveiros automáticos, é garantido que não foram empregados aditivos e produtos químicos corrosivos, silicato de sódio ou derivados de silicato de sódio, água salgada ou salmoura, ou outros produtos químicos para ensaios dos sistemas ou interrupção de vazamentos. Sim ( ) Não ( ) Ensaio de dreno – leitura da pressão no manômetro a montante da válvula de governo com dreno completamente fechado: bar Ensaio de dreno – leitura da pressão residual no manômetro a montante da válvula de governo com dreno completamente aberto: bar"
+    },
+    {
+      "page": 12,
+      "title": "RELATÓRIO DE COMISSIONAMENTO E INSPEÇÃO DO SISTEMA DE CHUVEIROS AUTOMÁTICOS MEMO",
+      "text": "RELATÓRIO DE COMISSIONAMENTO E INSPEÇÃO DO SISTEMA DE CHUVEIROS AUTOMÁTICOS MEMORIAL DE ENSAIOS E MATERIAIS - fl. 03/05 Ensaios Tubulação subterrânea e interligação do sistema foram lavadas internamente antes da conexão com a tubulação de chuveiros automáticos Sim ( ) Não ( ) Lavado pelo instalador da tubulação subterrânea Sim ( ) Não ( ) Se forem usados chumbadores em concreto fixados por tiro, há amostra de ensaios? Sim ( ) Não ( ) Se não, explicar Flanges cegos Nº em uso: Localização: Nº removidos: Soldagem Tubulação é soldada? Sim ( ) Não ( ) Se sim: Atesta, como instalador dos chuveiros automáticos, que os procedimentos de soldagem atendem aos requisitos da norma ASME IX? Sim ( ) Não ( ) Atesta que a soldagem foi feita por profissional com qualificação comprovada? Sim ( ) Não ( ) Atesta que todos os cuidados foram tomados de acordo com o documentado quanto aos procedimentos de controle de qualidade para assegurar que todos os discos foram retirados, que as rebarbas foram removidas, que as escórias e outros resíduos de soldagem foram removidos, que os diâmetros internos da tubulação não foram alterados? Sim ( ) Não ( ) Cortes (discos) Atesta que há sistema de controle para assegurar que todos os discos cortados da tubulação foram removidos? Sim ( ) Não ( ) Placa de informações hidráulicas A placa de informações foi instalada? Sim ( ) Não ( ) Se não, explicar Conclusão Após a realização e verificação dos resultados dos ensaios, atesto que o sistema se encontra em condição de operação: Sim ( ) Não ( ) Data em que a instalação foi entregue em funcionamento: Assinaturas Nome do instalador Responsável técnico (Assinatura Digital) Nº. do Registro Profissional Testemunhas Representante do proprietário (assinatura) Cargo Data Representante do instalador (assinatura) Cargo Data Informações adicionais e anotações:"
+    },
+    {
+      "page": 13,
+      "title": "RELATÓRIO DE COMISSIONAMENTO E INSPEÇÃO DO SISTEMA DE CHUVEIROS AUTOMÁTICOS MEMO",
+      "text": "RELATÓRIO DE COMISSIONAMENTO E INSPEÇÃO DO SISTEMA DE CHUVEIROS AUTOMÁTICOS MEMORIAL DE ENSAIOS E MATERIAIS - fl. 04/05 PROCEDIMENTO A conclusão dos trabalhos, inspeção e ensaios deve ser feita pelo instalador e testemunhada pelo representante do proprietário. Todos os problemas devem ser resolvidos e o sistema colocado em serviço antes que o instalador se retire da obra. Este formulário deve ser preenchido e assinado pelas partes representadas. Projeto Instalação em conformidade com o aceito no projeto? Sim ( ) Não ( ) Equipamento usado é aprovado? Sim ( ) Não ( ) Se não, explicar divergências: Instruções O responsável pelos equipamentos de combate a incêndios foi instruído quanto à localização de válvulas de controle e sobre cuidados e manutenção dos novos equipamentos? Sim ( ) Não ( ) Se não, explicar Localização do sistema Edificações atendidas pelo sistema: Tubos e juntas conexões subterrâneas Tipos de tubos e classificação: Tipo de junta: Tubos em conformidade com a norma Montagem em conformidade com a norma Se não, explicar Juntas e encaixes precisam de grampo de ancoragem, tiras ou outros métodos de acordo com a norma ? Sim ( ) Não ( ) Se não, explicar Descrição do ensaio Limpeza interna da tubulação : Deixar que a água flua até que se torne clara como indicado e até que não haja presença de material estranho nas bolsas de estopa colocadas em uma extremidade aberta da tubulação. Vazão a não menos de 1.500 L/min por tubo DN 100, 3.300 L/min por tubo DN 150, 6.000 L/min por tubo DN 200, 9.300 L/min por DN 250, e 13.300 L/min por DN 300. Quando não for possível obter a vazão recomendada, fazer a limpeza com a máxima vazão possível. Hidrostático : O ensaio hidrostático deve ser feito a não menos que 13,8 bar por 2 h, ou 3,4 bar acima da pressão estática maior que 10,2 bar por 2 h."
+    },
+    {
+      "page": 14,
+      "title": "RELATÓRIO DE COMISSIONAMENTO E INSPEÇÃO DO SISTEMA DE CHUVEIROS AUTOMÁTICOS MEMO",
+      "text": "RELATÓRIO DE COMISSIONAMENTO E INSPEÇÃO DO SISTEMA DE CHUVEIROS AUTOMÁTICOS MEMORIAL DE ENSAIOS E MATERIAIS - fl. 05/05 Ensaios de vazão Vazão de nova tubulação não aparente em conformidade com a norma pela (companhia) Sim ( ) Não ( ) Se não, explicar Como foi obtida a vazão? Rede pública ( ) Reservatório ( ) Bomba de incêndio ( ) Medida em que tipo de abertura? Bocal do hidrante ( ) Abertura do tubo ( ) Direcionamento de fluxo de acordo com a norma da (companhia)? Sim ( ) Não ( ) Se não, explicar Como foi obtida a vazão? Rede pública ( ) Reservatório ( ) Bomba de incêndio ( ) Por meio de que tipo de abertura? Conexão em Y ao flange ( ) Abertura do tubo ( ) Ensaio hidrostático Toda tubulação foi hidrostaticamente ensaiada a bar por horas Sim ( ) Não ( ) Conexões Sim ( ) Não ( ) Ensaio de vazamentos Somatório total de vazamentos medidos: L por h Vazamentos permitidos: L por h Hidrantes Números instalados: Tipo e marca: Todos operam satisfatoriamente? Sim ( ) Não ( ) Válvula de controle Válvulas de controle totalmente abertas? Sim ( ) Não ( ) Se não, explicar Conexões de mangueiras intercambiáveis com as do Corpo de Bombeiros? Sim ( ) Não ( ) Conclusão Após a realização e verificação dos resultados dos ensaios, atesto que o sistema se encontra em condição de operação: Data em que a instalação foi entregue em funcionamento: Sim ( ) Não ( ) Assinaturas Nome do instalador Responsável técnico (Assinatura Digital) Nº. do Registro do profissional Testemunhas Representante do proprietário (assinatura) Cargo Data Representante do instalador (assinatura) Cargo Data Informações adicionais e anotações:"
+    },
+    {
+      "page": 15,
+      "title": "Anexo C - Inspeção do Sistema de Chuveiros Automáticos RELATÓRIO DE INSPEÇÃO DO ",
+      "text": "Anexo C - Inspeção do Sistema de Chuveiros Automáticos RELATÓRIO DE INSPEÇÃO DO SISTEMA DE CHUVEIROS AUTOMÁTICOS - fl. 01/03 Logradouro público: N.º. Complemento: Bairro: Município: UF: SC RE: Responsável pelo imóvel: e-mail: Fone: ( ) Responsável Técnico: Número de registro do profissional: e-mail: Fone: ( ) Ocupação (IN-01): Ocupações (Tab. A-1 da NBR 10.897): Válvula de Governo E Alarme nº: Método de armazenagem (3): Altura da edificação (3): Altura de armazenagem (3): RISCOS Leve ( ) Ordinário I ( ) Ordinário II ( ) Extraordinário I ( ) Extraordinário II ( ) ARMAZENAMENTO Classe I ( ) Classe II ( ) Classe III ( ) Classe IV ( ) Plásticos ( ) SISTEMA Molhado ( ) Seco ( ) Pré-Ação ( ) Dilúvio ( ) 1. CHUVEIROS AUTOMÁTICOS Sim Não 1.1 O sistema de chuveiros automáticos está adaptado ao leiaute da edificação conforme projeto técnico aprovado? 1.2 Os compartimentos classificados como Risco Leve, possuem chuveiros automáticos de resposta rápida? 1.3 Todos os compartimentos, exceto os isentos de acordo com a NBR 10.897 e IT 23, estão protegidos por chuveiros automáticos? (1) 1.4 Os modelos dos chuveiros automáticos estão conforme o projeto aprovado? (2) 1.4 Os chuveiros estão isentos de corpos estranhos (inclusive tinta) ou danos físicos como indicado pelo catálogo do fabricante? 1.5 Os chuveiros estão isentos de corpos estranhos (inclusive tinta) ou danos físicos como indicado pelo catálogo do fabricante? 1.6 Os chuveiros estão instalados na posição correta, conforme projeto técnico aprovado (teto, prateleiras, etc.)? 1.7 A distância entre os chuveiros ou entre os chuveiros e as paredes está correta? 1.8 Os chuveiros estão desobstruídos em relação a obstruções junto ao teto tais como vigas, treliças, terças, dutos e afins? (1) 1.9 Os chuveiros próximos ao teto estão desobstruídos em relação a elementos tais como luminárias, dutos, eletrocalhas, passarelas, ventiladores e afins? (1) 1.10 Os chuveiros estão desobstruídos em relação a elementos verticais de meia altura tais como biombos, divisórias baixas e afins? (1) 1.11 Os chuveiros estão desobstruídos em relação aos pilares? (1) 1.12 Os chuveiros estão a uma distância adequada do forro ou teto? 1.13 Em áreas de armazenagem, a distância entre os chuveiros e o topo do material armazenado é adequada? 1.14 Os chuveiros estão sem corrosão? 1.15 Há chuveiros sobressalentes e chave especial para retirada e instalação? 1.16 Os produtos utilizados na instalação estão de acordo com o regulamentado pelo CBMSC? 1.17 Os chuveiros automáticos de resposta rápida fabricados há mais de 20 anos e/ou os chuveiros automáticos de resposta padrão fabricados há mais de 50 anos foram ensaiados? 2. VÁLVULA DE GOVERNO E ALARME (VGA) Sim Não 2.1 As válvulas estão corretamente identificadas, conforme item 10.2 da NBR 10.897? 2.2 As válvulas de bloqueio estão travadas com correntes e/ou cadeados na posição completamente abertas? (1) 2.3 As válvulas de bloqueio são do tipo indicadora e com fechamento lento? 2.4 As válvulas estão livres de danos mecânicos? (teste)"
+    },
+    {
+      "page": 16,
+      "title": "RELATÓRIO DE INSPEÇÃO DO SISTEMA DE CHUVEIROS AUTOMÁTICOS - fl. 02/03 2. VÁLVULA",
+      "text": "RELATÓRIO DE INSPEÇÃO DO SISTEMA DE CHUVEIROS AUTOMÁTICOS - fl. 02/03 2. VÁLVULAS DE GOVERNO E ALARME (VGA) Sim Não 2.5 As válvulas estão acessíveis? 2.6 As válvulas estão isentas de vazamento? (teste) 2.7 As válvulas estão isentas de corrosão? 2.8 Há um fluxostato ligado à central de alarme? (teste) (1) 2.9 A fiação do fluxostato está protegida? 2.10 O gongo hidráulico (quando instalado) funciona corretamente? (teste) 2.11 Existe conexão de teste de alarme para cada Válvula de Governo e funciona corretamente? 2.12 A central de alarme reconhece o sinal da conexão de teste e alarme em no máximo 90 segundos? (teste) 2.13 Os manômetros estão instalados e em boas condições? (visual e operação) 3. CONEXÕES SETORIAIS DE DRENO, ENSAIO E ALARME (CS) Sim Não 3.1 As conexões setoriais estão adequadamente instaladas? 3.2 As conexões setoriais estão sinalizadas? 3.3 Há um fluxostato ligado à central de alarme? (teste) 3.4 A central de alarme reconhece o sinal da conexão de teste e alarme em no máximo 90 segundos? (teste) 3.5 A fiação do fluxostato está protegida? 3.6 As válvulas estão acessíveis? 3.7 As válvulas de bloqueio estão travadas com correntes e/ou cadeados na posição completamente abertas? 3.8 As válvulas de bloqueio são do tipo indicadora e com fechamento lento? 4. CONJUNTO BOMBA DE INCÊNDIO (Bomba + Motor + Painel de controle e partida) Sim Não 4.1 A bomba de incêndio está adequadamente instalada? 4.2 Foi apresentada curva de desempenho (vazão X pressão) da bomba de incêndio preparada pelo fabricante antes da instalação da unidade? 4.3 Foi apresentada curva de desempenho (vazão X pressão) da bomba de incêndio produzida nos últimos 36 meses? 4.4 A bomba de incêndio está em compartimento protegido contra o fogo? 4.5 A B.I. está em compartimento sem acúmulo de materiais combustíveis? 4.6 A bomba de incêndio não apresenta vazamentos? (teste) 4.7 A bomba de incêndio está instalada com vazão e pressão de acordo com projeto técnico aprovado? 4.8 As válvulas de bloqueio (exceto no cabeçote de testes, se houver) estão travadas na posição completamente aberta? 4.9 A fixação da bomba de incêndio está adequada? 4.10 Existe medidor de vazão para realização do teste anual? 4.11 Existe cabeçote de teste para realização do teste anual? 4.12 O painel da central de alarme acusa todos os eventos previstos no Anexo B da NBR 10897 para supervisão constante das bombas? 5. TUBULAÇÃO Sim Não 5.1 Tubulação sem danos mecânicos? 5.2 Tubulação sem vazamentos? (teste) 5.3 Tubulação sem corrosão ou obstrução interna? 5.4 Tubulação adequadamente alinhada? 5.5 Tubulação pintada e identificada? 5.6 Suportes e braçadeiras adequados?"
+    },
+    {
+      "page": 17,
+      "title": "RELATÓRIO DE INSPEÇÃO DO SISTEMA DE CHUVEIROS AUTOMÁTICOS - fl. 03/03 6. CONEXÃO",
+      "text": "RELATÓRIO DE INSPEÇÃO DO SISTEMA DE CHUVEIROS AUTOMÁTICOS - fl. 03/03 6. CONEXÃO DE RECALQUE Sim Não 6.1 Conexão de recalque está sinalizado? 6.2 Conexão de recalque está desobstruída? 6.3 Conexão de recalque está isento de vazamentos? 7. TANQUES E RESERVATÓRIOS Sim Não 7.1 O reservatório de incêndio possui volume adequado de acordo com o projeto técnico aprovado? 7.2 O reservatório de incêndio possui válvulas completamente abertas? 7.3 O reservatório de incêndio possui tubulação e válvulas adequadas? 7.4 Existe indicador de nível instalado no tanque? (1) justificativas técnicas para não atendimento dos itens assinalados – a ser preenchido pelo Responsável Técnico ITEM JUSTIFICATIVAS DE NÃO ATENDIMENTO (2) CHUVEIROS AUTOMÁTICOS – RELAÇÃO Tipo Fabricante Código de identificação Ano de fabricação Tempo de Resposta Posição de Instalação Temperatura (3) O Responsável Técnico deverá preencher se o Sistema de Chuveiros Automáticos for para áreas de Armazenagem. AVALIAÇÃO GERAL DA INSTALAÇÃO DO SISTEMA DE CHUVEIROS AUTOMÁTICOS Atesto, nesta data, que a instalação foi inspecionada e está em conformidade com as prescrições da NBR 10897 e da IN-15, estando o proprietário ou responsável pelo uso ciente de suas responsabilidades. Data da inspeção: / / Responsável pela inspeção: Título profissional: Nº do Registro Profissional: (Obrigatório anexar comprovação de responsabilidade técnica que inclua a emissão deste atestado) Nome do Resp. Técnico: Resp. Técnico. (Assinatura Digital)"
+    }
+  ],
+  "checks": {
+    "needs_human_look": []
+  }
+}

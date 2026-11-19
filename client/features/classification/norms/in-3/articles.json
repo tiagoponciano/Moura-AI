@@ -1,0 +1,146 @@
+{
+  "doc": "IN-3",
+  "preamble": "IN 3 CARGA DE INCÊNDIO SUMÁRIO DISPOSIÇÕES INICIAIS 2 Objetivo 2 Referências 2 Terminologias 2 APLICAÇÃO 2 Geral 2 Classificação da carga de incêndio 3 DISPOSIÇÕES FINAIS 3 Anexo A - Cargas de incêndio específicas por ocupação (método probabilístico) 4 Anexo B - Carga de incêndio relativa à altura de armazenamento para depósitos (método probabilístico) 11 Anexo C - Método determinístico para cálculo da carga de incêndio específica 14 Anexo D - Potencial calorífico específico 15 Anexo E - Planilha para cálculo da carga de incêndio no método determinístico 16 Vigente a partir de 24/04/2024 16 páginas INSTRUÇÃO NORMATIVA 3 CARGA DE INCÊNDIO DISPOSIÇÕES INICIAIS Objetivo",
+  "articles": [
+    {
+      "number": 1,
+      "page": 2,
+      "text": "Art. 1º Esta Instrução Normativa (IN) tem por objetivo estabelecer e padronizar critérios de classificação da carga de incêndio para os imóveis fiscalizados pelo Corpo de Bombeiros Militar de Santa Catarina (CBMSC). Referências"
+    },
+    {
+      "number": 2,
+      "page": 2,
+      "text": "Art. 2º As referências utilizadas são as seguintes: I - Instrução Técnica nº 14, de 2018 - CBPMESP; II - Nota Técnica n° 14, de 2017 - CBMGO; III - Nota Técnica 1-04, de 2019 - CBMERJ; IV - NBR 14432. Terminologias"
+    },
+    {
+      "number": 3,
+      "page": 2,
+      "text": "Art. 3º As terminologias gerais que tratam da segurança contra incêndio são definidas pelo CBMSC e disponibilizadas para acesso público em seu portal oficial."
+    },
+    {
+      "number": 4,
+      "page": 2,
+      "text": "Art. 4º Para aplicação desta IN consideram-se as seguintes terminologias específicas: I - carga de incêndio específica: é o valor da carga de incêndio dividido pela área de piso do espaço considerado, expresso em megajoules (MJ) por metro quadrado (m²); II - método de cálculo probabilístico da carga de incêndio: cálculo baseado em resultados estatísticos do tipo de atividade exercida na edificação em estudo; III - método de cálculo determinístico da carga de incêndio: cálculo baseado no prévio conhecimento da quantidade e qualidade de materiais existentes na edificação em estudo. APLICAÇÃO Geral"
+    },
+    {
+      "number": 5,
+      "page": 2,
+      "text": "Art. 5º Para edificações destinadas ao armazenamento de explosivos (Grupo L) e ocupações especiais (Grupo M), aplica-se o cálculo determinístico da carga de incêndio (anexo C e anexo E)."
+    },
+    {
+      "number": 6,
+      "page": 2,
+      "text": "Art. 6º A regra geral para determinação da carga de incêndio das ocupações (exceto Grupos M e L) é o método de cálculo probabilístico de carga de incêndio (anexo A e anexo B). § 1º Ocupações e destinações não listadas nos anexos A e B podem ter os valores da carga de incêndio específica determinados por similaridade. § 2º A critério do CBMSC, pode ser exigido o cálculo determinístico da carga de incêndio (anexo C e anexo E) quando verificado que a carga de incêndio da edificação não é compatível com os valores previstos nos anexos A e B. § 3º O responsável técnico pela edificação pode solicitar a reclassificação da carga de incêndio (com respectiva RT), através do método determinístico, sendo ele, juntamente com o responsável pelo imóvel, o responsável pela veracidade das informações prestadas na planilha. § 4º O RT que optar pela reclassificação de risco nos moldes do § 3º deste artigo deverá anexar, junto ao processo da edificação, a planilha de cálculo assinada por ele e pelo proprietário do imóvel."
+    },
+    {
+      "number": 7,
+      "page": 2,
+      "text": "Art. 7º As ocupações de depósitos (Grupo J) devem adotar, obrigatoriamente, a tabela relativa à altura de armazenagem constante do anexo B. Parágrafo único. Em depósitos com grande variedade de materiais, o dimensionamento a que se refere o caput deste artigo deve ser realizado em módulos de, no máximo, 1.000 m² de área de piso."
+    },
+    {
+      "number": 8,
+      "page": 3,
+      "text": "Art. 8º Edificações do grupo C, com altura de armazenamento de materiais superior a 3,5 m, são consideradas como ocupação mista (C e J), para fins de exigência dos SMSCI, devendo adotar, obrigatoriamente, a tabela relativa à altura de armazenagem constante do anexo B."
+    },
+    {
+      "number": 9,
+      "page": 3,
+      "text": "Art. 9º O levantamento da carga de incêndio específica através do método determinístico (anexo C) deve ser realizado em módulos de, no máximo, 1.000 m² de área de piso considerado para o cálculo. § 1º Módulos maiores de 1.000 m² podem ser utilizados quando o espaço analisado possuir materiais combustíveis com potenciais caloríficos semelhantes e uniformemente distribuídos. § 2º A carga de incêndio específica do piso analisado é a média entre os 2 módulos de maior valor. § 3º Sempre que artigos incombustíveis estiverem acondicionados em embalagem combustível, os valores da carga de incêndio específica (qfi) devem ser equiparados somente aos valores da embalagem."
+    },
+    {
+      "number": 10,
+      "page": 3,
+      "text": "Art. 10 Para fins de conversão entre unidades de medida de poder calorífico, considerar: 1 kg de madeira equivale a 19,0 MJ; 1 cal equivale a 4,185 J; e 1 BTU equivale a 252 cal. Classificação da carga de incêndio"
+    },
+    {
+      "number": 11,
+      "page": 3,
+      "text": "Art. 11. Classifica-se a carga de incêndio dos imóveis por meio dos valores de carga de incêndio específica qfi (MJ/m²), conforme segue: I - Carga de incêndio desprezível: qfi≤100; II - Carga de incêndio baixa: 100<qfi≤300; III - Carga de incêndio média: 300<qfi≤1200; IV - Carga de incêndio alta: 1200<qfi≤2280; V - Carga de incêndio altíssima: qfi>2280."
+    },
+    {
+      "number": 12,
+      "page": 3,
+      "text": "Art. 12. Para edificações com ocupação mista, aplica-se a média ponderada entre as cargas de incêndio específicas, sendo o peso dado pela área de cada uma das ocupações."
+    },
+    {
+      "number": 13,
+      "page": 3,
+      "text": "Art. 13. As áreas de armazenamento das ocupações comerciais e industriais devem ter a carga de incêndio definida conforme tabela do anexo B. Parágrafo único. O valor de qfi é calculado aplicando-se a média ponderada das cargas de incêndio específicas entre locais de armazenamento e os demais, sendo o peso dado pela área de cada uma das ocupações. DISPOSIÇÕES FINAIS"
+    },
+    {
+      "number": 14,
+      "page": 3,
+      "text": "Art. 14. Esta IN, aplicável em todo o território catarinense, entra em vigor em 24 de abril de 2024, revogando a IN 3 de 17 de fevereiro de 2020. Coronel BM FABIANO DE SOUZA Comandante-Geral do Corpo de Bombeiros Militar de SC ORGANIZAÇÃO: TC BM Willyan Fazzioni - Direção Maj BM Oscar W Barboza Jr - Supervisão e Edição Cap BM Rafael Giosa Sanino - Revisão Cap BM Suellen Lapa Duarte - Edição"
+    }
+  ],
+  "annexes": [
+    {
+      "page": 4,
+      "title": "Anexo A - Cargas de incêndio específicas por ocupação (método probabilístico) Gr",
+      "text": "Anexo A - Cargas de incêndio específicas por ocupação (método probabilístico) Grupo Divisão Destinação Carga de incêndio específica [MJ/m²] A A-1 todas 300 A-2 todas 300 A-3 todas 300 B B-1 Campings 300 todas as demais 500 B-2 todas 500 C C-1 Açougue 40 Aparelhos eletrodomésticos 300 Armas 300 Artigos de bijouteria, metal ou vidro 300 Automóveis 200 Bicicletas e triciclos; peças e acessórios 200 Cal, areia, pedra britada, tijolos e telhas 40 Ferragens e ferramentas 300 Floricultura 80 Galeria de quadros 200 Hortifrutigranjeiro 200 Joalheria 300 Máquinas de costura ou de escritório 300 Fotográficos e filmagem 300 Óptica 300 Suvenires e artesanatos 200 Verduras frescas 200 Vidros 300 Vinhos, cervejas e bebidas fermentadas 200 C-2 Animais (“pet shop”) 600 Antiguidades 700 Aparelhos eletrônicos 400 Armarinhos 700 Artigos de cera 2100 Artigos de couro, borracha, esportivos 800 Artigos esportivos 800 Bebidas destiladas 500 Brinquedos 500 Caça, pesca e camping 800 Calçados 500 Cama, mesa e banho 700 Cosméticos, perfumaria e higiene pessoal 400 Couro, artigos de 700 Doces, balas, bombons e semelhantes 400 Drogarias (incluindo depósitos) 1000 Esportes, artigos de 800 Farmacêuticos; produtos 1000 Iluminação 500 Informática; suprimentos de 400 Laticínios e frios 400 Livrarias 1000"
+    },
+    {
+      "page": 5,
+      "title": "Grupo Divisão Destinação Carga de incêndio específica [MJ/m²] C C-2 Lojas de dep",
+      "text": "Grupo Divisão Destinação Carga de incêndio específica [MJ/m²] C C-2 Lojas de departamento 800 Materiais de construção 800 Materiais hidráulicos 600 Mercadorias em geral, com predominância de produtos alimentícios 400 Móveis 400 Musicais; instrumentos 600 Papelarias 700 Perfumarias 400 Produtos têxteis 600 Relojoarias 500 Supermercados (vendas) 500 Tapetes, cortinas e persianas 800 Tecidos 700 Tintas e vernizes 1000 Vestuário e acessórios 600 Vulcanização 1000 C-3 Centro de compras em geral (shoppings) 800 D D-1 Agências de correios 400 Captação, tratamento e distribuição de água 80 Centrais telefônicas 200 Cabeleireiro, manicure e pedicure 200 Copiadora 400 Correio Nacional e suas franquias 400 Encadernadoras 1000 Escritórios 700 Estúdios de rádio ou de televisão ou de fotografia 300 Gestão de redes de esgoto (exceto a gestão das redes) 40 Processamentos de dados 400 Salas de acesso à Internet 400 Serviços de cremação, sepultamento e funerárias 400 Serviços de entrega rápida 400 Tatuagem e colocação de piercing 300 D-2 Agências bancárias 300 D-3 Lavanderias 300 Oficinas elétricas 600 Oficinas hidráulicas ou mecânicas 200 Pinturas 500 D-4 Laboratórios químicos 500 Laboratórios (outros) 300 E E-1 todas 300 E-2 todas 300 E-3 todas 300 E-4 todas 300 E-5 todas 300 E-6 todas 300 F F-1 Bibliotecas e assemelhados 2000 Museus 300 F-2 Igrejas e templos 200"
+    },
+    {
+      "page": 6,
+      "title": "Grupo Divisão Destinação Carga de incêndio específica [MJ/m²] F F-3 Centros espo",
+      "text": "Grupo Divisão Destinação Carga de incêndio específica [MJ/m²] F F-3 Centros esportivos e de exibição 150 F-4 todas 200 F-5 Cinemas, teatros e similares 600 F-6 Clubes sociais e salão de festas 600 Lan house, jogos eletrônicos 450 F-7 Circos e assemelhados 500 F-8 Padarias comerciais 300 Restaurantes, Lanchonetes, Bares, Cafés, Refeitórios, Cantinas e assemelhados 300 F-9 todas Anexo B ou D F-10 Exposições de objetos e animais Anexo B ou D F-11 todas 600 G G-1 todas 200 G-2 todas 200 G-3 Postos de abastecimentos (tanque enterrado) 300 G-4 Oficinas de conserto de veículos e manutenção 300 G-5 Abrigos para aeronaves com ou sem abastecimento 200 H H-1 Veterinárias 300 H-2 todas 350 H-3 Hospitais em geral 300 H-4 Todas 450 H-5 Presídios e similares 200 H-6 todas 250 I I-1 Acessórios para automóveis 300 Aço, corte e dobra, sem pintura, sem embalagem 40 Adubos e fertilizantes 200 Artigos de argila, cerâmica ou porcelanas 200 Artigos de bijuteria 200 Artigos de gesso 80 Artigos de mármore 40 Artigos de metal, forjados 80 Artigos de metal, fresados 200 Artigos de tabaco 200 Artigos de vidro 80 Automotiva e autopeças (exceto pintura) 300 Balanças 300 Bebidas não alcoólicas 80 Bicicletas 200 Cal e gesso 80 Cerâmica 200 Cervejarias 80 Chapas de aglomerado ou compensado 300 Cimento 40 Condimentos, conservas 40 Defumados 200 Ferragens 300 Fibras sintéticas 300"
+    },
+    {
+      "page": 7,
+      "title": "Grupo Divisão Destinação Carga de incêndio específica [MJ/m²] I I-1 Fios elétric",
+      "text": "Grupo Divisão Destinação Carga de incêndio específica [MJ/m²] I I-1 Fios elétricos 300 Flores artificiais 300 Fundições de metal 40 Galvanoplastia 200 Gesso 80 Guarda-chuvas 300 Joias 200 Laboratórios farmacêuticos 300 Lâmpadas 40 Latas metálicas, sem embalagem 100 Laticínios 200 Malharias 300 Máquinas de lavar, de costura ou de escritório 300 Matadouro 40 Medicamentos 300 Metalúrgica 200 Montagens de automóveis 300 Motocicletas 300 Motores elétricos 300 Olarias 100 Papéis (preparo de celulose) 80 Pedras 60 Perfumes 300 Produtos de adubo químico 200 Produtos com ácido acético 200 Produtos com ácido carbônico 40 Produtos com ácido inorgânico 80 Produtos com soda 40 Produtos refratários 200 Relógios 300 Sabões 300 Serralheria 200 Sorvetes 80 Sucos de fruta 200 Tintas não-inflamáveis 200 Transformadores 200 Tratores 300 Vagões 200 Vidros ou espelhos 200 Vinagres 80 I-2 Aparelhos eletroeletrônicos, fotográficos, ópticos 400 Acetileno 700 Alimentação (alimentos) 800 Artigos de borracha, cortiça, couro, feltro, espuma 600 Artigos de cera 1000 Artigos de madeira em geral 800 Artigos de peles 500 Artigos de plásticos em geral 1000 Asfalto, manipulação de 800"
+    },
+    {
+      "page": 8,
+      "title": "Grupo Divisão Destinação Carga de incêndio específica [MJ/m²] I I-2 Automotiva e",
+      "text": "Grupo Divisão Destinação Carga de incêndio específica [MJ/m²] I I-2 Automotiva e autopeças (pintura) 500 Aviões 600 Barcos de madeira ou de plástico 600 Barcos de metal 600 Baterias/Acumuladores 800 Bebidas destilada 500 Brinquedos 500 Café (inclusive torrefação) 400 Caixotes barris ou pallets de madeira 1000 Calçados 600 Carpintarias e marcenarias 800 Chocolate 400 Cobertores, tapetes 600 Colas 800 Colchões (exceto espuma) 500 Confeitarias 400 Congelados 800 Cortiça, artigos de 600 Cosméticos, perfumaria e higiene pessoal 400 Couro, curtume 700 Couro sintético 1000 Discos de música 600 Doces 800 Estaleiros 700 Estaleiros 700 Feltros 600 Fermentos 110 Fiações 600 Fornos de secagem (grade de madeira) 1000 Galpões de secagem (grade de madeira) 400 Geladeiras 1000 Gelatinas 800 Gorduras comestíveis 1000 Gráficas (produção) 400 Instrumentos musicais 600 Janelas e portas de madeira 800 Laboratórios químicos 500 Lápis 600 Malas, fábrica 1000 Massas alimentícias 1000 Mastiques 1000 Móveis 600 Óleos comestíveis e óleos em geral 1000 Padarias industriais 1000 Papéis (acabamento) 500 Papéis (procedimento) 800 Papelão ondulado 800 Pneus 700"
+    },
+    {
+      "page": 9,
+      "title": "Grupo Divisão Destinação Carga de incêndio específica [MJ/m²] I I-2 Produtos ade",
+      "text": "Grupo Divisão Destinação Carga de incêndio específica [MJ/m²] I I-2 Produtos adesivos 1000 Produtos alimentícios (expedição) 1000 Produtos com alcatrão 800 Produtos graxos 1000 Rações balanceadas 1100 Resinas, em placas 800 Roupas 550 Sacos de papel 800 Sacos de juta 500 Tapetes 600 Têxteis em geral (tecidos) 700 Tintas látex 800 Vassouras ou escovas 700 Vulcanização 1000 I I-3 Artigos de madeira, impregnação 3000 Cera de polimento 2000 Cereais 1700 Espumas 3000 Farinhas 2000 Forragem 2000 Frigoríficos 2000 Gráficas (empacotamento) 2000 Materiais sintéticos 2000 Materiais usados, tratamento de 3400 Moagem de farinhas 2000 Papelões betuminados 2000 Produtos com albumina 2000 Produtos com amido 2000 Produtos de limpeza 2000 Resinas 3000 Tintas e solventes 4000 Tintas e vernizes 2000 Tratamento de madeira 3000 Velas de cera 1300 J J-1 Edificações sem processo industrial que armazenam tijolos, pedras, areias, cimentos, metais e outros materiais incombustíveis. Todos sem embalagem Anexo B J-2 Depósitos com carga de incêndio até 300 MJ/m2 - galpões, centros de distribuição, centro atacadista Anexo B J-3 Depósitos com carga de incêndio entre 300 a 1.200 MJ/m2 - galpões, centros de distribuição, centro atacadista Anexo B J-4 Depósitos onde a carga de incêndio ultrapassa a 1.200 MJ/m² - galpões, centros de distribuição, centro atacadista Anexo B K K-1 Subestações elétricas 200 K-2 Hidroelétrica, termoelétrica, usina fotovoltaica, usina eólica 600 L L-1 Comércio em geral de fogos de artifício e assemelhados 2100 L-2 Indústria de material explosivo 4000 L-3 Depósito de material explosivo 4000 M M-1 Túnel rodoferroviário e marítimo, destinados a transporte de passageiros ou cargas diversas, galerias destinadas a passagem de pedestres Anexo C"
+    },
+    {
+      "page": 10,
+      "title": "Grupo Divisão Destinação Carga de incêndio específica [MJ/m²] M M-2 Edificação d",
+      "text": "Grupo Divisão Destinação Carga de incêndio específica [MJ/m²] M M-2 Edificação destinada a produção, manipulação, armazenamento e distribuição de líquidos ou gases inflamáveis ou combustíveis, exceto os postos de revenda de GLP 2100 M-3 Centros de comunicação, centrais de transmissão, centros de computação, estações de Rádio ou TV 100 M-4 Locais em construção ou demolição e assemelhados 400 M-5 Silos, moegas, correias transportadoras e secadores de grãos ou folhas e similares Anexo C M-6 Floresta, reserva ecológica, parque florestal e assemelhados Anexo C M-7 Área aberta destinada a armazenamento de contêineres Anexo C M-8 PRGLP classes I, II, III e IV 4000 M-9 PRGLP classes V, VI, VII e Especial 4000 M-10 Mina para exploração de jazidas ou minérios 3000 M-11 Estufas para secagem, galpões para estocagem de forrageiras ou fardos 200"
+    },
+    {
+      "page": 11,
+      "title": "Anexo B - Carga de incêndio relativa à altura de armazenamento para depósitos (m",
+      "text": "Anexo B - Carga de incêndio relativa à altura de armazenamento para depósitos (método probabilístico) Tipo de material Carga de incêndio específica [MJ/m²] Altura de armazenamento em metros 1 m 2 m 4 m 6 m 8 m 10 m Açúcar 3.780 7.560 15.120 22.680 30.240 37.800 Açúcar, produtos de 360 720 1.440 2.160 2.880 3.600 Acumuladores/baterias 360 720 1.440 2.160 2.880 3.600 Adubos químicos 90 180 360 540 720 900 Alcatrão 1.530 3.060 6.120 9.180 12.240 15.300 Algodão 585 1.170 2.340 3.510 4.680 5.850 Alimentação (alimentos industrializados) 1.530 3.060 6.120 9.180 12.240 15.300 Aparelhos eletroeletrônicos 180 360 720 1.080 1.440 1.800 Aparelhos fotográficos 270 540 1.080 1.620 2.160 2.700 Artigos de borracha 2.250 4.500 9.000 13.500 18.000 22.500 Bebidas alcoólicas 360 720 1.440 2.160 2.880 3.600 Borracha 12.870 25.740 51.480 77.220 102.960 128.700 Brinquedos 360 720 1.440 2.160 2.880 3.600 Cabos elétricos 270 540 1.080 1.620 2.160 2.700 Cacau, produtos de 2.610 5.220 10.440 15.660 20.880 26.100 Café cru 1.305 2.610 5.220 7.830 10.440 13.050 Caixas de madeira 270 540 1.080 1.620 2.160 2.700 Calçado 180 360 720 1.080 1.440 1.800 Celuloide 1.530 3.060 6.120 9.180 12.240 15.300 Cera 1.530 3.060 6.120 9.180 12.240 15.300 Cera, artigos de 945 1.890 3.780 5.670 7.560 9.450 Chocolate 1.530 3.060 6.120 9.180 12.240 15.300 Colas combustíveis 1.530 3.060 6.120 9.180 12.240 15.300 Colchões não sintéticos 2.250 4.500 9.000 13.500 18.000 22.500 Cosméticos 248 496 992 1.488 1.984 2.480 Couro 765 1.530 3.060 4.590 6.120 7.650 Couro, artigos de 270 540 1.080 1.620 2.160 2.700 Couro sintético 765 1.530 3.060 4.590 6.120 7.650 Couro sintético, artigos de 360 720 1.440 2.160 2.880 3.600 Depósitos de mercadorias incombustíveis em pilhas de caixas de madeira ou de papelão 90 180 360 540 720 900 Depósitos de mercadorias incombustíveis em pilhas de caixas de plástico 90 180 360 540 720 900 Depósitos de mercadorias incombustíveis em estantes metálicas (sem embalagem) 9 18 36 54 72 90 Depósitos de paletes de madeira 1.530 3.060 6.120 9.180 12.240 15.300"
+    },
+    {
+      "page": 12,
+      "title": "Continuação do Anexo B Tipo de material Carga de incêndio específica [MJ/m²] Alt",
+      "text": "Continuação do Anexo B Tipo de material Carga de incêndio específica [MJ/m²] Altura de armazenamento em metros 1 m 2 m 4 m 6 m 8 m 10 m Espumas sintéticas 1.125 2.250 4.500 6.750 9.000 11.250 Espumas sintéticas, artigos de 360 720 1.440 2.160 2.880 3.600 Farinha em sacos 3.780 7.560 15.120 22.680 30.240 37.800 Feltro 360 720 1.440 2.160 2.880 3.600 Feno, fardos de 450 900 1.800 2.700 3.600 4.500 Fiação, produtos de fio 765 1.530 3.060 4.590 6.120 7.650 Fiação, produtos de lã 855 1.710 3.420 5.130 6.840 8.550 Fósforos 360 720 1.440 2.160 2.880 3.600 Gorduras 8.100 16.200 32.400 48.600 64.800 81.000 Gorduras comestíveis 8.505 17.010 34.020 51.030 68.040 85.050 Grãos, sementes 360 720 1.440 2.160 2.880 3.600 Instrumentos de ótica 90 180 360 540 720 900 Legumes, verduras, hortifrutigranjeiros 158 316 632 948 1.264 1.580 Leite em pó 4.050 8.100 16.200 24.300 32.400 40.500 Lenha 1.125 2.250 4.500 6.750 9.000 11.250 Madeira em troncos 2.835 5.670 11.340 17.010 22.680 28.350 Madeira, aparas 945 1.890 3.780 5.670 7.560 9.450 Madeira, restos de 1.350 2.700 5.400 8.100 10.800 13.500 Madeira, vigas e tábuas 1.890 3.780 7.560 11.340 15.120 18.900 Malte 6.030 12.060 24.120 36.180 48.240 60.300 Massas alimentícias 765 1.530 3.060 4.590 6.120 7.650 Materiais de construção 360 720 1.440 2.160 2.880 3.600 Materiais sintéticos 2.665 5.330 10.660 15.990 21.320 26.650 Material de escritório 585 1.170 2.340 3.510 4.680 5.850 Medicamentos, embalagem 360 720 1.440 2.160 2.880 3.600 Móveis de madeira 360 720 1.440 2.160 2.880 3.600 Móveis, estofados sem espuma sintética 180 360 720 1.080 1.440 1.800 Painel de madeira aglomerada 3.015 6.030 12.060 18.090 24.120 30.150 Papel 3.780 7.560 15.120 22.680 30.240 37.800 Papel prensado 945 1.890 3.780 5.670 7.560 9.450 Papelaria, estoque 495 990 1.980 2.970 3.960 4.950 Produtos farmacêuticos, estoque 360 720 1.440 2.160 2.880 3.600 Peças automotivas 360 720 1.440 2.160 2.880 3.600 Perfumaria, artigos de 225 450 900 1.350 1.800 2.250 Pneus 810 1.620 3.240 4.860 6.480 8.100 Portas de madeira 810 1.620 3.240 4.860 6.480 8.100"
+    },
+    {
+      "page": 13,
+      "title": "Continuação do Anexo B Tipo de material Carga de incêndio específica [MJ/m²] Alt",
+      "text": "Continuação do Anexo B Tipo de material Carga de incêndio específica [MJ/m²] Altura de armazenamento em metros 1 m 2 m 4 m 6 m 8 m 10 m Produtos químicos combustíveis 450 900 1.800 2.700 3.600 4.500 Queijos 1.125 2.250 4.500 6.750 9.000 11.250 Resinas sintéticas 1.890 3.780 7.560 11.340 15.120 18.900 Resinas sintéticas, placas de 1.530 3.060 6.120 9.180 12.240 15.300 Sabão 1.890 3.780 7.560 11.340 15.120 18.900 Sacos de papel 5.670 11.340 22.680 34.020 45.360 56.700 Sacos de plástico 11.340 22.680 45.360 68.040 90.720 113.400 Tabaco em bruto 765 1.530 3.060 4.590 6.120 7.650 Tabaco, artigos de 945 1.890 3.780 5.670 7.560 9.450 Produtos químicos combustíveis 450 900 1.800 2.700 3.600 4.500 Queijos 1.125 2.250 4.500 6.750 9.000 11.250 Resinas sintéticas 1.890 3.780 7.560 11.340 15.120 18.900 Resinas sintéticas, placas de 1.530 3.060 6.120 9.180 12.240 15.300 Sabão 1.890 3.780 7.560 11.340 15.120 18.900 Sacos de papel 5.670 11.340 22.680 34.020 45.360 56.700 Sacos de plástico 11.340 22.680 45.360 68.040 90.720 113.400 Tabaco em bruto 765 1.530 3.060 4.590 6.120 7.650 Tabaco, artigos de 945 1.890 3.780 5.670 7.560 9.450 Tapeçarias 765 1.530 3.060 4.590 6.120 7.650 Tecidos em geral 900 1.800 3.600 5.400 7.200 9.000 Tecidos sintéticos 585 1.170 2.340 3.510 4.680 5.850 Tecidos, fardos de algodão 585 1.170 2.340 3.510 4.680 5.850 Tecidos, seda artificial 450 900 1.800 2.700 3.600 4.500 Toldos ou lonas 450 900 1.800 2.700 3.600 4.500 Velas de cera 10.080 20.160 40.320 60.480 80.640 100.800 Vernizes 1.125 2.250 4.500 6.750 9.000 11.250 Vernizes de cera 2.250 4.500 9.000 13.500 18.000 22.500"
+    },
+    {
+      "page": 14,
+      "title": "Anexo C - Método determinístico para cálculo da carga de incêndio específica Val",
+      "text": "Anexo C - Método determinístico para cálculo da carga de incêndio específica Valores da carga de incêndio específica podem ser calculados pelo método determinístico pela seguinte expressão: 𝑞𝑓𝑖 = ∑𝑚𝑖 𝐻𝑖 𝐴𝑓 Legenda: qfi = valor de carga de incêndio específica, em megajoule por metro quadrado de área de piso considerado para o cálculo (MJ/m²); mi = massa de cada componente i do material combustível, em quilograma (kg); Hi = potencial calorífico específico de cada componente do material combustível, conforme Anexo D; Af = área do piso considerado para o cálculo, em metro quadrado (m²)."
+    },
+    {
+      "page": 15,
+      "title": "Anexo D - Potencial calorífico específico Material Hi [MJ/kg] Material Hi [MJ/kg",
+      "text": "Anexo D - Potencial calorífico específico Material Hi [MJ/kg] Material Hi [MJ/kg] Material Hi [MJ/kg] Acetileno 50 Dietilcetona 34 Monóxido de carbono 10 Acetileno dissolvido 17 Dietiléter 37 Nafta 42 Acetona 30 Epóxi 34 N-Butano 45 Acrílico 28 Etano 47 Nitrocelulose 8,4 Açúcar 17 Etanol 26 N-Octano 44 Amido 17 Eteno 50 N-Pentano 45 Algodão 18 Éter amílico 42 Óleo de linhaça 37 Álcool alílico 34 Éter etílico 34 Óleo vegetal 42 Álcool amílico 42 Etileno 50 Palha 16 Álcool etílico 25 Etino 48 Papel 17 Álcool metílico 21 Enxofre 8 Parafina 46 Benzeno 40 Farinha de trigo 17 Petróleo 41 Benzina 42 Fenol 34 Plástico 31 Celulose 16 Fibra sintética 6,6 29 Poliacrilonitrila 30 Biodiesel 39 Fósforo 25 Policarbonato 29 Borracha espuma 37 Gás natural 26 Poliéster 27 Borracha em tiras 32 Gasolina 47 Poliestireno 39 Butano 46 Glicerina 17 Polietileno 44 Cacau em pó 17 Gordura e óleo vegetal 42 Polimetilmetacrilato 24 Café 17 Grãos 17 Polioximetileno 15 Cafeína 21 Graxa, lubrificante 41 Poliuretano 23 Cálcio 4 Heptano 46 Polivinilclorido 17 Carbono 34 Hexametileno 46 Polipropileno 43 Carvão 36 Hexano 46 Propano 46 Celulose 16 Hidreto de sódio 9 PVC 17 Cereais 17 Hidrogênio 143 Resina de fenol 25 C-Heptano 46 Hidreto de magnésio 17 Resina de ureia 21 C-Pentano 46 Látex 44 Resina melamínica 18 C-Propano 50 Lã 23 Seda 19 C-Hexano 46 Leite em pó 17 Sisal 17 Chocolate 25 Linho 17 Sódio 4,5 Chá 17 Linóleo 2 Sulfureto de carbono 12,5 Cloreto de polivinil 21 Lixo de cozinha 18 Tabaco 17 Couro 19 Madeira 19 Tolueno 42 Creosoto/fenol 37 Magnésio 25 Turfa 34 D-glucose 15 Manteiga 37 Ureia 9 Diesel 43 Metano 50 Viscose 17 Dietilamina 42 Metanol 19"
+    },
+    {
+      "page": 16,
+      "title": "Anexo E - Planilha para cálculo da carga de incêndio no método determinístico Ma",
+      "text": "Anexo E - Planilha para cálculo da carga de incêndio no método determinístico Material Massa mi [kg] Potencial calorífico específico (Tabela D.1) Hi[MJ/kg] Potencial calorífico por material mi x Hi [MJ] Valor total do potencial calorífico da área considerada para o cálculo (MJ): miHi ______________________________ ∑ Área considerada para o cálculo: Af (m²) ______________________________ Carga de incêndio específica: ______________________________ 𝑞𝑓𝑖 = ∑𝑚𝑖 𝐻𝑖 𝐴𝑓"
+    }
+  ],
+  "checks": {
+    "needs_human_look": []
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "doc": "IN-11",
+  "preamble": "IN 11 SISTEMA DE ILUMINAÇÃO DE EMERGÊNCIA - SIE SUMÁRIO DISPOSIÇÕES INICIAIS 2 Objetivo 2 Referências 2 Terminologias 2 APLICAÇÃO 2 Geral 2 Isenção do SIE 2 CRITÉRIOS PARA PROJETO E EXECUÇÃO 3 Objetivos do SIE 3 Dimensionamento do SIE 3 Fontes de energia de segurança 5 Critérios de qualidade e desempenho 5 DOCUMENTAÇÃO 5 PPCI 6 Vistoria para habite-se 6 Vistoria de funcionamento 6 DISPOSIÇÕES FINAIS 6 Vigente a partir de 24/04/2024 6 páginas INSTRUÇÃO NORMATIVA 11 SISTEMA DE ILUMINAÇÃO DE EMERGÊNCIA DISPOSIÇÕES INICIAIS Objetivo",
+  "articles": [
+    {
+      "number": 1,
+      "page": 2,
+      "text": "Art. 1º Esta Instrução Normativa (IN) tem por objetivo estabelecer e padronizar critérios de concepção e dimensionamento do Sistema de Iluminação de Emergência (SIE) para os imóveis fiscalizados pelo Corpo de Bombeiros Militar de Santa Catarina (CBMSC). Parágrafo único. A iluminação de emergência desempenha um papel fundamental na segurança e proteção das pessoas em imóveis, proporcionando iluminação adequada em situações críticas, como quedas de energia, incêndios ou outras emergências que possam levar à escuridão repentina, propiciando meios seguros para o abandono do imóvel, para a utilização dos SMSCI da edificação, e para que as equipes de resposta realizem suas operações de forma eficaz. Referências"
+    },
+    {
+      "number": 2,
+      "page": 2,
+      "text": "Art. 2º As referências utilizadas são as seguintes: I - IN 1 - parte 1, de 2024 - CBMSC; II - IN 1 - parte 2, de 2024 - CBMSC; III - NBR 10898; IV - NBR 16820; V - NBR 15575. Terminologias"
+    },
+    {
+      "number": 3,
+      "page": 2,
+      "text": "Art. 3º As terminologias gerais que tratam da segurança contra incêndio são definidas pelo CBMSC e disponibilizadas para acesso público em seu portal oficial. APLICAÇÃO Geral"
+    },
+    {
+      "number": 4,
+      "page": 2,
+      "text": "Art. 4º Esta IN aplica-se aos imóveis para os quais o SIE é exigido, conforme previsto nas normas de segurança contra incêndio e pânico (NSCI). Isenção de SIE"
+    },
+    {
+      "number": 5,
+      "page": 2,
+      "text": "Art. 5º Fica isenta a instalação do SIE para: I - áreas cobertas que atendam cumulativamente as seguintes características: a) em pavimento térreo; b) com saída diretamente para área externa aberta; e c) com no máximo 50% de fechamento do perímetro com paredes (por exemplo: cobertura de bombas de combustível, garagens, pilotis, olarias, etc.); II - ambientes internos que atendam cumulativamente as seguintes características: a) área de até 200 m²; b) caminhamento máximo de 20 m até a porta de acesso para a circulação comum do pavimento ou até a saída para área externa do imóvel; c) que não se caracterizem como circulação comum do pavimento, quando este não for o térreo; e d) com no máximo dois ambientes internos que antecedam a circulação comum do pavimento ou à saída para área externa do imóvel, podendo ser desconsiderados na contagem os ambientes previstos no inciso III deste artigo. III - ambientes com acesso único e área inferior a 8 m², a exemplo de banheiros individuais, pequenos depósitos e provadores de roupas. IV - áreas com risco de explosão, à critério do RT; V - no interior de unidades autônomas habitacionais dos grupos A e B. § 1º O caminhamento máximo é computado a partir do ponto mais distante do ambiente. § 2º Sempre que houver mais de dois ambientes que antecedam a circulação comum do pavimento ou à saída para área externa do imóvel (vide alínea “d” do inciso II deste artigo), deve ser prevista iluminação de emergência no ambiente que dá acesso para a circulação ou para a saída. § 3º O disposto neste artigo não se aplica às divisões F-6 e F-11, exceto nos ambientes descritos no inciso III. CRITÉRIOS PARA PROJETO E EXECUÇÃO Objetivos do SIE"
+    },
+    {
+      "number": 6,
+      "page": 3,
+      "text": "Art. 6º Em caso de interrupção ou falha no fornecimento de energia elétrica para a totalidade ou parte da iluminação normal de uma edificação, o SIE deve satisfazer os seguintes objetivos: I - garantir a visualização das rotas de fuga de maneira nítida e inequívoca; II - permitir movimentação segura dos ocupantes do imóvel através das rotas de fuga, de qualquer ponto da edificação até a descarga; III - ajudar a prevenir o pânico durante situação de emergência e/ou evacuação; IV - garantir que os serviços de segurança contra incêndio (acionadores manuais, extintores, hidrantes, etc.) localizados ao longo das rotas de fuga sejam facilmente localizados; e V - possibilitar a operação segura e eficaz das equipes de intervenção. Dimensionamento do SIE"
+    },
+    {
+      "number": 7,
+      "page": 3,
+      "text": "Art. 7º Ao prever os pontos de instalação das luminárias de emergência em PPCI, o responsável técnico (RT) deve enfatizar: I - locais com desnível (escadas, degraus, rampas ou obstáculos no piso); II - mudanças de direção e interseções de corredores na rota de fuga; III - portas de acesso às rotas de fuga; IV - trecho da rota de fuga situado entre o ponto de saída da última porta e o local externo seguro; V - equipamentos de combate a incêndio e alarme (extintores, hidrantes do SHP, acionadores manuais, central de alarme, etc.); VI - sinalizações para abandono de local e outras sinalizações de emergência julgadas pertinentes; VII - áreas de resgate para pessoas com deficiência (PcD); VIII - desvios na rota de fuga por conta de obstáculos (por exemplo, máquinas de grande porte); e IX - áreas com dispositivos de controle de acesso que impeçam ou diminuam a livre movimentação para a evacuação das pessoas."
+    },
+    {
+      "number": 8,
+      "page": 3,
+      "text": "Art. 8º O SIE deve ter autonomia mínima¹ de 3 horas para as seguintes ocupações e locais: I - edificações com altura superior a 60 metros; II - divisões H-2 e H-3 com área superior a 1.500 m²; ou III - divisões F-6 e F-11, e eventos temporários em locais fechados com lotação acima de 1.000 pessoas. § 1º Para as demais ocupações e locais o SIE deve ter autonomia mínima de 1 hora. § 2º O sistema não deve ter perda superior a 10% de sua luminosidade inicial durante o período previsto de autonomia mínima. Nota 1 - Orientação As prescrições do artigo 8º estabelecem valores mínimos, porém, ressalta-se que cabe ao responsável técnico pelo PPCI dimensionar a autonomia ideal do SIE, levando em consideração o tempo previsto para a evacuação e o tempo necessário para que a equipe de intervenção localize pessoas perdidas ou sem possibilidade de abandonar o local por meios próprios."
+    },
+    {
+      "number": 9,
+      "page": 4,
+      "text": "Art. 9º Deve-se garantir um nível mínimo de iluminamento de: I - 3 lux em locais planos; e II - 5 lux em: a) locais com desnível; ou b) divisões F-6 e F-11."
+    },
+    {
+      "number": 10,
+      "page": 4,
+      "text": "Art. 10. Admitem-se as seguintes formas de instalação dos pontos de iluminação de emergência: I - na parede, abaixo da posição superior da saída/exaustão da fumaça (portas, janelas ou elementos vazados), isto é, em altura inferior ao ponto mais baixo do colchão de fumaça possível de se formar no ambiente; II - no teto de escadas enclausuradas ou à prova de fumaça, de áreas de refúgio e de redutos resistentes ao fogo; e III - no teto de qualquer ambiente, desde que seja garantido um nível mínimo de iluminamento superior ao previsto no artigo 9º, com valores de: a) 30 lux em locais planos; e b) 50 lux em: i. locais com desnível ou ii . divisões F-6 e F-11. Parágrafo único. Não é admitido o emprego de blocos autônomos quando a forma de instalação for a prevista no inciso III deste artigo."
+    },
+    {
+      "number": 11,
+      "page": 4,
+      "text": "Art. 11. A distância máxima entre dois pontos de iluminação de emergência no mesmo ambiente deve ser equivalente a quatro vezes a altura da instalação destes em relação ao nível do piso. Parágrafo único. Admite-se a ampliação da distância máxima prevista no caput deste artigo nos casos em que essa alteração atender melhor as especificidades de ocupação, utilização e/ou estrutura do imóvel, desde que sejam atendidos os níveis de iluminamento previstos nos artigos 9º e 10º, no que couber, e que seja apresentada exposição de motivos em memorial descritivo."
+    },
+    {
+      "number": 12,
+      "page": 4,
+      "text": "Art. 12. As luminárias de emergência devem ser posicionadas nas rotas de fuga de forma a não prejudicar, por ofuscamento² (seja diretamente ou por iluminação refletida), o deslocamento dos ocupantes da edificação. § 1º Luminárias com LED e outros geradores de luz pontual devem ser protegidos por lentes ou anteparos para o aumento da superfície radiante, eliminando o ofuscamento de olhos ou danos à retina do olho pela intensidade da luz direta. § 2º Quando utilizadas luminárias tipo faróis sem proteção, o feixe luminoso do aparelho deve ser direcionado para áreas que não produzam ofuscamento (por exemplo, para o teto ou uma parede ortogonal à direção da rota de fuga), de modo que a iluminação de emergência no ambiente seja predominantemente refletiva. § 3º Luminárias tipo faróis nunca devem ser utilizadas em locais com desnível. § 4º A variação da intensidade de iluminação na rota de fuga, num mesmo ambiente ou na transição entre dois ambientes distintos, não deve superar a proporção de 20:1, ou seja, os valores de iluminância medidos no ponto mais iluminado e no menos iluminado não podem superar essa proporção. Nota 2 - Orientação Recomenda-se cuidado especial em relação às luminárias de emergência instaladas em patamares de rotas de fuga verticais, para que não sejam posicionadas de maneira que os respectivos feixes luminosos fiquem predominantemente direcionados para os olhos dos ocupantes da edificação em deslocamento nos desníveis, minimizando assim a possibilidade de ocorrência de ofuscamento em razão da intensidade da luz direta proveniente dos pontos de iluminação de emergência."
+    },
+    {
+      "number": 13,
+      "page": 5,
+      "text": "Art. 13. O acionamento das luminárias de emergência deve ser automático em caso de: I - alarme de incêndio, se o SIE for integrado com o sistema de alarme de incêndio; ou II - interrupção ou falha no fornecimento de energia elétrica total ou parcial da iluminação normal de uma edificação. Parágrafo único. Nas rotas de fuga horizontais e verticais do imóvel (circulação, corredores, hall, escadas, rampas, etc.), a iluminação normal e/ou a iluminação de emergência, quando esta for usada também para conforto, devem ter acionamento automático (por exemplo, com o uso de sensor de presença e minuterias) ou permanecerem constantemente acesas nos horários em que houver ocupantes na edificação."
+    },
+    {
+      "number": 14,
+      "page": 5,
+      "text": "Art. 14. É obrigatória a previsão de ponto de iluminação de emergência no interior de elevadores sociais, nos casos em que a funcionalidade não for incorporada de fábrica. Fontes de energia de segurança"
+    },
+    {
+      "number": 15,
+      "page": 5,
+      "text": "Art. 15. Podem ser usadas como fontes de energia.de.segurança: I - conjunto de blocos autônomos; II - sistema centralizado com baterias recarregáveis; ou III - sistema centralizado com grupo motogerador. Parágrafo único. As exigências referentes às fontes de energia são previstas na IN 19."
+    },
+    {
+      "number": 16,
+      "page": 5,
+      "text": "Art. 16. Nas rotas de fuga horizontais e verticais (circulação, corredores, hall, escadas, rampas, etc.) de edificações com altura superior a 90 metros, inclusive nos pavimentos inferiores, não é admitida a previsão de sistema de iluminação de emergência composto por blocos autônomos. Critérios de qualidade e desempenho"
+    },
+    {
+      "number": 17,
+      "page": 5,
+      "text": "Art. 17. Cabe ao responsável técnico pelo SIE o papel de especificar e instalar produtos que atendam ao desempenho mínimo estabelecido por normas técnicas brasileiras prescritivas, com base no desempenho declarado pelos fabricantes, salvo disposições contrárias nesta IN."
+    },
+    {
+      "number": 18,
+      "page": 5,
+      "text": "Art. 18. As luminárias de emergência utilizadas devem atender os critérios de qualidade e desempenho previstos na ABNT NBR 10.898, salvo disposições contrárias nesta IN."
+    },
+    {
+      "number": 19,
+      "page": 5,
+      "text": "Art. 19. A tensão máxima de funcionamento das luminárias do SIE não deve ser superior a 30 V. Parágrafo único. Para luminárias que funcionam em tensão alternada, o valor de 30 V refere-se ao valor de pico da tensão."
+    },
+    {
+      "number": 20,
+      "page": 5,
+      "text": "Art. 20. As luminárias de emergência devem possuir fusíveis de proteção incorporados, exceto no caso de blocos autônomos."
+    },
+    {
+      "number": 21,
+      "page": 5,
+      "text": "Art. 21. A instalação elétrica do SIE deve atender os requisitos da IN 19."
+    },
+    {
+      "number": 22,
+      "page": 5,
+      "text": "Art. 22. A fixação da luminária na instalação do sistema deve ser de forma rígida, a fim de impedir uma queda acidental ou a remoção dela sem auxílio de ferramenta. DOCUMENTAÇÃO PPCI"
+    },
+    {
+      "number": 23,
+      "page": 5,
+      "text": "Art. 23. O responsável Técnico deve prever, por meio de notas/detalhes em prancha do PPCI ou, no mínimo, em memorial descritivo, as seguintes informações: I - sobre as luminárias de emergência a serem instaladas: a) tipos de lâmpadas; b) tensão de funcionamento, em volts; c) fluxo luminoso, em lúmens; e d) necessidade de fusíveis de proteção incorporados, quando obrigatórios (vide artigo 20). II - acerca do SIE: a) nível de iluminância projetada para os ambientes, em lux; b) locais e forma de instalação das luminárias (vide artigo 10); c) forma de acionamento automático do SIE (vide artigo 13); d) fonte de energia de segurança utilizada (vide artigo 15); e e) tempo de autonomia do SIE. III - a previsão de ponto de iluminação de emergência no interior de elevadores sociais, nos casos em que a funcionalidade não for incorporada de fábrica. Vistoria para habite-se"
+    },
+    {
+      "number": 24,
+      "page": 6,
+      "text": "Art. 24. Por ocasião de solicitação de vistoria de habite-se, deve ser apresentado(a): I - DRT de execução (ou análoga) do SIE; e II - nos casos de instalação conforme previsto no inciso III do artigo 10, documentação emitida pelo fabricante atestando que as luminárias de emergência utilizadas são indicadas para essa aplicação e garantem desempenho adequado sob ação do calor. Vistoria de funcionamento"
+    },
+    {
+      "number": 25,
+      "page": 6,
+      "text": "Art. 25. O CBMSC pode requisitar, a qualquer tempo, a apresentação de DRT de manutenção (ou análoga) do SIE e/ou laudo luminotécnico acompanhado do respectivo DRT de qualquer edificação (área parcial ou total), sempre que observadas possíveis inconformidades em relação às prescrições desta IN. DISPOSIÇÕES FINAIS"
+    },
+    {
+      "number": 26,
+      "page": 6,
+      "text": "Art. 26. Esta IN, aplicável em todo o território catarinense, entra em vigor em 24 de abril de 2024, revogando a IN 11 de 26 de dezembro de 2022. Coronel BM FABIANO DE SOUZA Comandante-Geral do Corpo de Bombeiros Militar de SC ORGANIZAÇÃO: TC BM Willyan Fazzioni - Direção Maj BM Oscar W Barboza Jr - Supervisão e Edição Cap BM Rafael Giosa Sanino - Revisão Cap BM Suellen Lapa Duarte - Edição"
+    }
+  ],
+  "annexes": [],
+  "checks": {
+    "needs_human_look": []
+  }
+}

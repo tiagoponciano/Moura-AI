@@ -1,0 +1,15 @@
+{
+  "doc": "IN-31",
+  "source_url": "https://drive.google.com/file/d/1Qgw69TYL-nDWGoKSulvxodri-MljEsW5/view",
+  "retrieved": "2026-11-19",
+  "pdf_sha256": "7234091d491694797b37ab8f92245587cab0dc1ab450078ac1007703a70d68b1",
+  "pdf_pages": 9,
+  "tool_version": 1,
+  "pymupdf": "1.28.2",
+  "articles": {
+    "count": 28,
+    "annex_pages": 2,
+    "sha256": "55dde7316a17f7f5c631d471752cb088d235a05fc3d2f448e45de6230e5d1623",
+    "needs_human_look": 0
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "doc": "IN-20",
+  "preamble": "IN 20 USO E ARMAZENAMENTO DE LÍQUIDOS INFLAMÁVEIS E COMBUSTÍVEIS SUMÁRIO DISPOSIÇÕES INICIAIS 2 Objetivo 2 Referências 2 Terminologias 2 APLICAÇÃO 2 Geral 2 Requisitos 2 CLASSIFICAÇÃO 3 PROJETO 3 DISPOSIÇÕES FINAIS 3 ANEXO A - Classificação dos líquidos inflamáveis e comb. 4 Vigente a partir de 24/04/2024 4 páginas INSTRUÇÃO NORMATIVA 20 USO E ARMAZENAMENTO DE LÍQUIDOS INFLAMÁVEIS E COMBUSTÍVEIS DISPOSIÇÕES INICIAIS Objetivo",
+  "articles": [
+    {
+      "number": 1,
+      "page": 2,
+      "text": "Art. 1º Esta Instrução Normativa (IN) tem por objetivo estabelecer e padronizar critérios de concepção, dimensionamento e execução de medidas de segurança em relação aos riscos que envolvem a produção, armazenamento, manipulação e distribuição de líquidos inflamáveis e combustíveis. Referências"
+    },
+    {
+      "number": 2,
+      "page": 2,
+      "text": "Art. 2º As referências utilizadas são as seguintes: I - IN 1 - parte 1 do CBMSC, de 2024; II - IN 1 - parte 2 do CBMSC, de 2024; III - NBR 17505 - Armazenamento de líquidos inflamáveis e combustíveis. Terminologias"
+    },
+    {
+      "number": 3,
+      "page": 2,
+      "text": "Art. 3º As terminologias gerais que tratam da segurança contra incêndio são definidas pelo CBMSC e disponibilizadas para acesso público em seu portal oficial. APLICAÇÃO Geral"
+    },
+    {
+      "number": 4,
+      "page": 2,
+      "text": "Art. 4º Esta IN aplica-se aos imóveis que utilizam, produzem, armazenam, manipulam ou distribuem líquidos combustíveis ou inflamáveis, localizados no interior de edificações ou a céu aberto. Requisitos"
+    },
+    {
+      "number": 5,
+      "page": 2,
+      "text": "Art. 5º. Adotam-se, quando aplicável, os requisitos previstos na NBR 17505 para os projetos de instalações de armazenamento, manuseio e uso de líquidos inflamáveis e combustíveis, incluindo os resíduos líquidos, contidos em tanques estacionários e/ou em recipientes. § 1º Os requisitos da NBR 17505 não se aplicam à: I - materiais com ponto de fusão igual ou superior a 37,8 °C; II - líquido que não preencham os critérios de fluidez estabelecidos na NBR 17505; III - gases liquefeito ou líquido criogênico; IV - líquidos sem ponto de fulgor, que possam queimar sob certas condições; V - produtos aerossóis; VI - névoas, sprays ou espumas; VII - transporte terrestre de líquidos inflamáveis e combustíveis, regulamentado pelo Ministério dos Transportes/Agência Nacional de Transportes Terrestres (ANTT); VIII - armazenamento, manuseio e uso de tanques e recipientes de óleo combustível conectados a equipamentos que consomem óleo, quando parte integrante do conjunto; IX - instalações de armazenamento de líquidos inflamáveis e combustíveis que disponham de Normas Brasileiras específicas; X - aspectos toxicológicos dos produtos armazenados; XI - instalação de tanques de armazenamento e consumo de líquidos inflamáveis e combustíveis destinados ao abastecimento de motores e/ou equipamentos térmicos que disponham de Normas Brasileiras específicas; e XII - instalações marítimas offshore. § 2º Os produtos mencionados nos incisos I e II do § 1º deste artigo que não forem manuseados, usados ou armazenados em temperaturas acima de seus pontos de fulgor devem atender às disposições previstas na NBR 17505. § 3º Produtos em aerosol devem atender à NFPA 30B. § 4º A instalação e operação de equipamentos de queima de óleo devem seguir os parâmetros da NFPA 31. § 5º Cabe ao RT avaliar os casos não aplicáveis ou não abordados pelas NBR e NFPA, estabelecendo medidas de segurança para estas exceções. CLASSIFICAÇÃO"
+    },
+    {
+      "number": 6,
+      "page": 3,
+      "text": "Art. 6º Para fins de aplicação das NSCI, os líquidos inflamáveis e combustíveis são classificados conforme o Anexo A . PROJETO"
+    },
+    {
+      "number": 7,
+      "page": 3,
+      "text": "Art. 7º Deve ser apresentado no PPCI nota de atendimento à NBR 17505 ou NFPA 31, ou, para postos de abastecimento, as normas aplicáveis, discriminando os líquidos inflamáveis ou combustíveis existentes no imóvel. DISPOSIÇÕES FINAIS Art. 7º Esta IN, aplicável em todo o território catarinense, entra em vigor em 24 de abril de 2024, revogando a IN 20, de 28 de março de 2014. Coronel BM FABIANO BASTOS DAS NEVES Comandante-Geral do Corpo de Bombeiros Militar de SC ORGANIZAÇÃO: TC BM Willyan Fazzioni - Direção Maj BM Oscar W Barboza Jr - Supervisão e Edição Cap BM Rafael Giosa Sanino - Revisão Cap BM Suellen Lapa Duarte - Edição"
+    }
+  ],
+  "annexes": [
+    {
+      "page": 4,
+      "title": "ANEXO A - Classificação dos líquidos inflamáveis e combustíveis LÍQUIDOS PONTO D",
+      "text": "ANEXO A - Classificação dos líquidos inflamáveis e combustíveis LÍQUIDOS PONTO DE FULGOR (PF) PONTO DE EBULIÇÃO (PE) INFLAMÁVEIS CLASSE I PF < 37,8°C e pressão vapor < 275,7 kPa - CLASSE IA PF < 22,8°C PE < 37,8°C CLASSE IB PF < 22,8°C PE ≥ 37,8°C CLASSE IC 22,8°C ≤ PF < 37,8°C - COMBUSTÍVEIS CLASSE II 37,8°C ≤ PF < 60°C - CLASSE IIIA 60°C ≤ PF < 93°C - CLASSE IIIB PF ≥ 93°C - Na determinação do ponto de fulgor devem ser utilizados os seguintes critérios: a) para líquidos com viscosidade inferior a 5,5 cSt a 40 °C ou inferior a 9,5 cSt a 25 °C, utilizar a ABNT NBR 7974; b) para cortes de asfaltos, líquidos que tendem a formar uma película superficial ou que contenham sólidos em suspensão que não podem ser ensaiados de acordo com a ABNT NBR 7974, mesmo que atendam aos critérios de viscosidade, devem ser ensaiados de acordo com o mencionado na alínea c); c) para líquidos com viscosidade igual ou superior a 5,5 cSt a 40 °C ou 9,5 cSt a 25 °C ou ponto de fulgor igual ou superior a 93,4 °C, utilizar a ABNT NBR 14598; d) para tintas, esmaltes, lacas, vernizes e produtos correlatos e seus componentes com ponto de fulgor entre 0 °C e 110 °C e viscosidade inferior a 150 St a 25 °C, utilizar a ASTM D 3278; e) para outros materiais que não exigem especificamente a aplicação da ASTM D 3278, pode ser utilizada a ASTM D 3828."
+    }
+  ],
+  "checks": {
+    "needs_human_look": []
+  }
+}

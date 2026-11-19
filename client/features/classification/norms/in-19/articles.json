@@ -1,0 +1,115 @@
+{
+  "doc": "IN-19",
+  "preamble": "IN 19 INSTALAÇÕES ELÉTRICAS DE BAIXA TENSÃO SUMÁRIO DISPOSIÇÕES INICIAIS 2 Objetivo 2 Referências 2 Terminologias 2 APLICAÇÃO 2 Geral 2 INSTALAÇÕES ELÉTRICAS DE SMSCI 2 FONTES DE SEGURANÇA 3 DOCUMENTAÇÃO 4 Análise de PPCI 4 Vistoria para habite-se 4 Vistoria de funcionamento 4 DISPOSIÇÕES FINAIS 5 Vigente a partir de 24/04/2024 5 páginas INSTRUÇÃO NORMATIVA 19 INSTALAÇÕES ELÉTRICAS DE BAIXA TENSÃO DISPOSIÇÕES INICIAIS Objetivo",
+  "articles": [
+    {
+      "number": 1,
+      "page": 2,
+      "text": "Art. 1º Esta Instrução Normativa (IN) tem por objetivo estabelecer e padronizar critérios de concepção e dimensionamento das instalações elétricas de baixa tensão para os imóveis fiscalizados pelo Corpo de Bombeiros Militar de Santa Catarina (CBMSC). Referências"
+    },
+    {
+      "number": 2,
+      "page": 2,
+      "text": "Art. 2º As referências utilizadas são as seguintes: I - Lei Federal nº 11.337, de 2006; II - Lei Estadual nº 16.157, de 2013; III - Decreto Estadual nº 1.957, de 2013; IV - Decreto Estadual nº 347, de 2019; V - IN 1 do CBMSC, de 2024; VI - NBR 13418/1995; VII - NBR 13570/1996; VIII - NBR 5410/2004; IX - NR 10/2016; X - NBR IEC 60079/2018; XI - Instrução Técnica nº 41/2019 - CBPMESP. Terminologias"
+    },
+    {
+      "number": 3,
+      "page": 2,
+      "text": "Art. 3º As terminologias gerais que tratam da segurança contra incêndio são definidas pelo CBMSC e disponibilizadas para acesso público em seu portal oficial."
+    },
+    {
+      "number": 4,
+      "page": 2,
+      "text": "Art. 4º Para aplicação desta IN consideram-se as seguintes terminologias específicas: I - baixa tensão : tensão nominal igual ou inferior a 1.000 Volts em corrente alternada, ou a 1.500 Volts em corrente contínua; II - fonte de segurança : fonte destinada a assegurar o fornecimento de energia elétrica a equipamentos essenciais para os sistemas de SCI. APLICAÇÃO Geral"
+    },
+    {
+      "number": 5,
+      "page": 2,
+      "text": "Art. 5º Esta IN aplica-se aos imóveis para os quais as instalações elétricas de baixa tensão são exigidas, conforme previsto nas normas de segurança contra incêndio e pânico (NSCI). Parágrafo único. Compete ao responsável técnico (RT) garantir que as condições mínimas necessárias sejam atendidas para as instalações elétricas de baixa tensão, de modo a assegurar a segurança das pessoas, do patrimônio e do meio ambiente, observando também o que estiver especificado nesta IN. INSTALAÇÕES ELÉTRICAS DE SMSCI"
+    },
+    {
+      "number": 6,
+      "page": 2,
+      "text": "Art. 6º Nas instalações elétricas dos SMSCI, devem ser previstos meios¹ para evitar que, durante uma ocorrência de incêndio, a equipe de bombeiros não desligue acidentalmente uma chave geral que interrompa indevidamente a energia de um ou mais sistemas de SCI. Parágrafo único. Com exceção do SIE e do SAL, os demais circuitos elétricos dos SMSCI não devem ser conectados ao disjuntor geral do quadro de distribuição principal da edificação. Nota 1 - Exemplos a) Emprego de sinalização visual em quadros elétricos. b) Entrada de energia específica para os sistemas de SCI que não podem ser desligados, de acordo com as normas para \"instalações de combate a incêndios\" da Concessionária de Energia local. c) Acionador manual ou um comando automático para desligamento de chave geral dos circuitos comuns do imóvel."
+    },
+    {
+      "number": 7,
+      "page": 2,
+      "text": "Art. 7º Cada sistema de SCI deve ser alimentado por um circuito exclusivo, cada qual com seu dispositivo de proteção, garantindo que um mesmo circuito não alimente mais de um sistema. § 1º Como exceção, admite-se que um mesmo circuito seja utilizado para alimentar simultaneamente o sistema de iluminação de emergência (SIE) e o sistema de sinalização para abandono de local (SAL). § 2º Para o SIE e o SAL, os circuitos devem atender a números alternados de pavimentos quando a razão da edificação for vertical, ou a números alternados de luminárias quando a razão for horizontal, exceto no caso de uso de blocos autônomos, onde essa exigência não se aplica."
+    },
+    {
+      "number": 8,
+      "page": 3,
+      "text": "Art. 8º Os quadros de distribuição que contenham circuitos responsáveis pela alimentação e comando dos sistemas de SCI que usam motores (tais como ventiladores, exaustores, bombas de incêndio, motogeradores, elevadores, registros corta-fogo e similares), ou circuitos de acionamento de equipamentos de supressão e combate a incêndio, devem ser devidamente identificados no lado externo com a inscrição “SISTEMAS DE SEGURANÇA CONTRA INCÊNDIO”, ou, alternativamente, com inscrição identificando cada sistema."
+    },
+    {
+      "number": 9,
+      "page": 3,
+      "text": "Art. 9º Os dispositivos de proteção dos sistemas de SCI devem ser identificados de forma que os respectivos circuitos sejam facilmente reconhecidos pelo operador."
+    },
+    {
+      "number": 10,
+      "page": 3,
+      "text": "Art. 10. As linhas elétricas de alimentação e comando dos sistemas de SCI que utilizarem motores e dos dispositivos de acionamento de equipamentos de supressão e combate a incêndio devem ser protegidas por materiais resistentes ao fogo com o mesmo TRRF exigido para o imóvel, conforme IN 14, e nunca inferior a 30 minutos."
+    },
+    {
+      "number": 11,
+      "page": 3,
+      "text": "Art. 11. É vedado o uso de Dispositivo Diferencial Residual (DR) para proteção contra choques elétricos nos circuitos dos sistemas de SCI, exceto quando sua aplicação estiver associada a exigências da IN 33."
+    },
+    {
+      "number": 12,
+      "page": 3,
+      "text": "Art. 12. A tensão máxima de funcionamento não poderá ser superior a 30 Volts para os seguintes sistemas: I - sistema de iluminação de emergência; II - sinalização para abandono de local; e III - sistema de detecção e alarme de incêndio."
+    },
+    {
+      "number": 13,
+      "page": 3,
+      "text": "Art. 13. Não é permitida a proteção contra sobrecargas nos circuitos dos motores utilizados nos sistemas de SCI (como bombas de incêndio, sistemas de extração de fumaça, etc.), no entanto, a proteção contra curto-circuitos deve ser mantida. Parágrafo único. Compete ao responsável técnico verificar a corrente nominal da máquina elétrica, bem como sua corrente de partida sob carga, e com base nessas informações escolher um dispositivo de proteção adequado para a aplicação, observando ainda as premissas indicadas no caput deste artigo. FONTES DE SEGURANÇA"
+    },
+    {
+      "number": 14,
+      "page": 3,
+      "text": "Art. 14. As fontes de energia de segurança: I - devem entrar em funcionamento de forma automática somente quando ocorrer a falta de energia elétrica da rede de distribuição; e II - podem ser utilizadas para outros serviços que não os de SCI, desde que estes não tenham o funcionamento pleno comprometido. § 1º As centrais de baterias recarregáveis devem possuir dispositivo de proteção exclusivo na entrada, tempo de comutação máximo de 2 segundos e tensão de saída não superior a 30 Volts. § 2º Os blocos autônomos devem possuir tomadas exclusivas, admitindo-se a alimentação em tensão nominal da rede². Nota 2 - Esclarecimento Apesar de ser admitida a alimentação das tomadas em 220 Volts, a tensão máxima de funcionamento dos blocos autônomos não deve ser superior a 30 Volts."
+    },
+    {
+      "number": 15,
+      "page": 4,
+      "text": "Art. 15. Quando situado em área interna do imóvel, o grupo motogerador deve estar localizado em ambiente com as seguintes características: I - ter o acesso restrito; II - ser construído em material não combustível; III - ter acesso por porta metálica (sem elemento vazado) ou do tipo P-30; IV - ter acesso identificado com a inscrição “GRUPO MOTOGERADOR”; V - possuir iluminação de emergência e detector de temperatura conectado ao sistema de detecção e alarme de incêndio em seu interior; VI - dispor de um extintor portátil com capacidade extintora em seu lado externo; VII - ter o escapamento de gases da combustão direcionado para área externa; VIII - ter elementos de contenção para o volume de líquido inflamável/combustível; IX - ser protegido contra fogo com paredes de compartimentação com TRRF mínimo de 2 horas; e X - possuir ventilação adequada, projetada de modo que não comprometa a compartimentação."
+    },
+    {
+      "number": 16,
+      "page": 4,
+      "text": "Art. 16. Quando localizada em área interna do imóvel, a central de baterias utilizada deve ser instalada em gabinete apropriado em abrigo ou ambiente exclusivo, construído em material incombustível, de acesso restrito e identificado com a inscrição “CENTRAL DE BATERIAS”. DOCUMENTAÇÃO Análise de PPCI"
+    },
+    {
+      "number": 17,
+      "page": 4,
+      "text": "Art. 17. No PPCI apresentado ao CBMSC, é obrigatória a inclusão de uma \"Nota\" que certifique o cumprimento desta IN. Vistoria para habite-se"
+    },
+    {
+      "number": 18,
+      "page": 4,
+      "text": "Art. 18. Por ocasião de solicitação de vistoria de habite-se, deve ser apresentado DRT de: I - execução da instalação elétrica de baixa tensão; II - execução do aterramento da instalação elétrica de baixa tensão; e III - verificação final da instalação elétrica de baixa tensão. Parágrafo único. Para imóveis concluídos até a data de publicação desta IN, admite-se, em substituição à documentação mencionada nos incisos do caput deste artigo, a apresentação de um dos seguintes DRTs: a) execução das instalações elétricas de baixa tensão; b) manutenção das instalações elétricas de baixa tensão, emitido nos últimos 5 anos; ou c) reforma das instalações elétricas de baixa tensão, emitido nos últimos 10 anos. Vistoria de funcionamento"
+    },
+    {
+      "number": 19,
+      "page": 4,
+      "text": "Art. 19. É obrigatória a realização de manutenções e/ou reformas nas instalações elétricas de baixa tensão dos imóveis classificados como risco III ou superior, sendo necessário apresentar as respectivas DRTs, de acordo com a seguinte periodicidade: I - a cada 10 anos para imóveis classificados como risco III; II - a cada 5 anos para imóveis classificados como risco IV; e III - a cada 3 anos para imóveis classificados como risco V. § 1º A contagem dos prazos previstos no caput deste artigo inicia-se a partir da data da concessão do atestado para habite-se do imóvel pelo CBMSC, ou a partir da data de emissão da última DRT. § 2º Os imóveis concluídos até a data de publicação desta IN deverão se adequar ao estipulado no caput deste artigo, porém, poderão manter as instalações elétricas de baixa tensão conforme já executadas."
+    },
+    {
+      "number": 20,
+      "page": 5,
+      "text": "Art. 20. Quando forem identificadas condições que possam caracterizar risco de incêndio ou de choque elétrico, o CBMSC pode requisitar, a qualquer momento, um laudo de inspeção da instalação elétrica do imóvel (juntamente com o DRT referente ao laudo e à inspeção) , o qual deverá indicar, no mínimo, as inconformidades identificadas, os riscos associados e as medidas corretivas e/ou mitigadoras sugeridas. § 1º Com base no laudo de inspeção, o CBMSC poderá requisitar a manutenção e/ou a reforma das instalações elétricas do imóvel (juntamente com o DRT referente à manutenção e/ou a reforma), de modo que os riscos elencados no laudo de inspeção sejam sanados. § 2º Após a realização da manutenção e/ou da reforma prevista no § 1º deste artigo, o CBMSC poderá ainda solicitar um novo laudo de inspeção da instalação elétrica do imóvel, observadas as exigências previstas no caput . DISPOSIÇÕES FINAIS"
+    },
+    {
+      "number": 21,
+      "page": 5,
+      "text": "Art. 21. Esta IN, aplicável em todo o território catarinense, entra em vigor em 24 de abril de 2024, revogando a IN 19, de 17 de fevereiro de 2020. Coronel BM FABIANO BASTOS DAS NEVES Comandante-Geral do Corpo de Bombeiros Militar de SC ORGANIZAÇÃO: TC BM Willyan Fazzioni - Direção Maj BM Oscar W Barboza Jr - Supervisão e Edição Cap BM Rafael Giosa Sanino - Revisão Cap BM Suellen Lapa Duarte - Edição 1ºTen BM Bruno de César Toledo Camilo - Redação"
+    }
+  ],
+  "annexes": [],
+  "checks": {
+    "needs_human_look": []
+  }
+}

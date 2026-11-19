@@ -1,0 +1,521 @@
+{
+  "doc": "IN-2",
+  "preamble": "IN 2 INFRAÇÕES ADMINISTRATIVAS SUMÁRIO DISPOSIÇÕES INICIAIS 2 Objetivo 2 Referências 2 Terminologias 2 REGULARIZAÇÃO DE IMÓVEL 3 Fiscalização 3 Auto de fiscalização 3 Auto de infração 4 Ciência dos autos 4 Reincidência 5 TIPOS DE PUNIÇÕES ADMINISTRATIVAS 5 Infrações administrativas 5 Advertência 5 Multa 6 Valoração da multa 8 Restituição de multa 11 Embargo 11 Desembargo 11 Interdição 12 Desinterdição 12 Cassação de atestados 13 PROCESSO ADMINISTRATIVO INFRACIONAL 13 Generalidades 13 Formulários do PAI 14 RECURSOS 14 Recurso de suspensão da interdição preventiva 15 Recurso ordinário 16 Recurso especial 16 Recurso extraordinário 16 DISPOSIÇÕES FINAIS 16 ANEXO A - Definição do coeficiente de SMSCI 17 ANEXO B - Cálculo do valor da multa 18 ANEXO C - Auto de fiscalização 21 ANEXO D - Auto de advertência 22 ANEXO E - Auto de multa 23 ANEXO F - Auto de embargo e interdição 24 ANEXO G - Auto de desembargo 25 ANEXO H - Auto de desinterdição 26 ANEXO I - Auto de cassação de atestado 27 ANEXO J - Formulário para recurso 28 ANEXO K - Requerimento para ressarcimento de multa para pessoa física 29 ANEXO L - Requerimento para ressarcimento de multa para pessoa jurídica 30 ANEXO M - Sinalização de obra embargada e imóvel interditado 31 Vigente a partir de 24/04/2024 31 páginas INSTRUÇÃO NORMATIVA 2 INFRAÇÕES ADMINISTRATIVAS DISPOSIÇÕES INICIAIS Objetivo",
+  "articles": [
+    {
+      "number": 1,
+      "page": 2,
+      "text": "Art. 1º Esta Instrução Normativa (IN) tem por objetivo regular o Processo Administrativo Infracional aplicados aos imóveis fiscalizados pelo Corpo de Bombeiros Militar de Santa Catarina (CBMSC). Referências"
+    },
+    {
+      "number": 2,
+      "page": 2,
+      "text": "Art. 2º As referências utilizadas são as seguintes: I - Constituição da República, de 1988; II - Constituição de Santa Catarina, de 1989; III - Lei Estadual nº 3.938, de 1966; IV - Lei Estadual n° 15.124, de 2010; V - Lei Estadual n° 16.157, de 2013; VI - Lei Estadual n° 17.071, de 2017; VII - Lei Estadual n° 17.711, de 2019; VIII - Decreto Estadual 3.465, de 2010; X - Decreto Estadual nº 1.412, de 2017; XI - Decreto Estadual nº 1.908, de 2022; XII - IN 1 - Parte 1, de 2024 - CBMSC. Terminologias"
+    },
+    {
+      "number": 3,
+      "page": 2,
+      "text": "Art. 3º As terminologias gerais que tratam da segurança contra incêndio são definidas pelo CBMSC e disponibilizadas para acesso público em seu portal oficial. Parágrafo único. Para aplicação desta IN consideram-se as seguintes terminologias específicas: I - auto de fiscalização: documento que antecede a aplicação do auto de infração nos casos definidos em Lei, notificando o responsável acerca da constatação de alguma irregularidade em relação às Normas de Segurança Contra Incêndio e Pânico (NSCI) no imóvel; II - auto de infração: documento que resulta na instauração de procedimento administrativo infracional, aplicado em razão do cometimento de infração administrativa pelo responsável pelo imóvel (RI) ou responsável técnico (RT). III - imóvel: a) edificação: qualquer tipo de construção, permanente ou provisória, de alvenaria, madeira ou outro material construtivo, destinada à moradia, atividade empresarial ou qualquer outra ocupação, constituída por teto, parede, piso e demais elementos funcionais; b) estrutura: instalação permanente ou provisória, utilizada em apoio para os mais diversos fins e ocupações; c) área de risco: ambiente externo à edificação onde são armazenados materiais combustíveis ou inflamáveis ou produtos perigosos, instalações elétricas, radioativas ou de gás, locais utilizados para realização de shows pirotécnicos ou ainda locais com concentração de pessoas; e d) evento temporário: acontecimento de interesse público ou privado, social, esportivo, cultural, dentre outros, que reúne considerável número de pessoas em determinado espaço físico construído ou preparado e que ocorre em período determinado; IV - infrator: proprietário ou possuidor direto ou indireto de imóvel que esteja em desacordo com as normas de segurança contra incêndio e pânico, bem como responsável técnico que, por ação ou omissão, proceder em desacordo com as normas de segurança contra incêndio e pânico; V - local com concentração de público ou de pessoas: local ou ambiente onde a densidade populacional seja igual ou maior a 1 pessoa/m² de área; VI - preposto: pessoa física que, por sua condição, está habilitada a receber Auto de Fiscalização e/ou Auto de Infração em nome do responsável pelo imóvel, tais como porteiros, funcionários, gerentes, contabilistas, responsáveis técnicos, representantes comerciais e outros; VII - responsável técnico (RT): pessoa natural legalmente habilitada e registrada no conselho de fiscalização de classe profissional; VIII - sistemas e medidas de segurança contra incêndio e pânico (SMSCI): compreende o conjunto de procedimentos, dispositivos, atividades e equipamentos que formam cada sistema ou medida de forma isolada, sendo as irregularidades constatadas classificadas em: a) sistema deficiente: o SMSCI que está instalado no todo ou em parte na edificação, e que pode ser utilizado, porém não atende totalmente as especificações das Instruções Normativas e afins; b) sistema inoperante: o SMSCI que está instalado na edificação, porém é afuncional; e c) sistema inexistente: o SMSCI que não está instalado na edificação. VI - superlotação: ocorre quando a quantidade total de pessoas presentes dentro do imóvel em determinado momento (funcionários e público) for superior à lotação máxima do imóvel prevista pela IN 9. REGULARIZAÇÃO DE IMÓVEL Fiscalização"
+    },
+    {
+      "number": 4,
+      "page": 3,
+      "text": "Art. 4° Constatadas irregularidades ou infrações lavra-se auto de fiscalização ou auto de infração, conforme o caso, determinando as correções das anormalidades observadas. § 1º O auto de fiscalização descreve a(s) irregularidade(s) identificada(s) pelo CBMSC e estipula prazo(s) para solução(ões). § 2º O auto de infração refere-se a uma sanção administrativa. Auto de fiscalização"
+    },
+    {
+      "number": 5,
+      "page": 3,
+      "text": "Art. 5º Auto de fiscalização, anexo C, é o documento que possibilita a abertura do processo de regularização de imóveis e que notifica o responsável acerca das irregularidades constatadas, definindo as exigências necessárias para saneamento das irregularidades e os respectivos prazos para cumprimento em cronograma de obras. § 1º O cronograma de obras é a parte do auto de fiscalização em que são citadas as exigências e os prazos para execução, assemelhando-se a um ajuste de conduta, no qual o cumprimento dentro do prazo estabelecido afasta a aplicação da sanção administrativa. § 2º A concessão de prazo para regularização por meio de AF ocorre somente nos casos em que: I - constatadas irregularidades relacionadas aos SMSCI deficientes, inoperantes ou inexistentes; II - for requerido(a): a) apresentação de PPCI; b) solicitação de RPCI; c) solicitação de vistoria para habite-se; d) solicitação de vistoria para funcionamento; e e) cumprimento de determinações diversas estabelecidas pelo CBMSC. § 3º O descumprimento da obrigação no prazo estabelecido incide na aplicação das sanções legais cabíveis."
+    },
+    {
+      "number": 6,
+      "page": 4,
+      "text": "Art. 6° Os prazos para regularização expressos em auto de fiscalização seguem as regras dos artigos 135 e 136 da IN 1 - Parte 1."
+    },
+    {
+      "number": 7,
+      "page": 4,
+      "text": "Art. 7° A prorrogação dos prazos firmados em auto de fiscalização segue as regras do artigo 138 da IN 1 - Parte 1."
+    },
+    {
+      "number": 8,
+      "page": 4,
+      "text": "Art. 8º A contagem de prazo do auto de fiscalização e/ou auto de infração ocorre conforme regra do artigo 137 da IN 1."
+    },
+    {
+      "number": 9,
+      "page": 4,
+      "text": "Art. 9º A aplicação do AF com o prazo para regularização será realizada observando os parâmetros definidos na IN 1. § 1º Não sendo possível, ou na falta do responsável pelo imóvel para ajuste do prazo concedido no AF, o CBMSC estipulará discricionariamente um prazo, de acordo com o risco oferecido e a complexidade para resolução, podendo o responsável solicitar adequação de prazo junto ao Serviço de Segurança Contra Incêndio do CBMSC local. § 2º Qualquer requerimento para avaliação ou prorrogação de prazo deve ser realizado impreterivelmente antes do vencimento, sob pena das sanções previstas em norma. Auto de infração"
+    },
+    {
+      "number": 10,
+      "page": 4,
+      "text": "Art. 10. Auto de infração tem caráter punitivo e deve conter: I - dados do imóvel ou evento; II - dados do responsável; III - natureza da infração; IV - base legal para aplicação da sanção; V - sanção prevista; VI - identificação do bombeiro militar que efetuou a autuação; VII - prazo para regularização, quando for o caso; VIII - prazo para defesa. Parágrafo único. Em caso de multa, o auto de infração também deve conter: I - valor da penalidade aplicada; II - guia DARE contendo prazo para pagamento; e III - prazo para sanar a irregularidade que motivou a multa."
+    },
+    {
+      "number": 11,
+      "page": 4,
+      "text": "Art. 11. A emissão de autos de infração independe de prévia notificação, exceto para os casos expressamente previstos nesta IN."
+    },
+    {
+      "number": 12,
+      "page": 4,
+      "text": "Art. 12. O auto de infração deve ser efetuado por bombeiro militar, expedido por ordem de autoridade bombeiro militar e possuir ciência do responsável pelo imóvel ou preposto. Ciência dos autos"
+    },
+    {
+      "number": 13,
+      "page": 4,
+      "text": "Art. 13. A ciência do responsável acerca dos autos emitidos pelo CBMSC será realizada, via de regra, por meio eletrônico, utilizando-se de usuário e senha para acesso ao portal próprio do CBMSC, dispensando-se a publicação no órgão oficial, inclusive eletrônico. § 1º A ciência do responsável será considerada desde o dia em que ele, ou seu preposto, efetivar o acesso ao sistema após a inserção do Auto de Fiscalização e/ou Auto de Infração pelo CBMSC. § 2º A critério do CBMSC, a ciência poderá ser realizada por intermédio de outros meios eletrônicos, tais como: correspondência eletrônica, aplicativos de mensagem instantânea, SMS, dentre outros, desde que a ciência por parte do responsável, ou seu preposto, possam ser comprovadas mediante confirmação expressa do recebimento. § 3º Nos casos em que, por qualquer motivo, não seja possível a realização dos trâmites na forma deste artigo, o ato processual deverá ser realizado por outro meio que atinja a sua finalidade, tais como entrega pessoal, entrega por correspondência com aviso de recebimento (AR), publicação em edital no Diário Oficial do Estado (DOE) ou outros que, comprovadamente, atinjam sua finalidade. Reincidência"
+    },
+    {
+      "number": 14,
+      "page": 5,
+      "text": "Art. 14. Fica caracterizada a reincidência quando o infrator, após decisão definitiva em processo administrativo que lhe impôs a penalidade, cometer nova infração dentro do prazo de 5 (cinco) anos. Parágrafo único. Aplica-se reincidência à infração nova praticada pelo mesmo responsável (pessoa física e/ou jurídica) e enquadrada no mesmo tipo infracional. TIPOS DE PUNIÇÕES ADMINISTRATIVAS Infrações administrativas"
+    },
+    {
+      "number": 15,
+      "page": 5,
+      "text": "Art. 15. As infrações administrativas são punidas com as seguintes sanções: I - advertência; II - multa; III - embargo parcial ou total de obra; IV - interdição parcial ou total de imóvel; e V - cassação de atestado."
+    },
+    {
+      "number": 16,
+      "page": 5,
+      "text": "Art. 16. Quando o infrator cometer, simultaneamente, duas ou mais infrações, ser-lhe-ão aplicadas, cumulativamente, as respectivas penalidades."
+    },
+    {
+      "number": 17,
+      "page": 5,
+      "text": "Art. 17. Para imposição e gradação da penalidade, será observado: I - a gravidade do fato, tendo-se em vista os motivos da infração, as consequências para segurança das pessoas, para os bens e para o meio ambiente; e II - os antecedentes e a conduta do infrator quanto ao cumprimento das normas de segurança contra incêndio e pânico (NSCI). Advertência"
+    },
+    {
+      "number": 18,
+      "page": 5,
+      "text": "Art. 18. A advertência é uma repreensão que registra a infração cometida em relação às NSCI e determina a correção da anormalidade verificada."
+    },
+    {
+      "number": 19,
+      "page": 5,
+      "text": "Art. 19. Aplica-se advertência ao infrator que: I - não divulgar os procedimentos de emergência em apresentações musicais, espetáculos circenses e teatrais, eventos esportivos, salas de cinema, casas de dança, boates e similares; arenas esportivas, estádios, ginásios de esportes e similares; II - apresentar PPCI sem o detalhamento técnico necessário, após a solicitação do analista, prevista em relatório de indeferimento ou AF; III - deixar de arquivar por, no mínimo, 5 (cinco) anos, todos os documentos que comprovem o funcionamento da Brigada de Incêndio; IV - deixar de realizar exercícios simulados para abandono de edificação e de utilização dos SMSCI, quando previsto em norma; V - deixar de afixar atestado do Corpo de Bombeiros Militar em local visível ao público; VI - apresentar ofício em desacordo com as alterações pretendidas em relação ao PPCI já aprovado; VII - deixar de sinalizar a obra com os dados referentes à aprovação do projeto preventivo, conforme previsto em instrução normativa; VIII - deixar, as empresas de brigadistas, de apresentar o relatório bienal de atividades; IX - não possuir ou deixar de apresentar para fiscal do CBMSC os documentos exigidos para eventos de pequeno porte ou que dispensam prévia vistoria, conforme definido na IN 24; X - retirar, sem autorização do CBMSC, sinalização de obra embargada ou imóvel interditado; XI - deixar de registrar, observar, prever ou detalhar em projeto, por culpa, informações ou dados sobre os SMSCI exigidos para o imóvel em processo simplificado. § 1º Se constatadas mais de uma das infrações citadas no mesmo ato fiscalizatório, faz-se um único documento de advertência listando as múltiplas transgressões cometidas. § 2º Sempre que a natureza das infrações previstas no caput deste artigo requerer, será estabelecido prazo para cumprimento da determinação em AF, sob pena da sanção prevista na alínea “i” da letra “d” do inciso II do artigo 24 desta IN. § 3º A infração prevista no inciso II do caput deste artigo não fica caracterizada na hipótese de a solicitação do analista não se demonstrar suficientemente clara, objetiva, exequível no prazo assinalado e de fácil compreensão por parte do infrator. Multa"
+    },
+    {
+      "number": 20,
+      "page": 6,
+      "text": "Art. 20. Será aplicada multa sempre que o infrator, por culpa ou dolo: I - deixar de sanar as irregularidades no prazo quando notificado; II - opuser embaraço à atuação do CBMSC; III - descumprir as previsões normativas ou as determinações do CBMSC. § 1º As condutas infracionais que serão precedidas de AF concedendo prazo para saneamento das irregularidades são as previstas no artigo 5º, § 2º. § 2º Nos demais casos a aplicação da multa ocorre com a constatação da conduta infracional e independe de prévia notificação."
+    },
+    {
+      "number": 21,
+      "page": 6,
+      "text": "Art. 21. O auto de infração é o documento hábil para aplicação da sanção de multa e, nos casos em que for cabível, para fixar novo prazo para regularização da situação em desconformidade."
+    },
+    {
+      "number": 22,
+      "page": 6,
+      "text": "Art. 22. As multas são aplicadas de acordo com a seguinte gradação: I - levíssima; II - leve; III - média; IV - grave; V - gravíssima. § 1º A gradação de multas relacionadas aos SMSCI se dá por meio de um coeficiente resultante da totalidade de irregularidades observadas nos sistemas e medidas de segurança do imóvel, sendo atribuída uma pontuação, de acordo com a complexidade do sistema e o risco que as irregularidades neste sistema trazem para o imóvel e seus usuários. § 2º O coeficiente de SMSCI é a somatória das pontuações oriundas de irregularidades encontradas em um ou mais SMSCI deficientes, inoperantes ou inexistentes, sendo determinado de acordo com os índices previstos na Tabela 1 do anexo A."
+    },
+    {
+      "number": 23,
+      "page": 6,
+      "text": "Art. 23. Aplica-se multa levíssima ao infrator que: I - quando notificado, deixar de sanar as irregularidades relacionadas aos sistemas ou medidas de segurança deficientes, inoperantes ou inexistentes com coeficiente de SMSCI de até 0,3 (três décimos); II - quando notificado, deixar de cumprir prazo para solicitar vistoria para funcionamento."
+    },
+    {
+      "number": 24,
+      "page": 6,
+      "text": "Art. 24. Aplica-se multa leve ao infrator que: I - quando notificado, deixar de sanar as irregularidades relacionadas aos sistemas ou medidas de segurança deficientes, inoperantes ou inexistentes com coeficiente de SMSCI entre 0,4 (quatro décimos) e 0,8 (oito décimos); II - quando notificado, deixar de cumprir prazo para: a) apresentar PPCI; b) solicitar RPCI; c) solicitar vistoria para habite-se; d) acatar as seguintes determinações estabelecidas pelo CBMSC: i. sanar as irregularidades advertidas com base no artigo 19 desta IN; ii. apresentar documentos ou laudos que objetivam identificar, configurar ou confirmar patologias de caráter estrutural no imóvel; iii. apresentar documentos ou laudos previstos nas NSCIs; III - realizar evento temporário de pequeno porte, com reunião de público, sem a devida autorização do Corpo de Bombeiros."
+    },
+    {
+      "number": 25,
+      "page": 7,
+      "text": "Art. 25. Aplica-se multa média ao infrator que: I - quando notificado, deixar de sanar as irregularidades relacionadas aos sistemas ou medidas de segurança deficientes, inoperantes ou inexistentes com coeficiente de SMSCI de 0,9 (nove décimos) a 1,5 (um inteiro e cinco décimos); II - empregar, o responsável pelo evento ou pela edificação, profissional não capacitado ou não credenciado junto ao CBMSC como brigadista particular; III - realizar evento com grande concentração de público1 sem a presença de brigadistas particulares; IV - exercer, a empresa, as atividades de formação de brigadistas e/ou prestação de serviço de brigadistas sem o devido credenciamento junto ao CBMSC; V - construir, reformar ou ampliar imóvel sem observância das NSCI ou sem o devido processo no CBMSC; VI - executar, o responsável técnico, os SMSCI em desconformidade com o PPCI e com as NSCI; VII - manter trancadas ou obstruídas as portas de emergência durante o funcionamento do estabelecimento, exceto para ocupações boates, clubes sociais e clubes de diversão; ou VIII - realizar evento temporário de médio porte, com reunião de público, sem a devida autorização do Corpo de Bombeiros. Nota 1 - Lei Estadual nº 15.124/2010 Artigo 3º [...] § 2º Evento de grande concentração de público é aquele realizado em locais próprios, com ou sem cobrança de ingresso, onde a participação estimada seja de mais de 2.000 (duas mil) pessoas em espaços fechados e mais de 5.000 (cinco mil) em locais abertos."
+    },
+    {
+      "number": 26,
+      "page": 7,
+      "text": "Art. 26. Aplica-se multa grave ao infrator que: I - quando notificado, deixar de sanar as irregularidades relacionadas aos sistemas ou medidas de segurança deficientes, inoperantes ou inexistentes com coeficiente de SMSCI de 1,6 (um inteiro e seis décimos) a 2,0 (dois inteiros); II - habitar edificação sem o devido atestado para habite-se; III - deixar de realizar manutenção dos SMSCI que comprometa, parcial ou totalmente, a sua eficiência em incidentes, emergências ou sinistros, quando constatada em investigação de incêndio; IV - realizar evento temporário de grande porte, com reunião de público, sem a devida autorização do Corpo de Bombeiros."
+    },
+    {
+      "number": 27,
+      "page": 7,
+      "text": "Art. 27. Aplica-se multa gravíssima ao infrator que: I - quando notificado, deixar de sanar as irregularidades relacionadas aos sistemas ou medidas de segurança deficientes, inoperantes ou inexistentes com coeficiente de SMSCI maior que 2,0 (dois inteiros); II - burlar ou tentar burlar a fiscalização, alterando parcial ou totalmente as características do imóvel ou dos SMSCI, com o intuito de induzir ou manter o vistoriador ou analista em erro; III - realizar show pirotécnico em ambientes fechados em desacordo com as exigências previstas em IN; IV - violar imóvel interditado ou embargado; V - permitir superlotação em eventos temporários ou estabelecimentos de reunião de público; VI - manter trancadas ou obstruídas as saídas de emergência durante o funcionamento de boates, clubes sociais e clubes de diversão; VII - impedir ou obstruir vistoria para habite-se ou funcionamento; VIII - omitir ou fornecer informações inverídicas em procedimentos ou documentos declaratórios junto ao CBMSC. Parágrafo único. Ao constatar violação de imóvel interditado ou obra embargada, de acordo com inciso IV deste artigo, o bombeiro deve lavrar multa e fazer novo auto de interdição ou embargo, conforme o caso. O documento cuja ordem foi infringida perde eficácia e o novo emitido restabelece a ordem de interdição ou embargo."
+    },
+    {
+      "number": 28,
+      "page": 8,
+      "text": "Art. 28. Nos casos em que forem constatadas duas ou mais infrações no mesmo ato fiscalizatório referentes aos SMSCI deficientes, inoperantes ou inexistentes, será aplicada apenas uma penalidade, a qual terá os valores de coeficientes previstos na Tabela 1 do anexo A somados para fins de enquadramento no que se refere à gravidade da autuação."
+    },
+    {
+      "number": 29,
+      "page": 8,
+      "text": "Art. 29. Nos casos em que forem constatadas irregularidades relacionadas aos SMSCI, as quais notoriamente foram omitidas ou declaradas de forma inverídica pelo responsável no momento da realização da autodeclaração, além do Auto de Fiscalização estabelecendo prazo para correção das inconsistências, o responsável receberá ainda o Auto Infração previsto no inciso VIII do artigo 27. Parágrafo único. Entende-se por omissão ou declaração notoriamente inverídica aquela relacionada aos sistemas estruturantes que, incontestavelmente, estavam irregulares no momento em que a autodeclaração foi realizada."
+    },
+    {
+      "number": 30,
+      "page": 8,
+      "text": "Art. 30. Quando cabível, a aplicação da multa estabelecerá prazo para a correção das irregularidades que originaram a sanção, sendo que o prazo máximo cabível nestes casos, é de 180 (cento e oitenta) dias, estabelecido a critério da autoridade que lavrar o auto de infração."
+    },
+    {
+      "number": 31,
+      "page": 8,
+      "text": "Art. 31. O pagamento da multa não exime o infrator do cumprimento das exigências das NSCI nem acarretará a cessação da interdição ou do embargo."
+    },
+    {
+      "number": 32,
+      "page": 8,
+      "text": "Art. 32. A multa aplicada pelo CBMSC é recolhida por meio de guia específica, e os recursos provenientes da sua aplicação revertem para o Fundo de Melhoria do Corpo de Bombeiros Militar (FUMCBM). Parágrafo único. O prazo para pagamento da multa é de 30 (trinta) dias, contados da data da autuação."
+    },
+    {
+      "number": 33,
+      "page": 8,
+      "text": "Art. 33. A multa não quitada não inviabiliza a concessão de atestado de funcionamento ou de edificação em regularização."
+    },
+    {
+      "number": 34,
+      "page": 8,
+      "text": "Art. 34. O não pagamento da multa até o final do ano corrente, implica inscrição do devedor em dívida ativa, conforme legislação específica. Valoração da multa"
+    },
+    {
+      "number": 35,
+      "page": 8,
+      "text": "Art. 35 A multa será imposta ao infrator com valor mínimo de R$ 500,00 (quinhentos reais) e máximo de R$ 160.000,00 (cento e sessenta mil reais), respeitados ainda os valores mínimos e máximos estipulados para cada gradação de infração, conforme os seguintes limites: I - multa levíssima, valor fixo de R$ 500,00 (quinhentos reais); II - multa leve, mínimo R$ 500,00 (quinhentos reais) e máximo R$ 5.000,00 (cinco mil reais); III - multa média, mínimo R$ 1.000,00 (mil reais) e máximo R$ 10.000,00 (dez mil reais); IV - multa grave, mínimo R$ 2.000,00 (dois mil reais) e máximo R$ 20.000,00 (vinte mil reais); e V - multa gravíssima, mínimo de R$ 4.000,00 (quatro mil reais) e máximo R$ 160.000,00 (cento e sessenta mil reais). § 1º Em caso de reincidência, majora-se o valor anteriormente aplicado em 20% (vinte por cento) a cada nova reincidência, não se aplicando, nestes casos, a limitação de valor máximo de que trata o caput deste artigo. § 2º O limite máximo previsto no inciso V deste artigo aplicar-se-á aos casos em que houver embaraço à atuação do CBMSC, ou que for constatada a má-fé por parte do infrator, sendo que, para as demais hipóteses de aplicação de multa gravíssima, o valor limitar-se-á a R$ 40.000,00 (quarenta mil reais)."
+    },
+    {
+      "number": 36,
+      "page": 9,
+      "text": "Art. 36. O valor da multa pela incidência das infrações administrativas previstas nesta IN será determinado matematicamente de acordo com as equações constantes no anexo B, as quais levarão em conta os seguintes fatores: I - Fator de Risco Individualizado (FRI); II - Fator de Infração Constatada (FIC); III - Fator de Ocupação (FO); IV - Fatores Agravantes ou Atenuantes (FAA); e V - Fator de Reajuste Anual (FRA)."
+    },
+    {
+      "number": 37,
+      "page": 9,
+      "text": "Art. 37. O índice relacionado ao Fator de Risco individualizado (FRI) será calculado conforme a Equação 2 do anexo B, levando-se em consideração os dados específicos da edificação, sendo esses: I - área total da edificação ou da área de risco: é a medida em metros quadrados da área total construída da edificação ou bloco, somando-se todas as áreas ocupáveis, cobertas ou não, considerando-se as paredes, ou ainda as superfícies externas ocupadas por materiais combustíveis ou inflamáveis; produtos perigosos; instalações elétricas; radioativas; locais utilizados para realização de shows pirotécnicos; ou ainda locais em que haja a concentração de pessoas. II - área ocupada pelo estabelecimento: é a área total construída e ocupada, somando-se todas as áreas ocupáveis, cobertas ou não, por um estabelecimento e/ou evento transitório dentro de uma edificação ou área de risco, medida em metros quadrados; III - risco de incêndio: consideram-se as classificações da carga de incêndio, conforme definido na IN 3. IV - população potencialmente exposta: é aquela definida de acordo com os parâmetros matemáticos estabelecidos pela IN 9, conforme a relação de área e ocupação. V - altura da edificação: é a medida, em metros, do piso mais baixo ocupado ao piso do último pavimento, adotando-se sempre a altura total da edificação, independente da localização onde é constatada a irregularidade; não sendo considerado para fins de determinação da altura: a) pavimento superior de unidade duplex e triplex do último piso com ocupação residencial; b) pavimentos superiores destinados, exclusivamente a casas de máquinas, barriletes, reservatórios de água e assemelhados; c) os subsolos destinados a vestiários; instalações sanitárias; áreas técnicas sem aproveitamento para quaisquer atividades ou permanência de pessoas; e estacionamento de veículos (desde que possua exaustão de fumaça); d) mezaninos cuja área não ultrapasse ⅓da área do pavimento no qual se situa."
+    },
+    {
+      "number": 38,
+      "page": 10,
+      "text": "Art. 38. O índice relacionado ao Fator de Infração Constatada (FIC) será determinado de acordo com a gravidade da infração constatada, conforme Tabela 3 do anexo B."
+    },
+    {
+      "number": 39,
+      "page": 10,
+      "text": "Art. 39. O índice relacionado ao Fator de Ocupação (FO) é definido pela Tabela 4 do anexo B, restando o parâmetro de classificação em divisões com base na IN 1 - Parte 2 como fator de segregação aplicável à valoração da multa. § 1º Para multa aplicada em decorrência de irregularidade observada em edificações subsidiárias, aplica-se o FO relativo à ocupação predominante. § 2º Para multa aplicada em decorrência de irregularidade observada em edificações mistas, o FO será definido da seguinte forma: I - não havendo compartimentação, aplica-se o FO de maior índice entre as distintas ocupações da edificação; II - havendo compartimentação, aplica-se o FO relativo à área afetada pela irregularidade; III - ainda que haja compartimentação entre as ocupações, aplica-se o FO de maior índice dentre as distintas ocupações irregulares da edificação, nos casos em que a irregularidade observada comprometa o funcionamento de SMSCI em mais de uma das ocupações.2 Nota 2 - Exemplo 1) Chuveiros automáticos (SPK): Edificação Hotel com 36 m de altura, possuindo F-11 na cobertura. O SPK deve ser previsto para toda edificação. Em caso de inexistência ou inoperância do sistema o fator de ocupação utilizado será o para F-11, o maior entre as duas ocupações, uma vez que a irregularidade atinge a totalidade da edificação. 2) Sistema de hidrante: Prédio residencial (A-2) e comercial (C-2), 18 m de altura, 18 salas comerciais e 18 apartamentos, com pavimentos compartimentados: a) Irregularidade em 2 hidrantes na área residencial - usa fator ocupação (A-2=1,0) b) Irregularidade em 2 hidrantes, sendo 1 na área residencial e 1 na área comercial - usa fator ocupação (C-2=2,0)"
+    },
+    {
+      "number": 40,
+      "page": 10,
+      "text": "Art. 40. O índice relacionado à majoração e minoração do valor da multa com base nos Fatores Agravantes ou Atenuantes (FAA) considerará os antecedentes e a conduta do infrator, conforme critérios estabelecidos no item 4 do anexo B. § 1º Para fins de valoração da multa, serão considerados os antecedentes do infrator nos últimos 5 (cinco) anos a contar da data de autuação. § 2º Para fins de valoração da multa, serão consideradas as seguintes condutas do infrator: I - má-fé do particular perante a Administração Pública, configurada nos casos em que o infrator: a) omitir ou fornecer informações inverídicas em procedimentos ou documentos declaratórios junto ao CBMSC; b) burlar ou tentar burlar a fiscalização, alterando parcial ou totalmente as características do imóvel ou dos SMSCI, com o intuito de induzir ou manter o vistoriador ou analista em erro. II - embaraço causado à atuação do CBMSC, configurado nos casos em que o infrator: a) impedir ou obstruir vistoria para habite-se ou funcionamento; b) violar imóvel interditado ou embargado."
+    },
+    {
+      "number": 41,
+      "page": 10,
+      "text": "Art. 41. O índice relacionado ao Fator de Reajuste Anual (FRA) será atualizado sempre em janeiro, tomando como base o Índice Nacional de Preços ao Consumidor Amplo (IPCA), apurado no período de janeiro a dezembro do ano anterior. Restituição de multa"
+    },
+    {
+      "number": 42,
+      "page": 11,
+      "text": "Art. 42. Antes de iniciar o processo de requerimento de restituição de multa recolhida indevidamente, ou em valor maior que o devido, o contribuinte deve preencher o requerimento disponível no sistema do CBMSC, devendo juntar ao pedido, a guia DARE e o comprovante de quitação."
+    },
+    {
+      "number": 43,
+      "page": 11,
+      "text": "Art. 43. O SSCI local analisa o requerimento e emite parecer, por meio de declaração assinada: I - pela autoridade bombeiro militar responsável pela abertura do PAI, nos casos em que não houver recurso administrativo; ou II - pela autoridade bombeiro militar responsável pela resposta do último recurso administrativo, quando houver. Parágrafo único. A declaração emitida pelo SSCI local deve ser utilizada pelo requerente para a instrução do processo junto à Secretaria de Estado da Fazenda."
+    },
+    {
+      "number": 44,
+      "page": 11,
+      "text": "Art. 44. Para a restituição de multa recolhida indevidamente, ou em valor maior que o devido, o contribuinte, de posse da declaração emitida pelo SSCI local, deve requerer a restituição, por meio de processo eletrônico, diretamente à Secretaria de Estado da Fazenda."
+    },
+    {
+      "number": 45,
+      "page": 11,
+      "text": "Art. 45. O processo para restituição de multa deve ser protocolado através do sítio eletrônico da Secretaria de Estado da Fazenda: www.sef.sc.gov.br"
+    },
+    {
+      "number": 46,
+      "page": 11,
+      "text": "Art. 46. Os demais procedimentos, documentação exigida, tramitação e solução do requerimento, bem como a restituição em si, quando for o caso, são definidos e realizados pela Secretaria de Estado da Fazenda, nos termos da legislação tributária vigente e conforme normativa própria daquela pasta. Embargo"
+    },
+    {
+      "number": 47,
+      "page": 11,
+      "text": "Art. 47. O embargo determina que a obra não prossiga, ou seja, a evolução da área embargada da obra deve cessar imediatamente."
+    },
+    {
+      "number": 48,
+      "page": 11,
+      "text": "Art. 48. A obra será embargada, anexo F, parcial ou totalmente, com a lavratura do auto de infração pelo vistoriador nos seguintes casos: I - construção, reforma ou alteração de imóvel sem atestado ou em desacordo com o projeto; ou II - obra ou construção com risco iminente de dano às pessoas e/ou aos imóveis adjacentes."
+    },
+    {
+      "number": 49,
+      "page": 11,
+      "text": "Art. 49. O embargo de obra se restringe aos locais ou às áreas em que efetivamente caracteriza o descrito no artigo 48 desta IN, não alcançando demais locais ou áreas não relacionadas com a infração."
+    },
+    {
+      "number": 50,
+      "page": 11,
+      "text": "Art. 50. Ao imóvel embargado é admitido acesso das pessoas para: I - limpar a obra; II - efetuar procedimentos de isolamento e proteção da obra; e/ou III - regularizar parte da obra objeto do embargo."
+    },
+    {
+      "number": 51,
+      "page": 11,
+      "text": "Art. 51. Fica instituída a sinalização de obra embargada, conforme previsto no anexo M para a orientação da população local. Parágrafo único. É possível utilizar fita para isolamento, padrão do CBMSC, sempre que necessário, além da sinalização de obra embargada. Desembargo"
+    },
+    {
+      "number": 52,
+      "page": 11,
+      "text": "Art. 52. O desembargo de obra, anexo G, é efetuado por bombeiro militar após correção das causas que motivaram o embargo."
+    },
+    {
+      "number": 53,
+      "page": 12,
+      "text": "Art. 53. A critério da autoridade bombeiro militar o desembargo pode ocorrer de duas formas: I - ser gradual e parcial à medida que sanem as irregularidades; ou II - ser total e apenas expedido quando sanadas todas as irregularidades que motivaram o embargo."
+    },
+    {
+      "number": 54,
+      "page": 12,
+      "text": "Art. 54. A fiscalização para constatar o saneamento das irregularidades deve ocorrer imediatamente, respeitada a prioridade do atendimento de emergência, após solicitação realizada pelo responsável pela obra por meio do e-SCI. Interdição"
+    },
+    {
+      "number": 55,
+      "page": 12,
+      "text": "Art. 55. A interdição parcial ou total do imóvel, anexo F, de caráter preventivo, ocorre quando: I - for constatado grave risco; II - após notificado, deixar de cumprir prazo estabelecido para instalar sistema antissucção em piscinas no prazo máximo e improrrogável de 30 dias. Parágrafo único. Sempre que necessário, deverá ser efetuada ainda a ordem de evacuação imediata do local."
+    },
+    {
+      "number": 56,
+      "page": 12,
+      "text": "Art. 56. O grave risco é caracterizado por qualquer uma das seguintes situações: I - possibilidade iminente de explosão, incêndio ou dano ambiental grave; II - possibilidade iminente de colapso estrutural; III - lotação de público acima da capacidade máxima permitida; IV - condição que gere insegurança com risco iminente à vida; ou V - descumprimento das exigências relacionadas às deficiências em sistemas preventivos considerados vitais e não sanadas no curso do PAI."
+    },
+    {
+      "number": 57,
+      "page": 12,
+      "text": "Art. 57. O bombeiro militar que, ao realizar a fiscalização, constatar superlotação, deve informar à autoridade bombeiro militar para, então, lavrar auto de infração de interdição e proceder com a ordem de evacuação imediata do local. § 1º A lotação do imóvel pode ser verificada a qualquer momento por bombeiro militar de serviço. § 2º A autoridade policial deve ser acionada para aplicação das medidas penais previstas em legislação federal a respeito da superlotação."
+    },
+    {
+      "number": 58,
+      "page": 12,
+      "text": "Art. 58. Fica instituída a sinalização de imóvel interditado, conforme previsto no anexo M, para a orientação da população local. Parágrafo único. É possível utilizar fita para isolamento, padrão do CBMSC, sempre que necessário, além da sinalização de imóvel interditado. Desinterdição"
+    },
+    {
+      "number": 59,
+      "page": 12,
+      "text": "Art. 59. A desinterdição de imóvel, anexo H, é efetuada por bombeiro militar após correção das causas que motivaram a interdição."
+    },
+    {
+      "number": 60,
+      "page": 12,
+      "text": "Art. 60. A critério da autoridade bombeiro militar a desinterdição pode ocorrer de duas formas: I - ser gradual e parcial à medida que sanem as irregularidades; ou II - ser total e apenas expedida quando sanadas todas as irregularidades que motivaram a interdição."
+    },
+    {
+      "number": 61,
+      "page": 12,
+      "text": "Art. 61. Para desinterdição de imóvel interditado por possibilidade iminente de colapso estrutural, deve ser apresentado laudo e RT que declare inexistência ou cessação do risco e que o imóvel pode ser liberado para ocupação."
+    },
+    {
+      "number": 62,
+      "page": 13,
+      "text": "Art. 62. A fiscalização para constatar o saneamento das irregularidades deve ocorrer imediatamente, respeitada a prioridade do atendimento de emergência, após solicitação realizada pelo responsável pelo imóvel por meio do e-SCI. Cassação de atestados"
+    },
+    {
+      "number": 63,
+      "page": 13,
+      "text": "Art. 63. A cassação de atestado é aplicada conforme anexo I, quando: I - for constatada a prestação de informações inverídicas em processo autodeclaratório junto ao CBMSC; II - ficar caracterizado o descumprimento reiterado das determinações do CBMSC; ou III - for irrecorrível a sanção aplicada e não tenham sido sanadas as irregularidades dentro do prazo estabelecido em Auto de Infração. § 1º Descumprimento reiterado das determinações do CBMSC caracteriza-se pelo não cumprimento de duas ou mais determinações expressas do CBMSC, estabelecidas tanto em autos de fiscalização como em autos de infração, incidentes sobre o mesmo imóvel e praticadas pelo mesmo responsável (pessoa física e/ou jurídica). § 2º Consideram-se como equivalentes, para fins de atendimento à Lei Nº 17.071/2017, as medidas de suspensão de atestado e a de cassação de atestado, uma vez que possuem idêntica natureza e implicações perante o CBMSC."
+    },
+    {
+      "number": 64,
+      "page": 13,
+      "text": "Art. 64. Uma vez cassado o atestado, novo processo de regularização do imóvel deve ser realizado. § 1º No processo de regularização permanecem válidos os atos e documentos legais e regulares.3 § 2º Os requisitos para protocolização do novo processo obedecem aos parâmetros definidos na IN 1. § 3º Quando se tratar de processo autodeclaratório, o novo trâmite só poderá ser iniciado após regularização dos itens que deram causa à cassação, sob pena da sanção prevista no inciso VIII do artigo 27 desta IN. Nota 3 - Complemento A regularização do imóvel envolve 3 processos: PPCI, habite-se e funcionamento. É necessário novo processo para o(s) que possua(m) irregularidade(s) ou esteja(m) eivado(s) de ilegalidade(s). Ex.: Se irregularidade relacionada à manutenção de um SMSCI, verificada em vistoria de funcionamento, o qual resultou na cassação, não há de se falar na necessidade de novo projeto e novo habite-se para o imóvel."
+    },
+    {
+      "number": 65,
+      "page": 13,
+      "text": "Art. 65. O ato de cassação de atestado é de competência da autoridade bombeiro militar que preside o PAI. PROCESSO ADMINISTRATIVO INFRACIONAL Generalidades"
+    },
+    {
+      "number": 66,
+      "page": 13,
+      "text": "Art. 66. O CBMSC utiliza meio eletrônico para a tramitação do processo administrativo. § 1º A autoria, autenticidade e integridade dos documentos e da assinatura nos processos administrativos eletrônicos poderão ser obtidas da seguinte forma: I - por meio de certificado digital emitido no âmbito da Infraestrutura de Chaves Públicas Brasileira (ICP-Brasil), observados os padrões definidos por essa infraestrutura, nos casos de declarações, autodeclarações e documentos confeccionados de forma autônoma e inseridos posteriormente no portal próprio do CBMSC; II - por meio de confirmação de acesso de usuário e senha nos casos de declarações, autodeclarações e documentos confeccionados dentro do portal próprio do CBMSC. § 2º O disposto no § 1º deste artigo não obsta a utilização de outro meio de comprovação da autoria e integridade de documentos em forma eletrônica, inclusive os que utilizam identificação, de uso pessoal e intransferível, por meio de usuário e senha. § 3º Processos que, por algum motivo estejam impossibilitados de tramitar em meio eletrônico, podem ser aceitos em vias físicas. Nesse caso, as vias originais devem permanecer arquivadas na OBM que tenha correlação, todavia, a tramitação ocorre em meio eletrônico sempre com a digitalização das vias originais."
+    },
+    {
+      "number": 67,
+      "page": 14,
+      "text": "Art. 67. A instauração do PAI é de competência da autoridade bombeiro militar."
+    },
+    {
+      "number": 68,
+      "page": 14,
+      "text": "Art. 68. O PAI é autuado com as seguintes peças: I - termo de abertura; II - auto de infração; e III - demais peças que instruam e/ou acompanhem o AI."
+    },
+    {
+      "number": 69,
+      "page": 14,
+      "text": "Art. 69. O interessado e/ou seu advogado, mesmo sem procuração, podem examinar os autos do PAI findos ou em andamento. Formulários do PAI"
+    },
+    {
+      "number": 70,
+      "page": 14,
+      "text": "Art. 70. Ficam instituídos os seguintes formulários para o PAI: I – auto de fiscalização, anexo C; II - advertência, anexo D; III - multa, anexo E; IV - embargo e interdição, anexo F; V - desembargo, anexo G; VI - desinterdição, anexo H; VII - cassação de atestado, anexo I; VII - modelo de recurso, anexo J."
+    },
+    {
+      "number": 71,
+      "page": 14,
+      "text": "Art. 71. Cada numeração dos formulários é gerada automaticamente pelo sistema e-SCI. RECURSOS"
+    },
+    {
+      "number": 72,
+      "page": 14,
+      "text": "Art. 72. Das sanções administrativas aplicadas, conforme o caso, são cabíveis os seguintes recursos: I - recurso da suspensão da interdição preventiva; II - recurso ordinário; III - recurso especial; IV - recurso extraordinário. § 1° Não se admite duplicidade de recursos para a mesma sanção, ou seja, o ingresso do mesmo tipo de recurso contra a mesma sanção. § 2° Quando possível o ingresso de recurso à instância superior, sua interposição depende de acolhimento e decisão do recurso em instância inferior."
+    },
+    {
+      "number": 73,
+      "page": 14,
+      "text": "Art. 73. Os recursos devem, preferencialmente, ser interpostos via sistema e-SCI. Parágrafo único. Aos recursos que, por algum motivo, sejam apresentados em vias físicas: I - é função da OBM que o recebe digitalizá-los e cadastrá-los no sistema e-SCI na data do recebimento; II - devem ser instruídos com os seguintes documentos: a) identidade do recorrente ou do seu representante; b) procuração do representante, se for o caso; c) razões recursais; e d) documentos mencionados no recurso. III - devem ser entregues pelo solicitante durante o horário de expediente do SSCI local."
+    },
+    {
+      "number": 74,
+      "page": 14,
+      "text": "Art. 74. O recurso é dirigido à autoridade bombeiro militar competente para sua decisão."
+    },
+    {
+      "number": 75,
+      "page": 14,
+      "text": "Art. 75. Para a contagem do prazo recursal, o dia do começo é considerado o primeiro dia útil após o dia do recebimento do auto de infração ou da decisão publicada. § 1º Para a contagem do prazo recursal, desconsidera-se o dia do começo e considera-se o dia final, sendo a contagem válida somente para dias úteis. § 2º Salvo motivo de força maior devidamente comprovado, os prazos recursais não se suspendem."
+    },
+    {
+      "number": 76,
+      "page": 15,
+      "text": "Art. 76. Não será conhecido o recurso nos seguintes casos: I - quando deixar de atender aos requisitos para sua interposição; II - interposto por pessoa que não tenha legitimidade; ou III - interposto perante autoridade que não seja competente para apreciá-lo."
+    },
+    {
+      "number": 77,
+      "page": 15,
+      "text": "Art. 77. A autoridade competente para decidir do recurso pode: I - julgar improcedente e manter o ato (auto de infração ou decisão); II - considerar procedente no todo ou em parte as alegações apresentadas no recurso; III - anular a sanção aplicada no auto de infração, quando eivado de vício relativo à legalidade ou legitimidade. § 1° A decisão da autoridade deve ser motivada e fundamentada. § 2° Nos recursos relacionados ao Auto de Infração multa, ao considerar o recurso procedente em parte, anula-se o auto de infração existente e desconsidera-se a guia DARE emitida; faz-se novo auto de infração multa suprimindo a sanção para a qual o recurso foi deferido, gerando-se nova guia DARE com valor correto. § 3º O saneamento intempestivo de exigência estabelecida em AF ou AI não é causa para o deferimento recursal da sanção aplicada."
+    },
+    {
+      "number": 78,
+      "page": 15,
+      "text": "Art. 78. Expressa sua decisão recursal, a autoridade bombeiro militar deve publicá-la no sistema do CBMSC no prazo adequado para consulta do recorrente."
+    },
+    {
+      "number": 79,
+      "page": 15,
+      "text": "Art. 79. Quando a autoridade competente tomar conhecimento de que a sanção aplicada possui vícios de legalidade ou legitimidade, deverá anular a aplicação da sanção a qualquer momento, de ofício, com base no princípio da autotutela administrativa, sem a necessidade de recurso ou mesmo se o recurso for apresentado sem atender aos requisitos estabelecidos no artigo 76 desta Instrução Normativa. Recurso de suspensão da interdição preventiva"
+    },
+    {
+      "number": 80,
+      "page": 15,
+      "text": "Art. 80. O recurso de suspensão da interdição preventiva é direcionado ao oficial que exerce a função de Diretor de Segurança Contra Incêndio do CBMSC, no prazo de 5 (cinco) dias úteis a contar da data do auto de interdição. § 1º Quando o recurso de suspensão da interdição preventiva for interposto na OBM em vias físicas, cabe ao comandante local informar de imediato o oficial que estiver exercendo a função de Diretor de Segurança Contra Incêndio. § 2º A autoridade recorrida tem 2 (dois) dias úteis para julgamento do recurso, a contar do dia subsequente à data em que o recebeu, excluindo-se o dia da entrega, devendo fazê-lo motivada e fundamentadamente. § 3º O PAI seguirá rito normal, e o julgamento do mérito da desinterdição não compete ao Diretor de Segurança Contra Incêndio, mas sim à autoridade bombeiro militar que decide o recurso ordinário, especial ou extraordinário. § 4° A decisão de mérito no PAI que mantém a interdição faz cessar os efeitos da suspensão da interdição. Recurso ordinário"
+    },
+    {
+      "number": 81,
+      "page": 16,
+      "text": "Art. 81. O recurso ordinário é direcionado à autoridade bombeiro militar que autorizou a expedição do auto de infração, sendo realizado diretamente pelo sistema e-SCI ou protocolizado junto ao SSCI no prazo de 5 (cinco) dias úteis a contar do recebimento do auto. Parágrafo único. A autoridade recorrida terá 10 (dez) dias úteis para julgar o recurso, devendo fazê-lo motivada e fundamentadamente. Recurso especial"
+    },
+    {
+      "number": 82,
+      "page": 16,
+      "text": "Art. 82. Da decisão que indeferiu no todo ou em parte o recurso ordinário, caberá recurso especial, que deve ser realizado diretamente pelo sistema e-SCI ou protocolizado junto ao SSCI no prazo de 5 (cinco) dias úteis a contar da data da decisão exarada no recurso ordinário."
+    },
+    {
+      "number": 83,
+      "page": 16,
+      "text": "Art. 83. O recurso especial é direcionado ao comandante imediato da autoridade bombeiro militar que proferiu a decisão recorrida. Parágrafo único. A autoridade recorrida terá 10 (dez) dias úteis para julgar o recurso, devendo fazê-lo motivada e fundamentadamente. Recurso extraordinário"
+    },
+    {
+      "number": 84,
+      "page": 16,
+      "text": "Art. 84. Da decisão que indeferiu no todo ou em parte o recurso especial, relacionado à interdição ou à aplicação de multa gravíssima, cabe recurso extraordinário dirigido ao Diretor de Segurança Contra Incêndio do CBMSC, que deve ser protocolizado no prazo de até 5 (cinco) dias úteis a contar da data da decisão exarada no recurso especial. § 1º O recurso extraordinário deve ser realizado por meio do sistema e-SCI, protocolizado junto ao SSCI ou entregue diretamente ao Diretor de Segurança Contra Incêndio do CBMSC. § 2° O Diretor de Segurança Contra Incêndio do CBMSC terá 10 (dez) dias úteis para julgar o recurso. DISPOSIÇÕES FINAIS"
+    },
+    {
+      "number": 85,
+      "page": 16,
+      "text": "Art. 85. Todos os documentos produzidos durante o PAI devem ser arquivados digitalmente."
+    },
+    {
+      "number": 86,
+      "page": 16,
+      "text": "Art. 86. As sanções serão aplicadas com base na legislação vigente na data do fato gerador. § 1º Excetuam-se do previsto no caput deste artigo os casos em que, entre a data do evento e a data da emissão do Auto de Infração, haja uma mudança na legislação em favor do infrator, devendo, nesses casos, ser aplicada a legislação posterior mais favorável. § 2º A exceção prevista no § 1º deste artigo não se aplica se o Auto de Infração foi emitido antes da entrada em vigor da norma mais favorável."
+    },
+    {
+      "number": 87,
+      "page": 16,
+      "text": "Art. 87. Esta IN, aplicável em todo o território catarinense, entra em vigor em 24 de abril de 2024, revogando a IN 2 de 9 de julho de 2022. Coronel BM FABIANO DE SOUZA Comandante-Geral do Corpo de Bombeiros Militar de SC ORGANIZAÇÃO: TC BM Willyan Fazzioni - Direção Maj BM Oscar W Barboza Jr - Supervisão e Edição Cap BM Rafael Giosa Sanino - Revisão Cap BM Suellen Lapa Duarte - Edição"
+    }
+  ],
+  "annexes": [
+    {
+      "page": 17,
+      "title": "ANEXO A - Definição do coeficiente de SMSCI Para a definição do coeficiente do S",
+      "text": "ANEXO A - Definição do coeficiente de SMSCI Para a definição do coeficiente do SMSCI deverá ser realizado o somatório dos índices dos sistemas deficientes, inoperantes ou inexistentes, conforme Tabela 1 abaixo: IRREGULARIDADE EM SMSCI Deficiente – I1 Inoperante – I2Inexistente – I3 I - Isolamento de risco (separação entre edificações) 0,3 0,3 0,9 II - Acesso de viaturas 0,3 0,3 0,9 III - Compartimentação (horizontal e/ou vertical) 0,9 1,6 2,2 IV - Controle de materiais de acabamento e revestimento 0,4 0,4 1,6 V - Saídas de emergência 0,4 1,6 2,2 VI - Sistema de pressurização de escadas 1,0 2,0 2,2 VII - Elevador de emergência 0,9 1,6 2,2 VIII - Brigada de incêndio 0,9 1,2 1,5 IX - Iluminação de emergência 0,1 0,4 0,9 X - Sinalização de emergência 0,1 0,4 0,9 XI - Alarme de incêndio 0,6 1,6 2,2 XII - Detecção automática de incêndio 0,6 1,6 2,2 XIII - Proteção por extintores 0,1 0,4 0,9 XIV - Sistema hidráulico preventivo 0,9 1,6 2,2 XV - Chuveiros automáticos (sprinklers) 0,9 1,6 2,2 XVI - Sistema de água nebulizada 0,9 1,6 2,2 XVII - Sistema de espuma 0,9 1,6 2,2 XVIII - Sistema fixo de gases limpos e dióxido de carbono 0,9 1,6 2,2 XIX - Gerenciamento de riscos e plano de emergência, contemplando a divulgação de procedimentos de emergência 0,4 0,4 0,9 XX - Controle de fumaça 0,9 1,6 2,2 XXI - Controle e registro de público 0,9 0,9 1,6 XXII - Instalações de gás combustível (GLP & GN) 0,4 0,8 1,6 XXIII - Instalações elétricas 0,1 0,4 0,9 XXIV - Medidas de segurança para piscinas 0,1 0,4 0,9 XXV - Sistema anti aprisionamento em piscinas 0,3 0,9 1,6 XXVI - Controle de temperatura 0,1 0,4 0,9 XXVII - Controle de pós 0,1 0,4 0,9 XXVIII - Proteção estrutural contra incêndios 0,4 0,4 0,9 XXIX - Medidas de segurança para cozinhas industriais 0,1 0,4 0,9 XXX - Medidas de segurança para silos 0,1 0,4 0,9 XXXI - Medidas de segurança para produtos perigosos 0,4 0,9 1,6"
+    },
+    {
+      "page": 18,
+      "title": "ANEXO B - Cálculo do valor da multa A multa será aplicada com valores em Reais p",
+      "text": "ANEXO B - Cálculo do valor da multa A multa será aplicada com valores em Reais por meio da multiplicação dos seguintes fatores: Fator de Risco Individualizado (FRI); Fator de Infração Constatada (FIC); Fator de Ocupação (FO); Fator Agravante ou Atenuante (FAA); e Fator de Reajuste Anual (FRA), conforme Equação 1 apresentada abaixo: 𝑉𝑎𝑙𝑜𝑟 𝑀𝑢𝑙𝑡𝑎 (𝑅$) = 𝐹𝑅𝐼 × 𝐹𝐼𝐶 × 𝐹𝑂 × 𝐹𝐴𝐴 × 𝐹𝑅𝐴 Equação 1 – Cálculo do valor da Multa 1. Fator de Risco individualizado – FRI O FRI é calculado levando-se em consideração os dados específicos da edificação, tais como: área total da edificação e/ou área de risco; área ocupada pelo estabelecimento e/ou evento transitório; altura da edificação; população potencialmente exposta; e risco de incêndio. O FRI é calculado conforme Equação 2 abaixo: 𝐹𝑅𝐼 = 𝑙𝑛(𝐴𝑡) + 0, 05𝐴𝑜 [ ] . 1 + 𝐻𝑡/100 ( ) [ ] + 0, 1𝑃𝑒 { } . 𝑅𝑖 Equação 2 – Cálculo do Fator de Risco Individualizado Onde: FRI = Fator de Risco Individualizado; ln() = Logaritmo Neperiano ou Logaritmo Natural; At = Área total da edificação e/ou área de risco: área medida em metros quadrados, conforme definição constante em legislação e normatização do Corpo de Bombeiros Militar; Ao = Área ocupada pelo estabelecimento e/ou evento transitório: área construída e ocupada por um estabelecimento e/ou evento transitório dentro de uma edificação ou área de risco, medida em metros quadrados; Ht = Altura da edificação: é a medida em metros utilizada como parâmetro de dimensionamento das medidas de prevenção e combate a incêndio e a desastre, conforme normatização do Corpo de Bombeiros Militar; Pe = População potencialmente exposta: definida em função da ocupação e/ou uso da área ocupada, considerando-se a atividade principal do estabelecimento ou evento temporário, conforme normatização do Corpo de Bombeiros Militar; Ri = Risco de Incêndio: para efeito do cálculo dos valores, o risco de incêndio será igualado à carga de incêndio específica, conforme classificação normativa do CBMSC, sendo valorada de acordo com a Tabela 2 abaixo: CARGA DE INCÊNDIO Ri Desprezível 1,0 Baixa 1,2 Média 1,5 Alta 2,0 Altíssima 4,0"
+    },
+    {
+      "page": 19,
+      "title": "Tabela 2 – Valores de correlação entre carga de incêndio e RI 2. Fator de Infraç",
+      "text": "Tabela 2 – Valores de correlação entre carga de incêndio e RI 2. Fator de Infração Constatada – FIC O FIC será determinado de acordo com a gravidade da infração constatada, conforme Tabela 3 abaixo: GRAVIDADE DAS INFRAÇÕES FIC Levíssima 0,5 Leve 1,0 Média 2,0 Grave 4,0 Gravíssima 8,0 Tabela 3 – Valores de FIC referentes à gravidade de Infração Constatada 3. Fator de Ocupação – FO O FO é um fator atribuído a cada tipo de ocupação que leva em consideração: o risco específico envolvido; o potencial de dano; a dimensão do incêndio; e a quantidade de pessoas atingidas. Os valores do FO são definido conforme Tabela 4 abaixo: ÍNDICES DO FATOR DE OCUPAÇÃO - FO 1,0 (um inteiro) A-2, C-1, C-3, D-1, D-2, E-3, F-9, F-10, G-1, H-1, H-3, H-4, H-6, I-1, J-1, K-1, K-2, M-1, M-3, M-4, M-6, M-7, M-8 e M-11 1,5 (um inteiro e cinco décimos) A-1, A-3, B-1, B-2, D-3, D-4, E-1, E-4, G-2 e G-4 1,8 (um inteiro e oito décimos) F-1, F-2, F-3, F-4, F-8, I-2, J-2, L-1, M-5, M-9 e M-10 2,0 (dois inteiros) C-2, E-2, E-5, E-6, F-5, F-6, F-7, G-3, G-5, H-2, H-5, I-3, J-3, L-2 e M-2 3 (três inteiros) J-4 e L-3 5,0 (cinco inteiros) F-11 Tabela 4 - Valores do Fator de Ocupação específicos para cada tipo de Ocupação 4. Fator Agravante ou Atenuante – FAA O FAA é um fator aplicado ao cálculo do valor da multa que leva em consideração as circunstâncias agravantes e atenuantes relacionadas ao histórico de infrações e ao comportamento do infrator junto ao CBMSC. 4.1 Circunstâncias agravantes Serão consideradas como circunstâncias agravantes: a) má-fé do particular perante a Administração Pública; b) embaraço causado à atuação do CBMSC; e c) recebimento, nos últimos 5 (cinco) anos contados da data de autuação, das seguintes sanções: i) mais de 3 sanções, sendo elas de advertência ou multa levíssima;"
+    },
+    {
+      "page": 20,
+      "title": "ii) mais de 2 sanções, sendo elas de multa leve ou média; ou iii) mais de 1 sanç",
+      "text": "ii) mais de 2 sanções, sendo elas de multa leve ou média; ou iii) mais de 1 sanção, sendo ela de multa grave ou gravíssima Ao ser constatada circunstância agravante, será aplicado um índice de majoração que determinará o FAA, conforme Tabela 5 abaixo: ÍNDICES DOS FATORES AGRAVANTES 𝐹𝐴𝐴(𝑎𝑔) Embaraço causado à atuação do CBMSC 4,0 Má-fé do particular perante a Administração Pública 2,0 Recebimento, nos últimos 5 (cinco) anos contados da data de autuação, das seguintes sanções: 1) mais de 3 sanções, sendo elas de advertência ou multa levíssima; 2) mais de 2 sanções, sendo elas de multa leve ou média; ou 3) mais de 1 sanção, sendo ela de multa grave ou gravíssima 2,0 Tabela 5 - Índice dos Fatores Agravantes 4.2 Circunstâncias atenuantes Os bons antecedentes serão considerados como circunstância atenuante para fins de valoração da multa, para tanto, nos últimos 5 (cinco) anos a contar da data de autuação, o infrator não deve ter cometido: a) mais de 3 infrações, sendo elas de advertência ou multa levíssima; b) mais de 1 infração, sendo elas de multa leve ou média; ou c) qualquer outra infração que não esteja prevista nas alíneas \"a\" e \"b\". Ao ser constatada circunstância atenuante, será aplicado um índice de minoração de 50%, correspondente a um = 0,5. 𝐹𝐴𝐴(𝑎𝑡) Observação: Havendo mais de uma circunstância agravante, ou concorrência de circunstâncias agravantes e atenuantes, o FAA(r) será definido pela soma dos agravantes, multiplicado pelo atenuante (quando houver), conforme equação 3. 𝐹𝐴𝐴(𝑟) = Σ 𝐹𝐴𝐴(𝑎𝑔) . 𝐹𝐴𝐴(𝑎𝑡) Equação 3 – Cálculo dos Fatores Agravantes e Atenuantes 5. Fator de Reajuste Anual – FRA O FRA é um fator de reajuste anual, corrigido sempre em janeiro, tomando como base o Índice Nacional de Preços ao Consumidor Amplo (IPCA) apurado no período de janeiro a dezembro do ano anterior, cuja fração percentual soma-se ao acumulado dos anos anteriores, a partir do ano de publicação da Lei nº 18284 DE 20/12/2021"
+    },
+    {
+      "page": 21,
+      "title": "ANEXO C - Auto de fiscalização",
+      "text": "ANEXO C - Auto de fiscalização"
+    },
+    {
+      "page": 22,
+      "title": "ANEXO D - Auto de advertência",
+      "text": "ANEXO D - Auto de advertência"
+    },
+    {
+      "page": 23,
+      "title": "ANEXO E - Auto de multa",
+      "text": "ANEXO E - Auto de multa"
+    },
+    {
+      "page": 24,
+      "title": "ANEXO F - Auto de embargo e interdição",
+      "text": "ANEXO F - Auto de embargo e interdição"
+    },
+    {
+      "page": 25,
+      "title": "ANEXO G - Auto de desembargo",
+      "text": "ANEXO G - Auto de desembargo"
+    },
+    {
+      "page": 26,
+      "title": "ANEXO H - Auto de desinterdição",
+      "text": "ANEXO H - Auto de desinterdição"
+    },
+    {
+      "page": 27,
+      "title": "ANEXO I - Auto de cassação de atestado",
+      "text": "ANEXO I - Auto de cassação de atestado"
+    },
+    {
+      "page": 28,
+      "title": "ANEXO J - Formulário para recurso",
+      "text": "ANEXO J - Formulário para recurso"
+    },
+    {
+      "page": 29,
+      "title": "ANEXO K - Requerimento para ressarcimento de multa para pessoa física",
+      "text": "ANEXO K - Requerimento para ressarcimento de multa para pessoa física"
+    },
+    {
+      "page": 30,
+      "title": "ANEXO L - Requerimento para ressarcimento de multa para pessoa jurídica",
+      "text": "ANEXO L - Requerimento para ressarcimento de multa para pessoa jurídica"
+    },
+    {
+      "page": 31,
+      "title": "ANEXO M - Sinalização de obra embargada e imóvel interditado",
+      "text": "ANEXO M - Sinalização de obra embargada e imóvel interditado"
+    }
+  ],
+  "checks": {
+    "needs_human_look": []
+  }
+}

@@ -1,0 +1,626 @@
+{
+  "doc": "IN-8",
+  "preamble": "IN 8 INSTALAÇÕES DE GÁS COMBUSTÍVEL - IGC SUMÁRIO DISPOSIÇÕES INICIAIS 2 Objetivo 2 Referências 2 Terminologias 2 APLICAÇÃO 3 Geral 3 Isenção das IGC 3 CENTRAIS DE GLP 3 Características das Centrais de gás 3 Especificações das Centrais 5 Geral 5 Central Tipo I 6 Central Tipo II 6 Recipientes em Nichos 6 Centrais em tetos ou lajes 6 Centrais Temporárias 7 Centrais Provisórias 7 Abrigos ou cabines de GLP 8 Abrigos ou cabines de gás 8 Paredes de proteção 8 Utilização de P-13 9 Centrais de abastecimento de GLP para recipientes transportáveis de empilhadeiras e equipamentos similares 9 Tomada para abastecimento 9 CONJUNTO DE REGULAGEM E MEDIÇÃO DE GN OU ESTAÇÃO DE REDUÇÃO DE PRESSÃO E MEDIÇÃO (CRM/ERPM) 10 VÁLVULAS DE CORTES (GLP ou GN) 10 Conjunto de controle e manobra para GLP 10 Conjunto de controle e manobra e Válvula de corte (GN) 11 Válvula de Corte para blocos de edificações (GLP ou GN) 11 Fecho rápido para os pontos de consumo 11 REDES DE DISTRIBUIÇÃO DE GÁS 11 Generalidades 11 Redes de distribuição residenciais e comerciais 13 Rede Coletora 13 Tipos de tubulações para a condução de gás (GLP ou GN) 13 Redes primárias e secundárias 13 Interligação ponto de consumo ao aparelho de gás 14 Medição, regulagem e registros de corte das unidades autônomas 15 Caixas de medidores/reguladores no interior da edificação 15 Abrigo de medidores em área externa 16 Pontos de consumo de gás 16 DIMENSIONAMENTO DAS INSTALAÇÕES 16 Dimensionamento das redes de distribuição de gás 16 Dimensionamento da quantidade de recipientes de GLP 16 Dimensionamento de vaporizadores 17 REQUISITOS DE AMBIENTE E RENOVAÇÃO DE AR 17 Volume bruto mínimo dos ambientes 17 Ventilação permanente 17 Prisma de ventilação 17 Aparelhos a Gás 17 Aquecedor de água a gás 18 Lareiras e churrasqueiras a gás 18 EXAUSTÃO DOS PRODUTOS DA COMBUSTÃO 18 Exaustão individual 18 Exaustão coletiva 19 DISPOSIÇÕES FINAIS 20 ANEXO A - Tabelas 21 ANEXO B - Figuras 29 ANEXO C - Tipos de aparelhos à gás 46 Vigente a partir de 24/04/2024 46 páginas INSTRUÇÃO NORMATIVA 8 INSTALAÇÕES DE GASES COMBUSTÍVEIS – IGC DISPOSIÇÕES INICIAIS Objetivo",
+  "articles": [
+    {
+      "number": 1,
+      "page": 2,
+      "text": "Art. 1º Esta Instrução Normativa (IN) tem por objetivo estabelecer e padronizar critérios de concepção e dimensionamento das Instalações de Gás Combustível (IGC) para os imóveis fiscalizados pelo Corpo de Bombeiros Militar de Santa Catarina (CBMSC). Referências"
+    },
+    {
+      "number": 2,
+      "page": 2,
+      "text": "Art. 2º As referências utilizadas são as seguintes: I - IN 1 - parte 1, de 2024 - CBMSC; II - IN 1 - parte 2, de 2024 - CBMSC; III - NBR 13523; IV - NBR 15526; V - NBR 13103; VI - NBR 14024; VII - NBR 15358; VIII - RIP SC GÁS; IX - NBR 13419; X - NBR 14177; XI - NBR 14745; XII - NBR 14788; XIII - NBR 14955. XIV - NBR 8613; XV - NBR 8094; XVI - NBR 16821; XVII - NBR 18225. Terminologias"
+    },
+    {
+      "number": 3,
+      "page": 2,
+      "text": "Art. 3º As terminologias gerais que tratam da segurança contra incêndio são definidas pelo CBMSC e disponibilizadas para acesso público em seu portal oficial."
+    },
+    {
+      "number": 4,
+      "page": 2,
+      "text": "Art. 4º Para aplicação desta IN consideram-se as seguintes terminologias específicas: I - abrigo ou cabine: construção com material não inflamável, destinada à proteção física de elementos do sistema de gás canalizado, normalmente medidores ou recipientes transportáveis e seus complementos; II - ambiente interno : espaço dentro da projeção vertical da edificação, delimitado por paredes, elementos de vedação, teto, piso, janelas ou portas. III - área externa ou ao ar livre : local fora da projeção vertical da edificação, com livre circulação de ar, podendo possuir cobertura. IV - central de gás : área devidamente delimitada que contém os recipientes transportáveis ou estacionário(s), com peso total maior que 90 kg de GLP, e acessórios, destinados ao armazenamento de gases combustíveis para consumo na própria rede de distribuição interna. V - estação de gás natural : locação exigida pela fornecedora de gás natural (GN) para disposição dos elementos e dispositivos de medição, regulagem e filtragem do gás natural, também conhecidos como conjunto de regulagem e medição (CRM), sendo classificados pela Companhia de Gás de Santa Catarina - SCGÁS em: a) ERMU: estação de redução e medição urbana; b) ERPM: estação de redução de pressão e medição; c) ERP: estação de redução de pressão. VI - recipiente transportável trocável : recipiente transportável com capacidade volumétrica total igual ou inferior a 0,5 m³, projetado e construído conforme ABNT NBR 8460, abastecido por medição mássica em base de engarrafamento e transportado cheio para troca, com capacidade de até 90 kg de GLP; VII - recipiente transportável abastecido no local : recipiente transportável projetado e construído conforme ABNT NBR 8460, que pode ser abastecido por volume no próprio local da instalação, por meio de dispositivos apropriados para este fim, com capacidade nominal de até 190 kg de GLP. APLICAÇÃO Geral"
+    },
+    {
+      "number": 5,
+      "page": 3,
+      "text": "Art. 5º Esta IN a plica-se aos imóveis para os quais as IGC é exigida, conforme previsto nas normas de segurança contra incêndio e pânico (NSCI). Parágrafo único. Esta norma se aplica a gases combustíveis do ponto de fornecimento até a exaustão dos gases, nas seguintes situações: I - IGC predial; e II - IGC para abastecimento de empilhadeiras. Isenção das IGC"
+    },
+    {
+      "number": 6,
+      "page": 3,
+      "text": "Art. 6º Fica isenta a instalação do IGC para: I - instalações com recipientes com capacidade menor ou igual a 13 kg de GLP (P-13) e Postos de Revenda de GLP; II - instalação de aparelhos a gás em equipamentos ou ambientes móveis (por exemplo: veículos, motor-home, etc.)."
+    },
+    {
+      "number": 7,
+      "page": 3,
+      "text": "Art. 7º Para casas geminadas e condomínios residenciais horizontais (A-1) com unidades isoladas entre si, quando submetidos à fiscalização do CBMSC conforme IN 1, somente se aplica esta IN quando possuírem abrigo/cabine ou central de GLP compartilhada entre as unidades residenciais. Parágrafo único. Quando forem previstas instalações de gás combustível individuais para cada unidade, as instalações de gás combustível não serão objeto de fiscalização pelo CBMSC."
+    },
+    {
+      "number": 8,
+      "page": 3,
+      "text": "Art. 8º Em decorrência de atividade econômica específica ou de equipamentos de consumo específicos, quando houver necessidade de dimensionamento das instalações de gases combustíveis na fase líquida ou gasosa por requisitos normativos distintos dos previstos nesta IN, deverá ser apresentado requerimento técnico apontando as diferenças e necessidades específicas para o caso, bem como especificar a norma adotada. Parágrafo único. Nestes casos o CBMSC avalia somente a permissão para uso de procedimentos e dimensionamentos distintos desta IN sem, no entanto, realizar a avaliação de quaisquer requisitos técnicos, cuja responsabilidade fica a cargo do responsável técnico. CENTRAIS DE GLP Características das Centrais de gás"
+    },
+    {
+      "number": 9,
+      "page": 3,
+      "text": "Art. 9º As centrais de gás podem ser: I - de recipientes estacionários: a) de superfície: com os recipientes estacionários horizontais ou verticais instalados acima do solo; b) aterrados: com recipientes estacionários instalados acima do solo porém recobertos com terra ou material inerte com camada 0,30 m; c) enterrados: com recipientes estacionários instalados em covas, ou caixas de alvenaria, abaixo no mínimo 0,30 m do nível do solo. II - recipientes transportáveis sem abrigo/cabine; III - recipientes transportáveis ou estacionários de até 2 m³, em abrigos/cabines, conforme especificações desta IN; IV - em nicho, para os casos previstos nesta IN. § 1º Para a instalação de recipientes estacionários com até 2 m³, em abrigos/cabines, estes devem possuir descarga da válvula de segurança para o lado externo da cabine. § 2º Locais distintos dos previstos no caput deverão possuir justificativa comprovada, devendo atender aos requisitos de NBR específica, além de possuir registro de fecho para cada bloco, conforme a localização prevista nesta IN. § 3º É proibida a instalação de centrais em locais confinados, tais como porões, garagens subterrâneas, forros, etc. § 4º Para as centrais com recipientes estacionários devem ser aplicados os afastamentos individuais, conforme Tabela 1 do Anexo A e Figura 18 do Anexo B. § 5º Para as centrais com recipientes transportáveis devem ser aplicados os afastamentos conforme Tabela 2 do Anexo A e Figura 1 8 do Anexo B. § 6º Permite-se um grupo máximo de 6 (seis) recipientes estacionários instalados lado a lado para formar uma central de GLP. § 7º Caso haja a necessidade de instalar mais recipientes estacionários, deve-se prever um novo grupo, com afastamento mínimo de 7,5 m entre os grupos. § 8º Quando o imóvel possuir mais de 1 bloco, poderá ser construída mais de uma Central de GLP, respeitado o afastamento mínimo entre centrais conforme parágrafo anterior. § 9º Em estabelecimentos comerciais e residenciais que determinem uma única área destinada exclusivamente para centrais de GLP para atendimento de vários clientes, é permitida a instalação de mais de uma central desde que os recipientes estejam em abrigo resistente ao fogo TRRF 2h, dispostos lado a lado, e com afastamento mínimo considerando a capacidade total da somatória de todos os recipientes, conforme Tabela 1 , podendo possuir até 10 m³. § 10º O projeto deve contemplar todas as centrais e recipientes instalados em área exclusiva, e sempre ser atualizado, bem como a atualização do DRT deve ser emitida a cada nova central adicionada, considerando todas as centrais e recipientes existentes. § 11º Para centrais com recipientes transportáveis os afastamentos mínimos devem considerar o somatório de todos os recipientes individuais, limitados ao máximo de 10 m³ de GLP."
+    },
+    {
+      "number": 10,
+      "page": 4,
+      "text": "Art. 10. Todas as Centrais de GLP devem possuir válvula de bloqueio manual, instaladas ou passíveis de fechamento pelo lado de fora da central, conforme a Figura 1 do Anexo B. Parágrafo Único. A válvula de bloqueio manual deve estar localizada na parte externa da Central de GLP. Os demais componentes apresentados na Figura 1 (a saber: válvula redutora, válvula de bloqueio automático de sobrepressão e plug de teste) podem ser instalados internamente à central."
+    },
+    {
+      "number": 11,
+      "page": 4,
+      "text": "Art. 11. Admite-se a compartimentação da Central de GLP em mais de uma célula, sendo consideradas de forma independente, somente se: I - as células forem separadas por parede resistente ao fogo TRRF 2h; II - cada célula possuir acesso livre (sem portas) ou porta independente e de fácil acesso (para as centrais com proteção por cabine RF). § 1º Admite-se a compartimentação da Central de GLP em, no máximo, 4 células. § 2º Para efeitos de afastamento de segurança, considera-se a carga de cada célula de forma independente."
+    },
+    {
+      "number": 12,
+      "page": 5,
+      "text": "Art. 12. A central de GLP deve ter proteção específica por extintores conforme a Tabela 5 do Anexo A. Parágrafo único. Para dimensionar o sistema de proteção por extintores, deve-se considerar a carga total da Central de GLP."
+    },
+    {
+      "number": 13,
+      "page": 5,
+      "text": "Art. 13. As centrais de GLP sujeitas ao risco de impacto por veículos que transitam em via pública devem possuir obstáculos de proteção mecânica com altura mínima de 0,6 m devidamente posicionados para proteger os recipientes. Parágrafo único. A proteção por cabine em alvenaria é considerada proteção mecânica, desde que as portas não sejam voltadas para o trânsito de veículos."
+    },
+    {
+      "number": 14,
+      "page": 5,
+      "text": "Art. 14. Todas as centrais devem possuir placas contendo avisos com os seguintes dizeres: \"PERIGO - INFLAMÁVEL. NÃO FUME”. ( Figura 6 )"
+    },
+    {
+      "number": 15,
+      "page": 5,
+      "text": "Art. 15. É proibido armazenar qualquer tipo de material combustível no interior da central GLP."
+    },
+    {
+      "number": 16,
+      "page": 5,
+      "text": "Art. 16. Poderá ser instalada cerca elétrica sobre a central, desde que esta possua abrigo/cabine com cobertura e haja distância vertical mínima de 1,5 m entre os recipientes e a cerca. Especificações das Centrais Geral"
+    },
+    {
+      "number": 17,
+      "page": 5,
+      "text": "Art. 17. As centrais de GLP devem estar situadas no exterior das edificações, em ambientes ventilados, obedecendo aos afastamentos mínimos previstos nesta IN. § 1º As centrais não podem ser instaladas em: I - fossos de iluminação ou ventilação, garagens, subsolos ou porões; II - cota negativa, sendo que a Locação de GLP deve estar situada em cota igual ou superior ao nível do piso onde esta estiver situada; III - locais onde o piso fique em desnível e os cilindros fiquem instalados em rebaixos, nichos ou recessos abaixo do nível externo; IV - teto, laje de cobertura ou terraço; V - local de difícil acesso; ou VI - locais que possibilitem acúmulo de volume de GLP em caso de vazamento. § 2º Quando um mesmo bloco fizer uso de GLP e GN, a central de GLP deve estar situada na face frontal ou lateral da edificação em local de fácil visibilidade (ou devidamente sinalizado) a partir da entrada principal da edificação. § 3º Em imóveis com mais de um bloco, cujo uso de gases combustíveis distintos forem aplicados a blocos de forma independente, não havendo redes mistas num mesmo bloco, deve haver identificação no CRM/ERPM de quais blocos são atendidos por GN, devendo os demais blocos possuírem uma ou mais centrais de GLP, observados os afastamentos mínimos, não se aplicando portanto o disposto no parágrafo anterior. § 4º A localização da central de GLP deve, preferencialmente, ser realizada nas divisas frontal ou lateral do imóvel e, nos casos em que não seja possível ou conveniente, cabe ao RT avaliar os impactos dos riscos envolvidos, tais como ventilação, área livre para dissipação e diluição do GLP, bem como possibilidade de acúmulo perigoso em declives, elementos de drenagem pluvial, esgoto, entre outros. § 5º Nos casos em que a central de GLP não seja prevista nas divisas frontal ou lateral da edificação, assim como nos casos em que houver outras centrais no interior do imóvel, deve ser prevista sinalização na entrada principal da edificação e sinalizações complementares sobre a localização das centrais e respectivos blocos atendidos."
+    },
+    {
+      "number": 18,
+      "page": 6,
+      "text": "Art. 18. Em áreas sujeitas a inundações ou variação do nível do lençol freático, os recipientes da central de GLP devem estar ancorados para evitar flutuação ou queda. Parágrafo único. Para estes casos as centrais podem ser instaladas em locais diversos mediante solicitação com justificativa formal, devendo atender os requisitos da NBR específica. Central Tipo I (Recipientes estacionários em superfície, aterrados ou enterrados)"
+    },
+    {
+      "number": 19,
+      "page": 6,
+      "text": "Art. 19. As áreas dos recipientes estacionários em superfície, aterrados ou enterrados, devem: I - ser protegidas e delimitadas através de cerca de tela, gradil ou elemento vazado com, no mínimo, 1,80 m de altura, que não interfira na ventilação; e II - conter, no mínimo, um portão para centrais, sendo necessário um segundo portão em lado oposto, quando a distância percorrida para sair da central for superior a 25 m. Central Tipo II (Recipientes transportáveis instalados em superfície)"
+    },
+    {
+      "number": 20,
+      "page": 6,
+      "text": "Art. 20. A central em superfície com recipientes transportáveis deve ser construída conforme uma das seguintes formas: I - sem cabine, com recipientes instalados no térreo, diretamente sobre base rígida estrutural de material incombustível (exemplos: piso de cimento, grade metálica, blocos de concreto, radier, etc.); II - dentro de cabines sem resistência ao fogo, conforme especificações da Figura 2 do Anexo B; ou III - dentro cabines com resistência ao fogo, conforme especificações da Figura 3 do Anexo B. Recipientes em Nichos"
+    },
+    {
+      "number": 21,
+      "page": 6,
+      "text": "Art. 21. As edificações existentes que não possuam possibilidade técnica de instalação, além das adaptações previstas na IN 5, poderão adotar excepcionalmente a central de GLP em nicho, respeitados os afastamentos descritos no Anexo A ( Tabela 1 e Tabela 2 ) e conforme Figura 4 do Anexo B, devendo possuir: I - instalação em pavimento térreo, na fachada frontal ou lateral da edificação com ventilação natural e permanente, direta para o exterior da edificação, incluindo a via pública. II - área mínima de 1 m²; III - interposição de paredes resistentes ao TRRF 2h na parte superior e laterais da central; IV - paredes com resistência mecânica, estanqueidade e isolamento total do interior da edificação; V - fechamento com porta metálica que propicie área de ventilação permanente natural superior e inferior de, no mínimo, 0,32 m². Parágrafo único. A capacidade máxima de recipientes transportáveis em nichos é de: I - 6 recipientes de 0,032 m³ (P-13); II - 4 recipientes de 0,108 m³ (P- 45); ou III - 2 recipientes de 0,454 m³ (P-190). Centrais em tetos ou lajes"
+    },
+    {
+      "number": 22,
+      "page": 6,
+      "text": "Art. 22. Para edificações existentes (ver IN 5) que possuírem justificativa comprovada, atendidos os requisitos da NBR específica, e possuindo registro de fecho para cada bloco conforme a localização prevista nesta IN, as centrais poderão ser instaladas em teto ou laje de cobertura, devendo possuir: I - estrutura dimensionada para suportar o peso dos recipientes cheios de água; II - instalação com localização de até 9 m de altura, com acesso externo para o seu abastecimento; III - linha fixa para abastecimento com ponto ao lado externo da edificação, não podendo a rede compreendida entre a tomada de abastecimento e o recipiente passar pelo interior da edificação, mesmo que em área de pilotis; IV - acesso por escada fixa, devendo distar, no mínimo, 1 m da bacia de contenção; V - instalação em local que permita a circulação de ar e que obedeça aos afastamentos previstos no Anexo A ; VI - área de evaporação impermeabilizada, não possuindo aberturas para áreas internas da edificação; VII - superfície plana e impermeabilizada; VIII - cercamento por muretas com altura entre 0,4 m e 0,6 m e afastadas, no mínimo, 1,0 m do(s) recipientes(s) e das fachadas e de outras construções (exceto quando utilizado parede de isolamento resistente ao fogo); e IX - instalação em local com fácil e desimpedido acesso a todas as válvulas, inclusive para manutenção. § 1º Não é permitida a construção sobre casas de máquina e reservatórios superiores de água. § 2° Não é permitida a utilização de escada tipo marinheiro na fachada como único acesso à central. § 3° É permitida a capacidade total de 2 m³ para instalações residenciais multifamiliares, 4 m³ para instalações comerciais e 16 m³ para instalações industriais, utilizando recipientes com capacidade individual máxima de 4 m³. § 4° As lajes, muretas e local de instalação devem possuir resistência ao fogo por 2h. Centrais Temporárias"
+    },
+    {
+      "number": 23,
+      "page": 7,
+      "text": "Art. 23. Para eventos temporários podem ser executadas centrais para funcionamento durante o período de sua realização, com apresentação do respectivo DRT."
+    },
+    {
+      "number": 24,
+      "page": 7,
+      "text": "Art. 24. A central temporária deve ser instalada em local que permita ventilação natural e permanente atendendo também aos afastamentos de segurança previstos no Anexo A."
+    },
+    {
+      "number": 25,
+      "page": 7,
+      "text": "Art. 25. As centrais temporárias devem ser constituídas com recipientes a partir do P-45. Parágrafo único. Permite-se o uso de recipientes P-13 exclusivamente para equipamentos individuais, desde que o aparelho de queima não seja utilizado diretamente sobre os botijões."
+    },
+    {
+      "number": 26,
+      "page": 7,
+      "text": "Art. 26. Deve ser realizado o isolamento através de grades móveis ou elementos similares para evitar o acesso indevido de pessoas e veículos à central. (ver Figura 5 Anexo B). Centrais Provisórias"
+    },
+    {
+      "number": 27,
+      "page": 7,
+      "text": "Art. 27. Centrais provisórias são aquelas instaladas e utilizadas para: I - realizar a manutenção dos recipientes pertencentes à central definitiva; ou II - abrigar recipientes que serão utilizados provisoriamente, enquanto ocorre a instalação dos recipientes em uma central definitiva."
+    },
+    {
+      "number": 28,
+      "page": 7,
+      "text": "Art. 28. A central provisória não pode exceder seis meses de funcionamento."
+    },
+    {
+      "number": 29,
+      "page": 7,
+      "text": "Art. 29. Para centrais provisórias o Responsável Técnico (RT) deverá observar a NBR específica e apresentar o respectivo DRT. Abrigos ou cabines de GLP Abrigos ou cabines de gás"
+    },
+    {
+      "number": 30,
+      "page": 8,
+      "text": "Art. 30. Os abrigos/cabines devem ser construídos externamente às edificações, em locais de fácil acesso, em cota igual ou superior ao nível do piso circundante, sendo divididos em: I - simples (sem resistência ao fogo) ( Figura 2 ); ou II - resistente ao fogo (RF) (com resistência ao fogo - TRRF 2h) ( Figura 3 )."
+    },
+    {
+      "number": 31,
+      "page": 8,
+      "text": "Art. 31. O abrigo/cabine simples deve: I - ser construída em material incombustível, sem necessidade de possuir resistência ao fogo (ver Figura 2 do Anexo B); II - possuir regulador de pressão adequado ao tipo de instalação da pressão da rede ou do aparelho; III - ter registro de corte (tipo fecho rápido) do fornecimento de gás; e IV - ter portas ventiladas por venezianas, grade ou tela."
+    },
+    {
+      "number": 32,
+      "page": 8,
+      "text": "Art. 32. O abrigo/cabine RF deve: I - ser construído da seguinte forma: a) com paredes em concreto ou alvenaria (blocos maciços ou vazados), com TRRF 2h; b) ter teto em concreto, com declividade para escoamento de água; c) ter altura interna mínima de 180 cm; d) piso em concreto ou argamassa; e) possuir espaço interno livre para a operação e manutenção; e f) ter portas com dimensões mínimas de 90 x 170, ventiladas por veneziana ou grade. II - ter regulador de pressão adequado ao tipo de aparelho de queima; III - ter registro de corte (tipo fecho rápido) do fornecimento de gás, que fique do lado de fora da cabine, conforme Figura 1 do Anexo B. Parágrafo único. O armazenamento de GLP neste tipo de abrigo/cabine deve respeitar os seguintes parâmetros: I - possuir capacidade individual máxima do recipiente estacionário de 2.000 kg (4 m³); e II - possuir, no máximo, 10 m³ de GLP numa cabine, o equivalente a 22 recipientes do tipo P-190. Paredes de proteção"
+    },
+    {
+      "number": 33,
+      "page": 8,
+      "text": "Art. 33. A parede de proteção das centrais de gás combustível deve observar, além dos afastamentos previstos no Anexo A , também os seguintes requisitos: I - ser construída totalmente fechada (sem aberturas) em concreto ou alvenaria com TRRF de 2h, ou outros materiais que atendam aos parâmetros da NBR 10636; II - possuir altura mínima de 1,80 m, ou maior, conforme as dimensões dos recipientes; e III - ser posicionada de 1 a 3 m dos recipientes. § 1° Podem ser utilizadas, no máximo, duas paredes resistentes ao fogo. § 2º Em recipientes instalados em abrigos, a própria parede ou cobertura do abrigo pode ser enquadrada como resistente ao fogo, desde que atenda ao inciso I do caput deste artigo. § 3° O muro de divisa de propriedade também pode ser usado como parede resistente ao fogo, desde que atenda aos requisitos desta IN."
+    },
+    {
+      "number": 34,
+      "page": 8,
+      "text": "Art. 34. O comprimento mínimo da parede é definido em função do somatório das distâncias (vetoriais) para fins de atendimento aos valores estabelecidos no Anexo A (ver Figura 7 do Anexo B). Parágrafo único. A medição da distância deve ser realizada da interposição distal da parede em relação aos pontos considerados."
+    },
+    {
+      "number": 35,
+      "page": 9,
+      "text": "Art. 35. Os recipientes transportáveis da central de GLP podem ser instalados no limite de propriedade, desde que exista uma parede resistente ao fogo posicionada na divisa e ao longo dos recipientes, e que o acesso para a central seja interno à propriedade, não direto para a via pública. Utilização de P-13"
+    },
+    {
+      "number": 36,
+      "page": 9,
+      "text": "Art. 36. Para a utilização de recipientes tipo P-13 são permitidas as seguintes possibilidades: I - para condomínio residenciais verticais com até 6 unidades consumidoras, sendo 1 recipientes por unidade, instalados em abrigos de alvenaria individuais, agrupados, podendo ser instalado um abrigo sobre o outro em duas fileiras, contendo a identificação da respectiva unidade consumidora; II - para condomínios residenciais horizontais, em abrigo individual para cada residência, alocados individualmente; ou III - nas edificações não residenciais com baixo consumo de gás o dimensionamento fica à critério do projetista. § 1º Devem ser instalados em local aberto e ventilado, evitando a instalação em locais com fechamento por muros ou paredes em todo seu entorno, cuja área possibilite acúmulo de gás em concentrações perigosas. § 2 º Quando houver fechamentos laterais, cabe ao RT avaliar e definir se a área de locação para o abrigo de GLP possui ventilação suficiente para diluição e dissipação dos gases combustíveis, sem ocasionar riscos de ignição ou explosão. Centrais de abastecimento de GLP para recipientes transportáveis de empilhadeiras e equipamentos similares"
+    },
+    {
+      "number": 37,
+      "page": 9,
+      "text": "Art. 37. As centrais de abastecimento de GLP para recipientes transportáveis de empilhadeiras (sistema “pit stop” e outros) e equipamentos similares, devem situar-se em áreas externas, admitindo-se a instalação de coberturas, mas mantendo a ventilação lateral. § 1º Considera-se, para efeitos de atendimento à ventilação lateral, uma área de ventilação permanente maior ou igual a 50% da área das laterais. § 2º O dimensionamento do sistema de bombeamento e do cavalete de abastecimento é de responsabilidade exclusiva do responsável técnico. § 3º Caso o cavalete de abastecimento esteja posicionado em local que exista tráfego de veículos, deverá ser prevista proteção contra choques mecânicos. § 4º O CBMSC não fiscaliza a operação e seus componentes, sendo esta de responsabilidade da empresa, observadas as normas específicas."
+    },
+    {
+      "number": 38,
+      "page": 9,
+      "text": "Art. 38. Caso o abastecimento de empilhadeiras e equipamentos similares seja feito com recipientes transportáveis armazenados no imóvel, deverá ser atendida a IN 29. Tomada para abastecimento"
+    },
+    {
+      "number": 39,
+      "page": 9,
+      "text": "Art. 39. As tomadas para abastecimento dos recipientes estacionários devem: I - estar localizadas em área externa à edificação, porém dentro da propriedade (mesmo que na divisa); e II - ser instaladas a 2,80 m acima do nível do piso (quando em local com acesso ao público). § 1º Cabe ao RT optar pela instalação de proteção contra danos por manobras irregulares e agentes físicos. § 2º As tomadas para abastecimento devem ser instaladas nos próprios recipientes, junto às centrais ou em um ponto afastado das mesmas, desde que devidamente demarcadas, obedecidos os afastamentos previstos na Tabela 6 do Anexo A ."
+    },
+    {
+      "number": 40,
+      "page": 10,
+      "text": "Art. 40. As tomadas para abastecimento não podem ser instaladas em: I - fossos de iluminação ou ventilação, garagens, subsolos ou porões; II - local de difícil acesso ou que possibilite acúmulo de volume de GLP em caso de vazamento; ou III - caixas ou galerias subterrâneas, e próximas de depressões do solo, valetas para captação de águas pluviais, aberturas de dutos de esgoto ou aberturas para acesso a compartimentos subterrâneos."
+    },
+    {
+      "number": 41,
+      "page": 10,
+      "text": "Art. 41. O trecho de tubulação entre a tomada de abastecimento e o recipiente de GLP não pode passar no interior da edificação e nem em áreas fechadas."
+    },
+    {
+      "number": 42,
+      "page": 10,
+      "text": "Art. 42. Na linha de abastecimento, as duas extremidades (recipiente e tomada de abastecimento) devem ser providas de válvula de retenção ou excesso de fluxo, de forma que permitam somente o fluxo no sentido de abastecimento dos recipientes. § 1º Caso a linha de abastecimento abasteça mais de um recipiente, cada derivação da linha deve ser provida de uma válvula de bloqueio. § 2º Entre as válvulas de retenção deve ser previsto dispositivo para realização de purga do gás para a atmosfera, localizado em área externa, obedecendo os distanciamentos previstos no Anexo A . CONJUNTO DE REGULAGEM E MEDIÇÃO DE GN OU ESTAÇÃO DE REDUÇÃO DE PRESSÃO E MEDIÇÃO (CRM/ERPM)"
+    },
+    {
+      "number": 43,
+      "page": 10,
+      "text": "Art. 43. O CRM/ERPM não pode ser instalado: I - em fossos de iluminação ou ventilação; II - em garagens, subsolos ou porões; III - no teto, laje de cobertura ou terraço; IV - em local de difícil acesso; ou V - no interior da edificação. Parágrafo único. Não há exigência de afastamento do CRM em relação à edificação, podendo ser instalada na fachada, desde que seja estanque pelo lado interno da edificação, com abertura e ventilação para o exterior."
+    },
+    {
+      "number": 44,
+      "page": 10,
+      "text": "Art. 44. O CRM/ERPM deve ser sinalizado com placas conforme a Figura 6 do Anexo B."
+    },
+    {
+      "number": 45,
+      "page": 10,
+      "text": "Art. 45. Devem ser observados os afastamentos das redes elétricas previstos no Anexo A . VÁLVULAS DE CORTES (GLP ou GN) Conjunto de controle e manobra para GLP"
+    },
+    {
+      "number": 46,
+      "page": 10,
+      "text": "Art. 46. As Centrais de GLP devem possuir conjunto de controle e manobra para GLP (registro geral), com abrigo de proteção junto à central, conforme a Figura 1 do Anexo B, sendo este composto sequencialmente, conforme o fluxo do gás, por: I - válvula reguladora de pressão de 1° estágio ou estágio único; II - manômetro para indicação da pressão na rede primária de gás com graduação que permita uma leitura com precisão; III - válvula de corte (¼ de volta, compatível com a pressão de operação); IV - tê plugado com redução para ½”, para teste de estanqueidade da canalização. Conjunto de controle e manobra e Válvula de corte (GN)"
+    },
+    {
+      "number": 47,
+      "page": 11,
+      "text": "Art. 47. O CRM/ERPM deve possuir conjunto de controle e manobra para GN, instalado em abrigo, conforme Figura 7 do Anexo B. Parágrafo único. É obrigatório que o CRM/ERPM tenha válvula de corte (¼ de volta, compatível com a pressão de operação) pintada na cor vermelha. Válvula de Corte para blocos de edificações (GLP ou GN)"
+    },
+    {
+      "number": 48,
+      "page": 11,
+      "text": "Art. 48. Cada bloco da edificação, deve possuir uma válvula de corte de fecho rápido, localizada: I - externamente na fachada do bloco; ou II - internamente no hall de entrada do bloco. § 1º A válvula deve ser instalada em abrigo conforme Figura 8 do Anexo B, no máximo, a 5 m de distância da porta de acesso principal do bloco. § 2º Ficam dispensadas as válvulas de corte para cada bloco caso a edificação seja bloco único e o conjunto de controle e manobra estiver a menos de 10 m da porta de acesso principal da edificação. § 3º Não se aplica a blocos que possuam cabines com carga de GLP de até 90 kg, desde que seja previsto válvula de corte junto à cabine, localizada na parte externa desta. § 4º Ocupações industriais ou locais com acessos secundários diretos para o exterior (como shopping-centers, centros de eventos, entre outros) podem ter o registro de cada bloco em local diverso e sem restrição de distância, desde que possua fácil acesso e esteja devidamente sinalizado. Fecho rápido para os pontos de consumo"
+    },
+    {
+      "number": 49,
+      "page": 11,
+      "text": "Art. 49. Todos os pontos de consumo de aparelhos de queima deverão possuir registro de corte, conforme a Figura 9 do Anexo B. REDES DE DISTRIBUIÇÃO DE GÁS Generalidades"
+    },
+    {
+      "number": 50,
+      "page": 11,
+      "text": "Art. 50. As tubulações para gás não podem passar em: I - dutos de lixo, de ar condicionado ou de águas pluviais, reservatórios de água e incineradores de lixo; II - locais de difícil acesso ou que possibilitem acúmulo de volume de gás em caso de vazamento, como subsolos, fossos e porões; III - caixas ou galerias subterrâneas, valetas para captação de águas pluviais, cisternas ou reservatórios de água, aberturas de dutos de esgoto ou aberturas para acesso a compartimentos subterrâneos; IV - compartimentos não ventilados ou dutos em atividade (ventilação de ar condicionado, exaustão, chaminés, etc.); V - poços de ventilação ou iluminação capazes ter um eventual vazamento de gás; VI - qualquer vazio ou parede contígua a qualquer vão formado pela estrutura ou alvenaria, mesmo que ventilado (exceto quando utilizado tubo luva ou envelopamento e argamassa); VII - ao longo de qualquer tipo de forro falso (entreforro), salvo se ventilado por tubo luva, atendendo aos critérios desta IN; VIII - pontos de captação de ar para sistemas de ventilação; IX - compartimento de equipamento ou dispositivo elétrico; X - escadas e antecâmara, inclusive nos dutos de ventilação da antecâmara; XI - poço ou vazio de elevador; XII - garagens (quando em cota negativa); XIII - ambientes de cota negativa referencial; XIV - dormitórios (observado o § 1° deste artigo); e XV - banheiros. § 1° Para ambientes únicos como lofts, estúdios e quitinetes a tubulação, quando passar por dentro do ambiente interno , deve ser embutida, saindo apenas no ponto de consumo. § 2° Admite-se a passagem de tubulação para gás por subsolos: I - ventilados, quando estes tiverem uma área para ventilação equivalente a 10% da área do pavimento subsolo; ou II - independente da ventilação do subsolo, quando no interior de dutos ventilados (tubo-luva) conforme artigo 50 , devendo ainda manter afastamento mínimo de 1,5 m entre o tubo luva e qualquer abertura externa do imóvel. § 3º Admite-se a passagem de tubulações por elementos estruturais desde que não exista contato entre a tubulação embutida e o elemento estrutural; quando for realizado através de tubo-luva, este deve ter seção mínima 1,5 vez maior que a tubulação de gás."
+    },
+    {
+      "number": 51,
+      "page": 12,
+      "text": "Art. 51. A rede de distribuição não deve ser embutida em tijolos vazados ou outros materiais que permitam a formação de vazios no interior da parede. Parágrafo único. No caso em que seja imprescindível que a rede de distribuição interna passe por espaços fechados, as tubulações devem passar pelo interior de dutos ventilados (tubo-luva), atendendo aos seguintes requisitos: I - possuir, no mínimo, duas aberturas para atmosfera localizadas fora da edificação, em local seguro e protegido contra a entrada de água, animais e outros objetos estranhos; II - ter resistência mecânica adequada à sua utilização; III - ser estanque em toda a sua extensão, exceto nos pontos de ventilação; IV - ser protegido contra corrosão; V - possuir suporte adequado com área de contato devidamente protegida contra corrosão; VI - ter relação da área da seção transversal da tubulação e do tubo-luva de, no mínimo, 1 para 1,5."
+    },
+    {
+      "number": 52,
+      "page": 12,
+      "text": "Art. 52. As tubulações de gás, quando aparentes, devem ser da seguinte cor: I - alumínio, para GLP; ou II - amarelo, para GN."
+    },
+    {
+      "number": 53,
+      "page": 12,
+      "text": "Art. 53. As tubulações devem possuir afastamento de redes elétricas conforme previsto na Tabela 8 do Anexo A."
+    },
+    {
+      "number": 54,
+      "page": 12,
+      "text": "Art. 54. O Responsável técnico pelo PPCI deve realizar a compatibilização do projeto da instalação de gás combustível canalizado com o SPDA, quando houver, observadas as prescrições da NBR específica."
+    },
+    {
+      "number": 55,
+      "page": 12,
+      "text": "Art. 55. As tubulações devem contar com suportes adequados com área de contato devidamente protegida contra corrosão. Parágrafo único. As tubulações não podem estar apoiadas, amarradas ou fixadas em tubulações existentes de condução de água, vapor ou outros, nem a instalações elétricas."
+    },
+    {
+      "number": 56,
+      "page": 12,
+      "text": "Art. 56. Os materiais, equipamentos e dispositivos utilizados na rede de distribuição interna devem possuir resistência físico-química adequada à sua aplicação e compatíveis com o gás utilizado, bem como devem ser resistentes ou estar adequadamente protegidos contra agressões do meio."
+    },
+    {
+      "number": 57,
+      "page": 12,
+      "text": "Art. 57. Tubulações com GLP em fase líquida não podem passar no interior das edificações ou áreas fechadas, exceto para edificações com ocupação industrial que façam uso do GLP em fase líquida na produção. Parágrafo único. Para os casos de regularização de edificações existentes, permite-se a passagem de GLP na fase líquida, desde que fora da edificação (projeção vertical, mesmo que em pilotis), respeitadas as proteções previstas em NBR específica . Redes de distribuição residenciais e comerciais"
+    },
+    {
+      "number": 58,
+      "page": 13,
+      "text": "Art. 58. As redes de distribuição ( Figura 10 do Anexo B) se dividem em: I - rede de abastecimento, compreendida entre a tomada de abastecimento e os cilindros de GLP; II - rede coletora, compreendida entre os cilindros de GLP e a válvula de redução de pressão de 1° estágio; III - rede primária, compreendida entre a válvula de redução de pressão de 1º estágio até a válvula de 2º estágio; IV - rede secundária, compreendida entre a válvula de redução de pressão de 2º estágio até os pontos de consumo; V - rede de estágio único, nos casos em que o regulador de pressão de estágio único for afixado junto ao cilindro de GLP; e VI - rede terciária, para casos de regularização de edificações existentes, conforme previsão da IN 5 e somente para a utilização no caso do artigo 59 . VII - redes industriais, para instalações em indústrias. § 1° Na rede primária a pressão de operação é de até 150 kPa (1,5 kgf/cm²). § 2° A pressão máxima admitida na rede secundária é de até 7,5 kPa (0,075 Kgf/cm²). § 3° Para instalações industriais, a pressão máxima da rede de distribuição interna será de 400 kPa (4 kgf/cm²) para GN, 250 KPa (2,5 kgf/cm²) para mistura de ar-GLP e de 15 kPa (1,5 kgf/cm²) para GLP."
+    },
+    {
+      "number": 59,
+      "page": 13,
+      "text": "Art. 59. Para os casos de conversão da matriz energética de GLP para GN, devem ser inseridos estabilizadores de pressão (de 2,0 kPa ou 0,02 Kgf/cm²), dentro das unidades autônomas, junto aos pontos de consumo. Rede Coletora"
+    },
+    {
+      "number": 60,
+      "page": 13,
+      "text": "Art. 60. A rede coletora possui a conexão com os recipientes realizada através de: I - mangotes; II - pig-tail ; III - tubo de cobre flexível; ou IV - tubo flexível metálico. § 1° Na interligação do pig-tail com a rede de alimentação deve haver uma válvula de retenção. § 2° Devem ser observadas as pressões de operação de cada tipo de conexão. Tipos de tubulações para a condução de gás (GLP ou GN) Redes primárias e secundárias"
+    },
+    {
+      "number": 61,
+      "page": 13,
+      "text": "Art. 61. Para tubulações são admitidos os seguintes materiais: I - tubo de aço preto ou galvanizado, com ou sem costura; II - tubo de cobre, rígido ou flexível, sem costura; III - tubo de polietileno (PE80 ou PE100); IV - tubo multicamadas, conforme as especificações previstas nas NBR; V - mangueiras flexíveis, para interligação entre ponto de utilização e aparelho de queima a gás, compatíveis com o uso e a pressão de operação; VI - tubos metálicos flexíveis; e VII - outros materiais previstos em NBR, devendo constar em PPCI o tipo do material e a NBR correspondente. § 1º As tubulações devem atender às exigências desta IN ou, quando a IN for omissa, às exigências previstas em NBRs específicas, conforme cada tipo de material. § 2° Mediante a apresentação de requerimento técnico, podem ser admitidos também outros tipos de materiais, desde que atendam aos requisitos previstos no anexo H da NBR 15526 ou anexo B da NBR 15358."
+    },
+    {
+      "number": 62,
+      "page": 14,
+      "text": "Art. 62. As tubulações multicamadas ou de polietileno (PE80 ou PE100), quando utilizadas em redes de distribuição de gás primárias, devem: I - ser utilizadas de acordo com as previsões existentes nas NBR; II - possuir caixa de inspeção na transição entre as tubulações (metálica/não metálica) de 25 x 30 cm com tampa metálica na cor vermelha; III - estar enterradas a 60 cm de profundidade e possuir envelopamento em concreto ou com sobreposição de placas de concreto com dimensões de 5x20x50 cm para a proteção mecânica da tubulação enterrada. § 1° Admite-se também o uso de tubulações de polietileno na conexão entre a prumada da rede primária e a entrada da válvula da rede secundária no abrigo de medidores. ( Figura 10 do Anexo B). § 2° Não se admite tubulações de polietileno (PE80 ou PE100) instaladas de forma aparente ou aéreas quando utilizadas em redes de distribuição de gás primárias. § 3° Para adequações de edificações existentes em que haja a retirada de cilindros de P13 do interior dos imóveis, permite-se a utilização de tubulação multicamadas para uso externo com certificado de proteção UV."
+    },
+    {
+      "number": 63,
+      "page": 14,
+      "text": "Art. 63. Enquanto não houver regulamentação em NBR, as tubulações multicamadas do tipo PEX-Al-PEX, serão admitidas em redes secundárias, devendo: I - ser embutidas no contrapiso da laje, admitindo-se apenas trecho vertical envelopado e embutido nas paredes, para a ligação no ponto de consumo; 1 e II - ter a conexão com a válvula de corte do ponto de consumo em material metálico. § 1º Não é permitida a instalação de tubulação multicamadas no teto, em trechos horizontais de paredes ou de forma aparente, exceto nesta última, para redes externas ou dentro do abrigo de medidores. § 2º Cabe ao responsável técnico definir os critérios para instalação do sistema multicamadas conforme normas específicas ou, na falta destas, das recomendações do fabricante. Nota 1 - Orientação Quando as conexões estiverem embutidas em contrapisos e nos trechos verticais de paredes de alvenaria, sugere-se utilizar caixas de passagem para facilitar futuras inspeções e manutenções do sistema, ficando à critério do responsável técnico e do responsável pelo imóvel. Interligação ponto de consumo ao aparelho de gás"
+    },
+    {
+      "number": 64,
+      "page": 14,
+      "text": "Art. 64. Para se efetuar a interligação entre um ponto de consumo e o aparelho a gás, são permitidos os seguintes tipos de materiais, atendidos os requisitos das NBRs específicas: I - mangueira flexível de borracha; II - tubo flexível metálico; III - tubo de condução de cobre rígido ou flexível; e IV - tubo flexível de borracha para uso em instalações de GLP/GN."
+    },
+    {
+      "number": 65,
+      "page": 15,
+      "text": "Art. 65. As mangueiras flexíveis de PVC para a ligação aos aparelhos técnicos de queima de gás devem possuir as seguintes inscrições: I - marca ou identificação do fabricante; II - número da NBR de fabricação; III - aplicação da mangueira (gás GLP/GN); IV - data de fabricação e/ou validade; V - diâmetro nominal ou classe de aplicação; VI - pressão máxima de trabalho; e VII - possuir comprimento máximo de 1,25 m. § 1° Para aquecedores de passagem e acumulação a gás somente é permitida a instalação de mangueiras de borracha nitrílica ou metálica. § 2° Para os demais tipos de aparelhos técnicos de queima a gás deve ser verificado o disposto no manual do fabricante. Medição, regulagem e registros de corte das unidades autônomas"
+    },
+    {
+      "number": 66,
+      "page": 15,
+      "text": "Art. 66. Entre a rede de distribuição de gás primária e a rede secundária deve existir um abrigo ou caixa de medidores/reguladores de gás. § 1° A instalação do abrigo ou caixa de medidores/reguladores de gás, bem como seus componentes, são obrigatórios para todas edificações, exceto os medidores de consumo de gás, que serão opcionais. § 2° Quando os medidores estiverem localizados nos andares das unidades de consumo, estes devem ser alocados em caixa de medidores/reguladores, conforme especificações nesta IN. § 3° A transição deverá ser feita com tubo de condução de cobre flexível ou tubulação multicamadas, conforme especificações desta IN e NBR específica. § 4° Quando utilizada tubulação multicamadas a montante e a jusante do medidor, deverá ser previsto um suporte para que o peso do medidor não incida sobre tubos."
+    },
+    {
+      "number": 67,
+      "page": 15,
+      "text": "Art. 67. Quando admitida a instalação em área externa da edificação, os medidores devem estar protegidos em abrigo. Parágrafo único. Estes locais são o espaço de referência para abrigar os medidores e registros de corte de cada unidade consumidora. Caixas de medidores/reguladores no interior da edificação"
+    },
+    {
+      "number": 68,
+      "page": 15,
+      "text": "Art. 68. As caixas de medidores/reguladores de gás nos andares devem ser construídos conforme os detalhes da Figura 11 no Anexo B, devendo: I - estar localizados nos pavimentos dos respectivos pontos de consumo, instalados na área de circulação comum; II - possuir em seu interior, para cada unidade consumidora: a) um registro de corte de fecho rápido; b) uma válvula reguladora de pressão de 2º estágio; c) dispositivo de segurança, quando exigido pela NBR 15526; e d) um medidor de gás, se houver uso de medição, nesta sequência; III - ter ventilação adequada de forma a evitar acúmulo de gás eventualmente vazado, levando-se em consideração a densidade do gás, conforme NBR 15526. § 1º É vedada a instalação de caixa de medidores/reguladores de gás, ou seus componentes, em rampa, antecâmara ou escada, exceto nas escadas comuns. § 2° Os componentes da caixa de medidores/reguladores de gás de um pavimento devem estar racionalmente agrupados e no menor número de locais possíveis. § 3° Dentro da caixa de medidores de gás deve existir a identificação da unidade consumidora para cada medidor ou registro. § 4º Os componentes da caixa de medidores de gás localizados nos andares em local sem possibilidade de ventilação permanente, devem ser ventilados conforme NBR 15526."
+    },
+    {
+      "number": 69,
+      "page": 16,
+      "text": "Art. 69. A entrada da tubulação de gás na caixa de medidores/reguladores deve ser feita pela parte superior, e a saída da tubulação para as unidades consumidoras deve ser feita pelo piso. Abrigo de medidores em área externa"
+    },
+    {
+      "number": 70,
+      "page": 16,
+      "text": "Art. 70. Admite-se a instalação dos medidores em abrigo, localizado em área externa à edificação, no pavimento de descarga ou térreo, em pilotis, ou terraços, desde que atenda cumulativamente os seguintes requisitos: I - o número de pavimentos com uso de gás combustível na edificação não exceda a 5 (cinco); II - a válvula de corte geral deve ser prevista em até 5 m do acesso principal do bloco; e III - as prumadas devem ser individuais para cada unidade consumidora. § 1º no interior do abrigo deve ser previsto ainda, para cada unidade consumidora: a) um registro de corte de fecho rápido; b) uma válvula reguladora de pressão de 2º estágio; c) dispositivo de segurança, quando exigido pela NBR 15526; d) um medidor, quando houver uso de medição. § 2º Os abrigos devem ser ventilados através de aberturas para arejamento e consideradas as áreas efetivamente úteis existentes para a ventilação. § 3º A área total das aberturas para ventilação dos abrigos deve ser de, no mínimo, 1/10 da área da planta baixa do compartimento. Pontos de consumo de gás"
+    },
+    {
+      "number": 71,
+      "page": 16,
+      "text": "Art. 71. Os terminais de tubulações para ligação dos aparelhos de queima a gás em edificações residenciais devem ser realizados conforme a Figura 9 do Anexo B. Parágrafo único. Nas demais ocupações o RT deve avaliar a melhor localização do ponto de consumo visando atender a ligação de acordo com as características dos aparelhos de consumo, observando aspectos que facilitem acesso para interrupção no fornecimento de gás em casos de manutenção ou vazamento. DIMENSIONAMENTO DAS INSTALAÇÕES Dimensionamento das redes de distribuição de gás"
+    },
+    {
+      "number": 72,
+      "page": 16,
+      "text": "Art. 72. O dimensionamento, bem como a definição do diâmetro mínimo das redes de distribuição de gás primária e secundária, são de competência do responsável técnico pelo PPCI."
+    },
+    {
+      "number": 73,
+      "page": 16,
+      "text": "Art. 73. Deve ser especificado o tipo de gás (GLP ou GN) utilizado no projeto da edificação. Dimensionamento da quantidade de recipientes de GLP"
+    },
+    {
+      "number": 74,
+      "page": 16,
+      "text": "Art. 74. O dimensionamento da quantidade de recipientes da Locação de GLP, necessários ao correto e adequado funcionamento da instalação de gás combustível canalizado, é de competência do responsável técnico pelo PPCI. Dimensionamento de vaporizadores"
+    },
+    {
+      "number": 75,
+      "page": 17,
+      "text": "Art. 75. A previsão e dimensionamento de vaporizadores é de competência do responsável técnico pelo PPCI. REQUISITOS DE AMBIENTE E RENOVAÇÃO DE AR Volume bruto mínimo dos ambientes"
+    },
+    {
+      "number": 76,
+      "page": 17,
+      "text": "Art. 76. O ambiente interno que for projetado para receber equipamentos técnicos de queima a gás deve possuir um volume bruto mínimo de 6 m³. Parágrafo único. Apenas os aquecedores de água a gás do tipo fluxo balanceado (tipo C) não possuem restrições quanto ao volume mínimo de ar. Ventilação permanente"
+    },
+    {
+      "number": 77,
+      "page": 17,
+      "text": "Art. 77. O ambiente interno projetado para receber equipamentos técnicos de queima a gás deve possuir aberturas de ventilação atendendo ao previsto na Tabela 9 do Anexo A. § 1º O dimensionamento das aberturas de ventilação permanente é de competência do responsável técnico, devendo especificar em projeto as áreas das aberturas, observadas as dimensões mínimas da Tabela 9 . § 2º Nos ambientes internos em que não existam aparelhos destinados a serem conectados a dutos de exaustão dos produtos da combustão, admite-se a renovação de ar através de exaustão mecânica, desde que esta esteja interligada a uma válvula de bloqueio automático em caso de falha da ventilação mecânica, conforme NBR 13103."
+    },
+    {
+      "number": 78,
+      "page": 17,
+      "text": "Art. 78. As aberturas de ventilação permanente devem se comunicar com a área externa, ambiente externo ou prisma de ventilação ( Figura 1 2 do Anexo B). § 1º Pode ser realizada ventilação direta através de outros ambientes adjacentes, exceto através de banheiros, lavabos, sauna ou dormitórios fechados, observadas as áreas mínimas de ventilação, conforme NBR 13103. § 2º É vedada a passagem de qualquer tipo de fiação, canalizações, encanamentos, etc., através do duto para ventilação permanente. § 3º Terraços ou áreas técnicas podem ser consideradas áreas externas desde que possuam abertura permanente para o exterior da edificação de, no mínimo, 2 m² e que não haja a possibilidade de fechamento (por exemplo, fechamento com vidro). Prisma de ventilação"
+    },
+    {
+      "number": 79,
+      "page": 17,
+      "text": "Art. 79. O prisma de ventilação para adequação de ambientes deve: I - ser de uso exclusivo para ventilação de ambientes, não podendo servir para outros fins, tais como passagens de chaminés, canalizações, tubulações e fiação; II - a seção útil do prisma de ventilação deve ser uniforme em toda sua extensão; e III - atender aos parâmetros mínimos constantes na Figura 1 4. Parágrafo único. É proibida a instalação de chaminés individuais em prismas de ventilação, sendo permitida apenas a instalação de chaminés de exaustão coletiva. Aparelhos a Gás"
+    },
+    {
+      "number": 80,
+      "page": 17,
+      "text": "Art. 80. Na vistoria para habite-se do imóvel deve ser apresentada cópia do manual do proprietário, emitido pela construtora e entregue aos proprietários do imóvel, contendo as orientações e especificações de instalação dos aparelhos de queima a gás, incluindo as orientações quanto à instalação. Aquecedor de água a gás"
+    },
+    {
+      "number": 81,
+      "page": 18,
+      "text": "Art. 81. Somente é permitida a instalação de aquecedores de água a gás em ambiente interno dos seguintes tipos: I - exaustão forçada (B 22 ou B 23 ); ou II - fluxo balanceado (C 1 , C 3 ou C 5 ). Parágrafo único. Em ambientes únicos (lofts, estúdios, quitinete e outros), quando a instalação ocorrer no interior do ambiente, somente é permitida a instalação de aquecedores do tipo fluxo balanceado."
+    },
+    {
+      "number": 82,
+      "page": 18,
+      "text": "Art. 82. Somente é permitida a instalação de aquecedor de passagem a gás com exaustão natural ou por acumulação com exaustão natural (A 1 e B 11 ) em ambiente externo ou no exterior da edificação. Parágrafo único. Terraços ou áreas técnicas podem ser consideradas áreas externas da edificação desde que possuam abertura permanente de, no mínimo, 2 m² para o exterior, e que não haja a possibilidade de fechamento (por exemplo, fechamento com vidro)."
+    },
+    {
+      "number": 83,
+      "page": 18,
+      "text": "Art. 83. Para a realização da vistoria para habite-se a instalação dos aquecedores: I - não é obrigatória para os aquecedores de passagem a gás de exaustão forçada ou fluxo balanceado, desde que instalada placa informativa no tamanho A4, tipo adesivo autocolante, a ser fixada na parede na posição do aquecedor, conforme a Figura 1 5 do Anexo B; e II - é obrigatória para os aquecedores de passagem a gás do tipo exaustão natural e os de acumulação do tipo exaustão natural. Lareiras e churrasqueiras a gás"
+    },
+    {
+      "number": 84,
+      "page": 18,
+      "text": "Art. 84. Para a instalação de lareiras a gás deve ser atendida a especificação técnica para instalação emitida pelo fabricante e observados os seguintes requisitos: I - possuir sistema incorporado ao equipamento que realize o monitoramento do nível de oxigênio e/ou monóxido de carbono do ambiente, e que realize o desligamento da lareira a gás em caso de níveis críticos; e II - o fornecimento do gás ao queimador deve ser interrompido automaticamente caso a chama se apague; III - as áreas de ventilações permanentes devem estar de acordo com o previsto no Anexo A."
+    },
+    {
+      "number": 85,
+      "page": 18,
+      "text": "Art. 85. Para a instalação de churrasqueiras a gás deve ser atendida a especificação técnica para instalação do fabricante e observados os seguintes requisitos: I - o fornecimento de gás deve ser interrompido automaticamente caso a chama se apague; II - as áreas de ventilações permanentes devem estar de acordo com o previsto no Anexo A. EXAUSTÃO DOS PRODUTOS DA COMBUSTÃO Exaustão individual"
+    },
+    {
+      "number": 86,
+      "page": 18,
+      "text": "Art. 86. Os terminais das chaminés individuais para exaustão dos gases de combustão dos aparelhos de queima a gás instalados na face externa da edificação devem atender aos afastamentos mínimos previstos no Anexo A ."
+    },
+    {
+      "number": 87,
+      "page": 18,
+      "text": "Art. 87 . O diâmetro do tubo de exaustão de gases da chaminé individual não pode ser inferior ao diâmetro de saída de exaustão do aparelho a gás (ver Figura 17 do Anexo B). § 1º Quando a passagem do tubo de exaustão individual ocorrer por espaços vazios (entreforro, por exemplo) deve ser utilizado tubo rígido com vedação nas emendas e nas conexões, devendo o espaço de passagem possuir aberturas para ventilação para o ambiente interno com área útil mínima de 200 cm². § 2° São proibidas emendas no duto de exaustão flexível ao longo de seu percurso. § 3° Os dutos do tipo corrugado só podem ser utilizados aparentes. § 4° As interligações entre o aparelho a gás e o duto, e entre o duto e o terminal, devem ser estanques."
+    },
+    {
+      "number": 88,
+      "page": 19,
+      "text": "Art. 88. A passagem do tubo de exaustão individual por paredes, vigas ou lajes, deve ser realizada por furo com diâmetro interno, no mínimo, igual ao diâmetro do tubo de saída dos produtos da combustão nos aparelhos a gás. Parágrafo único. Caso a tubulação passe por outro ambiente interno antes de sair para o exterior, este ambiente deve possuir os mesmos requisitos de ventilação e volume conforme o tipo do aparelho e definições da Tabela 9 do Anexo A."
+    },
+    {
+      "number": 89,
+      "page": 19,
+      "text": "Art. 89. O trecho horizontal do duto de exaustão individual deve possuir o menor percurso possível (comprimento e quantidade de curvas) para qualquer tipo de aparelho. Parágrafo único. Quanto ao trecho vertical do duto de exaustão na saída do aparelho (exaustão forçada ou fluxo balanceado), não há exigência de altura mínima."
+    },
+    {
+      "number": 90,
+      "page": 19,
+      "text": "Art. 90. O dimensionamento do sistema de exaustão é de competência do responsável técnico pelo PPCI. Exaustão coletiva"
+    },
+    {
+      "number": 91,
+      "page": 19,
+      "text": "Art. 91. Nos casos de chaminé coletiva, o dimensionamento da seção mínima do duto de exaustão coletiva, seus terminais, material construtivo, tipos e potência dos aparelhos a serem conectados, são de competência do responsável técnico pelo PPCI. § 1º O responsável técnico deve especificar no manual do proprietário qual o tipo de aparelho a ser utilizado para aquele local. § 2º É proibida a passagem de tubulação de exaustão por dentro das unidades autônomas, mesmo que por shaft ou mochetas, ainda que envelopadas. § 3º É proibida a ligação de aquecedores de passagem individual, de tipologias diferentes (ver Tabela 9 ), em chaminés coletivas."
+    },
+    {
+      "number": 92,
+      "page": 19,
+      "text": "Art. 92. Quando instalado chaminé coletiva para exaustão dos gases de combustão dos aparelhos de queima, ver Figura 1 7 do Anexo B, esta deve executada com materiais rígidos, incombustíveis, resistentes a intempéries e corrosão, devendo ser estanques ao longo de todo trecho e suportar temperaturas superiores a 200°C; § 1° É permitido um único desvio oblíquo, retornando à vertical, que não pode ter ângulo maior que 30° em relação ao eixo vertical, não podendo a seção sofrer redução com a mudança de direção; § 2° O número máximo de aparelhos ligados em uma chaminé coletiva deverá obedecer ao previsto na Tabela 12 do Anexo A."
+    },
+    {
+      "number": 93,
+      "page": 19,
+      "text": "Art. 93. Na extremidade do duto de exaustão coletivo deve ser instalado terminal do tipo chapéu chinês sem a curva ou terminal tipo disco de mediling, devendo ser fabricado com materiais incombustíveis, resistentes à corrosão, que suportem temperaturas superiores a 200ºC e que possuam fixação para evitar deslocamentos em função de ventos."
+    },
+    {
+      "number": 94,
+      "page": 20,
+      "text": "Art. 94. O dimensionamento da chaminé coletiva é de competência do responsável técnico pelo PPCI. DISPOSIÇÕES FINAIS"
+    },
+    {
+      "number": 95,
+      "page": 20,
+      "text": "Art. 95. Nas vistorias para habite-se será exigido o laudo ou ensaio de estanqueidade da rede de gás, com validade de até 5 anos, acompanhado do respectivo DRT."
+    },
+    {
+      "number": 96,
+      "page": 20,
+      "text": "Art. 96 . Cabe ao responsável pelo imóvel manter o adequado funcionamento do sistema, devendo, entre outros, providenciar avaliação de estanqueidade da rede de gás a cada 5 anos, no máximo."
+    },
+    {
+      "number": 97,
+      "page": 20,
+      "text": "Art. 97. Esta IN, aplicável em todo o território catarinense, entra em vigor em 24 de abril de 2024, revogando a IN 8 de 31 de janeiro de 2018. Coronel BM FABIANO DE SOUZA Comandante-Geral do Corpo de Bombeiros Militar de SC ORGANIZAÇÃO: TC BM Willyan Fazzioni - Direção Maj BM Oscar W Barboza Jr - Supervisão e Edição Cap BM Rafael Giosa Sanino - Revisão Cap BM Suellen Lapa Duarte - Edição"
+    }
+  ],
+  "annexes": [
+    {
+      "page": 21,
+      "title": "ANEXO A - Tabelas T abela 1 - Afastamentos de segurança de recipientes individua",
+      "text": "ANEXO A - Tabelas T abela 1 - Afastamentos de segurança de recipientes individuais (m) (ver figura 18) Capacidade individual do recipiente (m 3 ) h Divisa de propriedades edificáveis /edificações d, f , n Passeio público d, o Entre recipientes Aberturas abaixo da descarga da válvula de segurança Fontes de ignição e outras aberturas (portas e janelas) e materiais combustíveis Produtos tóxicos, perigosos, inflamáveis, chama aberta e ponto de captação de ar forçado I, m Com cabine RF Superfície a, c, e, g Enterrados /aterrados b Abastecidos no local Trocáveis Abastecid os no local Com cabine RF Trocáveis Até 0,5 0 p 3 p 3 p 0 1 1 3 1,5 1,5 6 3 > 0,5 a 2 1,5 p 3 p 3 p 0 1,5 - 3 1,5 - 6 3 > 2 a 5,5 3 3 3 1 1,5 - 3 - 6 > 5,5 a 8 7,5 3 7,5 1 1,5 - 3 - 6 > 8 a 120 15 15 15 1,5 1,5 - 3 - 6 > 120 22,5 15 22,5 ¼ somatório dos diâmetros adjacentes 1,5 - 3 - 6 Instalação em nicho (j) 0 - 0 0 1 1 1,5 1,5 NA Uso de paredes resistentes ao fogo (2h) Aplicar distância percorrida vetorial até o ponto considerado, atendendo aos critérios da figura do Anexo B que estabelece o comprimento e a altura da parede resistente ao fogo, e observam-se as mesmas distâncias das centrais com cabines TRRF 2h. a) Nos recipientes de superfície, as distâncias apresentadas são medidas a partir da superfície externa do recipiente mais próximo. A válvula de segurança dos recipientes estacionários deve estar fora das projeções da edificação, como telhados, balcões e marquises. b) A distância para os recipientes enterrados/aterrados deve ser medida a partir da válvula de segurança, enchimento e indicador de nível máximo. Caso o recipiente esteja instalado em caixa de alvenaria, esta distância pode ser reduzida pela metade, respeitando um mínimo de 1,0 m do costado do recipiente para divisa de propriedades edificáveis/edificações. c) As distâncias de afastamento das edificações não podem considerar projeções de complementos ou partes destas, tais como telhados, balcões, marquises e escadas construídas em alvenaria sem espaços vazios entre os degraus, podendo as centrais situarem-se abaixo destas estruturas. d) Para recipientes transportáveis devem ser atendidos os afastamentos mínimos em função da capacidade volumétrica total do agrupamento de recipientes, conforme a tabela 2. e) No caso de existência de duas ou mais centrais de GLP com recipientes transportáveis, estas devem distar entre si em no mínimo 7,5 m. Exceto em centrais em estabelecimentos comerciais, onde vários clientes podem ser abastecidos por redes de distribuição individualizadas, pode ser utilizada mais de uma central GLP, em uma única área destinada exclusivamente para esta finalidade. f) Para recipientes acima de 0,5 m³, o número máximo de recipientes deve ser igual a 6. Se mais que uma instalação como esta for feita, ela deve distar pelo menos 7,5 m da outra. g) A distância de recipientes de superfície de capacidade individual de até 5,5 m³, para edificações/divisa de propriedade, pode ser reduzida à metade, desde que sejam instalados no máximo três recipientes. Este recipiente ou conjunto de recipientes deve estar pelo menos 7,5 m distante de qualquer outro recipiente com capacidade individual maior que 0,5 m³. h) Os recipientes de GLP não podem ser instalados dentro de bacias de contenção de outros combustíveis. i) No caso de depósitos de oxigênio e hidrogênio, os afastamentos devem ser conforme as Tabelas 3 e 4, respectivamente. j) Instalações somente aplicáveis para regularização de edificações existentes conforme definido na IN 5, limitada para recipientes transportáveis conforme tabela 2 k) É permitida a instalação de centrais de GLP sob varandas, balcões ou sacadas nas edificações, atendidos os requisitos do anexo D da IN 5 l) Para recipientes transportáveis contidos em abrigos/cabines com paredes laterais e cobertura de materiais incombustíveis certificados, que se interponham entre os recipientes e as aberturas (portas, janelas, etc), a distancia pode"
+    },
+    {
+      "page": 22,
+      "title": "ser reduzidas pela metade. m) Para captação de ar forçado acima das válvulas dos",
+      "text": "ser reduzidas pela metade. m) Para captação de ar forçado acima das válvulas dos recipientes, o afastamento pode ser reduzido para 3m. n) Para divisa de propriedade comprovadamente não edificável, (exemplo margens de rios, faixa de segurança de redes elétricas de alta tensão e de rodovias, etc.) o afastamento mínimo de segurança para recipientes estacionários é equivalente de segurança para recipientes estacionários é equivalente à tabela 6. o) Distancias não obrigatoriamente requeridas para situações em edificações existentes que possam ter instalações em nicho e também para ruas internas de propriedades privadas p) Para recipientes contidos em abrigos/cabines RF, com paredes laterais e cobertura resistentes ao fogo, atendendo ao artigo 32, que se interpõe entre os recipientes e o ponto considerado, a distância pode ser reduzida à metade. Tabela 2 – Afastamento de segurança para agrupamento de recipientes transportáveis Central de capacidade volumétrica total (m³) Divisa de propriedades edificáveis /edificações (m) b, c Passeio público (m) b, c Quantidade total de recipientes transportáveis P-45 P-90 P-125 P-190 (0,108 m³) (0,216 m³) (0,300 m³) (0,450 m³) Até 2,0 0 3 18 9 6 4 2,1 a 3,5 1,5 3 19 a 32 10 a 16 7 a 11 5 a 7 3,51 a 5,5 3 3 33 a 50 17 a 25 12 a 18 8 a 11 5,51 a 8,0 7,5 3 51 a 74 26 a 37 19 a 26 12 a 16 Acima de 8 até 10 15 15 75 a 92 máximo 38 a 46 máximo 27 a 33 máximo 17 a 22 máximo Instalação em nicho a 0 0 4 máximo 3 máximo 2 máximo 2 máximo Centrais com capacidade acima do limite estabelecido na Tabela 2 devem ser analisadas por órgãos competentes considerando situações temporárias e se em caso definitivas com as devidas medidas mitigadoras compensatórias definidas. a) Aplicável para centrais GLP instaladas em nicho conforme figura 4 Anexo B e artigo 21 desta IN. b) Caso o local destinado à instalação da central que utilize recipientes transportáveis não permita os afastamentos acima, a central pode ser subdividida com a utilização de paredes divisórias resistentes ao fogo com TRRF mínimo de 2 h, material aprovado conforme ABNT NBR 10636, com comprimento e altura de dimensões superiores ao recipiente. Neste caso, deve se adotar o afastamento mínimo referente à capacidade total de cada subdivisão, conforme artigo 9º desta IN. c) Distâncias não obrigatoriamente requeridas para situações em edificações existentes que possam ter instalações em nicho e também para ruas internas de propriedades privadas p) Para recipientes contidos em abrigos/cabines RF, com paredes laterais e cobertura resistentes ao fogo, atendendo ao artigo 32, que se interpõe entre os recipientes e o ponto considerado, a distância pode ser reduzida à metade."
+    },
+    {
+      "page": 23,
+      "title": "CONTINUAÇÃO ANEXO A - Tabelas Tabela 3 – Afastamento para estocagem de oxigênio ",
+      "text": "CONTINUAÇÃO ANEXO A - Tabelas Tabela 3 – Afastamento para estocagem de oxigênio Capacidade volumétrica total dos recipientes de GLP (m³) Capacidade máxima de oxigênio possível de ser contida nos recipientes, em fase líquida e gasosa, incluindo reservas de oxigênio na fase gasosa (Nm 3 ) Até 11 11 a 566 Acima de 566 Até 5,5 0 6 7,5 Até 5,5 com cabine RF 0 3 3,75 > 5,5 0 6 15 >5,5 com cabine RF 0 3 7,5 Tabela 4 – Afastamentos para estocagem de hidrogênio Capacidade volumétrica total dos recipientes de GLP (m³) Capacidade máxima de oxigênio possível de ser contida nos recipientes, em fase líquida e gasosa, incluindo reservas de hidrogênio na fase gasosa (Nm³) Até 11 11 a 85 Acima de 85 Até 2 0 3 7,5 Até 2 com cabine RF 0 1,5 3,75 › 2 0 7,5 15 › 2 com cabine RF 0 3,75 7,5"
+    },
+    {
+      "page": 24,
+      "title": "CONTINUAÇÃO ANEXO A - Tabelas Tabela 5 – Quantidade de Extintores de incêndio pa",
+      "text": "CONTINUAÇÃO ANEXO A - Tabelas Tabela 5 – Quantidade de Extintores de incêndio para recipientes de GLP Quantidade GLP (kg) Unidades extintoras (u.e.) a Capacidade extintora Carga mínima de agente extintor Até 90 b - - - 91 a 270 1 10-B : 1-C 4 kg 271 a 1.000 2 10-B : 1-C 4 kg 1.001 a 3.000 3 10-B : 1-C 4 kg Acima de 3.000 + 1 u.e. para cada 1.000 kg excedente 10-B : 1-C 4 kg a. O cálculo do número de u.e. (unidades extintoras), quando tratar-se de Central de GLP compartimentada, é feito considerando-se a soma total da quantidade de GLP de todas as células da Central de GLP. b. Fica dispensado a instalação de extintor de incêndio para Locação em Abrigo/cabine de GLP. Tabela 6 – Afastamentos das tomadas para abastecimento Item Aberturas das edificações (janelas, portas, etc.) Reservatórios com fluidos inflamáveis (outros tipos) Ralos, rebaixos, canaletas e veículos abastecedores Materiais de fácil combustão Distância das tomadas de abastecimentos 3 m 6 m 1,5 m 3 m Tabela 7 – Afastamentos de redes elétricas Nível de tensão (kV) a Distância mínima b c m com cabine TRRF 2h ≤ 0,6 1,8 1,0 Entre 0,6 e 23 3,0 1,5 ≥ 23 7,5 3,75 a. Cerca elétrica (independentemente do nível de tensão) deve ser considerada como fonte de ignição com distanciamento definido na Tabela 1. b. Os recipientes, quando protegidos por instalação em abrigos/ cabines com cobertura que atenda às condições de ventilação mínimas, podem ser instalados sob redes de até 0,6 kV e reduzir pela metade os demais distanciamentos das Tabelas 1,2,3 e 4. c. Para instalações em nicho verificar Anexo B, figura 4 e artigo 21 desta IN."
+    },
+    {
+      "page": 25,
+      "title": "CONTINUAÇÃO ANEXO A - Tabelas Tabela 8 – Afastamentos das tubulações Tipo Redes ",
+      "text": "CONTINUAÇÃO ANEXO A - Tabelas Tabela 8 – Afastamentos das tubulações Tipo Redes em Paralelo (b) mm Cruzamento das redes (b) mm Sistemas elétricos de potência em baixa tensão isolados em eletrodutos metálicos 30 10 com material isolante aplicado na tubulação de gás Sistemas elétricos de potência em baixa tensão isolados em eletrodutos metálicos ou sem eletrodutos (a) 50 (c) Tubulação de água quente e fria 30 10 Tubulação de vapor 50 10 Chaminés duto e terminal 50 50 Tubulação de gás 10 10 Outras tubulações 50 10 a. Cabos telefônicos de tv e de controle não são considerados sistemas de potência. b. Considerar um suficiente para permitir a manutenção c. Nestes casos a instalação elétrica deve ser protegida por eletroduto numa distância de 50mm para cada lado e atender à recomendação para sistemas elétricos de potência em eletrodutos em cruzamento."
+    },
+    {
+      "page": 26,
+      "title": "CONTINUAÇÃO ANEXO A - Tabelas Tabela 9 - Dimensões mínimas para as aberturas de ",
+      "text": "CONTINUAÇÃO ANEXO A - Tabelas Tabela 9 - Dimensões mínimas para as aberturas de ventilação Tipo Sistema de segurança intrínseco Chaminé Origem do ar para a combustão Defletor Ventoinha Ventilação Permanente (Sim/Não) (local/outro) (Sim/Não) (Sim/Não) (Sim/ Não/ NA) Superior (S) / Inferior (I) / NA Area Mínima - cm2 A A 1 A 1 A 1AS Não Local Não Sim Sim S / I VER TAB 10 A 2 A 2 A 2AS Não Local Não Não Sim S / I VER TAB 10 A 3 A 3 A 3AS Não Local Não Não Sim S / I VER TAB 10 B B 1 B 11 B 11AS ou B 11BS Sim Local Sim Sim Sim S ou I 600 (superior > 400e inferior > 200) B 2 B 22 - Sim Local Não Não Sim S ou I 200 B 23 - Sim Local Não Não Sim S ou I 200 C C 1 C 11 - Sim Outro Não Sim Não NA NA C 12 - Sim Outro Não Não Não NA NA C 13 - Sim Outro Não Não Não NA NA C 3 C 32 - Sim Outro Não Não Não NA NA C 33 - Sim Outro Não Não Não NA NA C 5 C 52 - Sim Outro Não Não Não NA NA C 53 - Sim Outro Não Não Não NA NA Abertura Superior - altura mínima 1,50 m do piso acabado | Abertura inferior - altura máxima 1,50 m do piso acabado"
+    },
+    {
+      "page": 27,
+      "title": "CONTINUAÇÃO ANEXO A - Tabelas Tabela 10 – Aparelhos de Cocção Tipo A Ventilação ",
+      "text": "CONTINUAÇÃO ANEXO A - Tabelas Tabela 10 – Aparelhos de Cocção Tipo A Ventilação Cocção e Churrasqueiras Área mínima 200 cm² Posição superior 100 cm² Posição inferior 100 cm² Tabela 11 – Afastamento de chaminés individuais Local Afastame nto (cm) Abaixo de beirais de telhado ou balcões, varandas e sacadas 40 Afastamento lateral de balcões, varandas e sacadas 40 Outras instalações 40 Paredes do prédio, ou obstáculos que dificultem a circulação do ar 40 Abaixo de aberturas de tomadas ou exaustão de ar exterior 60 Afastamento lateral de tomadas ou exaustão de ar 60 Afastamento lateral de janelas de ambientes interno 40 Abaixo de basculantes, janelas ou quaisquer aberturas de ambiente, inclusive ventilações permanentes 60 Face da edificação para o terminal tipo chinês e “tê” 10 Afastamento lateral do ponto 60 - 1,50 m de afastamento vertical entre dois pontos de exaustão; - 0,60 m de afastamento lateral de outro ponto de exaustão; - 2,20 m de afastamento vertical ao chão ou outro piso; - 0,40 m abaixo de beirais de telhados; - 0,40 m de afastamento horizontal para parede, canto ou quina da edificação sem janela;"
+    },
+    {
+      "page": 28,
+      "title": "CONTINUAÇÃO ANEXO A - Tabelas Tabela 12 – Aparelhos por duto de exaustão coletiv",
+      "text": "CONTINUAÇÃO ANEXO A - Tabelas Tabela 12 – Aparelhos por duto de exaustão coletiva Altura média efetiva (m) Potência total Número máximo de aparelhos Até 10 146 kW ou 2.100 kcal/min 10 10,1 a 15 181 kW ou 2.600 kcal/min 11 Acima de 15 202 kW ou 2.900 kcal/min 12"
+    },
+    {
+      "page": 29,
+      "title": "ANEXO B - Figuras Figura 1 – Conjunto de Controle e Manobra com o Registro de Fe",
+      "text": "ANEXO B - Figuras Figura 1 – Conjunto de Controle e Manobra com o Registro de Fecho Geral da edificação"
+    },
+    {
+      "page": 30,
+      "title": "CONTINUAÇÃO ANEXO B - Figuras Figura 2 – Abrigo/cabine para a instalação de cili",
+      "text": "CONTINUAÇÃO ANEXO B - Figuras Figura 2 – Abrigo/cabine para a instalação de cilindros de GLP, sem resistência ao fogo. Obs: Obrigatoriedade de ventilação apenas na porta."
+    },
+    {
+      "page": 31,
+      "title": "CONTINUAÇÃO ANEXO B - Figuras Figura 3 – Abrigo/cabine de proteção RF (TRRF 2h)",
+      "text": "CONTINUAÇÃO ANEXO B - Figuras Figura 3 – Abrigo/cabine de proteção RF (TRRF 2h)"
+    },
+    {
+      "page": 32,
+      "title": "CONTINUAÇÃO ANEXO B - Figuras Figura 4 – Modelo de nicho O nicho não pode possui",
+      "text": "CONTINUAÇÃO ANEXO B - Figuras Figura 4 – Modelo de nicho O nicho não pode possuir qualquer tipo de abertura para interior da edificação, sendo estanque, com ventilação diretamente para o exterior, devendo possuir TRRF 2h. Figura 5 – Paredes de proteção das centrais e cerca de proteção"
+    },
+    {
+      "page": 33,
+      "title": "CONTINUAÇÃO ANEXO B - Figuras Figura 6 – Placas de sinalização CRM",
+      "text": "CONTINUAÇÃO ANEXO B - Figuras Figura 6 – Placas de sinalização CRM"
+    },
+    {
+      "page": 34,
+      "title": "CONTINUAÇÃO ANEXO B - Figuras Figura 7 – Conjunto de controle de manobra para GN",
+      "text": "CONTINUAÇÃO ANEXO B - Figuras Figura 7 – Conjunto de controle de manobra para GN"
+    },
+    {
+      "page": 35,
+      "title": "CONTINUAÇÃO ANEXO B - Figuras Figura 8 – Registro de Corte para cada bloco",
+      "text": "CONTINUAÇÃO ANEXO B - Figuras Figura 8 – Registro de Corte para cada bloco"
+    },
+    {
+      "page": 36,
+      "title": "CONTINUAÇÃO ANEXO B - Figuras Figura 9 – Terminal de ligação dos aparelhos de qu",
+      "text": "CONTINUAÇÃO ANEXO B - Figuras Figura 9 – Terminal de ligação dos aparelhos de queima"
+    },
+    {
+      "page": 37,
+      "title": "CONTINUAÇÃO ANEXO B - Figuras Figura 10 – Redes de distribuição e prumada da red",
+      "text": "CONTINUAÇÃO ANEXO B - Figuras Figura 10 – Redes de distribuição e prumada da rede de gás"
+    },
+    {
+      "page": 38,
+      "title": "CONTINUAÇÃO ANEXO B - Figuras Figura 11 – Detalhamento do interior da caixa de r",
+      "text": "CONTINUAÇÃO ANEXO B - Figuras Figura 11 – Detalhamento do interior da caixa de regulagem e medição"
+    },
+    {
+      "page": 39,
+      "title": "CONTINUAÇÃO ANEXO B - Figuras CONTINUAÇÃO ANEXO B - Figuras Figura 12 – Formas p",
+      "text": "CONTINUAÇÃO ANEXO B - Figuras CONTINUAÇÃO ANEXO B - Figuras Figura 12 – Formas possíveis de ventilações permanentes"
+    },
+    {
+      "page": 40,
+      "title": "CONTINUAÇÃO ANEXO B - Figuras Figura 13 – Exemplos de ventilação superiores e in",
+      "text": "CONTINUAÇÃO ANEXO B - Figuras Figura 13 – Exemplos de ventilação superiores e inferiores AG: aparelho a gás h: altura mínima G: aparelho a gás h: altura máxima AG: aparelho a gás h: altura máxima AP: abertura permanente (*corte na folha da porta na parte inferior) AG: aparelho a gás h: altura máxima A1: abertura permanente exterior A2: abertura permanente interna A3: abertura permanente interna A3 = A2 = 1,5 A1 AG: aparelho a gás h: altura mínima AP: abertura permanente"
+    },
+    {
+      "page": 41,
+      "title": "CONTINUAÇÃO ANEXO B - Figuras Figura 14 – Prisma exclusivo para ventilação",
+      "text": "CONTINUAÇÃO ANEXO B - Figuras Figura 14 – Prisma exclusivo para ventilação"
+    },
+    {
+      "page": 42,
+      "title": "CONTINUAÇÃO ANEXO B - Figuras Figura 15 – Adesivo informativo acerca do tipo de ",
+      "text": "CONTINUAÇÃO ANEXO B - Figuras Figura 15 – Adesivo informativo acerca do tipo de aparelho de queima a ser instalado"
+    },
+    {
+      "page": 43,
+      "title": "CONTINUAÇÃO ANEXO B - Figuras Figura 16 – Chaminés individuais",
+      "text": "CONTINUAÇÃO ANEXO B - Figuras Figura 16 – Chaminés individuais"
+    },
+    {
+      "page": 44,
+      "title": "CONTINUAÇÃO ANEXO B - Figuras Figura 17 – Exaustão coletiva",
+      "text": "CONTINUAÇÃO ANEXO B - Figuras Figura 17 – Exaustão coletiva"
+    },
+    {
+      "page": 45,
+      "title": "CONTINUAÇÃO ANEXO B - Figuras Figura 18 – Afastamentos",
+      "text": "CONTINUAÇÃO ANEXO B - Figuras Figura 18 – Afastamentos"
+    },
+    {
+      "page": 46,
+      "title": "ANEXO C - Tipos de aparelhos à gás A) As designações dos aparelhos tipo A são as",
+      "text": "ANEXO C - Tipos de aparelhos à gás A) As designações dos aparelhos tipo A são as seguintes: a) tipo A 1 : aparelho tipo A que não possui dispositivos de ventilação; b) tipo A 1AS : aparelho tipo A 1 equipado de fábrica com um dispositivo de controle de contaminação do ambiente (sensor O 2 ); c) tipo A 2 : aparelho tipo A assistido por dispositivo de ventilação a jusante da câmara de combustão ou do trocador de calor; d) tipo A 2AS : aparelho tipo A 2 equipado de fábrica com um dispositivo de controle de contaminação do ambiente (sensor O 2 ); e) tipo A 3 : aparelho tipo A assistido por dispositivo de ventilação a montante da câmara de combustão ou do trocador de calor; f) tipo A 3AS : aparelho tipo A 3 equipado de fábrica com um dispositivo de controle de contaminação do ambiente (sensor O 2 ). B) As designações dos aparelhos tipo B são as seguintes: a) tipo B 1 : aparelho tipo B equipado com um defletor; b) tipo B 11 : aparelho tipo B 1 sem dispositivo de ventilação; c) tipo B 11A S: aparelho tipo B 11 equipado de fábrica com um dispositivo de controle de contaminação do ambiente; d) tipo B 11BS : aparelho tipo B 11 , equipado de fábrica com um dispositivo de controle de exaustão dos produtos da combustão; e) tipo B 2 : aparelho tipo B sem defletor; f) tipo B 22 : aparelho tipo B 2 assistido por dispositivo de ventilação a jusante da câmara de combustão/trocador de calor; g) tipo B 23 : aparelho tipo B 2 assistido por dispositivo de ventilação a montante da câmara de combustão/trocador de calor. C) As designações dos aparelhos tipo C são as seguintes: a) tipo C 1 : aparelho tipo C ligado por meio de seus dutos a um terminal na horizontal. Os orifícios dos dutos devem estar expostos às condições de pressão de vento semelhantes; b) tipo C 11 : aparelho tipo C 1 sem dispositivo de ventilação; c) tipo C 12 : aparelho tipo C 1 assistido por dispositivo de ventilação a jusante da câmara de combustão/trocador de calor; d) tipo C 13 : aparelho tipo C 1 assistido por dispositivo de ventilação a montante da câmara de combustão/trocador de calor; e) tipo C 3 : aparelho tipo C ligado por meio de seus dutos a um terminal instalado verticalmente. Os orifícios dos dutos devem estar expostos às condições de vento semelhantes; f) tipo C 32 : aparelho tipo C 3 assistido por dispositivo de ventilação a jusante da câmara de combustão/trocador de calor; g) tipo C 33 : aparelho tipo C 3 assistido por dispositivo de ventilação a montante da câmara de combustão/trocador de calor; h) tipo C 5 : aparelho tipo C ligado por meio de dutos independentes a dois terminais situados em zonas de pressão diferentes; i) tipo C 52 : aparelho tipo C 5 assistido por dispositivo de ventilação a jusante da câmara de combustão/trocador de calor; j) tipo C 53 : aparelho tipo C 5 assistido por dispositivo de ventilação a montante da câmara de combustão/trocador de calor. *As características dos aparelhos devem atender ao disposto na NBR 13103."
+    }
+  ],
+  "checks": {
+    "needs_human_look": []
+  }
+}

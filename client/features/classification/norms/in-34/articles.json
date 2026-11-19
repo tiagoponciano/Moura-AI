@@ -1,0 +1,275 @@
+{
+  "doc": "IN-34",
+  "preamble": "IN 34 ESTUFAS DE SECAGEM E SILOS SUMÁRIO DISPOSIÇÕES INICIAIS 2 Objetivo 2 Referências 2 Terminologias 2 APLICAÇÃO 2 Geral 2 Isenção da aplicabilidade desta IN 3 DEFINIÇÃO DOS SMSCI 3 M-11: ESTUFAS PARA SECAGEM, GALPÕES PARA ESTOCAGEM DE FORRAGEIRAS OU FARDOS 3 M-5: SILOS, MOEGAS, CORREIAS TRANSPORTADORAS E SECADORES 4 Sistema de Proteção por Extintores 4 Sistema Hidráulico Preventivo 4 Saídas de Emergência 4 Iluminação de Emergência 5 Sinalização para Abandono de Local 5 Brigada de Incêndio 5 Medidas de segurança complementares para M-5 5 Integridade Estrutural 5 Proteção contra Explosão 6 Controle de poeira 6 Controle de temperatura 6 Proteção contra descargas atmosféricas 7 Proteção para instalações elétricas 7 Outras medidas de proteção contra incêndio 7 PRESCRIÇÕES DIVERSAS 8 DISPOSIÇÕES FINAIS 8 Vigente a partir de 24/04/2024 9 páginas INSTRUÇÃO NORMATIVA 34 ESTUFAS DE SECAGEM E SILOS DISPOSIÇÕES INICIAIS Objetivo",
+  "articles": [
+    {
+      "number": 1,
+      "page": 2,
+      "text": "Art. 1º Esta Instrução Normativa (IN) tem por objetivo estabelecer e padronizar critérios de concepção e dimensionamento dos sistemas e medidas de Segurança Contra Incêndio e pânico (SMSCI) para os riscos específicos das ocupações M-11 (estufas de secagem e galpões para estocagem de forrageiras ou fardos) ou M-5 (silos, moegas, correias transportadoras e secadores) no estado de Santa Catarina. Referências"
+    },
+    {
+      "number": 2,
+      "page": 2,
+      "text": "Art. 2º As referências utilizadas são as seguintes: I - IN 1 do CBMSC, de 2024; II - IN 7 do CBMSC, de 2024; III - IN 8 do CBMSC, de 2024; IV - IN 9 do CBMSC, de 2024; V - Norma de Procedimento Técnico 027/2018 - CBMPR; VI - Instrução Técnica nº 27/2019 - CBPMESP; VII - Norma Técnica nº 24/2014 - CBMGO; VIII - NBR 9843; IX - NBR IEC 60079. Terminologias"
+    },
+    {
+      "number": 3,
+      "page": 2,
+      "text": "Art. 3º As terminologias gerais que tratam da segurança contra incêndio são definidas pelo CBMSC e disponibilizadas para acesso público em seu portal oficial."
+    },
+    {
+      "number": 4,
+      "page": 2,
+      "text": "Art. 4º Para aplicação desta IN consideram-se as seguintes terminologias específicas: I - correia transportadora: é o equipamento de transporte horizontal desenvolvido especialmente para o transporte de sementes, grãos industriais ou outros produtos; II - estufas de secagem: estrutura coberta utilizada para a secagem de materiais agrícolas como grãos e folhagens, por exemplo; III - forrageiras: denominação comum dada para vegetais utilizados na alimentação de animais (gado, cavalo ou outros), além de servir para o revestimento do local onde os animais dormem e descansam; IV - fardos: modo de armazenamento de produtos agrícolas de forma aglomerada e preparada para facilitar o transporte; os fardos podem ser compostos por diversos produtos, como palha, algodão, feno, folhagens, etc. V - galpão para estocagem de forrageiras ou fardos: construções físicas que possuem a finalidade de armazenar produtos agrícolas até a venda ou distribuição final da produção; VI - moega: estrutura da unidade armazenadora que recebe os grãos; VII - poeira agrícola : qualquer material agrícola sólido, finamente dividido em partículas de 420 mícrons ou menos de diâmetro, que apresente um risco de incêndio se disperso e inflamado no ar; VIII - secadores: construções especializadas que utilizam ar quente forçando a secagem de grãos, folhas ou similares; IX - silo : estrutura destinada ao armazenamento a granel de cereais, oleaginosas e seus derivados, podendo ser horizontais ou verticais. APLICAÇÃO Geral"
+    },
+    {
+      "number": 5,
+      "page": 2,
+      "text": "Art. 5º Esta IN aplica-se às edificações destinadas à ocupações do tipo estufas de secagem e galpões para estocagem de forrageiras ou fardos (M-11) e silos, moegas, correias transportadoras e secadores (M-5) , conforme previsto nas normas de segurança contra incêndio e pânico (NSCI). Parágrafo único. Atividades agropastoris não previstas nesta IN, como aviários, chiqueiros, pocilgas, estrebarias, estábulos, bretes, canis, gatis, haras, criadouros diversos, dentre outros, ficam dispensadas dos atestados emitidos pelo CBMSC. Isenção da aplicabilidade desta IN"
+    },
+    {
+      "number": 6,
+      "page": 3,
+      "text": "Art. 6º Fica isenta a aplicação desta IN para: I - silos tipo bolsa, carancho ou trincheira; II - silos do tipo granjeiro que possuam finalidade de armazenamento de ração animal com capacidade de até 50 toneladas; III - silos utilizados por propriedade de agricultura familiar com capacidade de até 180 toneladas; IV - silos que armazenem produtos incombustíveis e não apresentem risco de explosão; V - galpões de armazenagem da ocupação J. DEFINIÇÃO DOS SMSCI"
+    },
+    {
+      "number": 7,
+      "page": 3,
+      "text": "Art. 7º Para as áreas com ocupações M-11 ou M-5, os SMSCI exigidos estão elencados na IN 1 - parte 2 e a forma como devem ser projetados está prevista nesta IN. Parágrafo único. Esta IN 34 pode estabelecer todos os critérios para determinado SMSCI ou remeter à IN específica, dependendo do caso."
+    },
+    {
+      "number": 8,
+      "page": 3,
+      "text": "Art. 8º Para edificações que possuam ocupações M-11 e/ou M-5 junto com outras ocupações, os SMSCI são definidos separadamente para cada uma das ocupações. § 1º A regra do caput se aplica mesmo se houver compartimentação ou isolamento entre as ocupações. § 2º Nos imóveis com outras ocupações além de M-11 e/ou M-5, o dimensionamento dos SMSCI para essas outras ocupações devem: I - seguir o que prevê a IN 1 - parte 2; II - desconsiderar, para fins de dimensionamento, a área correspondente às ocupações M-11 e M-5. § 3º As dispensas sumárias previstas nesta IN não se aplicam a ocupações distintas de M-11 e M-5, mesmo que estejam na mesma edificação, bloco ou área e independentemente de compartimentação ou isolamento de risco entre as ocupações. M-11: ESTUFAS PARA SECAGEM, GALPÕES PARA ESTOCAGEM DE FORRAGEIRAS OU FARDOS"
+    },
+    {
+      "number": 9,
+      "page": 3,
+      "text": "Art. 9º A ocupação M-11, independente da área total construída e de estar localizada junto à lavoura ou fabricação do produto que armazena temporariamente, deve atender aos seguintes requisitos: I - Sistema Preventivo por Extintores: pelo menos uma unidade extintora para cada 500 m² de área, próxima aos acessos da edificação e de fácil visualização; II - Instalações de Gás Combustível Canalizado: se existirem, devem seguir integralmente o que é estabelecido na IN 8; III - Sistema de Saídas de Emergência: a) dispensa sumária do sistema se houver apenas um pavimento com saídas diretas para o exterior em todos os ambientes; b) dispensa de caminhamento máximo se ambiente único com saídas diretas para o exterior em extremos opostos; c) Escadas são consideradas \"escadas de acesso restrito\" e devem cumprir as exigências da IN 9. IV - Instalação elétrica de baixa tensão: conforme a IN 19; V - Sistemas de Iluminação de Emergência: exigido apenas para edificações com área igual ou superior a 750 m², conforme a IN 11; VI - Sistema para Abandono de Local: necessário apenas para edificações com área igual ou superior a 750 m², conforme a IN 13. Parágrafo único. Outros SMSCI não mencionados neste artigo são dispensados sumariamente para ocupações M-11 . M-5: SILOS, MOEGAS, CORREIAS TRANSPORTADORAS E SECADORES"
+    },
+    {
+      "number": 10,
+      "page": 4,
+      "text": "Art. 10. Quando instaladas externamente, as ocupações M-5 não têm suas áreas contabilizadas para o dimensionamento dos SMSCI de unidades de processamento ou comerciais edificadas em conjunto. u"
+    },
+    {
+      "number": 11,
+      "page": 4,
+      "text": "Art. 11. A ocupação M-5, independentemente da área total construída, deve possuir os SMSCI listados neste capítulo. Sistema de Proteção por Extintores"
+    },
+    {
+      "number": 12,
+      "page": 4,
+      "text": "Art. 12. O Sistema de Proteção por Extintores deve atender os requisitos da IN 6, complementado pelas seguintes recomendações: I - em espaços confinados com possível acumulação de poeiras, não deve haver extintores de incêndio; II - a casa de máquina, se houver, deve ter pelo menos uma unidade extintora para classe de incêndio C; III - próximo às fornalhas, se houver, deve ter pelo menos uma unidade extintora; Parágrafo único. Caso não haja pontos de fixação adequados, os extintores de incêndio podem, com adequada sinalização, estar: I - em suportes sobre o piso; ou II - em baterias, com distância máxima a ser percorrida de 60 m. Sistema Hidráulico Preventivo"
+    },
+    {
+      "number": 13,
+      "page": 4,
+      "text": "Art. 13. O SHP deve ser instalado sempre que as áreas de apoio dos silos, moegas, correias transportadoras e secadores somarem área igual ou superior a 750 m², atendendo, neste caso, os requisitos da IN 7, complementado pelas seguintes recomendações: I - é proibida a instalação de sistema de hidrantes no interior dos silos; II - os pontos de hidrantes devem ser posicionados de acordo com o dimensionamento para hidrantes externos, exceto os instalados no interior das edificações de apoio."
+    },
+    {
+      "number": 14,
+      "page": 4,
+      "text": "Art. 14. A Reserva Técnica de Incêndio deve ser proporcional às áreas construídas, conforme IN 7, levando em consideração a carga de incêndio por meio de método determinístico. Saídas de Emergência"
+    },
+    {
+      "number": 15,
+      "page": 4,
+      "text": "Art. 15. As escadas de acesso aos locais onde há presença humana devem ser do tipo enclausurada, sem janelas de ventilação, com largura mínima de 1 m e acesso por porta corta-fogo com resistência mínima de 90 min, independentemente da altura. § 1º O disposto no caput não se aplica às escadas de acesso à áreas técnicas onde não há permanência de pessoas, as quais devem atender os requisitos da IN 9. § 2º Escadas, passarelas, plataformas, rampas e demais meios de acesso à áreas técnicas de inspeção e manutenção, onde não há permanência humana, devem atender à NR-12, não sendo objeto de análise e vistoria pelo CBMSC."
+    },
+    {
+      "number": 16,
+      "page": 4,
+      "text": "Art. 16. Elevadores internos devem ser localizados em poços estanques com paredes resistentes ao fogo por 2 horas e devem ter portas corta-fogo do tipo P-90, com fecho automático em todas as aberturas."
+    },
+    {
+      "number": 17,
+      "page": 5,
+      "text": "Art. 17. Nos locais com postos fixos de trabalho exige-se que: I - a distância máxima a ser percorrida até um local seguro seja inferior à 100 m; II - possua, no mínimo, duas saídas, sendo que a escada da saída secundária poderá ser do tipo marinheiro."
+    },
+    {
+      "number": 18,
+      "page": 5,
+      "text": "Art. 18. Para calcular as saídas de emergência, pode-se considerar a quantidade máxima de pessoal prevista para operar e manter a atividade. Esse cálculo populacional deve ser incluído no Plano de Prevenção e Proteção contra Incêndios (PPCI) da edificação."
+    },
+    {
+      "number": 19,
+      "page": 5,
+      "text": "Art. 19. As distâncias máximas a serem percorridas devem atender ao que segue: I - dentro de túneis até o acesso a uma saída deve ser inferior a 100 m; II - até o ambiente externo é de 120 m, ou seja, 100 m dentro dos túneis e mais 20 m em escadarias; III - os armazéns graneleiros devem possuir no mínimo duas saídas em posições opostas, com um corredor de acesso comum a ambas, seja para os túneis ou para o depósito de grãos."
+    },
+    {
+      "number": 20,
+      "page": 5,
+      "text": "Art. 20. Outros parâmetros relacionados às saídas de emergência não descritos nesta seção devem atender os requisitos da IN 9. Iluminação de Emergência"
+    },
+    {
+      "number": 21,
+      "page": 5,
+      "text": "Art. 21. O Sistema de Iluminação de Emergência atenderá os requisitos da IN 11, complementado pelas seguintes recomendações: I - o sistema é obrigatório apenas em áreas de apoio e nos locais onde houver presença humana; II - todas as luminárias em áreas com formação de poeira, inclusive as de emergência, devem ser à prova de explosão e de pó. Sinalização para Abandono de Local"
+    },
+    {
+      "number": 22,
+      "page": 5,
+      "text": "Art. 22. A Sinalização para Abandono de Local deve seguir os requisitos da IN 13, complementado pelas seguintes recomendações: I - o sistema é obrigatório apenas em áreas de apoio e nos locais onde houver presença humana; II - se forem utilizados dispositivos elétricos para visualização da sinalização, estes devem ter proteção adequada para evitar ignição ou explosão. Brigada de Incêndio"
+    },
+    {
+      "number": 23,
+      "page": 5,
+      "text": "Art. 23. A Brigada de incêndio deve seguir os requisitos da IN 28. Medidas de segurança complementares para M-5 Integridade Estrutural"
+    },
+    {
+      "number": 24,
+      "page": 5,
+      "text": "Art. 24. O material de construção do silo deve ser incombustível. Parágrafo único. Os silos metálicos devem ser fabricados com parafusos ou solda enfraquecida entre a cobertura e o corpo, possibilitando a separação nesse ponto em caso de explosão interna."
+    },
+    {
+      "number": 25,
+      "page": 5,
+      "text": "Art. 25. A cobertura do silo deve ter: I - vedação contra entrada de água; II - respiro(s) na cobertura. § 1º A quantidade e dimensões dos respiros é de responsabilidade exclusiva do responsável técnico, sendo obrigatório existir pelo menos um. § 2º O respiro deve ser curvado ou inclinado para evitar entrada de água."
+    },
+    {
+      "number": 26,
+      "page": 6,
+      "text": "Art. 26. Não deve haver qualquer abertura entre silos. Proteção contra Explosão"
+    },
+    {
+      "number": 27,
+      "page": 6,
+      "text": "Art. 27. Todas as edificações, estruturas, equipamentos, dutos, silos e coletores onde a poeira fica confinada devem ser dotados de no mínimo um dispositivo de proteção contra explosão, devidamente dimensionado, de acordo com as normas técnicas específicas. I - Medidas de proteção contra explosão incluem: a) alívio de explosão; b) supressão de explosão; e c) isolamento de explosão; II - os dispositivos de proteção contra explosão devem ser indicados em PPCI e/ou memorial descritivo, devidamente destacados nos locais de instalação com a cor diferente da estrutura para melhor visualização."
+    },
+    {
+      "number": 28,
+      "page": 6,
+      "text": "Art. 28. Todos os locais confinados devem ter exaustores ou ventiladores conforme a ABNT NBR IEC 60079, com acionamento manual ou automático, cujo dimensionamento é de responsabilidade exclusiva do responsável técnico."
+    },
+    {
+      "number": 29,
+      "page": 6,
+      "text": "Art. 29. Para ser dispensado das medidas de proteção contra explosão o interessado precisa comprovar que o produto armazenado não gera atmosfera explosiva, devendo apresentar laudos de empresa especializada e documentações comprobatórias. Controle de poeira"
+    },
+    {
+      "number": 30,
+      "page": 6,
+      "text": "Art. 30. A coleta de poeira deve ser realizada em todos os pontos onde ocorra a produção dessas partículas na unidade armazenadora e em instalações de movimentação, como na admissão ou descarga de transportadores, redler ou chute, no despoeiramento ao longo dos túneis, nas balanças de fluxo, nos elevadores, nas máquinas de limpeza e, sobretudo, nos pontos de transferência de grãos, nas moegas rodoviárias, assim como no carregamento em caminhões e navios. § 1º A poeira coletada deve ser filtrada e armazenada em um silo fora do local de risco, que deve ser equipado com dispositivo corta-fogo no duto de conexão e dispositivos de alívio de explosão. § 2º Os dutos de transporte de poeira devem possuir sistema de detecção e de extinção de faíscas."
+    },
+    {
+      "number": 31,
+      "page": 6,
+      "text": "Art. 31. Todos os locais confinados devem ter ventiladores à prova de explosão, com acionamento manual ou automático, devidamente dimensionados para permitir a retirada de poeira, de gases e renovar o ar. Parágrafo único. O sistema de exaustão para controle de poeira deve garantir: I - circulação de ar suficiente para evitar concentração de poeira maior que 20 g/m³ de ar; e II - pelo menos 30 renovações do volume de ar por hora. Controle de temperatura"
+    },
+    {
+      "number": 32,
+      "page": 6,
+      "text": "Art. 32. Nos túneis de serviço, passarelas técnicas fechadas em todos os lados, subsolos e ambientes confinados que apresentarem dispositivos que possam provocar ignição por atrito mecânico, como roletes de suporte dos transportadores de correia e mancais de motores, devem ser instalados dispositivos para controle de temperatura adequados para cada equipamento."
+    },
+    {
+      "number": 33,
+      "page": 7,
+      "text": "Art. 33. Os secadores devem ter sensores de temperatura regulados para manter a massa de grãos em temperatura segura, prevenindo incêndios. Esses sensores devem cortar todo calor que esteja sendo fornecido ao secador e permitir a passagem de ar não aquecido pelo secador. § 1º O número e a localização dos sensores devem estar de acordo com as especificações do fabricante. § 2º Deve haver sistema de detecção de calor em toda extensão da correia e, em caso de acionamento do sistema, deverá desligá-la automaticamente."
+    },
+    {
+      "number": 34,
+      "page": 7,
+      "text": "Art. 34. Deve ser previsto um botão de emergência de fácil visualização, identificação e acesso para desligamento da correia transportadora em caso de incêndio. Esse desligamento também pode ser feito remotamente por uma central de monitoramento. Proteção contra descargas atmosféricas"
+    },
+    {
+      "number": 35,
+      "page": 7,
+      "text": "Art. 35. Os silos e estruturas metálicas devem ser devidamente aterrados e as unidades armazenadoras com altura igual ou superior a 12 m devem dispor de sistema de proteção contra descargas atmosféricas (SPDA), dimensionadas e instaladas de acordo com NBR 5419 ou outras normas específicas. Parágrafo único. O projeto e dimensionamento do SPDA dos silos não serão objeto de análise e vistoria pelo CBMSC. Proteção para instalações elétricas"
+    },
+    {
+      "number": 36,
+      "page": 7,
+      "text": "Art. 36. As instalações elétricas devem atender os requisitos da IN 19, da ABNT - NBR 5410 e ABNT - NBR IEC 60079-14 ou outras que venham a substituí-las. Parágrafo único. Ao solicitar vistoria, deve-se apresentar a DRT de execução ou manutenção das instalações elétricas. Outras medidas de proteção contra incêndio"
+    },
+    {
+      "number": 37,
+      "page": 7,
+      "text": "Art. 37. Secadores que utilizam combustível sólido devem instalar as fornalhas isoladas do secador, conectadas apenas por um duto fechado, que deve ter um sistema de quebra de fagulhas, de forma a reduzir o risco de passagem destas para o secador."
+    },
+    {
+      "number": 38,
+      "page": 7,
+      "text": "Art. 38. Para o processo de secagem, deve ser previsto um sistema de fechamento das entradas de ar dos secadores, para extinguir incêndios através do abafamento."
+    },
+    {
+      "number": 39,
+      "page": 7,
+      "text": "Art. 39. Os secadores devem estar localizados de forma a minimizar a exposição de outras edificações (inclusive outros secadores) ao fogo em caso de incêndio, a fim de se evitar sua propagação."
+    },
+    {
+      "number": 40,
+      "page": 7,
+      "text": "Art. 40. Os secadores devem ser feitos de material incombustível, dotados de dispositivos (dampers de emergência) que permitam seu rápido descarregamento por via alternativa em local seguro, evitando danos a outras edificações devido ao calor em caso de incêndios."
+    },
+    {
+      "number": 41,
+      "page": 7,
+      "text": "Art. 41. Correias para transportadores verticais e horizontais devem ter: I - capacidade antichamas para impedir a propagação de incêndio; e II - sensores automáticos de movimento que desligam automaticamente os motores ao detectar escorregamento da correia ou corrente."
+    },
+    {
+      "number": 42,
+      "page": 8,
+      "text": "Art. 42. Transportadores de parafuso (rosca sem fim) devem ser completamente fechados em carcaças metálicas, com tampas de abertura livre na extremidade de descarga e no acoplamento do eixo."
+    },
+    {
+      "number": 43,
+      "page": 8,
+      "text": "Art. 43. Os grãos devem ser aerados sempre que necessário para evitar sua decomposição e consequente emissão e acúmulo de vapores inflamáveis."
+    },
+    {
+      "number": 44,
+      "page": 8,
+      "text": "Art. 44. O combustível (líquido ou gasoso) utilizado pelo secador de grãos deve atender às medidas de segurança exigidas em normas específicas."
+    },
+    {
+      "number": 45,
+      "page": 8,
+      "text": "Art. 45. A eletricidade estática deve ser removida dos silos, máquinas e equipamentos que acumulam carga elétrica, por meio de aterramento instalado conforme normas técnicas."
+    },
+    {
+      "number": 46,
+      "page": 8,
+      "text": "Art. 46. Instalações propensas ao acúmulo de pó devem ter um programa regular de limpeza para evitar acúmulo sobre equipamentos e estruturas, prevenindo possíveis explosões. PRESCRIÇÕES DIVERSAS"
+    },
+    {
+      "number": 47,
+      "page": 8,
+      "text": "Art. 47. Os dispositivos de proteção contra explosão, controle de poeira, sensores de calor, proteção contra descargas atmosféricas, dentre outros requisitos previstos nesta IN, devem ser incluídos no PPCI e, se necessário, por meio de memorial descritivo, sendo o seu dimensionamento e execução de inteira responsabilidade do responsável técnico. Parágrafo único. Ao solicitar a vistoria para habite-se, deve ser apresentado o documento de responsabilidade técnica de execução dos citados dispositivos."
+    },
+    {
+      "number": 48,
+      "page": 8,
+      "text": "Art. 48. O responsável pelo imóvel deve prover a manutenção e a proteção proativa das máquinas e equipamentos presentes na edificação ou instalação para reduzir o risco de incêndios e explosões."
+    },
+    {
+      "number": 49,
+      "page": 8,
+      "text": "Art. 49. Em casos de risco especial diverso (central, armazenamento ou distribuição de gás liquefeito de petróleo – GLP, ou gás natural – GN, subestação elétrica, armazenamento de líquido inflamável, dentre outros riscos especiais), medidas de segurança específicas devem ser previstas conforme norma aplicável."
+    },
+    {
+      "number": 50,
+      "page": 8,
+      "text": "Art. 50. As medidas de segurança das áreas de apoio às edificações/instalações abrangidas por esta IN (como áreas administrativas, comerciais, laboratoriais, de industrialização, de refeitórios, etc.) devem ser aplicadas de acordo com a ocupação e dimensionadas conforme as normas específicas."
+    },
+    {
+      "number": 51,
+      "page": 8,
+      "text": "Art. 51. O depósito de insumos agrícolas identificados como líquidos combustíveis ou inflamáveis devem ser compartimentados em relação ao(s) demais depósito(s) na mesma edificação, conforme IN 14. DISPOSIÇÕES FINAIS"
+    },
+    {
+      "number": 52,
+      "page": 8,
+      "text": "Art. 52. As exigências desta IN são os requisitos mínimos de segurança a serem adotados, podendo o responsável técnico, mediante avaliação, adotar medidas adicionais para mitigação de riscos."
+    },
+    {
+      "number": 53,
+      "page": 8,
+      "text": "Art. 53. Esta IN, aplicável em todo o território catarinense, entra em vigor em 24 de abril de 2024, revogando a IN 34, de 28 de março de 2014. Coronel BM FABIANO BASTOS DAS NEVES Comandante-Geral do Corpo de Bombeiros Militar de SC ORGANIZAÇÃO: TC BM Willyan Fazzioni - Direção Maj BM Oscar W Barboza Jr - Supervisão e Edição Cap BM Rafael Giosa Sanino - Revisão Cap BM Suellen Lapa Duarte - Edição 1º Ten BM Marco Aurélio Stimamiglio Timmermann - Revisão"
+    }
+  ],
+  "annexes": [],
+  "checks": {
+    "needs_human_look": []
+  }
+}

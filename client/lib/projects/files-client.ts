@@ -94,11 +94,6 @@ export async function keepProjectFile(
   }
 }
 
-export const deleteProjectFile = (projectId: string, fileId: string) =>
-  requestJson<void>(`/api/projects/${projectId}/files/${fileId}`, {
-    method: "DELETE",
-  });
-
 /** Browser-only. A link that works for a minute, made with the signed-in user's session. */
 export async function projectFileUrl(
   storagePath: string,

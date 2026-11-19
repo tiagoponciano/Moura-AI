@@ -1,6 +1,6 @@
 # Project files
 
-How a project keeps its files: the table, the bucket and the three routes. For developers adding what is stored, or building the screen that lists it.
+How a project keeps its files: the table, the bucket and the three routes. For developers adding what is stored, or changing where it is shown.
 
 ## What this is
 
@@ -32,7 +32,9 @@ Invariants:
 
 ## The screen
 
-The project page (`/projects/[id]`) has an "Arquivos" section (`ProjectFiles`, with `useProjectFiles`). It lists the project's files with their origin, size and date; "Enviar arquivo" uploads one or more files as `other` (a failure is shown and the others still go); each row has download and delete. Download makes a signed URL for the object, valid for a minute, with the signed-in user's own session (`projectFileUrl`), and delete asks the route, which removes the object and then the row. `lib/projects/files-client.ts` uploads to the project's folder and records the row, and removes the object again if recording fails, so nothing is stored without a row.
+There is no list of files of its own. The project page (`/projects/[id]`) shows each file inside the card of the module that generated it (`projects-module.md`): the documents card matches `form` files to the forms and shows the latest `proposal`; the plans card matches `plan` and `conversion` files to the conversions. Each file has only a download button (`ProjectFileButton`). `useProjectFiles` (`hooks/use-project-files.ts`) loads the list and downloads through a signed URL for the object, valid for a minute, made with the signed-in user's own session (`projectFileUrl`).
+
+`lib/projects/files-client.ts` uploads to the project's folder and records the row, and removes the object again if recording fails, so nothing is stored without a row.
 
 ## What is kept on its own
 
@@ -48,5 +50,5 @@ Without a chosen project nothing is kept, and the download is the same as before
 
 - **Only the browser keeps files.** What the app generates is kept by the screen that generated it, once the download has been made; nothing generated on the server alone is kept.
 - **No download route.** The browser makes a signed URL for the object with its own session, which the bucket's read policy allows.
+- **No upload or delete on screen.** Nothing in the app records an `other` file or calls the delete route; both stay in the API. An `other` file recorded through the API is not shown anywhere.
 - **No quota or retention.** Nothing limits how many files a project has beyond the list showing 100.
-- **Not tried against a real Supabase.** The handlers are tested with a mock client; the migration has not been applied.

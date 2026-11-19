@@ -3,7 +3,7 @@ import {
   PROJECT_FILE_MAX_BYTES,
   buildProjectFilePath,
   checkProjectFile,
-  formatFileSize,
+  fileExtension,
   projectFileRecordBody,
 } from "./files";
 
@@ -70,10 +70,14 @@ describe("projectFileRecordBody", () => {
   });
 });
 
-describe("formatFileSize", () => {
-  it("writes bytes, kilobytes and megabytes the Brazilian way", () => {
-    expect(formatFileSize(42)).toBe("42 B");
-    expect(formatFileSize(380 * 1024)).toBe("380 KB");
-    expect(formatFileSize(1.25 * 1024 * 1024)).toBe("1,3 MB");
+describe("fileExtension", () => {
+  it("gives the last extension of the name", () => {
+    expect(fileExtension("in-1-anexo-c_Moura.docx")).toBe(".docx");
+    expect(fileExtension("planta.v2.dwg")).toBe(".dwg");
+  });
+
+  it("says arquivo for a name with no extension or only a leading dot", () => {
+    expect(fileExtension("README")).toBe("arquivo");
+    expect(fileExtension(".env")).toBe("arquivo");
   });
 });

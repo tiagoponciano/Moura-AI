@@ -15,15 +15,6 @@ export const PROJECT_FILE_KINDS = [
 ] as const;
 export type ProjectFileKind = (typeof PROJECT_FILE_KINDS)[number];
 
-/** Where a file comes from, as the list shows it (UI copy). */
-export const PROJECT_FILE_KIND_LABEL: Record<ProjectFileKind, string> = {
-  form: "Documentos",
-  proposal: "Proposta",
-  plan: "Plantas · enviada",
-  conversion: "Plantas · convertida",
-  other: "Outro",
-};
-
 /** Body of `POST /api/projects/:id/files`: an object already uploaded to the bucket. */
 export const projectFileRecordBody = z.strictObject({
   kind: z.enum(PROJECT_FILE_KINDS),
@@ -71,12 +62,8 @@ export function buildProjectFilePath(
   return `${projectId}/${id}-${safeName}`;
 }
 
-/** `1,2 MB`, `380 KB` or `42 B`, in the Brazilian format. */
-export function formatFileSize(bytes: number): string {
-  if (bytes >= 1024 * 1024) {
-    return `${(bytes / (1024 * 1024)).toLocaleString("pt-BR", { maximumFractionDigits: 1 })} MB`;
-  }
-  if (bytes >= 1024)
-    return `${Math.round(bytes / 1024).toLocaleString("pt-BR")} KB`;
-  return `${bytes} B`;
+/** `.docx` for `form.docx`; `arquivo` for a name with no extension. */
+export function fileExtension(fileName: string): string {
+  const dot = fileName.lastIndexOf(".");
+  return dot > 0 ? fileName.slice(dot) : "arquivo";
 }

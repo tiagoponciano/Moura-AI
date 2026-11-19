@@ -2,20 +2,22 @@
 
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, type ReactNode } from "react";
 import { PageHeader } from "@/components/shared/page-header";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useProjects } from "@/hooks/use-projects";
 import { PROJECT_FIELD_GROUPS } from "@/lib/projects/fields";
 import { writeSelectedProject } from "@/lib/projects/selection";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
-import { ProjectFiles } from "./project-files";
-import { ProjectSections } from "./project-sections";
 
-type ProjectDetailProps = { id: string };
+type ProjectDetailProps = {
+  id: string;
+  /** What each module holds for the project, shown once the project is found. */
+  children: ReactNode;
+};
 
-/** One project: its data, and the way into each tool with the project already chosen. */
-export function ProjectDetail({ id }: ProjectDetailProps) {
+/** One project: what each module holds for it, then its data. */
+export function ProjectDetail({ id, children }: ProjectDetailProps) {
   const projects = useProjects(isSupabaseConfigured());
   const project = projects.projects.find((entry) => entry.id === id);
 
@@ -35,8 +37,8 @@ export function ProjectDetail({ id }: ProjectDetailProps) {
       {project ? (
         <>
           <PageHeader title={project.name} />
-          <ProjectSections />
-          <ProjectFiles key={project.id} projectId={project.id} />
+          <div className="grid gap-4 lg:grid-cols-2">{children}</div>
+          <h2 className="text-sm font-medium">Dados do projeto</h2>
           <div className="grid gap-4 md:grid-cols-3">
             {PROJECT_FIELD_GROUPS.map((group) => (
               <section key={group.id} className="rounded-lg border p-4">

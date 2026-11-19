@@ -34,6 +34,22 @@ The Classification tab shows the project picker (the same `ProjectPicker` and sh
 - **When it is not available.** If the state cannot be read or saved (the migration not applied, no connection), the status line says so and the panel keeps working without saving.
 - **The chat follows the project.** The request carries `projectId`, the chat is saved with `{ projectId }` as its context, the history lists only that project's chats, and choosing another project starts a new conversation. Reopening a saved chat replays its tool results over the project's state, which is the same state they came from.
 
+## On the project page
+
+The project page (`/projects/[id]`) shows the saved classification in a "Classificação" card (`ProjectClassificationSummary`, with `useClassificationSummary`). It reads the same `GET` route and computes the result again with `summarizeClassification` (`lib/classification-summary.ts`), with today as the analysis date, so the card and the tab agree.
+
+| State saved                    | The card shows                                                                   |
+| ------------------------------ | -------------------------------------------------------------------------------- |
+| None, or empty (`hasState`)    | "Ainda não classificado."                                                        |
+| Rules ask for a specific study | "As regras pedem uma análise específica; veja na classificação."                 |
+| Risk decided                   | "Risco <level>", the process, and the source of the risk                         |
+| Risk still pending             | "O risco depende das respostas que faltam."                                      |
+| Any of the last three          | "<n> de <total> respostas", then "· Falta:" and the questions still open, if any |
+|                                | "Sistemas exigidos (<n>):" and their names, when any is required                 |
+|                                | "Atualizada em <date>" from `updated_at`                                         |
+
+The open questions are the labels of `nextQuestions`, without repeats. "Abrir" goes to `/classification`, which opens on the same project.
+
 ## What this does NOT do
 
 - **It is not applied by itself.** The migration `20261116000000_project_classifications.sql` has to be applied to Supabase; until then both routes answer 500.

@@ -66,7 +66,7 @@ Both routes need a signed-in, approved user (`client/docs/authentication.md`) an
 
 ## Linked to a project
 
-The tab shows the project picker (shared with Documents and Classification) and, under the result, "Plantas do projeto". After each conversion the app keeps a record of it for the chosen project: the file name, the mode the service used (`vector` or `raster`), the scale and the format. Only the record is kept, never the plan or the converted file.
+The tab shows the project picker (shared with Documents and Classification) and, under the result, "Plantas do projeto". After each conversion the app keeps a record of it for the chosen project: the file name, the mode the service used (`vector` or `raster`), the scale and the format.
 
 | Piece                                 | File                                     | Contract                                                                                                        |
 | ------------------------------------- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -76,3 +76,13 @@ The tab shows the project picker (shared with Documents and Classification) and,
 | `useProjectFloorPlans`                | `hooks/use-project-floor-plans.ts`       | The list of the chosen project; another project reads as loading, a late answer for the previous one is ignored |
 
 With a project, each conversion also keeps its DXF or DWG (`conversion`) and, once per plan in the session, the plan that was uploaded (`plan`) in the project's files; when that fails the line above the panel says so and the download is not held back. Without a project, or without Supabase, nothing is recorded. The migration has to be applied in Supabase; until then both routes answer 500, the panel says it cannot use the project's plans, and the conversion itself keeps working. The record is made after the download starts, so a failed record never blocks the file.
+
+### On the project page
+
+The project page (`/projects/[id]`) has a "Plantas" card (`ProjectFloorPlansSummary`, with `useProjectPlanRows`), one row per recorded conversion with the file name and "<FORMAT> · vetorial|imagem · 1:<scale> · <date>" (the scale only when there is one). Each row is joined to the project's files by `projectPlanRows` (`lib/project-plan-rows.ts`):
+
+1. "Planta" downloads the latest `plan` file with the conversion's file name.
+2. The format button ("DXF" or "DWG") downloads the converted file. It is always named `planta.<format>`, so the name alone cannot tell two conversions apart: the row takes the `conversion` file of that name kept nearest in time to the record, within five minutes either way, and a file goes to one row only.
+3. A button is missing when no file matches, as when keeping the file failed or the conversion was recorded before the project kept files.
+
+With no conversion the card says "Nenhuma planta convertida." It lists the same latest 20 conversions as the tab. "Abrir" goes to `/floor-plans`.

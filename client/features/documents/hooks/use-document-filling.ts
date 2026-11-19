@@ -24,6 +24,7 @@ import {
 } from "../lib/templates";
 import { type Project, type ProjectData } from "@/lib/projects/project";
 import { PDF_ENABLED } from "../lib/pdf-enabled";
+import { keepProjectFile } from "@/lib/projects/files-client";
 import { useFormExport } from "./use-form-export";
 import { loadFormData } from "../lib/load-form-data";
 import { usePdfPreview } from "./use-pdf-preview";
@@ -71,7 +72,23 @@ export function useDocumentFilling(
     reset: resetExport,
     generate,
     downloadDocx,
-  } = useFormExport({ schema, values, template, generatePdf, setNotice });
+  } = useFormExport({
+    schema,
+    values,
+    template,
+    generatePdf,
+    setNotice,
+    onGenerated: async (file) => {
+      if (!project) return;
+      const kept = await keepProjectFile(project.id, file.blob, {
+        kind: "form",
+        fileName: file.fileName,
+      });
+      if (!kept) {
+        setNotice("O documento foi baixado, mas não foi guardado no projeto.");
+      }
+    },
+  });
 
   const steps = useMemo(
     () => (schema ? conversationSteps(schema, guide) : []),

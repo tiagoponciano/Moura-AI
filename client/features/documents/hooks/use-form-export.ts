@@ -17,6 +17,8 @@ type FormExportInput = {
   template: TemplateEntry | undefined;
   generatePdf: (templateId: string, values: FieldValues) => Promise<void>;
   setNotice: (message: string | undefined) => void;
+  /** Called with the `.docx` after it is downloaded, to keep it in the project. */
+  onGenerated?: (file: { blob: Blob; fileName: string }) => Promise<void>;
 };
 
 /** Validates the form before a document is made, and keeps what is wrong; makes the PDF or the .docx. */
@@ -26,6 +28,7 @@ export function useFormExport({
   template,
   generatePdf,
   setNotice,
+  onGenerated,
 }: FormExportInput) {
   const [problems, setProblems] = useState<string[]>([]);
   const [attempted, setAttempted] = useState(false);
@@ -60,6 +63,7 @@ export function useFormExport({
     try {
       const file = await generateDocument(template.id, "docx", ready);
       saveAs(file.blob, file.fileName);
+      await onGenerated?.(file);
     } catch (cause) {
       setNotice(errorMessage(cause));
     }

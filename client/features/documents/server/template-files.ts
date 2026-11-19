@@ -24,6 +24,10 @@ export async function loadTemplateGuide(
   return JSON.parse((await readPublic(entry.guide)).toString());
 }
 
+/** Server-only. Moura's proposal deck, with its `{{tags}}`. */
+export const loadProposalTemplate = () =>
+  readPublic("templates/proposal/proposal.pptx");
+
 /**
  * Server-only. A template's entry, schema and file. The id is only compared to
  * `index.json`, and the paths come from that file, never from the request.

@@ -48,7 +48,7 @@ Database: `20261105000200_projects.sql` and `20261105000300_project_data.sql`. A
 { "name": "requester_name", "type": "string", "label": "Nome do solicitante", "description": "…", "projectKey": "owner_name" }
 ```
 
-The keys are the fields of `PROJECT_FIELD_GROUPS`, in three groups: property (`property_*`), owner (`owner_*`, also the requester) and engineer in charge (`technical_*`).
+The keys are the fields of `PROJECT_FIELD_GROUPS`, in six groups: property (`property_*`), owner (`owner_*`), engineer in charge (`technical_*`), block and building (`building_*` and `block_*`), accountant (`accountant_*`) and applicant (`applicant_*`). The last three follow the request form of IN 1 parte 1, Annex B (block area, height, storeys, capacity and stair type; the CRC registry of the accountant). No form template maps them to a `projectKey` yet: they are filled in the project panel and kept with the project, and a form can start using them by naming the key.
 
 ## Rules and behavior
 

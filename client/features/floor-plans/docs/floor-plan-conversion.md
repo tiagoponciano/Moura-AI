@@ -63,7 +63,7 @@ Every route needs a signed-in, approved user (`client/docs/authentication.md`). 
 1. Choosing a file: only the first file of a drop is read. `checkFloorPlanFile` runs and the message shows under the drop zone; a valid file replaces the zone with its name and a preview (an `iframe` for a PDF, an `img` for an image). Choosing or removing a plan clears the scale and the last result.
 2. "Ler": sends the file to `/api/floor-plans/scale`. The server asks the DWG service for the crops, then the model reads them and answers a scale written on the plan or `null`. A number fills the scale field as `1:N`; `null` shows "A escala não está escrita na planta. Informe-a abaixo."
 3. Scale: empty means the drawing comes out in paper millimeters; `1:N` multiplies every coordinate by N, so the drawing is at real size. A value that `parseScale` refuses shows "Use o formato 1:100." and disables the downloads.
-4. "Baixar DXF" and "Baixar DWG": convert and download `planta.dxf` or `planta.dwg`. The panel then shows the origin (`PDF vetorial` keeps the original measures, `Imagem` is a trace) and the scale used, and lists the service's quality warnings.
+4. "Baixar DXF" and "Baixar DWG": convert and download `planta.dxf` or `planta.dwg`; with a chosen project the file is named after the plan and the project (`Térreo - Loja Centro.dxf`). The panel then shows the origin (`PDF vetorial` keeps the original measures, `Imagem` is a trace) and the scale used, and lists the service's quality warnings.
 5. Layout: chat on the left, a 360 px side panel on the right from `lg` up; below `lg`, `WorkspaceTabs` switches between "Conversa" and "Planta 0/1" / "Planta 1/1".
 
 ## What this does NOT do

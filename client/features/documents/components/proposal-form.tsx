@@ -13,6 +13,7 @@ import {
   type ProposalRequest,
 } from "../lib/proposal";
 import { type Project } from "@/lib/projects/project";
+import { nameWithProject } from "@/lib/projects/file-name";
 import { keepProjectFile } from "@/lib/projects/files-client";
 import { PDF_ENABLED } from "../lib/pdf-enabled";
 import { PlanField } from "./plan-field";
@@ -54,7 +55,7 @@ export function ProposalForm({ project }: ProposalFormProps) {
         throw new Error(body?.error ?? "Não foi possível gerar a proposta.");
       }
       const blob = await response.blob();
-      const fileName = `proposta.${format}`;
+      const fileName = nameWithProject(`Proposta.${format}`, project.name);
       saveAs(blob, fileName);
       const kept = await keepProjectFile(project.id, blob, {
         kind: "proposal",

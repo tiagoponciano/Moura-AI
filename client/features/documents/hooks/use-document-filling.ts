@@ -25,6 +25,7 @@ import {
 import { type Project, type ProjectData } from "@/lib/projects/project";
 import { PDF_ENABLED } from "../lib/pdf-enabled";
 import { keepProjectFile } from "@/lib/projects/files-client";
+import { nameWithProject } from "@/lib/projects/file-name";
 import { useFormExport } from "./use-form-export";
 import { loadFormData } from "../lib/load-form-data";
 import { usePdfPreview } from "./use-pdf-preview";
@@ -49,12 +50,15 @@ export function useDocumentFilling(
   /** The project the open form's saved values are loaded for, fixed when the form is chosen. */
   const [loadProjectId, setLoadProjectId] = useState<string>();
   const [notice, setNotice] = useState<string>();
+  /** Files are named after the project, once one is chosen. */
+  const nameFile = (fileName: string) =>
+    nameWithProject(fileName, project?.name);
   const {
     pdf,
     generating,
     generate: generatePdf,
     discard: discardPdf,
-  } = usePdfPreview(setNotice);
+  } = usePdfPreview(setNotice, nameFile);
   /** The values as of the last change, for generating right after a merge. */
   const latestValues = useRef<FieldValues>({});
   const pendingSave = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -78,6 +82,7 @@ export function useDocumentFilling(
     template,
     generatePdf,
     setNotice,
+    nameFile,
     onGenerated: async (file) => {
       if (!project) return;
       const kept = await keepProjectFile(project.id, file.blob, {

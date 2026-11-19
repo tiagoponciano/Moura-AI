@@ -46,6 +46,10 @@ When a project is chosen, three places keep what they generate, after the downlo
 
 Without a chosen project nothing is kept, and the download is the same as before.
 
+## File names
+
+With a project chosen, what the app generates is named after the project, in `<file's own name> - <project>.<extension>` (`nameWithProject` in `lib/projects/file-name.ts`): the form `.docx` and PDF keep the title the server gives them (`Anexo C - Loja Centro.docx`), the proposal is `Proposta - Loja Centro.pptx`, and a converted plan is `Térreo - Loja Centro.dxf`, from the uploaded plan's name. The same name is used for the download and for the copy kept in the project. Characters a file name cannot hold become a space, and a long project name is cut before the file's own. Without a project the names are what they were.
+
 ## What this does NOT do
 
 - **Only the browser keeps files.** What the app generates is kept by the screen that generated it, once the download has been made; nothing generated on the server alone is kept.

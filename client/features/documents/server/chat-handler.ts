@@ -1,4 +1,10 @@
-import { convertToModelMessages, isStepCount, streamText, tool } from "ai";
+import {
+  convertToModelMessages,
+  isStepCount,
+  streamText,
+  tool,
+  type ToolSet,
+} from "ai";
 import { parseJsonBody } from "@/lib/api/parse-json-body";
 import { chatPersistence } from "@/lib/chat-history/server";
 import {
@@ -23,52 +29,68 @@ import { loadTemplateGuide } from "./template-files";
 /**
  * Streams the documents assistant; the `fill_fields` tool echoes extracted
  * values back to the client. The chat is saved per template when history is available.
+ * `extraTools` are tools another module provides, such as a check of building
+ * data against the norms; the route that composes the two passes them in.
  */
-export async function handleDocumentsChat(req: Request): Promise<Response> {
-  const body = await parseJsonBody(req, documentsChatBody);
-  if (body.error) return body.error;
-  const { id, templateId, schema, values = {}, skipped } = body.data;
-  const messages = await parseChatMessages(body.data.messages);
-  if (!messages) {
-    return Response.json({ error: "Invalid messages" }, { status: 400 });
-  }
+export const createDocumentsChatHandler =
+  (extraTools: ToolSet = {}) =>
+  async (req: Request): Promise<Response> => {
+    const body = await parseJsonBody(req, documentsChatBody);
+    if (body.error) return body.error;
+    const { id, templateId, schema, values = {}, skipped } = body.data;
+    const messages = await parseChatMessages(body.data.messages);
+    if (!messages) {
+      return Response.json({ error: "Invalid messages" }, { status: 400 });
+    }
 
-  const quotaError = await consumeChatQuota();
-  if (quotaError) return quotaError;
-  const { model, error } = await resolveChatModel();
-  if (error) return error;
+    const quotaError = await consumeChatQuota();
+    if (quotaError) return quotaError;
+    const { model, error } = await resolveChatModel();
+    if (error) return error;
 
-  const steps = conversationSteps(schema, await loadTemplateGuide(templateId));
-  const progress = stepProgress(schema, steps, values, skipped);
+    const steps = conversationSteps(
+      schema,
+      await loadTemplateGuide(templateId),
+    );
+    const progress = stepProgress(schema, steps, values, skipped);
 
-  const result = streamText({
-    model,
-    instructions: buildInstructions(templateId, schema, values, progress),
-    // The instructions carry the recorded state, so only the latest turns go to the model.
-    messages: await convertToModelMessages(recentMessages(messages)),
-    tools: {
-      [FILL_FIELDS_TOOL]: tool({
-        description:
-          "Records the fields extracted from the conversation in the form. Send only fields with new or corrected data.",
-        inputSchema: schemaToZod(schema, "extraction").extend({
-          [SKIP_STEP_FIELD]: z
-            .boolean()
-            .optional()
-            .describe(
-              "True when the user says the current step does not apply",
-            ),
+    const result = streamText({
+      model,
+      instructions: buildInstructions(
+        templateId,
+        schema,
+        values,
+        progress,
+        Object.keys(extraTools),
+      ),
+      // The instructions carry the recorded state, so only the latest turns go to the model.
+      messages: await convertToModelMessages(recentMessages(messages)),
+      tools: {
+        ...extraTools,
+        [FILL_FIELDS_TOOL]: tool({
+          description:
+            "Records the fields extracted from the conversation in the form. Send only fields with new or corrected data.",
+          inputSchema: schemaToZod(schema, "extraction").extend({
+            [SKIP_STEP_FIELD]: z
+              .boolean()
+              .optional()
+              .describe(
+                "True when the user says the current step does not apply",
+              ),
+          }),
+          execute: async (fields) => fields,
         }),
-        execute: async (fields) => fields,
-      }),
-    },
-    stopWhen: isStepCount(5),
-  });
+      },
+      stopWhen: isStepCount(5),
+    });
 
-  const persistence = await chatPersistence({
-    chatId: id,
-    module: "documents",
-    context: { templateId },
-    messages,
-  });
-  return toChatResponse(result.stream, persistence);
-}
+    const persistence = await chatPersistence({
+      chatId: id,
+      module: "documents",
+      context: { templateId },
+      messages,
+    });
+    return toChatResponse(result.stream, persistence);
+  };
+
+export const handleDocumentsChat = createDocumentsChatHandler();

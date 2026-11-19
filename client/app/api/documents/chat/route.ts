@@ -1,5 +1,6 @@
-import { handleDocumentsChat } from "@/features/documents/server";
+import { buildingCheckTools } from "@/features/classification/server";
+import { createDocumentsChatHandler } from "@/features/documents/server";
 
 export const maxDuration = 60;
 
-export const POST = handleDocumentsChat;
+export const POST = createDocumentsChatHandler(buildingCheckTools);

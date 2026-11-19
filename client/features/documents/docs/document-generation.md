@@ -11,6 +11,7 @@ Invariants:
 - **No model takes part in generation.** The route receives field values and returns a file.
 - **The microservice is stateless and knows nothing about forms.** It is `gotenberg/gotenberg` behind basic auth, with Chromium routes, webhooks and download-from turned off.
 - **The server validates again.** The browser's validation is for showing problems; `validateForDocument` runs in the route too, so a request cannot skip required fields.
+- **PDF output is off by default.** The panel and the proposal view show only the `.docx` and `.pptx` actions until `NEXT_PUBLIC_PDF_ENABLED=true` is set (`lib/pdf-enabled.ts`). The route still accepts `format: "pdf"`; the flag only hides the buttons and the automatic PDF after the assistant completes a form.
 - **The `.docx` never depends on the microservice.** With it down or not configured, the PDF answers an error and the `.docx` still works.
 
 ## Surface

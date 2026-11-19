@@ -9,6 +9,7 @@ import { useProjects } from "@/hooks/use-projects";
 import { PROJECT_FIELD_GROUPS } from "@/lib/projects/fields";
 import { writeSelectedProject } from "@/lib/projects/selection";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { ProjectFiles } from "./project-files";
 import { ProjectSections } from "./project-sections";
 
 type ProjectDetailProps = { id: string };
@@ -35,6 +36,7 @@ export function ProjectDetail({ id }: ProjectDetailProps) {
         <>
           <PageHeader title={project.name} />
           <ProjectSections />
+          <ProjectFiles key={project.id} projectId={project.id} />
           <div className="grid gap-4 md:grid-cols-3">
             {PROJECT_FIELD_GROUPS.map((group) => (
               <section key={group.id} className="rounded-lg border p-4">

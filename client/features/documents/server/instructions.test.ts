@@ -9,6 +9,31 @@ const schema: TemplateSchema = {
   ],
 };
 
+describe("buildInstructions, norm search", () => {
+  const progress = { index: 0, total: 0 };
+
+  it("tells the assistant to read the norm before answering, when the tool is available", () => {
+    const prompt = buildInstructions("x", schema, {}, progress, [
+      "search_norm",
+    ]);
+    expect(prompt).toContain("8. When the user asks what a norm requires");
+    expect(prompt).toContain("Never quote a norm from memory");
+  });
+
+  it("numbers the rules of both tools one after the other", () => {
+    const prompt = buildInstructions("x", schema, {}, progress, [
+      "check_building",
+      "search_norm",
+    ]);
+    expect(prompt).toContain("8. When the user states data about the building");
+    expect(prompt).toContain("9. When the user asks what a norm requires");
+  });
+
+  it("does not mention the search without the tool", () => {
+    expect(buildInstructions("x", schema)).not.toContain("search_norm");
+  });
+});
+
 describe("buildInstructions, norm check", () => {
   const progress = { index: 0, total: 0 };
 

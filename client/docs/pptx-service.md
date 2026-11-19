@@ -1,5 +1,7 @@
 # PPTX service
 
+> **The app no longer calls this service.** The proposal deck is filled inside the app (`client/features/documents/lib/render-pptx.ts`, template `client/public/templates/proposal/proposal.pptx`), so no PPTX service has to be hosted and `PPTX_SERVICE_URL` and `PPTX_SERVICE_TOKEN` are not read. `services/pptx` stays as the builder of the base template (`python -m app.build_template`) and as a reference implementation; the rest of this page describes its HTTP service.
+
 How the commercial proposal deck is produced. For developers operating or extending `services/pptx`. Describes the code as it is now.
 
 ## What this is

@@ -71,7 +71,6 @@ Every variable is listed in [`.env.example`](.env.example). Server-only variable
 | `ALLOWED_EMAIL_DOMAIN`                                        | no                  | Only accounts from this domain may sign in, e.g. `example.com`. A domain saved on `/admin` wins |
 | `CRON_SECRET`                                                 | for the daily check | Authenticates Vercel Cron on `/api/cron/cbmsc-forms`; without it the route answers 503          |
 | `PDF_SERVICE_URL`, `PDF_SERVICE_USER`, `PDF_SERVICE_PASSWORD` | for PDF             | The `services/pdf` microservice. Without the URL only the `.docx` is generated                  |
-| `PPTX_SERVICE_URL`, `PPTX_SERVICE_TOKEN`                      | for proposals       | The `services/pptx` microservice that fills the proposal template                               |
 | `DWG_SERVICE_URL`, `DWG_SERVICE_TOKEN`                        | for floor plans     | The `services/dwg` microservice that converts plans to DXF/DWG                                  |
 
 ## Layout
@@ -85,7 +84,7 @@ client/                 # the app: Next.js App Router, TypeScript, Tailwind v4, 
 ├── docs/               #   app-wide documentation
 └── proxy.ts            #   login gate for every page and API route
 services/pdf/           # PDF microservice (Gotenberg); no AI, storage or database
-services/pptx/          # proposal microservice (FastAPI + python-pptx); no AI, storage or database
+services/pptx/          # proposal template builder and its Python reference fill; the app fills the deck itself (client/features/documents/lib/render-pptx.ts)
 services/dwg/           # plan to DXF/DWG microservice; no AI, storage or database
 supabase/migrations/    # the only place tables, RLS and storage buckets are defined
 docs/assets/            # images used by this README

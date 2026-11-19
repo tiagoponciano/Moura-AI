@@ -67,9 +67,17 @@ describe("proposalValues", () => {
     expect(values.notes).toContain("Validade da proposta: 30 dias.");
   });
 
-  it("lists the plan's items", () => {
+  it("lists the plan's items, each with a check", () => {
     const values = proposalValues({ name: "x", data: {} }, request, today);
     expect(values.plan_items).toHaveLength(7);
+    expect(values.plan_items.every((item) => item.startsWith("☑ "))).toBe(true);
+  });
+
+  it("lists the standard exclusions with bullets and Moura's contact", () => {
+    const values = proposalValues({ name: "x", data: {} }, request, today);
+    expect(values.excluded_items).toHaveLength(4);
+    expect(values.excluded_items[0]).toMatch(/^• /);
+    expect(values.contact_email).toBe("projetos@mourasengenharia.com");
   });
 });
 

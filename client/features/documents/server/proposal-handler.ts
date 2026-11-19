@@ -1,8 +1,9 @@
 import { parseJsonBody } from "@/lib/api/parse-json-body";
 import { requireUser } from "@/lib/auth/require-user";
 import { proposalBody, proposalValues } from "../lib/proposal";
+import { fillPptx } from "../lib/render-pptx";
 import { convertPptxToPdf, isPdfServiceConfigured } from "./pdf-service";
-import { isPptxServiceConfigured, renderProposal } from "./pptx-service";
+import { loadProposalTemplate } from "./template-files";
 import { type ProjectData, projectIdSchema } from "@/lib/projects/project";
 
 const MIME_TYPES = {
@@ -13,8 +14,8 @@ const MIME_TYPES = {
 /**
  * `POST /api/documents/projects/:id/proposal` with `{ planId, price, validityDays?, format }`:
  * builds the proposal values from the project's shared data and the choices
- * made, has the PPTX service fill the deck and, for a PDF, converts it in the
- * PDF service. No model takes part in this.
+ * made, fills the deck and, for a PDF, converts it in the PDF service. No
+ * model takes part in this.
  */
 export async function handleProposal(
   req: Request,
@@ -31,12 +32,6 @@ export async function handleProposal(
   if (body.error) return body.error;
   const { format } = body.data;
 
-  if (!isPptxServiceConfigured()) {
-    return Response.json(
-      { error: "O serviço de propostas não está configurado." },
-      { status: 503 },
-    );
-  }
   if (format === "pdf" && !isPdfServiceConfigured()) {
     return Response.json(
       { error: "O serviço de PDF não está configurado. Baixe o .pptx." },
@@ -63,13 +58,14 @@ export async function handleProposal(
 
   let file: Uint8Array;
   try {
-    file = await renderProposal(
+    file = fillPptx(
+      await loadProposalTemplate(),
       proposalValues(
         { name: project.name, data: (project.data ?? {}) as ProjectData },
         body.data,
         new Date(),
       ),
-    );
+    ).file;
     if (format === "pdf") file = await convertPptxToPdf(file);
   } catch (cause) {
     console.error("Failed to generate the proposal", cause);

@@ -29,6 +29,19 @@ export const PROPOSAL_PLANS: ProposalPlan[] = [
 
 export const DEFAULT_VALIDITY_DAYS = 10;
 
+const EXCLUDED_ITEMS = [
+  "execução de obras, instalações e adequações físicas;",
+  "taxas, custas e despesas de terceiros;",
+  "laudos específicos exigidos por norma ou por órgão fiscalizador, quando aplicáveis;",
+  "alterações relevantes após o início dos serviços poderão demandar revisão de escopo e reorçamento.",
+];
+
+const CONTACT = {
+  contact_phone: "(47) 98867-5232",
+  contact_site: "www.mourasengenharia.com",
+  contact_email: "projetos@mourasengenharia.com",
+};
+
 /** Body of `POST /api/documents/projects/:id/proposal`. */
 export const proposalBody = z.strictObject({
   planId: z.enum(PROPOSAL_PLANS.map((plan) => plan.id)),
@@ -54,7 +67,11 @@ export function formatDate(date: Date, timeZone = "America/Sao_Paulo"): string {
   }).format(date);
 }
 
-/** The values the PPTX service takes, from the project's shared data and the choices made for the proposal. */
+/**
+ * The value of every tag of the proposal deck, from the project's shared data
+ * and the choices made for the proposal. List entries carry their marker: a
+ * check for plan items, a bullet for exclusions.
+ */
 export function proposalValues(
   project: { name: string; data: ProjectData },
   request: ProposalRequest,
@@ -73,8 +90,9 @@ export function proposalValues(
     date: formatDate(today),
     plan_title: plan.title,
     plan_description: plan.description,
-    plan_items: plan.items,
+    plan_items: plan.items.map((item) => `☑ ${item}`),
     price: formatPrice(request.price),
+    excluded_items: EXCLUDED_ITEMS.map((item) => `• ${item}`),
     notes: [
       "Devem ser encaminhados todos os documentos existentes da obra, preferencialmente em DWG.",
       "Para os projetos serem validados junto ao CBMSC é necessária compatibilidade de área em todos os arquivos: ART, memorial e projetos.",
@@ -82,5 +100,6 @@ export function proposalValues(
       `Validade da proposta: ${request.validityDays} dias.`,
       "Condições de pagamento: é possível realizar parcelamento, a depender da opção escolhida.",
     ],
+    ...CONTACT,
   };
 }

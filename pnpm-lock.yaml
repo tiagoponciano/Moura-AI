@@ -31,6 +31,9 @@ importers:
       '@tanstack/react-table':
         specifier: ^9.3.1
         version: 9.3.1(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@xmldom/xmldom':
+        specifier: ^0.9.12
+        version: 0.9.12
       ai:
         specifier: ^7.0.127
         version: 7.0.127(zod@4.6.5)

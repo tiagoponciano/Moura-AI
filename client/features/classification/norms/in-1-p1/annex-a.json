@@ -1,0 +1,338 @@
+{
+  "doc": "IN-1-P1",
+  "table": "Anexo A",
+  "title": "Risco dos imóveis",
+  "pages": [
+    43,
+    44,
+    45
+  ],
+  "quadro_1_risco_ii": [
+    {
+      "parameter": "Área",
+      "limit": "≤ 750 m²",
+      "page": 43
+    },
+    {
+      "parameter": "Altura",
+      "limit": "≤ 3 pavimentos",
+      "page": 43
+    },
+    {
+      "parameter": "Uso/Armazenamento de GLP",
+      "limit": "≤ 190 kg",
+      "page": 43
+    },
+    {
+      "parameter": "Lotação F-6 e F-11",
+      "limit": "≤ 100 pessoas",
+      "page": 43
+    },
+    {
+      "parameter": "Lotação do grupo F (exceto F-6 e F-11)",
+      "limit": "≤ 200 pessoas",
+      "page": 43
+    },
+    {
+      "parameter": "Líquido inflamável em área interna",
+      "limit": "≤ 250 L",
+      "page": 43
+    },
+    {
+      "parameter": "Líquido inflamável/combustível em área externa",
+      "limit": "≤ 20 m³",
+      "page": 43
+    },
+    {
+      "parameter": "Atividades não permitidas",
+      "limit": "exercer a fabricação, o comércio ou depósito de: pólvora, explosivos, fogos de artifício, artigos pirotécnicos, munições, detonantes ou materiais radioativos ou tóxicos, bem como não possuir carga de incêndio acima de 2.280 MJ/m².",
+      "page": 43
+    }
+  ],
+  "quadro_2_risco_iii_area_altura": [
+    {
+      "group": "A",
+      "division": "A-1, A-2",
+      "height": "≤ 21",
+      "area": "≤ 5.000",
+      "page": 44
+    },
+    {
+      "group": "A",
+      "division": "A-3",
+      "height": "≤ 21",
+      "area": "≤ 2.500",
+      "page": 44
+    },
+    {
+      "group": "B",
+      "division": "B-1, B-2",
+      "height": "≤ 6",
+      "area": "≤ 5.000",
+      "page": 44
+    },
+    {
+      "group": "B",
+      "division": "B-1, B-2",
+      "height": "6 < h ≤ 12",
+      "area": "≤ 4.000",
+      "page": 44
+    },
+    {
+      "group": "C",
+      "division": "C-1",
+      "height": "≤ 21",
+      "area": "≤ 5.000",
+      "page": 44
+    },
+    {
+      "group": "C",
+      "division": "C-2 (CI média)",
+      "height": "≤ 12",
+      "area": "≤ 5.000",
+      "page": 44
+    },
+    {
+      "group": "C",
+      "division": "C-2 (CI alta)",
+      "height": "≤ 12",
+      "area": "≤ 3.000",
+      "page": 44
+    },
+    {
+      "group": "C",
+      "division": "C-3",
+      "height": "≤ 6",
+      "area": "≤ 5.000",
+      "page": 44
+    },
+    {
+      "group": "C",
+      "division": "C-3",
+      "height": "6 < h ≤ 12",
+      "area": "≤ 3.000",
+      "page": 44
+    },
+    {
+      "group": "D",
+      "division": "Todas",
+      "height": "≤ 6",
+      "area": "≤ 5.000",
+      "page": 44
+    },
+    {
+      "group": "D",
+      "division": "Todas",
+      "height": "6 < h ≤ 12",
+      "area": "≤ 3.000",
+      "page": 44
+    },
+    {
+      "group": "D",
+      "division": "Todas",
+      "height": "12 < h ≤ 21",
+      "area": "≤ 2.000",
+      "page": 44
+    },
+    {
+      "group": "E",
+      "division": "E-1, E-2, E-3, E-4",
+      "height": "≤ 21",
+      "area": "≤ 5.000",
+      "page": 44
+    },
+    {
+      "group": "E",
+      "division": "E-5, E-6",
+      "height": "≤ 12",
+      "area": "≤ 750",
+      "page": 44
+    },
+    {
+      "group": "G",
+      "division": "G-1, G-2, G-5",
+      "height": "≤ 21",
+      "area": "≤ 5.000",
+      "page": 44
+    },
+    {
+      "group": "G",
+      "division": "G-3",
+      "height": "TÉRREO",
+      "area": "≤ 750",
+      "page": 44
+    },
+    {
+      "group": "G",
+      "division": "G-4",
+      "height": "≤ 6",
+      "area": "≤ 5.000",
+      "page": 44
+    },
+    {
+      "group": "G",
+      "division": "G-4",
+      "height": "6 < h ≤ 12",
+      "area": "≤ 3.000",
+      "page": 44
+    },
+    {
+      "group": "H",
+      "division": "H-1, H-4",
+      "height": "≤ 21",
+      "area": "≤ 5.000",
+      "page": 44
+    },
+    {
+      "group": "H",
+      "division": "H-2",
+      "height": "≤ 12",
+      "area": "≤ 5.000",
+      "page": 44
+    },
+    {
+      "group": "H",
+      "division": "H-3, H-5",
+      "height": "≤ 6",
+      "area": "≤ 750",
+      "page": 44
+    },
+    {
+      "group": "H",
+      "division": "H-6",
+      "height": "≤ 6",
+      "area": "≤ 5.000",
+      "page": 44
+    },
+    {
+      "group": "H",
+      "division": "H-6",
+      "height": "6 < h ≤ 12",
+      "area": "≤ 2.500",
+      "page": 44
+    },
+    {
+      "group": "I e J",
+      "division": "I-1, J-1",
+      "height": "≤ 21",
+      "area": "≤ 5.000",
+      "page": 44
+    },
+    {
+      "group": "I e J",
+      "division": "I-2",
+      "height": "≤ 12",
+      "area": "≤ 5.000",
+      "page": 44
+    },
+    {
+      "group": "I e J",
+      "division": "I-3, J-2",
+      "height": "≤ 6",
+      "area": "≤ 4.000",
+      "page": 44
+    },
+    {
+      "group": "I e J",
+      "division": "I-3, J-2",
+      "height": "6 < h ≤ 12",
+      "area": "≤ 3.000",
+      "page": 44
+    },
+    {
+      "group": "I e J",
+      "division": "J-3",
+      "height": "≤ 6",
+      "area": "≤ 3.000",
+      "page": 44
+    },
+    {
+      "group": "I e J",
+      "division": "J-4",
+      "height": "≤ 6",
+      "area": "≤ 2.500",
+      "page": 44
+    },
+    {
+      "group": "M",
+      "division": "M-3",
+      "height": "TÉRREO",
+      "area": "≤ 5.000",
+      "page": 44
+    },
+    {
+      "group": "M",
+      "division": "M-3",
+      "height": "≤ 6",
+      "area": "≤ 3.000",
+      "page": 44
+    },
+    {
+      "group": "M",
+      "division": "M-3",
+      "height": "6 < h ≤ 12",
+      "area": "≤ 2.000",
+      "page": 44
+    },
+    {
+      "group": "M",
+      "division": "M-4",
+      "height": "≤ 21",
+      "area": "≤ 5.000",
+      "page": 44
+    },
+    {
+      "group": "M",
+      "division": "M-11",
+      "height": "≤ 6",
+      "area": "≤ 5.000",
+      "page": 44
+    }
+  ],
+  "quadro_3_risco_iii_criterio": [
+    {
+      "group": "F",
+      "division": "TODAS",
+      "criterion": "AQUELES NÃO ENQUADRADOS NO RISCO II MAS QUE AINDA POSSUAM POPULAÇÃO ≤ 200 PESSOAS (EM CADA ÁREA DE REUNIÃO DE PÚBLICO) E",
+      "page": 44
+    },
+    {
+      "group": "M",
+      "division": "M-8",
+      "criterion": "PRGLP classes I, II, III e IV",
+      "page": 44
+    }
+  ],
+  "notes": [
+    {
+      "id": "a",
+      "text": "Admite-se uso ou armazenamento de líquidos combustíveis ou inflamáveis nos imóveis com Risco III até o limite de: V ≤ 1 m³ em área interna V ≤ 40 m³ em área externa",
+      "page": 45
+    },
+    {
+      "id": "b",
+      "text": "Com exceção dos critérios que classificam os imóveis em risco V e da quantidade de líquidos inflamáveis e combustíveis (nota geral \"a\"), outros requisitos como quantidade de GLP, número de pavimentos ou lotação não influenciam na classificação dos imóveis risco III.",
+      "page": 45
+    },
+    {
+      "id": "c",
+      "text": "Em um imóvel que por algum critério não seja classificado no risco II, admite-se que cada local com ocupação de reunião de público (grupo F) tenha até 200 pessoas. Um exemplo seria uma edificação escolar (E-1) com 3 auditórios, para ser classificado no risco III, cada um dos auditórios pode ter lotação máxima de 200 pessoas. Se qualquer um dos 3 auditórios possuir lotação maior, o imóvel passa a ser enquadrado no risco IV.",
+      "page": 45
+    },
+    {
+      "id": "d",
+      "text": "Em edificações mistas, deve ser informado a altura individual por ocupação, sendo que a altura considerada por ocupação será sempre o piso do pavimento de maior nível (mais elevado) daquela ocupação",
+      "page": 45
+    },
+    {
+      "id": "e",
+      "text": "Nesse exemplo, o limite da área total da edificação é de 5.000 m² possibilitado pela ocupação H-6, mas limitado na área total pelo Artigo 50 . Para aumentar a área da ocupação E-6 para 750 m², deve-se reduzir a área H-6 em 250 m² para manter o valor de área dentro dos limites aceitos para risco III. Se numa situação hipotética deseja-se alterar a ocupação da área de clinicas (H-6) por hotelaria (B-1), o processo deve ser reiniciado no rito ordinário, pois a área com ocupação B-1 ultrapassaria o limite de 4.000 m² definido por sua altura de 9,0 m.",
+      "page": 45
+    }
+  ],
+  "checks": {
+    "needs_human_look": [
+      "quadro 3, F TODAS: the criterion ends in an 'E' and may continue past what the PDF prints"
+    ]
+  }
+}

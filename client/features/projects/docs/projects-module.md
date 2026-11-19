@@ -33,6 +33,6 @@ The field groups and labels come from `lib/projects/fields.ts`, shared with the 
 
 ## What this does NOT do
 
-- **The tools are not inside the project yet.** Documentos, Classificação and Plantas are links to their own pages, which open on the chosen project. Bringing them inside the project page, and the Arquivos section, are later steps.
+- **The tools are not inside the project yet.** Documentos, Classificação and Plantas are links to their own pages, which open on the chosen project. Bringing them inside the project page is a later step. The "Arquivos" section of the page is described in `project-files.md`.
 - **No dates or risk in the list.** A project has no update date, and the risk is not stored with it; the table shows the city, occupation and area it knows.
 - **No rename or archive here.** Those stay in the documents module.

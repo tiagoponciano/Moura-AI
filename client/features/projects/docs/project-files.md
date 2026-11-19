@@ -30,9 +30,13 @@ Invariants:
 | `projectFileRecordBody`                                                        | `lib/projects/files.ts`                     | The body of the record route; unknown keys are refused                      |
 | `handleListProjectFiles`, `handleRecordProjectFile`, `handleDeleteProjectFile` | `features/projects/server/files-handler.ts` | The three route handlers                                                    |
 
+## The screen
+
+The project page (`/projects/[id]`) has an "Arquivos" section (`ProjectFiles`, with `useProjectFiles`). It lists the project's files with their origin, size and date; "Enviar arquivo" uploads one or more files as `other` (a failure is shown and the others still go); each row has download and delete. Download makes a signed URL for the object, valid for a minute, with the signed-in user's own session (`projectFileUrl`), and delete asks the route, which removes the object and then the row. `lib/projects/files-client.ts` uploads to the project's folder and records the row, and removes the object again if recording fails, so nothing is stored without a row.
+
 ## What this does NOT do
 
-- **No screen yet.** The project page does not list the files and nothing generates into them; those are the next steps.
+- **Nothing generates into it yet.** The files on the list are the ones a person uploaded; saving what the forms, the proposal and the conversions produce is the next step.
 - **No download route.** The browser makes a signed URL for the object with its own session, which the bucket's read policy allows.
 - **No quota or retention.** Nothing limits how many files a project has beyond the list showing 100.
 - **Not tried against a real Supabase.** The handlers are tested with a mock client; the migration has not been applied.

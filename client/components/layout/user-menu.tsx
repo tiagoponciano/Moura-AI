@@ -18,28 +18,46 @@ import {
 } from "@/components/ui/sidebar";
 import { signOut } from "@/lib/auth/sign-out";
 import { createSupabaseBrowserClient } from "@/lib/supabase/client";
+import { isSupabaseConfigured } from "@/lib/supabase/env";
 
 type SignedInUser = { name: string; email: string; avatarUrl?: string };
 
-/** Signed-in user and "Sair". Renders nothing without Supabase or a session. */
+/** Signed-in user and "Sair". Renders nothing without Supabase; keeps "Sair" when the session cannot be read. */
 export function UserMenu() {
   const [user, setUser] = useState<SignedInUser>();
 
   useEffect(() => {
     const supabase = createSupabaseBrowserClient();
     if (!supabase) return;
-    supabase.auth.getUser().then(({ data }) => {
-      if (!data.user?.email) return;
-      const metadata = data.user.user_metadata;
-      setUser({
-        email: data.user.email,
-        name: metadata.full_name ?? metadata.name ?? data.user.email,
-        avatarUrl: metadata.avatar_url,
-      });
-    });
+    // The session comes from the cookie, with no round trip: the name still shows when Supabase is slow.
+    supabase.auth
+      .getSession()
+      .then(({ data }) => {
+        const found = data.session?.user;
+        if (!found?.email) return;
+        const metadata = found.user_metadata;
+        setUser({
+          email: found.email,
+          name: metadata.full_name ?? metadata.name ?? found.email,
+          avatarUrl: metadata.avatar_url,
+        });
+      })
+      .catch(() => undefined);
   }, []);
 
-  if (!user) return null;
+  if (!user) {
+    // Without a readable session the way out must still be there.
+    return isSupabaseConfigured() ? (
+      <SidebarMenu>
+        <SidebarMenuItem>
+          <SidebarMenuButton onClick={signOut} tooltip="Sair">
+            <LogOut />
+            <span>Sair</span>
+          </SidebarMenuButton>
+        </SidebarMenuItem>
+      </SidebarMenu>
+    ) : null;
+  }
 
   return (
     <SidebarMenu>

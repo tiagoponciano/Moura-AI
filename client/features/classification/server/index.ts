@@ -7,4 +7,3 @@ export { handleGetNormSources } from "./norm-sources-handler";
 export { buildingCheckTools } from "./check-building";
 export { normSearchTools } from "./search-norm";
 export { handleSearchNormText } from "./norm-search-handler";
-export { handleNormsChat } from "./norms-chat-handler";

@@ -51,9 +51,6 @@ export const MODULES: AppModule[] = [
 /** The projects area: it sits beside the modules in the sidebar, not among them. */
 export const PROJECTS_PATH = "/projects";
 
-/** The norms chat: beside Projetos in the sidebar, not among the modules of the home page. */
-export const NORMS_PATH = "/norms";
-
 export function findModule(pathname: string): AppModule | undefined {
   return MODULES.find((module) => pathname.startsWith(module.href));
 }

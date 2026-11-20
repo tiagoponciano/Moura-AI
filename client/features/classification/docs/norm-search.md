@@ -23,8 +23,13 @@ Invariants:
 
 A hit is `{ doc, article, page, excerpt, matched }`; the excerpt is at most 700 characters around the first match, with `…` where it was cut. The tool answers `{ hits, note }`: `No instruction named X.` or `No article matches those words.` when there is nothing to show.
 
+## On screen
+
+A required system, once expanded in the classification panel, ends with "Norma do sistema: IN N · Ver artigos" (`SystemNormLine`). The link opens the instruction's PDF on Drive; "Ver artigos" opens a dialog (`NormDialog`) that searches that instruction's articles with the system's name, and a box to search other words. Each result shows the article, the page and the excerpt as printed, with a note to check the whole article in the PDF. The dialog calls `GET /api/classification/norm?q=<words>&doc=<IN 7>` (`handleSearchNormText`), which needs a signed-in user, refuses fewer than 3 letters with a 400 and answers the 8 best articles in `{ hits, note }`. `useNormSearch` keeps the last result on screen.
+
 ## What this does NOT do
 
+- **The dialog shows excerpts, not whole articles.** An excerpt is at most 700 characters around the first match; the full article is in the PDF.
 - **Annex tables are not searched.** Only the articles are; annexes are kept as raw page text and need their own extraction.
 - **No meaning, only words.** A question phrased with other words than the norm uses finds less. There is no synonym list and no ranking by importance.
 - **IN 12 and IN 23 print some words glued together**, so a search for those words can miss them (the extraction flags both).

@@ -35,6 +35,15 @@ export function projectDataFromFacts(
     const value = facts[fact];
     if (typeof value === "number") wanted[key] = String(value);
   }
+  // One block is the whole property, so the forms' property-level fields get the same values.
+  if (facts.single_block === true) {
+    if (typeof facts.area_m2 === "number") {
+      wanted.property_total_area = String(facts.area_m2);
+    }
+    if (typeof facts.storeys === "number") {
+      wanted.property_floors = String(facts.storeys);
+    }
+  }
   if (typeof facts.division === "string") {
     wanted.property_occupancy = facts.division;
   }

@@ -1,10 +1,18 @@
-import { ExternalLink, FileDown, FileText, Loader2 } from "lucide-react";
+import { FileDown, FileText, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import type { FieldSources } from "@/lib/field-sources";
+import type { PdfApproval } from "../hooks/use-pdf-approval";
 import { PDF_ENABLED } from "../lib/pdf-enabled";
+import type { FieldValues, TemplateField } from "../lib/templates";
+import { PreviewDialog } from "./preview-dialog";
 
 type GenerationActionsProps = {
   /** The current PDF; `undefined` before it exists or after a field changes. */
   pdf?: { url: string; fileName: string };
+  fields: TemplateField[];
+  values: FieldValues;
+  sources: FieldSources;
+  approval: PdfApproval;
   generating: boolean;
   notice?: string;
   onGenerate: () => void;
@@ -14,6 +22,10 @@ type GenerationActionsProps = {
 /** The panel footer: the PDF once it is ready, the button to make it, and the `.docx`. */
 export function GenerationActions({
   pdf,
+  fields,
+  values,
+  sources,
+  approval,
   generating,
   notice,
   onGenerate,
@@ -22,18 +34,13 @@ export function GenerationActions({
   return (
     <>
       {!PDF_ENABLED ? null : pdf ? (
-        <div className="flex gap-2">
-          <Button asChild size="lg" className="flex-1">
-            <a href={pdf.url} download={pdf.fileName}>
-              <FileDown /> Baixar PDF
-            </a>
-          </Button>
-          <Button asChild size="lg" variant="outline">
-            <a href={pdf.url} target="_blank">
-              <ExternalLink /> Abrir
-            </a>
-          </Button>
-        </div>
+        <PreviewDialog
+          pdf={pdf}
+          fields={fields}
+          values={values}
+          sources={sources}
+          approval={approval}
+        />
       ) : (
         <Button onClick={onGenerate} disabled={generating} size="lg">
           {generating ? <Loader2 className="animate-spin" /> : <FileDown />}

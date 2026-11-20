@@ -2,16 +2,21 @@
 export type NormDoc = {
   doc: string;
   articles: { number: number; page: number; text: string }[];
+  /** The pages from the first annex on, as raw text (tables and figures are not parsed). */
+  annexes?: { page: number; title: string; text: string }[];
 };
 
 /** A passage of a norm with where it comes from, for the assistant to cite. */
 export type NormHit = {
   doc: string;
-  article: number;
+  /** An article of the instruction, or a page of its annexes. */
+  kind: "article" | "annex";
+  /** The article number; absent for an annex page. */
+  article?: number;
   page: number;
-  /** The article text around the first match, at most `SNIPPET_LENGTH` characters. */
+  /** The text around the first match, at most `SNIPPET_LENGTH` characters. */
   excerpt: string;
-  /** How many distinct words of the query the article has. */
+  /** How many distinct words of the query the text has. */
   matched: number;
 };
 
@@ -68,8 +73,9 @@ function excerpt(text: string, normalized: string, word: string): string {
 }
 
 /**
- * The articles that best match the query: the ones with the most distinct words
- * of it, then the most occurrences. Nothing is returned when no word is searchable.
+ * The articles and annex pages that best match the query: the ones with the most
+ * distinct words of it, then the most occurrences. Nothing is returned when no
+ * word is searchable.
  */
 export function searchArticles(
   docs: NormDoc[],
@@ -79,36 +85,50 @@ export function searchArticles(
   const words = queryWords(query);
   if (words.length === 0) return [];
   const hits: (NormHit & { total: number })[] = [];
+  const consider = (
+    doc: string,
+    kind: NormHit["kind"],
+    article: number | undefined,
+    page: number,
+    text: string,
+  ) => {
+    const normalized = normalize(text);
+    let matched = 0;
+    let total = 0;
+    let first: string | undefined;
+    for (const word of words) {
+      const count = normalized.split(word).length - 1;
+      if (count > 0) {
+        matched += 1;
+        total += count;
+        first ??= word;
+      }
+    }
+    if (matched === 0 || !first) return;
+    hits.push({
+      doc,
+      kind,
+      article,
+      page,
+      excerpt: excerpt(text, normalized, first),
+      matched,
+      total,
+    });
+  };
   for (const doc of docs) {
     for (const article of doc.articles) {
-      const normalized = normalize(article.text);
-      let matched = 0;
-      let total = 0;
-      let first: string | undefined;
-      for (const word of words) {
-        const count = normalized.split(word).length - 1;
-        if (count > 0) {
-          matched += 1;
-          total += count;
-          first ??= word;
-        }
-      }
-      if (matched === 0 || !first) continue;
-      hits.push({
-        doc: doc.doc,
-        article: article.number,
-        page: article.page,
-        excerpt: excerpt(article.text, normalized, first),
-        matched,
-        total,
-      });
+      consider(doc.doc, "article", article.number, article.page, article.text);
+    }
+    for (const annex of doc.annexes ?? []) {
+      consider(doc.doc, "annex", undefined, annex.page, annex.text);
     }
   }
   hits.sort((a, b) => b.matched - a.matched || b.total - a.total);
   return hits
     .slice(0, limit)
-    .map(({ doc, article, page, excerpt, matched }) => ({
+    .map(({ doc, kind, article, page, excerpt, matched }) => ({
       doc,
+      kind,
       article,
       page,
       excerpt,

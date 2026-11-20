@@ -78,11 +78,12 @@ export function NormDialog({ doc, label, defaultQuery }: NormDialogProps) {
         <ul className="flex flex-col gap-3">
           {hits?.map((hit) => (
             <li
-              key={`${hit.doc}-${hit.article}`}
+              key={`${hit.doc}-${hit.kind}-${hit.article ?? hit.page}`}
               className="rounded-lg border p-3"
             >
               <p className="mb-1 text-xs font-medium text-muted-foreground">
-                Art. {hit.article} · página {hit.page}
+                {hit.kind === "annex" ? "Anexo" : `Art. ${hit.article}`} ·
+                página {hit.page}
               </p>
               <p className="text-sm leading-snug whitespace-pre-line">
                 {hit.excerpt}

@@ -116,7 +116,8 @@
       "type": "string",
       "label": "Altura da edificação (m)",
       "description": "Altura da edificação (m)",
-      "required": false
+      "required": false,
+      "projectKey": "block_height"
     },
     {
       "name": "field_016",

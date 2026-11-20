@@ -1,6 +1,6 @@
 "use client";
 
-import { FolderOpen, House, ShieldCheck } from "lucide-react";
+import { BookOpen, FolderOpen, House, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BrandLogo } from "@/components/shared/brand-logo";
@@ -18,7 +18,12 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { ADMIN_PATH } from "@/lib/auth/gate";
-import { MODULES, MODULE_STATUS_LABEL, PROJECTS_PATH } from "@/lib/modules";
+import {
+  MODULES,
+  MODULE_STATUS_LABEL,
+  NORMS_PATH,
+  PROJECTS_PATH,
+} from "@/lib/modules";
 import { UserMenu } from "./user-menu";
 
 /** `isAdmin` only shows the link; the proxy guards `/admin`. */
@@ -69,6 +74,18 @@ export function AppSidebar({ isAdmin }: { isAdmin: boolean }) {
                   <Link href={PROJECTS_PATH}>
                     <FolderOpen />
                     <span>Projetos</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton
+                  asChild
+                  isActive={pathname.startsWith(NORMS_PATH)}
+                  tooltip="Normas"
+                >
+                  <Link href={NORMS_PATH}>
+                    <BookOpen />
+                    <span>Normas</span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>

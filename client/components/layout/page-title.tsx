@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { ADMIN_PATH } from "@/lib/auth/gate";
-import { findModule, PROJECTS_PATH } from "@/lib/modules";
+import { findModule, NORMS_PATH, PROJECTS_PATH } from "@/lib/modules";
 
 export function PageTitle() {
   const pathname = usePathname();
@@ -11,7 +11,8 @@ export function PageTitle() {
     (pathname.startsWith(ADMIN_PATH)
       ? { label: "Administração" }
       : undefined) ??
-    (pathname.startsWith(PROJECTS_PATH) ? { label: "Projetos" } : undefined);
+    (pathname.startsWith(PROJECTS_PATH) ? { label: "Projetos" } : undefined) ??
+    (pathname.startsWith(NORMS_PATH) ? { label: "Normas" } : undefined);
 
   return (
     <nav

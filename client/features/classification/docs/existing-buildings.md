@@ -63,9 +63,14 @@ When the user says an existing building will be enlarged, (or that its occupancy
 
 Every result repeats that the requirements are sized by the sum of the areas (art. 14) and that the original systems get no waiver (art. 12, § 2º). The boundaries are 20% and 50%, both inclusive in the lower band. The reading is provisional until Moura confirms it.
 
+## The flowchart and the footnote
+
+`lib/enlargement-flowchart.test.ts` reads the flowchart of Annex A of IN 5 leaf by leaf (13 paths, from "no enlargement" to "more than 50%") and checks the regime and the articles `classifyEnlargement` gives for each. The articles follow the text of the instruction: the flowchart labels the circle "IN 1 para toda a edificação" after 50% as "inc. III", but art. 19 has only incisos I and II, and the one for a building with no compartmentation is II.
+
+The `SA¹` footnote of Annex B (A-2, A-3 and B: the alarm "somente quando for exigido detecção automática para a edificação") is read: an overlay rule may carry `whenRequired`, naming another system, and labels its system only while that one is required. For these divisions the alarm is indispensable when automatic detection is required (B-1 and B-2 usually) and falls to the row's "TE" cell, adaptable, when it is not (A-2 and A-3 usually). The table of such footnotes is `WHEN_REQUIRED_NOTES` in `lib/rulesets/in5.ts`.
+
 ## What this does NOT do
 
-- **It does not read the `SA¹` footnote** (A-2, A-3, B: only when automatic detection is required): the alarm is labelled indispensable regardless.
 - **It reads `BI` as the fire brigade**, because the printed legend omits it.
 - **It does not choose an adaptation.** Annex C is shown as printed; the responsible engineer decides which one fits, with the justification the articles ask for.
 - **It does not ask whether the building is existing or recent** and does not check the proof (art. 26).

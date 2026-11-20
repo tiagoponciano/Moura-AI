@@ -51,6 +51,18 @@ const NOTE_CONDITIONS: Record<string, Condition> = {
   },
 };
 
+/**
+ * Footnotes that make a cell hold only while another system is required. The cell
+ * then labels the system only in that case; otherwise the row's "TE" cell does.
+ * A-2, A-3 and B: SA¹, "Somente quando for exigido detecção automática para a edificação".
+ */
+const WHEN_REQUIRED_NOTES: Record<string, SystemId> = {
+  "A-2:SA:1": "automatic_detection",
+  "A-3:SA:1": "automatic_detection",
+  "B-1:SA:1": "automatic_detection",
+  "B-2:SA:1": "automatic_detection",
+};
+
 const PRIORITY: Record<TreatmentClass, number> = {
   vital: 1,
   indispensable: 2,
@@ -65,6 +77,7 @@ const overlay = (
   treatment: TreatmentClass,
   extra: Condition | undefined,
   quote: string,
+  whenRequired?: SystemId,
 ): Rule => ({
   id: `IN5-B-${division}-${system}-${treatment}`,
   name: `IN 5, ${division}, ${SYSTEMS[system]}: ${treatment}`,
@@ -79,7 +92,11 @@ const overlay = (
       ...(extra ? [extra] : []),
     ],
   },
-  then: { overlay: system, class: treatment },
+  then: {
+    overlay: system,
+    class: treatment,
+    ...(whenRequired ? { whenRequired } : {}),
+  },
   source: { doc: "IN-5", locator: `Anexo B, ${division}`, quote },
   status: "provisional",
 });
@@ -108,9 +125,12 @@ export const IN5_RULES: Rule[] = annex.rows.flatMap((row) =>
         const noted = mark.notes
           .map((n) => NOTE_CONDITIONS[`${division}:${mark.id}:${n}`])
           .filter((c): c is Condition => c !== undefined);
+        const whenRequired = mark.notes
+          .map((n) => WHEN_REQUIRED_NOTES[`${division}:${mark.id}:${n}`])
+          .find((id) => id !== undefined);
         for (const system of targets) {
           // A conditional cell labels the system only while its condition holds.
-          if (noted.length === 0) named.add(system);
+          if (noted.length === 0 && !whenRequired) named.add(system);
           const quote = `${division}: ${mark.id}${mark.notes.map((n) => `(nota ${n})`).join("")}`;
           rules.push(
             overlay(
@@ -119,6 +139,7 @@ export const IN5_RULES: Rule[] = annex.rows.flatMap((row) =>
               treatment,
               noted.length ? { all: noted } : undefined,
               quote,
+              whenRequired,
             ),
           );
         }

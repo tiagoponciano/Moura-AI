@@ -29,15 +29,10 @@ A hit is `{ doc, kind, article?, page, excerpt, matched }`, where `kind` is `art
 
 A required system, once expanded in the classification panel, ends with "Norma do sistema: IN N · Ver artigos" (`SystemNormLine`). The link opens the instruction's PDF on Drive; "Ver artigos" opens a dialog (`NormDialog`) that searches that instruction's articles with the system's name, and a box to search other words. Each result shows the article, the page and the excerpt as printed, with a note to check the whole article in the PDF. The dialog calls `GET /api/classification/norm?q=<words>&doc=<IN 7>` (`handleSearchNormText`), which needs a signed-in user, refuses fewer than 3 letters with a 400 and answers the 8 best articles in `{ hits, note }`. `useNormSearch` keeps the last result on screen.
 
-## The norms chat
-
-`/norms` ("Normas" in the sidebar, under Projetos) is a chat made only to ask what the instructions say (`NormsChat`, answered by `handleNormsChat` at `POST /api/norms/chat`). Its assistant has the two tools and nothing else: no tool fills a form or a classification. Its instructions (`server/norms-instructions.ts`) tell it to answer only from what the tools return, to search again with other words when the first search finds little, to read the whole article when an excerpt is not enough, to cite the instruction and the article (or the annex and its page), to say plainly when nothing answers the question, and to leave "what does this project need" to the Classificação module. It replies in Brazilian Portuguese. It keeps only the latest turns, like the other chats, and the conversation is **not saved**: the chat history has no module for it yet.
-
 ## What this does NOT do
 
 - **The dialog shows excerpts, not whole articles.** An excerpt is at most 700 characters around the first match; the full article is in the PDF.
 - **Annex pages are raw text.** They are searched and can be read, but a table loses its layout (columns run together), and a figure is only its caption. A table that matters needs its own extraction, as the ones behind the rules have.
 - **No meaning, only words.** A question phrased with other words than the norm uses finds less. There is no synonym list and no ranking by importance.
 - **IN 12 and IN 23 print some words glued together**, so a search for those words can miss them (the extraction flags both).
-- **The norms chat keeps no history.** Saving it needs a new value in the `chat_module` enum, which is a migration.
 - **Not tried with a real model.** Whether the assistants call the tool at the right moments and cite well has not been checked.

@@ -195,6 +195,7 @@ describe("buildInstructions", () => {
     const text = buildInstructions({}, DATE);
     expect(text).toContain("`search_norm`");
     expect(text).toContain("Never quote a norm from memory");
+    expect(text).toContain("`read_norm_text`");
     expect(text).toContain("10. Always reply in Brazilian Portuguese");
   });
 });

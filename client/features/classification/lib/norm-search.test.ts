@@ -99,6 +99,65 @@ describe("searchArticles", () => {
     expect(hit.excerpt).toContain("mangotinho");
   });
 
+  describe("synonyms in `also`", () => {
+    const stairs: NormDoc[] = [
+      {
+        doc: "IN-9",
+        articles: [
+          {
+            number: 1,
+            page: 2,
+            text: "Art. 1º A escada enclausurada deve ter porta corta-fogo.",
+          },
+          {
+            number: 2,
+            page: 2,
+            text: "Art. 2º A escada comum e a escada aberta ficam fora.",
+          },
+        ],
+      },
+    ];
+
+    it("finds the article that only uses the norm's word, not the user's", () => {
+      expect(searchArticles(stairs, "escada protegida")).toHaveLength(2);
+      const [hit] = searchArticles(stairs, "protegida", 5, ["enclausurada"]);
+      expect(hit).toMatchObject({ article: 1, matched: 1 });
+    });
+
+    it("counts a word of the query for more than a synonym", () => {
+      const docs: NormDoc[] = [
+        {
+          doc: "IN-X",
+          articles: [
+            { number: 1, page: 1, text: "Art. 1º Extintor." },
+            { number: 2, page: 1, text: "Art. 2º Aparelho portatil." },
+          ],
+        },
+      ];
+      const hits = searchArticles(docs, "extintor", 5, ["aparelho"]);
+      expect(hits.map((h) => h.article)).toEqual([1, 2]);
+    });
+
+    it("does not count a synonym that repeats the query, or an empty list", () => {
+      expect(
+        searchArticles(stairs, "enclausurada", 5, ["enclausurada"])[0].matched,
+      ).toBe(1);
+      expect(searchArticles(stairs, "enclausurada", 5, [])).toEqual(
+        searchArticles(stairs, "enclausurada"),
+      );
+    });
+
+    it("searches with the synonyms alone when the query has no searchable word", () => {
+      const [hit] = searchArticles(stairs, "a de o", 5, ["enclausurada"]);
+      expect(hit.article).toBe(1);
+    });
+
+    it("limits how many related words one search takes in", () => {
+      const many = Array.from({ length: 30 }, (_, i) => `palavra${i}x`);
+      expect(() => searchArticles(stairs, "escada", 5, many)).not.toThrow();
+    });
+  });
+
   it("marks an article hit as one", () => {
     expect(searchArticles(docs, "iluminacao")[0].kind).toBe("article");
   });

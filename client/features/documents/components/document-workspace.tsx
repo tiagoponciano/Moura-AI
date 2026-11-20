@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 import { useDocumentFilling } from "../hooks/use-document-filling";
 import { useProjects } from "@/hooks/use-projects";
 import { chatEmptyState } from "../lib/templates";
+import { usePdfApproval } from "../hooks/use-pdf-approval";
 import { FormChatTitle } from "./form-chat-title";
 import { FormPanel } from "./form-panel";
 import { FormsHome } from "./forms-home";
@@ -21,6 +22,7 @@ export function DocumentWorkspace() {
   const projects = useProjects(isSupabaseConfigured());
   const filling = useDocumentFilling(projects.selected, projects.saveData);
   const { template, schema, progress } = filling;
+  const approval = usePdfApproval(projects.selected);
   const [tab, setTab] = useState<WorkspaceTab>("chat");
 
   return (
@@ -95,6 +97,7 @@ export function DocumentWorkspace() {
               generating={filling.generating}
               onChange={filling.updateField}
               pdf={filling.pdf}
+              approval={approval}
               notice={filling.notice}
               onGenerate={filling.generate}
               onDownloadDocx={filling.downloadDocx}

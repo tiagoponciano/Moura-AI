@@ -29,10 +29,14 @@ A hit is `{ doc, kind, article?, page, excerpt, matched }`, where `kind` is `art
 
 A required system, once expanded in the classification panel, ends with "Norma do sistema: IN N · Ver artigos" (`SystemNormLine`). The link opens the instruction's PDF on Drive; "Ver artigos" opens a dialog (`NormDialog`) that searches that instruction's articles with the system's name, and a box to search other words. Each result shows the article, the page and the excerpt as printed, with a note to check the whole article in the PDF. The dialog calls `GET /api/classification/norm?q=<words>&doc=<IN 7>` (`handleSearchNormText`), which needs a signed-in user, refuses fewer than 3 letters with a 400 and answers the 8 best articles in `{ hits, note }`. `useNormSearch` keeps the last result on screen.
 
+## Meaning: synonyms from the assistant
+
+The search is by words, and the norm may not use the user's word ("escada protegida" for what the text calls "escada enclausurada"). The assistant is the one that knows they mean the same, so `search_norm` takes `also`: up to 6 synonyms or related terms, which count for half as much as a word of the query itself, and the instructions tell the assistant to fill it and to search again with other words when little is found. No index and no extra call are involved; the model does the translation of meaning, the code does the matching. A search by embeddings, which needs no word in common, is a separate step (it needs an embedding model, a stored index and a key).
+
 ## What this does NOT do
 
 - **The dialog shows excerpts, not whole articles.** An excerpt is at most 700 characters around the first match; the full article is in the PDF.
 - **Annex pages are raw text.** They are searched and can be read, but a table loses its layout (columns run together), and a figure is only its caption. A table that matters needs its own extraction, as the ones behind the rules have.
-- **No meaning, only words.** A question phrased with other words than the norm uses finds less. There is no synonym list and no ranking by importance.
+- **Meaning comes from the assistant, not from the code.** Only words are matched; `also` lets the assistant add synonyms, but a model that does not send them finds less. There is no ranking by importance.
 - **IN 12 and IN 23 print some words glued together**, so a search for those words can miss them (the extraction flags both).
 - **Not tried with a real model.** Whether the assistants call the tool at the right moments and cite well has not been checked.

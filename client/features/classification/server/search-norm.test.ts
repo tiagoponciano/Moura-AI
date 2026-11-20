@@ -34,6 +34,16 @@ describe("searchNorm, over the extracted norm text", () => {
   });
 });
 
+describe("searchNorm, synonyms", () => {
+  it("finds an article through a synonym when the user's word is not in the text", async () => {
+    const without = await searchNorm("zzzxxqq", "IN 9");
+    expect(without.hits).toEqual([]);
+    const withAlso = await searchNorm("zzzxxqq", "IN 9", 5, ["enclausurada"]);
+    expect(withAlso.hits.length).toBeGreaterThan(0);
+    expect(new Set(withAlso.hits.map((h) => h.doc))).toEqual(new Set(["IN-9"]));
+  });
+});
+
 describe("searchNorm, annexes", () => {
   it("finds an annex page when the words are only there, with no article number", async () => {
     // "mangotinho" with the figure captions of IN 7, Annex B.

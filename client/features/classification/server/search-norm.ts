@@ -28,6 +28,7 @@ export async function searchNorm(
   query: string,
   doc?: string,
   limit = 5,
+  also: string[] = [],
 ): Promise<{ hits: NormHit[]; note?: string }> {
   const wanted = doc ? key(doc) : undefined;
   const codes = Object.keys(NORM_TEXT_LOADERS).filter(
@@ -37,7 +38,7 @@ export async function searchNorm(
     return { hits: [], note: `No instruction named ${doc}.` };
   }
   const docs = await Promise.all(codes.map(loadDoc));
-  const hits = searchArticles(docs, query, limit);
+  const hits = searchArticles(docs, query, limit, also);
   return {
     hits,
     note: hits.length === 0 ? "No article matches those words." : undefined,
@@ -117,6 +118,13 @@ const searchNormInput = z.object({
     .describe(
       "Words to look for in the norm text, in Portuguese, like: distancia maxima extintor",
     ),
+  also: z
+    .array(z.string().min(2).max(60))
+    .max(6)
+    .optional()
+    .describe(
+      "Synonyms and other words or short phrases the norm may use for the same idea, in Portuguese, like: escada a prova de fumaca, PF. The norm text may not use the user's own word; these count too",
+    ),
   doc: z
     .string()
     .max(20)
@@ -132,9 +140,9 @@ export const READ_NORM_TOOL = "read_norm_text";
 export const normSearchTools = {
   [SEARCH_NORM_TOOL]: tool({
     description:
-      "Searches the text of the CBMSC fire safety instructions (INs) and returns the matching articles and annex pages, each with the instruction, the article number (not for an annex) and the page, and an excerpt. Call it before stating what a norm requires, and cite the instruction and article it returns. To read a whole article or annex page found, call read_norm_text. If nothing matches, say so; never answer a norm question from memory.",
+      "Searches the text of the CBMSC fire safety instructions (INs) and returns the matching articles and annex pages, each with the instruction, the article number (not for an annex) and the page, and an excerpt. Call it before stating what a norm requires, and cite the instruction and article it returns. The text may not use the user's word: put synonyms and related terms in `also`, and search again with other words when little is found. To read a whole article or annex page found, call read_norm_text. If nothing matches, say so; never answer a norm question from memory.",
     inputSchema: searchNormInput,
-    execute: async ({ query, doc }) => searchNorm(query, doc),
+    execute: async ({ query, doc, also }) => searchNorm(query, doc, 5, also),
   }),
   [READ_NORM_TOOL]: tool({
     description:

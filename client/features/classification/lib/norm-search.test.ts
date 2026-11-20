@@ -79,6 +79,30 @@ describe("searchArticles", () => {
     expect(searchArticles(docs, "helicoptero")).toEqual([]);
   });
 
+  it("finds a page of the annexes, marked as one and with no article number", () => {
+    const withAnnex: NormDoc[] = [
+      {
+        doc: "IN-7",
+        articles: [{ number: 1, page: 2, text: "Art. 1º Objetivo." }],
+        annexes: [
+          {
+            page: 16,
+            title: "Anexo A",
+            text: "Tabela 1 - Tipo de sistema: mangotinho",
+          },
+        ],
+      },
+    ];
+    const [hit] = searchArticles(withAnnex, "mangotinho");
+    expect(hit).toMatchObject({ doc: "IN-7", kind: "annex", page: 16 });
+    expect(hit.article).toBeUndefined();
+    expect(hit.excerpt).toContain("mangotinho");
+  });
+
+  it("marks an article hit as one", () => {
+    expect(searchArticles(docs, "iluminacao")[0].kind).toBe("article");
+  });
+
   it("respects the limit", () => {
     expect(searchArticles(docs, "extintor", 1)).toHaveLength(1);
   });

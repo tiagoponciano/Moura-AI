@@ -18,6 +18,7 @@ describe("buildInstructions, norm search", () => {
     ]);
     expect(prompt).toContain("8. When the user asks what a norm requires");
     expect(prompt).toContain("Never quote a norm from memory");
+    expect(prompt).toContain("`read_norm_text`");
   });
 
   it("numbers the rules of both tools one after the other", () => {

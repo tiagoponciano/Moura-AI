@@ -35,13 +35,19 @@ describe("handleSearchNormText", () => {
     const response = await get("q=hidrante%20mangueira&doc=IN%207");
     expect(response.status).toBe(200);
     const body = (await response.json()) as {
-      hits: { doc: string; article: number; page: number; excerpt: string }[];
+      hits: {
+        doc: string;
+        kind: string;
+        article?: number;
+        page: number;
+        excerpt: string;
+      }[];
     };
     expect(body.hits.length).toBeGreaterThan(0);
     expect(body.hits.length).toBeLessThanOrEqual(8);
     for (const hit of body.hits) {
       expect(hit.doc).toBe("IN-7");
-      expect(hit.article).toBeGreaterThan(0);
+      if (hit.kind === "article") expect(hit.article).toBeGreaterThan(0);
       expect(hit.excerpt.length).toBeGreaterThan(0);
     }
   });

@@ -16,7 +16,7 @@ function extraRules(extraTools: string[]): string {
       ? "When the user states data about the building (occupation division, area, height, storeys, people, special risks or the risk level), call `check_building` with it. The tool applies the norms; you decide nothing about them. If it returns conflicts, tell the user plainly what the norm gives, cite its source and ask which is right before recording the conflicting value. If it returns missing items, you may ask for them when they help the form. Never state a risk level the tool did not return."
       : undefined,
     extraTools.includes("search_norm")
-      ? "When the user asks what a norm requires, or you need a norm to answer, call `search_norm` and answer from what it returns, citing the instruction, the article and the page. If it finds nothing, say so. Never quote a norm from memory."
+      ? "When the user asks what a norm requires, or you need a norm to answer, call `search_norm` and answer from what it returns, citing the instruction, the article and the page (an annex page has no article number: cite the annex and the page). When an excerpt is not enough, call `read_norm_text` for the whole article or annex page. If it finds nothing, say so. Never quote a norm from memory."
       : undefined,
   ].filter((rule): rule is string => rule !== undefined);
   return rules.map((rule, index) => `\n${8 + index}. ${rule}`).join("");

@@ -89,21 +89,24 @@
       "type": "string",
       "label": "1.12 Área total construída (m²)",
       "description": "1. DADOS DO IMÓVEL / EVENTO: 1.12 Área total construída (m²)",
-      "required": false
+      "required": false,
+      "projectKey": "property_total_area"
     },
     {
       "name": "field_014",
       "type": "string",
       "label": "1.14 Nº de pavimentos",
       "description": "1. DADOS DO IMÓVEL / EVENTO: 1.14 Nº de pavimentos",
-      "required": false
+      "required": false,
+      "projectKey": "property_floors"
     },
     {
       "name": "field_015",
       "type": "string",
       "label": "1.15 Altura (m)",
       "description": "1. DADOS DO IMÓVEL / EVENTO: 1.15 Altura (m)",
-      "required": false
+      "required": false,
+      "projectKey": "block_height"
     },
     {
       "name": "field_016",
@@ -117,7 +120,8 @@
       "type": "string",
       "label": "1.17 Lotação máxima",
       "description": "1. DADOS DO IMÓVEL / EVENTO: 1.17 Lotação máxima",
-      "required": false
+      "required": false,
+      "projectKey": "block_capacity"
     },
     {
       "name": "field_018",

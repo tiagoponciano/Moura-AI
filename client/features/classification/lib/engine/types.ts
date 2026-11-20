@@ -33,8 +33,12 @@ export type RuleResult =
    * only: the engine never drops the system because of it.
    */
   | { substitute: string; by: string[]; note?: string }
-  /** Label an already required system for an existing building. */
-  | { overlay: string; class: OverlayClass }
+  /**
+   * Label an already required system for an existing building. With `whenRequired`,
+   * only while that other system is also required (a footnote such as "only when
+   * automatic detection is required").
+   */
+  | { overlay: string; class: OverlayClass; whenRequired?: string }
   /** The norm leaves this case to a specific analysis; the engine never decides it. */
   | { specificAnalysis: string };
 

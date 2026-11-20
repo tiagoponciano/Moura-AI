@@ -232,6 +232,14 @@ export function evaluateRules(
     if (!("overlay" in then)) misplaced(rule, "overlay");
     const result = run(rule);
     if (result.outcome !== "true") continue;
+    if (
+      then.whenRequired &&
+      !systems.some(
+        (s) => s.id === then.whenRequired && s.status === "required",
+      )
+    ) {
+      continue;
+    }
     const system = systems.find((s) => s.id === then.overlay);
     if (system?.status === "required" && system.overlayClass === undefined) {
       system.overlayClass = then.class;

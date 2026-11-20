@@ -81,4 +81,29 @@ describe("IN 5 overlay rules", () => {
     );
     expect(treatment(plant("hydro"), "hydraulic_preventive")).toBe("adaptable");
   });
+
+  describe("the footnote of the alarm (SA¹: only when automatic detection is required)", () => {
+    const building = (division: string): Facts => ({
+      ...shop({ division, area_m2: 800, storeys: 3, height_m: 9 }),
+      fire_load_class: "low",
+    });
+
+    it("labels the alarm of an A-2 building adaptable, since no detection is required there", () => {
+      expect(treatment(building("A-2"), "fire_alarm")).toBe("adaptable");
+      expect(treatment(building("A-3"), "fire_alarm")).toBe("adaptable");
+    });
+
+    it("keeps the alarm indispensable where detection is required (B-1)", () => {
+      expect(
+        classify(building("B-1"), DATE).groups.required.some(
+          (s) => s.id === "automatic_detection",
+        ),
+      ).toBe(true);
+      expect(treatment(building("B-1"), "fire_alarm")).toBe("indispensable");
+    });
+
+    it("still labels the other systems of A-2 as Annex B says", () => {
+      expect(treatment(building("A-2"), "extinguishers")).toBe("vital");
+    });
+  });
 });

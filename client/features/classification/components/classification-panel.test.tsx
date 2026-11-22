@@ -40,8 +40,8 @@ describe("ClassificationPanel", () => {
       const at = html.indexOf("Baixar relatório");
       return html.slice(html.lastIndexOf("<button", at), at);
     };
-    expect(reportButton(render({}))).toContain("disabled");
-    expect(reportButton(render({ area_m2: 100 }))).not.toContain("disabled");
+    expect(reportButton(render({}))).toContain(" disabled=");
+    expect(reportButton(render({ area_m2: 100 }))).not.toContain(" disabled=");
   });
 
   it("asks the first question and explains what the panel will show when nothing is answered", () => {

@@ -157,7 +157,7 @@ RPC errors and how the handlers map them:
 
    The button switches to the Modelo de IA tab.
 
-2. **Four section tabs** (Radix Tabs; the selection is local state and starts on Usuários). Each tab shows a one-line summary from `summarizeSections` ("Carregando…" until its data loads):
+2. **Section tabs**, flat and underlined when open, in a row that scrolls sideways when narrow (Radix Tabs; the selection is local state and starts on Usuários). Each tab shows a one-line summary from `summarizeSections` ("Carregando…" until its data loads):
 
    | Tab               | Summary                                                                                                                                                                                                                                             |
    | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -237,7 +237,7 @@ How the catalog works, including link resolution and its errors, is in `client/d
 - **`admin_set_provider_key` fails with a Vault permission error** → the function owner lacks access to `vault` (projects where the migration ran as a role other than `postgres`). → Run the migration as `postgres` (SQL editor or `supabase db push`).
 - **A domain with a typo locks everyone out** → the domain check runs before approval for every request, admins included, in the proxy and in `is_approved()`/`is_admin()`, so no admin RPC works either. → Fix it with SQL as `postgres` (the SQL editor): `update public.app_settings set allowed_email_domain = null;`.
 
-- **A class on a tab does not apply, e.g. the tab list stays 32px tall and the section cards overlap the content** → `shadcn/tailwind.css` maps `data-active` to `[data-state="active"]` and `data-horizontal` to `[data-orientation="horizontal"]`, so the primitive's variant classes (`group-data-horizontal/tabs:h-8`, `dark:data-active:border-input`) win over a plain `h-auto` or `border-primary`. → Override with the same variant (`group-data-horizontal/tabs:h-auto`, `dark:data-active:border-primary`), as `admin-console.tsx` and `section-tab.tsx` do.
+- **A class on a tab does not apply, e.g. the tab list stays 32px tall and the section tabs overlap the content** → `shadcn/tailwind.css` maps `data-active` to `[data-state="active"]` and `data-horizontal` to `[data-orientation="horizontal"]`, so the primitive's variant classes (`group-data-horizontal/tabs:h-8`, `dark:data-active:border-input`) win over a plain `h-auto` or `border-primary`. → Override with the same variant (`group-data-horizontal/tabs:h-auto`, `dark:data-active:border-primary`), as `admin-console.tsx` and `section-tab.tsx` do.
 - **A TanStack Table option or column method is missing** → the project uses TanStack Table v9: features are registered in `TEAM_TABLE_FEATURES` (`tableFeatures({...})`), and columns sort with `sortFn` (not `sortingFn`). → Register the feature there; the installed package ships its guides under `node_modules/@tanstack/react-table/skills/`.
 
 ## Setup

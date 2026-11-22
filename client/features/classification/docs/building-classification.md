@@ -43,24 +43,24 @@ Server (`server/`): `recordAnswersInput` (zod, generated from the registry), `re
 
 ### Feature layout
 
-| File                                                      | Role                                                                                                 |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `index.ts` / `server/index.ts`                            | Public entries: `ClassificationWorkspace` / `handleClassificationChat`                               |
-| `server/instructions.ts`                                  | System prompt (English; replies in Brazilian Portuguese) with the recorded answers and next question |
-| `server/record-answers.ts`                                | The tool's input schema and what it returns                                                          |
-| `server/chat-handler.ts`                                  | Model call and the `record_answers` tool                                                             |
-| `lib/engine/`, `lib/rulesets/`                            | The rule engine and the Grupo C rules                                                                |
-| `lib/questions.ts`, `answers.ts`, `classify.ts`           | The registry, answer validation and the result shaped for the screen                                 |
-| `hooks/use-classification.ts`                             | Answers, their sources and the classification                                                        |
-| `components/classification-workspace.tsx`                 | Layout: chat edge to edge, 360px panel on the right, tabs below `lg`                                 |
-| `components/classification-panel.tsx`                     | Panel: form, next question, analysis notice, systems, provisional notice and "Limpar respostas"      |
-| `components/building-form.tsx`                            | Header, progress bar and one row per question                                                        |
-| `components/answer-row.tsx`                               | A labelled row with its filled mark and the source of the answer                                     |
-| `components/answer-control.tsx`                           | The input of a question: the chosen activity, a number or a menu with não sei                        |
-| `components/next-questions.tsx`                           | The next question and what waits for a professional                                                  |
-| `components/analysis-notice.tsx`                          | The reason a case needs a specific analysis                                                          |
-| `components/requirements-list.tsx`, `requirement-row.tsx` | Summary bar, status groups and one system per row                                                    |
-| `components/provisional-notice.tsx`                       | "Regras provisórias" note in the panel footer                                                        |
+| File                                                      | Role                                                                                                                |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `index.ts` / `server/index.ts`                            | Public entries: `ClassificationWorkspace` / `handleClassificationChat`                                              |
+| `server/instructions.ts`                                  | System prompt (English; replies in Brazilian Portuguese) with the recorded answers and next question                |
+| `server/record-answers.ts`                                | The tool's input schema and what it returns                                                                         |
+| `server/chat-handler.ts`                                  | Model call and the `record_answers` tool                                                                            |
+| `lib/engine/`, `lib/rulesets/`                            | The rule engine and the Grupo C rules                                                                               |
+| `lib/questions.ts`, `answers.ts`, `classify.ts`           | The registry, answer validation and the result shaped for the screen                                                |
+| `hooks/use-classification.ts`                             | Answers, their sources and the classification                                                                       |
+| `components/classification-workspace.tsx`                 | Layout: chat edge to edge, 360px panel on the right, tabs below `lg`                                                |
+| `components/classification-panel.tsx`                     | Panel: form, next question, analysis notice, systems, provisional notice, "Baixar relatório" and "Limpar respostas" |
+| `components/building-form.tsx`                            | Header, progress bar and one row per question                                                                       |
+| `components/answer-row.tsx`                               | A labelled row with its filled mark and the source of the answer                                                    |
+| `components/answer-control.tsx`                           | The input of a question: the chosen activity, a number or a menu with não sei                                       |
+| `components/next-questions.tsx`                           | The next question and what waits for a professional                                                                 |
+| `components/analysis-notice.tsx`                          | The reason a case needs a specific analysis                                                                         |
+| `components/requirements-list.tsx`, `requirement-row.tsx` | Summary bar, status groups and one system per row                                                                   |
+| `components/provisional-notice.tsx`                       | "Regras provisórias" note in the panel footer                                                                       |
 
 `app/(app)/classification/page.tsx` renders only `ClassificationWorkspace` in a full-height column with no padding and no `PageHeader`, as Documentos does. The panel reuses app-wide pieces shared with Documentos: `WorkspaceTabs` (`components/shared/workspace-tabs.tsx`), `SourceTagBadge` (`components/shared/source-tag-badge.tsx`) and `recordSources` / `sourceTag` (`lib/field-sources.ts`).
 
@@ -111,6 +111,7 @@ Answers are engine facts (`Record<fact, number | string | boolean | null | undef
 - **Sources.** Every answer kept from a `record_answers` result, including a "não sei", is marked `assistant`; any edit in the panel marks that field `user`, even when the typed value is invalid and clears the fact. The row shows "IA" or "editado" from `sourceTag`, and nothing while the answer is empty. A later tool result marks it `assistant` again.
 - **The prompt.** `buildInstructions` lists every fact with its description, the answers already recorded (the panel's, with "não sei" for `null`) and the next question, which is `next.ask`. It tells the model to ask one question at a time, to record a plain "sim" to a combined question as every point being true of the building (`single_block` true, `single_use` true, `storage_over_3_5m` false) and a denial as that one point only, to put what the user does not know in `unknown`, to map the activity to C-1, C-2, C-3 or `other` and ask when it fits more than one, never to state requirements or cite norms, and to answer in Brazilian Portuguese.
 - **The analysis date** is today in `America/Sao_Paulo`: on the server per request, in the browser once when the page mounts.
+- **Report.** "Baixar relatório" (disabled while `progress.answered` is 0) downloads a `.docx` of the result (`reportLines` and `buildReportDocx` in `lib/classification-report.ts`: the risk with its source, the required systems with theirs, the ones that depend on information, and a provisional notice while answers are pending) named `Classificação - <project>.docx`. With a project chosen the same file is kept in it as a `classification` file (`useClassificationReport`); if it cannot be kept, a toast says so.
 - **Reset.** "Limpar respostas" clears all answers and their sources but not the chat; it is disabled while `progress.answered` is 0.
 - **Subsidiary occupations.** When the user says there is more than one occupation, the assistant asks whether the others are only subsidiary (`only_subsidiary`). If so, the rules of the main occupation apply and the result carries `observations` (art. 10: garage compartmentation); if not, it is mixed or secondary use and a specific analysis replaces the result.
 - **Questions.** `nextQuestions` is what the engine reported unanswered, in registry order. The three scope confirmations (one block, one use, no storage above 3,5 m) carry a `scope` in the registry; while two or more are open they are asked as one sentence built from their clauses. A single-storey building is never asked its height, and a Grupo C building outside the fire-load cases is never asked its fire load, because the rules do not need them.
@@ -134,7 +135,7 @@ Panel, top to bottom:
 | Dependem de respostas | Hollow dot, name, "Falta" and one pill per missing answer. When two or more systems are pending, what all of them wait for is said once above them ("Todos aguardam: …") and left out of the rows                  |
 | Não exigidos          | `input` dot, name in muted text                                                                                                                                                                                    |
 
-8. **Footer**: the provisional notice (`accent`) and the outline "Limpar respostas" button.
+8. **Footer**: the provisional notice (`accent`), "Baixar relatório" and the outline "Limpar respostas" button.
 
 **Risk III against the Annex A extraction.** The risk III rules of every group (A, B, C, D, E, G, H, I, J and M-3, M-4, M-11; F follows quadro 3) are coded by hand, and `lib/rulesets/risk-iii-annex-a.test.ts` checks them against `norms/in-1-p1/annex-a.json`: for each division, height band and area limit of quadro 2, the risk is II or III at the limit and IV one square meter above it. A change to the extracted annex that the rules do not follow fails that test. Group F is not covered by it, and the criterion of its quadro 3 ends in an "E" in the PDF, so it waits for Moura.
 

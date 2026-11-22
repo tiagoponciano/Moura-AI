@@ -1,13 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 import { useEffect, type ReactNode } from "react";
+import { ProjectActions } from "@/components/shared/project-actions";
 import { PageHeader } from "@/components/shared/page-header";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useProjects } from "@/hooks/use-projects";
 import { writeSelectedProject } from "@/lib/projects/selection";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { describeProject } from "../lib/project-summary";
 import { ProjectDataForm } from "./project-data-form";
 import { ProjectFilesList } from "./project-files-list";
 
@@ -21,6 +24,7 @@ type ProjectDetailProps = {
 export function ProjectDetail({ id, children }: ProjectDetailProps) {
   const projects = useProjects(isSupabaseConfigured());
   const project = projects.projects.find((entry) => entry.id === id);
+  const router = useRouter();
 
   // The tools open on the project chosen last, so the one being looked at becomes it.
   useEffect(() => {
@@ -37,7 +41,21 @@ export function ProjectDetail({ id, children }: ProjectDetailProps) {
       </Link>
       {project ? (
         <>
-          <PageHeader title={project.name} />
+          <PageHeader
+            title={project.name}
+            description={describeProject(project)}
+            actions={
+              <ProjectActions
+                project={project}
+                onRename={(name) => projects.rename(project.id, name)}
+                onArchive={async () => {
+                  const archived = await projects.archive(project.id);
+                  if (archived) router.push("/projects");
+                  return archived;
+                }}
+              />
+            }
+          />
           <div className="grid gap-4 lg:grid-cols-2">{children}</div>
           <ProjectFilesList projectId={project.id} />
           <h2 className="text-sm font-medium">Dados do projeto</h2>

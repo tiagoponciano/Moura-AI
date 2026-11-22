@@ -25,12 +25,13 @@ Invariants:
 
 Colors come from the Moura logo (`public/brand/moura-logo.png`): the flame's red (light mode) and orange (dark mode) drive `primary`, `ring`, `sidebar-primary` and, as a light tint, `accent` / `sidebar-accent` (hover and active states). Neutrals follow the logo's graphite gear: near-neutral grays (chroma ≤ 0.004).
 
-| Token         | Light                  | Dark                   | Used for                                                                 |
-| ------------- | ---------------------- | ---------------------- | ------------------------------------------------------------------------ |
-| `primary`     | `oklch(0.57 0.21 33)`  | `oklch(0.7 0.17 45)`   | buttons, user chat bubbles, home card icons, 3D scene highlights         |
-| `accent`      | `oklch(0.96 0.025 45)` | `oklch(0.28 0.04 45)`  | hover backgrounds of cards, chips and menu items                         |
-| `success`     | `oklch(0.58 0.13 155)` | `oklch(0.72 0.14 155)` | "filled" checks in the fields panel and confirmed tool calls in the chat |
-| `destructive` | shadcn default         | shadcn default         | validation errors                                                        |
+| Token         | Light                  | Dark                    | Used for                                                                                                                              |
+| ------------- | ---------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `primary`     | `oklch(0.57 0.21 33)`  | `oklch(0.7 0.17 45)`    | buttons, user chat bubbles, home card icons, 3D scene highlights                                                                      |
+| `accent`      | `oklch(0.96 0.025 45)` | `oklch(0.28 0.04 45)`   | hover backgrounds of cards, chips and menu items                                                                                      |
+| `success`     | `oklch(0.58 0.13 155)` | `oklch(0.72 0.14 155)`  | "filled" checks in the fields panel and confirmed tool calls in the chat                                                              |
+| `destructive` | shadcn default         | shadcn default          | validation errors                                                                                                                     |
+| `sidebar`     | `oklch(1 0 0)`         | `oklch(0.12 0.002 345)` | the sidebar: white in light mode, near black in dark; the active item is a neutral gray with a brand-colored icon (`sidebar-primary`) |
 
 The home 3D scene has its own tokens, declared in `:root` / `.dark` but not mapped in `@theme inline` (they are not Tailwind utilities): `--scene-concrete`, `--scene-core`, `--scene-glass`, `--scene-edge`, `--scene-sidewalk`, `--scene-street`, `--scene-marking`, `--scene-trunk`, `--scene-foliage`, `--scene-suit`, `--scene-truck`, `--scene-hose`, `--scene-helmet`, `--scene-reflective`, `--scene-tire`, `--scene-metal`, `--scene-smoke`, `--scene-water`. The scene also reads `--primary` (fire protection systems) and `--background` (fog). It re-reads them when the resolved theme changes; see `features/home/docs/home-rescue-scene.md`.
 

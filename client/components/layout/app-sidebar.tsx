@@ -21,6 +21,9 @@ import { ADMIN_PATH } from "@/lib/auth/gate";
 import { MODULES, MODULE_STATUS_LABEL, PROJECTS_PATH } from "@/lib/modules";
 import { UserMenu } from "./user-menu";
 
+/** The active item keeps a neutral background; only its icon takes the brand color. */
+const ACTIVE_ICON = "data-[active=true]:[&>svg]:text-sidebar-primary";
+
 /** `isAdmin` only shows the link; the proxy guards `/admin`. */
 export function AppSidebar({ isAdmin }: { isAdmin: boolean }) {
   const pathname = usePathname();
@@ -51,6 +54,7 @@ export function AppSidebar({ isAdmin }: { isAdmin: boolean }) {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
+                  className={ACTIVE_ICON}
                   isActive={pathname === "/"}
                   tooltip="Início"
                 >
@@ -63,6 +67,7 @@ export function AppSidebar({ isAdmin }: { isAdmin: boolean }) {
               <SidebarMenuItem>
                 <SidebarMenuButton
                   asChild
+                  className={ACTIVE_ICON}
                   isActive={pathname.startsWith(PROJECTS_PATH)}
                   tooltip="Projetos"
                 >
@@ -83,6 +88,7 @@ export function AppSidebar({ isAdmin }: { isAdmin: boolean }) {
                 <SidebarMenuItem key={href}>
                   <SidebarMenuButton
                     asChild
+                    className={ACTIVE_ICON}
                     isActive={pathname.startsWith(href)}
                     tooltip={label}
                   >
@@ -108,6 +114,7 @@ export function AppSidebar({ isAdmin }: { isAdmin: boolean }) {
                 <SidebarMenuItem>
                   <SidebarMenuButton
                     asChild
+                    className={ACTIVE_ICON}
                     isActive={pathname.startsWith(ADMIN_PATH)}
                     tooltip="Administração"
                   >

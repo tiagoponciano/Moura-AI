@@ -1,0 +1,56 @@
+import { describe, expect, it } from "vitest";
+import type { ProjectFile, ProjectFileKind } from "@/lib/projects/files";
+import { countByFilter, filterFiles } from "./file-filters";
+
+const file = (id: string, kind: ProjectFileKind): ProjectFile => ({
+  id,
+  kind,
+  file_name: `${id}.pdf`,
+  mime_type: "application/pdf",
+  size_bytes: 1,
+  storage_path: `p/${id}`,
+  created_at: "2026-11-22T10:00:00Z",
+});
+const files = [
+  file("a", "form"),
+  file("b", "conversion"),
+  file("c", "plan"),
+  file("d", "proposal"),
+  file("e", "form"),
+];
+
+describe("filterFiles", () => {
+  it("shows everything for the first toggle, in the order given", () => {
+    expect(filterFiles(files, "all").map((f) => f.id)).toEqual([
+      "a",
+      "b",
+      "c",
+      "d",
+      "e",
+    ]);
+  });
+
+  it("shows only documents under Documentos", () => {
+    expect(filterFiles(files, "forms").map((f) => f.id)).toEqual(["a", "e"]);
+  });
+
+  it("groups an uploaded plan and its conversion under Plantas", () => {
+    expect(filterFiles(files, "plans").map((f) => f.id)).toEqual(["b", "c"]);
+  });
+
+  it("shows nothing for a toggle with no file", () => {
+    expect(filterFiles(files, "other")).toEqual([]);
+  });
+});
+
+describe("countByFilter", () => {
+  it("counts what each toggle would show, and all of them under Todos", () => {
+    expect(countByFilter(files)).toEqual({
+      all: 5,
+      forms: 2,
+      proposals: 1,
+      plans: 2,
+      other: 0,
+    });
+  });
+});

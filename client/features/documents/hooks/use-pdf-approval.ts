@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { toast } from "sonner";
 import { errorMessage } from "@/lib/api/request-json";
 import type { Project } from "@/lib/projects/project";
 import { approvePdf } from "../lib/approve-pdf";
@@ -23,6 +24,11 @@ export function usePdfApproval(project: Project | undefined): PdfApproval {
     try {
       const { warning } = await approvePdf(pdf, project?.id);
       setError(warning);
+      if (warning) toast.warning(warning);
+      else
+        toast.success(
+          project ? "PDF baixado e guardado no projeto." : "PDF baixado.",
+        );
       return true;
     } catch (cause) {
       setError(errorMessage(cause));

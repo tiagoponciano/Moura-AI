@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { toast } from "sonner";
 import { errorMessage } from "@/lib/api/request-json";
 import {
   archiveProject,
@@ -85,6 +86,7 @@ export function useProjects(enabled: boolean) {
           .map((item) => (item.id === id ? project : item))
           .sort((a, b) => a.name.localeCompare(b.name, "pt-BR")),
       );
+      toast.success("Projeto renomeado.");
       return true;
     } catch (cause) {
       setError(errorMessage(cause));
@@ -99,6 +101,7 @@ export function useProjects(enabled: boolean) {
       await archiveProject(id);
       setProjects((current) => current.filter((item) => item.id !== id));
       if (selectedId === id) choose(undefined);
+      toast.success("Projeto arquivado.");
       return true;
     } catch (cause) {
       setError(errorMessage(cause));

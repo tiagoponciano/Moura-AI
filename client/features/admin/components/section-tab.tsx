@@ -11,7 +11,7 @@ type SectionTabProps = {
   highlight?: boolean;
 };
 
-/** A section of the console as a card: icon, name and its current state in one line. */
+/** A section of the console as a flat tab: icon, name and its current state in one line, underlined when open. */
 export function SectionTab({
   value,
   icon: Icon,
@@ -22,17 +22,15 @@ export function SectionTab({
   return (
     <TabsTrigger
       value={value}
-      className="group h-auto min-w-0 flex-[1_1_220px] items-start justify-start gap-3 rounded-xl border-border bg-card px-4 py-3.5 text-left whitespace-normal text-foreground transition-[border-color,box-shadow] hover:border-foreground/20 data-active:border-primary data-active:bg-card data-active:ring-3 data-active:ring-primary/15 group-data-[variant=default]/tabs-list:data-active:shadow-none dark:text-foreground dark:data-active:border-primary dark:data-active:bg-card"
+      className="group h-auto min-w-0 flex-none items-start justify-start gap-2.5 rounded-none border-0 border-b-2 border-transparent bg-transparent px-4 py-3 text-left whitespace-normal text-muted-foreground transition-colors hover:text-foreground data-active:border-primary data-active:bg-transparent data-active:text-foreground data-active:shadow-none dark:data-active:border-primary dark:data-active:bg-transparent"
     >
-      <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-muted text-muted-foreground group-data-active:bg-accent group-data-active:text-accent-foreground">
-        <Icon className="size-[18px]" />
-      </span>
+      <Icon className="mt-0.5 size-4 shrink-0 group-data-active:text-primary" />
       <span className="flex min-w-0 flex-col gap-0.5">
-        <span className="text-sm font-semibold">{label}</span>
+        <span className="text-sm font-medium">{label}</span>
         <span
           className={cn(
-            "truncate text-[13px] font-normal",
-            highlight ? "text-accent-foreground" : "text-muted-foreground",
+            "truncate text-xs font-normal",
+            highlight ? "text-primary" : "text-muted-foreground",
           )}
         >
           {summary}

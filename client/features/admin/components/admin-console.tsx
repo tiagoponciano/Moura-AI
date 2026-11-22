@@ -75,7 +75,7 @@ export function AdminConsole() {
       >
         <TabsList
           aria-label="Seções da administração"
-          className="w-full flex-wrap items-stretch justify-start gap-3 rounded-none bg-transparent p-0 group-data-horizontal/tabs:h-auto"
+          className="w-full flex-nowrap items-stretch justify-start gap-1 overflow-x-auto rounded-none border-b bg-transparent p-0 group-data-horizontal/tabs:h-auto"
         >
           <SectionTab
             value="users"

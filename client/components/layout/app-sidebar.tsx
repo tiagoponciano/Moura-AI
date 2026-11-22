@@ -4,7 +4,6 @@ import { FolderOpen, House, Lock } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BrandLogo } from "@/components/shared/brand-logo";
-import { Button } from "@/components/ui/button";
 import {
   Sidebar,
   SidebarContent,
@@ -19,7 +18,6 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { ADMIN_PATH } from "@/lib/auth/gate";
-import { cn } from "@/lib/utils";
 import { MODULES, MODULE_STATUS_LABEL, PROJECTS_PATH } from "@/lib/modules";
 import { UserMenu } from "./user-menu";
 
@@ -106,29 +104,26 @@ export function AppSidebar({ isAdmin }: { isAdmin: boolean }) {
                   )}
                 </SidebarMenuItem>
               ))}
+              {isAdmin && (
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    asChild
+                    className={ACTIVE_ICON}
+                    isActive={pathname.startsWith(ADMIN_PATH)}
+                    tooltip="Administração"
+                  >
+                    <Link href={ADMIN_PATH}>
+                      <Lock />
+                      <span>Administração</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              )}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        {isAdmin && (
-          <Button
-            asChild
-            variant="ghost"
-            size="icon"
-            aria-label="Administração"
-            title="Administração"
-            className={cn(
-              "text-muted-foreground group-data-[collapsible=icon]:mx-auto",
-              pathname.startsWith(ADMIN_PATH) &&
-                "bg-sidebar-accent text-sidebar-primary",
-            )}
-          >
-            <Link href={ADMIN_PATH}>
-              <Lock />
-            </Link>
-          </Button>
-        )}
         <UserMenu />
         <p className="px-2 pb-2 text-xs text-muted-foreground group-data-[collapsible=icon]:hidden">
           Moura Soluções em Engenharia

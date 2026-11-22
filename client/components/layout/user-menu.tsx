@@ -23,7 +23,7 @@ import { isSupabaseConfigured } from "@/lib/supabase/env";
 type SignedInUser = { name: string; email: string; avatarUrl?: string };
 
 /** Signed-in user and "Sair". Renders nothing without Supabase; keeps "Sair" when the session cannot be read. */
-export function UserMenu() {
+export function UserMenu({ isAdmin }: { isAdmin: boolean }) {
   const [user, setUser] = useState<SignedInUser>();
 
   useEffect(() => {
@@ -69,13 +69,13 @@ export function UserMenu() {
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">{user.name}</span>
                 <span className="truncate text-xs text-muted-foreground">
-                  {user.email}
+                  {isAdmin ? "Administrador" : "Equipe"}
                 </span>
               </div>
               <ChevronsUpDown className="ml-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
-          <DropdownMenuContent side="top" align="start" className="w-56">
+          <DropdownMenuContent side="bottom" align="start" className="w-56">
             <DropdownMenuLabel className="truncate text-xs font-normal text-muted-foreground">
               {user.email}
             </DropdownMenuLabel>

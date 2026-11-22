@@ -18,9 +18,9 @@ Invariants:
 
 ### Page
 
-| Path     | Who reaches it                                | Notes                                                                                               |
-| -------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `/admin` | Approved admins; others are redirected to `/` | Sidebar footer shows a lock icon ("Administração") only to admins; breadcrumb reads "Administração" |
+| Path     | Who reaches it                                | Notes                                                                                                          |
+| -------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `/admin` | Approved admins; others are redirected to `/` | Sidebar lists "Administração" (lock icon) after the modules, only for admins; breadcrumb reads "Administração" |
 
 Without Supabase configured the proxy is off, so `/admin` renders for anyone, but every API call returns 503 and the sections show "Admin console is not configured".
 

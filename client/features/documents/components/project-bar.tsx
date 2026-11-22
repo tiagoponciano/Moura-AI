@@ -2,11 +2,11 @@
 
 import { ClipboardList, FileStack, FileText, Plus, Search } from "lucide-react";
 import { useState } from "react";
+import { ProjectActions } from "@/components/shared/project-actions";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { useProjects } from "@/hooks/use-projects";
 import { NewProjectDialog } from "@/components/shared/new-project-dialog";
-import { ProjectActions } from "./project-actions";
 import { ProjectSearchDialog } from "@/components/shared/project-search-dialog";
 
 /** What the dialog shows under the project bar. */

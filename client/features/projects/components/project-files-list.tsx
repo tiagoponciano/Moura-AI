@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { SearchField } from "@/components/shared/search-field";
+import { SegmentedFilter } from "@/components/shared/segmented-filter";
 import { ProjectFileButton } from "@/components/shared/project-file-button";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useProjectFiles } from "@/hooks/use-project-files";
 import { formatDateTime } from "@/lib/format";
 import {
@@ -11,6 +12,7 @@ import {
   FILE_KIND_LABEL,
   countByFilter,
   filterFiles,
+  searchFiles,
   type FileFilterId,
 } from "../lib/file-filters";
 
@@ -18,30 +20,27 @@ import {
 export function ProjectFilesList({ projectId }: { projectId: string }) {
   const { files, loading, error, download } = useProjectFiles(projectId);
   const [filter, setFilter] = useState<FileFilterId>("all");
+  const [query, setQuery] = useState("");
   const counts = countByFilter(files);
-  const shown = filterFiles(files, filter);
+  const shown = searchFiles(filterFiles(files, filter), query);
 
   return (
     <section className="flex flex-col gap-3" aria-label="Arquivos do projeto">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <h2 className="text-sm font-medium">Arquivos</h2>
-        <ToggleGroup
-          type="single"
-          variant="outline"
-          size="sm"
+        <SearchField
+          value={query}
+          onChange={setQuery}
+          placeholder="Buscar arquivo"
+          className="sm:ml-auto"
+        />
+        <SegmentedFilter
+          options={FILE_FILTERS.map(({ id, label }) => ({ value: id, label }))}
           value={filter}
-          onValueChange={(value) => value && setFilter(value as FileFilterId)}
-          aria-label="Filtrar por tipo"
-        >
-          {FILE_FILTERS.map(({ id, label }) => (
-            <ToggleGroupItem key={id} value={id}>
-              {label}
-              <span className="ml-1.5 text-xs text-muted-foreground tabular-nums">
-                {counts[id]}
-              </span>
-            </ToggleGroupItem>
-          ))}
-        </ToggleGroup>
+          onChange={setFilter}
+          counts={counts}
+          label="Filtrar por tipo"
+        />
       </div>
       {loading ? (
         <Skeleton className="h-24 w-full" />

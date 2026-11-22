@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { ProjectFile, ProjectFileKind } from "@/lib/projects/files";
-import { countByFilter, filterFiles } from "./file-filters";
+import { countByFilter, filterFiles, searchFiles } from "./file-filters";
 
 const file = (id: string, kind: ProjectFileKind): ProjectFile => ({
   id,
@@ -52,5 +52,21 @@ describe("countByFilter", () => {
       plans: 2,
       other: 0,
     });
+  });
+});
+
+describe("searchFiles", () => {
+  const named = [
+    { ...file("a", "form"), file_name: "Anexo C - Loja Centro.pdf" },
+    { ...file("b", "conversion"), file_name: "Térreo - Loja Centro.dwg" },
+  ];
+
+  it("finds a file by words of its name, ignoring accents and case", () => {
+    expect(searchFiles(named, "terreo LOJA").map((f) => f.id)).toEqual(["b"]);
+  });
+
+  it("keeps every file for a blank search and none for a word that is nowhere", () => {
+    expect(searchFiles(named, "  ")).toHaveLength(2);
+    expect(searchFiles(named, "cobertura")).toEqual([]);
   });
 });

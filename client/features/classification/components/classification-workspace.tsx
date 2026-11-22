@@ -11,6 +11,7 @@ import type { ClassificationState } from "../lib/classification-state";
 import { useProjects } from "@/hooks/use-projects";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { projectDataFromFacts } from "../lib/project-prefill";
+import { useClassificationReport } from "../hooks/use-classification-report";
 import { useClassification } from "../hooks/use-classification";
 import { useProjectClassification } from "../hooks/use-project-classification";
 import { ClassificationPanel } from "./classification-panel";
@@ -45,6 +46,10 @@ export function ClassificationWorkspace() {
   useEffect(() => {
     persistRef.current = persist;
   }, [persist]);
+  const downloadReport = useClassificationReport(
+    classification,
+    projects.selected,
+  );
   const [tab, setTab] = useState<WorkspaceTab>("chat");
   const { answered, total } = classification.progress;
 
@@ -105,6 +110,7 @@ export function ClassificationWorkspace() {
             classification={classification}
             onChange={updateAnswer}
             onReset={reset}
+            onDownloadReport={downloadReport}
           />
         </div>
       </div>

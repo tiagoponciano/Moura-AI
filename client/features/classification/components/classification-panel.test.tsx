@@ -28,11 +28,22 @@ function render(answers: Facts): string {
       classification: classify(answers, DATE),
       onChange: () => {},
       onReset: () => {},
+      onDownloadReport: () => {},
     }),
   );
 }
 
 describe("ClassificationPanel", () => {
+  it("offers the report only once something is answered", () => {
+    /** The opening tag of the report button, to read whether it is disabled. */
+    const reportButton = (html: string) => {
+      const at = html.indexOf("Baixar relatório");
+      return html.slice(html.lastIndexOf("<button", at), at);
+    };
+    expect(reportButton(render({}))).toContain(" disabled=");
+    expect(reportButton(render({ area_m2: 100 }))).not.toContain(" disabled=");
+  });
+
   it("asks the first question and explains what the panel will show when nothing is answered", () => {
     const html = render({});
     expect(html).toContain("Dados da edificação");

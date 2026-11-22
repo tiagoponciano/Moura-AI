@@ -5,10 +5,9 @@ import {
   type PaginationState,
   type SortingState,
 } from "@tanstack/react-table";
-import { Search } from "lucide-react";
 import { useMemo, useState } from "react";
+import { SearchField } from "@/components/shared/search-field";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   Table,
   TableBody,
@@ -57,21 +56,16 @@ export function ProjectsTable({ projects }: { projects: Project[] }) {
 
   return (
     <section className="flex flex-col gap-3" aria-label="Lista de projetos">
-      <div className="relative max-w-sm">
-        <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
-        <Input
-          type="search"
-          value={query}
-          onChange={(event) => {
-            setQuery(event.target.value);
-            setPagination((current) => ({ ...current, pageIndex: 0 }));
-          }}
-          placeholder="Buscar por nome, cidade ou ocupação"
-          aria-label="Buscar projeto"
-          className="pl-9"
-          autoComplete="off"
-        />
-      </div>
+      <SearchField
+        value={query}
+        onChange={(next) => {
+          setQuery(next);
+          setPagination((current) => ({ ...current, pageIndex: 0 }));
+        }}
+        placeholder="Buscar por nome, cidade ou ocupação"
+        label="Buscar projeto"
+        className="sm:w-80"
+      />
       <div className="rounded-xl border bg-card">
         <Table className="min-w-[560px]">
           <TableHeader className="bg-muted/40">

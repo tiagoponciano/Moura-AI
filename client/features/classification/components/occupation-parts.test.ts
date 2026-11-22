@@ -58,6 +58,7 @@ describe("ClassificationPanel with occupations", () => {
         classification: classifyWithParts(answers, [], DATE),
         onChange: () => {},
         onReset: () => {},
+        onDownloadReport: () => {},
       }),
     );
     expect(html).toContain("Quais são as ocupações");

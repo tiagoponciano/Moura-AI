@@ -28,11 +28,21 @@ function render(answers: Facts): string {
       classification: classify(answers, DATE),
       onChange: () => {},
       onReset: () => {},
+      onDownloadReport: () => {},
     }),
   );
 }
 
 describe("ClassificationPanel", () => {
+  it("offers the report only once something is answered", () => {
+    expect(render({})).toMatch(
+      /<button[^>]*disabled[^>]*>(?:(?!<\/button>).)*Baixar relatório/,
+    );
+    expect(render({ area_m2: 100 })).not.toMatch(
+      /<button[^>]*disabled[^>]*>(?:(?!<\/button>).)*Baixar relatório/,
+    );
+  });
+
   it("asks the first question and explains what the panel will show when nothing is answered", () => {
     const html = render({});
     expect(html).toContain("Dados da edificação");

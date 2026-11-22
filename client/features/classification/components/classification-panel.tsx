@@ -1,6 +1,6 @@
 "use client";
 
-import { RotateCcw } from "lucide-react";
+import { FileDown, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { FieldSources } from "@/lib/field-sources";
 import type { Classification } from "../lib/classify";
@@ -31,6 +31,7 @@ type ClassificationPanelProps = {
   classification: Classification;
   onChange: (fact: string, value: unknown) => void;
   onReset: () => void;
+  onDownloadReport: () => void;
 };
 
 /** Side panel: the questions, what is next, the systems they imply and the provisional notice. */
@@ -43,6 +44,7 @@ export function ClassificationPanel({
   classification,
   onChange,
   onReset,
+  onDownloadReport,
 }: ClassificationPanelProps) {
   return (
     <aside className="flex min-h-0 flex-1 flex-col bg-card lg:border-l">
@@ -68,6 +70,13 @@ export function ClassificationPanel({
       </div>
       <div className="flex flex-col gap-2 border-t px-5 py-4">
         <ProvisionalNotice />
+        <Button
+          onClick={onDownloadReport}
+          disabled={classification.progress.answered === 0}
+        >
+          <FileDown />
+          Baixar relatório
+        </Button>
         <Button
           variant="outline"
           onClick={onReset}

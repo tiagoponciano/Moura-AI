@@ -11,6 +11,7 @@ export const PROJECT_FILE_KINDS = [
   "proposal",
   "plan",
   "conversion",
+  "classification",
   "other",
 ] as const;
 export type ProjectFileKind = (typeof PROJECT_FILE_KINDS)[number];

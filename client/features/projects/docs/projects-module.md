@@ -4,7 +4,7 @@ How the Projetos area works now: the list of the team's projects and the page of
 
 ## What this is
 
-`/projects` lists the projects, searchable by name, city or occupation and sortable by column, ten to a page, with a button to create one. `/projects/[id]` shows one project: its name, one card per module with what that module holds for the project (Classificação, Documentos, Plantas), and then the project's data grouped as in the project panel of the documents module. A project is the same record the documents module uses (`/api/documents/projects`); this module adds no table, and its only route handlers are the project files ones (`project-files.md`).
+`/projects` lists the projects, searchable by name, city or occupation and sortable by column, ten to a page, with a button to create one. `/projects/[id]` shows one project: its name with a line of city, occupation and area and a menu to rename or archive it (archiving goes back to the list), one card per module with what that module holds for the project (Classificação, Documentos, Plantas), and then the project's data grouped as in the project panel of the documents module. A project is the same record the documents module uses (`/api/documents/projects`); this module adds no table, and its only route handlers are the project files ones (`project-files.md`).
 
 Invariants:
 

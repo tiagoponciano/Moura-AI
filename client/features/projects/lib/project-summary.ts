@@ -25,3 +25,10 @@ export function formatArea(area: string | undefined): string | undefined {
   const value = Number(area.replace(",", "."));
   return Number.isFinite(value) ? `${value.toLocaleString("pt-BR")} m²` : area;
 }
+
+/** The line under a project's name: city, occupation and area, whichever it knows. */
+export function describeProject(project: Project): string | undefined {
+  const { city, occupancy, area } = summarizeProject(project);
+  const line = [city, occupancy, formatArea(area)].filter(Boolean).join(" · ");
+  return line || undefined;
+}

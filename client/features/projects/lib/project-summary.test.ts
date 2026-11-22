@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { formatArea, summarizeProject } from "./project-summary";
+import {
+  describeProject,
+  formatArea,
+  summarizeProject,
+} from "./project-summary";
 
 const project = (data: Record<string, string>) => ({
   id: "1",
@@ -44,5 +48,26 @@ describe("formatArea", () => {
   it("keeps text that is not a number and gives nothing for a blank", () => {
     expect(formatArea("cerca de 800")).toBe("cerca de 800");
     expect(formatArea(undefined)).toBeUndefined();
+  });
+});
+
+describe("describeProject", () => {
+  it("joins the city, the occupation and the area the project knows", () => {
+    expect(
+      describeProject(
+        project({
+          property_city: "Joinville",
+          property_occupancy: "A-2",
+          block_area: "820",
+        }),
+      ),
+    ).toBe("Joinville · A-2 · 820 m²");
+  });
+
+  it("skips what is missing, and is empty when nothing is known", () => {
+    expect(describeProject(project({ property_city: "Itajaí" }))).toBe(
+      "Itajaí",
+    );
+    expect(describeProject(project({}))).toBeUndefined();
   });
 });

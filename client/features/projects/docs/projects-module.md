@@ -4,7 +4,7 @@ How the Projetos area works now: the list of the team's projects and the page of
 
 ## What this is
 
-`/projects` lists the projects, searchable by name, with a button to create one. `/projects/[id]` shows one project: its name, one card per module with what that module holds for the project (Classificação, Documentos, Plantas), and then the project's data grouped as in the project panel of the documents module. A project is the same record the documents module uses (`/api/documents/projects`); this module adds no table, and its only route handlers are the project files ones (`project-files.md`).
+`/projects` lists the projects, searchable by name, city or occupation and sortable by column, ten to a page, with a button to create one. `/projects/[id]` shows one project: its name, one card per module with what that module holds for the project (Classificação, Documentos, Plantas), and then the project's data grouped as in the project panel of the documents module. A project is the same record the documents module uses (`/api/documents/projects`); this module adds no table, and its only route handlers are the project files ones (`project-files.md`).
 
 Invariants:
 
@@ -17,7 +17,7 @@ Invariants:
 
 | Path             | What it renders                                                        |
 | ---------------- | ---------------------------------------------------------------------- |
-| `/projects`      | `ProjectsWorkspace`: search, table, "Novo projeto"                     |
+| `/projects`      | `ProjectsWorkspace`: table, "Novo projeto"                             |
 | `/projects/[id]` | `ProjectDetail` with the three module cards as children, then its data |
 
 The sidebar shows "Projetos" under "Início", outside the module list (`PROJECTS_PATH` in `lib/modules.ts`), so the home page cards do not change.
@@ -25,8 +25,10 @@ The sidebar shows "Projetos" under "Início", outside the module list (`PROJECTS
 | File                                | Holds                                                                               |
 | ----------------------------------- | ----------------------------------------------------------------------------------- |
 | `lib/project-summary.ts`            | `summarizeProject` (city, occupation, area from the project data), `formatArea`     |
-| `components/projects-workspace.tsx` | The list page: search, empty and loading states, the new-project dialog             |
-| `components/projects-table.tsx`     | One row per project                                                                 |
+| `components/projects-workspace.tsx` | The list page: empty and loading states, the new-project dialog                     |
+| `components/projects-table.tsx`     | The TanStack table: search box, sortable headers, pages of ten (`useTable`)         |
+| `components/projects-columns.tsx`   | Projeto (with its city), Ocupação and Área; each sorts on click                     |
+| `lib/projects-table.ts`             | Table features, area parsing, search match, sort functions and the page range       |
 | `components/project-detail.tsx`     | The project page: header, the cards it is given, the project data                   |
 | `components/project-data-form.tsx`  | The editable groups of the project data; `fieldChange` decides what a field changes |
 
@@ -46,6 +48,7 @@ Every card is a `ModuleSummaryCard` (`components/shared/module-summary-card.tsx`
 
 - **The tools are not inside the project.** "Abrir" goes to the module's own page, which opens on the chosen project; there are no `/projects/[id]/<module>` routes. It cannot open one specific form either: the documents page opens on its home.
 - **No upload or delete on the page.** The project keeps only what the modules generate (`project-files.md`).
+- **A blank sorts first.** A project with no occupation or area sorts before the others when ascending, so last when descending.
 - **No dates or risk in the list.** A project has no update date, and the risk is not stored with it; the table shows the city, occupation and area it knows.
 - **No rename or archive here.** Those stay in the documents module.
 

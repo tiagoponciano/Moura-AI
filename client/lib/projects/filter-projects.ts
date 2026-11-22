@@ -1,7 +1,7 @@
 import type { Project } from "@/lib/projects/project";
 
 /** Lowercase without accents, so `"edificio"` finds `"Edifício"`. */
-function normalize(text: string): string {
+export function normalize(text: string): string {
   return text
     .normalize("NFD")
     .replace(/\p{Diacritic}/gu, "")

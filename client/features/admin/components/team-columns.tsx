@@ -10,7 +10,7 @@ import {
   type TEAM_TABLE_FEATURES,
 } from "../lib/team-table";
 import type { AdminUser, UserChange } from "../lib/types";
-import { SortableHeader } from "./sortable-header";
+import { SortableHeader } from "@/components/shared/sortable-header";
 import { UserActions } from "./user-actions";
 
 const helper = createColumnHelper<typeof TEAM_TABLE_FEATURES, AdminUser>();

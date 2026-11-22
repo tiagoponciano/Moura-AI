@@ -1,7 +1,8 @@
 import { normalize } from "@/lib/projects/filter-projects";
 import type { ProjectFile, ProjectFileKind } from "@/lib/projects/files";
 
-export type FileFilterId = "all" | "forms" | "proposals" | "plans" | "other";
+export type FileFilterId =
+  "all" | "forms" | "classification" | "proposals" | "plans" | "other";
 
 /** The toggles over a project's files, each with the kinds it shows. */
 export const FILE_FILTERS: {
@@ -11,6 +12,7 @@ export const FILE_FILTERS: {
 }[] = [
   { id: "all", label: "Todos" },
   { id: "forms", label: "Documentos", kinds: ["form"] },
+  { id: "classification", label: "Classificação", kinds: ["classification"] },
   { id: "proposals", label: "Propostas", kinds: ["proposal"] },
   { id: "plans", label: "Plantas", kinds: ["plan", "conversion"] },
   { id: "other", label: "Outros", kinds: ["other"] },
@@ -56,5 +58,6 @@ export const FILE_KIND_LABEL: Record<ProjectFileKind, string> = {
   proposal: "Proposta",
   plan: "Planta enviada",
   conversion: "Planta convertida",
+  classification: "Classificação",
   other: "Outro",
 };

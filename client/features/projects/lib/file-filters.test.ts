@@ -17,6 +17,7 @@ const files = [
   file("c", "plan"),
   file("d", "proposal"),
   file("e", "form"),
+  file("f", "classification"),
 ];
 
 describe("filterFiles", () => {
@@ -27,6 +28,7 @@ describe("filterFiles", () => {
       "c",
       "d",
       "e",
+      "f",
     ]);
   });
 
@@ -38,6 +40,13 @@ describe("filterFiles", () => {
     expect(filterFiles(files, "plans").map((f) => f.id)).toEqual(["b", "c"]);
   });
 
+  it("shows a classification only under Classificação", () => {
+    expect(filterFiles(files, "classification").map((f) => f.id)).toEqual([
+      "f",
+    ]);
+    expect(filterFiles(files, "forms").map((f) => f.id)).not.toContain("f");
+  });
+
   it("shows nothing for a toggle with no file", () => {
     expect(filterFiles(files, "other")).toEqual([]);
   });
@@ -46,8 +55,9 @@ describe("filterFiles", () => {
 describe("countByFilter", () => {
   it("counts what each toggle would show, and all of them under Todos", () => {
     expect(countByFilter(files)).toEqual({
-      all: 5,
+      all: 6,
       forms: 2,
+      classification: 1,
       proposals: 1,
       plans: 2,
       other: 0,

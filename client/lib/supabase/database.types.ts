@@ -248,7 +248,13 @@ export type Database = {
         Row: {
           id: string;
           project_id: string;
-          kind: "form" | "proposal" | "plan" | "conversion" | "other";
+          kind:
+            | "form"
+            | "proposal"
+            | "plan"
+            | "conversion"
+            | "classification"
+            | "other";
           file_name: string;
           mime_type: string;
           size_bytes: number;
@@ -259,7 +265,13 @@ export type Database = {
         Insert: {
           id?: string;
           project_id: string;
-          kind: "form" | "proposal" | "plan" | "conversion" | "other";
+          kind:
+            | "form"
+            | "proposal"
+            | "plan"
+            | "conversion"
+            | "classification"
+            | "other";
           file_name: string;
           mime_type: string;
           size_bytes: number;

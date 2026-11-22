@@ -9,6 +9,7 @@ import { useProjects } from "@/hooks/use-projects";
 import { writeSelectedProject } from "@/lib/projects/selection";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { ProjectDataForm } from "./project-data-form";
+import { ProjectFilesList } from "./project-files-list";
 
 type ProjectDetailProps = {
   id: string;
@@ -38,6 +39,7 @@ export function ProjectDetail({ id, children }: ProjectDetailProps) {
         <>
           <PageHeader title={project.name} />
           <div className="grid gap-4 lg:grid-cols-2">{children}</div>
+          <ProjectFilesList projectId={project.id} />
           <h2 className="text-sm font-medium">Dados do projeto</h2>
           <ProjectDataForm
             key={project.id}

@@ -3,7 +3,6 @@
 import { FolderOpen, House, Lock } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { BrandLogo } from "@/components/shared/brand-logo";
 import {
   Sidebar,
   SidebarContent,
@@ -19,6 +18,7 @@ import {
 } from "@/components/ui/sidebar";
 import { ADMIN_PATH } from "@/lib/auth/gate";
 import { MODULES, MODULE_STATUS_LABEL, PROJECTS_PATH } from "@/lib/modules";
+import { SidebarProject } from "./sidebar-project";
 import { UserMenu } from "./user-menu";
 
 /** The active item keeps a neutral background; only its icon takes the brand color. */
@@ -30,22 +30,9 @@ export function AppSidebar({ isAdmin }: { isAdmin: boolean }) {
 
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
-              <Link href="/">
-                <BrandLogo size="sm" />
-                <div className="grid flex-1 text-left leading-tight">
-                  <span className="font-semibold">Moura Engenharia</span>
-                  <span className="truncate text-xs text-muted-foreground">
-                    Prevenção contra incêndio
-                  </span>
-                </div>
-              </Link>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
+      <SidebarHeader className="gap-3">
+        <UserMenu isAdmin={isAdmin} />
+        <SidebarProject />
       </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
@@ -124,7 +111,6 @@ export function AppSidebar({ isAdmin }: { isAdmin: boolean }) {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <UserMenu />
         <p className="px-2 pb-2 text-xs text-muted-foreground group-data-[collapsible=icon]:hidden">
           Moura Soluções em Engenharia
         </p>

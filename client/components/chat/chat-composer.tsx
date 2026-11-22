@@ -102,6 +102,7 @@ export function ChatComposer({
           onChange={(event) => onChange(event.target.value)}
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
+          aria-label="Mensagem"
           rows={2}
           className="max-h-40 min-h-11 resize-none border-0 bg-transparent shadow-none focus-visible:ring-0 dark:bg-transparent"
         />

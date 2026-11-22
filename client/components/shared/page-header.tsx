@@ -1,10 +1,4 @@
-import { Info } from "lucide-react";
 import type { ReactNode } from "react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 
 type PageHeaderProps = {
   title: string;
@@ -12,24 +6,23 @@ type PageHeaderProps = {
   actions?: ReactNode;
 };
 
+/** The heading of a page: title, a short line under it, and the page's actions at the right. */
 export function PageHeader({ title, description, actions }: PageHeaderProps) {
   return (
-    <div className="flex flex-wrap items-end justify-between gap-3">
-      <div className="flex items-center gap-1.5">
-        <h1 className="text-xl font-semibold tracking-tight">{title}</h1>
+    <div className="flex flex-wrap items-start justify-between gap-x-4 gap-y-3">
+      <header className="min-w-0 space-y-1">
+        <h1 className="text-xl font-semibold tracking-tight md:text-2xl">
+          {title}
+        </h1>
         {description && (
-          <Tooltip>
-            <TooltipTrigger
-              aria-label="Sobre esta página"
-              className="rounded-full text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-none"
-            >
-              <Info className="size-4" />
-            </TooltipTrigger>
-            <TooltipContent side="right">{description}</TooltipContent>
-          </Tooltip>
+          <p className="max-w-2xl text-sm leading-snug text-muted-foreground">
+            {description}
+          </p>
         )}
-      </div>
-      {actions}
+      </header>
+      {actions && (
+        <div className="flex shrink-0 items-center gap-2">{actions}</div>
+      )}
     </div>
   );
 }

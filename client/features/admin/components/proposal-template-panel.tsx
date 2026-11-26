@@ -1,7 +1,7 @@
 "use client";
 
-import { Download, Upload } from "lucide-react";
-import { useRef } from "react";
+import { Download } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,22 +12,31 @@ import {
 } from "@/components/ui/card";
 import { useSaveStatus, type SaveRunner } from "../hooks/use-save-status";
 import { resetProposalTemplate, uploadProposalTemplate } from "../lib/client";
-import { templateSource } from "../lib/proposal-template";
+import { templateFileProblem, templateSource } from "../lib/proposal-template";
 import type { ProposalTemplateInfo } from "../lib/types";
 import { FormStatus } from "./form-status";
+import { TemplateDropZone } from "./template-drop-zone";
 
 type ProposalTemplatePanelProps = {
   info: ProposalTemplateInfo;
   run: SaveRunner;
 };
 
-/** The deck every proposal is filled from: download it, send a new one, or go back to the app's own. */
+/** The deck every proposal is filled from: drop a new one (it is in use at once), download the current one, or go back to the app's own. */
 export function ProposalTemplatePanel({
   info,
   run,
 }: ProposalTemplatePanelProps) {
-  const input = useRef<HTMLInputElement>(null);
+  const [problem, setProblem] = useState<string>();
   const { saving, status, save } = useSaveStatus(run);
+
+  function send(file: File) {
+    const refused = templateFileProblem(file);
+    setProblem(refused);
+    if (!refused) {
+      void save(() => uploadProposalTemplate(file), "Modelo salvo e em uso.");
+    }
+  }
 
   return (
     <Card className="[--card-spacing:--spacing(6)]">
@@ -38,16 +47,18 @@ export function ProposalTemplatePanel({
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-5">
+        <TemplateDropZone busy={saving} onSelect={send} />
+        {problem && (
+          <p role="alert" className="text-xs text-destructive">
+            {problem}
+          </p>
+        )}
         <div className="flex flex-wrap items-center gap-2">
           <Button variant="outline" asChild>
             <a href="/api/documents/proposal-template/file">
               <Download />
               Baixar o modelo em uso
             </a>
-          </Button>
-          <Button disabled={saving} onClick={() => input.current?.click()}>
-            <Upload />
-            Enviar novo modelo
           </Button>
           {info.custom && (
             <Button
@@ -60,20 +71,6 @@ export function ProposalTemplatePanel({
               Voltar ao modelo do app
             </Button>
           )}
-          <input
-            ref={input}
-            type="file"
-            accept=".pptx"
-            hidden
-            aria-label="Modelo da proposta (.pptx)"
-            onChange={(event) => {
-              const file = event.target.files?.[0];
-              event.target.value = "";
-              if (file) {
-                void save(() => uploadProposalTemplate(file), "Modelo salvo.");
-              }
-            }}
-          />
           <FormStatus state={status} />
         </div>
         <div className="grid gap-2">

@@ -31,8 +31,17 @@ export async function handleGetProposalTemplate(): Promise<Response> {
     .select("file_name, size_bytes, uploaded_at")
     .maybeSingle();
   if (error) {
-    console.error("Failed to read the proposal template", error);
-    return Response.json({ error: "Failed to load" }, { status: 500 });
+    console.error("Failed to read the proposal template", error.message);
+    // PGRST205 and 42P01: the table is not there, so the migration was not applied.
+    const missing = error.code === "PGRST205" || error.code === "42P01";
+    return Response.json(
+      {
+        error: missing
+          ? "A tabela do modelo não existe no banco. Aplique a migration 20261126000100_proposal_template.sql no Supabase."
+          : "Failed to load",
+      },
+      { status: missing ? 503 : 500 },
+    );
   }
   return Response.json({
     custom: data

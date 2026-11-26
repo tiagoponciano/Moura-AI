@@ -44,10 +44,13 @@ type Supabase = NonNullable<
 export async function loadProposalTemplate(
   supabase: Supabase,
 ): Promise<Uint8Array> {
-  const { data: row } = await supabase
+  const { data: row, error: rowError } = await supabase
     .from("proposal_template")
     .select("id")
     .maybeSingle();
+  if (rowError) {
+    console.error("Failed to look up the proposal template", rowError.message);
+  }
   if (row) {
     const { data, error } = await supabase.storage
       .from("proposal-template")

@@ -86,7 +86,7 @@ The Proposta tab of the admin console sends the deck every proposal is filled fr
 
 ## Preview
 
-With PDF output on, the "Proposta" tab has "Ver prévia": it asks the route for the PDF with the plan, price and validity on screen and shows it in a dialog (`ProposalPreviewDialog`), made by the same route and the same PDF service as the download, so what is previewed is what is downloaded. The dialog offers "Voltar e editar", "Baixar .pptx" and "Baixar PDF"; the PDF download reuses the previewed file instead of converting again (`useProposal`), and closing the dialog discards it. The preview is one request when asked, not one per keystroke, because each PDF is a conversion on the PDF service. Without PDF output there is no preview button.
+The "Proposta" tab has two columns. On the left: the plan, the price and the validity, the cover data read from the project (client, building and city; `ProposalSummary`, edited in "Dados do projeto"), and the buttons. On the right, the preview of the PDF fills the height of the screen (`ProposalPreviewPane`). With PDF output on, "Ver prévia" asks the route for the PDF with what is on screen, made by the same route and the same PDF service as the download, so what is previewed is what is downloaded; the button then reads "Atualizar prévia". "Baixar PDF" reuses the previewed file instead of converting again, unless the plan, price, validity or the project's data changed since: the pane then says the preview is out of date and the download makes a new one (`useProposal`). The preview is one request when asked, not one per keystroke, because each PDF is a conversion on the PDF service. Without PDF output the pane says so and only "Baixar .pptx" exists.
 
 ## The deck the app ships
 

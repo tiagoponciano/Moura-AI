@@ -1,5 +1,6 @@
 export {
   handleGetSettings,
+  handleSetProviderAccess,
   handleSetProviderKey,
   handleUpdateSettings,
 } from "./settings-handler";

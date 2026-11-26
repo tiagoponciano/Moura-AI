@@ -33,6 +33,13 @@ export type ProviderKeyHint = {
   updatedAt: string;
 };
 
+/** Who may use a provider: everyone, or only the listed users when `restricted`. */
+export type ProviderAccess = {
+  provider: LlmProvider;
+  restricted: boolean;
+  userIds: string[];
+};
+
 /** `GET /api/admin/settings`. */
 export type AdminSettingsResponse = {
   settings: {
@@ -42,6 +49,7 @@ export type AdminSettingsResponse = {
     updatedAt: string;
   };
   keys: ProviderKeyHint[];
+  access: ProviderAccess[];
   /** Without the service role key the chat routes ignore these settings. */
   serviceRoleConfigured: boolean;
 };

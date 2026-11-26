@@ -22,11 +22,15 @@ export {
   recentMessages,
 } from "./chat-messages";
 
-/** The admin console's choice, or `undefined` when it cannot be read. */
-async function readStoredModelConfig(): Promise<StoredModelConfig | undefined> {
+/** The model this user may use (see `get_llm_config_for`), or `undefined` when none can be read. */
+async function readStoredModelConfig(
+  userId: string,
+): Promise<StoredModelConfig | undefined> {
   const supabase = createSupabaseAdminClient();
   if (!supabase) return undefined;
-  const { data, error } = await supabase.rpc("get_llm_config").maybeSingle();
+  const { data, error } = await supabase
+    .rpc("get_llm_config_for", { user_id: userId })
+    .maybeSingle();
   if (error) {
     console.error("Failed to read the LLM config", error);
     return undefined;
@@ -49,18 +53,25 @@ function createModel({ provider, model, apiKey }: ModelConfig): LanguageModel {
 const NOT_CONFIGURED_MESSAGE =
   "Nenhum modelo de IA configurado. Peça a um administrador para configurar em Administração.";
 
+/** Shown in the chat, so it is in Portuguese. */
+const NO_ACCESS_MESSAGE =
+  "Nenhum modelo de IA disponível para você. Peça a um administrador para configurar ou liberar o acesso em Administração.";
+
 /**
- * Server-only. The model chosen in the admin console, or a 500 response with
+ * Server-only. The model the signed-in user may use: the admin console's
+ * choice, or the next provider open to them. A 500 response with
  * `NOT_CONFIGURED_MESSAGE` when none can be used (see `pickModelConfig`).
  */
 export async function resolveChatModel(): Promise<
   | { model: LanguageModel; error?: undefined }
   | { model?: undefined; error: Response }
 > {
-  const config = pickModelConfig(await readStoredModelConfig());
+  const auth = await requireUser(NOT_CONFIGURED_MESSAGE);
+  if (auth.error) return { error: auth.error };
+  const config = pickModelConfig(await readStoredModelConfig(auth.user.id));
   if (!config) {
     return {
-      error: Response.json({ error: NOT_CONFIGURED_MESSAGE }, { status: 500 }),
+      error: Response.json({ error: NO_ACCESS_MESSAGE }, { status: 500 }),
     };
   }
   return { model: createModel(config) };

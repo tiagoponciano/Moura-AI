@@ -38,6 +38,15 @@ export const setProviderKey = (provider: LlmProvider, key: string) =>
     body: JSON.stringify({ key }),
   });
 
+export const setProviderAccess = (
+  provider: LlmProvider,
+  access: { restricted: boolean; userIds: string[] },
+) =>
+  requestJson<void>(`/api/admin/settings/access/${provider}`, {
+    method: "PUT",
+    body: JSON.stringify(access),
+  });
+
 export const fetchForms = () =>
   requestJson<AdminFormsResponse>("/api/admin/forms");
 

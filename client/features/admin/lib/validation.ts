@@ -45,6 +45,12 @@ export const providerKeySchema = z.strictObject({
   key: z.string().trim().min(1).max(500),
 });
 
+/** Body of `PUT /api/admin/settings/access/:provider`. */
+export const providerAccessSchema = z.strictObject({
+  restricted: z.boolean(),
+  userIds: z.array(z.uuid()).max(500),
+});
+
 /** Body of `POST /api/admin/forms/resolve`. */
 export const formLinkSchema = z.strictObject({
   url: z.string().trim().min(1, "Cole um link").max(2000),

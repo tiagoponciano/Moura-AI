@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/sidebar";
 import { ADMIN_PATH } from "@/lib/auth/gate";
 import { MODULES, MODULE_STATUS_LABEL, PROJECTS_PATH } from "@/lib/modules";
+import { SidebarSignOut } from "./sidebar-sign-out";
 import { SidebarTheme } from "./sidebar-theme";
 import { UserMenu } from "./user-menu";
 
@@ -106,8 +107,9 @@ export function AppSidebar({ isAdmin }: { isAdmin: boolean }) {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <SidebarTheme />
         <UserMenu isAdmin={isAdmin} />
+        <SidebarTheme />
+        <SidebarSignOut />
       </SidebarFooter>
     </Sidebar>
   );

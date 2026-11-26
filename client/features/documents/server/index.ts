@@ -13,3 +13,9 @@ export { handleProjectHistory } from "./history-handler";
 export { handleProposal } from "./proposal-handler";
 export { handleListFillings, handleSaveFilling } from "./fillings-handler";
 export { handleGetFormVersion, handleListCbmscForms } from "./forms-handler";
+export {
+  handleDownloadProposalTemplate,
+  handleGetProposalTemplate,
+  handleResetProposalTemplate,
+  handleSetProposalTemplate,
+} from "./proposal-template-handler";

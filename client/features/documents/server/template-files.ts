@@ -1,6 +1,7 @@
 import "server-only";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { createSupabaseServerClient } from "@/lib/supabase/server";
 import type { ConversationGuide } from "../lib/conversation-steps";
 import type { TemplateEntry, TemplateSchema } from "../lib/templates";
 
@@ -24,9 +25,38 @@ export async function loadTemplateGuide(
   return JSON.parse((await readPublic(entry.guide)).toString());
 }
 
-/** Server-only. Moura's proposal deck, with its `{{tags}}`. */
-export const loadProposalTemplate = () =>
+/** Server-only. The deck bundled with the app, used until an admin uploads one. */
+export const loadBundledProposalTemplate = () =>
   readPublic("templates/proposal/proposal.pptx");
+
+/** The object the admin's deck is kept under in the `proposal-template` bucket. */
+export const PROPOSAL_TEMPLATE_OBJECT = "proposal.pptx";
+
+type Supabase = NonNullable<
+  Awaited<ReturnType<typeof createSupabaseServerClient>>
+>;
+
+/**
+ * Server-only. Moura's proposal deck, with its `{{tags}}`: the one an admin
+ * uploaded when there is one, the bundled one otherwise or when the upload
+ * cannot be read.
+ */
+export async function loadProposalTemplate(
+  supabase: Supabase,
+): Promise<Uint8Array> {
+  const { data: row } = await supabase
+    .from("proposal_template")
+    .select("id")
+    .maybeSingle();
+  if (row) {
+    const { data, error } = await supabase.storage
+      .from("proposal-template")
+      .download(PROPOSAL_TEMPLATE_OBJECT);
+    if (data) return new Uint8Array(await data.arrayBuffer());
+    console.error("Failed to read the uploaded proposal template", error);
+  }
+  return loadBundledProposalTemplate();
+}
 
 /**
  * Server-only. A template's entry, schema and file. The id is only compared to

@@ -156,6 +156,26 @@ export type Database = {
         >;
         Relationships: [];
       };
+      proposal_template: {
+        Row: {
+          id: boolean;
+          file_name: string;
+          size_bytes: number;
+          uploaded_by: string | null;
+          uploaded_at: string;
+        };
+        Insert: {
+          id?: boolean;
+          file_name: string;
+          size_bytes: number;
+          uploaded_by?: string | null;
+          uploaded_at?: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["proposal_template"]["Insert"]
+        >;
+        Relationships: [];
+      };
       chat_requests: {
         Row: { id: number; user_id: string; created_at: string };
         Insert: { user_id: string; created_at?: string };

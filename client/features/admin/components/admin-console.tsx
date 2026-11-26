@@ -1,6 +1,13 @@
 "use client";
 
-import { BookOpen, Cpu, FileText, Globe, Users } from "lucide-react";
+import {
+  BookOpen,
+  Cpu,
+  FileText,
+  Globe,
+  Presentation,
+  Users,
+} from "lucide-react";
 import { useMemo, useState } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsContent, TabsList } from "@/components/ui/tabs";
@@ -9,9 +16,11 @@ import { useAdminForms } from "../hooks/use-admin-forms";
 import { useAdminSettings } from "../hooks/use-admin-settings";
 import { useAdminUsers } from "../hooks/use-admin-users";
 import { useNorms } from "../hooks/use-norms";
+import { useProposalTemplate } from "../hooks/use-proposal-template";
 import { useSiteCheck } from "../hooks/use-site-check";
 import { formsSummary } from "../lib/forms";
 import { normsSummary } from "../lib/norms";
+import { templateSummary } from "../lib/proposal-template";
 import { getSetupProblem, summarizeSections } from "../lib/sections";
 import { diffSiteCheck, siteCheckWarning } from "../lib/site-check";
 import { countByStatus } from "../lib/users";
@@ -19,11 +28,12 @@ import { AccessPanel } from "./access-panel";
 import { FormsSection } from "./forms-section";
 import { ModelPanel } from "./model-panel";
 import { NormsSection } from "./norms-section";
+import { ProposalTemplatePanel } from "./proposal-template-panel";
 import { SectionTab } from "./section-tab";
 import { SetupBanner } from "./setup-banner";
 import { UsersSection } from "./users-section";
 
-type Section = "users" | "model" | "access" | "forms" | "norms";
+type Section = "users" | "model" | "access" | "forms" | "norms" | "proposal";
 
 /** Setup banner, four section cards with their current state, and one section at a time. */
 export function AdminConsole() {
@@ -32,6 +42,7 @@ export function AdminConsole() {
   const forms = useAdminForms();
   const site = useSiteCheck();
   const norms = useNorms();
+  const proposal = useProposalTemplate();
   const [section, setSection] = useState<Section>("users");
 
   const differences = useMemo(
@@ -109,6 +120,12 @@ export function AdminConsole() {
             label="Normas"
             summary={normsSummary(norms.norms)}
           />
+          <SectionTab
+            value="proposal"
+            icon={Presentation}
+            label="Proposta"
+            summary={templateSummary(proposal.info)}
+          />
         </TabsList>
 
         <TabsContent value="users" className="flex flex-col gap-3">
@@ -154,6 +171,18 @@ export function AdminConsole() {
 
         <TabsContent value="norms">
           <NormsSection norms={norms.norms} error={norms.error} />
+        </TabsContent>
+
+        <TabsContent value="proposal">
+          {proposal.info ? (
+            <ProposalTemplatePanel info={proposal.info} run={proposal.run} />
+          ) : proposal.error ? (
+            <p role="alert" className="text-sm text-destructive">
+              {proposal.error}
+            </p>
+          ) : (
+            <Skeleton className="h-48 w-full" />
+          )}
         </TabsContent>
       </Tabs>
     </div>

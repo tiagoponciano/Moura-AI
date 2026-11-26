@@ -252,3 +252,7 @@ How the catalog works, including link resolution and its errors, is in `client/d
 ## Who may use each provider
 
 Under the key of the selected provider, the Modelo tab has a switch "Restringir o uso" and, when on, a list of the approved users to tick. By default every provider is open to all approved users. A user who is not listed for the default provider falls back to the next provider open to them (see `llm-configuration.md`). `GET /api/admin/settings` returns `access` (`provider`, `restricted`, `userIds`).
+
+## Proposal template
+
+The "Proposta" tab shows which deck the commercial proposal is filled from ("Modelo padrão do app" until one is uploaded), downloads the one in use, sends a new `.pptx`, and goes back to the app's own. The upload is checked on the server: it must hold exactly the `{{tags}}` the app fills, which the tab lists, and a deck that lacks one or adds one is refused with the tags named. The routes and the storage are described in `features/documents/docs/commercial-proposal.md`.

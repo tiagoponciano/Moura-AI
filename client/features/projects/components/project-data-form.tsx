@@ -8,32 +8,35 @@ import {
 } from "@/components/ui/collapsible";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  PROJECT_FIELD_GROUPS,
-  fieldChange,
-  groupProgress,
-} from "@/lib/projects/fields";
+import { fieldChange, groupProgress } from "@/lib/projects/fields";
 import type { Project, ProjectChange } from "@/lib/projects/project";
+import { groupsOfTab, type ProjectTabId } from "../lib/project-tabs";
 
 type ProjectDataFormProps = {
   project: Project;
+  /** Which tab's groups to show. */
+  tab: ProjectTabId;
   onChange: (change: ProjectChange) => void;
 };
 
-/** The project's data, one section per group: the property, its owner, the engineer and the block. Each field saves on leaving it. */
-export function ProjectDataForm({ project, onChange }: ProjectDataFormProps) {
+/** The field groups of one tab of the project, each a section open on arrival. Each field saves on leaving it. */
+export function ProjectDataForm({
+  project,
+  tab,
+  onChange,
+}: ProjectDataFormProps) {
   return (
     <div className="flex flex-col gap-2">
       <p className="text-xs text-muted-foreground">
         Estes dados entram sozinhos nos formulários do projeto. Cada campo é
         salvo ao sair dele.
       </p>
-      {PROJECT_FIELD_GROUPS.map((group, index) => {
+      {groupsOfTab(tab).map((group) => {
         const { filled, total } = groupProgress(group, project.data);
         return (
           <Collapsible
             key={group.id}
-            defaultOpen={index === 0}
+            defaultOpen
             className="group/section rounded-lg border"
           >
             <CollapsibleTrigger className="flex w-full items-center gap-2 px-4 py-3 text-left text-sm font-medium">

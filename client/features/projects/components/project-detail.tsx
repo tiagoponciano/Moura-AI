@@ -3,14 +3,16 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { ProjectActions } from "@/components/shared/project-actions";
 import { PageHeader } from "@/components/shared/page-header";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useProjects } from "@/hooks/use-projects";
 import { writeSelectedProject } from "@/lib/projects/selection";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { describeProject } from "../lib/project-summary";
+import { PROJECT_TABS, type ProjectTabId } from "../lib/project-tabs";
 import { ProjectDataForm } from "./project-data-form";
 import { ProjectFilesList } from "./project-files-list";
 
@@ -25,6 +27,7 @@ export function ProjectDetail({ id, children }: ProjectDetailProps) {
   const projects = useProjects(isSupabaseConfigured());
   const project = projects.projects.find((entry) => entry.id === id);
   const router = useRouter();
+  const [tab, setTab] = useState<ProjectTabId>("summary");
 
   // The tools open on the project chosen last, so the one being looked at becomes it.
   useEffect(() => {
@@ -56,14 +59,32 @@ export function ProjectDetail({ id, children }: ProjectDetailProps) {
               />
             }
           />
-          <div className="grid gap-4 lg:grid-cols-2">{children}</div>
-          <ProjectFilesList projectId={project.id} />
-          <h2 className="text-sm font-medium">Dados do projeto</h2>
-          <ProjectDataForm
-            key={project.id}
-            project={project}
-            onChange={(change) => projects.saveData(project.id, change)}
-          />
+          <Tabs
+            value={tab}
+            onValueChange={(next) => setTab(next as ProjectTabId)}
+          >
+            <TabsList variant="line" className="w-full justify-start border-b">
+              {PROJECT_TABS.map(({ id, label }) => (
+                <TabsTrigger key={id} value={id} className="flex-none px-3">
+                  {label}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+            <TabsContent value="summary" className="flex flex-col gap-5 pt-4">
+              <div className="grid gap-4 lg:grid-cols-2">{children}</div>
+              <ProjectFilesList projectId={project.id} />
+            </TabsContent>
+            {PROJECT_TABS.filter(({ id }) => id !== "summary").map(({ id }) => (
+              <TabsContent key={id} value={id} className="pt-4">
+                <ProjectDataForm
+                  key={project.id}
+                  project={project}
+                  tab={id}
+                  onChange={(change) => projects.saveData(project.id, change)}
+                />
+              </TabsContent>
+            ))}
+          </Tabs>
           {projects.error && (
             <p role="alert" className="text-sm text-destructive">
               {projects.error}

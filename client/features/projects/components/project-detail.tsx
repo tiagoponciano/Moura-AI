@@ -34,15 +34,15 @@ export function ProjectDetail({ id, children }: ProjectDetailProps) {
   }, [project]);
 
   return (
-    <div className="mx-auto flex w-full max-w-5xl flex-col gap-5 p-6">
-      <Link
-        href="/projects"
-        className="inline-flex w-fit items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
-      >
-        <ChevronLeft className="size-4" /> Projetos
-      </Link>
-      {project ? (
-        <>
+    <div className="flex h-full flex-col">
+      <div className="shrink-0 border-b px-4 py-3 md:px-6">
+        <Link
+          href="/projects"
+          className="mb-1 inline-flex w-fit items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+        >
+          <ChevronLeft className="size-4" /> Projetos
+        </Link>
+        {project && (
           <PageHeader
             title={project.name}
             description={describeProject(project)}
@@ -58,38 +58,49 @@ export function ProjectDetail({ id, children }: ProjectDetailProps) {
               />
             }
           />
-          <Tabs value={tab} onValueChange={setTab}>
-            <TabsList variant="line" className="w-full justify-start border-b">
-              <TabsTrigger value="summary" className="flex-none px-3">
-                Resumo
-              </TabsTrigger>
-              <TabsTrigger value="data" className="flex-none px-3">
-                Dados do projeto
-              </TabsTrigger>
-            </TabsList>
-            <TabsContent value="summary" className="flex flex-col gap-5 pt-4">
-              <div className="grid gap-4 lg:grid-cols-2">{children}</div>
-              <ProjectFilesList projectId={project.id} />
-            </TabsContent>
-            <TabsContent value="data" className="pt-4">
-              <ProjectDataTable
-                key={project.id}
-                project={project}
-                onChange={(change) => projects.saveData(project.id, change)}
-              />
-            </TabsContent>
-          </Tabs>
-          {projects.error && (
-            <p role="alert" className="text-sm text-destructive">
-              {projects.error}
-            </p>
-          )}
-        </>
-      ) : projects.loaded ? (
-        <p className="text-sm text-muted-foreground">Projeto não encontrado.</p>
-      ) : (
-        <Skeleton className="h-40 w-full" />
-      )}
+        )}
+      </div>
+      <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto p-4 md:p-6">
+        {project ? (
+          <>
+            <Tabs value={tab} onValueChange={setTab}>
+              <TabsList
+                variant="line"
+                className="w-full justify-start border-b"
+              >
+                <TabsTrigger value="summary" className="flex-none px-3">
+                  Resumo
+                </TabsTrigger>
+                <TabsTrigger value="data" className="flex-none px-3">
+                  Dados do projeto
+                </TabsTrigger>
+              </TabsList>
+              <TabsContent value="summary" className="flex flex-col gap-5 pt-4">
+                <div className="grid gap-4 lg:grid-cols-2">{children}</div>
+                <ProjectFilesList projectId={project.id} />
+              </TabsContent>
+              <TabsContent value="data" className="pt-4">
+                <ProjectDataTable
+                  key={project.id}
+                  project={project}
+                  onChange={(change) => projects.saveData(project.id, change)}
+                />
+              </TabsContent>
+            </Tabs>
+            {projects.error && (
+              <p role="alert" className="text-sm text-destructive">
+                {projects.error}
+              </p>
+            )}
+          </>
+        ) : projects.loaded ? (
+          <p className="text-sm text-muted-foreground">
+            Projeto não encontrado.
+          </p>
+        ) : (
+          <Skeleton className="h-40 w-full" />
+        )}
+      </div>
     </div>
   );
 }

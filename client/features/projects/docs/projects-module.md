@@ -56,3 +56,5 @@ Every card is a `ModuleSummaryCard` (`components/shared/module-summary-card.tsx`
 
 - A new module card does not show → it was exported from the module but not added to `app/(app)/projects/[id]/page.tsx` → add it there as a child of `ProjectDetail`.
 - The documents and plans cards each ask for the project's files → two `GET /api/projects/[id]/files` per page load is expected, one per card.
+
+The projects list and a project's page use the same page frame as the modules: a header strip with a bottom border (`px-4 py-3 md:px-6`, the `PageHeader`) and, under it, a scrolling content area with `p-4 md:p-6` that takes the full width.

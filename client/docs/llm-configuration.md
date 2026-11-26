@@ -4,12 +4,12 @@ How the chat routes pick the AI provider, model and API key now: only from what 
 
 ## What this is
 
-Every chat route (`/api/documents/chat`, `/api/classification/chat`) calls `resolveChatModel()` from `lib/llm/index.ts` once per request. It reads the configuration saved in the admin console (provider, model and the provider's key from Supabase Vault) with the service role. Providers: Anthropic (`@ai-sdk/anthropic`), OpenAI (`@ai-sdk/openai`) and Google (`@ai-sdk/google`).
+Every chat route (`/api/documents/chat`, `/api/classification/chat`) calls `resolveChatModel()` from `lib/llm/index.ts` once per request. It reads, with the service role, the model the signed-in user may use: the admin console's default provider and model, or, when that provider is restricted and the user is not listed for it, the next provider open to them (OpenAI first, then the others) that has a saved model and a key. Providers: Anthropic (`@ai-sdk/anthropic`), OpenAI (`@ai-sdk/openai`) and Google (`@ai-sdk/google`).
 
 Invariants:
 
 - **The admin console is the only source.** No API key or model is read from environment variables; `SUPABASE_SERVICE_ROLE_KEY` is the one server variable involved, and only to read what the console saved.
-- **The key never reaches the browser.** It is decrypted by `get_llm_config()`, which only `service_role` may execute, and is used only in server code.
+- **The key never reaches the browser.** It is decrypted by `get_llm_config_for(user_id)`, which only `service_role` may execute, and is used only in server code.
 - **Any failure to read the config means "not configured".** No service role key, Supabase not configured, an RPC error, nothing saved or no key for the saved provider all end in the same 500; RPC errors are also logged as `Failed to read the LLM config`.
 - Resolution happens on every request; there is no cache. A change saved in the console applies to the next message.
 
@@ -27,7 +27,7 @@ Invariants:
 | `createSupabaseAdminClient()`       | `lib/supabase/admin.ts` | Server-only (`import "server-only"`). Service role client, or `undefined` without Supabase env or `SUPABASE_SERVICE_ROLE_KEY`                                                                                           |
 | `chatErrorMessage(error)`           | `lib/chat-error.ts`     | Text the chat shows for a failed request: the `error` field of a JSON body, else `error.message` unchanged                                                                                                              |
 
-`get_llm_config()` returns zero or one row: `provider`, `model` and `api_key` (the decrypted Vault secret `llm_api_key_<provider>`, `null` when that provider has no secret). No row when `app_settings.llm_provider` or `llm_model` is null.
+`get_llm_config_for(user_id)` returns zero or one row: `provider`, `model` and `api_key` (the decrypted Vault secret `llm_api_key_<provider>`). The default provider comes first, then OpenAI, then the rest; a provider needs a model (`app_settings` for the default, `llm_provider_settings.model` for the others, saved whenever the default is saved), a key, and, if `llm_provider_settings.restricted`, a row in `llm_provider_access` for the user. No row means no model for this user, and the route answers 500 with the Portuguese message "Nenhum modelo de IA disponível para você…".
 
 ### Catalog
 
@@ -50,7 +50,7 @@ IDs are passed verbatim to the provider package (`createAnthropic({ apiKey })(id
 
 The 500 body is `{"error":"Nenhum modelo de IA configurado. Peça a um administrador para configurar em Administração."}`. The message is in Portuguese on purpose: it is shown to the user. The AI SDK passes the raw response body as `error.message`, and the `Chat` component renders `Erro: ` plus `chatErrorMessage(error)`, so the user reads only the sentence. The same applies to every JSON error from the chat routes (e.g. the quota message, see `chat-request-limits.md`).
 
-Cost: one RPC (`get_llm_config`) per chat request when the service role key is set.
+Cost: one RPC (`get_llm_config_for`) per chat request when the service role key is set.
 
 ## What this does NOT do
 

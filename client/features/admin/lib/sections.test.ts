@@ -25,6 +25,7 @@ const settings = (
       updatedAt: "2026-10-12T18:40:00Z",
     },
   ],
+  access: [],
   serviceRoleConfigured: true,
   ...extra,
 });

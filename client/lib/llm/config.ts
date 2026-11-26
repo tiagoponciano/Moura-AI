@@ -6,7 +6,7 @@ export type ModelConfig = {
   apiKey: string;
 };
 
-/** A row of `get_llm_config()`. */
+/** A row of `get_llm_config_for`. */
 export type StoredModelConfig = {
   provider: LlmProvider;
   model: string;

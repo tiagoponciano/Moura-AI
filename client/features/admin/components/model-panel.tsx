@@ -19,19 +19,21 @@ import { useModelChoice } from "../hooks/use-model-choice";
 import { useSaveStatus, type SaveRunner } from "../hooks/use-save-status";
 import { updateSettings } from "../lib/client";
 import { canSaveModel, describeModelChoice } from "../lib/sections";
-import type { AdminSettingsResponse } from "../lib/types";
+import type { AdminSettingsResponse, AdminUser } from "../lib/types";
 import { FormStatus } from "./form-status";
 import { ModelSelect } from "./model-select";
+import { ProviderAccessField } from "./provider-access-field";
 import { ProviderCard } from "./provider-card";
 import { ProviderKeyField } from "./provider-key-field";
 
 type ModelPanelProps = {
   data: AdminSettingsResponse;
   run: SaveRunner;
+  users: AdminUser[];
 };
 
 /** Provider and model used by every chat, with the chosen provider's API key. */
-export function ModelPanel({ data, run }: ModelPanelProps) {
+export function ModelPanel({ data, run, users }: ModelPanelProps) {
   const saved = data.settings;
   const {
     provider,
@@ -85,6 +87,15 @@ export function ModelPanel({ data, run }: ModelPanelProps) {
               key={entry.id}
               provider={entry}
               hint={hintFor(entry.id)}
+              run={run}
+            />
+          )}
+          {entry && (
+            <ProviderAccessField
+              key={entry.id}
+              provider={entry}
+              saved={data.access.find((item) => item.provider === entry.id)}
+              users={users}
               run={run}
             />
           )}

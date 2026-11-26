@@ -130,7 +130,11 @@ export function AdminConsole() {
 
         <TabsContent value="model">
           {settings.data ? (
-            <ModelPanel data={settings.data} run={settings.run} />
+            <ModelPanel
+              data={settings.data}
+              run={settings.run}
+              users={users.data?.users ?? []}
+            />
           ) : (
             settingsFallback
           )}

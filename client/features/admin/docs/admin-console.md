@@ -10,7 +10,7 @@ Invariants:
 
 - **Three layers check admin rights, independently.** The proxy (`resolveGate`) redirects non-admins away from `/admin` and answers `/api/admin/*` with 403; every RPC calls `public.is_admin()`; `app_settings` RLS only lets admins read and update. A request that slips past one layer still changes nothing.
 - **Admins cannot change their own status or role.** The RPCs refuse `target = auth.uid()` and the UI hides the actions on the admin's own row. This keeps the last admin from locking everyone out; promoting a second admin is the only way to demote the first.
-- **API keys never leave the database in clear.** They live in Supabase Vault; the console only ever receives their last four characters. The decrypted key is readable only through `get_llm_config()`, which is granted to `service_role` alone.
+- **API keys never leave the database in clear.** They live in Supabase Vault; the console only ever receives their last four characters. The decrypted key is readable only through `get_llm_config_for(user_id)`, which is granted to `service_role` alone.
 
 `public.is_admin()` is `true` only when the caller's profile is `status = 'approved'` **and** `role = 'admin'`: a rejected or pending admin has no admin rights.
 
@@ -32,38 +32,40 @@ The "Normas" section lists the instructions the app keeps (the 33 of the CBMSC D
 
 All routes run behind the proxy and need a session cookie. Errors are `{"error": string}`.
 
-| Method  | Path                                 | Body                                                     | Success | Errors                                                               |
-| ------- | ------------------------------------ | -------------------------------------------------------- | ------- | -------------------------------------------------------------------- |
-| `GET`   | `/api/admin/users`                   | —                                                        | 200     | 401, 403, 503, 500 `Failed to list users`                            |
-| `PATCH` | `/api/admin/users/:id`               | `{ status?, role? }`                                     | 204     | 400 (validation or own row), 403, 404 `Profile not found`, 503, 500  |
-| `GET`   | `/api/admin/settings`                | —                                                        | 200     | 401, 403, 503, 500 `Failed to load settings`                         |
-| `PUT`   | `/api/admin/settings`                | `{ llm?, allowedEmailDomain? }`                          | 204     | 400, 403 `Admin only`, 503, 500 `Failed to save settings`            |
-| `PUT`   | `/api/admin/settings/keys/:provider` | `{ key }`                                                | 204     | 400 (validation or blank key), 403, 404 `Unknown provider`, 503, 500 |
-| `GET`   | `/api/admin/forms`                   | —                                                        | 200     | 401, 403, 503, 500 `Failed to load forms`                            |
-| `POST`  | `/api/admin/forms/resolve`           | `{ url }`                                                | 200     | 400, 403, 422, 502, 503, 500                                         |
-| `POST`  | `/api/admin/forms`                   | `{ forms }`                                              | 204     | 400, 403, 503, 500 `Failed to save forms`                            |
-| `PATCH` | `/api/admin/forms/:docId`            | any of `{ googleDocId, normative, annex, name, active }` | 204     | 400, 403, 404 `Form not found`, 409, 502, 503, 500                   |
-| `GET`   | `/api/admin/forms/site-check`        | —                                                        | 200     | 403, 503, 500                                                        |
-| `POST`  | `/api/admin/forms/site-check`        | —                                                        | 200     | 403, 503, 500                                                        |
+| Method  | Path                                   | Body                                                     | Success | Errors                                                               |
+| ------- | -------------------------------------- | -------------------------------------------------------- | ------- | -------------------------------------------------------------------- |
+| `GET`   | `/api/admin/users`                     | —                                                        | 200     | 401, 403, 503, 500 `Failed to list users`                            |
+| `PATCH` | `/api/admin/users/:id`                 | `{ status?, role? }`                                     | 204     | 400 (validation or own row), 403, 404 `Profile not found`, 503, 500  |
+| `GET`   | `/api/admin/settings`                  | —                                                        | 200     | 401, 403, 503, 500 `Failed to load settings`                         |
+| `PUT`   | `/api/admin/settings`                  | `{ llm?, allowedEmailDomain? }`                          | 204     | 400, 403 `Admin only`, 503, 500 `Failed to save settings`            |
+| `PUT`   | `/api/admin/settings/access/:provider` | `{ restricted, userIds }`                                | 204     | 400, 403, 404 `Unknown provider`, 503, 500                           |
+| `PUT`   | `/api/admin/settings/keys/:provider`   | `{ key }`                                                | 204     | 400 (validation or blank key), 403, 404 `Unknown provider`, 503, 500 |
+| `GET`   | `/api/admin/forms`                     | —                                                        | 200     | 401, 403, 503, 500 `Failed to load forms`                            |
+| `POST`  | `/api/admin/forms/resolve`             | `{ url }`                                                | 200     | 400, 403, 422, 502, 503, 500                                         |
+| `POST`  | `/api/admin/forms`                     | `{ forms }`                                              | 204     | 400, 403, 503, 500 `Failed to save forms`                            |
+| `PATCH` | `/api/admin/forms/:docId`              | any of `{ googleDocId, normative, annex, name, active }` | 204     | 400, 403, 404 `Form not found`, 409, 502, 503, 500                   |
+| `GET`   | `/api/admin/forms/site-check`          | —                                                        | 200     | 403, 503, 500                                                        |
+| `POST`  | `/api/admin/forms/site-check`          | —                                                        | 200     | 403, 503, 500                                                        |
 
 - 401 `Authentication required` and 403 `Admin only` come from the proxy for non-admins; the handlers return the same codes if a request reaches them anyway.
 - 503 `Admin console is not configured`: Supabase env vars are empty.
 
 ### Database (`20261014000000_admin.sql`)
 
-| Object                                      | Kind                         | Callable by     | Contract                                                                                                                         |
-| ------------------------------------------- | ---------------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `is_admin()`                                | function, definer            | `authenticated` | Caller is approved and `role = 'admin'`                                                                                          |
-| policy `Admins read all profiles`           | RLS select on `profiles`     | admins          | Admins see every profile; members still see only their own row                                                                   |
-| `admin_set_user_status(target, new_status)` | function, definer            | `authenticated` | Admin only, not on self. `approved` sets `approved_at = now()`, `approved_by = auth.uid()`; any other status sets both to `null` |
-| `admin_set_user_role(target, new_role)`     | function, definer            | `authenticated` | Admin only, not on self. Changes `role` only                                                                                     |
-| `app_settings`                              | table, one row (`id = true`) | admins (RLS)    | `llm_provider`, `llm_model`, `allowed_email_domain`, `updated_at`, `updated_by`                                                  |
-| trigger `app_settings_touch`                | before update                | —               | Sets `updated_at = now()` and `updated_by = auth.uid()` on every update                                                          |
-| `admin_set_provider_key(provider, api_key)` | function, definer            | `authenticated` | Admin only. Trims; blank → error. Creates or updates Vault secret `llm_api_key_<provider>`                                       |
-| `admin_list_provider_keys()`                | function, definer            | `authenticated` | Admin only. One row per provider that has a secret: `provider`, `last_four`, `updated_at`                                        |
-| `get_llm_config()`                          | function, definer            | `service_role`  | See `llm-configuration.md`                                                                                                       |
-| `get_gate_state()`                          | function, definer            | `authenticated` | See `authentication.md`                                                                                                          |
-| enum `llm_provider`                         | type                         | —               | `anthropic`, `openai`, `google`                                                                                                  |
+| Object                                                       | Kind                         | Callable by     | Contract                                                                                                                         |
+| ------------------------------------------------------------ | ---------------------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `is_admin()`                                                 | function, definer            | `authenticated` | Caller is approved and `role = 'admin'`                                                                                          |
+| policy `Admins read all profiles`                            | RLS select on `profiles`     | admins          | Admins see every profile; members still see only their own row                                                                   |
+| `admin_set_user_status(target, new_status)`                  | function, definer            | `authenticated` | Admin only, not on self. `approved` sets `approved_at = now()`, `approved_by = auth.uid()`; any other status sets both to `null` |
+| `admin_set_user_role(target, new_role)`                      | function, definer            | `authenticated` | Admin only, not on self. Changes `role` only                                                                                     |
+| `app_settings`                                               | table, one row (`id = true`) | admins (RLS)    | `llm_provider`, `llm_model`, `allowed_email_domain`, `updated_at`, `updated_by`                                                  |
+| trigger `app_settings_touch`                                 | before update                | —               | Sets `updated_at = now()` and `updated_by = auth.uid()` on every update                                                          |
+| `admin_set_provider_key(provider, api_key)`                  | function, definer            | `authenticated` | Admin only. Trims; blank → error. Creates or updates Vault secret `llm_api_key_<provider>`                                       |
+| `admin_list_provider_keys()`                                 | function, definer            | `authenticated` | Admin only. One row per provider that has a secret: `provider`, `last_four`, `updated_at`                                        |
+| `get_llm_config_for(user_id)`                                | function, definer            | `service_role`  | See `llm-configuration.md`                                                                                                       |
+| `admin_set_provider_access(target, is_restricted, user_ids)` | function, definer            | admins          | Replaces who may use a provider (`llm_provider_settings`, `llm_provider_access`)                                                 |     |
+| `get_gate_state()`                                           | function, definer            | `authenticated` | See `authentication.md`                                                                                                          |
+| enum `llm_provider`                                          | type                         | —               | `anthropic`, `openai`, `google`                                                                                                  |
 
 The table `cbmsc_forms` and its policies (approved users read active rows; admins read all, insert and update) are in `20261105000000_cbmsc_forms.sql`, and the single-row `cbmsc_site_check` in `20261105000100_cbmsc_site_check.sql`; see `client/docs/cbmsc-forms-catalog.md`.
 
@@ -246,3 +248,7 @@ How the catalog works, including link resolution and its errors, is in `client/d
 2. Set `SUPABASE_SERVICE_ROLE_KEY` (Supabase → Project Settings → API Keys: legacy `service_role` or a `sb_secret_…` secret key) in `client/.env.local` and in Vercel as a Secret for Production and Preview. Server-only: never prefix it with `NEXT_PUBLIC_`.
 3. Make the first admin with SQL (see `authentication.md`), reload, and open "Administração" in the sidebar.
 4. Pick provider and model, and save that provider's key. Until then no chat works.
+
+## Who may use each provider
+
+Under the key of the selected provider, the Modelo tab has a switch "Restringir o uso" and, when on, a list of the approved users to tick. By default every provider is open to all approved users. A user who is not listed for the default provider falls back to the next provider open to them (see `llm-configuration.md`). `GET /api/admin/settings` returns `access` (`provider`, `restricted`, `userIds`).

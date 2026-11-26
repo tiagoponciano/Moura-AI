@@ -126,6 +126,36 @@ export type Database = {
         Update: Partial<Database["public"]["Tables"]["app_settings"]["Insert"]>;
         Relationships: [];
       };
+      llm_provider_settings: {
+        Row: {
+          provider: Database["public"]["Enums"]["llm_provider"];
+          model: string | null;
+          restricted: boolean;
+        };
+        Insert: {
+          provider: Database["public"]["Enums"]["llm_provider"];
+          model?: string | null;
+          restricted?: boolean;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["llm_provider_settings"]["Insert"]
+        >;
+        Relationships: [];
+      };
+      llm_provider_access: {
+        Row: {
+          provider: Database["public"]["Enums"]["llm_provider"];
+          user_id: string;
+        };
+        Insert: {
+          provider: Database["public"]["Enums"]["llm_provider"];
+          user_id: string;
+        };
+        Update: Partial<
+          Database["public"]["Tables"]["llm_provider_access"]["Insert"]
+        >;
+        Relationships: [];
+      };
       chat_requests: {
         Row: { id: number; user_id: string; created_at: string };
         Insert: { user_id: string; created_at?: string };
@@ -373,6 +403,22 @@ export type Database = {
           model: string;
           api_key: string | null;
         }[];
+      };
+      get_llm_config_for: {
+        Args: { user_id: string };
+        Returns: {
+          provider: Database["public"]["Enums"]["llm_provider"];
+          model: string;
+          api_key: string | null;
+        }[];
+      };
+      admin_set_provider_access: {
+        Args: {
+          target: Database["public"]["Enums"]["llm_provider"];
+          is_restricted: boolean;
+          user_ids: string[];
+        };
+        Returns: undefined;
       };
       get_gate_state: {
         Args: Record<PropertyKey, never>;

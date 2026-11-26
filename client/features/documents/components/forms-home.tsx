@@ -7,7 +7,8 @@ import type { Filling } from "../lib/fillings";
 import type { TemplateEntry } from "../lib/templates";
 import { FormsList } from "./forms-list";
 import { ProjectBar, type ProjectView } from "./project-bar";
-import { ProjectDetails } from "./project-details";
+import { ProjectDataTable } from "@/components/shared/project-data-table";
+import { ProjectHistory } from "./project-history";
 import { ProposalForm } from "./proposal-form";
 
 type FormsHomeProps = {
@@ -45,11 +46,14 @@ export function FormsHome({
         onCreated={() => setView("details")}
       />
       {project && shown === "details" ? (
-        <ProjectDetails
-          key={project.id}
-          project={project}
-          onChange={(change) => projects.saveData(project.id, change)}
-        />
+        <>
+          <ProjectDataTable
+            key={project.id}
+            project={project}
+            onChange={(change) => projects.saveData(project.id, change)}
+          />
+          <ProjectHistory projectId={project.id} />
+        </>
       ) : project && shown === "proposal" ? (
         <ProposalForm key={project.id} project={project} />
       ) : (

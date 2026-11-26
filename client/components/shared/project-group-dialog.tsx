@@ -13,7 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import type { ProjectFieldGroup } from "@/lib/projects/fields";
 import type { Project, ProjectChange } from "@/lib/projects/project";
-import { groupChange, groupDraft } from "../lib/project-data-edit";
+import { groupChange, groupDraft } from "@/lib/projects/data-edit";
 
 type ProjectGroupDialogProps = {
   project: Project;

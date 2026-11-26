@@ -54,7 +54,7 @@ The keys are the fields of `PROJECT_FIELD_GROUPS`, in six groups: property (`pro
 
 ### Dados do projeto
 
-"Dados do projeto" in the project bar, enabled once a project is chosen, swaps the form list for one collapsible section per group, each showing `<filled> de <total>`. The first section starts open. Creating a project goes straight there. A field saves when it loses focus, only if its trimmed value changed. "Ver formulários" goes back.
+"Dados do projeto" in the project bar, enabled once a project is chosen, swaps the form list for a table with one row per group, each showing `<filled> de <total>` and a pencil that opens the group's fields in a dialog. Nothing is saved until "Salvar", which sends only the fields whose trimmed value changed. Creating a project goes straight there, and the "Formulários" tab goes back.
 
 ### In the forms
 

@@ -1,24 +1,14 @@
 "use client";
 
-import { Landmark } from "lucide-react";
 import { useState } from "react";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import type { useProjects } from "@/hooks/use-projects";
 import type { Filling } from "../lib/fillings";
-import { startedForms } from "../lib/started-forms";
 import type { TemplateEntry } from "../lib/templates";
-import { CbmscFormsBrowser } from "./cbmsc-forms-browser";
+import { FormsList } from "./forms-list";
 import { ProjectBar, type ProjectView } from "./project-bar";
-import { ProposalForm } from "./proposal-form";
 import { ProjectDetails } from "./project-details";
-import { StartedForms } from "./started-forms";
+import { ProposalForm } from "./proposal-form";
 
 type FormsHomeProps = {
   templates: TemplateEntry[];
@@ -27,7 +17,7 @@ type FormsHomeProps = {
   onFill: (templateId: string) => void;
 };
 
-/** The page with no form open: the forms dialog, already open on arrival. */
+/** The page with no form open: the project bar, then its forms, data or proposal. */
 export function FormsHome({
   templates,
   fillings,
@@ -47,59 +37,24 @@ export function FormsHome({
   }
 
   return (
-    <div className="flex flex-1 items-center justify-center p-4">
-      <Dialog defaultOpen>
-        <DialogTrigger asChild>
-          <button
-            type="button"
-            className="group flex w-44 flex-col gap-2.5 text-left focus-visible:outline-none"
-          >
-            <span className="flex aspect-[210/297] w-full flex-col items-center justify-center gap-2 rounded-md border bg-card px-4 text-center text-xs text-muted-foreground transition group-hover:-translate-y-0.5 group-hover:border-primary group-hover:shadow-md group-focus-visible:border-primary group-focus-visible:ring-3 group-focus-visible:ring-ring/50">
-              <Landmark className="size-6 text-primary" />
-              Formulários oficiais, sempre atualizados
-            </span>
-            <span className="flex flex-col gap-0.5">
-              <span className="text-sm font-medium">Anexos do CBMSC</span>
-              <span className="w-fit rounded border px-1.5 font-mono text-[11px] text-muted-foreground">
-                Google Docs
-              </span>
-            </span>
-          </button>
-        </DialogTrigger>
-        <DialogContent
-          aria-describedby={undefined}
-          className="flex h-[85vh] flex-col sm:max-w-5xl"
-        >
-          <DialogHeader>
-            <DialogTitle>Anexos do CBMSC</DialogTitle>
-          </DialogHeader>
-          <ProjectBar
-            projects={projects}
-            view={shown}
-            onView={setView}
-            onCreated={() => setView("details")}
-          />
-          {project && shown === "details" ? (
-            <ProjectDetails
-              key={project.id}
-              project={project}
-              onChange={(change) => projects.saveData(project.id, change)}
-            />
-          ) : project && shown === "proposal" ? (
-            <ProposalForm key={project.id} project={project} />
-          ) : (
-            <>
-              {project && (
-                <StartedForms
-                  forms={startedForms(fillings, templates)}
-                  onOpen={onFill}
-                />
-              )}
-              <CbmscFormsBrowser templates={templates} onFill={onFill} />
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
+    <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto p-4 md:p-6">
+      <ProjectBar
+        projects={projects}
+        view={shown}
+        onView={setView}
+        onCreated={() => setView("details")}
+      />
+      {project && shown === "details" ? (
+        <ProjectDetails
+          key={project.id}
+          project={project}
+          onChange={(change) => projects.saveData(project.id, change)}
+        />
+      ) : project && shown === "proposal" ? (
+        <ProposalForm key={project.id} project={project} />
+      ) : (
+        <FormsList templates={templates} fillings={fillings} onFill={onFill} />
+      )}
     </div>
   );
 }

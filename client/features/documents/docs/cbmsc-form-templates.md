@@ -1,6 +1,6 @@
 # CBMSC form templates
 
-How an official CBMSC form becomes fillable by the assistant now: the tagged copy, the button in the "Anexos do CBMSC" dialog and the check against the live document. For developers preparing another form. The catalog itself is in `client/docs/cbmsc-forms-catalog.md`; the chat and document generation are in `document-filling.md`.
+How an official CBMSC form becomes fillable by the assistant now: the tagged copy, the button in the preview of the forms table and the check against the live document. For developers preparing another form. The catalog itself is in `client/docs/cbmsc-forms-catalog.md`; the chat and document generation are in `document-filling.md`.
 
 ## What this is
 
@@ -51,7 +51,7 @@ Invariants:
 
 ### The button
 
-`CbmscFormPreview` shows it for every form. Choosing it selects the template, which replaces the page and its dialog with the chat and field panel. The dialog is the only way in. The chat title has a back button (`form-chat-title.tsx`), and `chatEmptyState` writes the empty state from the current conversation step (see `conversation-steps.md`).
+`CbmscFormPreview` shows it for every form. Choosing it selects the template, which replaces the page with the chat and field panel. The preview opened from a row of the forms table is the only way in. The chat title has a back button (`form-chat-title.tsx`), and `chatEmptyState` writes the empty state from the current conversation step (see `conversation-steps.md`).
 
 | State         | Condition                         | Button                               | Note under the actions                           |
 | ------------- | --------------------------------- | ------------------------------------ | ------------------------------------------------ |

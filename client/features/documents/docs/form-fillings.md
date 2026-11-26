@@ -34,7 +34,7 @@ Table `form_fillings` (`20261110000000_form_fillings.sql`): primary key `(projec
 
 The project page (`/projects/[id]`) has a "Documentos" card (`ProjectDocumentsSummary`, with `useProjectDocuments`). It loads the fillings, the template index and the project's files (`project-files.md`) and joins them with `projectDocuments` (`lib/project-documents.ts`):
 
-1. The forms are the started ones, as on the home of the documents page (`startedForms`): newest edit first, removed templates left out. Each shows "Editado em <date>".
+1. The forms are the started ones, as listed by `startedForms`: newest edit first, removed templates left out. Each shows "Editado em <date>".
 2. A `form` file belongs to the template whose id its name starts with, followed by `.` or `_` (`documentFileName` names it `<id>.docx` or `<id>_<company>.docx`). When several ids match, the longest wins. A form shows a download button for its latest file, or "Documento não gerado".
 3. "Proposta comercial" shows the latest `proposal` file, with "Gerada em <date>", when there is one.
 4. With no started form and no proposal the card says "Nenhum formulário começado."
@@ -50,6 +50,6 @@ The project page (`/projects/[id]`) has a "Documentos" card (`ProjectDocumentsSu
 
 ## Gotchas
 
-- Saved values do not appear → the form was opened with no project selected → pick a project in the dialog before choosing the form.
+- Saved values do not appear → the form was opened with no project selected → pick a project before choosing the form.
 - A generated `.docx` does not show on the project page → the form has no saved filling, so it is not a started form → the card lists documents only under the forms that were filled.
 - A boolean left untouched is not saved as `false` → the panel shows "Não" for unset switches → the saved values only hold what was set.

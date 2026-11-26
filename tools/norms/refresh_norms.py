@@ -52,6 +52,8 @@ EXTRACTORS: dict[str, tuple[tuple[str, str], ...]] = {
     ),
     # Instructions whose text is kept article by article and nothing else.
     **{f"IN-{n}": (("extract_articles.py", f"in-{n}"),) for n in TEXT_ONLY},
+    # The guide for responsible engineers, also kept as text only.
+    "CARTILHA": (("extract_articles.py", "cartilha"),),
 }
 # Tools that take the source link and the retrieval date to write into the manifest.
 WITH_SOURCE = {

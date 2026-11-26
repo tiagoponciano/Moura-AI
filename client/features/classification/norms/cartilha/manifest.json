@@ -1,0 +1,15 @@
+{
+  "doc": "CARTILHA",
+  "source_url": "https://drive.google.com/file/d/12ZZCyWMjIcK2HrwMbVJs5-i8MI5zogSf/view",
+  "retrieved": "2026-11-25",
+  "pdf_sha256": "a744a7a4bd135143b08c5c933668b93f64025bfe6081f94dcb3dbbe65df6a7b2",
+  "pdf_pages": 6,
+  "tool_version": 1,
+  "pymupdf": "1.28.2",
+  "articles": {
+    "count": 6,
+    "annex_pages": 4,
+    "sha256": "a326bb210f3e8508d4c0a5f1c56a6fcb74c828d250a1e5d73747a15e0809f17f",
+    "needs_human_look": 0
+  }
+}

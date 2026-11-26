@@ -1,0 +1,1950 @@
+{
+  "pages": [
+    {
+      "page": 61,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Grupo",
+              "Divisão",
+              "Tipo e quantidade de escadas conforme altura da edificação em metros (m)",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "",
+              "H ≤ 6",
+              "",
+              "6 < H ≤ 12",
+              "",
+              "12 < H ≤ 21",
+              "",
+              "21 < H ≤ 30",
+              "",
+              "30 < H ≤ 75",
+              "",
+              "H > 75",
+              ""
+            ],
+            [
+              "",
+              "",
+              "Tipo",
+              "Quanti- dade",
+              "Tipo",
+              "Quanti- dade",
+              "Tipo",
+              "Quanti- dade",
+              "Tipo",
+              "Quanti- dade",
+              "Tipo",
+              "Quantid ade",
+              "Tipo",
+              "Quanti- dade"
+            ],
+            [
+              "A",
+              "A-1",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "",
+              "A-2",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "2 1_2"
+            ],
+            [
+              "",
+              "A-3",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "2",
+              "EPF",
+              "2"
+            ],
+            [
+              "B",
+              "B-1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EEV",
+              "2³",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "B-2",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EEV",
+              "2³",
+              "EPF",
+              "2"
+            ],
+            [
+              "C",
+              "C-1",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "2³",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "C-2",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EEV",
+              "2³",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "C-3",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "2",
+              "EEV",
+              "2",
+              "EPF",
+              "2 4",
+              "EPF",
+              "2"
+            ],
+            [
+              "D",
+              "D-1",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "D-2",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "D-3",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "D-4",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "2"
+            ],
+            [
+              "E",
+              "E-1",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "1 5",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "E-2",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EPF",
+              "1 5",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "E-3 13",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EPF",
+              "1 5",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "E-4",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EPF",
+              "1 5",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "E-5",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EPT/EEE",
+              "2",
+              "EEE/EEV",
+              "2",
+              "EPF",
+              "1 5",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "E-6",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EPF",
+              "1 5",
+              "EPF",
+              "2"
+            ],
+            [
+              "F 7",
+              "F-1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "1 5",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "F-2",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "1 5",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "F-3⁶",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EPF",
+              "1",
+              "EPF",
+              "1 5",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "F-4",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "F-5",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "1 5",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "F-6",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "1",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "F-7",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "",
+              "F-8",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "1 5",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "F-9",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "1 5",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "F-10",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EEV",
+              "2 3",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "F-11",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "1",
+              "EPF",
+              "2"
+            ],
+            [
+              "G",
+              "G-1",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "",
+              "G-2",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "",
+              "G-3",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 62,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Grupo",
+              "Divisão",
+              "Tipo e quantidade de escadas conforme altura da edificação em metros (m)",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "",
+              "H ≤ 6",
+              "",
+              "6 < H ≤ 12",
+              "",
+              "12 < H ≤ 21",
+              "",
+              "21 < H ≤ 30",
+              "",
+              "30 < H ≤ 75",
+              "",
+              "H > 75",
+              ""
+            ],
+            [
+              "",
+              "",
+              "Tipo",
+              "Quanti- dade",
+              "Tipo",
+              "Quanti- dade",
+              "Tipo",
+              "Quanti- dade",
+              "Tipo",
+              "Quanti- dade",
+              "Tipo",
+              "Quantid ade",
+              "Tipo",
+              "Quanti- dade"
+            ],
+            [
+              "G",
+              "G-4",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "",
+              "G-5",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "H",
+              "H-1",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "2 3",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "H-2 9",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "2",
+              "EEV",
+              "2",
+              "EEV",
+              "2",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "H-3 9",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "2",
+              "EEV",
+              "2",
+              "EPF¹²",
+              "2",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "H-4",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "2 3",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "H-5",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "2 3",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "H-6",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEE",
+              "2 8",
+              "EEV",
+              "2 3",
+              "EPF",
+              "2"
+            ],
+            [
+              "I",
+              "I-1",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "",
+              "I-2",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEE",
+              "2 8",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "",
+              "I-3",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "2",
+              "EEV",
+              "2",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "J",
+              "J-1",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "1"
+            ],
+            [
+              "",
+              "J-2",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "1"
+            ],
+            [
+              "",
+              "J-3",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "1"
+            ],
+            [
+              "",
+              "J-4",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "K",
+              "K-1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "1",
+              "EPF",
+              "1"
+            ],
+            [
+              "",
+              "K-2",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "1",
+              "EPF",
+              "1"
+            ],
+            [
+              "L",
+              "L-1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "",
+              "L-2",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "",
+              "L-3",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "M",
+              "M-1",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "1",
+              "EPF",
+              "1"
+            ],
+            [
+              "",
+              "M-2",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "",
+              "M-3",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "1",
+              "EPF",
+              "2"
+            ],
+            [
+              "",
+              "M-4",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "ECM",
+              "2",
+              "ECM",
+              "2"
+            ],
+            [
+              "",
+              "M-5",
+              "ECM",
+              "1",
+              "EPT",
+              "1",
+              "EEE",
+              "1",
+              "EEE",
+              "1",
+              "EEV",
+              "1",
+              "EPF",
+              "1"
+            ],
+            [
+              "",
+              "M-6",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "",
+              "M-7",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "",
+              "M-8",
+              "ECM",
+              "1",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "",
+              "M-9",
+              "ECM",
+              "1",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "",
+              "M-10",
+              "+",
+              "+",
+              "+",
+              "+",
+              "+",
+              "+",
+              "+",
+              "+",
+              "+",
+              "+",
+              "+",
+              "+"
+            ],
+            [
+              "",
+              "M-11",
+              "ECM",
+              "1",
+              "ECM",
+              "1",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "Legenda: ECM - Escada comum EPT - Escada protegida",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "EEE - Escada enclausurada com exaustão EEV - Escada enclausurada com ventilação EPF - Escada à prova de fumaça.",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 64,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Grupo",
+              "Divisão",
+              "Coeficiente de densidade populacional para cálculo da lotação",
+              "",
+              "Capacidade de passagem (nº pessoas/unidade passagem/1min)",
+              "",
+              ""
+            ],
+            ["", "", "", "", "Acesso e Descarga", "Escada e Rampa", "Porta"],
+            ["A", "A-1 A-2", "2 pessoas/dormitório¹", "", "60", "45", "100"],
+            [
+              "",
+              "A-3",
+              "2 pessoas/dormitório ou 1 pessoa/4 m² de alojamento² coletivo",
+              "",
+              "60",
+              "45",
+              "100"
+            ],
+            [
+              "B 1_3",
+              "B-1 B-2",
+              "Dormitório",
+              "2 pessoas/ dormitório",
+              "60",
+              "45",
+              "100"
+            ],
+            [
+              "",
+              "",
+              "Alojamento ² coletivo",
+              "1 pessoa/4 m² alojamento",
+              "",
+              "",
+              ""
+            ],
+            ["C", "C-1 C-2", "1 pessoa/7 m²", "", "100", "75", "100"],
+            ["", "C-3 5", "1 pessoa/5 m²", "", "100", "75", "100"],
+            ["D", "D 6_7", "1 pessoa/7 m²", "", "100", "60", "100"],
+            [
+              "E 7_8",
+              "E-1",
+              "1 pessoa/1,5 m² sala de aula",
+              "",
+              "100",
+              "60",
+              "100"
+            ],
+            ["", "E-2", "1 pessoa/2 m² sala de aula", "", "100", "60", "100"],
+            [
+              "",
+              "E-3",
+              "1 pessoa/2 m² sala de aula ou espaço para os alunos",
+              "",
+              "100",
+              "60",
+              "100"
+            ],
+            ["", "E-4", "1 pessoa/2 m² sala de aula", "", "100", "60", "100"],
+            [
+              "",
+              "E-5 E-6",
+              "1 pessoa/1,5 m² sala de aula",
+              "",
+              "30",
+              "22",
+              "30"
+            ],
+            [
+              "F 3_9",
+              "F-1 F-4",
+              "1 pessoa/ 3 m² de área",
+              "",
+              "100",
+              "75",
+              "100"
+            ],
+            [
+              "",
+              "F-2 F-5 F-8 10",
+              "1 pessoa/m² de área em locais sem assentos",
+              "",
+              "100",
+              "75",
+              "100"
+            ],
+            [
+              "",
+              "F-3 F-6 10 F-7",
+              "2 pessoas/m² da área para público",
+              "",
+              "100",
+              "75",
+              "100"
+            ],
+            [
+              "",
+              "F-9 F-10",
+              "1 pessoas/m² da área para público",
+              "",
+              "100",
+              "75",
+              "100"
+            ],
+            [
+              "",
+              "F-11",
+              "3 pessoas/m² da área para público",
+              "",
+              "100",
+              "75",
+              "100"
+            ],
+            [
+              "G",
+              "G-1 G-2 G-3",
+              "1 pessoa/40 vagas de veículo",
+              "",
+              "100",
+              "60",
+              "100"
+            ],
+            ["", "G-4 G-5", "1 pessoa/20 m² de área", "", "100", "60", "100"],
+            ["H", "H-1 H-6", "1 pessoa/7 m²de área", "", "100", "60", "100"],
+            [
+              "",
+              "H-2",
+              "2 pessoas/dormitório e 1 pessoa/4 m² de área de alojamento",
+              "",
+              "30",
+              "22",
+              "30"
+            ],
+            ["", "H-3", "Leito", "1,5 pessoas/leito", "30", "22", "30"],
+            ["", "", "Área ambulatorial", "1 pessoa/7 m² área", "", "", ""],
+            ["", "H-4 H-5", "1 pessoa/7 m² de área", "", "60", "45", "100"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 65,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Grupo",
+              "Divisão",
+              "Coeficiente de densidade populacional para cálculo da lotação",
+              "Capacidade de passagem (nº pessoas/unidade passagem/1min)",
+              "",
+              ""
+            ],
+            ["", "", "", "Acesso e Descarga", "Escada e Rampa", "Porta"],
+            ["I", "I-1 I-2 I-3", "1 pessoa/10 m² de área", "100", "60", "100"],
+            [
+              "J 4",
+              "J-1 J-2 J-3 J-4",
+              "1 pessoa/30 m² de área",
+              "100",
+              "60",
+              "100"
+            ],
+            ["K", "K-1", "1 pessoa/10 m² de área", "100", "60", "100"],
+            ["", "K-2", "1 pessoa/7 m² de área", "100", "60", "100"],
+            ["L", "L-1", "1 pessoa/3 m² de área", "100", "60", "100"],
+            ["", "L-2 L-3", "1 pessoa/10 m² de área", "100", "60", "100"],
+            ["M", "M-1 M-6 M-10 M-11", "+", "100", "75", "100"],
+            [
+              "",
+              "M-2 M-8 M-9",
+              "1 pessoa/30 m² ambientes internos",
+              "100",
+              "60",
+              "100"
+            ],
+            ["", "M-3 M-5", "1 pessoa/9 m² de área", "100", "60", "100"],
+            ["", "M-4", "1 pessoa/7 m² de área", "100", "60", "100"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 66,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Ocupação",
+              "Tipo de pavimento",
+              "Sem chuveiros automáticos",
+              "",
+              "",
+              "",
+              "Com chuveiros automáticos",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "",
+              "Saída única",
+              "",
+              "Mais de uma saída",
+              "",
+              "Saída única",
+              "",
+              "Mais de uma saída",
+              ""
+            ],
+            [
+              "",
+              "",
+              "Sem DAI",
+              "Com DAI",
+              "Sem DAI",
+              "Com DAI",
+              "Sem DAI",
+              "Com DAI",
+              "Sem DAI",
+              "Com DAI"
+            ],
+            [
+              "A e B",
+              "Piso de descarga",
+              "40 m",
+              "50 m",
+              "55 m",
+              "65 m",
+              "60 m",
+              "70 m",
+              "80 m",
+              "90 m"
+            ],
+            [
+              "",
+              "Piso elevado",
+              "30 m",
+              "40 m",
+              "50 m",
+              "60 m",
+              "55 m",
+              "65 m",
+              "70 m",
+              "80 m"
+            ],
+            [
+              "C, D, E (exceto E-5 e E-6) F (exceto F-11) G-3, G-4, G-5 H (exceto H-3) K, L e M",
+              "Piso de descarga",
+              "40 m",
+              "45 m",
+              "50 m",
+              "60 m",
+              "55 m",
+              "65 m",
+              "75 m",
+              "90 m"
+            ],
+            [
+              "",
+              "Piso elevado",
+              "30 m",
+              "35 m",
+              "40 m",
+              "45 m",
+              "45 m",
+              "55 m",
+              "65 m",
+              "75 m"
+            ],
+            [
+              "E-5 e E-6",
+              "Piso de descarga",
+              "35 m",
+              "40 m",
+              "45 m",
+              "55 m",
+              "55 m",
+              "55 m",
+              "60 m",
+              "75 m"
+            ],
+            [
+              "",
+              "Piso elevado",
+              "25 m",
+              "30 m",
+              "35 m",
+              "45 m",
+              "45 m",
+              "50 m",
+              "55 m",
+              "70 m"
+            ],
+            [
+              "F-11 e H-3",
+              "Piso de descarga",
+              "35 m",
+              "40 m",
+              "45 m",
+              "50 m",
+              "50 m",
+              "55 m",
+              "60 m",
+              "65 m"
+            ],
+            [
+              "",
+              "Piso elevado",
+              "25 m",
+              "30 m",
+              "35 m",
+              "40 m",
+              "40 m",
+              "50 m",
+              "55 m",
+              "60 m"
+            ],
+            [
+              "G-1, G-2 e J-2",
+              "Piso de descarga",
+              "50 m",
+              "60 m",
+              "60 m",
+              "70 m",
+              "80 m",
+              "95 m",
+              "120 m",
+              "140 m"
+            ],
+            [
+              "",
+              "Piso elevado",
+              "45 m",
+              "55 m",
+              "55 m",
+              "65 m",
+              "70 m",
+              "80 m",
+              "110 m",
+              "130 m"
+            ],
+            [
+              "I-1 e J-1",
+              "Piso de descarga",
+              "80 m",
+              "95 m",
+              "120 m",
+              "140 m",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "",
+              "Piso elevado",
+              "70 m",
+              "80 m",
+              "110 m",
+              "130 m",
+              "-",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "I-2, I-3, J-3 e J-4",
+              "Piso de descarga",
+              "40 m",
+              "45 m",
+              "50 m",
+              "60 m",
+              "60 m",
+              "70 m",
+              "100 m",
+              "120 m"
+            ],
+            [
+              "",
+              "Piso elevado",
+              "30 m",
+              "35 m",
+              "40 m",
+              "45 m",
+              "50 m",
+              "65 m",
+              "80 m",
+              "95 m"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 68,
+      "tables": [
+        {
+          "rows": [
+            ["1. ELEVADOR DE EMERGÊNCIA (GERAL)", "", "Sim", "Não", "NA"],
+            [
+              "1.1",
+              "A(s) porta(s) do (s) elevador (es) de emergência abre(m) dentro de antecâmara, varanda, balcão ou terraço (com ventilação para o exterior) ou hall pressurizado?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "1.2",
+              "O(s) elevador(es) de emergência é (são) alimentado(s) por gerador de emergência?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "1.3",
+              "Possui detecção automática de incêndio na casa de máquinas ou no maquinário do próprio elevador?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "1.4",
+              "Possui intercomunicadores de duas vias no interior do elevador e na antecâmara que se comuniquem diretamente com intercomunicador instalado junto à central de alarme da edificação, todos obrigatoriamente instalados com placas de orientação de uso?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "1.5",
+              "A central de alarme é do tipo analógica ou algorítmica?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "1.6",
+              "Para edificações com mais de 100m de altura (exceto A-2), o interior da antecâmara do elevador possui câmeras para seu monitoramento e vídeo-monitor junto à central de alarme?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "1.7",
+              "A central de alarme possui painel que indica o status de ocupação e a posição de cada elevador de emergência?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "1.8",
+              "Os elevadores de emergência entram automaticamente e imediatamente em modo de “evacuação total da edificação” em caso de incêndio?",
+              "",
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "rows": [
+            ["2. MODO \"EVACUAÇÃO TOTAL\"", "", "Sim", "Não", "NA"],
+            [
+              "2.1",
+              "No primeiro momento, o elevador atende somente as chamadas oriundas da zona de incêndio (ou zonas de incêndio de forma sequencial, caso seja detectado incêndio em mais de um pavimento), composta pelo pavimento sinistrado (prioridade máxima), pelos dois pavimentos imediatamente acima e pelos dois pavimentos imediatamente abaixo, conduzindo os ocupantes ao pavimento de descarga, ignorando outras chamadas?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "2.2",
+              "O elevador quando não possui chamadas em zonas de incêndio, atende os demais pavimentos do mais elevado para o menos elevado?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "2.3",
+              "Para edificações que dispõem de reduto resistente ao fogo: a prioridade é para os chamados oriundos do segmento de pavimentos entre o topo da edificação e o 1º RRF (do mais elevado para o menos elevado), posteriormente para os chamados realizados a partir dos redutos, não havendo chamados nos redutos, ou quando a capacidade de carga permitir, para os demais pavimentos (do mais elevado para o menos elevado)?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "2.4",
+              "Enquanto os passageiros estiverem entrando no elevador de emergência num andar em evacuação, se a carga exceder 100% da capacidade, as portas abrem e permanecem abertas, e uma notificação de voz e um sinal visual indica que o carro está sobrecarregado?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "2.5",
+              "Os elevadores possuem sinalização visual indicando quando o elevador está em modo de “evacuação total da edificação”, bem como sistema de notificação por voz que oriente os ocupantes quanto aos procedimentos a serem adotados enquanto estiverem no elevador, para maior segurança e eficiência na evacuação?",
+              "",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 69,
+      "tables": [
+        {
+          "rows": [
+            [
+              "3. PAINÉIS DE MENSAGENS (somente para edificações com mais de 150 m de altura)",
+              "",
+              "Sim",
+              "Não",
+              "NA"
+            ],
+            [
+              "3.1",
+              "Para edificações com mais de 150m de altura: possui painéis de mensagens variáveis com notificação por voz dentro das antecâmaras dos elevadores, em todos os pavimentos, situados a uma altura entre 2,1 m e 3 m, em local visível, alimentados obrigatoriamente por fonte de emergência com autonomia de 3 horas em caso de falta de energia?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "3.2",
+              "Em caso de incêndio, os painéis de mensagem variáveis disponibilizam uma das seguintes orientações abaixo, conforme a situação do respectivo pavimento:",
+              "",
+              "",
+              ""
+            ],
+            [
+              "3.2.1",
+              "Em todos os pavimentos em procedimento de evacuação, é indicado que os elevadores estão disponíveis para evacuação e o tempo estimado de duração em minutos para o próximo elevador chegar?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "3.2.2",
+              "Nos pavimentos que não estejam em procedimento de evacuação é indicado que o serviço de elevador não está disponível?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "3.2.3",
+              "No pavimento de descarga dos elevadores, há indicação de que os carros estão em modo de evacuação e que os passageiros não devem usar elevadores?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "3.2.4",
+              "Se não houver elevadores disponíveis para o ocupante, em razão de operação por bombeiros, inspeção, desligamento, entre outros, há indicação de que o serviço de elevador não está disponível?",
+              "",
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "rows": [
+            ["4. CONTROLES DURANTE EMERGÊNCIA", "", "Sim", "Não", "NA"],
+            [
+              "4.1",
+              "O controle do(s) elevador(es) de emergência é(são) baseado(s) em duas fases - Reversão de emergência (fase 1) e Operação de emergência (fase 2)?",
+              "",
+              "",
+              ""
+            ],
+            ["4.2", "Fase 1, atende aos seguintes requisitos:", "", "", ""],
+            [
+              "4.2.1",
+              "Caso seja detectada fumaça no poço ou na sala de máquinas, o elevador retorna ao pavimento de descarga (ou a pavimento alternativo caso seja detectada fumaça no pavimento de descarga), permanecendo com as portas abertas até a tomada de decisão do bombeiro (Fase 2: Operação de emergência)?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "4.2.2",
+              "Possui, junto a cada elevador de emergência no pavimento de descarga, um painel de comando individual com um",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "comutador de três posições (RESET/OFF/ON), nessa ordem no sentido horário, com a posição OFF centralizada),",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "operado por chave. A chave só pode ser removida nas posições OFF e ON, sendo que na posição ON, o elevador",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "retorna ao pavimento de descarga e permanece com as portas abertas até a decisão da equipe de emergência",
+              "",
+              "",
+              ""
+            ],
+            ["", "(Fase 2: Operação de emergência)?", "", "", ""],
+            [
+              "4.2.3",
+              "Para cancelar a Fase 1, o comutador deve ser colocado na posição RESET e em seguida na posição OFF?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "4.2.4",
+              "Junto ao painel de comando previsto no pavimento de descarga:",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "a) Possui placa com os dizeres “OPERAÇÃO POR BOMBEIROS”, com breve orientação sobre o uso do comutado",
+              "",
+              "",
+              ""
+            ],
+            ["", "em caso de emergência?", "", "", ""],
+            [
+              "",
+              "b) Possui sinalizador luminoso que indique as condições previstas nos itens 4.2.1 e 4.2.2, por meio de sinalização",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "constante ou intermitente, respectivamente, conforme o caso, devendo permanecer ativo até o retorno do elevador",
+              "",
+              "",
+              ""
+            ],
+            ["", "à operação automática?", "", "", ""],
+            [
+              "4.2.5",
+              "Possui sinalizador luminoso (obrigatoriamente com formato de capacete de bombeiro ou outro símbolo igualmente intuitivo) que indique as condições previstas nos itens 4.2.1 e 4.2.2, por meio de sinalização constante ou intermitente, respectivamente, o qual permanece ativo até o retorno do elevador à operação automática?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "4.2.6",
+              "A ativação da Fase 1 interrompe o modo de “evacuação total da edificação”?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "4.3",
+              "Fase 2 - Operação de emergência (ativada após a ativação da Fase 1 - Reversão de emergência), atende aos seguintes requisitos:",
+              "",
+              "",
+              ""
+            ],
+            [
+              "4.3.1",
+              "Em qualquer momento, se o comutador OFF/HOLD/ON for colocado na posição OFF, as portas fecham e o elevador retorna para o piso de descarga, onde permanece com as portas abertas até nova tomada de decisão da equipe de emergência?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "4.3.2",
+              "A opção HOLD do comutador OFF/HOLD/ON garante que este permaneça num pavimento, com as portas totalmente abertas, desabilitando as opções de abrir/fechar portas e as chamadas internas?",
+              "",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 70,
+      "tables": [
+        {
+          "rows": [
+            ["5. PAINEL DE COMANDO INTERNO", "", "Sim", "Não", "NA"],
+            [
+              "5.1",
+              "Está protegido por tampa com fechadura, cuja chave para abertura deve ser a mesma do comutador OFF/HOLD/ON?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "5.2",
+              "Está instalado de maneira que todos os dispositivos de comando bem como a fechadura estejam localizados em altura superior a 1,22 m e inferior a 1,83 m?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "5.3",
+              "Está localizado na mesma face do elevador que o painel de seleção de chamadas?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "5.4",
+              "Possui na parte externa de sua tampa identificação com os dizeres “OPERAÇÃO POR BOMBEIROS”, em letras vermelhas?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "5.5",
+              "Possui em seu interior sinalizador luminoso adicional com as mesmas características do previsto no item 4.2.4?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "5.6",
+              "Possui, em sua parte interna, uma placa contendo breves orientações sobre o uso de cada botão e comutador, e sobre o significado das sinalizações visuais?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "5.7",
+              "O painel de comando atende aos seguintes requisitos?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "5.7.1",
+              "O comutador (operado com chave) de três posições (OFF/HOLD/ON, nessa sequência, no sentido horário) - com possibilidade de retirada da chave somente nas posições OFF e HOLD -, na posição ON libera o elevador para uso da equipe de emergência, operável somente se já tiver sido acionada a Fase 1, devendo permanecer indisponíveis às chamadas externas nos pavimentos?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "5.7.2",
+              "Possui botão de “abrir porta” com funcionamento à pressão contínua, isto é, ele deve permanecer pressionado até a abertura completa da porta, caso contrário, a porta se fechará automaticamente?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "5.7.3",
+              "Possui botão de “fechar porta” com funcionamento à pressão contínua, isto é, ele deve permanecer pressionado até o fechamento completo da porta, caso contrário, a porta se abrirá automaticamente?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "5.7.4",
+              "Possui botão de cancelamento de chamadas internas do elevador, que cancela chamadas realizadas internamente no elevador pela equipe de emergência, e faz com que o elevador pare com as portas fechadas no próximo pavimento disponível, até que seja dado novo comando?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "5.7.5",
+              "Possui comutador (operado sem chave) de duas posições (RUN/STOP), podendo ser substituído por dois botões com funções equivalentes, que na posição STOP cancele as chamadas internas e corte a alimentação do motor elétrico do elevador (fazendo-o parar imediatamente), até que o comutador seja colocado novamente na posição RUN e seja dado um novo comando?",
+              "",
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "rows": [
+            [
+              "(1) justificativas técnicas para não atendimento dos itens assinalados – a ser preenchido pelo Responsável Técnico",
+              ""
+            ],
+            ["ITEM", "JUSTIFICATIVAS DE NÃO ATENDIMENTO"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 71,
+      "tables": [
+        {
+          "rows": [
+            ["ELEVADOR(ES) DE EMERGÊNCIA", "", "", "", ""],
+            [
+              "Tipo",
+              "Fabricante",
+              "Destinado a transporte de maca",
+              "Lotação Max.",
+              "Ano de fabricação"
+            ],
+            ["", "", "( ) Sim ( ) Não", "", ""]
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,709 @@
+{
+  "pages": [
+    {
+      "page": 16,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Mangueira",
+              "Aplicação",
+              "Diâmetro",
+              "Pressão de trabalho",
+              "Descrição"
+            ],
+            [
+              "Tipo 1",
+              "Destina-se a edifícios de ocupação residencial.",
+              "40 mm (1½\")",
+              "100 mca",
+              "Mangueira flexível, de borracha, com um reforço têxtil."
+            ],
+            [
+              "Tipo 2",
+              "Destina-se a edifícios comerciais ou industriais.",
+              "40 mm (1½\")",
+              "140 mca",
+              "Mangueira flexível, de borracha, com um reforço têxtil."
+            ],
+            [
+              "Tipo 3",
+              "Destina-se à área naval ou industrial.",
+              "40 mm (1½\")",
+              "150 mca",
+              "Mangueira flexível, de borracha, com reforços têxteis duplos sobrepostos."
+            ],
+            [
+              "Tipo 4",
+              "Destina-se à área industrial, onde é desejável uma maior resistência à abrasão.",
+              "40 mm (1½\")",
+              "140 mca",
+              "Mangueira flexível, de borracha, com um reforço têxtil, acrescida de um revestimento externo de PVC + borracha."
+            ],
+            [
+              "Tipo 5",
+              "Destina-se à área industrial, onde é desejável uma alta resistência à abrasão e a superfícies quentes.",
+              "40 mm (1½\")",
+              "140 mca",
+              "Mangueira flexível, de borracha, com um reforço têxtil, acrescida de um revestimento externo de borracha."
+            ],
+            [
+              "Tipo 6",
+              "Destina-se às edificações que utilizam mangotinhos.",
+              "25 mm (1”)",
+              "140 mca",
+              "Mangueira semirrígida, de borracha, com um reforço têxtil."
+            ],
+            [
+              "Adota-se: 1 MPa = 10 bar = 10 kgf/cm² = 100 mca = 145 psi",
+              "",
+              "",
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "rows": [
+            [
+              "Comprimento máximo da linha de mangueiras",
+              "Lances de mangueiras",
+              "Aplicação"
+            ],
+            [
+              "Até 25 m",
+              "Lance único de 15, 20 ou 25 m",
+              "Em qualquer situação."
+            ],
+            ["30 m", "15 + 15 m", ""],
+            [
+              "35 m",
+              "15 + 20 m",
+              "Apenas se: a) a instalação do hidrante for externa à edificação; ou b) o hidrante do pavimento térreo atender a salas comerciais com saída para o logradouro; ou c) o hidrante do pavimento térreo atender área em pilotis; ou d) em edificações do grupo A2, somente nos pavimentos tipo com hall/corredor de área máxima 12 m²."
+            ],
+            ["40 m", "20 + 20 m", ""],
+            ["45 m", "15 + 15 + 15 m", ""],
+            ["50 m", "15 + 15 + 20 m", ""],
+            ["55 m", "15 + 20 + 20 m", ""],
+            ["60 m", "20 + 20 + 20 m", ""],
+            ["60 m", "15 + 15 + 15 + 15 m", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Tipo",
+              "Característica",
+              "Carga de Incêndio [MJ/m²]",
+              "Diâmetro da mangueira",
+              "Nº de saídas",
+              "Tipo de esguicho",
+              "Vazão mínima no esguicho*",
+              "Nr Hidrantes ou mangotinhos (Nr saídas simultâneas)",
+              "",
+              "",
+              ""
+            ],
+            [
+              "I",
+              "Hidrante",
+              "≤1.200",
+              "40 mm (1½\")",
+              "Simples",
+              "Regulável ou Agulheta (Ø requinte = ½\")",
+              "70 l/min",
+              "1 (1)",
+              "2-3-4 (2)",
+              "5-6 (3)",
+              ">6 (4)"
+            ],
+            [
+              "II",
+              "Mangotinho",
+              "≤1.200",
+              "25 mm (1\") ou 32 mm (1¼”)",
+              "Simples",
+              "Regulável",
+              "80 ou 100 l/min¹",
+              "1 (1)",
+              "2-3-4 (2)",
+              "5-6 (3)",
+              ">6 (4)"
+            ],
+            [
+              "III",
+              "Hidrante",
+              "> 1.200",
+              "40 mm (1½\")",
+              "Dupla",
+              "Regulável",
+              "300 l/min",
+              "1 (2)",
+              "2-3-4 (2)",
+              "5-6 (2)",
+              ">6 (2)"
+            ],
+            [
+              "Adota-se: 1 MPa = 10 bar = 10 kgf/cm² = 100 mca = 145 psi 1 - De acordo com o diâmetro da mangueira utilizada: 25 mm = 80 l/min; 32 mm = 100 l/min.",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "rows": [
+            [
+              "Carga de Incêndio",
+              "Área ≤ 2.500m²",
+              "2.500m² < Área ≤5.000m²",
+              "5.000m² < Área ≤10.000m²",
+              "10.000m² < Área ≤25.000m²",
+              "25.000m² < Área ≤50.000m²",
+              "Área > 50.000m²"
+            ],
+            [
+              "≤1.200 MJ/m²",
+              "5 m³",
+              "10 m³",
+              "15 m³",
+              "20 m³",
+              "25 m³",
+              "30 m³"
+            ],
+            [
+              "1.201 ≤2.400 MJ/m²",
+              "18 m³",
+              "36 m³",
+              "54 m³",
+              "72 m³",
+              "90 m³",
+              "108 m³"
+            ],
+            [
+              "> 2.400 MJ/m²",
+              "36 m³",
+              "72 m³",
+              "108 m³",
+              "144 m³",
+              "180 m³",
+              "216 m³"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 22,
+      "tables": [
+        {
+          "rows": [
+            ["Endereço:", "", "Nº", "Complemento:"],
+            ["Bairro:", "Município- UF:", "", "RE:"],
+            ["Proprietário:", "", "e-mail:", ""],
+            ["Responsável uso/brigadista:", "", "e-mail:", ""],
+            ["Responsável Técnico pelo comissionamento/inspeção:", "", "", ""],
+            ["Número do registro do profissional:", "", "e-mail:", ""],
+            [
+              "Ocupação e tipo ( Tabela 1 do Anexo B da IN 1 parte 2):",
+              "",
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "rows": [
+            [
+              "1. HIDRANTES/MANGOTINHOS:",
+              "",
+              "",
+              "",
+              "Sim",
+              "",
+              "",
+              "Não",
+              "",
+              ""
+            ],
+            [
+              "1.1",
+              "",
+              "O sistema de hidrantes/mangotinhos atende ao leiaute da edificação conforme projeto técnico aprovado?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "1.2",
+              "",
+              "Todos os ambientes estão protegidos por hidrantes/mangotinhos?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "1.3",
+              "",
+              "Os hidrantes/mangotinhos estão instalados na posição correta, conforme projeto técnico aprovado?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "1.4",
+              "",
+              "Os hidrantes/mangotinhos estão desobstruídos e sinalizados conforme a IN 7?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "1.5",
+              "",
+              "Os hidrantes/mangotinhos estão sem vazamentos?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "1.6",
+              "",
+              "As mangueiras de incêndio estão em bom estado de conservação e possuem as demarcações de certificação?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "1.7",
+              "",
+              "Os abrigos estão de acordo com os parâmetros da IN 7?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "1.8",
+              "",
+              "Os abrigos possuem os equipamentos necessários( esguichos e chaves de mangueiras)?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "2. CONJUNTO BOMBA DE INCÊNDIO (Bomba+Motor+Painel de controle e partida).",
+              "",
+              "",
+              "",
+              "Sim",
+              "",
+              "",
+              "Não",
+              "",
+              ""
+            ],
+            [
+              "2.1",
+              "",
+              "A bomba de incêndio está adequadamente instalada?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "2.2",
+              "",
+              "Existe bomba \"jóquey\" instalada? Caso positivo, a mesma está adequadamente instalada?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "2.3",
+              "",
+              "A bomba de incêndio está em compartimento protegido contra o fogo?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "2.4",
+              "",
+              "A bomba de incêndio está em compartimento sem acúmulo de materiais combustíveis?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "2.5",
+              "",
+              "A bomba de incêndio está sem vazamentos? (teste)",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "2.6",
+              "",
+              "A bomba de incêndio está instalada com vazão e pressão de acordo com projeto técnico aprovado?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "2.7",
+              "",
+              "Os manômetros e pressostatos estão em boas condições e funcionando corretamente?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "2.8",
+              "",
+              "As válvulas de bloqueio (exceto no cabeçote de testes, se houver) estão travadas e na posição correta?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "2.9",
+              "",
+              "A fixação da bomba de incêndio está adequada?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "2.10",
+              "",
+              "Painel de sinalização corretamente instalado e em local com vigilância ou próximo à central de alarme?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            ["3. TUBULAÇÃO", "", "", "", "Sim", "", "", "Não", "", ""],
+            [
+              "3.1",
+              "",
+              "Tubulação sem danos mecânicos?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "3.2",
+              "",
+              "Tubulação sem vazamentos? (teste)",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "3.3",
+              "",
+              "Tubulação sem corrosão ou obstrução interna?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "3.4",
+              "",
+              "Tubulação adequadamente alinhada?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "3.5",
+              "",
+              "Tubulação aparente pintada na cor vermelha?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "3.6",
+              "",
+              "Suportes e braçadeiras adequados?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "4. CONEXÃO DE RECALQUE",
+              "",
+              "",
+              "",
+              "Sim",
+              "",
+              "",
+              "Não",
+              "",
+              ""
+            ],
+            [
+              "4.1",
+              "",
+              "Conexão de recalque está sinalizada?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "4.2",
+              "",
+              "Conexão de recalque está desobstruída?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "4.3",
+              "",
+              "Conexão de recalque está sem vazamentos?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "5. TANQUES E RESERVATÓRIOS:",
+              "",
+              "",
+              "",
+              "Sim",
+              "",
+              "",
+              "Não",
+              "",
+              ""
+            ],
+            [
+              "5 .1",
+              "",
+              "Reservatório de incêndio possui volume adequado de acordo como projeto técnico aprovado?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "5.2",
+              "",
+              "Reservatório de incêndio possui válvulas completamente abertas?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "5.3",
+              "",
+              "Reservatório de incêndio possui tubulação e válvulas adequadas?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "5.4",
+              "",
+              "O reservatório está em compartimento protegido contra o fogo?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "6. TESTE DE FUNCIONAMENTO DO SHP",
+              "",
+              "",
+              "",
+              "Sim",
+              "",
+              "",
+              "Não",
+              ""
+            ],
+            [
+              "6.1",
+              "",
+              "A partida das motobombas ocorre de maneira automática, obedecendo aos demais parâmetros exigidos?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            ["6.2", "", "Teste de vazão", "", "Valor", "", "", "l/min", "", ""],
+            [
+              "",
+              "",
+              "Qual o valor da vazão medida no hidrante menos favorável hidraulicamente, em L/min?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 23,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Atesto, nesta data, que a instalação foi inspecionada e está em conformidade com as prescrições da IN 7, estando o proprietário e/ou o responsável pelo uso ciente(s) das responsabilidades referentes à manutenção e vistorias periódicas, conforme a NBR 13714.",
+              ""
+            ],
+            [
+              "Data da comissionamento/inspeção: / / ______ ______ ______",
+              "________________________________________________________________ Assinatura (Certificação digital) - Proprietário e/ou responsável pelo uso"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

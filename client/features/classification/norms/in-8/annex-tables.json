@@ -1,0 +1,726 @@
+{
+  "pages": [
+    {
+      "page": 21,
+      "tables": [
+        {
+          "rows": [
+            [
+              "T abela 1 - Afastamentos de segurança de recipientes individuais (m) (ver figura 18)",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Capacidade individual do recipiente (m 3 ) h",
+              "Divisa de propriedades edificáveis /edificações d, f , n",
+              "",
+              "Passeio público d, o",
+              "Entre recipientes",
+              "Aberturas abaixo da descarga da válvula de segurança",
+              "",
+              "Fontes de ignição e outras aberturas (portas e janelas) e materiais combustíveis",
+              "",
+              "",
+              "Produtos tóxicos, perigosos, inflamáveis, chama aberta e ponto de captação de ar forçado I, m",
+              "Com cabine RF"
+            ],
+            [
+              "",
+              "Superfície a, c, e, g",
+              "Enterrados /aterrados b",
+              "",
+              "",
+              "Abastecidos no local",
+              "Trocáveis",
+              "Abastecid os no local",
+              "Com cabine RF",
+              "Trocáveis",
+              "",
+              ""
+            ],
+            [
+              "Até 0,5",
+              "p 0",
+              "p 3",
+              "p 3",
+              "0",
+              "1",
+              "1",
+              "3",
+              "1,5",
+              "1,5",
+              "6",
+              "3"
+            ],
+            [
+              "> 0,5 a 2",
+              "p 1,5",
+              "p 3",
+              "p 3",
+              "0",
+              "1,5",
+              "-",
+              "3",
+              "1,5",
+              "-",
+              "6",
+              "3"
+            ],
+            [
+              "> 2 a 5,5",
+              "3",
+              "3",
+              "3",
+              "1",
+              "1,5",
+              "-",
+              "3",
+              "",
+              "-",
+              "6",
+              ""
+            ],
+            [
+              "> 5,5 a 8",
+              "7,5",
+              "3",
+              "7,5",
+              "1",
+              "1,5",
+              "-",
+              "3",
+              "",
+              "-",
+              "6",
+              ""
+            ],
+            [
+              "> 8 a 120",
+              "15",
+              "15",
+              "15",
+              "1,5",
+              "1,5",
+              "-",
+              "3",
+              "",
+              "-",
+              "6",
+              ""
+            ],
+            [
+              "> 120",
+              "22,5",
+              "15",
+              "22,5",
+              "¼ somatório dos diâmetros adjacentes",
+              "1,5",
+              "-",
+              "3",
+              "",
+              "-",
+              "6",
+              ""
+            ],
+            [
+              "Instalação em nicho (j)",
+              "0",
+              "-",
+              "0",
+              "0",
+              "1",
+              "1",
+              "1,5",
+              "",
+              "1,5",
+              "NA",
+              ""
+            ],
+            [
+              "Uso de paredes resistentes ao fogo (2h)",
+              "Aplicar distância percorrida vetorial até o ponto considerado, atendendo aos critérios da figura do Anexo B que estabelece o comprimento e a altura da parede resistente ao fogo, e observam-se as mesmas distâncias das centrais com cabines TRRF 2h.",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "a) Nos recipientes de superfície, as distâncias apresentadas são medidas a partir da superfície externa do recipiente mais próximo. A válvula de segurança dos recipientes estacionários deve estar fora das projeções da edificação, como telhados, balcões e marquises. b) A distância para os recipientes enterrados/aterrados deve ser medida a partir da válvula de segurança, enchimento e indicador de nível máximo. Caso o recipiente esteja instalado em caixa de alvenaria, esta distância pode ser reduzida pela metade, respeitando um mínimo de 1,0 m do costado do recipiente para divisa de propriedades edificáveis/edificações. c) As distâncias de afastamento das edificações não podem considerar projeções de complementos ou partes destas, tais como telhados, balcões, marquises e escadas construídas em alvenaria sem espaços vazios entre os degraus, podendo as centrais situarem-se abaixo destas estruturas. d) Para recipientes transportáveis devem ser atendidos os afastamentos mínimos em função da capacidade volumétrica total do agrupamento de recipientes, conforme a tabela 2. e) No caso de existência de duas ou mais centrais de GLP com recipientes transportáveis, estas devem distar entre si em no mínimo 7,5 m. Exceto em centrais em estabelecimentos comerciais, onde vários clientes podem ser abastecidos por redes de distribuição individualizadas, pode ser utilizada mais de uma central GLP, em uma única área destinada exclusivamente para esta finalidade. f) Para recipientes acima de 0,5 m³, o número máximo de recipientes deve ser igual a 6. Se mais que uma instalação como esta for feita, ela deve distar pelo menos 7,5 m da outra. g) A distância de recipientes de superfície de capacidade individual de até 5,5 m³, para edificações/divisa de propriedade, pode ser reduzida à metade, desde que sejam instalados no máximo três recipientes. Este recipiente ou conjunto de recipientes deve estar pelo menos 7,5 m distante de qualquer outro recipiente com capacidade individual maior que 0,5 m³. h) Os recipientes de GLP não podem ser instalados dentro de bacias de contenção de outros combustíveis. i) No caso de depósitos de oxigênio e hidrogênio, os afastamentos devem ser conforme as Tabelas 3 e 4, respectivamente. j) Instalações somente aplicáveis para regularização de edificações existentes conforme definido na IN 5, limitada para recipientes transportáveis conforme tabela 2 k) É permitida a instalação de centrais de GLP sob varandas, balcões ou sacadas nas edificações, atendidos os requisitos do anexo D da IN 5 l) Para recipientes transportáveis contidos em abrigos/cabines com paredes laterais e cobertura de materiais incombustíveis certificados, que se interponham entre os recipientes e as aberturas (portas, janelas, etc), a distancia pode",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 22,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Tabela 2 – Afastamento de segurança para agrupamento de recipientes transportáveis",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Central de capacidade volumétrica total (m³)",
+              "Divisa de propriedades edificáveis /edificações (m) b, c",
+              "Passeio público (m) b, c",
+              "Quantidade total de recipientes transportáveis",
+              "",
+              "",
+              ""
+            ],
+            ["", "", "", "P-45", "P-90", "P-125", "P-190"],
+            [
+              "",
+              "",
+              "",
+              "(0,108 m³)",
+              "(0,216 m³)",
+              "(0,300 m³)",
+              "(0,450 m³)"
+            ],
+            ["Até 2,0", "0", "3", "18", "9", "6", "4"],
+            ["2,1 a 3,5", "1,5", "3", "19 a 32", "10 a 16", "7 a 11", "5 a 7"],
+            ["3,51 a 5,5", "3", "3", "33 a 50", "17 a 25", "12 a 18", "8 a 11"],
+            [
+              "5,51 a 8,0",
+              "7,5",
+              "3",
+              "51 a 74",
+              "26 a 37",
+              "19 a 26",
+              "12 a 16"
+            ],
+            [
+              "Acima de 8 até 10",
+              "15",
+              "15",
+              "75 a 92 máximo",
+              "38 a 46 máximo",
+              "27 a 33 máximo",
+              "17 a 22 máximo"
+            ],
+            [
+              "Instalação em nicho a",
+              "0",
+              "0",
+              "4 máximo",
+              "3 máximo",
+              "2 máximo",
+              "2 máximo"
+            ],
+            [
+              "Centrais com capacidade acima do limite estabelecido na Tabela 2 devem ser analisadas por órgãos competentes considerando situações temporárias e se em caso definitivas com as devidas medidas mitigadoras compensatórias definidas. a) Aplicável para centrais GLP instaladas em nicho conforme figura 4 Anexo B e artigo 21 desta IN. b) Caso o local destinado à instalação da central que utilize recipientes transportáveis não permita os afastamentos acima, a central pode ser subdividida com a utilização de paredes divisórias resistentes ao fogo com TRRF mínimo de 2 h, material aprovado conforme ABNT NBR 10636, com comprimento e altura de dimensões superiores ao recipiente. Neste caso, deve se adotar o afastamento mínimo referente à capacidade total de cada subdivisão, conforme artigo 9º desta IN. c) Distâncias não obrigatoriamente requeridas para situações em edificações existentes que possam ter instalações em nicho e também para ruas internas de propriedades privadas p) Para recipientes contidos em abrigos/cabines RF, com paredes laterais e cobertura resistentes ao fogo, atendendo ao artigo 32, que se interpõe entre os recipientes e o ponto considerado, a distância pode ser reduzida à metade.",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 23,
+      "tables": [
+        {
+          "rows": [
+            ["Tabela 3 – Afastamento para estocagem de oxigênio", "", "", ""],
+            [
+              "Capacidade volumétrica total dos recipientes de GLP (m³)",
+              "Capacidade máxima de oxigênio possível de ser contida nos recipientes, em fase líquida e gasosa, incluindo reservas de oxigênio na fase gasosa (Nm 3 )",
+              "",
+              ""
+            ],
+            ["", "Até 11", "11 a 566", "Acima de 566"],
+            ["Até 5,5", "0", "6", "7,5"],
+            ["Até 5,5 com cabine RF", "0", "3", "3,75"],
+            ["> 5,5", "0", "6", "15"],
+            [">5,5 com cabine RF", "0", "3", "7,5"]
+          ]
+        },
+        {
+          "rows": [
+            [
+              "Tabela 4 – Afastamentos para estocagem de hidrogênio",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Capacidade volumétrica total dos recipientes de GLP (m³)",
+              "Capacidade máxima de oxigênio possível de ser contida nos recipientes, em fase líquida e gasosa, incluindo reservas de hidrogênio na fase gasosa (Nm³)",
+              "",
+              ""
+            ],
+            ["", "Até 11", "11 a 85", "Acima de 85"],
+            ["Até 2", "0", "3", "7,5"],
+            ["Até 2 com cabine RF", "0", "1,5", "3,75"],
+            ["› 2", "0", "7,5", "15"],
+            ["› 2 com cabine RF", "0", "3,75", "7,5"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 24,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Tabela 5 – Quantidade de Extintores de incêndio para recipientes de GLP",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Quantidade GLP (kg)",
+              "Unidades extintoras (u.e.) a",
+              "Capacidade extintora",
+              "Carga mínima de agente extintor"
+            ],
+            ["Até 90 b", "-", "-", "-"],
+            ["91 a 270", "1", "10-B : 1-C", "4 kg"],
+            ["271 a 1.000", "2", "10-B : 1-C", "4 kg"],
+            ["1.001 a 3.000", "3", "10-B : 1-C", "4 kg"],
+            [
+              "Acima de 3.000",
+              "+ 1 u.e. para cada 1.000 kg excedente",
+              "10-B : 1-C",
+              "4 kg"
+            ],
+            [
+              "a. O cálculo do número de u.e. (unidades extintoras), quando tratar-se de Central de GLP compartimentada, é feito considerando-se a soma total da quantidade de GLP de todas as células da Central de GLP. b. Fica dispensado a instalação de extintor de incêndio para Locação em Abrigo/cabine de GLP.",
+              "",
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "rows": [
+            [
+              "Tabela 6 – Afastamentos das tomadas para abastecimento",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Item",
+              "Aberturas das edificações (janelas, portas, etc.)",
+              "Reservatórios com fluidos inflamáveis (outros tipos)",
+              "Ralos, rebaixos, canaletas e veículos abastecedores",
+              "Materiais de fácil combustão"
+            ],
+            [
+              "Distância das tomadas de abastecimentos",
+              "3 m",
+              "6 m",
+              "1,5 m",
+              "3 m"
+            ]
+          ]
+        },
+        {
+          "rows": [
+            ["Tabela 7 – Afastamentos de redes elétricas", "", ""],
+            [
+              "Nível de tensão (kV) a",
+              "Distância mínima b c m",
+              "com cabine TRRF 2h"
+            ],
+            ["≤ 0,6", "1,8", "1,0"],
+            ["Entre 0,6 e 23", "3,0", "1,5"],
+            ["≥ 23", "7,5", "3,75"],
+            [
+              "a. Cerca elétrica (independentemente do nível de tensão) deve ser considerada como fonte de ignição com distanciamento definido na Tabela 1. b. Os recipientes, quando protegidos por instalação em abrigos/ cabines com cobertura que atenda às condições de ventilação mínimas, podem ser instalados sob redes de até 0,6 kV e reduzir pela metade os demais distanciamentos das Tabelas 1,2,3 e 4. c. Para instalações em nicho verificar Anexo B, figura 4 e artigo 21 desta IN.",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 25,
+      "tables": [
+        {
+          "rows": [
+            ["Tabela 8 – Afastamentos das tubulações", "", ""],
+            ["Tipo", "Redes em Paralelo (b) mm", "Cruzamento das redes (b) mm"],
+            [
+              "Sistemas elétricos de potência em baixa tensão isolados em eletrodutos metálicos",
+              "30",
+              "10 com material isolante aplicado na tubulação de gás"
+            ],
+            [
+              "Sistemas elétricos de potência em baixa tensão isolados em eletrodutos metálicos ou sem eletrodutos (a)",
+              "50",
+              "(c)"
+            ],
+            ["Tubulação de água quente e fria", "30", "10"],
+            ["Tubulação de vapor", "50", "10"],
+            ["Chaminés duto e terminal", "50", "50"],
+            ["Tubulação de gás", "10", "10"],
+            ["Outras tubulações", "50", "10"],
+            [
+              "a. Cabos telefônicos de tv e de controle não são considerados sistemas de potência. b. Considerar um suficiente para permitir a manutenção c. Nestes casos a instalação elétrica deve ser protegida por eletroduto numa distância de 50mm para cada lado e atender à recomendação para sistemas elétricos de potência em eletrodutos em cruzamento.",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Tabela 9 - Dimensões mínimas para as aberturas de ventilação",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Tipo",
+              "",
+              "",
+              "Sistema de segurança intrínseco",
+              "Chaminé (Sim/Não)",
+              "Origem do ar para a combustão (local/outro)",
+              "Defletor (Sim/Não)",
+              "Ventoinha (Sim/Não)",
+              "Ventilação Permanente",
+              "",
+              ""
+            ],
+            [
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "(Sim/ Não/ NA)",
+              "Superior (S) / Inferior (I) / NA",
+              "Area Mínima - cm2"
+            ],
+            [
+              "A",
+              "A 1",
+              "A 1",
+              "A 1AS",
+              "Não",
+              "Local",
+              "Não",
+              "Sim",
+              "Sim",
+              "S / I",
+              "VER TAB 10"
+            ],
+            [
+              "",
+              "A 2",
+              "A 2",
+              "A 2AS",
+              "Não",
+              "Local",
+              "Não",
+              "Não",
+              "Sim",
+              "S / I",
+              "VER TAB 10"
+            ],
+            [
+              "",
+              "A 3",
+              "A 3",
+              "A 3AS",
+              "Não",
+              "Local",
+              "Não",
+              "Não",
+              "Sim",
+              "S / I",
+              "VER TAB 10"
+            ],
+            [
+              "B",
+              "B 1",
+              "B 11",
+              "B ou B 11AS 11BS",
+              "Sim",
+              "Local",
+              "Sim",
+              "Sim",
+              "Sim",
+              "S ou I",
+              "600 (superior > 400e inferior > 200)"
+            ],
+            [
+              "",
+              "B 2",
+              "B 22",
+              "-",
+              "Sim",
+              "Local",
+              "Não",
+              "Não",
+              "Sim",
+              "S ou I",
+              "200"
+            ],
+            [
+              "",
+              "",
+              "B 23",
+              "-",
+              "Sim",
+              "Local",
+              "Não",
+              "Não",
+              "Sim",
+              "S ou I",
+              "200"
+            ],
+            [
+              "C",
+              "C 1",
+              "C 11",
+              "-",
+              "Sim",
+              "Outro",
+              "Não",
+              "Sim",
+              "Não",
+              "NA",
+              "NA"
+            ],
+            [
+              "",
+              "",
+              "C 12",
+              "-",
+              "Sim",
+              "Outro",
+              "Não",
+              "Não",
+              "Não",
+              "NA",
+              "NA"
+            ],
+            [
+              "",
+              "",
+              "C 13",
+              "-",
+              "Sim",
+              "Outro",
+              "Não",
+              "Não",
+              "Não",
+              "NA",
+              "NA"
+            ],
+            [
+              "",
+              "C 3",
+              "C 32",
+              "-",
+              "Sim",
+              "Outro",
+              "Não",
+              "Não",
+              "Não",
+              "NA",
+              "NA"
+            ],
+            [
+              "",
+              "",
+              "C 33",
+              "-",
+              "Sim",
+              "Outro",
+              "Não",
+              "Não",
+              "Não",
+              "NA",
+              "NA"
+            ],
+            [
+              "",
+              "C 5",
+              "C 52",
+              "-",
+              "Sim",
+              "Outro",
+              "Não",
+              "Não",
+              "Não",
+              "NA",
+              "NA"
+            ],
+            [
+              "",
+              "",
+              "C 53",
+              "-",
+              "Sim",
+              "Outro",
+              "Não",
+              "Não",
+              "Não",
+              "NA",
+              "NA"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 27,
+      "tables": [
+        {
+          "rows": [
+            ["Tabela 10 – Aparelhos de Cocção Tipo A", ""],
+            ["Ventilação", "Cocção e Churrasqueiras"],
+            ["Área mínima", "200 cm²"],
+            ["Posição superior", "100 cm²"],
+            ["Posição inferior", "100 cm²"]
+          ]
+        },
+        {
+          "rows": [
+            ["Tabela 11 – Afastamento de chaminés individuais", ""],
+            ["Local", "Afastame nto (cm)"],
+            [
+              "Abaixo de beirais de telhado ou balcões, varandas e sacadas",
+              "40"
+            ],
+            ["Afastamento lateral de balcões, varandas e sacadas", "40"],
+            ["Outras instalações", "40"],
+            [
+              "Paredes do prédio, ou obstáculos que dificultem a circulação do ar",
+              "40"
+            ],
+            ["Abaixo de aberturas de tomadas ou exaustão de ar exterior", "60"],
+            ["Afastamento lateral de tomadas ou exaustão de ar", "60"],
+            ["Afastamento lateral de janelas de ambientes interno", "40"],
+            [
+              "Abaixo de basculantes, janelas ou quaisquer aberturas de ambiente, inclusive ventilações permanentes",
+              "60"
+            ],
+            ["Face da edificação para o terminal tipo chinês e “tê”", "10"],
+            ["Afastamento lateral do ponto", "60"],
+            [
+              "- 1,50 m de afastamento vertical entre dois pontos de exaustão; - 0,60 m de afastamento lateral de outro ponto de exaustão; - 2,20 m de afastamento vertical ao chão ou outro piso; - 0,40 m abaixo de beirais de telhados; - 0,40 m de afastamento horizontal para parede, canto ou quina da edificação sem janela;",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 28,
+      "tables": [
+        {
+          "rows": [
+            ["Tabela 12 – Aparelhos por duto de exaustão coletiva", "", ""],
+            [
+              "Altura média efetiva (m)",
+              "Potência total",
+              "Número máximo de aparelhos"
+            ],
+            ["Até 10", "146 kW ou 2.100 kcal/min", "10"],
+            ["10,1 a 15", "181 kW ou 2.600 kcal/min", "11"],
+            ["Acima de 15", "202 kW ou 2.900 kcal/min", "12"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 30,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Figura 2 – Abrigo/cabine para a instalação de cilindros de GLP, sem resistência ao fogo.",
+              ""
+            ],
+            ["Obs: Obrigatoriedade de ventilação apenas na porta.", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 40,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Figura 13 – Exemplos de ventilação superiores e inferiores",
+              "",
+              ""
+            ],
+            [
+              "AG: aparelho a gás h: altura mínima",
+              "G: aparelho a gás h: altura máxima",
+              "AG: aparelho a gás h: altura máxima AP: abertura permanente (*corte na folha da porta na parte inferior)"
+            ],
+            [
+              "AG: aparelho a gás h: altura máxima A1: abertura permanente exterior A2: abertura permanente interna A3: abertura permanente interna A3 = A2 = 1,5 A1",
+              "",
+              "AG: aparelho a gás h: altura mínima AP: abertura permanente"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

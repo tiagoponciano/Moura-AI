@@ -23,13 +23,13 @@ describe("templateSummary", () => {
 });
 
 describe("tagProblems", () => {
-  it("lists the tags a deck lacks and the ones the app does not know", () => {
-    expect(tagProblems({ missing: ["price"], unknown: ["valor"] })).toBe(
-      "Faltam no modelo: {{price}}. O app não conhece: {{valor}}.",
+  it("lists the tags the app does not know", () => {
+    expect(tagProblems({ unknown: ["valor", "total"] })).toBe(
+      "O app não conhece: {{valor}}, {{total}}.",
     );
   });
 
   it("returns nothing when no tag was listed", () => {
-    expect(tagProblems({ missing: [], unknown: [] })).toBeUndefined();
+    expect(tagProblems({ unknown: [] })).toBeUndefined();
   });
 });

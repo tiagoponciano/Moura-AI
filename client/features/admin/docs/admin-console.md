@@ -255,4 +255,4 @@ Under the key of the selected provider, the Modelo tab has a switch "Restringir 
 
 ## Proposal template
 
-The "Proposta" tab shows which deck the commercial proposal is filled from ("Modelo padrão do app" until one is uploaded), downloads the one in use, sends a new `.pptx`, and goes back to the app's own. The upload is checked on the server: it must hold exactly the `{{tags}}` the app fills, which the tab lists, and a deck that lacks one or adds one is refused with the tags named. The routes and the storage are described in `features/documents/docs/commercial-proposal.md`.
+The "Proposta" tab shows which deck the commercial proposal is filled from ("Modelo padrão do app" until one is uploaded), downloads the one in use, sends a new `.pptx`, and goes back to the app's own. The upload is checked on the server: it may use any of the `{{tags}}` the app fills, which the tab lists, and what it leaves out stays as written in the deck; a deck that uses a tag the app does not know is refused with the tags named. The routes and the storage are described in `features/documents/docs/commercial-proposal.md`.

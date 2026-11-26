@@ -15,15 +15,8 @@ export function templateSource(info: ProposalTemplateInfo): string {
 }
 
 /** What the server found wrong with an uploaded deck, as one message; `undefined` when it listed nothing. */
-export function tagProblems(body: {
-  missing?: string[];
-  unknown?: string[];
-}): string | undefined {
-  const parts = [
-    body.missing?.length &&
-      `Faltam no modelo: ${body.missing.map((tag) => `{{${tag}}}`).join(", ")}.`,
-    body.unknown?.length &&
-      `O app não conhece: ${body.unknown.map((tag) => `{{${tag}}}`).join(", ")}.`,
-  ].filter(Boolean);
-  return parts.length ? parts.join(" ") : undefined;
+export function tagProblems(body: { unknown?: string[] }): string | undefined {
+  return body.unknown?.length
+    ? `O app não conhece: ${body.unknown.map((tag) => `{{${tag}}}`).join(", ")}.`
+    : undefined;
 }

@@ -92,6 +92,7 @@ export function proposalValues(
     plan_description: plan.description,
     plan_items: plan.items.map((item) => `☑ ${item}`),
     price: formatPrice(request.price),
+    validity_days: String(request.validityDays),
     excluded_items: EXCLUDED_ITEMS.map((item) => `• ${item}`),
     notes: [
       "Devem ser encaminhados todos os documentos existentes da obra, preferencialmente em DWG.",

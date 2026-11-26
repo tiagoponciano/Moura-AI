@@ -22,13 +22,14 @@ export const PROPOSAL_TAGS: readonly string[] = Object.keys(
 ).sort();
 
 export type TemplateCheck =
-  | { ok: true; tags: string[] }
-  | { ok: false; reason: string; missing: string[]; unknown: string[] };
+  | { ok: true; tags: string[]; unused: string[] }
+  | { ok: false; reason: string; unknown: string[] };
 
 /**
  * Whether a deck can be the proposal template: a readable `.pptx` whose tags
- * are exactly the ones the app fills. A tag the deck lacks would drop a value
- * from the proposal; a tag the app does not know would print as empty text.
+ * are all ones the app fills. A tag the app does not know would print as empty
+ * text, so the deck is refused. A tag the deck lacks is fine: that part of the
+ * proposal is simply written in the design, and `unused` lists it.
  */
 export function checkProposalTemplate(file: Uint8Array): TemplateCheck {
   let found: Set<string>;
@@ -38,21 +39,22 @@ export function checkProposalTemplate(file: Uint8Array): TemplateCheck {
     return {
       ok: false,
       reason: "O arquivo não é uma apresentação .pptx válida.",
-      missing: [],
       unknown: [],
     };
   }
-  const missing = PROPOSAL_TAGS.filter((tag) => !found.has(tag));
   const unknown = [...found]
     .filter((tag) => !PROPOSAL_TAGS.includes(tag))
     .sort();
-  if (missing.length || unknown.length) {
+  if (unknown.length) {
     return {
       ok: false,
-      reason: "As etiquetas do modelo não batem com as que o app preenche.",
-      missing,
+      reason: "O modelo usa etiquetas que o app não preenche.",
       unknown,
     };
   }
-  return { ok: true, tags: [...found].sort() };
+  return {
+    ok: true,
+    tags: [...found].sort(),
+    unused: PROPOSAL_TAGS.filter((tag) => !found.has(tag)),
+  };
 }

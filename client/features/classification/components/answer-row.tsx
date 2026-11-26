@@ -21,7 +21,13 @@ export function AnswerRow({
   children,
 }: AnswerRowProps) {
   return (
-    <div className="grid grid-cols-[8px_minmax(0,1fr)] gap-x-3 gap-y-1 rounded-lg p-2 transition-colors focus-within:bg-accent hover:bg-muted focus-within:hover:bg-accent">
+    <div
+      className={cn(
+        "grid grid-cols-[8px_minmax(0,1fr)] gap-x-3 gap-y-0.5 rounded-lg px-2 py-1.5 transition-colors focus-within:bg-accent hover:bg-muted focus-within:hover:bg-accent",
+        !filled &&
+          "[&_[data-placeholder]]:text-muted-foreground/60 [&_input]:placeholder:text-muted-foreground/60",
+      )}
+    >
       <span
         aria-hidden
         className={cn(

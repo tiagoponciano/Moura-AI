@@ -35,7 +35,7 @@ export function PlanDropZone({ problem, onSelect }: PlanDropZoneProps) {
           dragging && "border-primary bg-accent",
         )}
       >
-        <div className="flex size-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+        <div className="flex size-10 items-center justify-center rounded-lg bg-muted text-muted-foreground">
           <FileUp className="size-5" />
         </div>
         <span className="text-sm font-medium">

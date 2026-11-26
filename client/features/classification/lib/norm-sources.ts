@@ -1,3 +1,4 @@
+import cartilha from "../norms/cartilha/manifest.json";
 import in_1_p1 from "../norms/in-1-p1/manifest.json";
 import in_1_p2 from "../norms/in-1-p2/manifest.json";
 import in_2 from "../norms/in-2/manifest.json";
@@ -80,7 +81,7 @@ export function summarizeManifest(manifest: Manifest): NormSource {
   };
 }
 
-/** Every instruction with a manifest, in the order of its number. */
+/** Every instruction with a manifest, in the order of its number, then the guide for responsible engineers. */
 const MANIFESTS: Manifest[] = [
   in_1_p1,
   in_1_p2,
@@ -115,6 +116,7 @@ const MANIFESTS: Manifest[] = [
   in_33,
   in_34,
   in_35,
+  cartilha,
 ];
 
 /** The norms the app keeps, in the order of their instruction number. */

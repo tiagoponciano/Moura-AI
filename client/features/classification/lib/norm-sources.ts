@@ -1,3 +1,5 @@
+import nt_01_2025 from "../norms/notes/nt-01-2025/manifest.json";
+import nt_02_2025 from "../norms/notes/nt-02-2025/manifest.json";
 import cartilha from "../norms/cartilha/manifest.json";
 import in_1_p1 from "../norms/in-1-p1/manifest.json";
 import in_1_p2 from "../norms/in-1-p2/manifest.json";
@@ -81,7 +83,7 @@ export function summarizeManifest(manifest: Manifest): NormSource {
   };
 }
 
-/** Every instruction with a manifest, in the order of its number, then the guide for responsible engineers. */
+/** Every instruction with a manifest, in the order of its number, then the guide for responsible engineers and the technical notes. */
 const MANIFESTS: Manifest[] = [
   in_1_p1,
   in_1_p2,
@@ -117,6 +119,8 @@ const MANIFESTS: Manifest[] = [
   in_34,
   in_35,
   cartilha,
+  nt_01_2025,
+  nt_02_2025,
 ];
 
 /** The norms the app keeps, in the order of their instruction number. */

@@ -31,6 +31,14 @@ describe("searchNorm, over the extracted norm text", () => {
     }
   });
 
+  it("finds what a technical note decides, by its name", async () => {
+    const { hits } = await searchNorm("palco altura DRT", "NT-02-2025");
+    expect(hits.length).toBeGreaterThan(0);
+    expect(new Set(hits.map((hit) => hit.doc))).toEqual(
+      new Set(["NT-02-2025"]),
+    );
+  });
+
   it("says when no instruction has that name", async () => {
     const { hits, note } = await searchNorm("extintor", "IN 99");
     expect(hits).toEqual([]);

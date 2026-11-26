@@ -35,16 +35,20 @@ describe("summarizeManifest", () => {
 describe("listNormSources", () => {
   const sources = listNormSources();
 
-  it("lists the 33 instructions of the Drive folder that have articles, in the order of their number, then the guide for engineers", () => {
-    expect(sources).toHaveLength(34);
+  it("lists the 33 instructions of the Drive folder that have articles, in the order of their number, then the guide for engineers and the technical notes", () => {
+    expect(sources).toHaveLength(36);
     expect(sources.slice(0, 4).map((s) => s.doc)).toEqual([
       "IN-1-P1",
       "IN-1-P2",
       "IN-2",
       "IN-3",
     ]);
-    expect(sources.at(-2)?.doc).toBe("IN-35");
-    expect(sources.at(-1)?.doc).toBe("CARTILHA");
+    expect(sources.at(-4)?.doc).toBe("IN-35");
+    expect(sources.slice(-3).map((s) => s.doc)).toEqual([
+      "CARTILHA",
+      "NT-01-2025",
+      "NT-02-2025",
+    ]);
   });
 
   it("gives every one a Drive link and a page count", () => {

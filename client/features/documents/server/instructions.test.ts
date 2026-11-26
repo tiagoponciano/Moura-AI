@@ -114,3 +114,18 @@ describe("buildInstructions", () => {
     expect(prompt).toContain("move on to: city.");
   });
 });
+
+describe("buildInstructions, approval question", () => {
+  it("asks for the question only when no required field is missing", () => {
+    const prompt = buildInstructions("x", schema);
+    expect(prompt).toContain("Está certo? Posso gerar?");
+    expect(prompt).toContain("leaves no required field missing");
+  });
+
+  it("tells the assistant to search again when the user says a norm does not match", () => {
+    const prompt = buildInstructions("x", schema, {}, { index: 0, total: 0 }, [
+      "search_norm",
+    ]);
+    expect(prompt).toContain("does not match, search again with other words");
+  });
+});

@@ -25,13 +25,13 @@ Invariants:
 
 Returns the file as an attachment (`proposta.pptx` or `proposta.pdf`). Errors: 400 invalid id or body, 404 `Project not found` (also for an archived project), 503 when a PDF is asked and `PDF_SERVICE_URL` is missing, 502 when the deck cannot be filled or the PDF service fails.
 
-| Export                           | File                       | Contract                                                                                                                  |
-| -------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `proposalValues`                 | `lib/proposal.ts`          | The value of every tag, from the project data and the request                                                             |
-| `fillPptx(template, values)`     | `lib/render-pptx.ts`       | `{ file, missing }`: the filled deck and the tags that had no value                                                       |
-| `pptxTags(template)`             | `lib/render-pptx.ts`       | Every tag of the deck                                                                                                     |
-| `loadProposalTemplate(supabase)` | `server/template-files.ts` | The deck an admin uploaded, or the bundled `public/templates/proposal/proposal.pptx` when none was or it cannot be read   |
-| `checkProposalTemplate(file)`    | `lib/proposal-template.ts` | Whether a deck is a readable `.pptx` that uses only tags in `PROPOSAL_TAGS`; the ones it leaves out come back as `unused` |
+| Export                           | File                       | Contract                                                                                                                                                                |
+| -------------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `proposalValues`                 | `lib/proposal.ts`          | The value of every tag, from the project data and the request                                                                                                           |
+| `fillPptx(template, values)`     | `lib/render-pptx.ts`       | `{ file, missing }`: the filled deck and the tags that had no value                                                                                                     |
+| `pptxTags(template)`             | `lib/render-pptx.ts`       | Every tag of the deck                                                                                                                                                   |
+| `loadProposalTemplate(supabase)` | `server/template-files.ts` | The deck an admin uploaded, or the bundled `public/templates/proposal/proposal.pptx` when none was or it cannot be read                                                 |
+| `checkProposalTemplate(file)`    | `lib/proposal-template.ts` | Whether a deck is a readable `.pptx` that uses only tags in `PROPOSAL_TAGS` and has `REQUIRED_TAGS` (`client`, `price`); the others it leaves out come back as `unused` |
 
 ## Rules and behavior
 
@@ -82,7 +82,7 @@ None for the `.pptx`. `PDF_SERVICE_*` for PDFs (`document-generation.md`).
 
 ## The template an admin uploads
 
-The Proposta tab of the admin console sends the deck every proposal is filled from. `PUT /api/documents/proposal-template` takes a multipart `file` (`.pptx`, up to 20 MB), refuses it with 400 and the list `unknown` when it uses a tag that is not in `PROPOSAL_TAGS` (the keys of `proposalValues`); a deck may leave tags out, and keeps it as `proposal.pptx` in the private `proposal-template` bucket with one row in `proposal_template` (file name, size, who, when). `GET` returns that row and the tags, `GET .../file` the deck in use, and `DELETE` removes the upload so the bundled deck is used again. All four are for admins; the proposal route only reads the deck, with the signed-in user's session. A deck that cannot be read from the bucket falls back to the bundled one and logs an error. The migration is `supabase/migrations/20261126000100_proposal_template.sql`.
+The Proposta tab of the admin console sends the deck every proposal is filled from. `PUT /api/documents/proposal-template` takes a multipart `file` (`.pptx`, up to 20 MB), refuses it with 400 and the lists `unknown` (a tag that is not in `PROPOSAL_TAGS`, the keys of `proposalValues`) and `missing` (`client` and `price` are required, so a deck with no tags cannot replace the shipped one); other tags may be left out, and keeps it as `proposal.pptx` in the private `proposal-template` bucket with one row in `proposal_template` (file name, size, who, when). `GET` returns that row and the tags, `GET .../file` the deck in use, and `DELETE` removes the upload so the bundled deck is used again. All four are for admins; the proposal route only reads the deck, with the signed-in user's session. A deck that cannot be read from the bucket falls back to the bundled one and logs an error. The migration is `supabase/migrations/20261126000100_proposal_template.sql`.
 
 ## Preview
 

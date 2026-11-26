@@ -33,8 +33,14 @@ describe("tagProblems", () => {
     );
   });
 
+  it("lists the required tags a deck lacks", () => {
+    expect(tagProblems({ missing: ["client", "price"] })).toBe(
+      "Faltam no modelo: {{client}}, {{price}}.",
+    );
+  });
+
   it("returns nothing when no tag was listed", () => {
-    expect(tagProblems({ unknown: [] })).toBeUndefined();
+    expect(tagProblems({ unknown: [], missing: [] })).toBeUndefined();
   });
 });
 

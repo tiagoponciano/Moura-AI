@@ -75,7 +75,7 @@ export function UserMenu({ isAdmin }: { isAdmin: boolean }) {
               <ChevronsUpDown className="ml-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
-          <DropdownMenuContent side="bottom" align="start" className="w-56">
+          <DropdownMenuContent side="top" align="start" className="w-56">
             <DropdownMenuLabel className="truncate text-xs font-normal text-muted-foreground">
               {user.email}
             </DropdownMenuLabel>

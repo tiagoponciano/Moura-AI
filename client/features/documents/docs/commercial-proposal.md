@@ -4,7 +4,7 @@ How a project's commercial proposal is generated. Describes the code as it is no
 
 ## What this is
 
-In the documents dialog, the "Proposta" view of the selected project takes a plan, a price and a validity, and downloads Moura's proposal as `.pptx` or PDF. The client, the building and the city come from the project's shared data. No model takes part: the app builds plain values, fills the deck's `{{tags}}` itself (`fillPptx`), and only a PDF goes to an outside service, which converts the filled deck.
+On the documents page, the "Proposta" tab of the selected project takes a plan, a price and a validity, and downloads Moura's proposal as `.pptx` or PDF. The client, the building and the city come from the project's shared data. No model takes part: the app builds plain values, fills the deck's `{{tags}}` itself (`fillPptx`), and only a PDF goes to an outside service, which converts the filled deck.
 
 Invariants:
 

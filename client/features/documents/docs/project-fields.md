@@ -4,7 +4,7 @@ How a project remembers data across forms now: which fields it shares, how a for
 
 ## What this is
 
-A project is a job the team works on. It keeps the data that repeats across official forms: people register it in the "Dados do projeto" area of the forms dialog, so opening a form with a project chosen fills those fields at once, and whatever the assistant or the user fills in one form is there in the next. The mapping lives in each template's schema (`projectKey`), written by hand per form, because labels alone are ambiguous: "Nome" can be the requester, the owner or the engineer.
+A project is a job the team works on. It keeps the data that repeats across official forms: people register it in the "Dados do projeto" tab of the documents page, so opening a form with a project chosen fills those fields at once, and whatever the assistant or the user fills in one form is there in the next. The mapping lives in each template's schema (`projectKey`), written by hand per form, because labels alone are ambiguous: "Nome" can be the requester, the owner or the engineer.
 
 Invariants:
 
@@ -66,7 +66,7 @@ The keys are the fields of `PROJECT_FIELD_GROUPS`, in six groups: property (`pro
 | The user types in the panel                   | Changed shared values are saved 800 ms after the last keystroke; leaving the form within that pause drops the save |
 | Prefilled values complete the required fields | No PDF yet: it waits for an assistant result or "Gerar PDF"                                                        |
 
-The requester of IN 1 Anexo D is treated as the property owner. `building_cpf` of Anexo D has no key, because the form separates CPF and CNPJ and the owner's document can be either. A save updates the screen first; a server failure appears in the project bar when the dialog next shows. `PATCH` reads and then writes, so two people saving the same project at once keep the last write of each key they both sent.
+The requester of IN 1 Anexo D is treated as the property owner. `building_cpf` of Anexo D has no key, because the form separates CPF and CNPJ and the owner's document can be either. A save updates the screen first; a server failure appears in the project bar. `PATCH` reads and then writes, so two people saving the same project at once keep the last write of each key they both sent.
 
 To tie a new form, add its `projectKeys` in `client/scripts/prepare-cbmsc-templates.mjs` and rerun it. `template-files.test.ts` fails on a key outside `PROJECT_FIELD_KEYS` or used twice in one schema.
 

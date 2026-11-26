@@ -16,12 +16,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { pageRange } from "@/lib/page-range";
 import type { Project } from "@/lib/projects/project";
 import {
   PROJECTS_PAGE_SIZE,
   PROJECTS_TABLE_FEATURES,
   globalProjectFilter,
-  pageRange,
   toProjectRows,
 } from "../lib/projects-table";
 import { PROJECT_COLUMNS } from "./projects-columns";

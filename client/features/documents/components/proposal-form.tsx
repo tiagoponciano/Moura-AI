@@ -1,22 +1,16 @@
 "use client";
 
-import { saveAs } from "file-saver";
-import { FileDown, Loader2 } from "lucide-react";
+import { Eye, FileDown, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { errorMessage } from "@/lib/api/request-json";
-import {
-  DEFAULT_VALIDITY_DAYS,
-  PROPOSAL_PLANS,
-  type ProposalRequest,
-} from "../lib/proposal";
+import { DEFAULT_VALIDITY_DAYS, PROPOSAL_PLANS } from "../lib/proposal";
 import { type Project } from "@/lib/projects/project";
-import { nameWithProject } from "@/lib/projects/file-name";
-import { keepProjectFile } from "@/lib/projects/files-client";
 import { PDF_ENABLED } from "../lib/pdf-enabled";
+import { useProposal } from "../hooks/use-proposal";
 import { PlanField } from "./plan-field";
+import { ProposalPreviewDialog } from "./proposal-preview-dialog";
 
 type ProposalFormProps = { project: Project };
 
@@ -25,49 +19,13 @@ export function ProposalForm({ project }: ProposalFormProps) {
   const [planId, setPlanId] = useState(PROPOSAL_PLANS[0].id);
   const [price, setPrice] = useState("");
   const [validity, setValidity] = useState(String(DEFAULT_VALIDITY_DAYS));
-  const [busy, setBusy] = useState<ProposalRequest["format"]>();
-  const [error, setError] = useState<string>();
-  const [note, setNote] = useState<string>();
-
   const reais = Number(price.replace(/\./g, "").replace(",", "."));
   const ready = Number.isFinite(reais) && reais > 0;
 
-  async function download(format: ProposalRequest["format"]) {
-    setBusy(format);
-    setError(undefined);
-    setNote(undefined);
-    try {
-      const response = await fetch(
-        `/api/documents/projects/${project.id}/proposal`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            planId,
-            price: reais,
-            validityDays: Number(validity) || DEFAULT_VALIDITY_DAYS,
-            format,
-          }),
-        },
-      );
-      if (!response.ok) {
-        const body = await response.json().catch(() => undefined);
-        throw new Error(body?.error ?? "Não foi possível gerar a proposta.");
-      }
-      const blob = await response.blob();
-      const fileName = nameWithProject(`Proposta.${format}`, project.name);
-      saveAs(blob, fileName);
-      const kept = await keepProjectFile(project.id, blob, {
-        kind: "proposal",
-        fileName,
-      });
-      if (!kept) setNote("Baixada, mas não foi guardada no projeto.");
-    } catch (cause) {
-      setError(errorMessage(cause));
-    } finally {
-      setBusy(undefined);
-    }
-  }
+  const { busy, error, note, preview, run, closePreview } = useProposal(
+    project,
+    { planId, reais, validity },
+  );
 
   return (
     <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto pr-1">
@@ -98,6 +56,17 @@ export function ProposalForm({ project }: ProposalFormProps) {
         </div>
       </div>
       <div className="flex flex-wrap gap-2">
+        {PDF_ENABLED && (
+          <Button
+            type="button"
+            variant="outline"
+            disabled={!ready || busy !== undefined}
+            onClick={() => run("pdf", "preview")}
+          >
+            {busy === "pdf" ? <Loader2 className="animate-spin" /> : <Eye />}
+            Ver prévia
+          </Button>
+        )}
         {(PDF_ENABLED ? (["pptx", "pdf"] as const) : (["pptx"] as const)).map(
           (format) => (
             <Button
@@ -105,7 +74,7 @@ export function ProposalForm({ project }: ProposalFormProps) {
               type="button"
               variant={format === "pptx" ? "default" : "outline"}
               disabled={!ready || busy !== undefined}
-              onClick={() => download(format)}
+              onClick={() => run(format, "download")}
             >
               {busy === format ? (
                 <Loader2 className="animate-spin" />
@@ -117,6 +86,15 @@ export function ProposalForm({ project }: ProposalFormProps) {
           ),
         )}
       </div>
+      {preview && (
+        <ProposalPreviewDialog
+          url={preview.url}
+          busy={busy !== undefined}
+          onDownloadPdf={() => run("pdf", "download")}
+          onDownloadPptx={() => run("pptx", "download")}
+          onClose={closePreview}
+        />
+      )}
       {note && <p className="text-xs text-muted-foreground">{note}</p>}
       {error && (
         <p role="alert" className="text-xs text-destructive">

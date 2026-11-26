@@ -76,3 +76,9 @@ export type AdminNormSource = {
 
 /** `GET /api/admin/norms`. */
 export type AdminNormsResponse = { norms: AdminNormSource[] };
+
+/** `GET /api/documents/proposal-template`: the deck an admin uploaded, if any, and the tags the app fills. */
+export type ProposalTemplateInfo = {
+  custom: { fileName: string; sizeBytes: number; uploadedAt: string } | null;
+  tags: string[];
+};

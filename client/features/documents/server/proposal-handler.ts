@@ -59,7 +59,7 @@ export async function handleProposal(
   let file: Uint8Array;
   try {
     file = fillPptx(
-      await loadProposalTemplate(),
+      await loadProposalTemplate(session.supabase),
       proposalValues(
         { name: project.name, data: (project.data ?? {}) as ProjectData },
         body.data,

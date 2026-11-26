@@ -5,10 +5,12 @@ import type {
   AdminNormsResponse,
   AdminSettingsResponse,
   AdminUsersResponse,
+  ProposalTemplateInfo,
   ResolveFormLinkResponse,
   SiteCheckResponse,
   UserChange,
 } from "./types";
+import { tagProblems } from "./proposal-template";
 import type { FormChange, FormDraftInput } from "./validation";
 
 export const fetchUsers = () =>
@@ -78,3 +80,27 @@ export const runSiteCheck = () =>
 
 export const fetchNorms = () =>
   requestJson<AdminNormsResponse>("/api/admin/norms");
+
+export const fetchProposalTemplate = () =>
+  requestJson<ProposalTemplateInfo>("/api/documents/proposal-template");
+
+export const resetProposalTemplate = () =>
+  requestJson<void>("/api/documents/proposal-template", { method: "DELETE" });
+
+/** Sends the deck; throws with the server's message and, for a deck whose tags are wrong, the tags. */
+export async function uploadProposalTemplate(file: File): Promise<void> {
+  const body = new FormData();
+  body.append("file", file);
+  const response = await fetch("/api/documents/proposal-template", {
+    method: "PUT",
+    body,
+  });
+  if (response.ok) return;
+  const failure = await response.json().catch(() => undefined);
+  const detail = failure ? tagProblems(failure) : undefined;
+  throw new Error(
+    [failure?.error ?? `Request failed with ${response.status}`, detail]
+      .filter(Boolean)
+      .join(" "),
+  );
+}

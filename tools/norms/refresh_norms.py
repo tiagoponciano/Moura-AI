@@ -52,9 +52,16 @@ EXTRACTORS: dict[str, tuple[tuple[str, str], ...]] = {
     ),
     # Instructions whose text is kept article by article and nothing else.
     **{f"IN-{n}": (("extract_articles.py", f"in-{n}"),) for n in TEXT_ONLY},
+    # The instructions whose annex tables are kept as grids too, after the text so the manifest exists.
+    **{
+        f"IN-{n}": (("extract_articles.py", f"in-{n}"), ("extract_annex_tables.py", f"in-{n}"))
+        for n in (7, 8, 9)
+    },
     # The guide for responsible engineers, also kept as text only.
     "CARTILHA": (("extract_articles.py", "cartilha"),),
 }
+# Documents kept by hand-run tools (`extract_notes.py`) that the weekly refresh leaves alone.
+NOT_REFRESHED = ("NT-01-2025", "NT-02-2025")
 # Tools that take the source link and the retrieval date to write into the manifest.
 WITH_SOURCE = {
     "extract_tables.py",
@@ -93,6 +100,8 @@ def main(argv: list[str] | None = None) -> int:
 
     changed = failed = 0
     for source in find_sources(args.norms):
+        if source.doc in NOT_REFRESHED:
+            continue
         url = drive_download_url(source.url)
         if url is None or source.doc not in EXTRACTORS:
             print(f"UNCHECKED {source.doc}: no download link or no extractors")

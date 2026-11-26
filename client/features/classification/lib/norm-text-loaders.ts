@@ -37,3 +37,10 @@ export const NORM_TEXT_LOADERS: Record<string, () => Promise<unknown>> = {
   "NT-01-2025": () => import("../norms/notes/nt-01-2025/articles.json"),
   "NT-02-2025": () => import("../norms/notes/nt-02-2025/articles.json"),
 };
+
+/** The tables of the annexes, for the instructions that have them extracted (`annex-tables.json`). */
+export const NORM_TABLE_LOADERS: Record<string, () => Promise<unknown>> = {
+  "IN-7": () => import("../norms/in-7/annex-tables.json"),
+  "IN-8": () => import("../norms/in-8/annex-tables.json"),
+  "IN-9": () => import("../norms/in-9/annex-tables.json"),
+};

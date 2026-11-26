@@ -31,17 +31,27 @@ class RefreshNormsTest(unittest.TestCase):
             self.assertEqual(self.tools(doc)[-1], "extract_articles.py", doc)
 
     def test_keeps_the_other_instructions_as_article_text_only(self):
-        self.assertEqual(self.tools("IN-7"), ["extract_articles.py"])
+        self.assertEqual(self.tools("IN-6"), ["extract_articles.py"])
         self.assertEqual(self.tools("IN-35"), ["extract_articles.py"])
 
+    def test_keeps_the_annex_tables_of_in_7_8_and_9_after_their_text(self):
+        for doc in ("IN-7", "IN-8", "IN-9"):
+            self.assertEqual(self.tools(doc), ["extract_articles.py", "extract_annex_tables.py"], doc)
+
     def test_passes_the_link_and_the_date_to_the_article_tool(self):
-        (command,) = rn.plan(source("IN-7"), Path("x.pdf"), Path("out"), "2026-11-19")
+        (command,) = rn.plan(source("IN-6"), Path("x.pdf"), Path("out"), "2026-11-19")
         self.assertIn("--url", command)
-        self.assertEqual(command[command.index("--out") + 1], str(Path("out") / "in-7"))
+        self.assertEqual(command[command.index("--out") + 1], str(Path("out") / "in-6"))
 
     def test_has_the_extractors_of_every_document_with_a_manifest(self):
         for found in cu.find_sources(cu.DEFAULT_NORMS):
-            self.assertIn(found.doc, rn.EXTRACTORS)
+            if found.doc not in rn.NOT_REFRESHED:
+                self.assertIn(found.doc, rn.EXTRACTORS)
+
+    def test_leaves_the_technical_notes_out_of_the_refresh(self):
+        self.assertEqual(rn.NOT_REFRESHED, ("NT-01-2025", "NT-02-2025"))
+        for doc in rn.NOT_REFRESHED:
+            self.assertNotIn(doc, rn.EXTRACTORS)
 
     def test_passes_the_link_and_the_date_only_to_the_tools_that_write_them(self):
         by_tool = {

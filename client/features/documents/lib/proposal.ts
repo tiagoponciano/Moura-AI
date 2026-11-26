@@ -67,6 +67,17 @@ export function formatDate(date: Date, timeZone = "America/Sao_Paulo"): string {
   }).format(date);
 }
 
+/** Who the proposal is for and where, from the project's shared data; blank when the project does not have it. */
+export function proposalParties(project: { name: string; data: ProjectData }) {
+  const { data } = project;
+  return {
+    client: data.owner_name ?? "",
+    projectName:
+      data.property_building_name ?? data.property_company_name ?? project.name,
+    city: data.property_city ?? "",
+  };
+}
+
 /**
  * The value of every tag of the proposal deck, from the project's shared data
  * and the choices made for the proposal. List entries carry their marker: a
@@ -81,12 +92,11 @@ export function proposalValues(
     (candidate) => candidate.id === request.planId,
   );
   if (!plan) throw new Error(`Unknown plan: ${request.planId}`);
-  const { data } = project;
+  const parties = proposalParties(project);
   return {
-    client: data.owner_name ?? "",
-    project_name:
-      data.property_building_name ?? data.property_company_name ?? project.name,
-    city_state: data.property_city ?? "",
+    client: parties.client,
+    project_name: parties.projectName,
+    city_state: parties.city,
     date: formatDate(today),
     plan_title: plan.title,
     plan_description: plan.description,

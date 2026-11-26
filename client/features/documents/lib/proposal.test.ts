@@ -3,6 +3,7 @@ import {
   formatDate,
   formatPrice,
   proposalBody,
+  proposalParties,
   proposalValues,
 } from "./proposal";
 
@@ -104,5 +105,32 @@ describe("proposalBody", () => {
     expect(proposalBody.safeParse({ ...request, format: "docx" }).success).toBe(
       false,
     );
+  });
+});
+
+describe("proposalParties", () => {
+  it("reads the client, the building and the city from the project data", () => {
+    expect(
+      proposalParties({
+        name: "Obra 7",
+        data: {
+          owner_name: "Padaria Silva",
+          property_company_name: "Silva Ltda",
+          property_city: "Joinville",
+        },
+      }),
+    ).toEqual({
+      client: "Padaria Silva",
+      projectName: "Silva Ltda",
+      city: "Joinville",
+    });
+  });
+
+  it("falls back to the project's name and leaves the rest blank", () => {
+    expect(proposalParties({ name: "Obra 7", data: {} })).toEqual({
+      client: "",
+      projectName: "Obra 7",
+      city: "",
+    });
   });
 });

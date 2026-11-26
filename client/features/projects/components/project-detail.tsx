@@ -12,8 +12,7 @@ import { useProjects } from "@/hooks/use-projects";
 import { writeSelectedProject } from "@/lib/projects/selection";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { describeProject } from "../lib/project-summary";
-import { PROJECT_TABS, type ProjectTabId } from "../lib/project-tabs";
-import { ProjectDataForm } from "./project-data-form";
+import { ProjectDataTable } from "./project-data-table";
 import { ProjectFilesList } from "./project-files-list";
 
 type ProjectDetailProps = {
@@ -27,7 +26,7 @@ export function ProjectDetail({ id, children }: ProjectDetailProps) {
   const projects = useProjects(isSupabaseConfigured());
   const project = projects.projects.find((entry) => entry.id === id);
   const router = useRouter();
-  const [tab, setTab] = useState<ProjectTabId>("summary");
+  const [tab, setTab] = useState("summary");
 
   // The tools open on the project chosen last, so the one being looked at becomes it.
   useEffect(() => {
@@ -59,31 +58,26 @@ export function ProjectDetail({ id, children }: ProjectDetailProps) {
               />
             }
           />
-          <Tabs
-            value={tab}
-            onValueChange={(next) => setTab(next as ProjectTabId)}
-          >
+          <Tabs value={tab} onValueChange={setTab}>
             <TabsList variant="line" className="w-full justify-start border-b">
-              {PROJECT_TABS.map(({ id, label }) => (
-                <TabsTrigger key={id} value={id} className="flex-none px-3">
-                  {label}
-                </TabsTrigger>
-              ))}
+              <TabsTrigger value="summary" className="flex-none px-3">
+                Resumo
+              </TabsTrigger>
+              <TabsTrigger value="data" className="flex-none px-3">
+                Dados do projeto
+              </TabsTrigger>
             </TabsList>
             <TabsContent value="summary" className="flex flex-col gap-5 pt-4">
               <div className="grid gap-4 lg:grid-cols-2">{children}</div>
               <ProjectFilesList projectId={project.id} />
             </TabsContent>
-            {PROJECT_TABS.filter(({ id }) => id !== "summary").map(({ id }) => (
-              <TabsContent key={id} value={id} className="pt-4">
-                <ProjectDataForm
-                  key={project.id}
-                  project={project}
-                  tab={id}
-                  onChange={(change) => projects.saveData(project.id, change)}
-                />
-              </TabsContent>
-            ))}
+            <TabsContent value="data" className="pt-4">
+              <ProjectDataTable
+                key={project.id}
+                project={project}
+                onChange={(change) => projects.saveData(project.id, change)}
+              />
+            </TabsContent>
           </Tabs>
           {projects.error && (
             <p role="alert" className="text-sm text-destructive">

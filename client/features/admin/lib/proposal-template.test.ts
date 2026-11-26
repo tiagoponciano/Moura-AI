@@ -2,14 +2,19 @@ import { describe, expect, it } from "vitest";
 import {
   tagProblems,
   templateFileProblem,
+  templateSource,
   templateSummary,
 } from "./proposal-template";
 
 describe("templateSummary", () => {
   it("says the app's own deck is in use when none was uploaded", () => {
-    expect(templateSummary({ custom: null, tags: [] })).toBe(
-      "Modelo padrão do app",
-    );
+    expect(
+      templateSummary({
+        inUse: { used: [], unused: [] },
+        custom: null,
+        tags: [],
+      }),
+    ).toBe("Modelo padrão do app");
   });
 
   it("names the uploaded file", () => {
@@ -20,9 +25,33 @@ describe("templateSummary", () => {
           sizeBytes: 1,
           uploadedAt: "2026-11-26T10:00:00Z",
         },
+        inUse: { used: [], unused: [] },
         tags: [],
       }),
     ).toBe("nova.pptx");
+  });
+});
+
+describe("templateSource", () => {
+  const inUse = { used: [], unused: [] };
+
+  it("says the app's own deck is in use", () => {
+    expect(templateSource({ inUse, custom: null, tags: [] })).toBe(
+      "Modelo padrão do app: nenhum modelo foi enviado.",
+    );
+  });
+
+  it("names the uploaded file", () => {
+    const text = templateSource({
+      inUse,
+      custom: {
+        fileName: "nova.pptx",
+        sizeBytes: 1,
+        uploadedAt: "2026-11-26T10:00:00Z",
+      },
+      tags: [],
+    });
+    expect(text).toContain("Modelo enviado: nova.pptx");
   });
 });
 

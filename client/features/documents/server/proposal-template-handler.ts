@@ -1,4 +1,5 @@
 import { requireUser } from "@/lib/auth/require-user";
+import { pptxTags } from "../lib/render-pptx";
 import {
   MAX_TEMPLATE_BYTES,
   PPTX_MIME,
@@ -43,7 +44,15 @@ export async function handleGetProposalTemplate(): Promise<Response> {
       { status: missing ? 503 : 500 },
     );
   }
+  // What the deck in use does with the tags, so the console can show it: the uploaded deck, or the app's own.
+  const inUse = [
+    ...pptxTags(await loadProposalTemplate(session.supabase)),
+  ].sort();
   return Response.json({
+    inUse: {
+      used: inUse,
+      unused: PROPOSAL_TAGS.filter((tag) => !inUse.includes(tag)),
+    },
     custom: data
       ? {
           fileName: data.file_name,

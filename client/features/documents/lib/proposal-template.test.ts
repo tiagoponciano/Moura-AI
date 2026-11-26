@@ -24,6 +24,22 @@ function renamed(from: string, to: string) {
   return zip.generate({ type: "uint8array" });
 }
 
+/** The plain deck with every tag turned into plain text. */
+function untagged() {
+  const zip = new PizZip(listDeck);
+  for (const path of Object.keys(zip.files)) {
+    if (!/^ppt\/slides\/slide\d+\.xml$/.test(path)) continue;
+    zip.file(
+      path,
+      zip
+        .file(path)!
+        .asText()
+        .replace(/\{\{\s*\w+\s*\}\}/g, "texto"),
+    );
+  }
+  return zip.generate({ type: "uint8array" });
+}
+
 describe("checkProposalTemplate", () => {
   it("accepts the deck bundled with the app and says which tags it leaves unused", () => {
     const check = checkProposalTemplate(bundled);
@@ -50,7 +66,22 @@ describe("checkProposalTemplate", () => {
 
   it("refuses a file that is not a deck", () => {
     const check = checkProposalTemplate(new TextEncoder().encode("not a zip"));
-    expect(check).toMatchObject({ ok: false, unknown: [] });
+    expect(check).toMatchObject({ ok: false, unknown: [], missing: [] });
+  });
+
+  it("refuses a deck with no tags, naming the client and the price", () => {
+    const check = checkProposalTemplate(untagged());
+    expect(check).toMatchObject({ ok: false, missing: ["client", "price"] });
+  });
+
+  it("refuses a deck that has other tags but not the price", () => {
+    const check = checkProposalTemplate(renamed("price", "date"));
+    expect(check).toMatchObject({ ok: false, missing: ["price"] });
+  });
+
+  it("refuses a deck that has other tags but not the client", () => {
+    const check = checkProposalTemplate(renamed("client", "date"));
+    expect(check).toMatchObject({ ok: false, missing: ["client"] });
   });
 
   it("refuses a deck with a tag the app does not fill, naming it", () => {

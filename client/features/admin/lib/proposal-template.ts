@@ -15,10 +15,16 @@ export function templateSource(info: ProposalTemplateInfo): string {
 }
 
 /** What the server found wrong with an uploaded deck, as one message; `undefined` when it listed nothing. */
-export function tagProblems(body: { unknown?: string[] }): string | undefined {
-  return body.unknown?.length
-    ? `O app não conhece: ${body.unknown.map((tag) => `{{${tag}}}`).join(", ")}.`
-    : undefined;
+export function tagProblems(body: {
+  unknown?: string[];
+  missing?: string[];
+}): string | undefined {
+  const list = (tags: string[]) => tags.map((tag) => `{{${tag}}}`).join(", ");
+  const parts = [
+    body.missing?.length && `Faltam no modelo: ${list(body.missing)}.`,
+    body.unknown?.length && `O app não conhece: ${list(body.unknown)}.`,
+  ].filter(Boolean);
+  return parts.length ? parts.join(" ") : undefined;
 }
 
 /** The largest deck the console sends; the server and the bucket refuse more. */

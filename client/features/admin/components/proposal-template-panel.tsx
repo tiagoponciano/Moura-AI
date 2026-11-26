@@ -78,8 +78,10 @@ export function ProposalTemplatePanel({
           <p className="text-xs text-muted-foreground">
             O app preenche estas etiquetas, escritas entre chaves duplas no
             texto da apresentação. Use as que quiser: o que o modelo não tem
-            fica como está escrito nele. Uma etiqueta que não esteja nesta lista
-            faz o modelo ser recusado.
+            fica como está escrito nele. Só{" "}
+            <span className="font-mono">{"{{client}}"}</span> e{" "}
+            <span className="font-mono">{"{{price}}"}</span> são obrigatórias, e
+            uma etiqueta fora desta lista faz o modelo ser recusado.
           </p>
           <ul className="flex flex-wrap gap-1.5">
             {info.tags.map((tag) => (

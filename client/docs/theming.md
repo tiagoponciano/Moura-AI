@@ -27,7 +27,7 @@ Colors come from the Moura logo (`public/brand/moura-logo.png`): the flame's red
 
 | Token         | Light                  | Dark                    | Used for                                                                                                                              |
 | ------------- | ---------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
-| `primary`     | `oklch(0.57 0.21 33)`  | `oklch(0.7 0.17 45)`    | buttons, user chat bubbles, home card icons, 3D scene highlights                                                                      |
+| `primary`     | `oklch(0.57 0.21 33)`  | `oklch(0.7 0.17 45)`    | active icons, progress, switches, home card icons, 3D scene highlights                                                                |
 | `accent`      | `oklch(0.96 0.025 45)` | `oklch(0.28 0.04 45)`   | hover backgrounds of cards, chips and menu items                                                                                      |
 | `success`     | `oklch(0.58 0.13 155)` | `oklch(0.72 0.14 155)`  | "filled" checks in the fields panel and confirmed tool calls in the chat                                                              |
 | `destructive` | shadcn default         | shadcn default          | validation errors                                                                                                                     |

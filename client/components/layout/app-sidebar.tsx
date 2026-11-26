@@ -10,7 +10,6 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
-  SidebarHeader,
   SidebarMenu,
   SidebarMenuBadge,
   SidebarMenuButton,
@@ -18,7 +17,6 @@ import {
 } from "@/components/ui/sidebar";
 import { ADMIN_PATH } from "@/lib/auth/gate";
 import { MODULES, MODULE_STATUS_LABEL, PROJECTS_PATH } from "@/lib/modules";
-import { SidebarProject } from "./sidebar-project";
 import { SidebarTheme } from "./sidebar-theme";
 import { UserMenu } from "./user-menu";
 
@@ -31,9 +29,6 @@ export function AppSidebar({ isAdmin }: { isAdmin: boolean }) {
 
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader className="gap-3">
-        <SidebarProject />
-      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent>

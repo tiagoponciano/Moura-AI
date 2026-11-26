@@ -89,9 +89,10 @@ export function addConsulted(
 
 /** How a passage is named to the person and to the assistant: `IN 9, art. 12` or `IN 1, anexo, p. 4`. */
 export function normLabel(norm: ConsultedNorm): string {
-  return norm.article === undefined
-    ? `${norm.doc}, anexo, p. ${norm.page}`
-    : `${norm.doc}, art. ${norm.article}`;
+  if (norm.article === undefined) return `${norm.doc}, anexo, p. ${norm.page}`;
+  // A technical note has numbered sections, not articles.
+  const part = norm.doc.startsWith("NT-") ? "item" : "art.";
+  return `${norm.doc}, ${part} ${norm.article}`;
 }
 
 /** What is sent to the assistant when a passage does not match the norm. */

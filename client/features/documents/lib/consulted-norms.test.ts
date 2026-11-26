@@ -72,6 +72,15 @@ describe("addConsulted", () => {
   });
 });
 
+describe("normLabel", () => {
+  it("calls a section of a technical note an item, not an article", () => {
+    const [note] = addConsulted([], "search_norm", {
+      hits: [hit("NT-01-2025", 3)],
+    });
+    expect(normLabel(note)).toBe("NT-01-2025, item 3");
+  });
+});
+
 describe("recheckMessage", () => {
   it("names the passage that does not match and asks for a new search", () => {
     const [norm] = addConsulted([], "search_norm", { hits: [hit("IN 9", 12)] });

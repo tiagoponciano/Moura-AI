@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { PROJECT_FIELD_GROUPS } from "@/lib/projects/fields";
-import { groupChange, groupDraft } from "./project-data-edit";
+import { groupChange, groupDraft } from "./data-edit";
 
 const owner = PROJECT_FIELD_GROUPS.find((group) => group.id === "owner")!;
 const data = { owner_name: "Ana Souza", owner_phone: "4899999" };

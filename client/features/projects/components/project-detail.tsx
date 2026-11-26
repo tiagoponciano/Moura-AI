@@ -12,7 +12,7 @@ import { useProjects } from "@/hooks/use-projects";
 import { writeSelectedProject } from "@/lib/projects/selection";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
 import { describeProject } from "../lib/project-summary";
-import { ProjectDataTable } from "./project-data-table";
+import { ProjectDataTable } from "@/components/shared/project-data-table";
 import { ProjectFilesList } from "./project-files-list";
 
 type ProjectDetailProps = {

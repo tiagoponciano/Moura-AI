@@ -20,7 +20,7 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
           <SidebarTrigger />
           <Separator
             orientation="vertical"
-            className="mr-1 data-[orientation=vertical]:h-4"
+            className="mr-1 data-[orientation=vertical]:h-4 data-[orientation=vertical]:self-center"
           />
           <PageTitle />
           <div className="ml-auto">

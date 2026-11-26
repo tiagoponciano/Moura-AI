@@ -10,7 +10,7 @@ import {
   CommandList,
 } from "@/components/ui/command";
 import type { Project } from "@/lib/projects/project";
-import { filterProjects } from "@/lib/projects/filter-projects";
+import { filterProjects, projectDetails } from "@/lib/projects/filter-projects";
 
 type ProjectSearchDialogProps = {
   open: boolean;
@@ -40,14 +40,14 @@ export function ProjectSearchDialog({
       open={open}
       onOpenChange={handleOpenChange}
       title="Buscar projeto"
-      description="Busca pelo nome"
+      description="Busca pelo nome, cidade, ocupação ou cliente"
       className="sm:max-w-2xl"
     >
       <Command shouldFilter={false}>
         <CommandInput
           value={query}
           onValueChange={setQuery}
-          placeholder="Buscar projeto"
+          placeholder="Buscar por nome, cidade ou cliente"
         />
         <CommandList className="max-h-96">
           <CommandEmpty>Nenhum projeto encontrado.</CommandEmpty>
@@ -56,13 +56,20 @@ export function ProjectSearchDialog({
               key={project.id}
               value={project.id}
               data-checked={project.id === selectedId}
-              className="py-3 data-selected:bg-primary/15 data-selected:text-primary"
+              className="py-2.5"
               onSelect={() => {
                 onSelect(project.id);
                 onOpenChange(false);
               }}
             >
-              {project.name}
+              <span className="flex min-w-0 flex-1 flex-col">
+                <span className="truncate font-medium">{project.name}</span>
+                {projectDetails(project) && (
+                  <span className="truncate text-xs font-normal text-muted-foreground">
+                    {projectDetails(project)}
+                  </span>
+                )}
+              </span>
             </CommandItem>
           ))}
         </CommandList>

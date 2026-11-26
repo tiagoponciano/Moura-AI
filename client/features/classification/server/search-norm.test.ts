@@ -121,3 +121,26 @@ describe("readNormText", () => {
     });
   });
 });
+
+describe("readNormText, annex tables", () => {
+  it("gives an annex page with a table the table as a grid before its text", async () => {
+    const reading = await readNormText("IN 9", { annexPage: 64 });
+    if (!("text" in reading)) throw new Error("expected a reading");
+    expect(reading.text.startsWith("Tabelas desta página")).toBe(true);
+    expect(reading.text).toContain("| Grupo | Divisão |");
+    expect(reading.text).toContain("Texto da página, como impresso:");
+  });
+
+  it("reads an annex page of an instruction without extracted tables as plain text", async () => {
+    const reading = await readNormText("IN 12", { annexPage: 1 });
+    if ("text" in reading) {
+      expect(reading.text).not.toContain("Tabelas desta página");
+    }
+  });
+
+  it("does not touch the text of an article", async () => {
+    const reading = await readNormText("IN 9", { article: 1 });
+    if (!("text" in reading)) throw new Error("expected a reading");
+    expect(reading.text).not.toContain("Tabelas desta página");
+  });
+});

@@ -1,6 +1,10 @@
 import { tool } from "ai";
 import { z } from "zod";
-import { NORM_TEXT_LOADERS } from "../lib/norm-text-loaders";
+import { pageTablesMarkdown, type AnnexTables } from "../lib/annex-tables";
+import {
+  NORM_TABLE_LOADERS,
+  NORM_TEXT_LOADERS,
+} from "../lib/norm-text-loaders";
 import { searchArticles, type NormDoc, type NormHit } from "../lib/norm-search";
 
 /** Name of the LLM tool the assistants call to read what a norm says. */
@@ -19,6 +23,15 @@ function loadDoc(doc: string): Promise<NormDoc> {
     cache.set(doc, loaded);
   }
   return loaded;
+}
+
+/** The annex tables of one instruction, or none when they were not extracted. */
+async function loadTables(code: string): Promise<AnnexTables | undefined> {
+  const load = NORM_TABLE_LOADERS[code];
+  if (!load) return undefined;
+  const module = await load();
+  return ((module as { default?: AnnexTables }).default ??
+    module) as AnnexTables;
 }
 
 const key = (code: string) => code.toUpperCase().replace(/[^A-Z0-9]/g, "");
@@ -80,13 +93,24 @@ export async function readNormText(
           : `${code} has no annex on page ${at.annexPage}.`,
     };
   }
+  // An annex page with tables is read table first, as a grid, then its text.
+  const tables =
+    at.article === undefined
+      ? pageTablesMarkdown(
+          (await loadTables(code)) ?? { pages: [] },
+          found.page,
+        )
+      : "";
+  const text = tables
+    ? `Tabelas desta página, lidas da grade do PDF:\n\n${tables}\n\nTexto da página, como impresso:\n\n${found.text}`
+    : found.text;
   return {
     doc: code,
     kind: at.article !== undefined ? "article" : "annex",
     article: at.article,
     page: found.page,
-    text: found.text.slice(0, READ_LIMIT),
-    truncated: found.text.length > READ_LIMIT,
+    text: text.slice(0, READ_LIMIT),
+    truncated: text.length > READ_LIMIT,
   };
 }
 
@@ -146,7 +170,7 @@ export const normSearchTools = {
   }),
   [READ_NORM_TOOL]: tool({
     description:
-      "Reads the whole text of one article, or of one annex page, of a CBMSC instruction, as printed. Use it after search_norm when the excerpt is not enough, with the instruction and the article number or the annex page it returned. Annex pages are raw text: tables may lose their layout.",
+      "Reads the whole text of one article, or of one annex page, of a CBMSC instruction, as printed. Use it after search_norm when the excerpt is not enough, with the instruction and the article number or the annex page it returned. An annex page of IN 7, IN 8 or IN 9 comes with its tables as a grid, read from the PDF, before its text; other annex pages are raw text and tables may lose their layout.",
     inputSchema: readNormInput,
     execute: async ({ doc, article, annex_page }) =>
       readNormText(doc, { article, annexPage: annex_page }),

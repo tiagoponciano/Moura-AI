@@ -91,7 +91,7 @@ export async function handleSetProposalTemplate(
   const check = checkProposalTemplate(file);
   if (!check.ok) {
     return Response.json(
-      { error: check.reason, missing: check.missing, unknown: check.unknown },
+      { error: check.reason, unknown: check.unknown },
       { status: 400 },
     );
   }

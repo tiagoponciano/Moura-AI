@@ -10,7 +10,7 @@ Invariants:
 
 - The route stores nothing: each download generates the deck again from the project's current data. The browser keeps the file in the project's files (`client/features/projects/docs/project-files.md`).
 - The plans and their texts are fixed in the code (`PROPOSAL_PLANS`); the price, the validity and the project data are the only variable parts.
-- The template's tags and `proposalValues` agree exactly: a test fails when a tag has no value or a value has no tag.
+- Every tag of the shipped deck has a value in `proposalValues`: a test fails otherwise. A value the deck does not use is fine; that part of the proposal is written in the design.
 
 ## Surface
 
@@ -25,13 +25,13 @@ Invariants:
 
 Returns the file as an attachment (`proposta.pptx` or `proposta.pdf`). Errors: 400 invalid id or body, 404 `Project not found` (also for an archived project), 503 when a PDF is asked and `PDF_SERVICE_URL` is missing, 502 when the deck cannot be filled or the PDF service fails.
 
-| Export                           | File                       | Contract                                                                                                                |
-| -------------------------------- | -------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `proposalValues`                 | `lib/proposal.ts`          | The value of every tag, from the project data and the request                                                           |
-| `fillPptx(template, values)`     | `lib/render-pptx.ts`       | `{ file, missing }`: the filled deck and the tags that had no value                                                     |
-| `pptxTags(template)`             | `lib/render-pptx.ts`       | Every tag of the deck                                                                                                   |
-| `loadProposalTemplate(supabase)` | `server/template-files.ts` | The deck an admin uploaded, or the bundled `public/templates/proposal/proposal.pptx` when none was or it cannot be read |
-| `checkProposalTemplate(file)`    | `lib/proposal-template.ts` | Whether a deck is a readable `.pptx` whose tags are exactly `PROPOSAL_TAGS`                                             |
+| Export                           | File                       | Contract                                                                                                                  |
+| -------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `proposalValues`                 | `lib/proposal.ts`          | The value of every tag, from the project data and the request                                                             |
+| `fillPptx(template, values)`     | `lib/render-pptx.ts`       | `{ file, missing }`: the filled deck and the tags that had no value                                                       |
+| `pptxTags(template)`             | `lib/render-pptx.ts`       | Every tag of the deck                                                                                                     |
+| `loadProposalTemplate(supabase)` | `server/template-files.ts` | The deck an admin uploaded, or the bundled `public/templates/proposal/proposal.pptx` when none was or it cannot be read   |
+| `checkProposalTemplate(file)`    | `lib/proposal-template.ts` | Whether a deck is a readable `.pptx` that uses only tags in `PROPOSAL_TAGS`; the ones it leaves out come back as `unused` |
 
 ## Rules and behavior
 
@@ -46,6 +46,7 @@ Values of the deck's tags (`proposalValues`):
 | `plan_title`, `plan_description`                 | The plan's title and description                                                |
 | `plan_items`                                     | The plan's items, each starting with `☑ `                                       |
 | `price`                                          | The number written as `R$ 4.500,00`                                             |
+| `validity_days`                                  | The chosen validity, in days, as text                                           |
 | `excluded_items`                                 | Four fixed exclusions, each starting with `• `                                  |
 | `notes`                                          | Five fixed lines from Moura's deck, with the chosen validity in the fourth      |
 | `contact_phone`, `contact_site`, `contact_email` | Moura's contact, fixed                                                          |
@@ -71,7 +72,6 @@ Everything outside the slides' text (layouts, images, notes) is copied unchanged
 ## Gotchas
 
 - A tag shows up empty in the deck → it has no value in `proposalValues` → add the value; the `pptxTags` test lists the difference.
-- The deck has no photos → `public/templates/proposal/proposal.pptx` is a generated base → replace it with Moura's original deck, keeping the same tags.
 - A new tag typed in PowerPoint is not replaced → it sits in a table, a chart or the notes → move it into a text box.
 - "Não foi possível gerar a proposta agora." in production after moving the template → the file is read from disk, and `outputFileTracingIncludes` in `next.config.ts` ships only `public/templates/proposal/**` with this route → keep the template at `public/templates/proposal/proposal.pptx`.
 - A PDF fails while the `.pptx` works → the PDF service is down or not configured → download the `.pptx`.
@@ -82,8 +82,12 @@ None for the `.pptx`. `PDF_SERVICE_*` for PDFs (`document-generation.md`).
 
 ## The template an admin uploads
 
-The Proposta tab of the admin console sends the deck every proposal is filled from. `PUT /api/documents/proposal-template` takes a multipart `file` (`.pptx`, up to 20 MB), refuses it with 400 and the lists `missing` and `unknown` unless its tags are exactly `PROPOSAL_TAGS` (the keys of `proposalValues`), and keeps it as `proposal.pptx` in the private `proposal-template` bucket with one row in `proposal_template` (file name, size, who, when). `GET` returns that row and the tags, `GET .../file` the deck in use, and `DELETE` removes the upload so the bundled deck is used again. All four are for admins; the proposal route only reads the deck, with the signed-in user's session. A deck that cannot be read from the bucket falls back to the bundled one and logs an error. The migration is `supabase/migrations/20261126000100_proposal_template.sql`.
+The Proposta tab of the admin console sends the deck every proposal is filled from. `PUT /api/documents/proposal-template` takes a multipart `file` (`.pptx`, up to 20 MB), refuses it with 400 and the list `unknown` when it uses a tag that is not in `PROPOSAL_TAGS` (the keys of `proposalValues`); a deck may leave tags out, and keeps it as `proposal.pptx` in the private `proposal-template` bucket with one row in `proposal_template` (file name, size, who, when). `GET` returns that row and the tags, `GET .../file` the deck in use, and `DELETE` removes the upload so the bundled deck is used again. All four are for admins; the proposal route only reads the deck, with the signed-in user's session. A deck that cannot be read from the bucket falls back to the bundled one and logs an error. The migration is `supabase/migrations/20261126000100_proposal_template.sql`.
 
 ## Preview
 
 With PDF output on, the "Proposta" tab has "Ver prévia": it asks the route for the PDF with the plan, price and validity on screen and shows it in a dialog (`ProposalPreviewDialog`), made by the same route and the same PDF service as the download, so what is previewed is what is downloaded. The dialog offers "Voltar e editar", "Baixar .pptx" and "Baixar PDF"; the PDF download reuses the previewed file instead of converting again (`useProposal`), and closing the dialog discards it. The preview is one request when asked, not one per keystroke, because each PDF is a conversion on the PDF service. Without PDF output there is no preview button.
+
+## The deck the app ships
+
+`public/templates/proposal/proposal.pptx` is Moura's designed proposal (logo, photo, background, check-list icons), made from the `.pptx` exported from the PDF Moura sends clients, with `scripts/tag-proposal.mjs` (`node scripts/tag-proposal.mjs "<designed deck>" public/templates/proposal/proposal.pptx`). It tags only what changes between proposals: the four lines of the cover (`client`, `project_name`, `city_state`, `date`), the plan's title and description (`plan_title`, `plan_description`), the `price` and the `validity_days` line of the notes. The plan's items, the exclusions, the other notes and the contacts are written in the design, so `plan_items`, `excluded_items`, `notes` and the three `contact_*` tags are unused by this deck (the values stay in `proposalValues` for a deck that wants them). The cover's four lines are separate paragraphs in a smaller type, so a long client or building name keeps all four on the page. `features/documents/lib/fixtures/list-deck.pptx` is a plain deck that uses every tag and lists, kept for the tests of `fillPptx`.

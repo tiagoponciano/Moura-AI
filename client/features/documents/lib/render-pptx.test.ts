@@ -7,7 +7,11 @@ import { proposalValues } from "./proposal";
 import { fillPptx, pptxTags } from "./render-pptx";
 
 const DRAWING = "http://schemas.openxmlformats.org/drawingml/2006/main";
+/** A plain deck that uses every tag and lists; the designed proposal uses only some. */
 const TEMPLATE = new Uint8Array(
+  readFileSync(join(__dirname, "fixtures/list-deck.pptx")),
+);
+const PROPOSAL = new Uint8Array(
   readFileSync(join(process.cwd(), "public/templates/proposal/proposal.pptx")),
 );
 
@@ -44,8 +48,15 @@ function texts(file: Uint8Array): string[] {
 }
 
 describe("pptxTags", () => {
-  it("finds exactly the tags the proposal gives values for", () => {
-    expect(pptxTags(TEMPLATE)).toEqual(new Set(Object.keys(values)));
+  it("finds only tags the proposal gives values for, in the deck the app ships", () => {
+    const known = new Set(Object.keys(values));
+    for (const tag of pptxTags(PROPOSAL)) expect(known).toContain(tag);
+  });
+
+  it("finds every tag the proposal gives values for in the plain test deck", () => {
+    expect(pptxTags(TEMPLATE)).toEqual(
+      new Set(Object.keys(values).filter((tag) => tag !== "validity_days")),
+    );
   });
 });
 

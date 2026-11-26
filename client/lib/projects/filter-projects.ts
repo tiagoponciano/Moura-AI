@@ -8,12 +8,20 @@ export function normalize(text: string): string {
     .toLowerCase();
 }
 
-/** The projects whose name contains every word of `query`, in the given order. */
+/** The line under a project's name in a list: its city, occupancy and client, as many as it has. */
+export function projectDetails(project: Project): string {
+  const { property_city, property_occupancy, owner_name } = project.data;
+  return [property_city, property_occupancy, owner_name]
+    .filter(Boolean)
+    .join(" · ");
+}
+
+/** The projects where every word of `query` is in the name, the city, the occupancy or the client, in the given order. */
 export function filterProjects(projects: Project[], query: string): Project[] {
   const words = normalize(query).split(/\s+/).filter(Boolean);
   if (words.length === 0) return projects;
   return projects.filter((project) => {
-    const name = normalize(project.name);
-    return words.every((word) => name.includes(word));
+    const text = normalize(`${project.name} ${projectDetails(project)}`);
+    return words.every((word) => text.includes(word));
   });
 }

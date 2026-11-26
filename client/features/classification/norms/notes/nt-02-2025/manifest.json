@@ -1,0 +1,15 @@
+{
+  "doc": "NT-02-2025",
+  "source_url": "https://drive.google.com/file/d/16fsdOzue7vD9PCwlBO9R7q7YFO9F6i0q/view",
+  "retrieved": "2026-11-25",
+  "pdf_sha256": "156b83f631a31d3dba468ebfa532d729f01b477d4e9eb8eb1e664ba9fb82847c",
+  "pdf_pages": 2,
+  "tool_version": 1,
+  "pymupdf": "1.28.2",
+  "articles": {
+    "count": 3,
+    "annex_pages": 0,
+    "sha256": "0d4c203049bf80eb56cda976a62e2501b89c42a02b41bfb608800ea6980747dc",
+    "needs_human_look": 0
+  }
+}

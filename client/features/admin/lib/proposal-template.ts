@@ -20,3 +20,18 @@ export function tagProblems(body: { unknown?: string[] }): string | undefined {
     ? `O app não conhece: ${body.unknown.map((tag) => `{{${tag}}}`).join(", ")}.`
     : undefined;
 }
+
+/** The largest deck the console sends; the server and the bucket refuse more. */
+export const MAX_TEMPLATE_BYTES = 20 * 1024 * 1024;
+
+/** Why a dropped file cannot be the template, before anything is sent; `undefined` when it can. */
+export function templateFileProblem(file: {
+  name: string;
+  size: number;
+}): string | undefined {
+  if (!/\.pptx$/i.test(file.name)) {
+    return "O modelo precisa ser uma apresentação .pptx.";
+  }
+  if (file.size > MAX_TEMPLATE_BYTES) return "O arquivo passa de 20 MB.";
+  return undefined;
+}

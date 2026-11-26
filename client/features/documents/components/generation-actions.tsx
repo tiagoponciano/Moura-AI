@@ -4,6 +4,7 @@ import type { FieldSources } from "@/lib/field-sources";
 import type { PdfApproval } from "../hooks/use-pdf-approval";
 import { PDF_ENABLED } from "../lib/pdf-enabled";
 import type { FieldValues, TemplateField } from "../lib/templates";
+import type { NormsToCheckProps } from "./norms-to-check";
 import { PreviewDialog } from "./preview-dialog";
 
 type GenerationActionsProps = {
@@ -13,6 +14,7 @@ type GenerationActionsProps = {
   values: FieldValues;
   sources: FieldSources;
   approval: PdfApproval;
+  norms: NormsToCheckProps;
   generating: boolean;
   notice?: string;
   onGenerate: () => void;
@@ -26,6 +28,7 @@ export function GenerationActions({
   values,
   sources,
   approval,
+  norms,
   generating,
   notice,
   onGenerate,
@@ -40,6 +43,7 @@ export function GenerationActions({
           values={values}
           sources={sources}
           approval={approval}
+          norms={norms}
         />
       ) : (
         <Button onClick={onGenerate} disabled={generating} size="lg">

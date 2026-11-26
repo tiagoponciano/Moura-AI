@@ -2,7 +2,7 @@
 
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport, type UIMessage } from "ai";
-import { useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { useChatAttachments } from "@/hooks/use-chat-attachments";
 import { useToolResults } from "@/hooks/use-tool-results";
 import { fetchChatMessages } from "@/lib/chat-history/client";
@@ -18,6 +18,10 @@ type ChatProps = {
   endpoint: string;
   body?: Record<string, unknown>;
   onToolResult?: (toolName: string, output: unknown) => void;
+  /** A message to send for the user; each new `id` is sent once, when the chat is free. */
+  outbox?: { id: number; text: string };
+  /** Called once the outbox message went out, so the owner can drop it. */
+  onOutboxSent?: () => void;
   placeholder?: string;
   emptyState?: string;
   /** Saved-chat scope. The history menu shows only when this is set and Supabase is configured. */
@@ -39,6 +43,8 @@ export function Chat({
   endpoint,
   body,
   onToolResult,
+  outbox,
+  onOutboxSent,
   placeholder = "Digite sua mensagem…",
   emptyState = "Comece a conversa descrevendo o que você precisa.",
   history,
@@ -60,6 +66,13 @@ export function Chat({
   const toolResults = useToolResults(messages, onToolResult);
 
   const isBusy = status === "submitted" || status === "streaming";
+  const sentOutbox = useRef(0);
+  useEffect(() => {
+    if (!outbox || outbox.id === sentOutbox.current || isBusy) return;
+    sentOutbox.current = outbox.id;
+    sendMessage({ text: outbox.text }, { body });
+    onOutboxSent?.();
+  }, [outbox, isBusy, sendMessage, body, onOutboxSent]);
   const historyEnabled = history !== undefined && isSupabaseConfigured();
   const files = useChatAttachments(session.id, historyEnabled);
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { Loader2 } from "lucide-react";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Chat } from "@/components/chat/chat";
 import {
   WorkspaceTabs,
@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils";
 import { useDocumentFilling } from "../hooks/use-document-filling";
 import { useProjects } from "@/hooks/use-projects";
 import { chatEmptyState } from "../lib/templates";
+import { useConsultedNorms } from "../hooks/use-consulted-norms";
 import { usePdfApproval } from "../hooks/use-pdf-approval";
 import { FormChatTitle } from "./form-chat-title";
 import { FormPanel } from "./form-panel";
@@ -23,6 +24,16 @@ export function DocumentWorkspace() {
   const filling = useDocumentFilling(projects.selected, projects.saveData);
   const { template, schema, progress } = filling;
   const approval = usePdfApproval(projects.selected);
+  const consulted = useConsultedNorms(template?.id);
+  const { handleToolResult } = filling;
+  const { record } = consulted;
+  const onToolResult = useCallback(
+    (toolName: string, output: unknown) => {
+      handleToolResult(toolName, output);
+      record(toolName, output);
+    },
+    [handleToolResult, record],
+  );
   const [tab, setTab] = useState<WorkspaceTab>("chat");
 
   return (
@@ -63,7 +74,9 @@ export function DocumentWorkspace() {
               key={template.id}
               endpoint="/api/documents/chat"
               body={filling.chatBody}
-              onToolResult={filling.handleToolResult}
+              onToolResult={onToolResult}
+              outbox={consulted.outbox}
+              onOutboxSent={consulted.clearOutbox}
               history={{
                 module: "documents",
                 context: { templateId: template.id },
@@ -98,6 +111,11 @@ export function DocumentWorkspace() {
               onChange={filling.updateField}
               pdf={filling.pdf}
               approval={approval}
+              norms={{
+                norms: consulted.list,
+                onConfirm: consulted.confirm,
+                onReject: consulted.reject,
+              }}
               notice={filling.notice}
               onGenerate={filling.generate}
               onDownloadDocx={filling.downloadDocx}

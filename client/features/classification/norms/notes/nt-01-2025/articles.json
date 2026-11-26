@@ -1,0 +1,30 @@
+{
+  "doc": "NT-01-2025",
+  "preamble": "NOTA TÉCNICA Nº 01/2025/DSCI Florianópolis, data da assinatura digital. Assunto: Ventilação para o exterior em escadas enclausuradas com balcão – aplicação alternativa às figuras 19 da IN 9.",
+  "articles": [
+    {
+      "number": 1,
+      "page": 1,
+      "text": "1. OBJETIVO – esclarecer os critérios técnicos adotados pela Diretoria de Segurança Contra Incêndio (DSCI) em relação à execução de aberturas de ventilação para o exterior em escadas enclausuradas com antecâmara, quando se adotam configurações arquitetônicas alternativas àquelas ilustradas na figura 19 da Instrução Normativa nº 9 – DSCI."
+    },
+    {
+      "number": 2,
+      "page": 1,
+      "text": "2. INTERPRETAÇÃO E FUNDAMENTAÇÃO TÉCNICA – pela avaliação da IN 9 e considerando os seguintes pontos: 2.1.necessidade de regulamentar os procedimentos para análise e apresentação de projetos contendo escadas enclausuradas com ventilação para o exterior em virtude dos requerimentos técnicos recebidos pela Seção de Análise Centralizada; 2.2.que a IN 9 admite afastamentos inferiores aos previstos no inciso IV do Art. 125, estipulando, no entanto, uma distância mínima de 1,20 m entre a abertura desprotegida do prédio e o paramento externo de balcões, varandas ou terraços, independentemente da altura da edificação, desde que entre elas seja interposta uma parede com TRRF mínimo de 120 minutos, conforme imagem 19b da IN 9; 2.3.que de acordo com a própria IN 9, em seu artigo 157, as imagens previstas são exemplos ilustrativos, e não representam as diversas possibilidades arquitetônicas e construtivas; 2.4.que simulações computacionais realizadas pelo Centro de Pesquisa e Inovação da DSCI apresentaram situações de estudo que evidenciaram aspectos práticos relacionados ao caso; e 2.5.que é essencial estabelecer amplo entendimento visando a padronização das ações de análise e vistoria assim como dos preceitos de segurança indispensáveis que devem ser seguidos pelos profissionais responsáveis técnicos sobre este tipo de escada;"
+    },
+    {
+      "number": 3,
+      "page": 1,
+      "text": "3. ENTENDIMENTO TÉCNICO CONSOLIDADO – Pelas avaliações realizadas, com fulcro no Artigo 155 da IN 1 - Parte 1, a Diretoria de Segurança contra incêndio decide: 3.1.Fica admitido o recuo do balcão de ventilação em relação ao plano da fachada da edificação, nas seguintes situações: a)em não havendo aberturas com afastamento inferior ao estipulado no inciso IV ou §1º, ambos do Artigo 125 da IN 9, nenhuma exigência adicional é exigida por atender aos parâmetros da IN; ou b)havendo aberturas com afastamento inferior aos definidos no inciso IV do Artigo 125, em conformidade com o § 4º do mesmo artigo, deve ser prevista aba vertical para proteção do balcão de ventilação, da mesma forma que é admitida quando o balcão se projeta para fora do plano da parede. Pág. 01 de 03 - Documento assinado digitalmente. Para conferência, acesse o site https://portal.sgpe.sea.sc.gov.br/portal-externo e informe o processo CBMSC 00013950/2025 e o código ZJM123D5. 3.2.O afastamento entre as aberturas e o balcão deve ser realizado a partir da aresta que compreende a abertura do recuo do balcão na fachada até a abertura desprotegida da própria edificação, não sendo considerada a distância ortogonal criada com o recuo. 3.3.O afastamento (x) mínimo admitido de aberturas desprotegidas da edificação em relação ao início da abertura do balcão é de 0,6 m, que compreende o triângulo retângulo, com hipotenusa de 1,20 m conforme estipulado no §4º do Artigo 125 com menor valor admitido de 𝛳 = 30º. 3.4.A projeção da aba vertical exigida deve variar de acordo com o afastamento previsto das aberturas desprotegidas do prédio da seguinte forma: a)afastamentos (x) entre 0,60 m e 1,10 m, a aba deve atender a equação 1; b)afastamentos (x) superiores a 1,10 m devem prever a aba mínima admitida de 0,50 m. 𝐸𝑞. 1) 𝐴𝑏𝑎= 1, 44 − 𝑥² 3.5.Não existe limite de distância para o recuo do balcão em relação ao plano da parede da fachada, não sendo permitido aberturas em comunicação com o volume criado pelo próprio recuo. 3.6.Assim como nas escadas providas de dutos de ventilação, o balcão deve propiciar a exaustão de fumaça oriunda do interior da edificação, para tanto a abertura de ventilação deve situar-se entre as portas corta-fogo. Pág. 02 de 03 - Documento assinado digitalmente. Para conferência, acesse o site https://portal.sgpe.sea.sc.gov.br/portal-externo e informe o processo CBMSC 00013950/2025 e o código ZJM123D5."
+    },
+    {
+      "number": 4,
+      "page": 3,
+      "text": "4. REQUISITOS PARA ELEMENTOS ARQUITETÔNICOS SOBRE BALCÕES – Para o uso de brises, ou outros tipos de anteparos, com finalidade estética, arquitetônica ou construtiva sobre as aberturas de ventilação dos balcões das escadas com ventilação para o exterior, com exceção do previsto no § 4º do Artigo 125, deve ser apresentado requerimento técnico pelo profissional responsável pelo projeto trazendo detalhes do elemento utilizado e simulação computacional da fluidodinâmica da fumaça, dados de projeção da temperatura e densidade ótica da fumaça nos balcões, considerando sempre a pior direção na incidência de ventos e com velocidade entre 2 e 4 m/s. Coronel BM WILLYAM FAZZIONI Diretor de Segurança Contra Incêndio Major OSCAR W BARBOZA JUNIOR Chefe Interino da Divisão de Normatização Major Polliana Müller Giacomin Chefe Interina da Divisão de Engenharia de SCI Pág. 03 de 03 - Documento assinado digitalmente. Para conferência, acesse o site https://portal.sgpe.sea.sc.gov.br/portal-externo e informe o processo CBMSC 00013950/2025 e o código ZJM123D5."
+    }
+  ],
+  "annexes": [],
+  "checks": {
+    "needs_human_look": []
+  }
+}

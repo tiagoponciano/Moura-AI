@@ -13,11 +13,12 @@ Invariants:
 
 ## Surface
 
-| Piece                                | Location                             | Role                                                                                                                                                   |
-| ------------------------------------ | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ThemeProvider` (from `next-themes`) | `app/layout.tsx`                     | `attribute="class"`, `defaultTheme="system"`, `enableSystem`, `disableTransitionOnChange`                                                              |
-| `ThemeToggle`                        | `components/layout/theme-toggle.tsx` | Icon-only dropdown at the right end of the top header (`app/(app)/layout.tsx`) and in the top-right corner of the auth pages (`app/(auth)/layout.tsx`) |
-| `@custom-variant dark`               | `app/globals.css`                    | Makes Tailwind `dark:` utilities match descendants of `.dark`                                                                                          |
+| Piece                                | Location                              | Role                                                                                                          |
+| ------------------------------------ | ------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `ThemeProvider` (from `next-themes`) | `app/layout.tsx`                      | `attribute="class"`, `defaultTheme="system"`, `enableSystem`, `disableTransitionOnChange`                     |
+| `SidebarTheme`                       | `components/layout/sidebar-theme.tsx` | "Tema" item in the sidebar footer: Claro, Escuro or Sistema                                                   |
+| `ThemeToggle`                        | `components/layout/theme-toggle.tsx`  | Icon-only dropdown in the top-right corner of the auth pages (`app/(auth)/layout.tsx`), with the same options |
+| `@custom-variant dark`               | `app/globals.css`                     | Makes Tailwind `dark:` utilities match descendants of `.dark`                                                 |
 
 ## Rules and behavior
 

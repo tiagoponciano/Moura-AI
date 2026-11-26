@@ -1,6 +1,5 @@
 import { AppSidebar } from "@/components/layout/app-sidebar";
 import { PageTitle } from "@/components/layout/page-title";
-import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { Separator } from "@/components/ui/separator";
 import {
   SidebarInset,
@@ -23,9 +22,6 @@ export default async function AppLayout({ children }: LayoutProps<"/">) {
             className="mr-1 data-[orientation=vertical]:h-4 data-[orientation=vertical]:self-center"
           />
           <PageTitle />
-          <div className="ml-auto">
-            <ThemeToggle />
-          </div>
         </header>
         <div className="min-h-0 flex-1 overflow-auto">{children}</div>
       </SidebarInset>

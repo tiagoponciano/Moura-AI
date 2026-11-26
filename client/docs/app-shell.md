@@ -33,14 +33,14 @@ type AppModule = {
 
 ### Components (`components/layout/`)
 
-| Component    | Where                            | Notes                                                                                                                                                                                                                                                                          |
-| ------------ | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `AppSidebar` | `app/(app)/layout.tsx`           | At the top the profile (`UserMenu`: avatar, name, role) and `SidebarProject` (the current project, a click opens the project search), then an "Início" item, one item per module, then "Administração" (`/admin`, lock icon) when `isAdmin`; the footer holds the company name |
-| `UserMenu`   | `AppSidebar` header              | Signed-in user with "Administrador" or "Equipe" as role, and "Sair"; renders nothing without Supabase or a session (see `authentication.md`)                                                                                                                                   |
-| `PageTitle`  | header in `app/(app)/layout.tsx` | `Moura Engenharia / <label>`; `Administração` under `/admin`; just `Moura Engenharia` on `/` and on other routes that match no module                                                                                                                                          |
+| Component    | Where                            | Notes                                                                                                                                                                                                                                                    |
+| ------------ | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AppSidebar` | `app/(app)/layout.tsx`           | At the top `SidebarProject` (the current project, a click opens the project search), then an "Início" item, one item per module, then "Administração" (`/admin`, lock icon) when `isAdmin`; the footer holds `SidebarTheme` and the profile (`UserMenu`) |
+| `UserMenu`   | `AppSidebar` footer              | Signed-in user with "Administrador" or "Equipe" as role, and "Sair"; renders nothing without Supabase or a session (see `authentication.md`)                                                                                                             |
+| `PageTitle`  | header in `app/(app)/layout.tsx` | `Moura Engenharia / <label>`; `Administração` under `/admin`; just `Moura Engenharia` on `/` and on other routes that match no module                                                                                                                    |
 
 `app/(app)/layout.tsx` is an async Server Component: it calls `isCurrentUserAdmin()` and passes the result to `AppSidebar` as `isAdmin`. The flag only hides or shows the link; access to `/admin` is decided by the proxy (see `features/admin/docs/admin-console.md`).
-| `ThemeToggle` | header in `app/(app)/layout.tsx` | See `theming.md` |
+| `SidebarTheme` | `AppSidebar` footer | "Tema": Claro, Escuro or Sistema; see `theming.md` |
 
 ## Rules and behavior
 
@@ -54,7 +54,7 @@ Every home card is a link to its `href` with an arrow in the top-right corner; t
 
 - Active sidebar item: `pathname.startsWith(href)` for modules and "Administração", exact match for "Início".
 - "Administração" is not a module: it is not in `MODULES`, has no home card and no status badge.
-- With the sidebar collapsed to icons, labels become tooltips, status badges and the company name are hidden, and `UserMenu` shrinks to the avatar.
+- With the sidebar collapsed to icons, labels become tooltips, status badges are hidden, and `UserMenu` shrinks to the avatar.
 - `/` renders `HomeShowcase` from `@/features/home`: the title, one card per module and the 3D rescue scene. See `features/home/docs/home-rescue-scene.md`.
 - The brand mark is `public/brand/moura-logo.png` (transparent PNG), rendered by `BrandLogo` (`components/shared/brand-logo.tsx`): `md` on the pending and unauthorized cards, `lg` on the login page. In dark mode it sits on a light tile (`dark:bg-white/90`) because the graphite gear disappears on a dark background. `app/icon.png` (same logo, 512px) is the favicon.
 - The product is called "Moura Engenharia" (tab title, sidebar, breadcrumb). The chat assistant shared by the modules is called "Moura AI" and keeps the robot avatar.

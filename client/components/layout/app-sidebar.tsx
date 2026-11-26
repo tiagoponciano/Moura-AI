@@ -19,6 +19,7 @@ import {
 import { ADMIN_PATH } from "@/lib/auth/gate";
 import { MODULES, MODULE_STATUS_LABEL, PROJECTS_PATH } from "@/lib/modules";
 import { SidebarProject } from "./sidebar-project";
+import { SidebarTheme } from "./sidebar-theme";
 import { UserMenu } from "./user-menu";
 
 /** The active item keeps a neutral background; only its icon takes the brand color. */
@@ -31,7 +32,6 @@ export function AppSidebar({ isAdmin }: { isAdmin: boolean }) {
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="gap-3">
-        <UserMenu isAdmin={isAdmin} />
         <SidebarProject />
       </SidebarHeader>
       <SidebarContent>
@@ -111,9 +111,8 @@ export function AppSidebar({ isAdmin }: { isAdmin: boolean }) {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <p className="px-2 pb-2 text-xs text-muted-foreground group-data-[collapsible=icon]:hidden">
-          Moura Soluções em Engenharia
-        </p>
+        <SidebarTheme />
+        <UserMenu isAdmin={isAdmin} />
       </SidebarFooter>
     </Sidebar>
   );

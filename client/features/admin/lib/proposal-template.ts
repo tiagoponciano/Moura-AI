@@ -7,11 +7,11 @@ export function templateSummary(info: ProposalTemplateInfo | undefined) {
   return info.custom ? info.custom.fileName : "Modelo padrão do app";
 }
 
-/** Where the deck in use comes from, for the panel. */
+/** Which deck is in use and since when, for the panel. */
 export function templateSource(info: ProposalTemplateInfo): string {
   return info.custom
-    ? `Enviado em ${formatDateTime(info.custom.uploadedAt)}`
-    : "Nenhum modelo enviado: vale o que vem com o app.";
+    ? `Modelo enviado: ${info.custom.fileName}, em ${formatDateTime(info.custom.uploadedAt)}.`
+    : "Modelo padrão do app: nenhum modelo foi enviado.";
 }
 
 /** What the server found wrong with an uploaded deck, as one message; `undefined` when it listed nothing. */

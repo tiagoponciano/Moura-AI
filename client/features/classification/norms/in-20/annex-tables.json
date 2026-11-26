@@ -1,0 +1,23 @@
+{
+  "pages": [
+    {
+      "page": 4,
+      "tables": [
+        {
+          "rows": [
+            ["LÍQUIDOS", "PONTO DE FULGOR (PF)", "PONTO DE EBULIÇÃO (PE)"],
+            ["INFLAMÁVEIS", "", ""],
+            ["CLASSE I", "PF < 37,8°C e pressão vapor < 275,7 kPa", "-"],
+            ["CLASSE IA", "PF < 22,8°C", "PE < 37,8°C"],
+            ["CLASSE IB", "PF < 22,8°C", "PE ≥ 37,8°C"],
+            ["CLASSE IC", "22,8°C ≤ PF < 37,8°C", "-"],
+            ["COMBUSTÍVEIS", "", ""],
+            ["CLASSE II", "37,8°C ≤ PF < 60°C", "-"],
+            ["CLASSE IIIA", "60°C ≤ PF < 93°C", "-"],
+            ["CLASSE IIIB", "PF ≥ 93°C", "-"]
+          ]
+        }
+      ]
+    }
+  ]
+}

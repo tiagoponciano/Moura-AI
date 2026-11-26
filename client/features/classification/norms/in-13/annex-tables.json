@@ -1,0 +1,125 @@
+{
+  "pages": [
+    {
+      "page": 8,
+      "tables": [
+        {
+          "rows": [
+            ["Dimensões da SAL", ""],
+            [
+              "Medidas em milímetros (L x H) 3",
+              "Distância de visualização (em metros)"
+            ],
+            ["200 x 100 mm", "6,3 m"],
+            ["240 x 120 mm", "7,6 m"],
+            ["300 x 150 mm", "9,5 m"],
+            ["400 x 200 mm", "12,6 m"],
+            ["600 x 300 mm", "19 m"],
+            ["700 x 350 mm", "22,1 m"],
+            ["1000 x 500 mm", "31,6 m"],
+            [
+              "NOTAS 1 A tabela 1 apresenta valores de referência para algumas medidas predefinidas. 2 As dimensões utilizadas são exemplos de algumas medidas encontradas no mercado brasileiro. Outras dimensões podem ser utilizadas, sempre levando em consideração o cálculo de distância máxima de visualização. 3 Legenda: L = largura e H = altura",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "tables": [
+        {
+          "rows": [
+            ["Símbolo", "Aplicação", "Significado", "Forma e cor"],
+            [
+              "",
+              "Indicação do sentido (esquerda ou direita) de uma saída de emergência.",
+              "Orientação do sentido da saída de emergência",
+              "Forma: retangular Fundo: verde Pictograma: fotoluminescente (exceto placa luminosa)"
+            ],
+            [
+              "",
+              "Indicação do sentido de uma saída de emergência ou afixada acima de uma porta para indicar a continuidade da saída de emergência.",
+              "",
+              ""
+            ],
+            [
+              "",
+              "Indicação do sentido do acesso a uma saída que não esteja aparente; Indicação do sentido de uma saída por rampas; Indicação do sentido da saída na direção vertical (subindo ou descendo).",
+              "",
+              ""
+            ],
+            [
+              "",
+              "Indicação do sentido de fuga no interior das escadas. Indica direita ou esquerda, descendo ou subindo. O desenho indicativo deve ser posicionado de acordo com o sentido a ser sinalizado.",
+              "Orientação do sentido da escada de emergência",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "tables": [
+        {
+          "rows": [
+            ["Símbolo", "Aplicação", "Significado", "Forma e cor"],
+            [
+              "",
+              "Indicação de portas de saída de emergência.",
+              "Saída de emergência",
+              "Forma: retangular Fundo: verde Pictograma: fotoluminescente (exceto placa luminosa) Mensagem “SAÍDA” com altura de letra superior a 50mm."
+            ],
+            [
+              "",
+              "Indicação da saída de emergência, utilizada com complementação do pictograma fotoluminescente (seta ou imagem, ou ambos).",
+              "Orientação do sentido da saída de emergência",
+              "Forma: retangular Fundo: verde Pictograma: fotoluminescente (exceto placa luminosa) Mensagem “SAÍDA” e/ou pictograma e/ou seta direcional, com altura de letra superior a 50mm."
+            ],
+            [
+              "",
+              "Indicação de portas de saída de emergência.",
+              "Saída de emergência",
+              "Forma: retangular Fundo: verde Pictograma: fotoluminescente (exceto placa luminosa) Mensagem “SAÍDA” com altura de letra superior a 50mm."
+            ],
+            [
+              "",
+              "Indicação da saída de emergência para PcD, ou acesso à área de resgate, utilizada com complementação do pictograma fotoluminescente (seta ou imagem, ou ambos).",
+              "Orientação do sentido de saída de emergência acessíveis",
+              "Forma: retangular Fundo: verde Pictograma: fotoluminescente (exceto placa luminosa)"
+            ],
+            [
+              "",
+              "",
+              "",
+              "Forma: retangular Fundo: verde Pictograma: fotoluminescente (exceto placa luminosa) Mensagem “SAÍDA” com pictograma e/ou seta direcional, com altura de letra superior a 50mm."
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "tables": [
+        {
+          "rows": [
+            ["Símbolo", "Significado", "Forma e cor", "Aplicação"],
+            [
+              "",
+              "Obstáculo",
+              "Símbolo: retangular Fundo: amarelo Listras pretas inclinadas a 45º Largura mínima da faixa de 100 mm",
+              "Nas paredes, pilares, vigas, cancelas, muretas e outros elementos que podem constituir um obstáculo à circulação de pessoas e veículos. Utilizada quando o ambiente interno ou externo possui sistema de iluminação de emergência."
+            ],
+            [
+              "",
+              "Obstáculo",
+              "Símbolo: retangular Fundo: vermelho Listras vermelhas inclinadas a 45º Largura mínima da faixa de 100 mm",
+              "Nas paredes, pilares, vigas, cancelas, muretas e outros elementos que podem constituir um obstáculo à circulação de pessoas e veículos. Utilizada quando o ambiente possui iluminação artificial, porém não possui sistema de iluminação de emergência."
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

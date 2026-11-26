@@ -1,0 +1,1191 @@
+{
+  "pages": [
+    {
+      "page": 14,
+      "tables": [
+        {
+          "rows": [
+            ["Grupo F - Local de Reunião de Público", "", "", ""],
+            ["F-7", "", "", ""],
+            ["SMSCI", "IN", "Classificação quanto à altura (em metros)", ""],
+            ["", "", "Térrea", "H ≤ 6"],
+            ["Acesso de viatura na edificação", "IN 35", "x", "x"],
+            ["Brigada de incêndio¹", "IN 28", "x", "x"],
+            ["Controle de materiais de acabamento", "IN 18", "x", "x"],
+            ["Extintores", "IN 6", "x²", "x²"],
+            ["Gás combustível", "IN 8", "x", "x"],
+            ["Iluminação de emergência", "IN 11", "x³", "x³"],
+            ["Instalação elétrica de baixa tensão", "IN 19", "x⁴", "x⁴"],
+            ["Plano de Emergência", "IN 31", "x⁵", "x⁵"],
+            ["Saídas de emergência (V)", "IN 9", "x", "x"],
+            ["Sinalização para abandono de local", "IN 13", "x³", "x³"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Grupo F - Local de Reunião de Público",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            ["F-7", "", "", "", "", "", "", ""],
+            [
+              "SMSCI",
+              "IN",
+              "Classificação quanto à altura (em metros)",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "",
+              "Térrea",
+              "H ≤ 6",
+              "6 < H ≤ 12",
+              "12 < H ≤ 23",
+              "23 < H ≤ 30",
+              "> 30"
+            ],
+            [
+              "Acesso de viatura na edificação",
+              "IN 35",
+              "x",
+              "x",
+              "x",
+              "x",
+              "x",
+              "x"
+            ],
+            ["Brigada de incêndio¹", "IN 28", "x", "x", "x", "x", "x", "x"],
+            [
+              "Controle de materiais de acabamento",
+              "IN 18",
+              "x",
+              "x",
+              "x",
+              "x",
+              "x",
+              "x"
+            ],
+            ["Extintores", "IN 6", "x", "x", "x", "x", "x", "x"],
+            ["Gás combustível", "IN 8", "x", "x", "x", "x", "x", "x"],
+            ["Iluminação de emergência", "IN 11", "x", "x", "x", "x", "x", "x"],
+            [
+              "Instalação elétrica de baixa tensão",
+              "IN 19",
+              "x",
+              "x",
+              "x",
+              "x",
+              "x",
+              "x"
+            ],
+            [
+              "Plano de Emergência",
+              "IN 31",
+              "x²",
+              "x²",
+              "x²",
+              "x²",
+              "x²",
+              "x²"
+            ],
+            ["Saídas de emergência (V)", "IN 9", "x", "x", "x", "x", "x", "x"],
+            [
+              "Sinalização para abandono de local",
+              "IN 13",
+              "x",
+              "x",
+              "x",
+              "x",
+              "x",
+              "x"
+            ],
+            ["Alarme de Incêndio", "IN 12", "-", "-", "x³", "x", "x", "x"],
+            [
+              "Detecção automática de incêndio",
+              "IN 12",
+              "-",
+              "-",
+              "x³",
+              "x",
+              "x",
+              "x"
+            ],
+            ["Hidráulico preventivo", "IN 7", "-", "-", "-", "x³", "x³", "x³"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 16,
+      "tables": [
+        {
+          "rows": [
+            ["Nome do evento:", "", "", ""],
+            [
+              "Início: / / Horário: : h ___ ___ ______ ________",
+              "Encerramento: / / Horário: : h ___ ___ ______ ________",
+              "",
+              ""
+            ],
+            ["Público total previsto: pessoas _______________", "", "", ""],
+            ["End.:", "", "Nº", "CEP:"],
+            ["Bairro:", "", "Cidade:", ""],
+            ["Complemento/Ponto de referência:", "", "", ""],
+            ["Responsável pelo Evento:", "CPF/CNPJ:", "", "Fone:"],
+            ["Quadro de áreas 1", "", "", ""],
+            ["Área total utilizada no evento:", "", "", ""],
+            ["Área das instalações permanentes:", "", "", ""],
+            ["Área das estruturas provisórias:", "", "", ""]
+          ]
+        },
+        {
+          "rows": [
+            ["Características gerais", "Sim", "Não", "NA 2"],
+            [
+              "O evento será realizado ao ar livre, sem delimitação de área?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O evento será realizado ao ar livre, com delimitação de área e com limitação de público de até 1.000 pessoas?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O evento será realizado em local ou estrutura coberto e aberto nas laterais, possuindo ou não delimitação de área por barreira física nas laterais, desde que estas não comprometam a ventilação, com previsão de público de até 500 pessoas?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O evento será realizado em local ou estrutura coberto e fechado nas laterais, com previsão de público de até 100 pessoas?",
+              "",
+              "",
+              ""
+            ],
+            ["Instalações de Gás Combustível", "Sim", "Não", "NA 2"],
+            ["Será utilizado mais de 90 kg de GLP 3 ?", "", "", ""],
+            ["Estruturas provisórias", "Sim", "Não", "NA 2"],
+            [
+              "Serão utilizadas tendas ou blocos de tendas com mais de 100 m² cada, que não possuam isolamento de no mínimo 2 metros entre si?",
+              "",
+              "",
+              ""
+            ],
+            ["Serão utilizadas arquibancadas provisórias?", "", "", ""],
+            [
+              "Serão utilizadas estruturas provisórias como tablados, camarotes e estruturas congêneres destinadas ao público, essas com nível superior a 60 cm de altura do seu piso em relação ao solo?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Serão utilizados grandes brinquedos mecânicos denominados “atrações”, como os de parques temáticos ou de diversão 4 ?",
+              "",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "tables": [
+        {
+          "rows": [
+            ["Nome do evento:", "", "", ""],
+            ["Descrição do evento:", "", "", ""],
+            [
+              "Início: / / Horário: : h ___ ___ ______ ________",
+              "Encerramento: / / Horário: : h ___ ___ ______ ________",
+              "",
+              ""
+            ],
+            ["Público total previsto: pessoas _______________", "", "", ""],
+            ["End.:", "", "Nº", "CEP:"],
+            ["Bairro:", "", "Cidade:", ""],
+            ["Complemento/Ponto de referência:", "", "", ""],
+            ["Responsável pelo evento:", "CPF/CNPJ:", "", "Fone:"],
+            ["Responsável Técnico:", "CPF:", "", "Fone:"],
+            ["Quadro de áreas 1", "", "", ""],
+            ["Área total utilizada no evento:", "", "", ""],
+            ["Área das instalações permanentes:", "", "", ""],
+            ["Área das estruturas provisórias:", "", "", ""]
+          ]
+        },
+        {
+          "rows": [
+            ["Características gerais", "Sim", "Não", "NA 2"],
+            [
+              "O evento será realizado ao ar livre, sem delimitação de área, com a montagem de alguma estrutura (ou GLP) que exceda os limites permitidos para isenção ou eventos de pequeno porte?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O evento será realizado ao ar livre, com delimitação de área e previsão de público de 1.001 até 2.500 pessoas?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O evento será realizado em local ou estrutura coberto e aberto nas laterais, possuindo ou não delimitação de área por barreira física nas laterais, desde que estas não comprometam a ventilação, com previsão de público de 501 a 1.250 pessoas.",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O evento será realizado em local ou estrutura coberto e fechado nas laterais com previsão de público de 101 a 500 pessoas.",
+              "",
+              "",
+              ""
+            ],
+            ["Estruturas provisórias", "Sim", "Não", "NA 2"],
+            [
+              "Serão utilizadas tendas ou blocos de tendas, ambos com mais de 100 m² ou sem afastamento?",
+              "",
+              "",
+              ""
+            ],
+            ["Serão utilizadas arquibancadas provisórias?", "", "", ""],
+            [
+              "Serão utilizadas estruturas como tablados, camarotes e estruturas congêneres destinadas ao público, com nível superior a 60 cm de altura do seu piso em relação ao solo?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Serão utilizados grandes brinquedos mecânicos denominados “atrações”, como os de parques temáticos ou de diversão? 3",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Serão utilizadas estruturas tais como pontes, passarelas e similares?",
+              "",
+              "",
+              ""
+            ],
+            ["Serão utilizadas estruturas metálicas?", "", "", ""],
+            [
+              "Serão utilizadas instalações elétricas, englobando iluminação, sonorização, gerador de emergência, dentre outros dispositivos energizados?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Serão utilizadas estruturas relacionadas a esportes de aventura?",
+              "",
+              "",
+              ""
+            ],
+            ["SMSCI", "Sim", "Não", "NA 2"],
+            [
+              "Haverá uso de GLP 4 ? Se sim, informe a quantidade : kg __________",
+              "",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "tables": [
+        {
+          "rows": [
+            [
+              "A instalação de gás combustível atende aos requisitos da IN 8?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Os recipientes de GLP estarão posicionados em locais comprovadamente sem acesso ao público e protegidos das intempéries?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "A proteção por extintores atende aos requisitos da IN 6?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "As saídas de emergência atendem aos requisitos da IN 9?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O sistema de iluminação de emergência atende aos requisitos da IN 11?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O sistema de sinalização para abandono de local atende aos requisitos da IN 13?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Havendo a utilização de materiais de acabamento e revestimento, estes atendem aos requisitos da IN 18 - CMAR?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Havendo espetáculo pirotécnico, este atende aos requisitos da IN 27?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O grupo motogerador possui o devido isolamento e exaustão de gases da combustão?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O dimensionamento dos brigadistas atende aos requisitos da IN 28, estando estes devidamente certificados/credenciados, com previsão de permanecerem durante todo o funcionamento do evento?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O acesso de viaturas foi previsto e atende os requisitos da IN 35?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Caso sejam necessários outros SMSCI, de acordo com as Tabelas 1 e 2 da IN 24, estes estão previstos e serão executados de acordo com as NSCI?",
+              "",
+              "",
+              ""
+            ],
+            ["Equipamentos", "Sim", "Não", "NA 2"],
+            [
+              "Sendo o público previsto igual ou superior a 1.500 pessoas, foi previsto desfibrilador externo automático (DEA)?",
+              "",
+              "",
+              ""
+            ],
+            ["Documentação", "Sim", "Não", "NA 2"],
+            [
+              "Os documentos previstos no artigo 34 da IN 24, referentes ao dimensionamento e execução dos SMSCI e de eventuais estruturas montadas no evento, foram emitidos e estão de acordo com as NSCI 5 ?",
+              "",
+              "",
+              ""
+            ],
+            ["Observações 6 :", "", "", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "tables": [
+        {
+          "rows": [
+            [
+              "RESPONSÁVEL TÉCNICO PELO LAUDO TÉCNICO",
+              "Nº documento de RT:",
+              ""
+            ],
+            ["Nome:", "Nº C. Classe:", ""],
+            ["End.:", "Nº:", "CEP:"],
+            ["Bairro:", "Cidade:", ""],
+            ["Complemento/Ponto de referência:", "", ""],
+            ["E-mail:", "Telefone:", ""],
+            ["_____________________________________ Assinatura", "", ""],
+            ["RESPONSÁVEL PELO EVENTO", "", ""],
+            ["Nome:", "CPF/CNPJ:", ""],
+            ["End.:", "Nº:", "CEP:"],
+            ["Bairro:", "Cidade:", ""],
+            ["Complemento/Ponto de referência:", "", ""],
+            ["E-mail:", "Telefone:", ""],
+            ["_____________________________________ Assinatura", "", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 21,
+      "tables": [
+        {
+          "rows": [
+            ["Nome do evento:", "", "", ""],
+            ["Descrição do evento:", "", "", ""],
+            [
+              "Início: / / Horário: : h ___ ___ ______ ________",
+              "Encerramento: / / Horário: : h ___ ___ ______ ________",
+              "",
+              ""
+            ],
+            ["Público total previsto: pessoas _______________", "", "", ""],
+            ["End.:", "", "Nº", "CEP:"],
+            ["Bairro:", "", "Cidade:", ""],
+            ["Complemento/Ponto de referência:", "", "", ""],
+            ["Responsável pelo evento:", "CPF/CNPJ:", "", "Fone:"],
+            ["Responsável Técnico:", "CPF:", "", "Fone:"],
+            ["Quadro de áreas 1", "", "", ""],
+            ["Área total utilizada no evento:", "", "", ""],
+            ["Área das instalações permanentes:", "", "", ""],
+            ["Área das estruturas provisórias:", "", "", ""]
+          ]
+        },
+        {
+          "rows": [
+            ["Características gerais", "Sim", "Não", "NA 2"],
+            [
+              "O evento será realizado ao ar livre com delimitação de área e previsão de público acima de 2.500 pessoas?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O evento será realizado em local ou estrutura coberto e aberto nas laterais, possuindo ou não delimitação de área por barreira física nas laterais, desde que estas não comprometam a ventilação, com previsão de público acima de 1.250 pessoas?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O evento será realizado em local ou estrutura coberto e fechado nas laterais com previsão de público acima de 500 pessoas?",
+              "",
+              "",
+              ""
+            ],
+            ["Estruturas provisórias", "Sim", "Não", "NA 2"],
+            [
+              "Serão utilizadas tendas ou blocos de tendas, ambos com mais de 100 m² ou sem afastamento?",
+              "",
+              "",
+              ""
+            ],
+            ["Serão utilizadas arquibancadas provisórias?", "", "", ""],
+            [
+              "Serão utilizadas estruturas como tablados, camarotes e estruturas congêneres destinadas ao público, com nível superior a 60 cm de altura do seu piso em relação ao solo?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Serão utilizados grandes brinquedos mecânicos denominados “atrações”, como os de parques temáticos ou de diversão? 3",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Serão utilizadas estruturas tais como pontes, passarelas e similares?",
+              "",
+              "",
+              ""
+            ],
+            ["Serão utilizadas estruturas metálicas?", "", "", ""],
+            [
+              "Serão utilizadas instalações elétricas, englobando iluminação, sonorização, gerador de emergência, dentre outros dispositivos energizados?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Serão utilizadas estruturas relacionadas a esportes de aventura?",
+              "",
+              "",
+              ""
+            ],
+            ["Instalações de Gás Combustível", "Sim", "Não", "NA 2"],
+            [
+              "Haverá uso de GLP 4 ? Se sim, informe a quantidade : kg __________",
+              "",
+              "",
+              ""
+            ],
+            [
+              "A instalação de gás combustível atenderá aos requisitos da IN 8?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Os recipientes estarão posicionados em locais comprovadamente sem acesso ao público e protegidos das intempéries?",
+              "",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 22,
+      "tables": [
+        {
+          "rows": [
+            ["Sistema Preventivo por Extintores", "Sim", "Não", "NA 2"],
+            [
+              "A proteção por extintores atende aos requisitos da IN 6?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Informe a quantidade de extintores portáteis previstos para o evento 5 : extintores __________",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Informe a quantidade de extintores sobrerrodas previstos para o evento 5 : extintores __________",
+              "",
+              "",
+              ""
+            ],
+            ["Saídas de Emergência", "Sim", "Não", "NA 2"],
+            [
+              "As saídas de emergência atendem aos requisitos da IN 9?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Informe a quantidade de estruturas com delimitação de área e ambientes fechados que terão concentração de público no evento: locais. __________",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Identifique no item 3 deste memorial, todas as estruturas com delimitação de área e ambientes fechados informadas no item anterior, informando as características do local, previsão de público, área, distância máxima a ser percorrida, quantidade e largura total das saídas de emergência para cada um deles.",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Existem, no mínimo, duas alternativas de saídas de emergência para cada ambiente com reunião de público que possibilitem diferentes sentidos de fuga? 6",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Foram atendidas as larguras mínimas das rotas de fuga horizontais (acessos) e verticais (escadas e rampas)?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Para eventos que se assemelham a boates ou shows musicais, quando realizados em locais cobertos e fechados nas laterais, foram atendidas as larguras mínimas admitidas das portas conforme a IN 9?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "As portas de saída são do tipo “de abrir” e têm sentido de abertura igual ao do fluxo de saída?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "As portas que não abrem no sentido do fluxo de saída permanecerão abertas durante toda a realização do evento?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Foram previstas barras antipânico nas portas de saída?",
+              "",
+              "",
+              ""
+            ],
+            ["Foi prevista área de dispersão?", "", "", ""],
+            [
+              "Será fixada placa próximo à entrada, com dimensões mínimas de 40 x 20 cm, indicando a lotação máxima autorizada para o local?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Foi previsto controle de lotação de público: - ( ) Manual ou automatizado, para eventos ao ar livre ou cobertos sem fechamento lateral, mas ___ que tenham delimitação de área por barreiras físicas nas laterais, com público superior a 5.000 pessoas e nos eventos em locais cobertos e fechados nas laterais para público até 1.000 pessoas. - ( ) Automatizado, para eventos em locais cobertos e fechados nas laterais com público acima de ___ 1.000 pessoas.",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Para controle de público automatizado, foi previsto monitor ou placar eletrônico exibindo a lotação existente no local?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Para eventos em locais cobertos, as distâncias máximas a serem percorridas atendem à Tabela 9 do Anexo C da IN 9?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Os parâmetros mínimos para as arquibancadas são atendidos conforme a IN 9?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Foram atendidas as exigências da IN 9 para as rampas? Informe a inclinação máxima das rampas prevista para o evento: % __________",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O evento conta com escadas de emergência conforme a IN 9? Se sim, seus critérios são atendidos?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O local do evento possui passarelas? Se sim, atende aos requisitos da IN 9?",
+              "",
+              "",
+              ""
+            ],
+            ["Sistema de Iluminação de Emergência", "Sim", "Não", "NA 2"],
+            [
+              "O Sistema de Iluminação de Emergência atende aos requisitos da IN 11?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Foram previstas luminárias de emergência em todos os locais com desníveis, mudanças de direção e intersecções de corredores na rota de fuga, etc?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "A distância máxima entre dois pontos de SIE atende ao limite de quatro vezes a altura de instalação destes em relação ao piso?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Informe a quantidade total de luminárias previstas para o evento: luminárias. __________",
+              "",
+              "",
+              ""
+            ],
+            ["Sinalização para Abandono de Local", "Sim", "Não", "NA 2"],
+            [
+              "O Sistema de Sinalização para Abandono de Local atende aos requisitos da IN 13?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Foram previstas placas de SAL para assinalar todas as mudanças de direção, saídas, obstáculos, etc, de tal forma que em cada ponto de SAL seja possível visualizar o ponto seguinte?",
+              "",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 23,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Foram previstas placas indicativas de fluxo? Se sim, indique a quantidade: placas ___________",
+              "",
+              "",
+              ""
+            ],
+            [
+              "As placas de SAL possuem as dimensões mínimas e distâncias de visualização que atendam o previsto na Tabela 1 - Anexo A da IN 13?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Para eventos que se assemelham a boates ou shows musicais realizados em locais cobertos e fechados nas laterais, foram previstas placas luminosas que devem permanecer constantemente iluminadas durante todo o evento?",
+              "",
+              "",
+              ""
+            ],
+            ["Demais normativas", "Sim", "Não", "NA 2"],
+            [
+              "Serão utilizados materiais de acabamento e revestimento de acordo com a IN 18 - CMAR?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Havendo espetáculo pirotécnico, este atende aos requisitos da IN 27?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O grupo motogerador previsto possui o devido isolamento e exaustão de gases da combustão?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Os brigadistas previstos atendem aos requisitos da IN 28, com a emissão da respectiva DRT de dimensionamento? Informe a quantidade de brigadistas prevista para o evento: brigadistas. _________",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O acesso de viaturas foi previsto e atende aos requisitos da IN 35?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Caso sejam necessários outros SMSCI, de acordo com as Tabelas 1 e 2 da IN 24, estes foram previstos e atendem aos requisitos normativos?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O croqui apresentado contempla todas estruturas e o dimensionamento e localização de todos os SMSCI previstos para o evento, conforme as NSCI?",
+              "",
+              "",
+              ""
+            ],
+            ["Equipamentos", "Sim", "Não", "NA 2"],
+            [
+              "Sendo o público previsto igual ou superior a 1.500 pessoas, foi previsto desfibrilador externo automático (DEA)?",
+              "",
+              "",
+              ""
+            ],
+            ["Documentação", "Sim", "Não", "NA 2"],
+            [
+              "Os documentos previstos no Artigo 34 da IN 24, referentes ao dimensionamento dos SMSCI e de eventuais estruturas previstas para o evento, foram emitidos e estão de acordo com as NSCI 7 ?",
+              "",
+              "",
+              ""
+            ],
+            ["Observações 8 :", "", "", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 24,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Nome do Local 1",
+              "Característica de Boate ou Show Musical 2",
+              "Características do Local 3",
+              "Previsão de Público 4",
+              "Área Destinada ao Público 5",
+              "Distância Máxima a Ser Percorrida no Local 6",
+              "Quantidade de Saídas de Emergência 7-9",
+              "Largura Total das Saídas de Emergência 8-9"
+            ],
+            [
+              "Ex. 1: Restaurante Principal",
+              "Não",
+              "Estrutura coberta e fechada",
+              "700",
+              "350",
+              "40",
+              "3",
+              "4,00"
+            ],
+            [
+              "Ex. 2: Boate/show musical",
+              "Sim",
+              "Estrutura coberta e fechada",
+              "900",
+              "300",
+              "33",
+              "3",
+              "5,10 (4,40)"
+            ],
+            [
+              "Ex. 3: Camarote/Pista VIP",
+              "Não",
+              "Estrutura coberta com delimitação lateral",
+              "600",
+              "300",
+              "38",
+              "3",
+              "3,80"
+            ],
+            [
+              "Ex. 4: Arquibancada Leste",
+              "Não",
+              "Arquibancada com assentos individuais",
+              "500",
+              "-",
+              "28",
+              "2",
+              "3,20"
+            ]
+          ]
+        },
+        {
+          "rows": [
+            [
+              "RESPONSÁVEL TÉCNICO PELO MEMORIAL TÉCNICO",
+              "Nº documento de RT:",
+              ""
+            ],
+            ["Nome:", "Nº C. Classe:", ""],
+            ["End.:", "Nº:", "CEP:"],
+            ["Bairro:", "Cidade:", ""],
+            ["Complemento/Ponto de referência:", "", ""],
+            ["E-mail:", "Telefone:", ""],
+            ["_____________________________________ Assinatura", "", ""],
+            ["RESPONSÁVEL PELO EVENTO", "", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 25,
+      "tables": [
+        {
+          "rows": [
+            ["Nome:", "CPF:", ""],
+            ["End.:", "Nº:", "CEP:"],
+            ["Bairro:", "Cidade:", ""],
+            ["Complemento/Ponto de referência:", "", ""],
+            ["E-mail:", "Telefone:", ""],
+            ["_____________________________________ Assinatura", "", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "tables": [
+        {
+          "rows": [
+            ["Nome do evento:", ""],
+            ["Descrição do evento:", ""],
+            [
+              "Início: / / Horário: : h ___ ___ ______ ________",
+              "Encerramento: / / Horário: : h ___ ___ ______ ________"
+            ],
+            ["Protocolo de funcionamento:", ""]
+          ]
+        },
+        {
+          "rows": [
+            ["Documentação", "Sim", "Não", "NA 1"],
+            [
+              "O Memorial Técnico de Segurança Contra Incêndio, DRT e croqui apresentados estão de acordo com o evento temporário?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Os documentos previstos no artigo 34 da IN 24, referentes à execução dos SMSCI e das eventuais estruturas montadas no evento, foram emitidos e estão de acordo com as NSCI²?",
+              "",
+              "",
+              ""
+            ],
+            ["Estruturas provisórias", "Sim", "Não", "NA 1"],
+            [
+              "Nas estruturas como tablados, camarotes e estruturas congêneres destinadas ao público, foram previstos guarda-corpos em desníveis superiores a 60 cm de altura do seu piso em relação ao solo, bom como corrimãos nas escadas?",
+              "",
+              "",
+              ""
+            ],
+            ["Instalações de Gás Combustível", "Sim", "Não", "NA 1"],
+            [
+              "A quantidade de recipientes de GLP está de acordo com o previsto no Memorial Técnico? Os recipientes estão posicionados em locais comprovadamente sem acesso ao público e protegidos das intempéries?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Os aparelhos de queima do GLP estão situados em locais com ventilação natural permanente?",
+              "",
+              "",
+              ""
+            ],
+            ["Sistema Preventivo por Extintores", "Sim", "Não", "NA 1"],
+            [
+              "Informe a quantidade total de extintores instalados no evento (portáteis e sobrerrodas): ___________ extintores.",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Os extintores estão em condições de uso e de acordo com as NSCI?",
+              "",
+              "",
+              ""
+            ],
+            ["Saídas de Emergência", "Sim", "Não", "NA 1"],
+            [
+              "As saídas de emergência estão de acordo com as NSCI?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Todos os ambientes do evento possuem saídas de emergência em quantidade suficiente e dimensionadas para o público previsto para o local, de acordo com a tabela de dimensionamento das saídas de emergência, item 3 do Memorial Técnico de Segurança Contra Incêndio?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Foram atendidas as larguras mínimas das rotas de fuga horizontais (acessos) e verticais (escadas e rampas)?",
+              "",
+              "",
+              ""
+            ],
+            ["Foram atendidas as larguras mínimas das portas?", "", "", ""],
+            [
+              "As portas de saída são do tipo “de abrir” e têm sentido de abertura igual ao do fluxo de saída?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "As portas que não abrem no sentido do fluxo de saída permanecerão abertas durante toda a realização do evento?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "As barras antipânico previstas estão executadas nas portas de saída?",
+              "",
+              "",
+              ""
+            ],
+            ["Foi executada a área de dispersão?", "", "", ""],
+            [
+              "A placa de lotação máxima foi instalada próximo à entrada de cada ambiente com reunião de público do evento?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O controle de lotação de público encontra-se instalado? Confirme o tipo: - ( ) Manual ___ - ( ) Automatizado ___",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Para controle de público automatizado, foi instalado monitor ou placar eletrônico exibindo a lotação existente no local?",
+              "",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 27,
+      "tables": [
+        {
+          "rows": [
+            [
+              "As distâncias máximas a serem percorridas (caminhamento) estão de acordo com o Memorial Técnico de Segurança Contra Incêndio?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "As arquibancadas instaladas atendem aos requisitos da IN 9?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "As rampas instaladas atendem aos requisitos da IN 9?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "As escadas de emergência instaladas atendem aos requisitos da IN 9?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "As passarelas instaladas atendem aos requisitos da IN 9?",
+              "",
+              "",
+              ""
+            ],
+            ["Sistema de Iluminação de Emergência", "Sim", "Não", "NA 1"],
+            [
+              "Foram instaladas luminárias de emergência em todos os locais com desníveis, mudanças de direção e intersecções de corredores na rota de fuga, etc? Estão todas funcionando?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "A distância máxima entre dois pontos de SIE atende ao limite de quatro vezes a altura de instalação destes em relação ao piso?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Informe a quantidade de luminárias instaladas no evento? luminárias. ___________",
+              "",
+              "",
+              ""
+            ],
+            ["Sinalização para Abandono de Local", "Sim", "Não", "NA 1"],
+            [
+              "Foram instaladas placas de SAL para assinalar todas as mudanças de direção, saídas, obstáculos, etc, de tal forma que em cada ponto de SAL seja possível visualizar o ponto seguinte?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "As placas indicativas de fluxo previstas no Memorial Técnico de Segurança Contra Incêndio foram instaladas no local? Informe a quantidade de placas instaladas no evento? placas. ___________",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Foram instaladas as placas de SAL conforme as dimensões e distâncias de visualização previstas no Memorial Técnico de Segurança Contra Incêndio?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Para eventos que se assemelham a boates ou shows musicais quando realizados em locais cobertos e fechados nas laterais, foram instaladas placas luminosas que permanecerão constantemente iluminadas durante todo o evento?",
+              "",
+              "",
+              ""
+            ],
+            ["Demais normativas", "Sim", "Não", "NA 1"],
+            [
+              "Foram apresentados os laudos, junto com o DRT de execução/instalação, de todos os materiais de acabamento e revestimento de acordo com os requisitos da IN 18 - CMAR 2 ?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "O grupo motogerador foi instalado prevendo seu isolamento e exaustão de gases da combustão?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Os brigadistas previstos no Memorial Técnico de Segurança Contra Incêndio estão certificados/credenciados e permanecerão durante todo o funcionamento do evento?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Foram instalados/executados os parâmetros necessários ao acesso de viaturas, conforme IN 35?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Os demais SMSCI necessários para o evento, de acordo com as Tabelas 1 e 2 da IN 24, foram instalados e estão em condições de uso de acordo com as NSCI?",
+              "",
+              "",
+              ""
+            ],
+            ["Prevenção em Espetáculos Pirotécnicos", "Sim", "Não", "NA 1"],
+            [
+              "Os laudos e documentos previstos na IN 27 referentes a espetáculos pirotécnicos foram emitidos e estão de acordo com as NSCI²?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Para espetáculos pirotécnicos em ambientes abertos, foi atendido o diâmetro mínimo de segurança da área de queima, em conformidade com a Tabela 1 da IN 27?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Para espetáculos pirotécnicos em ambientes abertos, foi atendido o afastamento mínimo de segurança entre a área de queima e os espectadores, em conformidade com a Tabela 2 da IN 27?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Para espetáculos pirotécnicos em ambientes fechados, foram previstos fogos específicos para esse tipo de ambiente, em conformidade com o artigo 9º da IN 27?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Para espetáculos pirotécnicos em ambientes fechados, foi atendido o afastamento mínimo de segurança, em conformidade com o artigo 26 da IN 27?",
+              "",
+              "",
+              ""
+            ],
+            ["Equipamentos", "Sim", "Não", "NA 1"],
+            [
+              "Sendo o público previsto igual ou superior a 1.500 pessoas, está disponível no local do evento um desfibrilador externo automático (DEA) conforme indicado no Memorial Técnico de Segurança Contra Incêndio?",
+              "",
+              "",
+              ""
+            ],
+            ["Observações 3 :", "", "", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 28,
+      "tables": [
+        {
+          "rows": [
+            [
+              "RESPONSÁVEL TÉCNICO PELO LAUDO DE COMISSIONAMENTO",
+              "Nº documento de RT:",
+              ""
+            ],
+            ["Nome:", "Nº C. Classe:", ""],
+            ["End.:", "Nº:", "CEP:"],
+            ["Bairro:", "Cidade:", ""],
+            ["Complemento/Ponto de referência:", "", ""],
+            ["E-mail:", "Telefone:", ""],
+            ["_____________________________________ Assinatura", "", ""],
+            ["RESPONSÁVEL PELO EVENTO", "", ""],
+            ["Nome:", "CPF:", ""],
+            ["End.:", "Nº:", "CEP:"],
+            ["Bairro:", "Cidade:", ""],
+            ["Complemento/Ponto de referência:", "", ""],
+            ["E-mail:", "Telefone:", ""],
+            ["_____________________________________ Assinatura", "", ""]
+          ]
+        }
+      ]
+    }
+  ]
+}

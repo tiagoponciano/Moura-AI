@@ -1,0 +1,186 @@
+{
+  "pages": [
+    {
+      "page": 17,
+      "tables": [
+        {
+          "rows": [
+            [
+              "IRREGULARIDADE EM SMSCI",
+              "Deficiente – I 1",
+              "Inoperante – I 2",
+              "Inexistente – I 3"
+            ],
+            [
+              "I - Isolamento de risco (separação entre edificações)",
+              "0,3",
+              "0,3",
+              "0,9"
+            ],
+            ["II - Acesso de viaturas", "0,3", "0,3", "0,9"],
+            [
+              "III - Compartimentação (horizontal e/ou vertical)",
+              "0,9",
+              "1,6",
+              "2,2"
+            ],
+            [
+              "IV - Controle de materiais de acabamento e revestimento",
+              "0,4",
+              "0,4",
+              "1,6"
+            ],
+            ["V - Saídas de emergência", "0,4", "1,6", "2,2"],
+            ["VI - Sistema de pressurização de escadas", "1,0", "2,0", "2,2"],
+            ["VII - Elevador de emergência", "0,9", "1,6", "2,2"],
+            ["VIII - Brigada de incêndio", "0,9", "1,2", "1,5"],
+            ["IX - Iluminação de emergência", "0,1", "0,4", "0,9"],
+            ["X - Sinalização de emergência", "0,1", "0,4", "0,9"],
+            ["XI - Alarme de incêndio", "0,6", "1,6", "2,2"],
+            ["XII - Detecção automática de incêndio", "0,6", "1,6", "2,2"],
+            ["XIII - Proteção por extintores", "0,1", "0,4", "0,9"],
+            ["XIV - Sistema hidráulico preventivo", "0,9", "1,6", "2,2"],
+            ["XV - Chuveiros automáticos (sprinklers)", "0,9", "1,6", "2,2"],
+            ["XVI - Sistema de água nebulizada", "0,9", "1,6", "2,2"],
+            ["XVII - Sistema de espuma", "0,9", "1,6", "2,2"],
+            [
+              "XVIII - Sistema fixo de gases limpos e dióxido de carbono",
+              "0,9",
+              "1,6",
+              "2,2"
+            ],
+            [
+              "XIX - Gerenciamento de riscos e plano de emergência, contemplando a divulgação de procedimentos de emergência",
+              "0,4",
+              "0,4",
+              "0,9"
+            ],
+            ["XX - Controle de fumaça", "0,9", "1,6", "2,2"],
+            ["XXI - Controle e registro de público", "0,9", "0,9", "1,6"],
+            [
+              "XXII - Instalações de gás combustível (GLP & GN)",
+              "0,4",
+              "0,8",
+              "1,6"
+            ],
+            ["XXIII - Instalações elétricas", "0,1", "0,4", "0,9"],
+            ["XXIV - Medidas de segurança para piscinas", "0,1", "0,4", "0,9"],
+            [
+              "XXV - Sistema anti aprisionamento em piscinas",
+              "0,3",
+              "0,9",
+              "1,6"
+            ],
+            ["XXVI - Controle de temperatura", "0,1", "0,4", "0,9"],
+            ["XXVII - Controle de pós", "0,1", "0,4", "0,9"],
+            [
+              "XXVIII - Proteção estrutural contra incêndios",
+              "0,4",
+              "0,4",
+              "0,9"
+            ],
+            [
+              "XXIX - Medidas de segurança para cozinhas industriais",
+              "0,1",
+              "0,4",
+              "0,9"
+            ],
+            ["XXX - Medidas de segurança para silos", "0,1", "0,4", "0,9"],
+            [
+              "XXXI - Medidas de segurança para produtos perigosos",
+              "0,4",
+              "0,9",
+              "1,6"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "tables": [
+        {
+          "rows": [
+            ["CARGA DE INCÊNDIO", "Ri"],
+            ["Desprezível", "1,0"],
+            ["Baixa", "1,2"],
+            ["Média", "1,5"],
+            ["Alta", "2,0"],
+            ["Altíssima", "4,0"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "tables": [
+        {
+          "rows": [
+            ["GRAVIDADE DAS INFRAÇÕES", "FIC"],
+            ["Levíssima", "0,5"],
+            ["Leve", "1,0"],
+            ["Média", "2,0"],
+            ["Grave", "4,0"],
+            ["Gravíssima", "8,0"]
+          ]
+        },
+        {
+          "rows": [
+            ["ÍNDICES DO FATOR DE OCUPAÇÃO - FO", ""],
+            [
+              "1,0 (um inteiro)",
+              "A-2, C-1, C-3, D-1, D-2, E-3, F-9, F-10, G-1, H-1, H-3, H-4, H-6, I-1, J-1, K-1, K-2, M-1, M-3, M-4, M-6, M-7, M-8 e M-11"
+            ],
+            [
+              "1,5 (um inteiro e cinco décimos)",
+              "A-1, A-3, B-1, B-2, D-3, D-4, E-1, E-4, G-2 e G-4"
+            ],
+            [
+              "1,8 (um inteiro e oito décimos)",
+              "F-1, F-2, F-3, F-4, F-8, I-2, J-2, L-1, M-5, M-9 e M-10"
+            ],
+            [
+              "2,0 (dois inteiros)",
+              "C-2, E-2, E-5, E-6, F-5, F-6, F-7, G-3, G-5, H-2, H-5, I-3, J-3, L-2 e M-2"
+            ],
+            ["3 (três inteiros)", "J-4 e L-3"],
+            ["5,0 (cinco inteiros)", "F-11"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "tables": [
+        {
+          "rows": [
+            ["ÍNDICES DOS FATORES AGRAVANTES", "𝐹𝐴𝐴(𝑎𝑔)"],
+            ["Embaraço causado à atuação do CBMSC", "4,0"],
+            ["Má-fé do particular perante a Administração Pública", "2,0"],
+            [
+              "Recebimento, nos últimos 5 (cinco) anos contados da data de autuação, das seguintes sanções: 1) mais de 3 sanções, sendo elas de advertência ou multa levíssima; 2) mais de 2 sanções, sendo elas de multa leve ou média; ou 3) mais de 1 sanção, sendo ela de multa grave ou gravíssima",
+              "2,0"
+            ]
+          ]
+        },
+        {
+          "rows": [
+            [
+              "",
+              "de reajuste anual, corrigido sempre em janeiro, tomando como base o Índice"
+            ],
+            [
+              "Nacional de Preços ao Consumidor Amplo (IPCA) apurado no período de janeiro a dezembro do",
+              ""
+            ],
+            [
+              "ano anterior, cuja fração percentual soma-se ao acumulado dos anos anteriores, a partir do ano de",
+              ""
+            ],
+            ["publicação da Lei nº 18284 DE 20/12/2021", ""]
+          ]
+        }
+      ]
+    }
+  ]
+}

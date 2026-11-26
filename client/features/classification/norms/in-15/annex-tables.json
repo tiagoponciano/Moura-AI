@@ -1,0 +1,1328 @@
+{
+  "pages": [
+    {
+      "page": 9,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Faixa de temperatura nominal de atuação (°C)",
+              "Temperatura máxima ambiente na altura do chuveiro automático (°C)",
+              "Classificação da temperatura",
+              "Cor dos braços em chuveiros do tipo liga fusível",
+              "Cor do líquido em chuveiros do tipo ampola de vidro"
+            ],
+            [
+              "55 a 77",
+              "38",
+              "Ordinária",
+              "Incolor ou preta",
+              "Vermelha ou laranja"
+            ],
+            ["79 a 107", "66", "Intermediária", "Branca", "Amarela ou verde"],
+            ["121 a 149", "107", "Alta", "Azul", "Azul"],
+            ["163 a 191", "149", "Extra-alta", "Vermelha", "Roxa"],
+            ["204 a 246", "191", "Extra extra-alta", "Verde", "Preta"],
+            ["260 a 302", "246", "Ultra-alta", "Laranja", "Preta"],
+            ["320 a 343", "329", "Ultra-alta", "Laranja", "Preta"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "tables": [
+        {
+          "rows": [
+            [
+              "MEMORIAL DE ENSAIOS E MATERIAIS - fl. 01/05",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            ["Logradouro público:", "", "", "", "", "", "", "", "", "", ""],
+            ["N.º. Complemento:", "", "", "", "", "", "", "", "", "", ""],
+            [
+              "Bairro: Município: UF: SC",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            ["RE:", "", "", "", "", "", "", "", "", "", ""],
+            [
+              "Responsável pelo imóvel: e-mail: Fone: ( )",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            ["Responsável Técnico:", "", "", "", "", "", "", "", "", "", ""],
+            [
+              "Número do Registro do profissional: e-mail: Fone: ( )",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "PROCEDIMENTO A conclusão dos trabalhos, inspeção e ensaios deve ser feita pelo instalador e testemunhada pelo representante do proprietário. Todos os problemas devem ser resolvidos e o sistema colocado em serviço antes que o instalador se retire da obra. Este formulário deve ser preenchido e assinado pelas partes representadas.",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Projeto",
+              "Instalação em conformidade com o projeto?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Equipamentos usados correspondem aos especificados no projeto?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Se não, explicar divergências:",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Instruções",
+              "O responsável pelo uso dos equipamentos de combate a incêndios foi instruído quanto à localização de válvulas de controle e sobre cuidados e manutenção dos novos equipamentos?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "",
+              "Não ( )"
+            ],
+            ["", "Nome do responsável", "", "", "", "", "", "", "", "", ""],
+            ["", "Se não, explicar", "", "", "", "", "", "", "", "", ""],
+            [
+              "",
+              "Foram deixadas no local, cópias dos seguintes documentos?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "1. Folhas de dados dos componentes do sistema",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "",
+              "Não ( )"
+            ],
+            [
+              "",
+              "2. Instruções de operação, cuidados e manutenção",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "",
+              "Não ( )"
+            ],
+            [
+              "Localização de sobressalentes",
+              "Localização e quantidade de bicos sobressalentes:",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Chuveiros automáticos",
+              "Marca",
+              "Modelo",
+              "",
+              "Ano de fabricação",
+              "",
+              "Tamanho do orifício",
+              "Quantidade",
+              "Temperatura de operação",
+              "",
+              ""
+            ],
+            [
+              "Tubos e conexões",
+              "Tipo de tubo",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            ["", "Tipo de conexão", "", "", "", "", "", "", "", "", ""],
+            [
+              "Alarme de fluxo",
+              "Gongo ( ) Chave de fluxo ( ) Pressostato ( ) Outros ( )",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Tempo máximo para funcionamento através de dreno de ensaio",
+              "",
+              "",
+              ""
+            ],
+            ["", "Marca", "", "", "", "Modelo", "", "min", "", "s", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "tables": [
+        {
+          "rows": [
+            [
+              "MEMORIAL DE ENSAIOS E MATERIAIS - fl. 02/05",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Válvulas de ação prévia e de dilúvio",
+              "Pneumático ( )",
+              "",
+              "",
+              "Elétrico ( )",
+              "",
+              "",
+              "Hidráulico ( )",
+              "",
+              ""
+            ],
+            [
+              "",
+              "Em sistemas de ação prévia, a pressão da tubulação é supervisionada?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Sistema de detecção ou linha piloto é supervisionado?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Além do acionamento automático, a válvula é operada por meio de comando:",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "remoto ( )",
+              "manual ( )",
+              "ambos ( )"
+            ],
+            [
+              "",
+              "Há facilidade de acesso para o teste dos sistemas de detecção ou linhas piloto?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            ["", "Se não houver, explicar:", "", "", "", "", "", "", "", ""],
+            ["", "Marca e modelo da válvula:", "", "", "", "", "", "", "", ""],
+            [
+              "",
+              "Cada circuito possui alarme de perda de supervisão?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Cada circuito opera acionamento de válvula?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Tempo máximo de abertura da válvula",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "min seg",
+              ""
+            ],
+            [
+              "Ensaio de válvula redutora de pressão",
+              "Localização e pavimento",
+              "Marca e modelo",
+              "Pressão de regulagem",
+              "",
+              "Pressão estática",
+              "",
+              "Pressão residual",
+              "",
+              "Vazão L/min"
+            ],
+            ["", "", "", "", "", "Entrada", "Saída", "Entrada", "Saída", ""],
+            [
+              "Descrição do ensaio",
+              "Hidrostático: O ensaio hidrostático deve ser feito a não menos que 13,8 bar por 2 h, ou 3,4 bar acima da pressão estática (pressão máxima) maior que 10,4 bar por 2 h. Todos os vazamentos da tubulação aérea devem ser eliminados. Pneumático: Estabelecer pressão do ar de 2,7 bar e medir a perda de pressão, que não pode exceder 0,1 bar em 24 h. Ensaiar tanques de pressão com nível normal de água e de pressão de ar, e medir perda de pressão, que não pode ser maior que 0,1 bar em 24 h.",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Ensaios",
+              "Toda tubulação foi hidrostaticamente ensaiada a bar por horas",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Os equipamentos funcionam adequadamente?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            ["", "Se não, explicar", "", "", "", "", "", "", "", ""],
+            [
+              "",
+              "Na qualidade de instalador da rede de chuveiros automáticos, é garantido que não foram empregados aditivos e produtos químicos corrosivos, silicato de sódio ou derivados de silicato de sódio, água salgada ou salmoura, ou outros produtos químicos para ensaios dos sistemas ou interrupção de vazamentos.",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Ensaio de dreno – leitura da pressão no manômetro a montante da válvula de governo com dreno completamente fechado: bar",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "Ensaio de dreno – leitura da pressão residual no manômetro a montante da válvula de governo com dreno completamente aberto: bar",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "tables": [
+        {
+          "rows": [
+            ["MEMORIAL DE ENSAIOS E MATERIAIS - fl. 03/05", "", "", "", "", ""],
+            [
+              "Ensaios",
+              "Tubulação subterrânea e interligação do sistema foram lavadas internamente antes da conexão com a tubulação de chuveiros automáticos",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Lavado pelo instalador da tubulação subterrânea",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Se forem usados chumbadores em concreto fixados por tiro, há amostra de ensaios?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            ["", "Se não, explicar", "", "", "", ""],
+            [
+              "Flanges cegos",
+              "Nº em uso:",
+              "Localização:",
+              "",
+              "Nº removidos:",
+              ""
+            ],
+            ["Soldagem", "Tubulação é soldada?", "", "", "Sim ( )", "Não ( )"],
+            ["", "Se sim:", "", "", "", ""],
+            [
+              "",
+              "Atesta, como instalador dos chuveiros automáticos, que os procedimentos de soldagem atendem aos requisitos da norma ASME IX?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Atesta que a soldagem foi feita por profissional com qualificação comprovada?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Atesta que todos os cuidados foram tomados de acordo com o documentado quanto aos procedimentos de controle de qualidade para assegurar que todos os discos foram retirados, que as rebarbas foram removidas, que as escórias e outros resíduos de soldagem foram removidos, que os diâmetros internos da tubulação não foram alterados?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "Cortes (discos)",
+              "Atesta que há sistema de controle para assegurar que todos os discos cortados da tubulação foram removidos?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "Placa de informações hidráulicas",
+              "A placa de informações foi instalada?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            ["", "Se não, explicar", "", "", "", ""],
+            [
+              "Conclusão",
+              "Após a realização e verificação dos resultados dos ensaios, atesto que o sistema se encontra em condição de operação:",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Data em que a instalação foi entregue em funcionamento:",
+              "",
+              "",
+              "",
+              ""
+            ],
+            ["Assinaturas", "Nome do instalador", "", "", "", ""],
+            [
+              "",
+              "Responsável técnico (Assinatura Digital)",
+              "",
+              "Nº. do Registro Profissional",
+              "",
+              ""
+            ],
+            ["", "Testemunhas", "", "", "", ""],
+            [
+              "",
+              "Representante do proprietário (assinatura) Cargo Data",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "Representante do instalador (assinatura) Cargo Data",
+              "",
+              "",
+              "",
+              ""
+            ],
+            ["Informações adicionais e anotações:", "", "", "", "", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "tables": [
+        {
+          "rows": [
+            ["MEMORIAL DE ENSAIOS E MATERIAIS - fl. 04/05", "", "", "", ""],
+            [
+              "PROCEDIMENTO A conclusão dos trabalhos, inspeção e ensaios deve ser feita pelo instalador e testemunhada pelo representante do proprietário. Todos os problemas devem ser resolvidos e o sistema colocado em serviço antes que o instalador se retire da obra. Este formulário deve ser preenchido e assinado pelas partes representadas.",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Projeto",
+              "Instalação em conformidade com o aceito no projeto?",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            ["", "Equipamento usado é aprovado?", "", "Sim ( )", "Não ( )"],
+            ["", "Se não, explicar divergências:", "", "", ""],
+            [
+              "Instruções",
+              "O responsável pelos equipamentos de combate a incêndios foi instruído quanto à localização de válvulas de controle e sobre cuidados e manutenção dos novos equipamentos?",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            ["", "Se não, explicar", "", "", ""],
+            [
+              "Localização do sistema",
+              "Edificações atendidas pelo sistema:",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Tubos e juntas conexões subterrâneas",
+              "Tipos de tubos e classificação:",
+              "Tipo de junta:",
+              "",
+              ""
+            ],
+            ["", "Tubos em conformidade com a norma", "", "", ""],
+            ["", "Montagem em conformidade com a norma", "", "", ""],
+            ["", "Se não, explicar", "", "", ""],
+            [
+              "",
+              "Juntas e encaixes precisam de grampo de ancoragem, tiras ou outros métodos de acordo com a norma ?",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            ["", "Se não, explicar", "", "", ""],
+            [
+              "Descrição do ensaio",
+              "Limpeza interna da tubulação : Deixar que a água flua até que se torne clara como indicado e até que não haja presença de material estranho nas bolsas de estopa colocadas em uma extremidade aberta da tubulação. Vazão a não menos de 1.500 L/min por tubo DN 100, 3.300 L/min por tubo DN 150, 6.000 L/min por tubo DN 200, 9.300 L/min por DN 250, e 13.300 L/min por DN 300. Quando não for possível obter a vazão recomendada, fazer a limpeza com a máxima vazão possível. Hidrostático : O ensaio hidrostático deve ser feito a não menos que 13,8 bar por 2 h, ou 3,4 bar acima da pressão estática maior que 10,2 bar por 2 h.",
+              "",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "tables": [
+        {
+          "rows": [
+            [
+              "MEMORIAL DE ENSAIOS E MATERIAIS - fl. 05/05",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Ensaios de vazão",
+              "Vazão de nova tubulação não aparente em conformidade com a norma pela (companhia)",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            ["", "Se não, explicar", "", "", "", "", "", "", "", "", "", ""],
+            [
+              "",
+              "Como foi obtida a vazão?",
+              "",
+              "Rede pública ( )",
+              "",
+              "Reservatório ( )",
+              "",
+              "",
+              "",
+              "Bomba de incêndio ( )",
+              "",
+              ""
+            ],
+            [
+              "",
+              "Medida em que tipo de abertura?",
+              "",
+              "",
+              "Bocal do hidrante ( )",
+              "",
+              "",
+              "",
+              "",
+              "Abertura do tubo ( )",
+              "",
+              ""
+            ],
+            [
+              "",
+              "Direcionamento de fluxo de acordo com a norma da (companhia)?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            ["", "Se não, explicar", "", "", "", "", "", "", "", "", "", ""],
+            [
+              "",
+              "Como foi obtida a vazão?",
+              "",
+              "Rede pública ( )",
+              "",
+              "",
+              "Reservatório ( )",
+              "",
+              "",
+              "Bomba de incêndio ( )",
+              "",
+              ""
+            ],
+            [
+              "",
+              "Por meio de que tipo de abertura?",
+              "",
+              "Conexão em Y ao flange ( )",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Abertura do tubo ( )",
+              "",
+              ""
+            ],
+            [
+              "Ensaio hidrostático",
+              "Toda tubulação foi hidrostaticamente ensaiada a bar por horas",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Conexões",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "Ensaio de vazamentos",
+              "Somatório total de vazamentos medidos: L por h",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "Vazamentos permitidos: L por h",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Hidrantes",
+              "Números instalados:",
+              "Tipo e marca:",
+              "",
+              "",
+              "",
+              "",
+              "Todos operam satisfatoriamente? Sim ( ) Não ( )",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Válvula de controle",
+              "Válvulas de controle totalmente abertas?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            ["", "Se não, explicar", "", "", "", "", "", "", "", "", "", ""],
+            [
+              "",
+              "Conexões de mangueiras intercambiáveis com as do Corpo de Bombeiros?",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "Conclusão",
+              "Após a realização e verificação dos resultados dos ensaios, atesto que o sistema se encontra em condição de operação: Data em que a instalação foi entregue em funcionamento:",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "Assinaturas",
+              "Nome do instalador",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "Responsável técnico (Assinatura Digital)",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Nº. do Registro do profissional",
+              "",
+              "",
+              ""
+            ],
+            ["", "Testemunhas", "", "", "", "", "", "", "", "", "", ""],
+            [
+              "",
+              "Representante do proprietário (assinatura) Cargo Data",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "Representante do instalador (assinatura) Cargo Data",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Informações adicionais e anotações:",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "tables": [
+        {
+          "rows": [
+            ["1. CHUVEIROS AUTOMÁTICOS", "", "Sim", "Não"],
+            [
+              "1.1",
+              "O sistema de chuveiros automáticos está adaptado ao leiaute da edificação conforme projeto técnico aprovado?",
+              "",
+              ""
+            ],
+            [
+              "1.2",
+              "Os compartimentos classificados como Risco Leve, possuem chuveiros automáticos de resposta rápida?",
+              "",
+              ""
+            ],
+            [
+              "1.3",
+              "Todos os compartimentos, exceto os isentos de acordo com a NBR 10.897 e IT 23, estão protegidos por chuveiros automáticos? (1)",
+              "",
+              ""
+            ],
+            [
+              "1.4",
+              "Os modelos dos chuveiros automáticos estão conforme o projeto aprovado? (2)",
+              "",
+              ""
+            ],
+            [
+              "1.4",
+              "Os chuveiros estão isentos de corpos estranhos (inclusive tinta) ou danos físicos como indicado pelo catálogo do fabricante?",
+              "",
+              ""
+            ],
+            [
+              "1.5",
+              "Os chuveiros estão isentos de corpos estranhos (inclusive tinta) ou danos físicos como indicado pelo catálogo do fabricante?",
+              "",
+              ""
+            ],
+            [
+              "1.6",
+              "Os chuveiros estão instalados na posição correta, conforme projeto técnico aprovado (teto, prateleiras, etc.)?",
+              "",
+              ""
+            ],
+            [
+              "1.7",
+              "A distância entre os chuveiros ou entre os chuveiros e as paredes está correta?",
+              "",
+              ""
+            ],
+            [
+              "1.8",
+              "Os chuveiros estão desobstruídos em relação a obstruções junto ao teto tais como vigas, treliças, terças, dutos e afins? (1)",
+              "",
+              ""
+            ],
+            [
+              "1.9",
+              "Os chuveiros próximos ao teto estão desobstruídos em relação a elementos tais como luminárias, dutos, eletrocalhas, passarelas, ventiladores e afins? (1)",
+              "",
+              ""
+            ],
+            [
+              "1.10",
+              "Os chuveiros estão desobstruídos em relação a elementos verticais de meia altura tais como biombos, divisórias baixas e afins? (1)",
+              "",
+              ""
+            ],
+            [
+              "1.11",
+              "Os chuveiros estão desobstruídos em relação aos pilares? (1)",
+              "",
+              ""
+            ],
+            [
+              "1.12",
+              "Os chuveiros estão a uma distância adequada do forro ou teto?",
+              "",
+              ""
+            ],
+            [
+              "1.13",
+              "Em áreas de armazenagem, a distância entre os chuveiros e o topo do material armazenado é adequada?",
+              "",
+              ""
+            ],
+            ["1.14", "Os chuveiros estão sem corrosão?", "", ""],
+            [
+              "1.15",
+              "Há chuveiros sobressalentes e chave especial para retirada e instalação?",
+              "",
+              ""
+            ],
+            [
+              "1.16",
+              "Os produtos utilizados na instalação estão de acordo com o regulamentado pelo CBMSC?",
+              "",
+              ""
+            ],
+            [
+              "1.17",
+              "Os chuveiros automáticos de resposta rápida fabricados há mais de 20 anos e/ou os chuveiros automáticos de resposta padrão fabricados há mais de 50 anos foram ensaiados?",
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "rows": [
+            ["2. VÁLVULA DE GOVERNO E ALARME (VGA)", "", "Sim", "Não"],
+            [
+              "2.1",
+              "As válvulas estão corretamente identificadas, conforme item 10.2 da NBR 10.897?",
+              "",
+              ""
+            ],
+            [
+              "2.2",
+              "As válvulas de bloqueio estão travadas com correntes e/ou cadeados na posição completamente abertas? (1)",
+              "",
+              ""
+            ],
+            [
+              "2.3",
+              "As válvulas de bloqueio são do tipo indicadora e com fechamento lento?",
+              "",
+              ""
+            ],
+            [
+              "2.4",
+              "As válvulas estão livres de danos mecânicos? (teste)",
+              "",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 16,
+      "tables": [
+        {
+          "rows": [
+            ["2. VÁLVULAS DE GOVERNO E ALARME (VGA)", "", "Sim", "Não"],
+            ["2.5", "As válvulas estão acessíveis?", "", ""],
+            ["2.6", "As válvulas estão isentas de vazamento? (teste)", "", ""],
+            ["2.7", "As válvulas estão isentas de corrosão?", "", ""],
+            [
+              "2.8",
+              "Há um fluxostato ligado à central de alarme? (teste) (1)",
+              "",
+              ""
+            ],
+            ["2.9", "A fiação do fluxostato está protegida?", "", ""],
+            [
+              "2.10",
+              "O gongo hidráulico (quando instalado) funciona corretamente? (teste)",
+              "",
+              ""
+            ],
+            [
+              "2.11",
+              "Existe conexão de teste de alarme para cada Válvula de Governo e funciona corretamente?",
+              "",
+              ""
+            ],
+            [
+              "2.12",
+              "A central de alarme reconhece o sinal da conexão de teste e alarme em no máximo 90 segundos? (teste)",
+              "",
+              ""
+            ],
+            [
+              "2.13",
+              "Os manômetros estão instalados e em boas condições? (visual e operação)",
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "rows": [
+            [
+              "3. CONEXÕES SETORIAIS DE DRENO, ENSAIO E ALARME (CS)",
+              "",
+              "Sim",
+              "Não"
+            ],
+            [
+              "3.1",
+              "As conexões setoriais estão adequadamente instaladas?",
+              "",
+              ""
+            ],
+            ["3.2", "As conexões setoriais estão sinalizadas?", "", ""],
+            [
+              "3.3",
+              "Há um fluxostato ligado à central de alarme? (teste)",
+              "",
+              ""
+            ],
+            [
+              "3.4",
+              "A central de alarme reconhece o sinal da conexão de teste e alarme em no máximo 90 segundos? (teste)",
+              "",
+              ""
+            ],
+            ["3.5", "A fiação do fluxostato está protegida?", "", ""],
+            ["3.6", "As válvulas estão acessíveis?", "", ""],
+            [
+              "3.7",
+              "As válvulas de bloqueio estão travadas com correntes e/ou cadeados na posição completamente abertas?",
+              "",
+              ""
+            ],
+            [
+              "3.8",
+              "As válvulas de bloqueio são do tipo indicadora e com fechamento lento?",
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "rows": [
+            [
+              "4. CONJUNTO BOMBA DE INCÊNDIO (Bomba + Motor + Painel de controle e partida)",
+              "",
+              "Sim",
+              "Não"
+            ],
+            [
+              "4.1",
+              "A bomba de incêndio está adequadamente instalada?",
+              "",
+              ""
+            ],
+            [
+              "4.2",
+              "Foi apresentada curva de desempenho (vazão X pressão) da bomba de incêndio preparada pelo fabricante antes da instalação da unidade?",
+              "",
+              ""
+            ],
+            [
+              "4.3",
+              "Foi apresentada curva de desempenho (vazão X pressão) da bomba de incêndio produzida nos últimos 36 meses?",
+              "",
+              ""
+            ],
+            [
+              "4.4",
+              "A bomba de incêndio está em compartimento protegido contra o fogo?",
+              "",
+              ""
+            ],
+            [
+              "4.5",
+              "A B.I. está em compartimento sem acúmulo de materiais combustíveis?",
+              "",
+              ""
+            ],
+            [
+              "4.6",
+              "A bomba de incêndio não apresenta vazamentos? (teste)",
+              "",
+              ""
+            ],
+            [
+              "4.7",
+              "A bomba de incêndio está instalada com vazão e pressão de acordo com projeto técnico aprovado?",
+              "",
+              ""
+            ],
+            [
+              "4.8",
+              "As válvulas de bloqueio (exceto no cabeçote de testes, se houver) estão travadas na posição completamente aberta?",
+              "",
+              ""
+            ],
+            ["4.9", "A fixação da bomba de incêndio está adequada?", "", ""],
+            [
+              "4.10",
+              "Existe medidor de vazão para realização do teste anual?",
+              "",
+              ""
+            ],
+            [
+              "4.11",
+              "Existe cabeçote de teste para realização do teste anual?",
+              "",
+              ""
+            ],
+            [
+              "4.12",
+              "O painel da central de alarme acusa todos os eventos previstos no Anexo B da NBR 10897 para supervisão constante das bombas?",
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "rows": [
+            ["5. TUBULAÇÃO", "", "Sim", "Não"],
+            ["5.1", "Tubulação sem danos mecânicos?", "", ""],
+            ["5.2", "Tubulação sem vazamentos? (teste)", "", ""],
+            ["5.3", "Tubulação sem corrosão ou obstrução interna?", "", ""],
+            ["5.4", "Tubulação adequadamente alinhada?", "", ""],
+            ["5.5", "Tubulação pintada e identificada?", "", ""],
+            ["5.6", "Suportes e braçadeiras adequados?", "", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "tables": [
+        {
+          "rows": [
+            ["6. CONEXÃO DE RECALQUE", "", "Sim", "Não"],
+            ["6.1", "Conexão de recalque está sinalizado?", "", ""],
+            ["6.2", "Conexão de recalque está desobstruída?", "", ""],
+            ["6.3", "Conexão de recalque está isento de vazamentos?", "", ""]
+          ]
+        },
+        {
+          "rows": [
+            ["7. TANQUES E RESERVATÓRIOS", "", "Sim", "Não"],
+            [
+              "7.1",
+              "O reservatório de incêndio possui volume adequado de acordo com o projeto técnico aprovado?",
+              "",
+              ""
+            ],
+            [
+              "7.2",
+              "O reservatório de incêndio possui válvulas completamente abertas?",
+              "",
+              ""
+            ],
+            [
+              "7.3",
+              "O reservatório de incêndio possui tubulação e válvulas adequadas?",
+              "",
+              ""
+            ],
+            ["7.4", "Existe indicador de nível instalado no tanque?", "", ""]
+          ]
+        },
+        {
+          "rows": [
+            [
+              "(1) justificativas técnicas para não atendimento dos itens assinalados – a ser preenchido pelo Responsável Técnico",
+              ""
+            ],
+            ["ITEM", "JUSTIFICATIVAS DE NÃO ATENDIMENTO"]
+          ]
+        },
+        {
+          "rows": [
+            ["(2) CHUVEIROS AUTOMÁTICOS – RELAÇÃO", "", "", "", "", "", ""],
+            [
+              "Tipo",
+              "Fabricante",
+              "Código de identificação",
+              "Ano de fabricação",
+              "Tempo de Resposta",
+              "Posição de Instalação",
+              "Temperatura"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

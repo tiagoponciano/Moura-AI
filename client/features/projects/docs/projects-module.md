@@ -11,7 +11,7 @@ Invariants:
 - **Looking at a project chooses it.** `ProjectDetail` writes the id with `writeSelectedProject`, so the "Abrir" button of each card opens the module on that project.
 - **Each module draws its own card.** The cards come from the modules (`ProjectClassificationSummary`, `ProjectDocumentsSummary`, `ProjectFloorPlansSummary`), each exported from the module's `index.ts`. `app/(app)/projects/[id]/page.tsx` puts them inside `ProjectDetail` as children, because a feature never imports another feature.
 - **Without Supabase there is nothing to list.** The page says projects need Supabase, like the other modules that depend on it.
-- **The data is edited on the page.** The "Dados do projeto" section has one collapsible group per set of fields (the property, its owner, the engineer, the block and building, the accountant, the applicant), with every field as an input; each one saves when it loses focus, through `useProjects().saveData`, and an empty value removes the key. The same fields feed the forms of the project. A failed save shows the error under the section.
+- **The data is edited on the page.** The page has four tabs (`PROJECT_TABS` in `lib/project-tabs.ts`): "Resumo" (what each module holds, then the files), "Cliente" (the property's owner and the applicant), "Imóvel" (the property, the block and building) and "Equipe" (the engineer and the accountant). Each data tab has one open, collapsible group per set of fields, with every field as an input; each one saves when it loses focus, through `useProjects().saveData`, and an empty value removes the key. The same fields feed the forms of the project. A failed save shows the error under the tabs.
 
 ## Surface
 

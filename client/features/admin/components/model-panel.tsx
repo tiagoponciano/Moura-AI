@@ -92,7 +92,7 @@ export function ModelPanel({ data, run, users }: ModelPanelProps) {
           )}
           {entry && (
             <ProviderAccessField
-              key={entry.id}
+              key={`access-${entry.id}`}
               provider={entry}
               saved={data.access.find((item) => item.provider === entry.id)}
               users={users}

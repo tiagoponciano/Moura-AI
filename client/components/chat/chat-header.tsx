@@ -2,7 +2,6 @@ import { RotateCcw } from "lucide-react";
 import type { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import type { ChatContext, ChatModule } from "@/lib/chat-history/types";
-import { AssistantAvatar } from "./assistant-avatar";
 import { ChatHistoryMenu } from "./chat-history-menu";
 
 type ChatHeaderProps = {
@@ -28,12 +27,7 @@ export function ChatHeader({
 }: ChatHeaderProps) {
   return (
     <div className="flex items-center justify-between gap-2 border-b px-4 py-2.5">
-      {title ?? (
-        <div className="flex items-center gap-2">
-          <AssistantAvatar />
-          <span className="text-sm font-medium">Moura AI</span>
-        </div>
-      )}
+      {title ?? <span className="text-sm font-medium">Assistente</span>}
       <div className="flex items-center gap-1">
         {history && (
           <ChatHistoryMenu

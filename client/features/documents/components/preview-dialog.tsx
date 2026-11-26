@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import type { FieldSources } from "@/lib/field-sources";
 import type { PdfApproval } from "../hooks/use-pdf-approval";
+import { NormsToCheck, type NormsToCheckProps } from "./norms-to-check";
 import { reviewSummary } from "../lib/review-summary";
 import type { FieldValues, TemplateField } from "../lib/templates";
 
@@ -23,6 +24,7 @@ type PreviewDialogProps = {
   values: FieldValues;
   sources: FieldSources;
   approval: PdfApproval;
+  norms: NormsToCheckProps;
 };
 
 /** The document as it will come out, with what it carries and what is missing, to approve before it is downloaded and kept. */
@@ -32,6 +34,7 @@ export function PreviewDialog({
   values,
   sources,
   approval,
+  norms,
 }: PreviewDialogProps) {
   const [open, setOpen] = useState(false);
   const { filled, missingRequired } = reviewSummary(fields, values, sources);
@@ -74,6 +77,14 @@ export function PreviewDialog({
                 </ul>
               </div>
             )}
+            <NormsToCheck
+              norms={norms.norms}
+              onConfirm={norms.onConfirm}
+              onReject={(key) => {
+                norms.onReject(key);
+                setOpen(false);
+              }}
+            />
             <div>
               <p className="mb-1 font-medium">O documento leva</p>
               <ul className="divide-y rounded-md border">

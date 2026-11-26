@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import type { FieldValue, FieldValues, TemplateField } from "../lib/templates";
 import type { PdfApproval } from "../hooks/use-pdf-approval";
 import { FieldList } from "./field-list";
+import type { NormsToCheckProps } from "./norms-to-check";
 import { GenerationActions } from "./generation-actions";
 import { GenerationProblems } from "./generation-problems";
 
@@ -21,6 +22,7 @@ type FormPanelProps = {
   onChange: (name: string, value: FieldValue | undefined) => void;
   pdf?: { url: string; fileName: string };
   approval: PdfApproval;
+  norms: NormsToCheckProps;
   notice?: string;
   onGenerate: () => void;
   onDownloadDocx: () => void;
@@ -39,6 +41,7 @@ export function FormPanel({
   onChange,
   pdf,
   approval,
+  norms,
   notice,
   onGenerate,
   onDownloadDocx,
@@ -99,6 +102,7 @@ export function FormPanel({
           values={values}
           sources={sources}
           approval={approval}
+          norms={norms}
           generating={generating}
           notice={notice}
           onGenerate={onGenerate}

@@ -33,4 +33,5 @@ export const NORM_TEXT_LOADERS: Record<string, () => Promise<unknown>> = {
   "IN-35": () => import("../norms/in-35/articles.json"),
   "IN-1-P1": () => import("../norms/in-1-p1/articles.json"),
   "IN-1-P2": () => import("../norms/in-1-p2/articles.json"),
+  CARTILHA: () => import("../norms/cartilha/articles.json"),
 };

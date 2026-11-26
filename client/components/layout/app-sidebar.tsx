@@ -10,6 +10,7 @@ import {
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuBadge,
   SidebarMenuButton,
@@ -30,6 +31,9 @@ export function AppSidebar({ isAdmin }: { isAdmin: boolean }) {
 
   return (
     <Sidebar collapsible="icon">
+      <SidebarHeader>
+        <UserMenu isAdmin={isAdmin} />
+      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupContent>
@@ -107,7 +111,6 @@ export function AppSidebar({ isAdmin }: { isAdmin: boolean }) {
         </SidebarGroup>
       </SidebarContent>
       <SidebarFooter>
-        <UserMenu isAdmin={isAdmin} />
         <SidebarTheme />
         <SidebarSignOut />
       </SidebarFooter>

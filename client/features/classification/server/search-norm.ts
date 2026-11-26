@@ -29,9 +29,9 @@ function loadDoc(doc: string): Promise<NormDoc> {
 async function loadTables(code: string): Promise<AnnexTables | undefined> {
   const load = NORM_TABLE_LOADERS[code];
   if (!load) return undefined;
-  const module = await load();
-  return ((module as { default?: AnnexTables }).default ??
-    module) as AnnexTables;
+  const loaded = await load();
+  return ((loaded as { default?: AnnexTables }).default ??
+    loaded) as AnnexTables;
 }
 
 const key = (code: string) => code.toUpperCase().replace(/[^A-Z0-9]/g, "");

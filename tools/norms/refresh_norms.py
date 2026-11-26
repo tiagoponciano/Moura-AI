@@ -55,7 +55,7 @@ EXTRACTORS: dict[str, tuple[tuple[str, str], ...]] = {
     # The instructions whose annex tables are kept as grids too, after the text so the manifest exists.
     **{
         f"IN-{n}": (("extract_articles.py", f"in-{n}"), ("extract_annex_tables.py", f"in-{n}"))
-        for n in (7, 8, 9)
+        for n in (2, 7, 8, 9, 10, 13, 14, 15, 18, 20, 21, 24, 28, 29)
     },
     # The guide for responsible engineers, also kept as text only.
     "CARTILHA": (("extract_articles.py", "cartilha"),),

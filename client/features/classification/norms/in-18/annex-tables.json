@@ -1,0 +1,271 @@
+{
+  "pages": [
+    {
+      "page": 6,
+      "tables": [
+        {
+          "rows": [
+            ["Classe", "", "Método de ensaio", "", "", ""],
+            [
+              "",
+              "",
+              "ISO 1182",
+              "NBR 8660",
+              "EN ISO 11925-2 (exposição = 15s)",
+              "ASTM E662"
+            ],
+            [
+              "I",
+              "",
+              "Incombustível ∆T ≤ 30°C ∆m ≤ 50% t ≤ 10s f",
+              "-",
+              "-",
+              "-"
+            ],
+            [
+              "II",
+              "A",
+              "Combustível",
+              "Fluxo Crítico ≥ 8,0 kW/m²",
+              "FS ≤ 150 mm em 20s",
+              "D ≤ 450 m"
+            ],
+            [
+              "",
+              "B",
+              "Combustível",
+              "Fluxo Crítico ≥ 8,0 kW/m²",
+              "FS ≤ 150 mm em 20s",
+              "D > 450 m"
+            ],
+            [
+              "III",
+              "A",
+              "Combustível",
+              "Fluxo Crítico ≥ 4,5 kW/m²",
+              "FS ≤ 150 mm em 20s",
+              "D ≤ 450 m"
+            ],
+            [
+              "",
+              "B",
+              "Combustível",
+              "Fluxo Crítico ≥ 4,5 kW/m²",
+              "FS ≤ 150 mm em 20s",
+              "D > 450 m"
+            ],
+            [
+              "IV",
+              "A",
+              "Combustível",
+              "Fluxo Crítico ≥ 3,0 kW/m²",
+              "FS ≤ 150 mm em 20s",
+              "D ≤ 450 m"
+            ],
+            [
+              "",
+              "B",
+              "Combustível",
+              "Fluxo Crítico ≥ 3,0 kW/m²",
+              "FS ≤ 150 mm em 20s",
+              "D > 450 m"
+            ],
+            [
+              "V",
+              "A",
+              "Combustível",
+              "Fluxo Crítico < 3,0 kW/m²",
+              "FS ≤ 150 mm em 20s",
+              "D ≤ 450 m"
+            ],
+            [
+              "",
+              "B",
+              "Combustível",
+              "Fluxo Crítico < 3,0 kW/m²",
+              "FS ≤ 150 mm em 20s",
+              "D > 450 m"
+            ],
+            ["VI", "", "Combustível", "-", "FS > 150 mm em 20s", "-"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "tables": [
+        {
+          "rows": [
+            ["Classe", "", "Método de ensaio", "", ""],
+            ["", "", "ISO 1182", "NBR 9442", "ASTM E662"],
+            ["I", "", "Incombustível ∆T ≤ 30°C ∆m ≤ 50% t ≤ 10s f", "-", "-"],
+            ["II", "A", "Combustível", "I ≤ 25 p", "D ≤ 450 m"],
+            ["", "B", "Combustível", "I ≤ 25 p", "D > 450 m"],
+            ["III", "A", "Combustível", "25 < I ≤ 75 p", "D ≤ 450 m"],
+            ["", "B", "Combustível", "25 < I ≤ 75 p", "D > 450 m"],
+            ["IV", "A", "Combustível", "75 < I ≤ 150 p", "D ≤ 450 m"],
+            ["", "B", "Combustível", "75 < I ≤ 150 p", "D > 450 m"],
+            ["V", "A", "Combustível", "150 < I ≤ 400 p", "D ≤ 450 m"],
+            ["", "B", "Combustível", "150 < I ≤ 400 p", "D > 450 m"],
+            ["VI", "", "Combustível", "I > 400 p", "-"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "tables": [
+        {
+          "rows": [
+            ["Classe", "", "Método de ensaio", "", ""],
+            [
+              "",
+              "",
+              "ISO 1182",
+              "EN 13823 (SBI)",
+              "EN ISO 11925-2 (exposição = 30s)"
+            ],
+            ["I", "", "Incombustível ∆T ≤ 30°C ∆m ≤ 50% t ≤ 10s f", "-", "-"],
+            [
+              "II",
+              "A",
+              "Combustível",
+              "FIGRA ≤ 120 W/s LFS < canto do corpo de prova THR600s ≤ 7,5 MJ SMOGRA ≤ 180 m²/s² e TSP600s ≤ 200 m²",
+              "FS ≤ 150 mm em 60s"
+            ],
+            [
+              "",
+              "B",
+              "Combustível",
+              "FIGRA ≤ 120 W/s LFS < canto do corpo de prova THR600s ≤ 7,5 MJ SMOGRA ≤ 180 m²/s² e TSP600s ≤ 200 m²",
+              "FS ≤ 150 mm em 60s"
+            ],
+            [
+              "III",
+              "A",
+              "Combustível",
+              "FIGRA ≤ 250 W/s LFS < canto do corpo de prova THR600s ≤ 15 MJ SMOGRA ≤ 180 m²/s² e TSP600s ≤ 200 m²",
+              "FS ≤ 150 mm em 60s"
+            ],
+            [
+              "",
+              "B",
+              "Combustível",
+              "FIGRA ≤ 250 W/s LFS < canto do corpo de prova THR600s ≤ 15 MJ SMOGRA ≤ 180 m²/s² e TSP600s ≤ 200 m²",
+              "FS ≤ 150 mm em 60s"
+            ],
+            [
+              "IV",
+              "A",
+              "Combustível",
+              "FIGRA ≤ 750 W/s SMOGRA ≤ 180 m²/s² e TSP600s ≤ 200 m²",
+              "FS ≤ 150 mm em 60s"
+            ],
+            [
+              "",
+              "B",
+              "Combustível",
+              "FIGRA ≤ 750 W/s SMOGRA ≤ 180 m²/s² e TSP600s ≤ 200 m²",
+              "FS ≤ 150 mm em 60s"
+            ],
+            [
+              "V",
+              "A",
+              "Combustível",
+              "FIGRA > 750 W/s SMOGRA ≤ 180 m²/s² e TSP600s ≤ 200 m²",
+              "FS ≤ 150 mm em 20s"
+            ],
+            [
+              "",
+              "B",
+              "Combustível",
+              "FIGRA > 750 W/s SMOGRA ≤ 180 m²/s² e TSP600s ≤ 200 m²",
+              "FS ≤ 150 mm em 20s"
+            ],
+            ["VI", "", "-", "-", "FS > 150 mm em 20s"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "tables": [
+        {
+          "rows": [
+            [
+              "",
+              "",
+              "Piso 5",
+              "Parede e Divisória¹ (sem gotejamento flamejante)",
+              "Teto e forro (sem gotejamento)",
+              "Cobertura (face superior)",
+              "Fachada"
+            ],
+            [
+              "Grupo/Divisão",
+              "A-2 4-6 e A-3 4",
+              "revestimentos - Classe IV-A acabamentos - Classe V-A",
+              "revestimentos - Classe III-A acabamentos - Classes IV-A sem gotejamento flamejante",
+              "cozinhas - Classe II-A demais - Classe III-A sem gotejamento flamejante",
+              "Classe III-B sem gotejamento flamejante",
+              "Classes II-B sem gotejamento"
+            ],
+            [
+              "",
+              "B, D, C-1, E, F-1 a F-4, F-6, F-8 a F-10, G, H, I-1, J-1³, J-2",
+              "7 Classe IV-A",
+              "7 revestimentos - Classe II-A 7 acabamentos - Classes III-A 7 sem gotejamento flamejante",
+              "Classe II-A sem gotejamento",
+              "Classe III-B sem gotejamento",
+              ""
+            ],
+            [
+              "",
+              "C2, C3, F-5, F-7, F-11, I-2, I-3, J-3, J-4, L-1, M-2², M-3",
+              "7 Classe IV-A",
+              "7 Classes II-A 7 sem gotejamento flamejante",
+              "Classe II-A sem gotejamento",
+              "Classe II-B sem gotejamento",
+              ""
+            ],
+            [
+              "",
+              "L-2, L-3",
+              "Classe I",
+              "Classe I",
+              "Classe I sem gotejamento",
+              "Classe II-B sem gotejamento",
+              "Classe I sem gotejamento"
+            ],
+            [
+              "Saídas de emergência",
+              "Rotas verticais",
+              "Classe II-A 8 com (Dm) ≤ 100",
+              "Classe II-A 8 com (Dm) ≤ 100",
+              "Classe II-A 8 com (Dm) ≤ 100",
+              "Classe II-A 8 com (Dm) ≤ 100",
+              "Conforme a ocupação"
+            ],
+            [
+              "",
+              "Acessos (circulações) e rotas horizontais",
+              "Classe III-A 8",
+              "Classe III-A 8",
+              "Classe III-A 8",
+              "Classe III-A 8",
+              "Conforme a ocupação"
+            ]
+          ]
+        },
+        {
+          "rows": [
+            ["OUTROS LOCAIS", "REQUISITOS"],
+            ["Poços de elevador", "Classe II-A com (Dm) ≤ 100"],
+            ["Monta cargas", "Classe II-A com (Dm) ≤ 100"],
+            ["hafts", "Classe II-A com (Dm) ≤ 100"]
+          ]
+        }
+      ]
+    }
+  ]
+}

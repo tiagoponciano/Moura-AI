@@ -1,0 +1,878 @@
+{
+  "pages": [
+    {
+      "page": 9,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Grupo",
+              "Divisão",
+              "Exigência de controle de fumaça nos seguintes locais da edificação"
+            ],
+            [
+              "A",
+              "A-2 A-3",
+              "- Átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga"
+            ],
+            [
+              "B",
+              "Todos",
+              "h < 90 m: - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga em edificação com altura superior a 30 m (apenas nestes locais) h > 90 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - em sala ou compartimentos maiores que 300 m²"
+            ],
+            [
+              "C",
+              "Todos",
+              "C-3 com h > 12 m: - átrios com altura superior a 12 m e corredores comunicados com o átrio, utilizados como rota de fuga, sendo, neste caso, dispensado a previsão de pontos de chuveiros automáticos nesses locais, desde que a carga de incêndio seja inferior a 300 MJ/m² C-1, C-2 e C-3 com h > 90 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m²"
+            ],
+            [
+              "D",
+              "Todos",
+              "- corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoas)"
+            ],
+            [
+              "E",
+              "Todos",
+              "- corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoas)"
+            ],
+            [
+              "F",
+              "F-1",
+              "h > 90 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa; - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoas)"
+            ],
+            [
+              "",
+              "F-2",
+              "h > 12 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa"
+            ],
+            ["", "F-3 F-9", "- dispensados de SCF"],
+            [
+              "",
+              "F-4",
+              "h > 6 m e lotação > 2.000: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicantes utilizados como rota de fuga - subsolos, exceto se não houver a permanência prolongada de pessoas, neste caso, o sistema é opcional"
+            ],
+            [
+              "",
+              "F-5 F-6 F-10",
+              "h > 6 m e lotação > 2.000: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga;"
+            ],
+            [
+              "",
+              "F-8",
+              "h > 60 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga"
+            ],
+            [
+              "",
+              "F-11",
+              "lotação > 500: - corredores de circulação até a escada de segurança, área de refúgio ou área externa em edificação com altura superior a 6 m - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga em edificação com altura superior a 6 m"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Grupo",
+              "Divisão",
+              "Exigência de controle de fumaça nos seguintes locais da edificação"
+            ],
+            [
+              "G",
+              "G-1 G-2",
+              "h > 90 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa"
+            ],
+            ["", "G-3 G-4 G-5", "- dispensados de SCF"],
+            ["H", "H-1", "- dispensado de SCF"],
+            [
+              "",
+              "H-2",
+              "h > 30 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoas)"
+            ],
+            [
+              "",
+              "H-3",
+              "h > 30 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoas)"
+            ],
+            [
+              "",
+              "H-4",
+              "h > 90 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoas)"
+            ],
+            [
+              "",
+              "H-5",
+              "H-5 (instituições penais): - conforme IN 26 H-5 (outras destinações) com h > 30 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoas)"
+            ],
+            [
+              "",
+              "H-6",
+              "h > 90 m: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoas)"
+            ],
+            ["I", "I-1 I-2", "- dispensados de SCF"],
+            [
+              "",
+              "I-3",
+              "área > 20.000 m²: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoa)"
+            ],
+            ["J", "J-1 J-2 J-3", "- dispensados de SCF"],
+            [
+              "",
+              "J-4",
+              "área > 20.000 m²: - corredores de circulação até a escada de segurança, área de refúgio ou área externa - átrios com altura superior a 6 m e corredores comunicados com o átrio, utilizados como rota de fuga - sala ou compartimento maior que 300 m² (com permanência de pessoa)"
+            ],
+            ["K", "K-1 K-2", "- dispensados de SCF"],
+            ["L", "Todos", "- dispensados de SCF"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Grupo",
+              "Divisão",
+              "Exigência de controle de fumaça nos seguintes locais da edificação"
+            ],
+            [
+              "M",
+              "M-1 M-2 M-3 M-4 M-5 M-6 M-7 M-8 M-9 M-10 M-11",
+              "- dispensado de SCF"
+            ],
+            [
+              "Subsolos",
+              "",
+              "Quando previsto pela IN 1, em todo o subsolo, com exceção no caso de não haver a permanência prolongada de pessoas, neste caso, o sistema é opcional"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "tables": [
+        {
+          "rows": [
+            ["Endereço:", "", "Nº", "Complemento:"],
+            ["Bairro:", "Município- UF:", "", "RE:"],
+            ["Proprietário:", "", "e-mail:", ""],
+            ["Responsável uso/brigadista:", "", "e-mail:", ""],
+            ["Responsável Técnico pelo comissionamento/inspeção:", "", "", ""],
+            ["Número do registro do profissional:", "", "e-mail:", ""],
+            [
+              "Ocupação e tipo ( Tabela 1 do Anexo B da IN 1 parte 2):",
+              "",
+              "",
+              ""
+            ]
+          ]
+        },
+        {
+          "rows": [
+            [
+              "PROCEDIMENTO A conclusão dos trabalhos, inspeção e ensaios deve ser feita pela equipe ou profissional independente e testemunhada pelo representante do proprietário. Todos os problemas devem ser resolvidos e o sistema colocado em serviço antes que o instalador se retire da obra. Este formulário deve ser preenchido e assinado pelas partes representadas.",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Projeto",
+              "Instalação em conformidade com o projeto?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Equipamentos usados correspondem aos especificados no projeto?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            ["", "Se não, explicar divergências:", "", "", "", ""],
+            [
+              "Instrução e Informações básicas sobre o sistema",
+              "Foram deixadas no local, cópias dos seguintes documentos?",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "1. Memorial descritivo e especificações técnicas dos principais equipamentos e materiais",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "2. Cálculo das aberturas de extração natural e/ou vazão da extração mecânica da fumaça",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "3. Folha de dados dos equipamentos e/ou extratores",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "4. Tabela de marca, modelo, potência elétrica e vazão dos equipamentos",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            ["", "5. Execução de diagrama de ar", "", "", "Sim ( )", "Não ( )"],
+            [
+              "",
+              "6. Desenho do sistema (plantas e principais cortes da rede de dutos)",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "7. Desenhos das casas de máquinas de ventilação (planta e principais cortes)",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "8. Informações e diagrama elétrico dos sistemas",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            ["", "Se não, explicar:", "", "", "", ""],
+            [
+              "INFORMAÇÕES CLIMÁTICAS DO DIA DO COMISSIONAMENTO",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            ["Velocidade do vento", "", "Temperatura Externa", "", "", ""],
+            ["Direção do Vento", "", "Pressão atmosférica", "", "", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "tables": [
+        {
+          "rows": [
+            ["MEMORIAL DE ENSAIOS E MATERIAIS - fl. 02/03", "", "", "", "", ""],
+            [
+              "Ensaios",
+              "Extrator mecânico (ventilador e motor) em funcionamento com fonte de energia primária (rede) e com fonte de energia reserva (grupo gerador)?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "",
+              "Extrator mecânico (ventilador e motor) em funcionamento com fonte de energia primária",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "",
+              "(rede) e com fonte de energia reserva (grupo gerador)?",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "Manobra automática de energia primária para a reserva (grupo motogerador)?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Funcionamento correto da reversão do ventilador principal para o reserva?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "A qualidade da energia elétrica fornecida está adequada (tensão e corrente elétrica, frequência e aterramento)?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "O tempo de ativação do sistema de controle de fumaça corresponde ao tempo de projeto? Tempo para ativação: segundos.",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Há equilíbrio de fases do sistema elétrico?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Fiação e ligações elétricas corretamente executados?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Quadros elétricos com componentes devidamente identificados e presentes?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Funcionamento correto do extrator natural com respectivos atuadores?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Registros corta-fogo e/ou fumaça presentes e operantes?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Registros de entrada de ar presente e operante?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Registros de sobrepressão presente e operante?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Venezianas e grelhas de ar presentes, desobstruídas e corretamente instaladas?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Rede de dutos devidamente fixados, sem vazamentos e desobstruídos?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Vazão de ar medida confere com a vazão de projeto?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Taxa volumétrica das grelhas de extração de fumaça e instrução de ar confere com a de projeto?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Direção do fluxo de ar de acordo com a necessidade e projeto?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Quando constantes em projeto, o enclausuramento e abertura das portas estão de acordo com as especificações?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Os diferenciais de pressão estão dentro da faixa de operação?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "O sistema de controle de temperatura está corretamente instalado e operacional?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Variadores de frequência com sensores de pressão?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Sistema de supervisão e controles presente e funcional?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Sistema de detecção presente e devidamente instalado?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Sistema de alarme de incêndio devidamente instalado e operacional com interligação com os detectores de fumaça e sistema de controle de fumaça?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Interligação do sistema de controle de fumaça com os detectores de fumaça devidamente instalado e operacional?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Instalação, apoios, fixação e sustentação de todos os componentes devidamente executados?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            ["", "Se não, explicar", "", "", "", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "tables": [
+        {
+          "rows": [
+            ["MEMORIAL DE ENSAIOS E MATERIAIS - fl. 03/03", "", "", "", ""],
+            [
+              "Conclusão",
+              "Após a realização e verificação dos resultados dos ensaios, atesto que o sistema se encontra em condição de operação:",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Data em que a instalação foi entregue em funcionamento:",
+              "",
+              "",
+              ""
+            ],
+            ["Assinaturas", "Nome do instalador", "", "", ""],
+            [
+              "",
+              "Responsável técnico (Assinatura Digital)",
+              "Nº. do Registro Profissional",
+              "",
+              ""
+            ],
+            ["", "Testemunhas", "", "", ""],
+            [
+              "",
+              "Representante do proprietário (assinatura) Cargo Data",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "Representante do instalador (assinatura) Cargo Data",
+              "",
+              "",
+              ""
+            ],
+            ["Informações adicionais e anotações", "", "", "", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "tables": [
+        {
+          "rows": [
+            ["MEMORIAL DE ENSAIOS E MATERIAIS - fl. 01/03", "", "", "", "", ""],
+            ["Logradouro público:", "", "", "", "", ""],
+            ["N.º. Complemento:", "", "", "", "", ""],
+            ["Bairro: Município: UF: SC", "", "", "", "", ""],
+            ["RE:", "", "", "", "", ""],
+            ["Responsável pelo imóvel: e-mail: Fone: ( )", "", "", "", "", ""],
+            ["Responsável técnico: e-mail: Fone: ( )", "", "", "", "", ""],
+            ["Nº. do Registro Profissional", "", "", "", "", ""],
+            [
+              "PROCEDIMENTO A conclusão dos trabalhos, inspeção e ensaios deve ser feita pelo inspetor e testemunhada pelo representante do proprietário. Todos os problemas devem ser identificados e resolvidos. Este formulário deve ser preenchido e assinado pelas partes representadas.",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Instruções",
+              "O responsável pelo uso do sistema de controle de fumaça foi instruído quanto à localização dos registros, motoventilador, sistemas de detecção de fumaça e demais componentes de controle, bem como todos os cuidados e manutenção dos equipamentos?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            ["", "Nome do responsável", "", "", "", ""],
+            ["", "Se não, explicar", "", "", "", ""],
+            ["INFORMAÇÕES CLIMÁTICAS DO DIA DA INSPEÇÃO", "", "", "", "", ""],
+            ["Velocidade do vento", "", "Temperatura Externa:", "", "", ""],
+            ["Direção do Vento", "", "Pressão atmosférica:", "", "", ""],
+            ["INTEGRIDADE DOS COMPONENTES DO SISTEMA", "", "", "", "", ""],
+            [
+              "OBSERVAÇÃO Os ensaios e testes devem incluir os seguintes e subsistemas abaixo relacionados, uma vez que podem afetar ou ser afetados pela operação do sistema de gerenciamento de fumaça.",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Componentes",
+              "Todos os componentes do sistema de detecção de fumaça encontram-se operacionais?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "O sistema de alarme encontra-se operacional?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "O sistema de gerenciamento de energia encontra-se operacional e em bom estado?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "O sistema de controle de temperatura encontra-se operacional e em bom estado?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Fonte de energia reserva (gerador) revisado, operacional e em bom estado?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Operação automática de portas e fechamentos operacional?",
+              "",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            ["", "Se não, explicar", "", "", "", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 16,
+      "tables": [
+        {
+          "rows": [
+            ["MEMORIAL DE ENSAIOS E MATERIAIS - fl. 02/03", "", "", ""],
+            [
+              "Ensaios",
+              "Extrator mecânico (ventilador e motor) em funcionamento com fonte de energia primária (rede) e com fonte de energia reserva (grupo gerador)?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Manobra automática de energia primária para a reserva (grupo motogerador)?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Funcionamento correto da reversão do ventilador principal para o reserva?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "A qualidade da energia elétrica fornecida está adequada (tensão e corrente elétrica, frequência e aterramento)?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "O tempo de ativação do sistema de controle de fumaça corresponde ao tempo de projeto? Tempo para ativação: segundos.",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Há equilíbrio de fases do sistema elétrico?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Fiação e ligações elétricas corretamente executados?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Quadros elétricos com componentes devidamente identificados e presentes?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Funcionamento correto do extrator natural com respectivos atuadores?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Registros corta-fogo e/ou fumaça presentes e operantes?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Registros de entrada de ar presente e operante?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Registros de sobrepressão presente e operante?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Venezianas e grelhas de ar presentes, desobstruídas e corretamente instaladas?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Rede de dutos devidamente fixados, sem vazamentos e desobstruídos?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Vazão de ar medida confere com a vazão de projeto?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Taxa volumétrica das grelhas de extração de fumaça e instrução de ar confere com a de projeto?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Direção do fluxo de ar de acordo com a necessidade e projeto?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Quando constantes em projeto, o enclausuramento e abertura das portas estão de acordo com as especificações?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Os diferenciais de pressão estão dentro da faixa de operação?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "O sistema de controle de temperatura está corretamente instalado e operacional?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Variadores de frequência com sensores de pressão?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Sistema de supervisão e controles presente e funcional?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Sistema de detecção presente e devidamente instalado?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Sistema de alarme de incêndio devidamente instalado e operacional com interligação com os detectores de fumaça e sistema de controle de fumaça?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Interligação do sistema de controle de fumaça com os detectores de fumaça devidamente instalado e operacional?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Instalação, apoios, fixação e sustentação de todos os componentes devidamente executados?",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            ["", "Se não, explicar", "", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "tables": [
+        {
+          "rows": [
+            ["MEMORIAL DE ENSAIOS E MATERIAIS - fl. 03/03", "", "", "", ""],
+            [
+              "Conclusão",
+              "Após a realização e verificação dos resultados dos ensaios, atesto que o sistema se encontra em condição de operação:",
+              "",
+              "Sim ( )",
+              "Não ( )"
+            ],
+            [
+              "",
+              "Data em que a instalação foi entregue em funcionamento:",
+              "",
+              "",
+              ""
+            ],
+            ["Assinaturas", "Nome do instalador", "", "", ""],
+            [
+              "",
+              "Responsável técnico (Assinatura Digital)",
+              "Nº. do Registro Profissional",
+              "",
+              ""
+            ],
+            ["", "Testemunhas", "", "", ""],
+            [
+              "",
+              "Representante do proprietário (assinatura) Cargo Data",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "Representante do instalador (assinatura) Cargo Data",
+              "",
+              "",
+              ""
+            ],
+            ["Informações adicionais e anotações", "", "", "", ""]
+          ]
+        }
+      ]
+    }
+  ]
+}

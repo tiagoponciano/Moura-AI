@@ -1,0 +1,509 @@
+{
+  "pages": [
+    {
+      "page": 13,
+      "tables": [
+        {
+          "rows": [
+            ["Ocupação/Uso", "Quantidade de brigadistas particulares (BP)", ""],
+            ["", "Área (m²)", ""],
+            ["", "20.000 ≤ Área ≤ 50.000", "Área > 50.000"],
+            ["C- 3", "01", "+ 01 BP/50.000 m²"],
+            ["I-2", "01", "+ 01 BP/50.000 m²"],
+            ["I-3", "02", "+ 01 BP/50.000 m²"]
+          ]
+        },
+        {
+          "rows": [
+            [
+              "Tipo do Evento Temporário",
+              "Porte",
+              "Quantidade de brigadistas particulares (BP)"
+            ],
+            [
+              "Ao ar livre sem delimitação de área e sem delimitação de público.",
+              "Não se aplica",
+              ""
+            ],
+            [
+              "Ao ar Livre com delimitação de área e com limitação de público",
+              "Pequeno",
+              "Público inferior a 1.000 pessoas: Não se aplica"
+            ],
+            ["", "Médio", "Público de 1.000 até 2.000 pessoas: 01 BP"],
+            [
+              "",
+              "Grande",
+              "Público acima de 2.000 pessoas: Acrescentar 01 BP a cada 1.000 pessoas"
+            ],
+            [
+              "Em locais cobertos, abertos nas laterais com limitação de público, possuindo ou não delimitação por barreira física nas laterais.",
+              "Pequeno",
+              "Não se aplica"
+            ],
+            ["", "Médio", "Público de 500 até 1.000 pessoas: 01 BP"],
+            [
+              "",
+              "Grande",
+              "Público acima de 1.000 pessoas: Acrescentar 01 BP a cada 1.000 pessoas"
+            ],
+            [
+              "Em locais cobertos, fechados nas laterais com limitação de público.",
+              "Pequeno",
+              "Não se aplica"
+            ],
+            ["", "Médio", ""],
+            [
+              "",
+              "Grande",
+              "Público de 500 até 1.000 pessoas - 01 BP; Público acima de 1.000 pessoas - Acrescentar 01 BP a cada 1.000 pessoas"
+            ],
+            [
+              "Edificações classificadas como F-6 e F-11 ¹",
+              "Público de até 500 pessoas - Não se aplica",
+              ""
+            ],
+            [
+              "",
+              "Público de 500 até 1.000 pessoas: 01 BP; Público acima de 1.000 pessoas: Acrescentar 01 BP a cada 1.000 pessoas",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Ocupação/Uso",
+              "População máx. p/ isenção",
+              "Quantidade de brigadistas orgânicos / turno ¹",
+              "Nível de treinamento"
+            ],
+            [
+              "A-1 e A-2",
+              "Não se aplica (recomenda-se a realização de capacitação EaD do CBMSC)",
+              "",
+              ""
+            ],
+            ["A-3", "10", "01 para cada GPF 20", "Básico"],
+            ["B-1", "10", "01 para cada GPF 20", "Intermediário"],
+            ["B-2", "10", "01 para cada GPF 20", "Básico"],
+            ["C-1", "10", "01 para cada GPF 20", "Básico"],
+            ["C-2", "10", "01 para cada GPF 20", "Intermediário"],
+            ["C-3", "10", "01 para cada GPF 10", "Intermediário"],
+            ["D-1, D-2, D-3 e D4", "10", "01 para cada GPF 15", "Básico"],
+            [
+              "E-1, E-2, E-3, E-4, E-5 e E-6",
+              "15",
+              "01 para cada GPF 20",
+              "Básico"
+            ],
+            ["F-1", "10", "01 para cada GPF 10", "Intermediário"],
+            ["F-2, F-3 e F-4", "15", "01 para cada GPF 15", "Básico"],
+            ["F-5, F-6, e F-8", "10", "01 para cada GPF 10", "Intermediário"],
+            ["F-9 e F-10", "15", "01 para cada GPF 15", "Básico"],
+            ["F-7 e F-11", "5", "01 para cada GPF 05 ²", "Intermediário"],
+            ["G-1 e G-2", "15", "01 para cada GPF 15", "Básico"],
+            ["G-3, G-4 e G-5", "15", "01 para cada GPF 15", "Intermediário"],
+            ["H-1, H-4 e H-6", "10", "01 para cada GPF 20", "Básico"],
+            ["H-2, H-3 e H-5", "05", "01 para cada GPF 15", "Intermediário"],
+            ["I-1", "15", "01 para cada GPF 25", "Básico"],
+            [
+              "I-2",
+              "10",
+              "01 para cada GPF 15",
+              "50% Básico 50 % Intermediário"
+            ],
+            [
+              "I-3",
+              "10",
+              "01 para cada GPF 10",
+              "75% Intermediário 25% Avançado"
+            ],
+            ["J-1", "Isento de brigadistas orgânicos", "", ""],
+            ["J-2", "10", "01 para cada GPF 25", "Básico"],
+            ["J-3", "05", "01 para cada GPF 20", "Intermediário"],
+            [
+              "J-4",
+              "05",
+              "01 para cada GPF 10",
+              "50% Intermediário 50% Avançado"
+            ],
+            ["K-1 e K2", "10", "01 para cada GPF 10", "Intermediário"],
+            ["L-1", "Treinar 50% da população fixa", "", "Básico"],
+            ["L-2 e L3", "Treinar 75% da população fixa", "", "Avançado"],
+            ["M-1", "Até 200m", "Isentos de Brigadistas", "-"],
+            ["", "200m - 500m", "02 Brigadistas", "Básico"],
+            [
+              "",
+              "500m - 1.000m",
+              "02 Brigadistas",
+              "50% Básico 50 % Intermediário"
+            ],
+            [
+              "",
+              "Acima 1.000m",
+              "02 Brigadistas + 01 a cada 1.000m",
+              "Intermediário"
+            ],
+            ["M-2", "Treinar 75 % da população fixa.", "", "Intermediário"],
+            ["M-3", "05", "01 para cada GPF 15", "Básico"],
+            ["M-5 e M-7", "10", "01 para cada GPF 10", "Intermediário"],
+            ["M-6 e M-10", "20", "01 para cada GPF 20", "Básico"],
+            ["M-8", "15", "01 para cada GPF 15", "Intermediário"],
+            ["M-9", "05", "01 para cada GPF 10", "Avançado"],
+            ["M-4 e M-11", "Isento de brigadistas orgânicos", "", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Nível de treinamento",
+              "Módulo",
+              "Carga horária mínima (hora/aula)"
+            ],
+            [
+              "Brigadista orgânico nível básico",
+              "Noções de extinção de princípios de incêndios (teoria)",
+              "3"
+            ],
+            ["", "Primeiros Socorros (teoria)", "3"],
+            ["", "Sistemas preventivos (teoria)", "2"],
+            ["Carga horária curricular total", "", "8"],
+            [
+              "Brigadista orgânico nível intermediário",
+              "Noções de extinção de princípios de incêndios (teoria)",
+              "6"
+            ],
+            ["", "Primeiros Socorros (teoria)", "6"],
+            ["", "Atividades da brigada de incêndio (teoria)", "4"],
+            ["Carga horária curricular total", "", "16"],
+            [
+              "Brigadista orgânico nível avançado",
+              "Extinção a princípios de incêndios (teoria)",
+              "8"
+            ],
+            ["", "Extinção a princípios de incêndios (prática)", "4"],
+            ["", "Atividades da brigada de incêndio", "4"],
+            ["", "Primeiros Socorros (teoria)", "8"],
+            ["", "Primeiros Socorros (prática)", "4"],
+            [
+              "",
+              "Noções de percepção de riscos de desastres e a importância da prevenção",
+              "4"
+            ],
+            ["", "Atuação inicial em riscos específicos ¹", "8"],
+            ["Carga horária curricular total", "", "40"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 16,
+      "tables": [
+        {
+          "rows": [
+            ["Módulo", "Carga horária mínima (hora/aula)"],
+            ["Combate e prevenção a incêndios (teoria)", "20"],
+            ["Combate e prevenção a incêndio (prática)", "25"],
+            ["Atendimento pré-hospitalar (teoria)", "20"],
+            ["Atendimento pré-hospitalar (prática)", "25"],
+            ["Atividades da brigada de incêndio", "8"],
+            [
+              "Gerenciamento e análise de riscos, metodologias de análise de riscos, ou curso similar",
+              "5"
+            ],
+            ["Carga horária curricular total", "103"],
+            [
+              "NOTAS ESPECÍFICAS: 1. Pode ser aceito o certificado de conclusão do Curso de Formação de Bombeiros Comunitários ou certificado homologado pela ABVESC de Bombeiros Voluntários. NOTAS GERAIS: a. Nos locais onde existem riscos específicos inerentes à ocupação (ex.: líquidos inflamáveis, produtos tóxicos, explosivos, processos industriais, entre outros) compete ao responsável pelo imóvel prover a devida capacitação dos brigadistas particulares; b. Uma hora/aula equivale a 60 minutos. Tabela 6 – Currículo mínimo para capacitação de Instrutores de Brigada",
+              ""
+            ],
+            ["Módulo", "Carga horária mínima (hora/aula)"],
+            ["Combate a incêndios (teoria)", "20"],
+            ["Combate a incêndios (prática)", "25"],
+            ["Atendimento pré-hospitalar (teoria)", "20"],
+            ["Atendimento pré-hospitalar (prática)", "25"],
+            [
+              "Sistemas e medidas de segurança contra incêndio e pânico, ou proteção contra incêndio, ou curso similar",
+              "30"
+            ],
+            ["Atividades de brigada de incêndio", "20"],
+            [
+              "Gerenciamento e análise de riscos, metodologias de análise de riscos, ou curso similar.",
+              "15"
+            ],
+            [
+              "Técnicas de ensino, metodologia de ensino, fundamentos e práticas de ensino para jovens e adultos, ou disciplina similar voltada ao magistério.",
+              "10"
+            ],
+            ["Carga horária curricular total", "165"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "tables": [
+        {
+          "rows": [
+            ["1. DADOS DO IMÓVEL / EVENTO", "", ""],
+            ["1.1 Razão social:", "", ""],
+            ["1.2 Nome fantasia:", "", ""],
+            ["1.3 CNPJ:", "1.4 Nº Registro Edificação CBMSC (RE):", ""],
+            ["1.5 Cidade:", "1.6 Bairro:", ""],
+            ["1.7 Endereço: n°:", "", ""],
+            ["1.8 Complemento:", "1.9 Ocupação (ver IN-01):", ""],
+            ["1.10 CEP:", "1.11 Telefone:", ""],
+            [
+              "1.12 Área total construída (m²):",
+              "1.14 Nº de pavimentos:",
+              "1.15 Altura (m):"
+            ],
+            ["1.16 População fixa:", "1.17 Lotação máxima:", ""],
+            ["2. DADOS DO RESPONSÁVEL PELO IMÓVEL / EVENTO", "", ""],
+            ["2.1 Responsável pelo imóvel ou evento:", "", ""],
+            ["2.2 CPF:", "2.3 Identidade:", ""],
+            ["2.4 Endereço residencial: nº:", "", ""],
+            ["2.5 Cidade/UF:", "2.6 Telefone de contato:", ""],
+            ["3. DADOS DO RESPONSÁVEL TÉCNICO", "", ""],
+            ["3.1Responsável técnico:", "", ""],
+            ["3.2 CPF:", "3.3 Nº registro profissional:", ""],
+            ["3.4 Atribuição:", "", ""],
+            ["4. COMPOSIÇÃO DA BRIGADA DE INCÊNDIO", "", ""],
+            [
+              "4.1 Coordenador da Brigada: (Nome e cargo ou função na empresa, órgão, instituição, etc.):",
+              "",
+              ""
+            ],
+            [
+              "4.2 Brigadistas particulares Número de brigadistas particulares por turno: Relação dos brigadistas particulares em cada turno (nome e CPF):",
+              "Exemplo: Turno 1 das 08:00 às 16:00h : - Fulano de Tal - CPF: XXX.XXX.XXX-XX - Ciclano da Silva - CPF: YYY.YYY.YYY-XX",
+              ""
+            ],
+            [
+              "4.3 Brigadistas orgânicos Número de brigadistas orgânicos na edificação: Nível de treinamento: Distribuição dos brigadistas por bloco, setor ou área da edificação: (deve prever brigadista líder para cada bloco, área ou setor)",
+              "Exemplo: Bloco A: Total de 20 brigadistas orgânicos Sendo: 15 no setor de expedição com 02 líderes; 05 no setor de produção com 01 líder. Bloco B: Total de 10 brigadistas Sendo: 03 na área do depósito de ração com 01 líder; 07 na área do depósito de embalagens com 01 líder.",
+              ""
+            ],
+            ["SISTEMA DE PROTEÇÃO CONTRA INCÊNDIOS INSTALADOS", "", ""],
+            [
+              "(Especificar os sistemas preventivos disponíveis na edificação)",
+              "",
+              ""
+            ],
+            ["OUTROS RECURSOS DISPONÍVEIS", "", ""],
+            [
+              "(Especificar os Equipamentos de proteção individual, equipamentos de radiocomunicação e outros recursos para uso da BI)",
+              "",
+              ""
+            ],
+            [
+              "PROCEDIMENTOS EM SITUAÇÃO DE EMERGÊNCIA (Somente quando se tratar de Evento Transitório ou quando não for exigido Plano de Emergência para a edificação)",
+              "",
+              ""
+            ],
+            [
+              "(Definir os procedimentos e as responsabilidades de cada membro da BI de acordo com as situações de emergência e/ou riscos existentes)",
+              "",
+              ""
+            ],
+            [
+              "AÇÕES DE PREVENÇÃO (Somente quando se tratar de Evento Transitório ou quando não for exigido Plano de Emergência para a edificação)",
+              "",
+              ""
+            ],
+            [
+              "(Rotinas de trabalho, itens a serem inspecionadas, execução de exercícios simulados, etc)",
+              "",
+              ""
+            ],
+            ["OUTRAS INFORMAÇÕES (Se necessário)", "", ""],
+            ["PLANTA E CROQUIS", "", ""],
+            [
+              "Local e data: , / / ____________________ ____ _____ _____",
+              "Assinatura: ________________________________ Nome completo do responsável técnico",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "tables": [
+        {
+          "rows": [
+            ["O QUE FAZER", "COMO FAZER", "A QUEM COMPETE FAZER"],
+            [
+              "Contratar Responsável Técnico",
+              "Através de contratação de profissional competente com emissão de RT",
+              "Responsável pelo imóvel/evento"
+            ],
+            [
+              "Designar o Coordenador da Brigada de Incêndio (BI)",
+              "Designação formal. Se o responsável pelo imóvel não designar alguém, ele será automaticamente o responsável pela brigada de incêndio.",
+              "Responsável pelo imóvel/evento"
+            ],
+            [
+              "Elaborar o Plano de Implantação da Brigada de Incêndio (PIBI)",
+              "Com o apoio do Coordenador da Brigada",
+              "Responsável técnico"
+            ],
+            [
+              "Dimensionar a Brigada de Incêndio (Composição)",
+              "Estabelecer o número e tipo de brigadista de acordo o Anexo B",
+              "Responsável técnico"
+            ],
+            [
+              "Estabelecer nível de treinamento dos brigadistas orgânicos",
+              "Tabela 3 do Anexo B.",
+              "Responsável Técnico"
+            ],
+            [
+              "Estabelecer o organograma da BI",
+              "Conforme artigos 21 , 22 e 23",
+              "Responsável técnico e o Coordenador da Brigada"
+            ],
+            [
+              "Apresentar o PIBI",
+              "Com o respectivo documento de RT",
+              "Responsável pelo imóvel e o responsável técnico"
+            ],
+            [
+              "Selecionar os candidatos a brigadista orgânico",
+              "Conforme artigos 37 e 38 desta IN",
+              "Coordenador da Brigada"
+            ],
+            [
+              "Capacitação de Brigadistas",
+              "Profissional da própria empresa (artigos 44 e 45 ) ou Empresa de formação, ambos credenciados junto ao CBMSC.",
+              "Responsável pelo imóvel"
+            ],
+            [
+              "Capacitar os brigadistas orgânicos",
+              "De acordo com o nível de treinamento exigido por esta IN.",
+              "Empresa de formação de brigadistas"
+            ],
+            [
+              "Contratar ou capacitar brigadistas particulares se for exigido",
+              "Conforme definido no PIBI",
+              "Responsável pelo imóvel e o Coordenador da Brigada"
+            ],
+            [
+              "Disponibilizar EPI, equipamentos de comunicação e outros para a Brigada de Incêndio",
+              "Conforme definido no PIBI",
+              "Responsável pelo imóvel, empresa ou planta"
+            ],
+            [
+              "Nomear os líderes de cada bloco, setor ou área",
+              "Designação formal. A quantidade e o local é realizado conforme definido no PIBI",
+              "Coordenador da Brigada"
+            ],
+            [
+              "Divulgar o Plano de Emergência se houver e o PIBI",
+              "Conforme definido no PIBI e Plano de Emergência",
+              "Coordenador da Brigada"
+            ],
+            [
+              "Cumprir as atribuições da Brigada de Incêndio",
+              "artigo 24 desta IN",
+              "Brigadistas"
+            ],
+            [
+              "Realizar exercícios simulados periódicos",
+              "Conforme Plano de Emergência ou PIBI",
+              "Responsável pelo imóvel e Brigada de Incêndio"
+            ],
+            [
+              "Monitorar e analisar o funcionamento da Brigada de Incêndio",
+              "Avaliando o atendimento a esta IN, ao Plano de Emergência e ao PIBI",
+              "Coordenador da Brigada"
+            ],
+            [
+              "Manter relação nominal e certificado de curso dos brigadistas",
+              "Manter documento atualizado com a relação dos brigadistas distribuídos na edificação conforme dimensionamento do PIBI, discriminando nominalmente quem são os líderes de cada bloco, setor ou área da edificação",
+              "Coordenador da Brigada"
+            ],
+            [
+              "Manter o número e nível de treinamentos dos brigadistas",
+              "Conforme dimensionamento realizado no PIBI e capacitando novos brigadistas quando necessário (em casos de demissão, afastamentos, transferências, promoções, aposentadoria, etc.)",
+              "Responsável pelo imóvel e o Coordenador da Brigada"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "tables": [
+        {
+          "rows": [
+            ["1. DADOS DA EMPRESA DE FORMAÇÃO", ""],
+            ["1.1 Razão Social:", ""],
+            ["1.2 Nome Fantasia:", ""],
+            ["1.3 CNPJ:", "1.4 Nº Credenciamento CBMSC:"],
+            ["1.5 Cidade: 1.6 Bairro:", ""],
+            ["1.7 Endereço: Nº:", ""],
+            ["1.8 CEP: 1.9 Telefones de contato:", ""],
+            ["1.10 Complemento:", ""],
+            ["2. DADOS DOS CURSOS", ""],
+            [
+              "2.1 Brigadistas particulares formados Número de turmas realizadas: Número de brigadistas particulares:",
+              ""
+            ],
+            [
+              "2.2 Brigadistas orgânicos formados Número de brigadistas nível básico: Número de turmas realizadas: Número de brigadistas nível intermediário: Número de turmas realizadas: Número de brigadistas nível avançado: Número de turmas realizadas:",
+              ""
+            ],
+            ["2.3 Quadro de instrutores (informar quantos e quem são):", ""],
+            ["2.4 Observações e Sugestões:", ""],
+            ["3. DECLARAÇÃO", ""],
+            [
+              "Declaro para os devidos fins que as informações acima prestadas são verdadeiras e autênticas, assumindo total responsabilidade por seu teor. Local e data: / / __________________________ ____ _____ _____ Nome do Proprietário/Diretor/Presidente: ________________________________________________________ Assinatura: _______________________________________",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "tables": [
+        {
+          "rows": [
+            ["1. DADOS DA EMPRESA", ""],
+            ["1.1 Razão social:", ""],
+            ["1.2 Nome fantasia:", ""],
+            ["1.3 CNPJ:", "1.4 Nº credenciamento CBMSC:"],
+            ["1.5 Cidade: 1.6 Bairro:", ""],
+            ["1.7 Endereço: Nº:", ""],
+            ["1.8 CEP: 1.9 Telefones de contato:", ""],
+            ["1.10 Complemento:", ""],
+            ["2. ATIVIDADES DESENVOLVIDAS", ""],
+            ["2.1 Número de eventos com concentração de público:", ""],
+            [
+              "2.2 Possui serviço de brigadista contratado por empresa de forma terceirizada: ( ) SIM ( ) NÃO",
+              ""
+            ],
+            ["2.3 Relação dos brigadistas (nome e CPF):", ""],
+            ["2.4 Observações e Sugestões:", ""],
+            ["3. DECLARAÇÃO", ""],
+            [
+              "Declaro para os devidos fins que as informações acima prestadas são verdadeiras e autênticas, assumindo total responsabilidade por seu teor. Local e data: / / __________________________ ____ _____ _____ Nome do Proprietário/Diretor/Presidente: ________________________________________________________ Assinatura: _______________________________________",
+              ""
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

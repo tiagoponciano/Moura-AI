@@ -1,0 +1,484 @@
+{
+  "pages": [
+    {
+      "page": 4,
+      "tables": [
+        {
+          "rows": [
+            ["carga d’água", ""],
+            ["carga de espuma mecânica", ""],
+            ["carga de dióxido de carbono (CO ) 2", ""],
+            ["carga de pó BC", ""],
+            ["carga de pó ABC", ""],
+            ["carga de pó D", ""],
+            ["carga de classe K", ""],
+            ["carga halon", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 5,
+      "tables": [
+        {
+          "rows": [
+            ["carga d’água", ""],
+            ["carga de espuma mecânica", ""],
+            ["carga de dióxido de carbono (CO ) 2", ""],
+            ["carga de pó BC", ""],
+            ["carga de pó ABC", ""],
+            ["carga de pó D", ""],
+            ["carga de classe K", ""],
+            ["carga halon", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 6,
+      "tables": [
+        {
+          "rows": [
+            ["hidrante simples", ""],
+            ["hidrante duplo", ""],
+            ["hidrante urbano de coluna", ""],
+            ["hidrante urbano subterrâneo", ""],
+            ["mangotinho", ""],
+            ["registro de recalque com válvula de retenção", ""],
+            ["registro de recalque sem válvula de retenção", ""],
+            [
+              "acionador de bomba de incêndio (botoeira tipo liga e desliga)",
+              ""
+            ],
+            ["bomba de incêndio", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 7,
+      "tables": [
+        {
+          "rows": [
+            ["reserva técnica de incêndio", ""],
+            ["pintura piso", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 8,
+      "tables": [
+        {
+          "rows": [
+            ["ponto (bico de sprinkler)", ""],
+            ["área protegida pelo sistema de chuveiros automáticos", ""],
+            [
+              "registro de recalque para o sistema de chuveiros automáticos",
+              ""
+            ],
+            ["bomba de incêndio para sistema de chuveiros automáticos", ""],
+            [
+              "reserva técnica de incêndio para sistema de chuveiros automáticos",
+              ""
+            ],
+            [
+              "painel de comando central do sistema de chuveiros automáticos",
+              ""
+            ],
+            [
+              "válvula de governo e alarme (VGA) e / ou de comando seccional (CS)",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 9,
+      "tables": [
+        {
+          "rows": [
+            ["aparelho de queima", ""],
+            ["ventilação permanente", ""],
+            ["ventilação permanente janela", ""],
+            ["ventilação permanente porta", ""],
+            ["abrigo de medidor de gás", ""],
+            ["registro de corte geral", ""],
+            ["registro de corte ponto de consumo", ""],
+            ["central de GLP", ""],
+            ["abrigo de GLP", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 10,
+      "tables": [
+        {
+          "rows": [
+            ["área protegida pelo sistema fixo de CO 2", ""],
+            ["bateria de cilindros do sistema fixo de CO 2", ""],
+            ["acionador manual do sistema fixo de CO 2", ""]
+          ]
+        },
+        {
+          "rows": [
+            ["área protegida halon", ""],
+            ["central de baterias halon", ""],
+            ["acionador manual halon", ""]
+          ]
+        },
+        {
+          "rows": [
+            ["área protegida pelo sistema de nebulizadores", ""],
+            ["registro manual do sistema de nebulizadores", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 11,
+      "tables": [
+        {
+          "rows": [
+            ["tanque atmosférico de LGE sistema fixo de espuma", ""],
+            ["estação fixa de emulsionamento", ""],
+            ["estação móvel de emulsionamento", ""],
+            ["canhão monitor (portátil) sistema fixo de espuma", ""],
+            ["canhão monitor (portátil) sistema fixo de resfriamento", ""],
+            ["área protegida pelo sistema fixo de espuma", ""],
+            ["câmara de espuma do sistema fixo de espuma", ""],
+            ["líquido gerador de espuma (LGE) - portátil", ""],
+            [
+              "sistema portátil de espuma (esguicho proporcionador lançador)",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 12,
+      "tables": [
+        {
+          "rows": [
+            ["avisador sonoro tipo sirene", ""],
+            ["avisador sonoro tipo auto-falante", ""],
+            ["avisador sonoro tipo gongo", ""],
+            ["avisador visual", ""],
+            ["avisador sonoro e visual (com sirene)", ""],
+            ["avisador sonoro e visual (com alto-falante)", ""],
+            ["avisador sonoro e visual (com gongo)", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 13,
+      "tables": [
+        {
+          "rows": [
+            ["detector de calor linear", ""],
+            ["detector de fumaça linear", ""],
+            ["detector de chamas linear", ""],
+            ["detector de gás linear", ""]
+          ]
+        },
+        {
+          "rows": [
+            ["detector de calor linear entreforro", ""],
+            ["detector de fumaça linear entreforro", ""],
+            ["detector de chamas linear entreforro", ""],
+            ["detector de gás linear entreforro", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 14,
+      "tables": [
+        {
+          "rows": [
+            ["detector de calor linear entrepiso", ""],
+            ["detector de fumaça linear entrepiso", ""],
+            ["detector de chamas linear entrepiso", ""],
+            ["detector de gás linear entrepiso", ""]
+          ]
+        },
+        {
+          "rows": [
+            ["detector de calor linear em armário", ""],
+            ["detector de fumaça linear em armário", ""],
+            ["detector de chamas linear em armário", ""],
+            ["detector de gás linear em armário", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 15,
+      "tables": [
+        {
+          "rows": [
+            ["detector de calor pontual", ""],
+            ["detector de fumaça pontual", ""],
+            ["detector de chamas pontual", ""],
+            ["detector de gás pontual", ""]
+          ]
+        },
+        {
+          "rows": [
+            ["detector de calor pontual entreforro", ""],
+            ["detector de fumaça pontual entreforro", ""],
+            ["detector de chamas pontual entreforro", ""],
+            ["detector de gás pontual entreforro", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 16,
+      "tables": [
+        {
+          "rows": [
+            ["detector de calor pontual entrepiso", ""],
+            ["detector de fumaça pontual entrepiso", ""],
+            ["detector de chamas pontual entrepiso", ""],
+            ["detector de gás pontual entrepiso", ""]
+          ]
+        },
+        {
+          "rows": [
+            ["detector de calor pontual em armário", ""],
+            ["detector de fumaça pontual em armário", ""],
+            ["detector de chamas pontual em armário", ""],
+            ["detector de gás pontual em armário", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 17,
+      "tables": [
+        {
+          "rows": [
+            ["detector de calor linear com proteção contra intempéries", ""],
+            ["detector de fumaça linear com proteção contra intempéries", ""],
+            ["detector de chamas linear com proteção contra intempéries", ""],
+            ["detector de gás linear com proteção contra intempéries", ""]
+          ]
+        },
+        {
+          "rows": [
+            ["detector de calor pontual com proteção contra intempéries", ""],
+            ["detector de fumaça pontual com proteção contra intempéries", ""],
+            ["detector de chamas pontual com proteção contra intempéries", ""],
+            ["detector de gás pontual com proteção contra intempéries", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "tables": [
+        {
+          "rows": [
+            ["sensor de temperatura", ""],
+            ["detector e extintor de faísca", ""],
+            ["acionador manual do sistema de detecção e alarme", ""],
+            ["central do sistema de detecção e alarme", ""],
+            ["baterias do sistema de detecção e alarme", ""],
+            ["painel repetidor do sistema de detecção e alarme", ""],
+            ["telefone de emergência / interfone", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "tables": [
+        {
+          "rows": [
+            ["ponto de iluminação de emergência", ""],
+            ["ponto de iluminação de emergência à prova de explosão de pó", ""],
+            [
+              "baterias de acumuladores para o sistema de iluminação de emergência",
+              ""
+            ],
+            ["ponto de iluminação de emergência tipo balizamento", ""],
+            ["grupo moto gerador", ""],
+            ["central do sistema de iluminação de emergência", ""]
+          ]
+        },
+        {
+          "rows": [
+            ["central predial de glp ou gás natural", ""],
+            ["vaso sob pressão", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "tables": [
+        {
+          "rows": [
+            ["tanque horizontal abaixo do solo (enterrado)", ""],
+            ["tanque horizontal acima do solo (superfície/elevado)", ""],
+            ["tanque vertical abaixo do solo (enterrado)", ""],
+            ["tanque vertical acima do solo (superfície/elevado)", ""],
+            ["tanque horizontal semienterrado", ""],
+            ["tanque vertical semienterrado", ""]
+          ]
+        },
+        {
+          "rows": [
+            ["área de risco", ""],
+            ["áreas frias", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 21,
+      "tables": [
+        {
+          "rows": [
+            ["produto perigoso", ""],
+            ["radioativo", ""],
+            ["tóxico", ""],
+            ["corrosivo", ""],
+            ["explosivo", ""],
+            ["combustível", ""],
+            ["comburente", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 22,
+      "tables": [
+        {
+          "rows": [
+            ["saída final da rota de fuga", ""],
+            ["escada comum", ""],
+            ["escada protegida", ""],
+            ["escada enclausurada com exaustão", ""],
+            ["escada enclausurada com ventilação", ""],
+            ["escada à prova de fumaça", ""],
+            ["placa indicativa de escada de acesso restrito", ""],
+            ["PcD - área de resgate", ""],
+            ["barra antipânico", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 23,
+      "tables": [
+        {
+          "rows": [
+            ["chave elétrica secundária", ""],
+            ["chave elétrica principal", ""],
+            ["quadro de distribuição de luz (QDL)", ""]
+          ]
+        },
+        {
+          "rows": [
+            ["porta corta-fogo P-60", ""],
+            ["porta corta-fogo P-90", ""],
+            ["porta corta-fogo P-120", ""],
+            ["abertura protegida P-60", ""],
+            ["abertura protegida P-30", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 24,
+      "tables": [
+        {
+          "rows": [
+            ["paredes corta-fogo", ""],
+            ["parede de compartimentação", ""],
+            ["parede comum", ""],
+            ["divisória leve", ""]
+          ]
+        },
+        {
+          "rows": [
+            ["elevador monta-carga", ""],
+            ["elevador simples", ""],
+            ["elevador de emergência", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 25,
+      "tables": [
+        {
+          "rows": [
+            ["dampers corta-fogo", ""],
+            ["dampers corta-fumaça", ""],
+            ["dampers corta-fogo e corta-fumaça", ""]
+          ]
+        },
+        {
+          "rows": [
+            [
+              "grupo moto ventilador ou grupo moto exaustor ou exaustor para controle de fumaça",
+              ""
+            ],
+            ["acionador manual pressurização / exaustão", ""],
+            ["ventilador à prova de explosão", ""],
+            ["dâmper de sobrepressão", ""],
+            ["filtro de pó", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "tables": [
+        {
+          "rows": [
+            ["veneziana de entrada de ar com filtro lavável", ""],
+            [
+              "veneziana de entrada de ar para sistema de controle de fumaça (junto ao piso)",
+              ""
+            ],
+            [
+              "veneziana de exaustão para sistema de controle de fumaça (junto ao teto)",
+              ""
+            ],
+            ["dimensões da veneziana e altura do piso (M)", ""],
+            ["grelha com dispositivo de ajuste e balanceamento", ""],
+            ["grelha para sistema de controle de fumaça", ""],
+            ["registro de fluxo", ""],
+            ["central de acionamento das venezianas", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 27,
+      "tables": [
+        {
+          "rows": [
+            ["barra antipânico", ""],
+            ["porta de correr com sistema de abertura automático", ""],
+            ["catraca reversível / outro dispositivo de controle", ""],
+            ["acesso de viatura na edificação ou área de risco", ""],
+            ["acesso de guarnição na edificação ou área de risco", ""],
+            ["equipamentos à prova de explosão", ""],
+            ["dispositivo de alívio de explosão", ""],
+            ["hidrante público", ""],
+            ["local confinado", ""]
+          ]
+        }
+      ]
+    }
+  ]
+}

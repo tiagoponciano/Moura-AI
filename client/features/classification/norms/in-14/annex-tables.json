@@ -1,0 +1,804 @@
+{
+  "pages": [
+    {
+      "page": 17,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Grupo",
+              "Divisão",
+              "TRRF (em minutos) em função da altura da edificação",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "",
+              "Altura da edificação (h) em metros",
+              "",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "",
+              "H ⩽6",
+              "6 < h ⩽12",
+              "12 < h ⩽23",
+              "23 < h ⩽30",
+              "30 < h ⩽80",
+              "80 < h ⩽120",
+              "120 < h ⩽150"
+            ],
+            ["A", "A-1 a A-3", "30", "30", "60", "90", "120", "120", "150"],
+            ["B", "B-1 e B-2", "30", "60", "60", "90", "120", "150", "180"],
+            ["C", "C-1 a C-3", "60", "60", "60", "90", "120", "150", "150"],
+            ["D", "D-1 a D-4", "30", "60", "60", "90", "120", "120", "150"],
+            ["E", "E-1 a E-6", "30", "30", "60", "90", "120", "120", "150"],
+            [
+              "F",
+              "F-1, F-2, F-5, F-6, F-8, F-10 e F-11",
+              "60",
+              "60",
+              "60",
+              "90",
+              "120",
+              "150",
+              "180"
+            ],
+            ["", "F-3, F-4 e F-7", "-", "-", "30", "60", "60", "90", "120"],
+            ["", "F-9", "30", "60", "60", "90", "120", "150", "150"],
+            [
+              "G",
+              "G-1 e G2 sem aberturas laterais e G-3 a G-5",
+              "30",
+              "60",
+              "60",
+              "90",
+              "120",
+              "120",
+              "150"
+            ],
+            [
+              "",
+              "G-1 e G2 abertos lateralmente",
+              "30",
+              "30",
+              "30",
+              "30",
+              "60",
+              "120",
+              "120"
+            ],
+            ["H", "H-1 a H-6", "30", "60", "60", "90", "120", "150", "180"],
+            ["I", "I-1", "30", "30", "30", "60", "120", "150", "150"],
+            ["", "I-2", "30", "30", "60", "90", "120", "150", "180"],
+            ["", "I-3", "60", "60", "90", "120", "120", "150", "180"],
+            ["J", "J-1", "-", "-", "30", "30", "60", "90", "120"],
+            ["", "J-2", "60", "60", "60", "60", "90", "120", "150"],
+            ["", "J-3", "60", "60", "60", "120", "120", "150", "150"],
+            ["", "J-4", "60", "60", "90", "120", "120", "150", "180"],
+            [
+              "K",
+              "K-1",
+              "90",
+              "90",
+              "120",
+              "120",
+              "120",
+              "150",
+              "Não se aplica*"
+            ],
+            [
+              "",
+              "K-2",
+              "90",
+              "90",
+              "120",
+              "120",
+              "120",
+              "150",
+              "Não se aplica*"
+            ],
+            ["L", "L-1 a L-3", "120", "120", "120", "150", "180", "180", "180"],
+            ["M", "M-1", "150", "150", "Não se aplica*", "", "", "", ""],
+            ["", "M-2", "120", "120", "150", "Não se aplica*", "", "", ""],
+            ["", "M-5", "60", "60", "90", "120", "Não se aplica*", "", ""],
+            ["", "M-3", "90", "90", "90", "120", "120", "120", "150"],
+            ["", "M-8", "-", "30", "Não se aplica*", "", "", "", ""],
+            ["", "M-9", "60", "120", "Não se aplica*", "", "", "", ""]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 18,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Grupo",
+              "Divisão",
+              "Área máxima de compartimentação (em m²) em função da altura da edificação",
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            ["", "", "Altura da edificação (h) em metros", "", "", "", "", ""],
+            [
+              "",
+              "",
+              "1 pavimento",
+              "H ⩽6",
+              "6 < h ⩽12",
+              "12 < h ⩽23",
+              "23 < h ⩽30",
+              "> 30"
+            ],
+            ["A¹", "A-1 a A-3", "-", "-", "-", "-", "-", "-"],
+            [
+              "B",
+              "B-1 e B-2",
+              "-",
+              "5.000",
+              "4.000",
+              "3.000",
+              "2.000",
+              "1.500"
+            ],
+            [
+              "C",
+              "C-1 e C-2",
+              "10.000",
+              "5.000",
+              "3.000",
+              "2.000",
+              "1.500",
+              "1.500"
+            ],
+            ["", "C-3", "7.500", "5.000", "3.000", "2.000", "1.000", "1.500"],
+            [
+              "D",
+              "D-1 a D-4",
+              "7.500",
+              "5.000",
+              "3.000",
+              "2.000",
+              "1.000",
+              "2.000"
+            ],
+            ["E", "E-1 a E-6", "-", "-", "-", "-", "1.500", "2.000"],
+            ["F", "F-1, F-2,F-3, F-4, F-7 e F-9", "-", "-", "-", "-", "-", "-"],
+            [
+              "",
+              "F-5 e F-6",
+              "5.000",
+              "4.000",
+              "3.000",
+              "2.000",
+              "1.000",
+              "1.500"
+            ],
+            ["", "F-8", "-", "-", "-", "2.000", "1.000", "1.500"],
+            [
+              "",
+              "F-10 e F-11",
+              "5.000",
+              "2.500",
+              "1.500",
+              "1.000",
+              "1.000",
+              "1.000"
+            ],
+            ["G", "G-1, G-2 G-3 e G-5", "-", "-", "-", "-", "-", "-"],
+            ["", "G-4", "10.000", "5.000", "3.000", "2.000", "1.000", "1.000"],
+            ["H¹", "H-1, H-2 H-4 e H-5", "-", "-", "-", "-", "-", "-"],
+            ["", "H-3", "-", "7.500", "5.000", "2.500", "1.500", "1.000"],
+            ["", "H-6", "7.500", "5.000", "2.500", "1.500", "1.000", "2.000"],
+            ["I", "I-1", "-", "-", "7.500", "4.000", "2.000", "2.000"],
+            ["", "I-2", "-", "10.000", "5.000", "3.000", "2.000", "2.000"],
+            ["", "I-3", "10.000", "7.500", "4.000", "3.000", "1.500", "1.500"],
+            ["J", "J-1", "-", "-", "-", "-", "-", "-"],
+            ["", "J-2", "15.000", "7.500", "4.000", "1.500", "3.000", "2.000"],
+            ["", "J-3", "7.500", "4.000", "2.000", "3.000", "2.000", "1.000"],
+            ["", "J-4", "5.000", "3.000", "2.000", "2.500", "1.500", "1.000"],
+            ["K", "K-1", "7.500", "4.000", "2.000", "1.000", "500", "500"],
+            ["", "K-2", "-", "-", "-", "-", "-", "-"],
+            ["M", "M-2²", "1.000", "750", "500", "300", "300", "200"],
+            ["", "M-3", "5.000", "3.000", "2.000", "1.000", "500", "500"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 19,
+      "tables": [
+        {
+          "rows": [
+            ["Localização das aberturas", "Afastamento mínimo", "Alternativa"],
+            [
+              "Cobertura¹",
+              "2 m",
+              "Prolongamento da parede de compartimentação 1 m acima da linha de cobertura"
+            ],
+            [
+              "Mesma fachada²",
+              "2 m",
+              "Prolongamento da parede de compartimentação 0,9 m para o exterior da edificação"
+            ],
+            [
+              "Fachadas Ortogonais³",
+              "4 m",
+              "Afastamento reduzido à metade⁴ ou suprimido⁵"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 20,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Porcentagem total de abertura na fachada (%)",
+              "Distância de compartimentação “d” (m) ¹⁻²"
+            ],
+            ["< 20", "4"],
+            ["21 a 30", "5"],
+            ["31 a 40", "6"],
+            ["41 a 50", "7"],
+            ["51 a 60", "8"],
+            ["61 a 70", "9"],
+            ["> 70", "10"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 21,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Altura da edificação (h) em metros (m)",
+              "h < 30",
+              "30 < h ⩽60",
+              "60 < h ⩽90",
+              "h > 90"
+            ],
+            [
+              "Porcentagem de aberturas das faces laterais do átrio (%)",
+              "Diâmetro “d” (m)",
+              "Diâmetro “d” (m)",
+              "Diâmetro “d” (m)",
+              "Diâmetro “d” (m)"
+            ],
+            ["< 20", "6", "7", "8", "9"],
+            ["21 a 30", "7", "8", "9", "11"],
+            ["31 a 40", "8", "9", "10", "13"],
+            ["41 a 50", "9", "10", "12", "15"],
+            ["51 a 60", "10", "11", "14", "18"],
+            ["61 a 70", "11", "13", "16", "21"],
+            ["> 70", "12", "15", "20", "25"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 22,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Porcentagem de aberturas (%)",
+              "Distância “d” em metros (m)",
+              "",
+              ""
+            ],
+            ["", "1 pvto (térreo)", "2 pvtos", "3 ou + pvtos"],
+            ["< 10", "4", "6", "8"],
+            ["11 a 20", "5", "7", "9"],
+            ["21 a 30", "6", "8", "10"],
+            ["31 a 40", "7", "9", "11"],
+            ["41 a 50", "8", "10", "12"],
+            ["51 a 70", "9", "11", "13"],
+            ["> 70", "10", "12", "14"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 23,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Paredes ensaiadas (*)",
+              "",
+              "Características das paredes",
+              "",
+              "Resultado dos ensaios",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "",
+              "",
+              "Espessura de argamassa de revestimento (cada face) (cm)",
+              "Espessura total da parede (cm)",
+              "Duração do ensaio (min)",
+              "Tempo de atendimento aos critérios de avaliação (horas)",
+              "",
+              "",
+              "Resistênci a ao fogo (horas)"
+            ],
+            [
+              "",
+              "",
+              "",
+              "",
+              "",
+              "Integridade",
+              "Estanqueidade",
+              "Isolação térmica",
+              ""
+            ],
+            [
+              "¹⁻²Parede de tijolos de barro cozido dimensões nominais dos tijolos: 5 cm x 10 cm x 20 cm; Massa: 1,5 Kg",
+              "½ tijolo s/ revestimento",
+              "-",
+              "10",
+              "120",
+              "⩾2",
+              "⩾2",
+              "1 ½",
+              "1 ½"
+            ],
+            [
+              "",
+              "1 tijolo s/ revestimento",
+              "-",
+              "20",
+              "395 ()",
+              "⩾6",
+              "⩾6",
+              "⩾6",
+              "⩾6"
+            ],
+            [
+              "",
+              "½ tijolo c/ revestimento",
+              "2,5",
+              "15",
+              "300",
+              "⩾4",
+              "⩾4",
+              "4",
+              "4"
+            ],
+            [
+              "",
+              "1 tijolo com revestimento",
+              "2,5",
+              "25",
+              "300 ()",
+              "⩾6",
+              "⩾6",
+              "⩾5",
+              "> 6"
+            ],
+            [
+              "³⁻²Parede de blocos vazados de concreto (2 furos) blocos com dimensões: 14 cm x 19 cm x 39 cm (massa 13 kg) e 19 cm x 19 cm x 39 cm (massa 17 kg)",
+              "Bloco de 14 cm s/ revestimento",
+              "-",
+              "14",
+              "100",
+              "⩾1 ½",
+              "⩾1 ½",
+              "1 ½",
+              "1 ½"
+            ],
+            [
+              "",
+              "Bloco de 19 cm s/ revestimento",
+              "-",
+              "19",
+              "120",
+              "⩾2",
+              "⩾2",
+              "1 ½",
+              "1 ½"
+            ],
+            [
+              "",
+              "Bloco de 14 cm c/ revestimento",
+              "1,5",
+              "17",
+              "150",
+              "⩾2",
+              "⩾2",
+              "2",
+              "2"
+            ],
+            [
+              "",
+              "Bloco de 19 cm c/ revestimento",
+              "1,5",
+              "22",
+              "185",
+              "⩾3",
+              "⩾3",
+              "3",
+              "3"
+            ],
+            [
+              "⁴⁻²Paredes de tijolos cerâmicos de 8 furos dimensões dos tijolos: 10 cm x 20 cm x 20 cm (massa 2,9 Kg)",
+              "½ tijolo com revestimento",
+              "1,5",
+              "13",
+              "150",
+              "⩾2",
+              "⩾2",
+              "2",
+              "2"
+            ],
+            [
+              "",
+              "1 tijolo com revestimento",
+              "1,5",
+              "23",
+              "300 ()",
+              "⩾4",
+              "⩾4",
+              "⩾4",
+              "⩾4"
+            ],
+            [
+              "Paredes de concreto armado monolítico sem revestimento",
+              "Traço do concreto em volume, 1 cimento: 2,5 areia média: 3,5 agregado graúdo (granizo pedra nº 3): armadura simples posicionada à meia espessura das paredes, possuindo malha de lados 15 cm, de aço CA - 50A diâmetro ¼ polegada",
+              "",
+              "11,5",
+              "150",
+              "2",
+              "2",
+              "1",
+              "1 ½"
+            ],
+            ["", "", "", "16", "210", "3", "3", "3", "3"]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 24,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Descrição conforme NBR 15758",
+              "Espessura total em mm",
+              "Largura da estrutura em mm",
+              "Distância entre montantes em mm",
+              "Chapas de gesso",
+              "",
+              "Altura máxima da parede em m",
+              "",
+              "Resistência ao fogo - CF",
+              ""
+            ],
+            ["", "", "", "", "", "", "Montantes", "", "Tipos de chapas", ""],
+            [
+              "",
+              "",
+              "",
+              "",
+              "Qtde.",
+              "Espessura",
+              "Simples",
+              "Duplo",
+              "ST ou RU",
+              "RF"
+            ],
+            [
+              "73/48/600/1CH 12,5 - 1CH 12,5",
+              "73",
+              "48",
+              "600",
+              "2",
+              "12,5",
+              "2,50",
+              "2,90",
+              "CF30",
+              "CF30"
+            ],
+            [
+              "73/48/400/1CH 12,5 - 1CH 12,5",
+              "73",
+              "48",
+              "400",
+              "2",
+              "12,5",
+              "2,70",
+              "3,25",
+              "CF30",
+              "CF30"
+            ],
+            [
+              "98/48/600/2CH 12,5 - 2CH 12,5",
+              "98",
+              "48",
+              "600",
+              "4",
+              "12,5",
+              "2,90",
+              "3,50",
+              "CF60",
+              "CF90"
+            ],
+            [
+              "98/48/400/2CH 12,5 - 2CH 12,5",
+              "98",
+              "48",
+              "400",
+              "4",
+              "12,5",
+              "3,20",
+              "3,80",
+              "CF60",
+              "CF90"
+            ],
+            [
+              "108/48/400/2CH 15 - 2CH 15",
+              "108",
+              "48",
+              "600",
+              "4",
+              "15",
+              "3,00",
+              "3,60",
+              "CF90",
+              "CF120"
+            ],
+            [
+              "95/70/600/1CH 12,5 - 1CH 12,5",
+              "108",
+              "48",
+              "400",
+              "4",
+              "15",
+              "3,30",
+              "3,90",
+              "CF90",
+              "CF120"
+            ],
+            [
+              "95/70/400/1CH 12,5 - 1CH 12,5",
+              "95",
+              "70",
+              "600",
+              "2",
+              "12,5",
+              "3,00",
+              "3,60",
+              "CF30",
+              "CF30"
+            ],
+            [
+              "120/70/600/2CH 12,5 - 2CH 12,5",
+              "95",
+              "70",
+              "400",
+              "2",
+              "12,5",
+              "3,30",
+              "4,05",
+              "CF30",
+              "CF30"
+            ],
+            [
+              "120/70/400/2CH 12,5 - 2CH 12,5",
+              "120",
+              "70",
+              "600",
+              "4",
+              "12,5",
+              "3,70",
+              "4,40",
+              "CF60",
+              "CF90"
+            ],
+            [
+              "130/70/600/2CH 15 - 2CH 15",
+              "130",
+              "70",
+              "600",
+              "4",
+              "15",
+              "3,80",
+              "4,50",
+              "CF90",
+              "CF120"
+            ],
+            [
+              "130/70/400/2CH 15 - 2CH 15",
+              "130",
+              "70",
+              "400",
+              "4",
+              "15",
+              "4,20",
+              "4,90",
+              "CF90",
+              "CF120"
+            ],
+            [
+              "115/90/600/1CH 12,5 - 1CH 12,5",
+              "115",
+              "90",
+              "600",
+              "2",
+              "12,5",
+              "3,50",
+              "4,15",
+              "CF30",
+              "CF30"
+            ],
+            [
+              "115/90/400/1CH 12,5 - 1CH 12,5",
+              "115",
+              "90",
+              "400",
+              "2",
+              "12,5",
+              "3,85",
+              "4,60",
+              "CF30",
+              "CF30"
+            ],
+            [
+              "140/90/600/2CH 12,5 - 2CH 12,5",
+              "140",
+              "90",
+              "600",
+              "4",
+              "12,5",
+              "4,20",
+              "5,00",
+              "CF60",
+              "CF90"
+            ],
+            [
+              "140/90/400/2CH 12,5 - 2CH 12,5",
+              "140",
+              "90",
+              "400",
+              "4",
+              "12,5",
+              "4,60",
+              "5,50",
+              "CF60",
+              "CF90"
+            ],
+            [
+              "150/90/600/2CH 15 - 2CH 15",
+              "150",
+              "90",
+              "600",
+              "4",
+              "15",
+              "4,30",
+              "5,10",
+              "CF90",
+              "CF120"
+            ],
+            [
+              "150/90/400/2CH 15 - 2CH 15",
+              "150",
+              "90",
+              "400",
+              "4",
+              "15",
+              "4,70",
+              "5,60",
+              "CF90",
+              "CF120"
+            ],
+            [
+              "160/48/600/DEL/2C H 12,5 - 2CH 12,5",
+              "160",
+              "48",
+              "600",
+              "4",
+              "12,5",
+              "4,90",
+              "5,80",
+              "CF60",
+              "CF90"
+            ],
+            [
+              "160/48/400/DEL/2C H 12,5 - 2CH 12,5",
+              "160",
+              "48",
+              "400",
+              "4",
+              "12,5",
+              "5,50",
+              "6,50",
+              "CF60",
+              "CF90"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 25,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Elemento corta-fogo",
+              "Finalidade",
+              "Normas aplicáveis",
+              "Características gerais"
+            ],
+            [
+              "Vedadores corta-fogo¹-²",
+              "Compartimentar aberturas de passagens exclusivas de materiais",
+              "NBR 11711 NBR 17240",
+              "Fechamento automático por sistema de detecção automática³"
+            ],
+            [
+              "Selo corta-fogo",
+              "Passagem de instalações (elétricas, hidrossanitárias, telefônicas, etc.)",
+              "NBR 6479",
+              "Tubos plásticos de diâmetro interno superior a 40 mm devem fechar o buraco deixado pelo tubo ao ser consumido pelo fogo"
+            ],
+            [
+              "Registro corta-fogo⁴",
+              "Dutos de ventilação, ar-condicionado ou exaustão",
+              "NBR 6479 NBR 17240",
+              "Fechamento automático por sistema de detecção automática de fumaça³ ou ou fusíveis térmicos"
+            ],
+            [
+              "Portas corta-fogo⁵",
+              "Passagem entre ambiente",
+              "NBR 11742 NBR 11711 NBR 17240 NBR 6479 NBR 16829",
+              "Permanentemente fechada ou fechamento automático por sistema de alarme e detecção (caso pertença a via de circulação em situação normal)⁶"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "tables": [
+        {
+          "rows": [
+            [
+              "Figura 6 - Modelo compartimentação vertical fachada verga- peitoril.",
+              "Figura 7 - Compartimentação de fachadas com abas horizontais"
+            ],
+            [
+              "Figura 8 - Modelo compartimentação vertical com abas e",
+              "Figura 9 - Modelo compartimentação usando vidro redutor de"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

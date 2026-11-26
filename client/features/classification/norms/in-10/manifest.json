@@ -11,5 +11,11 @@
     "annex_pages": 9,
     "sha256": "2db82a5853f4f5a44d7a00b318d3cfd7460607bde107bf83f581c1b5af4cf69f",
     "needs_human_look": 0
+  },
+  "annex_tables": {
+    "pages": 9,
+    "tables": 10,
+    "sha256": "daf29bfe98faa3852801962098d7f688273e8bd39b666440173e26e95ec9e94c",
+    "tool_version": 1
   }
 }

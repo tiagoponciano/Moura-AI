@@ -34,8 +34,8 @@ class RefreshNormsTest(unittest.TestCase):
         self.assertEqual(self.tools("IN-6"), ["extract_articles.py"])
         self.assertEqual(self.tools("IN-35"), ["extract_articles.py"])
 
-    def test_keeps_the_annex_tables_of_in_7_8_and_9_after_their_text(self):
-        for doc in ("IN-7", "IN-8", "IN-9"):
+    def test_keeps_the_annex_tables_of_the_instructions_with_them_after_their_text(self):
+        for doc in ("IN-2", "IN-7", "IN-9", "IN-24", "IN-29"):
             self.assertEqual(self.tools(doc), ["extract_articles.py", "extract_annex_tables.py"], doc)
 
     def test_passes_the_link_and_the_date_to_the_article_tool(self):

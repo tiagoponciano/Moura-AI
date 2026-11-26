@@ -30,8 +30,23 @@ const folders = readdirSync(__dirname, { withFileTypes: true })
   .sort();
 
 describe("annex tables, as extracted", () => {
-  it("covers IN 7, IN 8 and IN 9", () => {
-    expect(folders).toEqual(["in-7", "in-8", "in-9"]);
+  it("covers the instructions whose annexes hold tables", () => {
+    expect(folders).toEqual([
+      "in-10",
+      "in-13",
+      "in-14",
+      "in-15",
+      "in-18",
+      "in-2",
+      "in-20",
+      "in-21",
+      "in-24",
+      "in-28",
+      "in-29",
+      "in-7",
+      "in-8",
+      "in-9",
+    ]);
   });
 
   describe.each(folders)("%s", (folder) => {
